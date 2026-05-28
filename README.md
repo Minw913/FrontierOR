@@ -1,6 +1,12 @@
 # FrontierOR: Benchmarking LLMs' Capacity for Efficient Algorithm Design in Large-Scale Optimization
 
 <p align="center">
+  <a href="https://arxiv.org/abs/2605.25246"><img src="https://img.shields.io/badge/arXiv-2605.25246-b31b1b?logo=arxiv&logoColor=white" alt="arXiv"></a>
+  &nbsp;
+  <a href="https://huggingface.co/datasets/SmartOR/FrontierOR"><img src="https://img.shields.io/badge/%F0%9F%A4%97%20Dataset-SmartOR%2FFrontierOR-FFD21E" alt="HuggingFace Dataset"></a>
+</p>
+
+<p align="center">
   <img src="figures/FrontierOR.png" alt="FrontierOR overview" width="100%">
 </p>
 
@@ -202,7 +208,7 @@ Key takeaways:
 2. **Execution is no longer the bottleneck.** GPT-5.3-Codex executes 98% of tasks but still scores only 0.49 feasibility on Hard; the difficulty has shifted from "compiles and runs" to "produces a valid, scalable algorithm".
 3. **The Hard subset re-separates leaders.** On Full, the three frontier models are tightly bunched; on Hard the band widens — Claude Opus 4.6 retains the highest QTE (0.31 / 0.32), while GPT-5.3-Codex's Hard feasibility / QTE drop furthest.
 
-For self-evolution results, continuous-metric variants, pair-wise comparisons, and per-paper case studies, see the [FrontierOR paper](FrontierOR__Benchmarking_LLMs__Capacity_for_Efficient_Algorithm_Design.pdf).
+For self-evolution results, continuous-metric variants, pair-wise comparisons, and per-paper case studies, see the [FrontierOR paper](https://arxiv.org/abs/2605.25246).
 
 ---
 
