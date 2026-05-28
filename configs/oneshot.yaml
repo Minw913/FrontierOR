@@ -1,0 +1,14 @@
+# OpenRouter API keys
+OPENROUTER_API_KEY_ONESHOT:
+OPENROUTER_API_KEY_SELF_EVOLVE:
+
+
+models:
+  - "openai/gpt-5.3-codex"
+  - "anthropic/claude-opus-4.6"
+  - "google/gemini-3.1-pro-preview"
+  - "x-ai/grok-4.20-beta"
+  - "deepseek/deepseek-r1"
+  - "qwen/qwen3-coder-plus"
+  - "meta-llama/llama-4-maverick"
+  # add new models here

@@ -1,0 +1,62 @@
+You are given an existing instance generation script (`generate_multiple_instances.py`) for an optimization problem. Your task is to generate **new or replacement** data instances by reusing this script's generation logic.
+
+## Context Files (in `data/paper_data/{paper_id}/`)
+
+- `generate_multiple_instances.py` — Contains `INSTANCE_CONFIGS` (list of dicts), `generate_instance(config, base_seed)` function, and feasibility checks. **Read this file first** to understand the parameter structure.
+- `instance/tiny_instance.json`, `instance/large_instance_{ij}.json` (canonical eval set, where `i` ∈ 1..5 is the diversity index and `j` ∈ 1..4 is the scale index) plus optional legacy `instance_2.json` ... `instance_9.json` at the paper folder root — existing instances (for reference). Currently only scale index `j=1` is populated, so existing files are `large_instance_11.json` ... `large_instance_51.json`.
+- `all_instances.json` — Parameter specifications extracted from the paper (for reference).
+- The paper PDF — For understanding the optimization problem context.
+
+## Update Instructions
+
+{update_instructions}
+
+## Requirements
+
+1. **Read `generate_multiple_instances.py` carefully.** Understand the structure of `INSTANCE_CONFIGS` entries and what parameters control problem scale.
+
+2. **Create a new script `update_instances.py`** in the same directory (`data/paper_data/{paper_id}/`). This script must:
+
+   a. **Import and reuse** the `generate_instance()` function and any helpers from `generate_multiple_instances.py`. Do NOT copy-paste or rewrite the generation logic. Use:
+      ```python
+      import importlib.util
+      spec = importlib.util.spec_from_file_location("gen_module", os.path.join(script_dir, "generate_multiple_instances.py"))
+      gen_module = importlib.util.module_from_spec(spec)
+      spec.loader.exec_module(gen_module)
+      ```
+      Then call `gen_module.generate_instance(config, base_seed)`.
+
+   b. **Define a new `UPDATE_CONFIGS` list** — each entry is a dict with the same keys as entries in the original `INSTANCE_CONFIGS`, plus a required `"output_filename"` key specifying the output file PATH **relative to the paper directory**. Use the new categorical layout:
+      - `"instance/tiny_instance.json"` for the smoke-test instance
+      - `"instance/large_instance_{ij}.json"` for main-test instances, where `i` ∈ 1..5 is the diversity index and `j` ∈ 1..4 is the scale index. Current populated set is `large_instance_11.json` through `large_instance_51.json` (i=1..5, j=1). Higher scale indices (j=2, 3, 4) will be added by future `--mode scale-up` runs; do NOT generate them unless the update instruction explicitly asks.
+      - `"instance_2.json"` ... `"instance_9.json"` for any legacy intermediate-scale instances at root
+      Make sure the script `os.makedirs("instance", exist_ok=True)` before writing to the `instance/` subdirectory.
+
+   c. **For replacement instances** (fixing infeasible ones): Use parameters similar to the original config for that instance, but with a different `base_seed` offset (e.g., add 500000 to the original seed scheme). Keep the same scale and approximate parameter range.
+
+   d. **For new interpolated/extrapolated instances**: Design parameter values by examining the trend across existing `INSTANCE_CONFIGS` entries. For example:
+      - To scale up beyond the largest instance: increase the primary size parameter(s) proportionally.
+      - To scale down below the smallest: decrease the primary size parameter(s).
+      - To interpolate between instance_i and instance_j: use parameter values between those of config_i and config_j.
+
+   e. **Run generation with feasibility checks** — same retry logic as the original script (use `MAX_SEED_ATTEMPTS` from the original module if available, otherwise default to 50000). Only write the JSON file if the instance passes all feasibility checks.
+
+   f. **Write each generated instance** to `data/paper_data/{paper_id}/{output_filename}`.
+
+3. **Run `update_instances.py`** after creating it. Verify that:
+   - All requested instances are generated successfully (printed as FEASIBLE).
+   - The output JSON files exist and have the same field structure as existing instances.
+
+4. **Do NOT modify** `generate_multiple_instances.py` or any existing `instance_*.json` files (unless the update instruction explicitly says to replace an existing instance by using its filename as `output_filename`).
+
+5. **You MAY use `WebSearch` and `WebFetch` to locate external benchmark data** referenced by the paper (TSPLIB, OR-library, Solomon, Taillard, Lawrence/LA, DIMACS, MIPLIB, egl/CARP, RCPSP-PSPLIB, etc.) when the update instruction asks for a real benchmark file that is not present locally. Guidelines:
+   - **URL preference order**: (1) `raw.githubusercontent.com` of a well-maintained academic mirror repo (e.g., `vidalt/HGS-CARP`, `mastqe/tsplib`, `rafaelmartinelli/CARPData.jl`); (2) official academic archive (`comopt.ifi.uni-heidelberg.de`, `gerad.ca`, `or.dei.unibo.it`, `ic.unicamp.br/~cid`); (3) any stable third-party mirror.
+   - **Verify before baking**: Before writing a URL into `update_instances.py`, run `WebFetch` on it with a prompt like "return the first 10 lines as-is" to confirm 200-OK and that the content matches the expected benchmark format. If the URL returns 403/404/redirects, try the next candidate.
+   - **Hardcode verified URLs into `update_instances.py`** using `urllib.request.urlopen` with a 20-second timeout. Implement a URL-fallback chain: try primary URL → secondary → tertiary → Plan C synthetic, catching network exceptions at each step. Log to stderr which URL fired.
+   - **Cache to `data/` subdirectories** (e.g., `data/tsplib/`, `data/paper_data/{paper_id}/egl/`, `data/orlib/`) using `os.makedirs(..., exist_ok=True)` so subsequent runs hit Plan A local cache.
+   - **Document the fallback chain** as a comment block at the top of the loader function and in the JSON output's `description` or `source` field so downstream analysis can tell which source was used.
+
+## Output
+
+- `data/paper_data/{paper_id}/update_instances.py` — The update script.
+- The newly generated instance JSON files as specified in `UPDATE_CONFIGS`.

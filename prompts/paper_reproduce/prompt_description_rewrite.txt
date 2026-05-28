@@ -1,0 +1,35 @@
+Please carefully read the following source files located at 'data/paper_data/{paper_id}/' and review the existing problem description against the original mathematical model for completeness, format compliance, and semantic accuracy.
+
+## Source Files to Reference
+(1) 'problem_description.txt' — the current natural-language problem description to be reviewed and revised.
+(2) 'math_model.txt' — the formal mathematical formulation extracted from the paper. This is the ground truth for all variables, constraints, and objective.
+(3) The paper PDF in the same directory — use it for domain context when clarifying ambiguous modeling rules.
+
+## Task
+
+Review 'problem_description.txt' against 'math_model.txt' on exactly three criteria described below. For each criterion, determine whether the current text passes or needs revision. After the review, apply any necessary corrections and produce the revised output as 'problem_description_v2.txt' in the same directory. If no changes are needed on any criterion, copy the original text verbatim as 'problem_description_v2.txt'.
+
+## Review Criteria
+
+(1) Sufficient Information — Every modeling rule in math_model.txt (each constraint, each component of the objective, each set of decisions) must have a clear and unambiguous verbal counterpart in the description. Check for missing rules, vague paraphrases that could be misinterpreted, and implicit assumptions that are not stated. If any rule is absent or imprecise, add or clarify it.
+
+(2) Format Specification — The text must not contain LaTeX, equations, equation blocks, bullet points, numbered lists, section headers (other than "# Problem Description"), markdown formatting, or any structural markup. It must not use direct modeling jargon such as "decision variable," "constraint," "objective function," "feasibility," "binary variable," "continuous variable," "nonnegativity," or "for modeling purposes." Replace any single-letter index variables (i, j, k, t, etc.) with descriptive noun phrases (e.g., "customer index j" → "each customer").
+
+(3) Semantic Mapping — Every mathematical relationship in the model must be expressed verbally such that the natural-language statement is informationally equivalent to the formula. Check that no relationship has been oversimplified, inverted, or lost in translation. If any semantic gap exists, correct it.
+
+IMPORTANT: When revising for Format Specification, Semantic Mapping, or Writing Style, never trade precision for readability. Every revision must preserve the exact information a reader would need to reconstruct the original mathematical model. If replacing a term or rephrasing a sentence risks making the meaning less specific, less precise, or open to multiple interpretations, keep the original wording. When in doubt, do not change.
+
+(4) Writing Style — After addressing the three criteria above, make a final pass on writing style: where possible, rephrase modeling-oriented language into operational or business language, without sacrificing the precision needed for a reader to reconstruct the mathematical model. Do not rephrase if doing so would introduce ambiguity.
+
+## Output Files
+
+(1) 'problem_description_v2.txt' — the revised (or unchanged) problem description, in the same format as the original: beginning with "# Problem Description" followed by a blank line and prose paragraphs.
+
+(2) Append one row to '{csv_path}' with the following columns (create the file with a header row if it does not exist):
+
+paper_id, sufficient_info, format_spec, semantic_mapping, writing style
+
+For each review column, write "True" if no change was needed for that criterion. Otherwise, write a brief note explaining what was wrong and what was changed. Enclose notes in double quotes if they contain commas.
+
+## Output Path
+All outputs must be saved inside the same directory as the source files.

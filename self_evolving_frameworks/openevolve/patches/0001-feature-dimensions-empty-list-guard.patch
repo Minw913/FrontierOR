@@ -1,0 +1,21 @@
+diff --git a/openevolve/database.py b/openevolve/database.py
+index eca5eab..a650a63 100644
+--- a/openevolve/database.py
++++ b/openevolve/database.py
+@@ -128,11 +128,14 @@ class ProgramDatabase:
+         # Per-island feature grids for MAP-Elites
+         self.island_feature_maps: List[Dict[str, str]] = [{} for _ in range(config.num_islands)]
+ 
+-        # Handle both int and dict types for feature_bins
++        # Handle both int and dict types for feature_bins. Guard against
++        # empty feature_dimensions=[] (used to disable MAP-Elites binning),
++        # which would otherwise hit ZeroDivisionError on 1 / len(...).
+         if isinstance(config.feature_bins, int):
++            n_dims = len(config.feature_dimensions)
+             self.feature_bins = max(
+                 config.feature_bins,
+-                int(pow(config.archive_size, 1 / len(config.feature_dimensions)) + 0.99),
++                int(pow(config.archive_size, 1 / max(1, n_dims)) + 0.99),
+             )
+         else:
+             # If dict, keep as is (we'll use feature_bins_per_dim instead)

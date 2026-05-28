@@ -1,0 +1,223 @@
+You are a mathematical editor fixing a localized error in an optimization-
+benchmark record's math_model.txt, and propagating the fix downstream when the
+same root error has also been transcribed into other files. The original
+authors of gurobi_code.py and feasibility_check.py transcribed symbols and
+inequalities from math_model.txt, and problem_description.txt describes the
+same equations in prose — so a root error in math_model often echoes into one
+or more downstream files.
+
+Paper id: {paper_id}
+
+Inputs (Read each before drafting any edit):
+- data/data_review_canonical/{paper_id}/math_model.txt            (primary target)
+- data/data_review_canonical/{paper_id}/gurobi_code.py            (may need propagation)
+- data/data_review_canonical/{paper_id}/problem_description.txt   (may need propagation)
+- data/data_review_canonical/{paper_id}/feasibility_check.py      (may need propagation)
+- data/data_review_canonical/{paper_id}/{paper_id}.pdf            (ground truth)
+- Human reviewer note (verbatim): {A_reason}
+
+File dependency graph you must consider:
+
+    math_model.txt  ──────→ gurobi_code.py
+                    ──────→ problem_description.txt
+                    ──────→ feasibility_check.py
+    (feasibility_check.py reuses the same symbol names and inequalities.)
+
+This task covers THREE patterns of local math_model edit. Classify each
+distinct issue in the reviewer note as exactly one of these patterns before
+drafting (a single note may mix patterns — e.g. A+C):
+
+  Pattern A — symbolic / indexing / LaTeX typo
+    Localized text error that a few edits can fix without restructuring the
+    model. Examples: `x^{shut}/x^{start}` swapped; subscript `i` should be `j`;
+    `\epsilon` OCR'd as `c`; `(1 ∉ S)` should be `(1 ∈ S)`; `\rceil`/`\rfloor`
+    misused; off-by-one bound.
+
+  Pattern B — variable ↔ parameter role reclassification
+    A symbol is declared in the wrong bucket in math_model.txt and must be
+    moved between the "Decision variables" and "Parameters" sections (with
+    its domain declaration adjusted accordingly). Examples: `q_ij` both
+    described as parameter and used as decision variable; `s_{i,1}` declared
+    in Parameters but used as a decision variable in the constraints.
+
+  Pattern C — variant / redundancy trimming (section deletion)
+    The reviewer note explicitly says one or more SECTIONS of math_model.txt
+    are unwanted — typically because the file bundles multiple formulation
+    variants (baseline + decomposition + reformulation, or "F1+F2+F11+...")
+    while only one belongs in the baseline.
+    Fix: delete ONLY the sections the reviewer note identifies (or clearly
+    implies). The diff is mostly pure `-` hunks, no `+` lines.
+    Examples of triggering reviewer notes:
+      - "SUALBP-2 not needed"            → delete the SUALBP-2 block.
+      - "redundant decomposition material beyond baseline"
+                                          → delete the decomposition section(s).
+      - "Includes 5 formulations: keep only the flow-based MIP"
+                                          → delete the 4 non-baseline blocks.
+      - "GTSP and E-GTSP both modeled; keep E-GTSP"
+                                          → delete the GTSP section.
+
+    The reviewer note is the SCOPE. If the note is RELATIVE — e.g. "keep
+    only what gurobi implements" or "keep only the baseline" — use
+    gurobi_code.py as a REFERENCE to identify which section is the
+    baseline, then delete only sections the reviewer's instruction puts on
+    the chopping block. Do NOT decide on your own that any section
+    "looks redundant" if the reviewer did not authorize its deletion.
+
+Your task:
+
+  1. Classify each distinct issue in the reviewer note as Pattern A / B / C
+     and state the combined label in JUSTIFICATION (e.g. "A", "C", "A+C",
+     "A+B+C").
+
+  2. Apply the fix inside math_model.txt:
+       - Pattern A: edit only the specific lines the note identifies.
+       - Pattern B: move the symbol between the "Decision variables" and
+         "Parameters" sections, adjust its domain declaration, keep the
+         paper's notation (do NOT rename).
+       - Pattern C: emit pure `-` hunks that delete ONLY the section(s)
+         the reviewer note authorized for removal. Do not modify lines
+         inside the surviving sections; do not "renumber equations" or
+         "renumber sections" in the survivors.
+
+  3. For EACH downstream file, decide whether the SAME root error has
+     propagated. Patch it only if you can point to a concrete occurrence.
+     Typical propagation patterns by root-pattern:
+
+     Pattern A propagation:
+       - gurobi_code.py          — the constraint's code uses the wrong
+                                   variable / subscript / inequality direction.
+       - problem_description.txt — prose states the equation in the old form.
+       - feasibility_check.py    — the check enforces the wrong inequality.
+
+     Pattern B propagation:
+       - gurobi_code.py          — the symbol is treated in the wrong role
+                                   (e.g. declared as a decision `Var` but
+                                   should be read from the instance as fixed
+                                   input; or vice versa).
+       - problem_description.txt — prose mis-labels the symbol as a parameter
+                                   when it is a decision, or vice versa.
+       - feasibility_check.py    — the checker enforces or skips a constraint
+                                   using the wrong role assumption (e.g.
+                                   verifies a decision that is now a
+                                   parameter, or fails to verify a variable
+                                   that is now a decision).
+
+     Pattern C propagation:
+       - Typically NONE. Deleting unused variant sections from math_model
+         does not affect gurobi_code.py / feasibility_check.py (those were
+         already aligned only to the surviving baseline). Prose alignment
+         is Fix_3's job and uses gurobi_code.py as authority.
+       - SKIP all downstream files unless the reviewer note explicitly
+         asks for downstream cleanup as well.
+
+     Skip files that are not actually affected (e.g. a LaTeX-only OCR error
+     that exists only in math_model.txt because code uses the Python name
+     `eps`). DO NOT patch a downstream file just to look symmetric.
+
+  4. Emit ONE unified diff covering math_model.txt and any downstream files
+     that actually need changes. Standard `--- a/FILE` / `+++ b/FILE` headers,
+     one hunk per contiguous edit region, 3 lines of context per hunk.
+
+Scope discipline (apply BEFORE drafting any edit):
+
+  Inventory the reviewer note. Each distinct issue the reviewer raised is
+  one independent fix request. Classify every request into one of:
+
+    (a) IN-SCOPE & ACTIONABLE      → fix it.
+    (b) IN-SCOPE BUT NOTE IS WRONG → SKIP. Examples: reviewer says "eq (5)
+        is wrong" but the paper confirms eq (5) is correct as written;
+        symbol named in the note doesn't exist in math_model.txt.
+    (c) OUT-OF-SCOPE for this task → SKIP. Examples for Fix_1: the note
+        actually describes a hardcoded magic number in gurobi_code.py
+        (Fix_5 territory); a missing constraint group (Fix_4); an
+        ambiguous prose paragraph (Fix_3); a baseline-variant choice
+        (Fix_2).
+    (d) UNCERTAIN — when in doubt, SKIP.
+    (e) DESCRIPTIVE / OBSERVATIONAL — the reviewer is stating context or
+        background, not requesting any edit. Typical giveaways: note-style
+        wording ("Note:", "this paper uses ..."), declarative statements
+        about what the file / paper contains with no implied comparison to
+        a correct state, or justifications that explain a design without
+        flagging a defect. → SKIP. Record in REJECT_FIX.TXT with
+        category=descriptive.
+
+  Only items in (a) become hunks in FIX.DIFF. Every item in (b) / (c) /
+  (d) / (e) MUST be recorded in REJECT_FIX.TXT below — do NOT silently drop them.
+
+Hard rules:
+- ONLY modify what the reviewer note explicitly identifies (or, for
+  Pattern C, what it clearly authorizes for deletion). Do not "improve"
+  unrelated lines, even if you notice other defects. Do not delete a
+  section the reviewer did not authorize, even if it "looks redundant".
+- Every kept edit (Pattern A / B) must cite the paper equation or section
+  that proves the correct form / role. Every Pattern C deletion must cite
+  the reviewer-note phrase that authorizes it (and, for relative
+  instructions, the gurobi_code.py evidence used to identify "the baseline").
+- Preserve existing comment style, equation numbering, section headers, and
+  whitespace in surviving sections. For Pattern C, do NOT renumber equations
+  in surviving sections — keep their original numbers as is.
+- Do NOT rename symbols; keep the paper's notation.
+- If the note references symbols / sections that do not currently appear in
+  math_model.txt, mark that item as (b) and SKIP — record in REJECT_FIX.TXT.
+- If the paper is genuinely ambiguous about a symbol's role in Pattern B,
+  or about which formulation is the baseline in a relative Pattern C
+  instruction, mark as (d) UNCERTAIN and SKIP — record in REJECT_FIX.TXT.
+
+Output (exactly three sentinel segments, in this order, NOTHING ELSE — no
+preamble, no closing remark):
+
+=== FIX.DIFF ===
+```diff
+<unified diff covering math_model.txt first, followed by any downstream files
+ you changed. MUST start with "--- a/math_model.txt" unless aborted.>
+```
+
+=== JUSTIFICATION.MD ===
+```markdown
+# Fix_1 justification — {paper_id}
+
+**Reviewer note:** {A_reason}
+
+**Pattern:** A (typo) | B (role reclassification) | C (variant trim) | combos like A+C | Aborted
+
+**Root fix (math_model.txt):**
+| # | Pattern | Equation / Section | Before | After | Reference |
+|---|---|---|---|---|---|
+| 1 | A | eq (23b) | `... x^{start}` | `... x^{shut}` | paper p.20 eq.(23b) |
+| 2 | C | "SUALBP-2 block (lines 87–142)" | <whole section> | (deleted) | reviewer "SUALBP-2 not needed" |
+| 3 | C | "Decomposition appendix (§A.3)" | <whole section> | (deleted) | reviewer "redundant decomposition"; gurobi_code.py implements compact MIP only |
+
+**Downstream propagation:**
+| File | Touched? | If yes — what & why |
+|---|---|---|
+| gurobi_code.py          | yes / no | ... |
+| problem_description.txt | yes / no | ... |
+| feasibility_check.py    | yes / no | ... |
+
+**Scope check:**
+- Files touched in diff: <list>
+- Root-fix rows: N   (must equal # hunks in math_model.txt section of diff)
+- Each "yes" downstream row above has matching hunks in diff: yes
+- Edits unrelated to the reviewer note: none
+- For Pattern C: every deleted section has a reviewer-note quote authorizing it: yes
+```
+
+=== REJECT_FIX.TXT ===
+```text
+<If you addressed every actionable item from the reviewer note, write the
+ single line:
+   none
+
+ Otherwise, one block per skipped item, separated by blank lines:
+
+   item:     <quote or paraphrase the reviewer-note fragment you skipped>
+   category: incorrect | out-of-scope | uncertain | descriptive
+   reason:   <one to three sentences explaining why you did not modify
+             anything for this item>
+>
+```
+
+Reminders:
+- No triple backticks inside any payload. Use `~~~` or 4-space indentation
+  if you need to embed a code sample inside JUSTIFICATION.MD.
+- Do not wrap the whole answer in an extra ``` fence.

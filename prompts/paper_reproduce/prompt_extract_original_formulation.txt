@@ -1,0 +1,39 @@
+Please carefully read the PDF file located at 'data/paper_data/{paper_id}/' and follow the workflow below.
+
+## Extract Mathematical Formulation
+### Task Statement
+Identify the **ORIGINAL** mathematical formulation of the optimization problem as written in the paper's **first** "Problem Formulation" / "Mathematical Model" / "Model Formulation" section. This is the problem the paper studies — NOT any later solution-driven reformulation. It is acceptable — and expected — that the extracted formulation may be nonlinear, bilevel, min-max, min-max-min, stochastic, or DRO and thus NOT directly solvable by Gurobi as-is. The downstream `gurobi_code.py` generation step is responsible for any solver-driven reformulation; this step must preserve the paper's original.
+
+### WHAT TO EXTRACT (original formulation)
+The ORIGINAL formulation is the FIRST numbered formulation block in the paper. Specifically:
+
+- Sets, indices, and parameters as introduced in the paper's first formulation block.
+- Decision variables as declared in the paper's first "Decision Variables" subsection — same symbols, same semantics, same index sets.
+- The objective immediately following.
+- All hard constraints numbered (1), (2), ..., (K) in the first formulation block, listed strictly in the paper's order.
+
+### WHEN THE PAPER PRESENTS MULTIPLE FORMULATIONS
+Use the FIRST one written down. You may treat a later formulation as the original **only if all three hold**:
+- The paper explicitly states in its problem-formulation section "we adopt formulation X for the remainder of the paper" (or equivalent);
+- It uses the SAME decision-variable symbols/indices as the first formulation;
+- It differs only by adding valid inequalities, substituting equivalent definitions, or applying a linearization the paper writes in the same problem-formulation block.
+If the adoption statement appears in algorithmic / computational-experiment sections, the first formulation still governs.
+
+### WHEN THE PAPER DOES NOT WRITE AN EXPLICIT MIP
+If the paper describes the problem only verbally, via a graph model, or as an abstract problem class (e.g., generic MOIP template, heuristic on disjunctive graph, problem formulation deferred to an online supplement):
+- Mark at the top of `math_model.txt`: `**PAPER DOES NOT PROVIDE AN EXPLICIT FORMULATION** — the model below is a reconstruction based on the paper's problem description.`
+- Provide the canonical reconstruction using natural decision variables.
+- Flag every reconstructed element with `% RECONSTRUCTED — not in paper`.
+
+### FORMATTING REQUIREMENTS
+- Preserve the original structure and numbering of equations whenever possible.
+- Provide any explicitly stated reproduction-critical details (e.g., variable domains, parameter settings, solver settings, or assumptions) if there are.
+- If an equation or definition is referenced but not explicitly written in the paper, mark it as: **NOT EXPLICITLY SPECIFIED IN PAPER**.
+- If keeping the original nonlinear/bilevel/DRO form means the formulation cannot be directly fed to Gurobi as-is, that is **expected and correct**. Do NOT substitute a reformulation to make it solver-compatible — `gurobi_code.py` will handle that translation downstream.
+
+### OUTPUT FORMAT
+- Output the extracted formulation as a LaTeX-style block, following the structure and ordering of the paper's formulation section.
+- Include any reproduction-critical comments and all NOT EXPLICITLY SPECIFIED IN PAPER / RECONSTRUCTED markings at the end of the LaTeX code.
+
+### Output Path
+'math_model.txt' in the same directory as the paper PDF file.

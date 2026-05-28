@@ -1,0 +1,183 @@
+You are closing vacuous / false-positive holes in feasibility_check.py
+STRICTLY according to the reviewer note and any flags forwarded from
+Fix_6. You produce a SURGICAL patch — not a sweep for every potentially
+vacuous check. Do NOT scan feasibility_check.py for OTHER suspect checks
+the reviewer / Fix_6 did not flag.
+
+Paper id: {paper_id}
+
+Inputs (Read each before drafting any edit):
+- data/data_review_canonical/{paper_id}/feasibility_check.py       (target; edit via diff)
+- data/data_review_canonical/{paper_id}/solution_schema.json     (target; extend if a flagged item needs new fields)
+- data/data_review_canonical/{paper_id}/gurobi_code.py             (target; add EXPORT calls when schema is extended)
+- data/data_review_canonical/{paper_id}/math_model.txt             (reference for what the correct check should enforce)
+- data/data_review_canonical/{paper_id}/{paper_id}.pdf             (ground truth when D_reason cites a paper equation)
+- Reviewer note (verbatim): {D_reason}
+- Hand-off from Fix_6 (if present):
+    data/data_review_fixes/{paper_id}/D/Fix_6/Fix_7_FLAGS.MD
+  Each entry there is itself a flagged item — treat the same as a D_reason item.
+
+Authority for "what to fix":
+
+  The SCOPE is the union of:
+    - items the reviewer note (D_reason) explicitly tags as vacuous /
+      false-positive / not-exported / dict-coupling / parser-cast issues;
+    - items Fix_6 forwarded in Fix_7_FLAGS.MD (these are missing solution
+      schema fields needed for checks the reviewer asked Fix_6 to enable).
+  math_model.txt / paper are the REFERENCE within that scope.
+    → For each in-scope item, math_model.txt tells you which mathematical
+      object the check must verify; gurobi_code.py tells you the Python
+      variable name to export.
+    → If feasibility_check.py contains OTHER suspect checks neither the
+      reviewer nor Fix_6 mentioned, leave them alone — that is OUT-OF-SCOPE.
+
+A check is "vacuous" (per docs/data_review.md §D2/D3) if any of:
+- The JSON structure makes the violation impossible to express
+  (e.g., dict keyed by node ⇒ can't encode "two hubs per node").
+- The variable needed for verification is not in solution_schema.json
+  (e.g., continuous flows f_a, McCormick aux w, initial inventory s_{i,0}).
+- The check returns True when a required field is absent.
+- Integrality is "enforced" by the JSON parser casting to int.
+
+These categories are the LANGUAGE the reviewer note tends to use — they
+are NOT a license for you to scan the file end-to-end and find more.
+
+Scope discipline (apply BEFORE drafting any edit):
+
+  Inventory the reviewer note + Fix_7_FLAGS.MD. Each distinct vacuous /
+  false-positive item is one independent fix request. Classify every
+  request into one of:
+
+    (a) IN-SCOPE & ACTIONABLE      → fix it (per resolution menu below).
+    (b) IN-SCOPE BUT NOTE IS WRONG → SKIP. Examples: reviewer says field
+        X is missing but it's in fact already exported; reviewer claims
+        a check is vacuous but it's actually catching violations.
+    (c) OUT-OF-SCOPE for this task → SKIP. Examples for Fix_7:
+        - missing constraint checks not yet enabled (Fix_6 territory)
+        - math_model wrong (Fix_1 / Fix_2)
+        - gurobi_code's solution-construction logic wrong in ways
+          unrelated to schema (Fix_4 / Fix_5)
+        - prose (Fix_3)
+    (d) UNCERTAIN — when in doubt, SKIP.
+    (e) DESCRIPTIVE / OBSERVATIONAL — the reviewer is stating context or
+        background, not requesting any edit. Typical giveaways: note-style
+        wording ("Note:", "this paper uses ..."), declarative statements
+        about what the file / paper contains with no implied comparison to
+        a correct state, or justifications that explain a design without
+        flagging a defect. → SKIP. Record in REJECT_FIX.TXT with
+        category=descriptive.
+
+  Only items in (a) become hunks in FIX.DIFF. Every item in (b) / (c) /
+  (d) / (e) MUST be recorded in REJECT_FIX.TXT below — do NOT silently drop them.
+
+Resolution menu — for each (a) item, pick the minimum set of changes:
+
+  (i)   SCHEMA EXTEND  — add the missing field(s) to solution_schema.json
+                          required by a flagged check. Cite which item
+                          drove the addition.
+  (ii)  EXPORT         — extend gurobi_code.py to write those new fields
+                          into the solution JSON. Companion of (i).
+  (iii) REJECT-IF-MISSING — replace skip-if-absent logic with explicit
+                          reject (return feasible=False with violation
+                          reason). Apply only to fields the flagged
+                          item names.
+  (iv)  TOLERANCE-INTEGRALITY — replace `isinstance(x, int)` style checks
+                          with `abs(x - round(x)) <= tol`. Apply only to
+                          variables the flagged item names.
+  (v)   SCHEMA RESHAPE — change a dict-keyed solution field into
+                          list-of-assignments when the flagged item says
+                          multiplicity is currently inexpressible.
+  (vi)  RECONSTRUCTION REMOVAL — delete reconstruction logic that
+                          fabricates a value the checker should read from
+                          the solution. Apply only to the flagged
+                          variable(s).
+
+Hard rules:
+- ONLY modify what the reviewer note + Fix_6 flags explicitly identify.
+  Do NOT scan feasibility_check.py for additional vacuous checks, even
+  if you spot them while reading.
+- (i) SCHEMA EXTEND MUST be paired with (ii) EXPORT in the same diff —
+  partial schema changes break downstream verification.
+- (i) + (ii) MUST also backfill any existing instance / solution fixtures
+  if the schema change is not backwards-compatible.
+- Each modification must cite either a D_reason quote or a Fix_7_FLAGS.MD
+  entry; cite the math_model element or paper page that defines the
+  correct verification semantics.
+- Unified diff uses standard headers; 3 lines of context per hunk; one
+  hunk per contiguous edit region; blank context lines start with a
+  single space.
+
+Output (exactly four sentinel segments, in this order, NOTHING ELSE — no
+preamble, no closing remark):
+
+=== FIX.DIFF ===
+```diff
+<a single unified diff that may touch:
+ feasibility_check.py, solution_schema.json, gurobi_code.py,
+ and tests/data_review_regression/{paper_id}/... (the regression fixture+test
+ ONLY for items the reviewer / Fix_6 flagged)>
+```
+
+=== REGRESSION_NOTE.MD ===
+```markdown
+# Fix_7 regression note — {paper_id}
+
+**Reviewer note:** {D_reason}
+**Fix_6 flags consumed:** <list, or "none">
+
+**Edits:**
+| # | Trigger (D_reason item or Fix_6 flag) | Resolution(s) | Files touched | math_model / paper ref |
+|---|---|---|---|---|
+| 1 | "f_a not exported, eq (28) check vacuous" (Fix_6 flag) | (i)+(ii)+(iii) | solution_schema.json, gurobi_code.py, feasibility_check.py | math_model eq (28) |
+| 2 | "integrality enforced by parser cast for x_i" (D_reason) | (iv) | feasibility_check.py | math_model §2 var domain |
+
+**Schema extension (only for items above):**
+| New field | Driven by | Type | Backfilled in |
+|---|---|---|---|
+
+**Regression fixture summary (one per (a) item):**
+- Path: tests/data_review_regression/{paper_id}/
+- Contents: <infeasible_solution.json + test_*.py>
+- For each fixture: OLD checker verdict was **feasible=True** (the bug);
+  NEW checker verdict is **feasible=False**, violation reason: `<string>`.
+
+**Scope check:**
+- Hunks in diff: N
+- Rows in Edits table: N (must equal hunks scoped to listed items)
+- Vacuous-looking checks the reviewer / Fix_6 did NOT mention: left untouched
+```
+
+=== RUN_LOG.MD ===
+```markdown
+# Fix_7 run verification — {paper_id}
+
+**Command:**
+`python feasibility_check.py --instance <...> --solution <...>`
+
+**Result:** feasible = <true/false>
+**Violations printed:** <"none" OR list of constraint ids>
+**stderr tail:**
+~~~
+<last ~20 lines if any>
+~~~
+```
+
+=== REJECT_FIX.TXT ===
+```text
+<If you addressed every actionable item from the reviewer note + Fix_6
+ flags, write the single line:
+   none
+
+ Otherwise, one block per skipped item, separated by blank lines:
+
+   item:     <quote or paraphrase the D_reason / Fix_7_FLAGS fragment skipped>
+   category: incorrect | out-of-scope | uncertain | descriptive
+   reason:   <one to three sentences explaining why you did not modify
+             anything for this item>
+>
+```
+
+Reminders:
+- No triple backticks inside any payload. Use `~~~` or 4-space indentation
+  if you need to embed a code sample.
+- Do not wrap the whole answer in an extra ``` fence.

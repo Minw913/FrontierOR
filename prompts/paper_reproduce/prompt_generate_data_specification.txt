@@ -1,0 +1,83 @@
+Below is the complete JSON content of a data instance and a reference solution for the optimization problem described in the source files at 'data/paper_data/{paper_id}/'. Your task is to generate two template files that specify the structure, types, and meaning of every modeling-relevant field — one for input instances and one for output solutions.
+
+## Data Instance (instance/tiny_instance.json)
+
+{instance_json}
+
+## Reference Solution (gurobi_solution/tiny_solution.json)
+
+{solution_json}
+
+## Source Files to Reference
+(1) 'problem_description.txt' — the natural-language description of the optimization problem. Use it as the primary reference for understanding what each field represents.
+(2) 'generate_multiple_instances.py' — the script that produces instance files. Use it to understand how each field is generated, its data type, and indexing dimensions.
+(3) 'gurobi_code.py' — the solver code. Use it to understand how solution fields are named and structured.
+(4) Optional: if the above files do not sufficiently clarify a field's meaning, consult the paper PDF in the same directory for domain context.
+
+## Task
+
+Produce two JSON files in the same directory:
+
+(1) 'instance_schema.json' — a structural template for input instance files.
+(2) 'solution_schema.json' — a structural template for output solution files.
+
+## Output Format
+
+Both files must be JSON objects that mirror the nesting structure of their respective source files. Replace every leaf value with a string in the format:
+
+"<type, shape> Description."
+
+Where:
+- type is the JSON/Python type (int, float, str, list[int], list[list[float]], dict, etc.)
+- shape describes dimensions using field names from the same instance (e.g., "shape [n+1][n+1]", "shape [n_scenarios][n][T]", "length n"). Omit shape for scalar fields.
+- Description is one sentence explaining what the field represents in operational/business terms, consistent with problem_description.txt.
+
+For dict-valued solution fields where keys encode index tuples, describe the key format using descriptive names (e.g., "key: '{node}_{vehicle}_{period}'"), not single letters.
+
+### Instance template example
+
+Given an instance:
+{
+  "n": 5,
+  "costs": {"setup": [126, 98], "holding": [3.2, 2.8]},
+  "demand": [[10, 20], [15, 25]]
+}
+
+The instance_schema.json should be:
+{
+  "n": "<int> Number of items to be produced.",
+  "costs": {
+    "setup": "<list[int], length n> Fixed setup cost incurred when a machine begins producing each item.",
+    "holding": "<list[float], length n> Per-unit holding cost for storing each item at the end of a period."
+  },
+  "demand": "<list[list[int]], shape [n][T]> Demand quantity for each item in each period."
+}
+
+### Solution template example
+
+Given a solution:
+{
+  "objective_value": 1234.56,
+  "x": {"1_2": 10.0, "3_1": 5.0},
+  "y": {"1": 1, "2": 0}
+}
+
+The solution_schema.json should be:
+{
+  "objective_value": "<float> Total cost of the solution.",
+  "x": "<dict, key: '{item}_{period}'> Production quantity for each item in each period.",
+  "y": "<dict, key: '{period}'> Whether production is set up in each period (1 = yes, 0 = no)."
+}
+
+## Content Rules (MANDATORY)
+
+(1) Skip metadata fields that do not feed into the optimization model (instance identifiers, timestamps, random seeds, solver settings, solver status codes, gap, etc.). For solution files, only include 'objective_value' and decision variable fields.
+
+(2) Each description should be one sentence in plain operational/business language. Do not use modeling jargon such as "decision variable," "parameter," "index set," or "coefficient."
+
+(3) Do not include concrete values, value ranges, or commentary on how the field is used algorithmically.
+
+(4) If the instance uses nested objects, preserve that hierarchy. Place the "<type, shape> Description." string only at leaf level.
+
+## Output Path
+'instance_schema.json' and 'solution_schema.json' in the same directory as the source files.

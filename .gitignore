@@ -1,0 +1,35 @@
+# Data tree
+FrontierOR/
+
+# Source PDFs — copyright belongs to publishers, not redistributable
+source_paper/
+
+# Python
+*__pycache__*
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+
+# Virtualenvs & secrets
+.venv/
+venv/
+env/
+.env
+.env.local
+
+# Runtime output (one_shot_eval.py writes per-paper code + CSV here)
+eval/
+
+# IDE / OS noise
+.vscode/
+.idea/
+.claude/
+.DS_Store
+Thumbs.db
+*.swp
+*.swo

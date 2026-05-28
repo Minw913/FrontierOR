@@ -1,0 +1,50 @@
+Please carefully read the PDF file located at 'data/paper_data/{paper_id}/' and follow the workflow below step by step. 
+
+## 1. Extract test instance information
+### Task Statement
+Extract all information related to the test instances and experimental settings actually used in computational experiments of the paper and produce a **machine-readable JSON specification** of the instance settings. These extracted instance settings will be used in a subsequent step to programmatically reproduce the algorithms and computational experiments described in the paper.
+
+### Output Content and Format
+- The top-level JSON object MUST contain exactly two parallel fields: 
+	- "global_parameters": all parameters that apply uniformly across all test instances (optimization-problem or algorithm-related parameters)
+	- "instance_parameters": all parameters that define or differentiate test instances (e.g., problem size parameters; instance classes, types, or distributions; scenario or configuration parameters; numbers of instances per configuration)
+- The internal structure of "instance_parameters" is flexible and may be nested as needed, but it must clearly separate different instance scales, distributions, or configurations in a way that is unambiguous and machine-readable. 
+- Use only information explicitly stated in the paper. Do not invent any information. 
+- If a required value is missing, use the string: "NOT SPECIFIED IN PAPER".
+
+### Output Path 
+'all_instances.json' in the same directory as the paper PDF file.
+
+
+## 2. Generate multiple instances json
+### Task statement
+Produce a Python script that generates {num_instances} data instances of increasing problem scales (in json format) based on information provided in the all_instances.json and the corresponding paper pdf (If you are not sure about any details, please refer back to the paper and check again). 
+
+Strictly follow the requirements below:
+
+(1) Problem Scale Choice
+Infer the instance scales (small, medium, large) based on the computational results in the paper, using solution time as the primary reference (if have) for scale differentiation.
+- Explicitly include the smallest instance scale reported in the paper.
+- Generate instances with an approximately uniform distribution across the three scales (small, medium, large).
+- Within each scale category, ensure that instances exhibit sufficient diversity in structural or parametric characteristics, rather than differing only in trivial parameter values.
+
+(2) Deterministic Generation & Feasibility Checks
+- For each generated instance, implement explicit feasibility checks consistent with the problem definition and constraints specified in the paper. If the paper does not fully formalize all feasibility conditions, additionally enforce standard necessary feasibility conditions for this problem class. Any such assumptions or supplementary conditions must be clearly documented in the code comments to ensure transparency and reproducibility.
+
+- If any part of an instance requires random generation, you must define a deterministic seed iteration rule and repeatedly generate candidate instances until all feasibility checks are satisfied. The iteration budget must be sufficiently large to ensure successful generation (e.g., 50,000 iterations or more). Each data file must be written **only if** its corresponding instance passes all feasibility checks.
+
+(3) Handling missing information
+If the paper does not fully specify how some data elements are generated (e.g., coordinates, demands, capacities, distributions):
+   - First identify and follow any generation rules described in the paper
+   - If still unspecified, introduce reasonable deterministic generation rules which must be fully reproducible and clearly documented in code comments
+
+### Output content and format
+(1) Output a Python script named `generate_multiple_instances.py` to the same directory where the paper PDF is stored. At the very beginning of the script, clearly document (in comments) the selection of the instances and their corresponding parameter settings.
+(2) The Python script must write JSON instance files using the categorical layout:
+    - `instance/tiny_instance.json` — smallest scale (smoke test)
+    - `instance/large_instance_1.json` — largest scale (main test)
+    - `instance/large_instance_2.json`, `instance/large_instance_3.json`, ... — additional large instances if requested
+    The script must `os.makedirs("instance", exist_ok=True)` before writing.
+    Order the instances internally by scale from smallest to largest (tiny is the smallest; large_1 is the smallest among the larges; large_N is the largest).
+    Legacy: any intermediate-scale instances may still be written as `instance_2.json` ... `instance_9.json` at the paper folder root, but the canonical eval set is just `tiny` + `large_1..N`.
+(3) Ensure that all generated instance files have exactly the same field names, hierarchical structure, and overall organization, so that they can be correctly read and executed by the same program.

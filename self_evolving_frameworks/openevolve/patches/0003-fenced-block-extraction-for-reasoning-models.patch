@@ -1,0 +1,46 @@
+diff --git a/openevolve/utils/code_utils.py b/openevolve/utils/code_utils.py
+index cde6a97..05207f1 100644
+--- a/openevolve/utils/code_utils.py
++++ b/openevolve/utils/code_utils.py
+@@ -103,20 +103,37 @@ def parse_full_rewrite(llm_response: str, language: str = "python") -> Optional[
+     Returns:
+         Extracted code or None if not found
+     """
++    # Pick the LONGEST fenced block, not the first. Reasoning models (e.g.
++    # gemini-3.1-pro-preview) interleave short scratch snippets inside their
++    # chain-of-thought before emitting the actual full rewrite — taking
++    # matches[0] grabs the scratch fragment and overwrites the program with
++    # an orphan loop body. The full rewrite is reliably the largest block.
+     code_block_pattern = r"```" + language + r"\n(.*?)```"
+     matches = re.findall(code_block_pattern, llm_response, re.DOTALL)
+ 
+     if matches:
+-        return matches[0].strip()
++        return max(matches, key=len).strip()
+ 
+     # Fallback to any code block
+     code_block_pattern = r"```(.*?)```"
+     matches = re.findall(code_block_pattern, llm_response, re.DOTALL)
+ 
+     if matches:
+-        return matches[0].strip()
+-
+-    # Fallback to plain text
++        return max(matches, key=len).strip()
++
++    # Truncated-response fallback: reasoning models can exhaust their output
++    # token budget mid-rewrite, leaving an opening fence with no matching
++    # closing one. Match from the last opening fence to end-of-response.
++    open_fence_pattern = r"```" + language + r"\n(.*)"
++    m = re.search(open_fence_pattern, llm_response, re.DOTALL)
++    if m:
++        return m.group(1).strip()
++    open_fence_pattern = r"```\n?(.*)"
++    m = re.search(open_fence_pattern, llm_response, re.DOTALL)
++    if m:
++        return m.group(1).strip()
++
++    # Final fallback to plain text
+     return llm_response
+ 
+ 

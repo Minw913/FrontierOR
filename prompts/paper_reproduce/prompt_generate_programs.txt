@@ -1,0 +1,91 @@
+Please follow the workflow below step by step. 
+
+## 1. Generate Gurobi Code
+### Task Statement
+Write a complete, end-to-end program that implements the paper's mathematical optimization model and produces a solution for the given test instance, reproducing the model described in the paper as faithfully as possible, with **Gurobi** used as the solver.
+
+### Data Must Be Referenced
+(1) The formal mathematical formulation extracted from the paper: 'math_model.txt' in the same directory as the paper PDF file.
+(2) An example JSON specification of a test instance configuration which is extracted from the paper: 'instance/tiny_instance.json' in the same directory as the paper PDF file.
+(3) Optional: paper pdf (when you are unclear with provided reproduction-critical information, turn back to paper)
+
+### IMPLEMENTATION REQUIREMENTS
+
+(1) Faithfully implement the model
+- Implement the model exactly as specified in the formal mathematical model.
+- The program should reflect the full model workflow end-to-end, from data loading to solution output.
+
+(3) Handling missing or unclear information
+- If any detail required for implementation is unclear or incomplete in the formal mathematical model, you MUST:
+   (a) re-check the original PDF text to look for clarification;
+   (b) if the information is still missing or ambiguous, explicitly mark it as **NOT SPECIFIED IN PAPER**.
+- In such cases, you may introduce a reasonable assumption or implementation choice, but you MUST:
+   - clearly label it as an inferred assumption,
+   - and briefly explain the reasoning behind the inference in comments.
+
+(4) Time limit requirement for Gurobi solver
+- The program must enforce a maximum solver runtime via an `argparse` command-line argument `--time_limit` (type: int, seconds).
+- The program MUST use this value to set Gurobi's time limit (e.g., `model.setParam("TimeLimit", args.time_limit)` or equivalent).
+- If Gurobi cannot find an optimal solution within this time limit, it must terminate the optimization and return the **best feasible solution found so far**.
+
+### Output Format and Structure
+- The program MUST use `argparse` to read and output all external file paths from the command line.
+   Specifically, it MUST define and use the following arguments:
+   - `--instance_path`: path to the JSON file containing the problem instance.
+   - `--solution_path`: path where the final solution JSON file must be written. The harness sets this to a file under `gurobi_solution/` (e.g. `gurobi_solution/tiny_solution.json` for the smoke test, `gurobi_solution/large_solution_1.json` for the main test). Your program should treat the path as opaque — just write to whatever path is passed in.
+   - `--time_limit`: maximum solver runtime in seconds (int). 
+- The JSON of the final solution must include **a top-level field `objective_value`** representing the best objective value obtained by the algorithm; if the time limit is reached before completion, this field should contain the best feasible solution found so far.
+- The `solution_path` JSON must expose **only the decision variables defined in `math_model.txt`** (the original formulation's variables). Do NOT write solver-internal auxiliary variables into the JSON. If the solver uses a reformulation internally, project the optimal reformulation variables back to the original decision variables before writing the solution.
+
+### Output Path
+'gurobi_code.py' in the same directory as the paper PDF file.
+
+
+## 2. Generate Efficient Program
+### TASK
+Write a complete, end-to-end program that implements the paper's best-performing solution approach and produces a solution for the given test instance, reproducing the algorithm described in the paper as faithfully as possible.
+
+### Data Must Be Referenced
+(1) The reproduction-critical information for the paper's best-performing solution approach extracted from the paper: 'efficient_algorithm.txt' in the same directory as the paper PDF file.
+(2) An example JSON specification of a test instance configuration which is extracted from the paper: 'instance/tiny_instance.json' in the same directory as the paper PDF file.
+(3) Optional: paper pdf (when you are unclear with provided reproduction-critical information)
+
+### IMPLEMENTATION REQUIREMENTS
+
+(1) Strictly follow the provided test instance
+- You MUST use the data settings exactly as specified in the JSON specification of the selected test instance.
+- Do NOT introduce additional instances or alternative configurations.
+
+(2) Faithfully implement the algorithm
+- Implement all algorithmic components required by the best-performing approach, including any multi-phase procedures, subroutines, or auxiliary optimization models described in the paper.
+- The program should reflect the full algorithmic workflow end-to-end, from data loading to solution output.
+
+(3) Handling missing or unclear information
+- If any detail required for implementation is unclear or incomplete in the reproduction-critical information, you MUST explicitly mark it as **NOT SPECIFIED IN PAPER**.
+- In such cases, you may introduce a reasonable assumption or implementation choice, but you MUST:
+   - clearly label it as an inferred assumption,
+   - and briefly explain the reasoning behind the inference in comments.
+
+(4) Time limit requirement
+- The program must enforce a maximum runtime via an `argparse` command-line argument `--time_limit` (type: int, seconds).
+- If the algorithm exceeds this time limit without completing a full solution, it must immediately terminate the search and output the **best feasible solution found so far**.
+- Use appropriate timing or timeout mechanisms in Python to enforce this limit safely.
+
+### Output Format and Structure
+- The program MUST use `argparse` to read and output all external file paths from the command line.
+   Specifically, it MUST define and use the following arguments:
+   - `--instance_path`: path to the JSON file containing the problem instance.
+   - `--solution_path`: path where the final solution JSON file must be written. The harness sets this to a file under `efficient_solution/` (e.g. `efficient_solution/tiny_solution.json` for the smoke test, `efficient_solution/large_solution_1.json` for the main test). Your program should treat the path as opaque — just write to whatever path is passed in.
+   - `--time_limit`: maximum runtime in seconds (int).
+
+- The JSON of the final solution must include **a top-level field `objective_value`** representing the best objective value obtained by the algorithm; if the time limit is reached before completion, this field should contain the best feasible solution found so far.
+
+### Output Path
+'efficient_algorithm.py' in the same directory as the paper PDF file.
+
+
+## IMPORTANT: Do NOT Execute the Generated Programs
+- Your task is ONLY to generate the two Python source files (`gurobi_code.py` and `efficient_algorithm.py`).
+- Do NOT run, test, or execute them against any instance (including `instance/tiny_instance.json`).
+- Do NOT produce any solution JSON files (e.g., under `gurobi_solution/` or `efficient_solution/`).
+- Program validation and execution will be handled by a separate downstream pipeline step.

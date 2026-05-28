@@ -1,0 +1,217 @@
+You are fixing problem_description.txt for one paper so that it (a) fully
+covers the formulation that gurobi_code.py actually implements, (b) has no
+remaining natural-language ambiguity, and (c) does not make claims absent
+from the paper. You produce a SURGICAL patch — not a rewrite. Preserve
+every sentence the reviewer did not flag.
+
+Paper id: {paper_id}
+
+Authority for "what the prose should describe":
+
+  math_model.txt may transcribe MULTIPLE formulations from the paper (a
+  baseline MIP plus its decomposition, reformulation, or variant family).
+  gurobi_code.py implements EXACTLY ONE of them — that one is the
+  formulation the benchmark actually solves end-to-end. So:
+
+    → When math_model.txt contains variants and prose can only describe
+      one, align prose to whichever formulation gurobi_code.py implements.
+    → DO NOT describe variants that gurobi_code.py does not implement.
+    → If math_model.txt and gurobi_code.py disagree at the single-variant
+      level, treat gurobi_code.py as the source of truth for what the
+      prose should claim, and add the discrepancy to REJECT_FIX.TXT so a
+      human can decide whether math_model.txt itself needs a Fix_1 / Fix_2
+      follow-up.
+
+Inputs (Read each before drafting any edit):
+- data/data_review_canonical/{paper_id}/gurobi_code.py           (AUTHORITATIVE formulation; prose must align here)
+- data/data_review_canonical/{paper_id}/math_model.txt           (formulation reference; may contain multiple variants)
+- data/data_review_canonical/{paper_id}/problem_description.txt  (target; edit via diff)
+- data/data_review_canonical/{paper_id}/{paper_id}.pdf           (ground truth for fidelity)
+- Reviewer note (verbatim): {B_reason}
+
+Three classes of defect this task handles (use these tags in the justification):
+
+  B1 — completeness: math_model contains a set / parameter / decision variable
+       / constraint group / objective term that the prose currently fails to
+       describe. Fix: ADD a sentence or paragraph (new `+` lines in the diff).
+
+  B2 — ambiguity: a sentence admits multiple reasonable readings. Fix:
+       REPHRASE only that sentence. Prefer:
+         - explicit quantification ("for every origin-destination pair (o,d)")
+           over bare plurals;
+         - explicit precedence for nested operations
+           ("(1 − w) × (fare^α)" not "1 minus w times fare raised to α");
+         - exact variant name when the paper defines multiple
+           (e.g., "SUALBP-1" vs "SUALBP-2").
+
+  B3 — fidelity: the prose asserts something the paper does not. Fix: DELETE
+       or REPHRASE the offending sentence. Do NOT invent new claims.
+       Examples: "equally likely scenarios" when the paper says no such thing;
+       "improving one cost comes at the expense of the other" stated without
+       qualifying "on the Pareto frontier".
+
+  B4 — variant mismatch: prose describes a different formulation variant than
+       the one in math_model.txt. Fix: align the prose to math_model's variant
+       (exact name, correct index set, correct objective form).
+
+Core principle (use as accept/reject criterion for reviewer signals):
+
+  problem_description.txt describes ONLY the ORIGINAL optimization
+  problem stated in business language — inputs, decisions, objective,
+  and constraints as the paper poses the problem BEFORE any modeling /
+  solution technique is applied. Reformulations, relaxations,
+  decompositions, valid inequalities, column-generation master /
+  pricing problems, Benders cuts, linearization tricks, and similar
+  transformations are INTENTIONALLY EXCLUDED from the prose; they are
+  modeling / solution techniques the downstream LLM is expected to
+  derive on its own.
+
+  → If a reviewer signal asks to ADD prose describing any such
+    reformulation / relaxation / valid inequality / decomposition,
+    treat it as (b) INCORRECT and SKIP. Record in REJECT_FIX.TXT with
+    category=incorrect and reason citing this principle.
+  → If a reviewer signal asks to REMOVE prose that leaks a reformulation
+    into problem_description.txt (e.g. prose currently narrates a
+    Benders master / column-generation pricing subproblem), that signal
+    IS in-scope as a B3 fidelity fix.
+  → This principle takes precedence over the "align prose to
+    gurobi_code.py's variant" rule in the Authority section. When
+    gurobi_code.py implements a reformulation, prose still stays on the
+    ORIGINAL problem. COVERAGE.MD is computed against the ORIGINAL
+    problem's elements (inputs, decisions, objective, original
+    constraints) — reformulation-only variables that appear solely in
+    gurobi_code.py are NOT required to be covered in prose and must NOT
+    be described there.
+
+Your task:
+
+  1. Classify each edit in the reviewer note as B1 / B2 / B3 / B4.
+  2. Produce the MINIMUM unified diff against problem_description.txt that
+     satisfies the reviewer note without touching unrelated paragraphs.
+     - A completeness addition is a new `+` paragraph inserted at a natural
+       location (usually after the paragraph that introduces the related
+       math_model section).
+     - An ambiguity rephrase is a pair of `-/+` lines, keeping the same
+       paragraph position and surrounding sentences.
+     - A fidelity fix is either a pure deletion (`-` lines only) or a
+       rephrase.
+  3. Produce a COVERAGE.MD table mapping every element of the
+     gurobi_code.py-implemented formulation (set, parameter, decision
+     variable, constraint group, objective term) to the paragraph in
+     problem_description.txt that now covers it (post-patch). Flag any
+     element still uncovered — those indicate an incomplete B1 fix and
+     should be addressed in this same diff. Variants present in
+     math_model.txt but NOT in gurobi_code.py are excluded from this
+     coverage requirement.
+
+Scope discipline (apply BEFORE drafting any edit):
+
+  Inventory the reviewer note. Each distinct issue the reviewer raised is
+  one independent fix request. Classify every request into one of:
+
+    (a) IN-SCOPE & ACTIONABLE      → fix it.
+    (b) IN-SCOPE BUT NOTE IS WRONG → SKIP. Examples: reviewer says paragraph
+        X is ambiguous but rereading it shows it's already explicit;
+        reviewer's claim of a missing element is satisfied by an existing
+        paragraph you can identify.
+    (c) OUT-OF-SCOPE for this task → SKIP. Fix_3 only touches
+        problem_description.txt. If the note actually describes a math_model
+        defect (Fix_1 / Fix_2), code defect (Fix_4 / Fix_5), or checker
+        defect (Fix_6 / Fix_7), do NOT modify problem_description.txt to
+        compensate.
+    (d) UNCERTAIN — when in doubt, SKIP.
+    (e) DESCRIPTIVE / OBSERVATIONAL — the reviewer is stating context or
+        background, not requesting any edit. Typical giveaways: note-style
+        wording ("Note:", "this paper uses ..."), declarative statements
+        about what the file / paper contains with no implied comparison to
+        a correct state, or justifications that explain a design without
+        flagging a defect. → SKIP. Record in REJECT_FIX.TXT with
+        category=descriptive.
+
+  Only items in (a) become hunks in FIX.DIFF. Every item in (b) / (c) /
+  (d) / (e) MUST be recorded in REJECT_FIX.TXT below — do NOT silently drop them.
+
+Hard rules:
+- ONLY modify what the reviewer note explicitly identifies. Do not "improve"
+  unrelated paragraphs, even if you find ambiguities the reviewer didn't
+  mention.
+- Only touch problem_description.txt. If you believe math_model.txt or
+  gurobi_code.py itself is wrong, mark as (c) OUT-OF-SCOPE and SKIP —
+  record in REJECT_FIX.TXT (Fix_1 / Fix_2 / Fix_4 will handle those).
+- "Coverage" is defined against the formulation gurobi_code.py implements.
+  Variants in math_model.txt that gurobi_code.py does NOT implement are
+  not part of the coverage requirement and must NOT be described in
+  problem_description.txt.
+- For every edit, cite the source you used: a gurobi_code.py element (var
+  / constraint / objective term) for B1/B4, or a paper page/section for
+  B2/B3.
+- Unified diff uses `--- a/problem_description.txt` / `+++ b/problem_description.txt`,
+  3 lines of context per hunk, one hunk per contiguous edit region. Blank
+  context lines inside a hunk must start with a single space.
+
+Output (exactly four sentinel segments, in this order, NOTHING ELSE — no
+preamble, no closing remark):
+
+=== FIX.DIFF ===
+```diff
+<unified diff against problem_description.txt only>
+```
+
+=== JUSTIFICATION.MD ===
+```markdown
+# Fix_3 justification — {paper_id}
+
+**Reviewer note:** {B_reason}
+
+**Edits:**
+| # | Defect class | Paragraph / old line range | Change | Reason / ref |
+|---|---|---|---|---|
+| 1 | B2 | L12–L12 | rephrase | clarified OD-pair ordering (paper §2 ¶3) |
+| 2 | B1 | after L18 | add paragraph | math_model has set `E` but prose did not describe it |
+| 3 | B3 | L30–L30 | delete | "equally likely scenarios" not in paper |
+
+**Scope check:**
+- Hunks in diff: N
+- Rows in this table: N (must equal hunks)
+- Files touched: problem_description.txt only: yes
+```
+
+=== COVERAGE.MD ===
+```markdown
+# Fix_3 element coverage — {paper_id}
+
+Every element of the formulation gurobi_code.py implements must map to at
+least one paragraph in problem_description.txt (post-patch). math_model.txt
+variants that gurobi_code.py does NOT implement are out of scope and must
+NOT appear in prose.
+
+| gurobi-implemented element | kind (set/param/var/constr/obj) | paragraph in problem_description (post-patch) | status |
+|---|---|---|---|
+| I | set | §1 ¶1 | covered |
+| x[i,j] | var | §2 ¶2 | covered |
+| E | set | §2 ¶3 (added by this patch) | covered |
+
+**Unmapped elements:** none
+**Variants in math_model.txt skipped because gurobi_code.py doesn't implement them:** <list or "none">
+
+```
+
+=== REJECT_FIX.TXT ===
+```text
+<If you addressed every actionable item from the reviewer note, write the
+ single line:
+   none
+
+ Otherwise, one block per skipped item, separated by blank lines:
+
+   item:     <quote or paraphrase the reviewer-note fragment you skipped>
+   category: incorrect | out-of-scope | uncertain | descriptive
+   reason:   <one to three sentences explaining why you did not modify
+             anything for this item>
+>
+```
+
+Reminders:
+- No triple backticks inside any payload. Use `~~~` or 4-space indentation
+  if you need to embed a code sample inside JUSTIFICATION.MD or COVERAGE.MD.
+- Do not wrap the whole answer in an extra ``` fence.

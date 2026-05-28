@@ -1,0 +1,145 @@
+You are de-hardcoding gurobi_code.py STRICTLY according to the reviewer note.
+You produce a SURGICAL patch — not a full-file scan for every magic number.
+Do NOT enumerate hardcoded values the reviewer did not flag; do NOT
+"improve" the model in any way the note does not request.
+
+Paper id: {paper_id}
+
+Inputs (Read each before drafting any edit):
+- data/data_review_canonical/{paper_id}/gurobi_code.py            (target; edit via diff)
+- data/data_review_canonical/{paper_id}/math_model.txt            (reference for what a parameter should be)
+- data/data_review_canonical/{paper_id}/{paper_id}.pdf            (ground truth when the fix needs a paper formula)
+- data/data_review_canonical/{paper_id}/instance_schema.json    (target if a flagged value needs to become an instance field)
+- data/data_review_canonical/{paper_id}/instance_*.json           (existing instances; backfill new fields here)
+- Reviewer note (verbatim): {C_reason}
+
+Authority for "what gurobi_code.py should look like":
+
+  The reviewer note is the SCOPE; paper and math_model are the REFERENCE
+  within that scope.
+    → C_reason names the specific magic numbers / hardcoded values that
+      need to be replaced. Only those.
+    → For each flagged value, paper/math_model tells you HOW it should be
+      sourced (instance field, paper formula, or removed entirely).
+    → If gurobi_code.py contains OTHER hardcoded values the reviewer did
+      not mention, leave them alone — that is OUT-OF-SCOPE.
+
+Scope discipline (apply BEFORE drafting any edit):
+
+  Inventory the reviewer note. Each distinct hardcoded value the reviewer
+  flagged is one independent fix request. Classify every request into one of:
+
+    (a) IN-SCOPE & ACTIONABLE      → fix it (per resolution menu below).
+    (b) IN-SCOPE BUT NOTE IS WRONG → SKIP. Examples: reviewer says X is
+        hardcoded but it's actually derived from the instance; reviewer
+        cites a value that does not appear in gurobi_code.py at all.
+    (c) OUT-OF-SCOPE for this task → SKIP. Examples for Fix_5: missing
+        constraints / wrong dimensions (Fix_4 territory); math_model
+        wrong (Fix_1 / Fix_2); checker (Fix_6 / Fix_7); prose (Fix_3).
+    (d) UNCERTAIN — when in doubt, SKIP.
+    (e) DESCRIPTIVE / OBSERVATIONAL — the reviewer is stating context or
+        background, not requesting any edit. Typical giveaways: note-style
+        wording ("Note:", "this paper uses ..."), declarative statements
+        about what the file / paper contains with no implied comparison to
+        a correct state, or justifications that explain a design without
+        flagging a defect. → SKIP. Record in REJECT_FIX.TXT with
+        category=descriptive.
+
+  Only items in (a) become hunks in FIX.DIFF. Every item in (b) / (c) /
+  (d) / (e) MUST be recorded in REJECT_FIX.TXT below — do NOT silently drop them.
+
+Resolution menu — for each (a) item, pick exactly ONE strategy:
+
+  (i)   REMOVE  — paper / math_model do not require this parameter at all.
+  (ii)  EXPOSE  — add a field in instance_schema.json, read via
+                  --instance_path; backfill all existing instance_*.json
+                  with a value matching historical behaviour. If you cannot
+                  determine a historical-equivalent value, mark the item
+                  as (d) UNCERTAIN instead.
+  (iii) DERIVE  — replace the magic number with a formula that IS in the
+                  paper / math_model. Cite the equation.
+
+  Never keep a magic number with a comment "assumed to be ...".
+
+Hard rules:
+- ONLY modify hardcoded values that the reviewer note explicitly flags.
+  Do NOT scan gurobi_code.py for additional candidates, even if you
+  notice them while reading.
+- Strategy (ii) MUST update instance_schema.json AND all
+  instance_*.json files in the same diff — partial updates break
+  downstream solvers.
+- Strategy (iii) MUST cite the paper equation that justifies the formula.
+- Keep gurobi_code.py runnable on any instance that conforms to
+  instance_schema.json after the patch.
+- Unified diff uses standard headers; 3 lines of context per hunk; one
+  hunk per contiguous edit region; blank context lines start with a
+  single space.
+
+Output (exactly four sentinel segments, in this order, NOTHING ELSE — no
+preamble, no closing remark):
+
+=== FIX.DIFF ===
+```diff
+<a single unified diff that may touch multiple files:
+ gurobi_code.py and/or instance_schema.json and/or
+ data/data_review_canonical/{paper_id}/instance_*.json>
+```
+
+=== PARAM_LEDGER.MD ===
+```markdown
+# Fix_5 parameter ledger — {paper_id}
+
+**Reviewer note:** {C_reason}
+
+| # | C_reason item | Old behaviour | Strategy | New source | Paper / math_model ref |
+|---|---|---|---|---|---|
+| 1 | "DEFAULT_DEMAND_PENALTY=100" | hardcoded 100 | REMOVE  | — (paper does not require) | — |
+| 2 | "roster cap 2000" | hardcoded 2000 | EXPOSE  | instance.max_rosters | math_model param section |
+| 3 | "time-varying K_s" | Ks_t per t | DERIVE  | constant K_s | p.7 §3.1 eq (12) |
+
+**Instance files touched (only if any item used strategy EXPOSE):**
+- data/data_review_canonical/{paper_id}/instance_schema.json: added field(s) `<name>`
+- data/data_review_canonical/{paper_id}/instance_*.json: <count> files updated; backfill values match historical behaviour
+- Any field needing human input: <"none" OR list>
+
+**Scope check:**
+- Hunks in diff: N
+- Rows in this table: N (must equal hunks scoped to gurobi_code.py)
+- Hardcoded values in gurobi_code.py the reviewer did NOT mention: left untouched
+```
+
+=== RUN_LOG.MD ===
+```markdown
+# Fix_5 run verification — {paper_id}
+
+**Command:**
+`python gurobi_code.py --instance_path <smallest instance> --solution_path /tmp/sol.json --time_limit 60`
+
+**Result:** <solved / time_limit / infeasible / error>
+**Objective:** <value or "n/a">
+**Wall time:** <seconds>
+**stderr tail:**
+~~~
+<last ~20 lines of stderr if any>
+~~~
+```
+
+=== REJECT_FIX.TXT ===
+```text
+<If you addressed every actionable item from the reviewer note, write the
+ single line:
+   none
+
+ Otherwise, one block per skipped item, separated by blank lines:
+
+   item:     <quote or paraphrase the reviewer-note fragment you skipped>
+   category: incorrect | out-of-scope | uncertain | descriptive
+   reason:   <one to three sentences explaining why you did not modify
+             anything for this item>
+>
+```
+
+Reminders:
+- No triple backticks inside any payload. Use `~~~` or 4-space indentation
+  if you need to embed a code sample.
+- Do not wrap the whole answer in an extra ``` fence.

@@ -1,0 +1,71 @@
+max_iterations: 30                # ↑ from 20 — gives 30 generations of lineage depth (parallel_evaluations=1 makes 1 candidate / iter)
+checkpoint_interval: 1            # ↑ from 5 — every iter writes checkpoint, complete lineage recovery (cost ~3GB/run, see openevolve_paras.md §8)
+log_level: "INFO"
+llm:
+  primary_model: "openai/gpt-5.3-codex"
+  primary_model_weight: 1.0
+  secondary_model: "openai/gpt-5.3-codex"
+  secondary_model_weight: 0.0
+  api_base: "https://openrouter.ai/api/v1"
+  temperature: 0.8
+  max_tokens: 32768  # ↑ from 8192 — reasoning models (gemini-3.1-pro, o3, R1) burn 5-15k
+                     # tokens on chain-of-thought before emitting code; 8k truncated mid-thinking
+                     # so the LLM never reached the full-rewrite step. Smoke v1-v3 had iter children
+                     # collapse to 142-char scratch fragments because the reply was cut off.
+  timeout: 600       # ↑ from 300 — longer reasoning needs more wall time too
+  retries: 2         # retry budget per iteration
+  retry_delay: 5
+database:
+  population_size: 10        # accommodate parallel_evaluations=2 (2 children per generation)
+  archive_size: 5            # ↓ from 10 — keep elite pool ≤ pop/2 so exploitation pool ≠ full pop
+  num_islands: 1             # flattened: was 5; archive analysis showed island didn't add diversity at 30-iter scale
+  migration_interval: 15     # no-op when num_islands=1
+  migration_rate: 0.2        # no-op when num_islands=1
+  # Sampling weights — biased toward elitism for our 30-iter regime.
+  # Defaults (0.2/0.7/0.1) are tuned for 10K-iter AlphaEvolve runs; with 30 iter
+  # only 10% truly fitness-weighted sampling means best parents are picked too
+  # rarely, leading to flat lineage. We reroute exploitation's 70% to the
+  # weighted branch so 90% of iter pick parents proportional to combined_score
+  # (with 0.001 epsilon for score=0 programs to avoid total starvation).
+  exploration_ratio:  0.1    # ↓ from default 0.2 — small uniform-from-island for diversity
+  exploitation_ratio: 0.0    # ↓ from default 0.7 — disable uniform-in-archive
+                              # remaining 0.9 → fitness-weighted (database.py:1427)
+  feature_dimensions: []     # disable MAP-Elites bin → suppress "No feature coordinates" line in prompt
+prompt:
+  system_message: |-
+    You are improving a Python program that solves a combinatorial optimization problem. Each iteration receives the parent program's metrics, recent execution output, and full code. Rewrite the program to MAXIMIZE the fitness score (combined_score).
+
+    CLI CONTRACT (every rewrite MUST preserve):
+    - argparse args: --instance_path, --solution_path, --time_limit (int seconds), --log_path (optional, JSONL)
+    - Read all instance data from --instance_path; never hard-code instance data
+    - Write solution JSON to --solution_path matching the solution_schema
+    - Use solution_logger.SolutionLogger; call logger.log(objective_value) on every improving incumbent:
+      ```python
+      from solution_logger import SolutionLogger
+      logger = SolutionLogger(args.log_path, sense="minimize") if args.log_path else None  # or sense="maximize"
+      if logger:
+          logger.log(objective_value)
+      ```
+    - If using MIP/LP, use Gurobi (gurobipy) ONLY — no CPLEX/SCIP/CBC/PuLP/OR-Tools/etc.
+
+    FAIRNESS CONSTRAINT: keep model.setParam('Threads', 1) (and any other single-thread settings) unchanged. Do NOT spawn parallel workers — this benchmark compares algorithms under a single-CPU budget.
+  include_artifacts: true
+  num_top_programs: 1
+  num_previous_attempts: 0
+  num_diverse_programs: 0                    # suppress "## Diverse Programs" section entirely
+  num_inspirations: 0                        # suppress "## Inspiration Programs" section entirely
+  suggest_simplification_after_chars: null   # suppress "code length exceeds X chars" line in prompt
+  template_dir: openevolve_templates         # override top_program.txt to drop "Key features:" line
+evaluator:
+  timeout: 3600
+  parallel_evaluations: 2    # candidate-level concurrency: 2 children per generation evaluated in parallel; with paper-workers ≤ 15 keeps Gurobi tokens ≤ 30 (well under 100 cap)
+  cascade_evaluation: true
+  cascade_thresholds: [0.5]
+# Bounded patience guard against score=0 dead-loops; with parallel_evaluations=1 this means
+# "stop after 15 consecutive iterations with no improvement >= convergence_threshold"
+early_stopping_patience: 30    # ↑ from 15 — with parallel_evaluations=3, this is 20 candidates ≈ 6.7 generations of patience (vs 5 at patience=15)
+convergence_threshold: 0.001
+early_stopping_metric: "combined_score"
+diff_based_evolution: false
+allow_full_rewrites: true
+max_code_length: 50000   # R1 regularly emits 30k–40k on MIP papers; 30k still caused ~75% skip on cherkesly2015

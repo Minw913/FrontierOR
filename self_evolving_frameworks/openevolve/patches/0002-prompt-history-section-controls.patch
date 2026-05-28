@@ -1,0 +1,79 @@
+diff --git a/openevolve/config.py b/openevolve/config.py
+index bef193d..4547b0f 100644
+--- a/openevolve/config.py
++++ b/openevolve/config.py
+@@ -252,6 +252,13 @@ class PromptConfig:
+     # Number of examples to include in the prompt
+     num_top_programs: int = 3
+     num_diverse_programs: int = 2
++    # Number of "Previous Attempts" entries (metadata-only history, no code).
++    # If None, falls back to num_top_programs for backward compatibility.
++    num_previous_attempts: Optional[int] = None
++    # Number of "Inspiration Programs" entries (random non-top programs from
++    # the parent's island). If None, falls back to num_top_programs.
++    # Set to 0 to suppress the "## Inspiration Programs" section entirely.
++    num_inspirations: Optional[int] = None
+ 
+     # Template stochasticity
+     use_template_stochasticity: bool = True
+diff --git a/openevolve/process_parallel.py b/openevolve/process_parallel.py
+index a2fd659..5ea5b4e 100644
+--- a/openevolve/process_parallel.py
++++ b/openevolve/process_parallel.py
+@@ -803,8 +803,11 @@ class ProcessParallelController:
+ 
+             # Use thread-safe sampling that doesn't modify shared state
+             # This fixes the race condition from GitHub issue #246
++            n_insp = self.config.prompt.num_inspirations
++            if n_insp is None:
++                n_insp = self.config.prompt.num_top_programs
+             parent, inspirations = self.database.sample_from_island(
+-                island_id=target_island, num_inspirations=self.config.prompt.num_top_programs
++                island_id=target_island, num_inspirations=n_insp
+             )
+ 
+             # Create database snapshot
+diff --git a/openevolve/prompt/sampler.py b/openevolve/prompt/sampler.py
+index 61a5b98..23b38ce 100644
+--- a/openevolve/prompt/sampler.py
++++ b/openevolve/prompt/sampler.py
+@@ -261,7 +261,11 @@ class PromptSampler:
+ 
+         # Format previous attempts (most recent first)
+         previous_attempts_str = ""
+-        selected_previous = previous_programs[-min(3, len(previous_programs)) :]
++        n_prev_cfg = self.config.num_previous_attempts
++        if n_prev_cfg is None:
++            n_prev_cfg = self.config.num_top_programs
++        n_prev = min(n_prev_cfg, len(previous_programs))
++        selected_previous = previous_programs[-n_prev:] if n_prev > 0 else []
+ 
+         for i, program in enumerate(reversed(selected_previous)):
+             attempt_number = len(previous_programs) - i
+@@ -431,12 +435,20 @@ class PromptSampler:
+             inspirations, language, feature_dimensions
+         )
+ 
+-        # Combine into full history
+-        return history_template.format(
+-            previous_attempts=previous_attempts_str.strip(),
+-            top_programs=combined_programs_str.strip(),
+-            inspirations_section=inspirations_section_str,
+-        )
++        # Combine into full history. Skip the "## Previous Attempts" heading
++        # entirely when there are no entries (rather than rendering an empty
++        # block under a stray heading).
++        prev_clean = previous_attempts_str.strip()
++        top_clean = combined_programs_str.strip()
++        insp_clean = inspirations_section_str.strip()
++        sections: List[str] = []
++        if prev_clean:
++            sections.append(f"## Previous Attempts\n\n{prev_clean}")
++        if top_clean:
++            sections.append(f"## Top Performing Programs\n\n{top_clean}")
++        if insp_clean:
++            sections.append(insp_clean)
++        return "\n\n".join(sections) + ("\n" if sections else "")
+ 
+     def _format_inspirations_section(
+         self,

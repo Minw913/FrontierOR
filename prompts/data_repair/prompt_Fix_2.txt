@@ -1,0 +1,186 @@
+You are rewriting math_model.txt for one paper because the reviewer flagged
+that it cannot be salvaged by local edits — specifically, the file's CURRENT
+content is unfit to be the baseline (LLM-invented when the paper has no
+formula; only a general framework with no concrete model; built around a
+non-solvable variant with nothing solvable to keep).
+
+Even though the action ends in a wholesale rewrite, the SCOPE and INTENT
+of that rewrite are dictated by the reviewer note — not by your own
+audit of the file or paper. Read the reviewer note FIRST, decide what
+mode (A or B) the note authorizes, then rewrite per the rules below.
+
+Paper id: {paper_id}
+
+Inputs (Read each before drafting any edit):
+- data/data_review_canonical/{paper_id}/math_model.txt   (currently wrong / unfit; will be replaced wholesale)
+- data/data_review_canonical/{paper_id}/{paper_id}.pdf   (ground truth — every new equation must trace here)
+- data/data_review_canonical/{paper_id}/gurobi_code.py   (cross-check: if it implements something, that something is the baseline)
+- Reviewer note (verbatim): {A_reason}
+
+Authority for "what the rewrite should produce":
+
+  The reviewer note is the SCOPE; paper / gurobi_code.py are the
+  REFERENCE within that scope.
+    → A_reason tells you WHAT IS WRONG with the current math_model and
+      (often) what the rewrite should aim for. Examples:
+        - "sansegundo2016: AI supplied textbook ILP; paper has no formulation"
+          → Mode B (memo). Do NOT ship a speculative model.
+        - "bragin2022: only general MILP framework, no GAP formulation"
+          → Mode B (memo) or Mode A (if a GAP-specific baseline can be
+          extracted from the paper). The reviewer's wording decides.
+        - "forrest2006: only column-generation reformulation, not directly
+          solvable" → Mode B unless the reviewer's note hints that a
+          compact baseline does exist somewhere in the paper.
+    → If A_reason instead describes a salvageable file (multiple variants,
+      typos, role mistakes, redundant sections), this is NOT a Fix_2 case
+      — STOP and emit Mode-C-Aborted (see below) directing the reviewer
+      to dispatch Fix_1 instead.
+
+Core principle (use as accept/reject criterion for reviewer signals):
+
+  math_model.txt is CORRECT as long as it contains BOTH:
+    (i)  the ORIGINAL mathematical formulation — the one that defines
+         the underlying optimization problem BEFORE any reformulation;
+         and
+    (ii) the SOLVER-READY formulation, if the paper provides one
+         distinct from (i).
+
+  The presence of additional variants (decompositions, reformulations,
+  extensions, alternate encodings) does NOT by itself make the file
+  wrong. Multiple formulations coexist without conflict provided (i)
+  and (ii) are both present and identifiable.
+
+  → If a reviewer signal would be resolved merely by REMOVING or TRIMMING
+    extra variants while (i) and (ii) are already present intact
+    (e.g. "this reformulation does not belong here", "only keep one
+    formulation", "file contains too many variants"), treat that signal
+    as (b) INCORRECT and SKIP. Record in REJECT_FIX.TXT with
+    category=incorrect and reason citing this principle.
+  → If a reviewer signal flags a MISSING original formulation, a MISSING
+    solver-ready formulation (when the paper provides one), a WRONG
+    choice presented as the baseline (e.g. an LLM-invented textbook
+    template instead of the paper's model), or the file being only a
+    non-solvable reformulation with the original missing, that signal
+    IS in-scope and drives the rewrite.
+
+Scope discipline (apply BEFORE drafting any edit):
+
+  Inventory the reviewer note. Each distinct claim the reviewer makes is
+  one signal. Classify every signal into one of:
+
+    (a) IN-SCOPE & ACTIONABLE      → drives this rewrite.
+    (b) IN-SCOPE BUT NOTE IS WRONG → SKIP, record in REJECT_FIX.TXT.
+        Examples: reviewer says "no formulation in paper" but the paper
+        in fact contains §3.1 compact MIP; reviewer claims the file is
+        all-wrong but only one section is.
+    (c) OUT-OF-SCOPE for this task → SKIP, record in REJECT_FIX.TXT.
+        Examples for Fix_2:
+          - typo / role mistake / variant trim → Fix_1 territory
+          - downstream files wrong → Fix_3 / Fix_4 / Fix_5 / Fix_6 / Fix_7
+    (d) UNCERTAIN                  → SKIP, record in REJECT_FIX.TXT.
+
+  Only signals in (a) shape the rewrite. Every signal in (b) / (c) / (d)
+  MUST appear in REJECT_FIX.TXT.
+
+Mode selection (driven by the (a) signals you classified above):
+
+  Mode A — baseline EXISTS in the paper and the reviewer asks for rewrite:
+    Rewrite math_model.txt to contain ONLY the baseline the reviewer's
+    note points to (or, if the reviewer is non-specific, the baseline
+    that gurobi_code.py demonstrably implements). Sections: Sets /
+    Parameters / Variables / Objective / Constraints. Remove anything
+    labeled "decomposition" / "extension" / "reformulation" unless that
+    IS the baseline.
+
+  Mode B — baseline DOES NOT exist (paper has no formula) OR the reviewer
+    explicitly says "do not ship a speculative model":
+    Do NOT write a rewrite. Emit a memo describing what a baseline would
+    look like and recommending human sign-off.
+
+Hard rules:
+- The rewrite (Mode A) may use ONLY equations / sections / variables that
+  the paper explicitly defines. Do NOT invent constraints, do NOT use
+  LLM-synthesized "textbook" formulations. The reviewer note is the only
+  authorization for borrowing a textbook standard, and only when it
+  explicitly says so (extremely rare).
+- Every equation in the new math_model.txt MUST trace to a paper equation
+  number — record this in TRACEABILITY.MD.
+- Mode B (memo) does NOT modify math_model.txt. Emit only MEMO.MD +
+  REJECT_FIX.TXT (and skip MATH_MODEL.TXT / TRACEABILITY.MD).
+- If the (a) signals contradict each other (e.g. one says "rewrite to
+  variant X", another says "no formulation exists"), STOP: emit MEMO.MD
+  describing the contradiction + REJECT_FIX.TXT listing both.
+
+Output (one of two modes; emit EXACTLY the sentinels listed for that mode
+plus REJECT_FIX.TXT in both modes — NOTHING ELSE, no preamble):
+
+**Mode A — baseline found, full rewrite:**
+
+=== MATH_MODEL.TXT ===
+```text
+<the complete new math_model.txt, with Sets / Parameters / Variables /
+ Objective / Constraints sections>
+```
+
+=== TRACEABILITY.MD ===
+```markdown
+# Fix_2 traceability — {paper_id}
+
+**Reviewer note:** {A_reason}
+**Mode:** A (baseline rewritten)
+**Baseline chosen:** <name / location in paper, e.g. "§3.1 compact MILP">
+**Why this baseline:** <how the reviewer note authorized it; if the note
+                        is non-specific, why gurobi_code.py confirms it>
+**Rejected variants:** <list of variants in paper that are NOT the chosen
+                        baseline, one per line>
+
+**Equation trace:**
+| math_model eq | Paper eq | Page |
+|---|---|---|
+| (1) | (3a) | 5 |
+| (2) | (3b) | 5 |
+```
+
+=== REJECT_FIX.TXT ===
+```text
+<If every (a) signal in the reviewer note shaped this rewrite and no (b)
+ / (c) / (d) signals were skipped, write the single line:
+   none
+
+ Otherwise, one block per skipped signal, separated by blank lines:
+
+   item:     <quote or paraphrase the signal>
+   category: incorrect | out-of-scope | uncertain | descriptive
+   reason:   <one to three sentences>
+>
+```
+
+**Mode B — baseline cannot be written:**
+
+=== MEMO.MD ===
+```markdown
+# Fix_2 memo — baseline not shipped for {paper_id}
+
+**Reviewer note:** {A_reason}
+**Mode:** B (no rewrite; memo only)
+**Why the baseline cannot be written:** <1–3 sentences quoting / paraphrasing
+                                          the reviewer signals that drove this
+                                          decision>
+
+**Canonical formulation sketch (non-authoritative):**
+<plain-English description of what a baseline MIP would look like if one existed>
+
+**Recommendation:** human sign-off required; do NOT ship a speculative model.
+```
+
+=== REJECT_FIX.TXT ===
+```text
+<Same format as Mode A. If the reviewer note pointed at salvageable
+ problems (typos / variants / role) instead of "rebuild from scratch",
+ list them here as category=out-of-scope and recommend Fix_1.>
+```
+
+Reminders:
+- No triple backticks inside any payload. Use `~~~` or 4-space indentation
+  if you need to embed a code sample.
+- Do not wrap the whole answer in an extra ``` fence.

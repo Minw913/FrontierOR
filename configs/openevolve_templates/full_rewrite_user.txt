@@ -1,0 +1,18 @@
+# Current Program Information
+- Fitness: {fitness_score}
+- Feature coordinates: {feature_coords}
+- Focus areas: {improvement_areas}
+
+{artifacts}
+
+# Program Evolution History
+{evolution_history}
+
+# Current Program
+```{language}
+{current_program}
+```
+
+# Task
+Rewrite the program to maximize the fitness score (preserving the CLI contract from the system message).
+Output ONLY the complete new program in a single ```{language} ... ``` block.

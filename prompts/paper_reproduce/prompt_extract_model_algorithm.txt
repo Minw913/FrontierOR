@@ -1,0 +1,45 @@
+Please carefully read the PDF file located at 'data/paper_data/{paper_id}/' and follow the workflow below step by step. 
+
+## 1. Extract Mathematical Formulation
+### Task Statement
+Identify the formal mathematical formulation of the optimization problem in the paper, which can be directly implemented and solved by a general-purpose solver such as Gurobi. 
+
+### EXTRACTION REQUIREMENTS
+Extract the formulation exactly as presented in the paper, including:
+
+- Sets, indices, and parameters
+- Decision variables and their domains
+- Objective function
+- All hard constraints, listed strictly in the same order as in the paper
+
+### FORMATTING REQUIREMENTS
+- Preserve the original structure and numbering of equations whenever possible.
+- Provide any explicitly stated reproduction-critical details for generating solver-based program of this mathematical formulation (e.g., variable domains, parameter settings, solver settings or assumptions) if there are.
+- If an equation or definition is referenced but not explicitly written in the paper, mark it as: **NOT EXPLICITLY SPECIFIED IN PAPER**.
+
+### OUTPUT FORMAT
+- Output the extracted formulation as a LaTeX-style block, following the structure and ordering of the paper's formulation section.
+- Include any reproduction-critical comments and all NOT EXPLICITLY SPECIFIED IN PAPER markings at the end of the LaTeX code.
+
+### Output Path 
+'math_model.txt' in the same directory as the paper PDF file.
+
+## 2. Extract Efficient Algorithm Information
+### Task Statement
+Read paper thoroughly and complete the following three tasks:
+
+(1) Identify each complete solution approach designed and executed in this paper. Treat any multi-phase or multi-procedure method as a single approach, not as separate algorithms.
+
+(2) Determine whether the paper itself identifies or demonstrates **the most efficient solution approach** according to its own evaluation criteria. The most efficient solution approach is the one that delivers the highest-quality solutions within acceptable computation time on the largest instances tested, as demonstrated by the paper's empirical results.
+If so, clearly explain:
+- which approach is considered the most efficient,
+- what criteria are used,
+- and how it compares against the paper's own baselines or alternative approaches.
+
+(3) Extract all reproduction-critical details for that best-performing solution approach so it can be implemented in code.  
+Focus on problem inputs, algorithmic steps, parameter settings, termination conditions, and test-instance specifications.  
+If any detail required for implementation is missing from the PDF, explicitly mark it as **NOT SPECIFIED IN PAPER**.
+
+### Output Path
+For task (1) and task (2) write your answers directly in normal text using clear headings, save your answer together to 'analysis.txt' in the same directory as the paper PDF file.
+For task (3), save your answer, which is clearly separated from answers of task (1) and (2),  to 'efficient_algorithm.txt' in the same directory as the paper PDF file.

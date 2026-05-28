@@ -1,0 +1,153 @@
+You are fixing gurobi_code.py for one paper STRICTLY according to the reviewer
+note. You produce a SURGICAL patch — not a wholesale parity audit. Do NOT
+scan for additional discrepancies the reviewer did not mention; do NOT
+"improve" the model in any way the note does not request.
+
+Paper id: {paper_id}
+
+Inputs (Read each before drafting any edit):
+- data/data_review_canonical/{paper_id}/gurobi_code.py            (target; edit via diff)
+- data/data_review_canonical/{paper_id}/math_model.txt            (reference for "what the corrected version should be"; do NOT edit)
+- data/data_review_canonical/{paper_id}/{paper_id}.pdf            (ground truth when C_reason cites a paper equation)
+- data/data_review_canonical/{paper_id}/instance_schema.json    (so any new var/constraint stays compatible)
+- Reviewer note (verbatim): {C_reason}
+
+Authority for "what gurobi_code.py should look like":
+
+  The reviewer note is the SCOPE; math_model.txt is the REFERENCE within
+  that scope.
+    → math_model.txt tells you what the CORRECT form of the items C_reason
+      flagged should be (e.g., when C_reason says "constraint (2) is missing",
+      look up eq (2) in math_model.txt to see what to add).
+    → math_model.txt does NOT license edits to anything C_reason did not
+      mention. If gurobi_code.py disagrees with math_model.txt elsewhere,
+      that is OUT-OF-SCOPE — do NOT touch it.
+
+Core principle (use as accept/reject criterion for reviewer signals):
+
+  gurobi_code.py and math_model.txt are REQUIRED to solve the SAME
+  optimization problem — i.e. the same feasible region and, on any
+  given instance, the same set of optimal solutions (up to symmetric
+  tie-breaking). They are NOT required to use the same formulation.
+  gurobi_code.py may use a different modeling (alternate variable
+  encoding, linearization, extended formulation, Benders / column-
+  generation reformulation, aggregation, etc.) from math_model.txt as
+  long as the problem being solved is identical.
+
+  → If a reviewer signal flags a FORMULATION-level mismatch without any
+    evidence that the feasible region or the optimal solutions differ
+    (e.g. "gurobi uses arc-flow variables, math_model uses path
+    variables", "gurobi uses big-M linearization, math_model uses
+    indicator form", "gurobi collapses two-index into one-index"),
+    treat it as (b) INCORRECT and SKIP. Record in REJECT_FIX.TXT with
+    category=incorrect and reason citing this principle.
+  → If a reviewer signal shows the feasible region or the optimal
+    solutions DIFFER — e.g. a constraint in math_model is missing from
+    gurobi_code, a parameter / coefficient disagrees, a sign is
+    flipped, a bound is wrong, the objective is different, or an index
+    set is mis-ranged — that signal IS in-scope and must be fixed.
+  → When in doubt about whether a formulation-level mismatch also
+    changes the feasible region, mark as (d) UNCERTAIN and SKIP;
+    do NOT edit on speculation.
+
+Scope discipline (apply BEFORE drafting any edit):
+
+  Inventory the reviewer note. Each distinct defect the reviewer raised is
+  one independent fix request. Classify every request into one of:
+
+    (a) IN-SCOPE & ACTIONABLE      → fix it.
+    (b) IN-SCOPE BUT NOTE IS WRONG → SKIP. Examples: reviewer says "constraint
+        (5) is missing" but it's actually present in gurobi_code.py at line N;
+        reviewer claims a dimension is wrong but rereading shows it's correct.
+    (c) OUT-OF-SCOPE for this task → SKIP. Examples for Fix_4: hardcoded
+        magic numbers (Fix_5 territory); math_model.txt itself being wrong
+        (Fix_1 / Fix_2); checker logic (Fix_6 / Fix_7); prose (Fix_3).
+    (d) UNCERTAIN — when in doubt, SKIP.
+    (e) DESCRIPTIVE / OBSERVATIONAL — the reviewer is stating context or
+        background, not requesting any edit. Typical giveaways: note-style
+        wording ("Note:", "this paper uses ..."), declarative statements
+        about what the file / paper contains with no implied comparison to
+        a correct state, or justifications that explain a design without
+        flagging a defect. → SKIP. Record in REJECT_FIX.TXT with
+        category=descriptive.
+
+  Only items in (a) become hunks in FIX.DIFF. Every item in (b) / (c) /
+  (d) / (e) MUST be recorded in REJECT_FIX.TXT below — do NOT silently drop them.
+
+Hard rules:
+- ONLY modify what the reviewer note explicitly identifies. Do NOT add /
+  remove / "improve" anything the note does not mention, even if you spot
+  other mismatches between gurobi_code.py and math_model.txt.
+- For every edit, cite either the math_model element (if the note's defect
+  maps to a specific eq / var) or the paper page if the note cites the
+  paper directly.
+- Do NOT introduce arbitrary numeric defaults — that is Fix_5's job. If
+  the C_reason fix would require a magic number, mark as (d) UNCERTAIN
+  and SKIP, leaving it for Fix_5.
+- Keep the file runnable on any instance that conforms to instance_schema.json.
+- Unified diff uses `--- a/gurobi_code.py` / `+++ b/gurobi_code.py`,
+  3 lines of context per hunk, one hunk per contiguous edit region. Blank
+  context lines inside a hunk must start with a single space.
+
+Output (exactly four sentinel segments, in this order, NOTHING ELSE — no
+preamble, no closing remark):
+
+=== FIX.DIFF ===
+```diff
+<unified diff of gurobi_code.py only>
+```
+
+=== JUSTIFICATION.MD ===
+```markdown
+# Fix_4 justification — {paper_id}
+
+**Reviewer note:** {C_reason}
+
+**Edits:**
+| # | C_reason item | Change | Code location | math_model / paper ref |
+|---|---|---|---|---|
+| 1 | "constraint (2) missing" | add `m.addConstr(...)` | gurobi_code.py:L88 | math_model eq (2), p.4 eq.2 |
+| 2 | "dimension of arc capacity wrong" | change scalar → n×m matrix | gurobi_code.py:L42 | math_model param section |
+
+**Scope check:**
+- Hunks in diff: N
+- Rows in this table: N (must equal hunks)
+- Edits unrelated to the reviewer note: none
+- File touched: gurobi_code.py only: yes
+```
+
+=== RUN_LOG.MD ===
+```markdown
+# Fix_4 run verification — {paper_id}
+
+**Command:**
+`python gurobi_code.py --instance_path <smallest instance> --solution_path /tmp/sol.json --time_limit 60`
+
+**Result:** <solved / time_limit / infeasible / error>
+**Objective:** <value or "n/a">
+**Wall time:** <seconds>
+**stderr tail:**
+~~~
+<last ~20 lines of stderr if any>
+~~~
+```
+
+=== REJECT_FIX.TXT ===
+```text
+<If you addressed every actionable item from the reviewer note, write the
+ single line:
+   none
+
+ Otherwise, one block per skipped item, separated by blank lines:
+
+   item:     <quote or paraphrase the reviewer-note fragment you skipped>
+   category: incorrect | out-of-scope | uncertain | descriptive
+   reason:   <one to three sentences explaining why you did not modify
+             anything for this item>
+>
+```
+
+Reminders:
+- No triple backticks inside any payload. Use `~~~` or 4-space indentation
+  if you need to embed a code sample.
+- Do not wrap the whole answer in an extra ``` fence.

@@ -1,0 +1,17 @@
+# Minimal dependencies for one_shot_eval.py and scripts/paper_reproduce/run_program_solutions.py
+# Generated: 2026-04-21
+# Reproduce: conda create -n EffiBench python=3.13 && conda activate EffiBench && pip install -r requirements.txt
+
+# --- one_shot_eval.py: LLM API calls via OpenRouter ---
+requests==2.32.5
+PyYAML==6.0.2
+
+# --- Paper subprocesses: gurobi_code.py (all papers) ---
+gurobipy==12.0.3
+
+# --- Paper subprocesses: gurobi_code.py (numpy-using papers) ---
+# --- Paper subprocesses: feasibility_check.py (numpy-using papers) ---
+numpy==2.2.6
+
+# --- Paper subprocesses: feasibility_check.py (rahmaniani2020, li2020 use linprog) ---
+scipy==1.16.1

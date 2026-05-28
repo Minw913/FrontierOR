@@ -1,0 +1,64 @@
+Please carefully read the following source files located at 'data/paper_data/{paper_id}/' and generate a natural-language problem description for the optimization problem studied in this paper.
+
+## Source Files to Reference
+(1) The paper PDF in the same directory — use it for problem context, domain background, and any physical or operational meaning behind the model's components.
+(2) 'math_model.txt' — the formal mathematical formulation extracted from the paper. This is your ground truth for all variables, constraints, and objective. Every modeling rule in the math model must appear in your output.
+(3) 'instance/tiny_instance.json' — an example instance. Use it to understand the concrete data fields and parameter structure that the model operates on.
+(4) Optional: 'efficient_algorithm.txt', 'gurobi_code.py', 'generate_multiple_instances.py' — consult these if you need to clarify ambiguities in the math model or instance schema.
+
+## Task
+
+Produce a single plain-text file ('problem_description.txt' in the same directory) containing a concise, self-contained, natural-language description of the optimization problem.
+The description will be provided to other LLMs without access to the original paper or math_model.txt, and it must contain sufficiently precise and complete information in natural language to enable a capable model to correctly reconstruct the underlying optimization problem and develop a valid solution approach.
+
+## Output Format
+
+The output file must begin with the header line:
+
+# Problem Description
+
+followed by a blank line, then the prose paragraphs.
+
+## Style and Format Rules (MANDATORY — follow every rule exactly)
+
+(1) Apart from the "# Problem Description" header, write the entire output as continuous prose paragraphs. Do NOT use LaTeX, equations, equation blocks, bullet points, numbered lists, additional section headers, markdown formatting, or any other structural markup.
+
+(2) Describe mathematical relationships verbally. The text must encode the same information as the formulas, but without symbols.
+
+(3) Do NOT use explicit modeling-language jargon such as "decision variable," "constraint," "objective function," "feasibility," "binary variable," "continuous variable," "nonnegativity," or "for modeling purposes." Describe things in operational/business terms: "the company must choose…," "each machine may serve at most…," "the goal is to minimize…"
+
+(4) Omit common-sense mathematical properties (nonnegativity of physical quantities, integrality of yes/no decisions) UNLESS they encode a substantive modeling requirement that a reader could not infer from the business context alone.
+
+(5) Do NOT restate the same rule more than once. Each sentence should convey new information.
+
+(6) Do NOT include examples, worked instances, intuitive explanations, motivational storytelling, algorithmic hints, or commentary on problem difficulty.
+
+## Content Requirements (MANDATORY — every item must appear in your output)
+
+Your description must faithfully and completely encode the following from math_model.txt, translated into natural language:
+
+(a) What entities are involved (items, machines, periods, locations, vehicles, customers, etc.) and how many of each.
+
+(b) What the input data specifies — list every category of given data (demands, costs, capacities, distances, time windows, etc.) in natural language.
+
+(c) What must be decided — describe all choices to be made, in operational terms (production quantities, routes, assignments, schedules, etc.).
+
+(d) Every rule governing how those decisions interact — this is the core of the description. Each constraint from math_model.txt must have a verbal counterpart. Pay special attention to:
+   - Balance/conservation rules (flow balance, demand satisfaction, inventory dynamics)
+   - Capacity and resource limits
+   - Logical implications and linking rules (e.g., "production can occur only if the machine is set up")
+   - Temporal sequencing rules (e.g., startup/shutdown transitions between periods)
+   - Any problem-specific structural rules
+
+(e) What quantity is to be minimized or maximized, described as a sum of named cost (or revenue) components.
+
+## Quality Criteria
+
+A good output resembles the conciseness and technical density of this example:
+
+"ChemCo produces two types of solvents: Standard and Premium, by blending five raw materials: Alpha, Beta, Gamma, Delta, and Epsilon. Each raw material has four properties: Viscosity Index (VI), Flash Point (°C), Boiling Point (°C), and Density (g/cm³). The properties of each solvent are the volume-weighted averages of the properties of the raw materials used. Daily demands for each solvent type must be met, although production beyond demand is allowed. Quality requirements specify that VI and Boiling Point must meet minimum thresholds, while Flash Point and Density must match exact target values. ChemCo sells Standard at 25.50¢ per liter and Premium at 28.75¢ per liter, and no more than 35% of any solvent may consist of raw material Beta by volume. The objective is to determine the blending volumes of each raw material into each solvent type to maximize total daily profit, defined as total sales revenue minus total raw material costs."
+
+Your output should match this level of density: every sentence carries load-bearing information, there is no filler, and the description is both complete (a reader could reconstruct the math model) and compact (nothing is said twice).
+
+## Output Path
+'problem_description.txt' in the same directory as the paper PDF file.

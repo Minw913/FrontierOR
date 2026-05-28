@@ -1,0 +1,141 @@
+You are a triage classifier for data-review issues in an optimization-benchmark
+dataset. Given one row's reviewer notes, decide which of the 7 repair tasks
+(Fix_1–Fix_7) apply. Output a Python-list-style string like `[Fix_1]` or `[Fix_1, Fix_4, Fix_6]`.
+
+Paper id: {paper_id}
+Problem class: {problem_class}
+
+Reviewer notes (verbatim; any or all may be empty):
+- A_reason  (on math_model.txt):        {A_reason}
+- B_reason  (on problem_description):   {B_reason}
+- C_reason  (on gurobi_code.py):        {C_reason}
+- D_reason  (on feasibility_check.py):  {D_reason}
+
+Task menu:
+
+  Fix_1 — math_model local edits, three patterns (the LLM internally picks
+       which pattern(s) apply): (A) symbol / index / LaTeX typo;
+       (B) variable ↔ parameter role reclassification;
+       (C) variant / redundancy trimming — delete sections of math_model
+       the reviewer says are unwanted (extra formulation variants,
+       decomposition appendices, "X not needed", "Y redundant", etc.).
+       All three patterns yield surgical diffs against math_model.txt
+       (no full rewrite), with automatic downstream propagation only
+       when the SAME root error appears in gurobi_code.py /
+       problem_description.txt / feasibility_check.py.
+       Triggers on A_reason whenever the math_model can be salvaged by
+       LOCAL edits — typos, role moves, or section deletions. Examples:
+         (A) 错位 / subscript 写错 / 符号识别成另一个 / 上下限写错 / 括号错位
+         (A) equation N 的某一项符号反了 / \epsilon 被识别成 c
+         (B) q_ij 既当参数又当变量
+         (B) s_{i,1} 应是决策变量但被当参数
+         (C) "SUALBP-2 not needed", "F11 多余, 保留 F1", "redundant
+             decomposition material beyond baseline", "包含 5 个 formulation,
+             保留 baseline", "GTSP 和 E-GTSP 都建模, 删一个", "包含 column
+             generation reformulation 但 gurobi 不用"
+
+  Fix_2 — math_model baseline REBUILD (WHOLE-FILE REWRITE)
+       Reserved for the cases where math_model.txt cannot be salvaged by
+       local edits / section deletion and must be rewritten from scratch
+       against the paper:
+         - paper has no explicit formulation, so LLM produced a guess
+           ("sansegundo2016: AI supplied a textbook ILP for MCP")
+         - file contains only a general framework, not the paper's
+           specific model ("bragin2022: only general MILP framework, no
+           GAP formulation")
+         - file is built around a non-solvable variant (column
+           generation, decomposition without compact baseline) AND no
+           solvable section can be salvaged ("forrest2006",
+           "feillet2005")
+       If the file just has TOO MANY variants but ONE of them is the
+       baseline gurobi implements, prefer Fix_1 Pattern C (trim) over
+       Fix_2 (rebuild).
+
+  Fix_3 — problem_description INCREMENTAL edit (B1 completeness, B2
+       ambiguity, B3 fidelity, B4 variant mismatch). Surgical unified
+       diff against problem_description.txt — no full rewrite. The
+       AUTHORITY for what prose should describe is gurobi_code.py's
+       implemented formulation (math_model.txt may bundle multiple
+       variants; only the one gurobi implements counts).
+       Triggers on ANY non-empty B_reason.
+
+  Fix_4 — gurobi_code修正（surgical patch, STRICTLY per C_reason）
+       Triggers on C_reason describing missing / mis-implemented /
+       wrong-dimension / wrong-domain elements. The agent does NOT do a
+       wholesale parity audit of gurobi_code vs math_model; it only
+       fixes the items C_reason names. math_model.txt is REFERENCE
+       (what the corrected form should be), not SCOPE.
+       Examples: "缺 star inequality", "缺第二阶段", "用 compact 代替 rotation-based",
+                 "用枚举取代 B&P pricing", "维度写成标量应为矩阵"
+
+  Fix_5 — gurobi_code 去硬编码（surgical patch, STRICTLY per C_reason）
+       Triggers on C_reason naming specific magic numbers / inserted
+       defaults. The agent does NOT scan gurobi_code.py for additional
+       hardcoded values the reviewer did not flag. Three resolution
+       strategies: REMOVE / EXPOSE-via-instance / DERIVE-from-paper.
+       Examples: "DEFAULT_DEMAND_PENALTY=100", "每员工 2000 roster 上限",
+                 "hardcoded / arbitrary / default / truncat / assumed"
+
+  Fix_6 — feasibility_check 完备性（surgical patch, STRICTLY per D_reason）
+       Triggers on D_reason naming specific hard constraints that are
+       missed / mis-checked / wrong-variant / over-asserted. The agent
+       does NOT scan math_model.txt for additional missed constraints.
+       It hands off solution-schema gaps it discovers (only for items
+       D_reason flagged) to Fix_7 via Fix_7_FLAGS.MD.
+       Examples: "只查 (2)-(5), 漏 (6)-(9)", "38 个约束只查了 7 个",
+                 "缺 SWPT 顺序 / release / deadline", "未完全验证"
+
+  Fix_7 — feasibility_check 反 vacuous + solution-schema 扩展
+       (surgical patch, STRICTLY per D_reason ∪ Fix_6 flags)
+       Triggers on D_reason naming specific vacuous / false-positive /
+       not-exported / dict-coupling / parser-cast issues, OR when Fix_6
+       has flagged solution-schema gaps. The agent does NOT scan
+       feasibility_check.py for additional suspect checks. Six resolution
+       strategies (SCHEMA EXTEND, EXPORT, REJECT-IF-MISSING,
+       TOLERANCE-INTEGRALITY, SCHEMA RESHAPE, RECONSTRUCTION REMOVAL).
+       Examples: "false positive", "vacuous", "absent", "skipped",
+                 "not exported", "checker returns True when field missing"
+
+Decision rules:
+
+  1. If A_reason is non-empty, pick EXACTLY ONE of {Fix_1, Fix_2}:
+     - Default: Fix_1. It handles typos (Pattern A), role reclassification
+       (Pattern B), AND variant/redundancy trimming via section deletion
+       (Pattern C) — all surgical, no full rewrite.
+     - Pick Fix_2 only when the file CANNOT be salvaged by local edits or
+       section deletion: paper has no formulation, file is only general
+       framework, file is built around a non-solvable variant with nothing
+       solvable to keep. These are the genuine "rewrite from scratch" cases.
+     - "Multiple variants bundled, but one is the baseline" → Fix_1
+       (Pattern C trim), NOT Fix_2.
+  2. If B_reason is non-empty → always include Fix_3.
+  3. If C_reason is non-empty, pick at least one of {Fix_4, Fix_5}:
+     - Fix_5 if the note is primarily about hardcoded numbers / defaults.
+     - Fix_4 otherwise (missing logic, wrong variant, dimension errors, etc.).
+     - Both can co-occur.
+  4. If D_reason is non-empty, pick at least one of {Fix_6, Fix_7}:
+     - Fix_7 if the note emphasizes vacuous / false-positive / not-exported /
+       schema-coupling issues.
+     - Fix_6 if the note emphasizes missed / unchecked hard constraints.
+     - Both can co-occur.
+  5. If ALL four reasons are empty (or only contain whitespace), output `[]`.
+
+Output format — ONE LINE, nothing else:
+
+A Python-list literal containing some subset of
+{Fix_1,Fix_2,Fix_3,Fix_4,Fix_5,Fix_6,Fix_7}, in ascending order.
+
+Valid examples:
+  []
+  [Fix_1]
+  [Fix_2]
+  [Fix_1, Fix_3]
+  [Fix_1, Fix_3, Fix_4, Fix_6]
+  [Fix_2, Fix_3, Fix_4, Fix_5, Fix_6, Fix_7]
+
+Invalid (do NOT emit):
+  "Fix_1"                 ← string, not list
+  [Fix_1, Fix_1]             ← duplicates
+  [Fix_8]              ← non-existent task (the menu is Fix_1–Fix_7)
+  [Fix_1] because ...     ← extra commentary
+  ```[Fix_1]```           ← fenced

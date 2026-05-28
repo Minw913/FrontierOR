@@ -1,0 +1,200 @@
+You are fixing feasibility_check.py STRICTLY according to the reviewer note.
+You produce a SURGICAL patch — not a full-file constraint-coverage audit.
+Do NOT scan math_model.txt for OTHER constraints the checker might be missing
+(or wrongly checking). Only the items the reviewer note flags become edits.
+
+Paper id: {paper_id}
+
+Inputs (Read each before drafting any edit):
+- data/data_review_canonical/{paper_id}/feasibility_check.py       (target; edit via diff)
+- data/data_review_canonical/{paper_id}/math_model.txt             (reference for what the correct check should look like)
+- data/data_review_canonical/{paper_id}/gurobi_code.py             (reference for variable names / solution schema)
+- data/data_review_canonical/{paper_id}/solution_schema.json     (reference; if a flagged check needs a missing field, FLAG to Fix_7)
+- data/data_review_canonical/{paper_id}/{paper_id}.pdf             (ground truth when D_reason cites a paper equation)
+- Reviewer note (verbatim): {D_reason}
+
+Authority for "what feasibility_check.py should do":
+
+  The reviewer note is the SCOPE; math_model.txt / paper are the REFERENCE
+  within that scope.
+    → D_reason names the specific constraints that are missed, mis-checked,
+      or wrongly checked. Only those.
+    → For each flagged constraint, math_model.txt tells you the
+      mathematical form the check must enforce; gurobi_code.py tells you
+      the variable names the check should read from the solution.
+    → If feasibility_check.py is missing OTHER constraints the reviewer
+      did NOT mention, leave it alone — that is OUT-OF-SCOPE.
+    → If feasibility_check.py is wrongly checking something (e.g. a soft
+      constraint, or a constraint from a different variant) and the
+      reviewer did NOT mention it, leave it alone too.
+
+Core principle (use as accept/reject criterion for reviewer signals):
+
+  feasibility_check.py verifies the constraints of the ORIGINAL
+  optimization problem, evaluated over the ORIGINAL solution structure
+  (the decision-variable schema defined for the paper's original
+  problem, which solution_schema.json describes). Constraints that
+  only exist AFTER reformulation, relaxation, decomposition, or as
+  valid inequalities are INTENTIONALLY EXCLUDED from the checker —
+  they are solver-internal artifacts, not feasibility obligations of
+  the original problem.
+
+  It is REQUIRED that gurobi_code.py and any downstream generated
+  algorithm project / convert their internal solution back onto the
+  ORIGINAL solution structure before handing it to the checker. The
+  checker does NOT adapt to reformulated / expanded / aggregated
+  variable sets; the responsibility to produce an original-structure
+  solution lies on the solver / algorithm side.
+
+  → If a reviewer signal asks to ADD checks for reformulation-only
+    constraints, relaxation-only bounds, decomposition master / pricing
+    conditions, or valid-inequality certificates (e.g. "the column-
+    generation master constraints (12) are not checked", "checker
+    missing Benders cut (17)", "add valid inequality (22) to the
+    checker"), treat it as (b) INCORRECT and SKIP. Record in
+    REJECT_FIX.TXT with category=incorrect and reason citing this
+    principle.
+  → If a reviewer signal asks to MAKE the checker accept a reformulated
+    solution structure (e.g. "checker rejects column-pool solutions —
+    accept them", "checker should read arc-flow variables emitted by
+    the extended formulation"), treat it as (b) INCORRECT and SKIP —
+    the fix belongs on the gurobi / algorithm side, not on the checker.
+    Record with category=incorrect.
+  → If a reviewer signal asks to ADD checks for ORIGINAL-problem
+    constraints currently missed, REMOVE checks of
+    soft / reformulation / valid-inequality items that leaked in, or
+    FIX a check that enforces the wrong form of an original
+    constraint, that signal IS in-scope.
+
+Scope discipline (apply BEFORE drafting any edit):
+
+  Inventory the reviewer note. Each distinct constraint defect the
+  reviewer raised is one independent fix request. Classify every request
+  into one of:
+
+    (a) IN-SCOPE & ACTIONABLE      → fix it (per the rules below).
+    (b) IN-SCOPE BUT NOTE IS WRONG → SKIP. Examples: reviewer says
+        "constraint (6) is not checked" but it is in fact checked at line N;
+        reviewer flags a soft constraint as missing (it should not be
+        checked at all).
+    (c) OUT-OF-SCOPE for this task → SKIP. Examples for Fix_6:
+        - vacuous / false-positive checks (Fix_7 territory)
+        - missing solution-JSON fields needed for verification (Fix_7)
+        - math_model itself wrong (Fix_1 / Fix_2)
+        - gurobi_code wrong (Fix_4 / Fix_5)
+        - prose (Fix_3)
+    (d) UNCERTAIN — when in doubt, SKIP.
+    (e) DESCRIPTIVE / OBSERVATIONAL — the reviewer is stating context or
+        background, not requesting any edit. Typical giveaways: note-style
+        wording ("Note:", "this paper uses ..."), declarative statements
+        about what the file / paper contains with no implied comparison to
+        a correct state, or justifications that explain a design without
+        flagging a defect. → SKIP. Record in REJECT_FIX.TXT with
+        category=descriptive.
+
+  Only items in (a) become hunks in FIX.DIFF. Every item in (b) / (c) /
+  (d) / (e) MUST be recorded in REJECT_FIX.TXT below — do NOT silently drop them.
+
+Resolution rules — for each (a) item, follow these:
+- If the reviewer says "constraint X is missed" → add ONE check block
+  for X, mirroring math_model's eq-X form, reading from the solution
+  schema fields gurobi_code.py exports. One constraint, one check block.
+- If the reviewer says "soft constraint X is being checked (should not)"
+  → REMOVE that check block.
+- If the reviewer says "checker assumes / reconstructs X" but math_model
+  does not mandate it → REMOVE the assumption / reconstruction.
+- If the reviewer says "checker is enforcing the wrong variant"
+  (e.g. TIF vs BDDF) → replace ONLY that block with the correct variant's
+  form per math_model.
+- If a solution-schema field is missing for a flagged check → do NOT
+  fabricate / reconstruct; FLAG it in Fix_7_FLAGS.MD and proceed with
+  the rest of the diff (the check itself remains for Fix_7 to re-enable
+  after schema is extended).
+
+Hard rules:
+- ONLY modify check blocks that the reviewer note explicitly identifies.
+  Do NOT scan math_model.txt for additional missed constraints, even if
+  you notice them while reading.
+- Do NOT remove a check block the reviewer didn't tag, even if you think
+  it looks soft / heuristic.
+- Unified diff uses `--- a/feasibility_check.py` / `+++ b/feasibility_check.py`,
+  3 lines of context per hunk, one hunk per contiguous edit region;
+  blank context lines start with a single space.
+
+Output (exactly five sentinel segments, in this order, NOTHING ELSE — no
+preamble, no closing remark):
+
+=== FIX.DIFF ===
+```diff
+<unified diff of feasibility_check.py only>
+```
+
+=== JUSTIFICATION.MD ===
+```markdown
+# Fix_6 justification — {paper_id}
+
+**Reviewer note:** {D_reason}
+
+**Edits:**
+| # | D_reason item | Resolution | Check location | math_model / paper ref |
+|---|---|---|---|---|
+| 1 | "constraint (6) missed"      | added new check block      | feasibility_check.py:L82 | math_model eq (6), p.4 |
+| 2 | "soft constraint (7) checked" | removed check block        | feasibility_check.py:L100 | math_model marks (7) soft |
+| 3 | "wrong variant TIF instead of BDDF for (1b-1d)" | replaced block with BDDF (6b-6f) form | feasibility_check.py:L120 | math_model §3.2 eq (6b-6f) |
+
+**Scope check:**
+- Hunks in diff: N
+- Rows in this table: N (must equal hunks)
+- Edits unrelated to the reviewer note: none
+- File touched: feasibility_check.py only: yes
+```
+
+=== Fix_7_FLAGS.MD ===
+```markdown
+# Fix_6 → Fix_7 hand-off — {paper_id}
+
+**Solution schema gaps blocking hard-constraint verification (only for
+constraints the reviewer FLAGGED in this Fix_6 run):**
+
+| Missing field | Needed for which D_reason item | Suggested JSON path |
+|---|---|---|
+| f_a (continuous flow) | "(28), (30) checked but no flow exported" | solution.flows[a] |
+
+If no gaps: write the single line:
+   None — schema already sufficient for the items D_reason flagged.
+```
+
+=== RUN_LOG.MD ===
+```markdown
+# Fix_6 run verification — {paper_id}
+
+**Command:**
+`python feasibility_check.py --instance <...> --solution <...>`
+
+**Result:** feasible = <true/false>
+**Violations printed:** <"none" OR list of constraint ids>
+**stderr tail:**
+~~~
+<last ~20 lines if any>
+~~~
+```
+
+=== REJECT_FIX.TXT ===
+```text
+<If you addressed every actionable item from the reviewer note, write the
+ single line:
+   none
+
+ Otherwise, one block per skipped item, separated by blank lines:
+
+   item:     <quote or paraphrase the reviewer-note fragment you skipped>
+   category: incorrect | out-of-scope | uncertain | descriptive
+   reason:   <one to three sentences explaining why you did not modify
+             anything for this item>
+>
+```
+
+Reminders:
+- No triple backticks inside any payload. Use `~~~` or 4-space indentation
+  if you need to embed a code sample.
+- Do not wrap the whole answer in an extra ``` fence.

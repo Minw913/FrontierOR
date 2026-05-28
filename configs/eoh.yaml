@@ -1,0 +1,9 @@
+eoh:
+  method: eoh
+  llm:
+    # Upstream EoH expects a host name, not a full https://.../v1 URL.
+    api_endpoint: openrouter.ai
+  evolution:
+    pop_size: 4
+    n_pop: 4
+    workers: 1
