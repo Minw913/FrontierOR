@@ -32,12 +32,12 @@ We currently evaluate seven LLMs backbones and three test-time evalution methods
 
 ## Environment Setup
 
-You can run FrontierOR in any of three execution backends — pick based on how much isolation you want for the LLM-generated subprocess that solves each instance:
+You can run FrontierOR in any of three execution backends. Both one-shot and self-evolve evaluation pipelines accept the backend via `--exec-mode` (e.g. `--exec-mode systemd --cpus 1`):
 
 | Backend | What it does | When to use |
 |---|---|---|
-| `bare` (default) | Runs each `code.py` subprocess directly in the host environment, no resource caps. | Local development, fastest startup, you trust the generated code. |
-| `systemd` | Wraps each subprocess in a `systemd-run --scope` unit with pinned CPUs (`AllowedCPUs`) and `MemoryMax`. | Multi-paper parallel runs on a Linux server — reproducible CPU/RAM caps, no Docker. |
+| `bare` | Runs each `code.py` subprocess directly in the host environment, no resource caps. | Local development, fastest startup, you trust the generated code. |
+| `systemd` (default) | Wraps each subprocess in a `systemd-run --scope` unit with pinned CPUs (`AllowedCPUs`) and `MemoryMax`. | Multi-paper parallel runs on a Linux server — reproducible CPU/RAM caps, no Docker. |
 | `docker` | Runs each subprocess in a Docker container with `--cpuset-cpus`, `--memory`, and `--network=none`. | Untrusted code, full isolation, or air-gapped reproducibility. Requires building the `frontier-or` image first (`docker build -t frontier-or .`). |
 
 ### Step 1 — Clone the repo and download the dataset
@@ -70,19 +70,11 @@ During evaluation some LLM-generated solver programs require a valid `gurobipy` 
 
 ### Step 4 — OpenRouter API key
 
-LLM calls go through OpenRouter. `configs/api_keys.yaml` carries two scoped keys — one for one-shot generation and one for self-evolve — so you can route the two workloads through different OpenRouter accounts/quotas:
+LLM calls go through OpenRouter and the model registry is in `configs/oneshot.yaml`. `configs/api_keys.yaml` provides two scoped keys (one-shot generation and test-time self-evolution), allowing each workload to use a separate OpenRouter account or quota:
 
 ```yaml
-OPENROUTER_API_KEY_ONESHOT: sk-or-...        # used by one_shot_eval.py
-OPENROUTER_API_KEY_SELF_EVOLVE: sk-or-...    # used by self_evolving_frameworks/run_eval_modes.py
-```
-
-The model registry (the 7 backbones evaluated in the paper) lives separately in `configs/oneshot.yaml` and is consumed by both pipelines.
-
-Alternatively, set a single env var that overrides both:
-
-```bash
-export OPENROUTER_API_KEY=sk-or-...
+OPENROUTER_API_KEY_ONESHOT: sk-or-...       
+OPENROUTER_API_KEY_SELF_EVOLVE: sk-or-...   
 ```
 
 You do **not** need this for the Quick Start below, which reuses pre-generated code in `samples/`.
@@ -91,63 +83,25 @@ You do **not** need this for the Quick Start below, which reuses pre-generated c
 
 ## Quick Start
 
-Five papers × seven models of pre-generated one-shot programs are shipped under `samples/oneshot_code/` for instant reproduction. The pipeline reads code from `eval/eval_papers/<paper>/<model>/code.py`, so first stage the shipped samples into that tree, then re-evaluate end-to-end (sanity-check on `tiny`, then large instances, with feasibility + solution-quality + QTE scoring) — no LLM API key needed:
+Run the following command to quickly conduct the one-shot evaluation, with results written to `eval/`. No API key is required, making this the fastest sanity check that the framework is set up correctly.
 
 ```bash
-mkdir -p eval && cp -r samples/oneshot_code eval/eval_papers
-
-python -u one_shot_eval.py \
-    --paper_id bierwirth2017 liao2020 pedersen2024 rahmaniani2018 walteros2020 \
-    --models all \
-    --reuse-code all \
-    --instances tiny large_11 \
-    --time_limit 600 \
-    --paper_workers 5 --model_workers 7 --instance_workers 2 \
-    --exec-mode bare
+python -u one_shot_eval.py --paper_id bierwirth2017 liao2020 --reuse-code all --code-root samples/oneshot_code --exec-mode bare
 ```
-
-This reuses the staged `eval/eval_papers/<paper>/<model>/code.py` files, runs each program against the bundled instances, and writes results to per-model CSVs under `eval/`. Drop `--reuse-code all` to re-generate code from scratch (requires `OPENROUTER_API_KEY`).
 
 ---
 
 ## Evaluation
 
-FrontierOR exposes three evaluation pipelines: the **Gurobi baseline**, **one-shot LLM generation**, and **test-time self-evolution**.
+FrontierOR exposes two evaluation pipelines: **one-shot LLM generation**, and **test-time self-evolution**.
 
-### Baseline — Gurobi reference solutions
+### One-shot LLM generation
 
-Runs `gurobi_code.py` for each paper × instance, computes optimality gaps, and incrementally appends to a results CSV. Used to (re)build the reference solutions that LLM-generated programs are scored against.
-
-```bash
-python -u scripts/paper_reproduce/run_program_solutions.py \
-    --paper-id gschwind2021 \
-    --instances large_21 large_31 large_41 large_51 \
-    --time_limit 3600 \
-    --workers 5 \
-    --backend systemd \
-    --backend-cpus 1 \
-    --backend-memory 640G \
-    --force
-```
-
-Key flags:
-
-- `--paper-id` — one or more paper IDs (folder names under `frontier-or/`). Omit to auto-discover.
-- `--instances` — categorical names: `tiny`, `large_11`, `large_21`, `large_31`, `large_41`, `large_51`.
-- `--time_limit` — per-run cap (seconds), forwarded to each subprocess.
-- `--workers` — number of (paper, instance) cases to run in parallel.
-- `--backend` — `bare` / `systemd` / `docker`, with companion `--backend-cpus` and `--backend-memory` caps.
-- `--force` — overwrite any existing CSV row for a (paper, instance) pair.
-- `--schema gurobi` writes the simplified `gurobi_solving_results.csv` (omit for the full schema, default).
-
-### One-shot — generate + evaluate a program in a single LLM call
-
-Drives the full one-shot pipeline: prompt assembly → LLM code generation → debug-retry loop → tiny sanity check → large-instance evaluation → per-model CSV row.
+Drives the full one-shot pipeline: prompt assembly → LLM code generation → tiny sanity check → large-instance evaluation.
 
 ```bash
 python -u one_shot_eval.py \
-    --paper-tag A \
-    --models all \
+    --models gpt-5.3-codex \
     --instances large_11 large_21 large_31 large_41 large_51 \
     --max_debug_retries 5 \
     --time_limit 3600 \
@@ -157,29 +111,28 @@ python -u one_shot_eval.py \
 
 Key flags:
 
-- `--paper_id` / `--paper-tag` — explicit IDs vs. selecting by the `tag` column in `gurobi_results_all_new.csv` (the CSV is not shipped with the repo; supply your own at the repo root if you want to use `--paper-tag`).
+- `--paper_id` — explicit paper IDs.
 - `--models` — short names from `configs/oneshot.yaml` (`gpt-5.3-codex`, `claude-opus-4.6`, `gemini-3.1-pro-preview`, `deepseek-r1`, `grok-4.20-beta`, `qwen3-coder-plus`, `llama-4-maverick`), or `all`.
-- `--max_debug_retries` — bounded debug loop when the LLM's program raises (default 5).
+- `--max_debug_retries` — bounded debug loop when the LLM's program raises.
 - `--paper_workers` / `--model_workers` / `--instance_workers` — three-level parallelism across the (paper × model × instance) grid.
 - `--exec-mode` — `bare` / `systemd` / `docker`, paired with `--cpus` / `--memory`.
 - `--reuse-code {none,incomplete,all}` — `incomplete` (default) skips (paper, instance) rows already in CSV; `all` re-runs against existing `code.py`; `none` always re-generates.
 
-### Self-evolve — test-time evolutionary frameworks
+### Test-time Self-evolution
 
 A single CLI wrapper drives all three self-evolving frameworks (`eoh`, `coral`, `openevolve`) on top of the same one-shot starting program. Defaults match the configurations reported in the paper — you usually only need to choose the framework and papers:
 
 ```bash
 python -u self_evolving_frameworks/run_eval_modes.py \
-    --framework eoh \
-    --paper-id wangk2020 rostami2021 adulyasak2015 bertsimas2022 carvalho1999 \
-               desaulniers2014 desaulniers2016 roberti2018 kobeaga2024 schwerdfeger2016 \
-               archetti2007 watermeyer2020 pinnoi1997 furini2021 bard2002 \
-               armbruster2012 nagy2015 pedersen2024 mehrotra1996 bront2009 \
-    --primary-model gpt-5.3-codex \
-    --paper-workers 10 \
-    --eoh-pop-size 2 --eoh-n-pop 5 --eoh-operators e1 e2 m2 \
-    --eoh-system-include-spec --eoh-enable-artifact \
-    --run-id hardset_20_minwei_new
+    --framework openevolve \
+    --openevolve-iterations 30 \
+    --primary-model google/gemini-3.1-pro-preview \
+    --paper-workers 30 \
+    --dev-set median \
+    --test-instance-workers 4 \
+    --exec-mode systemd \
+    --cpus 1 --memory 640G \
+    --run-id your_run_id
 ```
 
 Switch frameworks via `--framework {eoh,coral,openevolve}`; framework-specific knobs (`--eoh-*`, `--coral-*`, `--openevolve-iterations`) override the defaults when needed. The stage1 (binary gate on `tiny`) → stage2 (dev set fitness) → test-set scoring pipeline is shared across all three frameworks for apples-to-apples comparison.
@@ -223,17 +176,17 @@ FrontierOR routes all LLM calls through OpenRouter, so adding a model is a confi
 
 For self-evolution, the same short name flows through `--primary-model` / `--secondary-model` in `self_evolving_frameworks/run_eval_modes.py`.
 
-<!-- --- -->
+---
 
-<!-- ## Citation
+## Citation
 
 If you use FrontierOR in your research, please cite:
 
 ```bibtex
-@inproceedings{frontieror2026,
-  title     = {FrontierOR: Benchmarking LLMs' Capacity for Efficient Algorithm Design in Large-Scale Optimization},
-  author    = {Anonymous},
-  booktitle = {Advances in Neural Information Processing Systems},
-  year      = {2026}
+@article{kong2026frontieror,
+  title={FrontierOR: Benchmarking LLMs' Capacity for Efficient Algorithm Design in Large-Scale Optimization},
+  author={Kong, Minwei and Jiang, Chonghe and Qu, Ao and Ouyang, Wenbin and Zeng, Zhaoming and Guo, Xiaotong and Li, Zhekai and Li, Junyi and Fan, Yi and Zheng, Xinshou and others},
+  journal={arXiv preprint arXiv:2605.25246},
+  year={2026}
 }
-``` -->
+```

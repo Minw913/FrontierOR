@@ -39,6 +39,13 @@ import yaml
 
 ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
 
+# Directory containing the per-(paper, model) ``code.py`` files to READ from.
+# Defaults to ``<repo>/eval/eval_papers``; overridden via ``--code-root`` (e.g.
+# ``--code-root samples/oneshot_code`` to evaluate the shipped sample programs).
+# Pipeline WRITES (logs, solutions, intermediate code) always go to
+# ``eval/eval_papers/`` regardless, so the code-root tree stays untouched.
+CODE_ROOT = None
+
 # Results CSV resolution priority:
 #   1. ``_RESULTS_CSV_OVERRIDE`` (set by --results_csv): wins for every model.
 #   2. ``_results_csv_local.path`` (set by ``process_paper_model`` from the
@@ -403,6 +410,17 @@ def get_model_eval_dir(paper_id, model_name):
     d = os.path.join(ROOT_DIR, "eval", "eval_papers", paper_id, model_name)
     os.makedirs(d, exist_ok=True)
     return d
+
+
+def get_model_code_dir(paper_id, model_name):
+    """Per-(paper, model) directory to READ ``code.py`` from.
+
+    Same as ``get_model_eval_dir`` unless ``--code-root`` overrides the base,
+    in which case it points at the user-supplied tree (e.g. ``samples/oneshot_code``)
+    while writes still target ``eval/eval_papers``.
+    """
+    base = CODE_ROOT if CODE_ROOT else os.path.join(ROOT_DIR, "eval", "eval_papers")
+    return os.path.join(base, paper_id, model_name)
 
 
 def read_problem_description(paper_id):
@@ -1428,7 +1446,7 @@ def run_instances_with_existing_code(paper_id, instance_indices, model,
     """
     model_name = get_model_short_name(model)
     model_dir = get_model_eval_dir(paper_id, model_name)
-    code_path = os.path.join(model_dir, code_filename)
+    code_path = os.path.join(get_model_code_dir(paper_id, model_name), code_filename)
 
     if not os.path.exists(code_path):
         print(f"  ERROR: code not found at {code_path}")
@@ -1871,7 +1889,10 @@ def _process_paper_model_inner(paper_id, config, model, instance_indices,
     # from CSV / disk so budgets and CSV counters continue from where the
     # previous run stopped. ===
     model_dir = get_model_eval_dir(paper_id, model_name)
-    code_path = os.path.join(model_dir, "code.py")
+    if reuse_code:
+        code_path = os.path.join(get_model_code_dir(paper_id, model_name), "code.py")
+    else:
+        code_path = os.path.join(model_dir, "code.py")
     attempt0_path = os.path.join(model_dir, "code_attempt0.py")
 
     token_usage = {"prompt_tokens": 0, "completion_tokens": 0, "cached_tokens": 0}
@@ -2366,11 +2387,24 @@ def main():
                              "incomplete (DEFAULT): skip (paper, instance) pairs "
                              "already recorded in the results CSV, only run the rest. "
                              "Bare --reuse-code is equivalent to 'all'.")
+    parser.add_argument("--code-root", type=str, default=None,
+                        help="Directory to read code.py from, layout "
+                             "<code-root>/<paper>/<model>/code.py "
+                             "(default: eval/eval_papers). Quick Start uses "
+                             "'samples/oneshot_code' to evaluate the shipped "
+                             "pre-generated programs directly. Pipeline writes "
+                             "still go to eval/eval_papers regardless.")
     parser.add_argument("--results_csv", type=str, default=None,
                         help="Path to the results CSV (default: "
                              "eval/eval_results.csv). Use a per-run file to "
                              "isolate outputs from parallel one_shot_eval.py runs.")
     args = parser.parse_args()
+    if args.code_root:
+        global CODE_ROOT
+        CODE_ROOT = os.path.abspath(os.path.expanduser(args.code_root))
+        if not os.path.isdir(CODE_ROOT):
+            print(f"ERROR: --code-root {CODE_ROOT!r} is not a directory")
+            sys.exit(1)
     # Downstream uses truthy checks on reuse_code; normalize the "none" label.
     if args.reuse_code == "none":
         args.reuse_code = None
