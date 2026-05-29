@@ -33,13 +33,18 @@ from scripts.utils.instance_paths import (  # noqa: E402
 
 def load_mode_config():
     config_path = os.path.join(ROOT_DIR, "configs", "oneshot.yaml")
+    keys_path = os.path.join(ROOT_DIR, "configs", "api_keys.yaml")
     config = {}
     if os.path.exists(config_path):
         with open(config_path, encoding="utf-8") as f:
             config = yaml.safe_load(f) or {}
-    api_key = os.environ.get("OPENROUTER_API_KEY") or config.get("OPENROUTER_API_KEY_SELF_EVOLVE")
+    keys = {}
+    if os.path.exists(keys_path):
+        with open(keys_path, encoding="utf-8") as f:
+            keys = yaml.safe_load(f) or {}
+    api_key = os.environ.get("OPENROUTER_API_KEY") or keys.get("OPENROUTER_API_KEY_SELF_EVOLVE")
     if not api_key:
-        raise SystemExit("ERROR: set env OPENROUTER_API_KEY or OPENROUTER_API_KEY_SELF_EVOLVE in configs/oneshot.yaml")
+        raise SystemExit("ERROR: set env OPENROUTER_API_KEY or OPENROUTER_API_KEY_SELF_EVOLVE in configs/api_keys.yaml")
     config["OPENROUTER_API_KEY"] = api_key
     if not config.get("models"):
         if config.get("model"):

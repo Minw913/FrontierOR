@@ -1,0 +1,8 @@
+# OpenRouter API keys
+# Used by:
+#   OPENROUTER_API_KEY_ONESHOT     -> one_shot_eval.py
+#   OPENROUTER_API_KEY_SELF_EVOLVE -> self_evolving_frameworks/run_eval_modes.py
+# Either field can be overridden at runtime by setting env var OPENROUTER_API_KEY
+# (which takes precedence over both and applies to whichever pipeline is running).
+OPENROUTER_API_KEY_ONESHOT:
+OPENROUTER_API_KEY_SELF_EVOLVE:

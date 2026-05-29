@@ -315,18 +315,10 @@ def configure_gurobi_license():
 
 def get_data_dir():
     """Return the root directory containing paper_id subdirectories."""
-    override = os.environ.get("EFFICIENT_OPT_BENCH_DATA_DIR")
+    override = os.environ.get("FRONTIER_OR_DATA_DIR")
     if override:
         return os.path.abspath(os.path.expanduser(override))
-    candidates = [
-        os.path.join(ROOT_DIR, "frontier-or"),
-        os.path.join(ROOT_DIR, "efficiency_opt_bench"),
-        os.path.join(ROOT_DIR, "data", "paper_data"),
-    ]
-    for candidate in candidates:
-        if os.path.isdir(candidate):
-            return candidate
-    return candidates[0]
+    return os.path.join(ROOT_DIR, "frontier-or")
 
 
 TASK_SPECIFICATION = """\
@@ -373,14 +365,19 @@ Do NOT implement your own logging mechanism. Just call `logger.log(objective_val
 
 def load_config():
     config_path = os.path.join(ROOT_DIR, "configs", "oneshot.yaml")
+    keys_path = os.path.join(ROOT_DIR, "configs", "api_keys.yaml")
     if not os.path.exists(config_path):
-        print(f"ERROR: {config_path} not found. Create it with OPENROUTER_API_KEY_ONESHOT and model fields.")
+        print(f"ERROR: {config_path} not found. Create it with the 'models' list.")
         sys.exit(1)
     with open(config_path, "r") as f:
-        config = yaml.safe_load(f)
-    api_key = os.environ.get("OPENROUTER_API_KEY") or config.get("OPENROUTER_API_KEY_ONESHOT")
+        config = yaml.safe_load(f) or {}
+    keys = {}
+    if os.path.exists(keys_path):
+        with open(keys_path, "r") as f:
+            keys = yaml.safe_load(f) or {}
+    api_key = os.environ.get("OPENROUTER_API_KEY") or keys.get("OPENROUTER_API_KEY_ONESHOT")
     if not api_key:
-        print("ERROR: set env OPENROUTER_API_KEY or OPENROUTER_API_KEY_ONESHOT in configs/oneshot.yaml")
+        print("ERROR: set env OPENROUTER_API_KEY or OPENROUTER_API_KEY_ONESHOT in configs/api_keys.yaml")
         sys.exit(1)
     config["OPENROUTER_API_KEY"] = api_key
     if not config.get("models"):

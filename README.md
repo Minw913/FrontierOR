@@ -22,11 +22,11 @@ We introduce **FrontierOR**, among the first benchmarks to systematically evalua
 
 - A natural-language **problem description**,
 - A faithful **mathematical formulation**,
-- A standardized suite of **large-scale instances** (up to ~10⁷ vars/constraints),
+- A standardized suite of **large-scale instances**,
 - An expert-verified **Gurobi reference baseline**,
 - A standalone **feasibility checker**.
 
-We evaluate seven LLMs spanning frontier, cost-effective, and open-source tiers, in both **one-shot** and **test-time evolution** settings. Results reveal that frontier models still struggle to move from executable formulations to *efficient* optimization algorithms: the strongest one-shot model outperforms Gurobi in only **31%** of cases on both solution quality and computational efficiency, and even strong coding agents with test-time evolution achieve only **50%** on selected hard tasks. FrontierOR thus establishes a practical platform for systematically testing whether future LLMs and agents can move beyond correct formulation toward feasible, high-quality, and *efficient* algorithms.
+We currently evaluate seven LLMs backbones and three test-time evalution methods and results reveal that frontier models still struggle to move from executable formulations to *efficient* optimization algorithms: the strongest model outperforms Gurobi in only **31%** of cases on both solution quality and computational efficiency, and even strong coding agents with test-time evolution achieve only **50%** on selected hard tasks. FrontierOR thus establishes a practical platform for systematically testing whether future LLMs and agents can move beyond correct formulation toward feasible, high-quality, and *efficient* algorithms.
 
 ---
 
@@ -40,44 +40,44 @@ You can run FrontierOR in any of three execution backends — pick based on how 
 | `systemd` | Wraps each subprocess in a `systemd-run --scope` unit with pinned CPUs (`AllowedCPUs`) and `MemoryMax`. | Multi-paper parallel runs on a Linux server — reproducible CPU/RAM caps, no Docker. |
 | `docker` | Runs each subprocess in a Docker container with `--cpuset-cpus`, `--memory`, and `--network=none`. | Untrusted code, full isolation, or air-gapped reproducibility. Requires building the `frontier-or` image first (`docker build -t frontier-or .`). |
 
-### Step 1 — Clone the repo (with Git LFS)
+### Step 1 — Clone the repo and download the dataset
 
-FrontierOR ships ~1k generated programs and instance bundles via Git LFS. Make sure LFS is installed before cloning:
+The code lives on GitHub; the benchmark data is hosted on HuggingFace at [`SmartOR/FrontierOR`](https://huggingface.co/datasets/SmartOR/FrontierOR).
 
 ```bash
-git lfs install
-git clone git@github.com:Minw913/frontier-or.git
-cd frontier-or
-git lfs pull
+# 1. Clone the code repo
+git clone git@github.com:Minw913/FrontierOR.git
+cd FrontierOR
+
+# 2. Download the dataset into ./frontier-or/ (the path the eval scripts read from)
+pip install -U "huggingface_hub[cli]"
+huggingface-cli download SmartOR/FrontierOR --repo-type dataset --local-dir frontier-or
 ```
 
 ### Step 2 — Python environment
 
-We recommend [`uv`](https://github.com/astral-sh/uv) for fast, reproducible installs (a `pip install -r requirements.txt` flow also works):
+We recommend [`uv`](https://github.com/astral-sh/uv) for fast, reproducible installs:
 
 ```bash
-# uv (recommended)
 uv venv --python 3.13 .venv
 source .venv/bin/activate
 uv pip install -r requirements.txt
-
-# or vanilla conda + pip
-conda create -n FrontierOR python=3.13 -y && conda activate FrontierOR
-pip install -r requirements.txt
 ```
 
 ### Step 3 — Gurobi license
 
-The Gurobi baseline and feasibility checks require a working `gurobipy` license. Place it at the path pointed to by `GRB_LICENSE_FILE` (the Dockerfile mounts it at `/opt/gurobi/gurobi.lic`).
+During evaluation some LLM-generated solver programs require a valid `gurobipy` license. Place it at the path pointed to by `GRB_LICENSE_FILE` (the Dockerfile mounts it at `/opt/gurobi/gurobi.lic`).
 
-### Step 4 — OpenRouter API key (only for re-running generation)
+### Step 4 — OpenRouter API key
 
-LLM calls go through OpenRouter. `configs/oneshot.yaml` carries two scoped keys — one for one-shot generation and one for self-evolve — so you can route the two workloads through different OpenRouter accounts/quotas:
+LLM calls go through OpenRouter. `configs/api_keys.yaml` carries two scoped keys — one for one-shot generation and one for self-evolve — so you can route the two workloads through different OpenRouter accounts/quotas:
 
 ```yaml
 OPENROUTER_API_KEY_ONESHOT: sk-or-...        # used by one_shot_eval.py
 OPENROUTER_API_KEY_SELF_EVOLVE: sk-or-...    # used by self_evolving_frameworks/run_eval_modes.py
 ```
+
+The model registry (the 7 backbones evaluated in the paper) lives separately in `configs/oneshot.yaml` and is consumed by both pipelines.
 
 Alternatively, set a single env var that overrides both:
 

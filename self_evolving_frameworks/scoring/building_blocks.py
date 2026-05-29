@@ -159,17 +159,10 @@ def gurobi_log_path_for(paper_id: str, instance: str) -> Optional[str]:
 def _data_root() -> str:
     """Inline minimal copy of one_shot_eval.get_data_dir() — kept here so
     building_blocks stays free of the one_shot_eval import (per the module
-    docstring). The candidate roots match one_shot_eval.get_data_dir()."""
-    override = os.environ.get("EFFICIENT_OPT_BENCH_DATA_DIR")
+    docstring)."""
+    override = os.environ.get("FRONTIER_OR_DATA_DIR")
     if override:
         return os.path.abspath(os.path.expanduser(override))
-    for candidate in (
-        os.path.join(ROOT_DIR, "frontier-or"),
-        os.path.join(ROOT_DIR, "efficiency_opt_bench"),
-        os.path.join(ROOT_DIR, "data", "paper_data"),
-    ):
-        if os.path.isdir(candidate):
-            return candidate
     return os.path.join(ROOT_DIR, "frontier-or")
 
 
