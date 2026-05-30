@@ -40,7 +40,7 @@ DEFAULT_INSTANCES: List[str] = ["tiny"]
 # instance with the median Gurobi τ_g per paper" (representative, avoids the
 # worst-case slowest). The resolution happens per paper in
 # run_self_evolve_mode(); see
-# self_evolving_frameworks.scoring.building_blocks.pick_median_tau_g_instance.
+# test_time_self_evolution.scoring.building_blocks.pick_median_tau_g_instance.
 # Pass '--dev-set max' (or 'max_tau_g' / 'auto') to opt into the largest-τ_g pick.
 SELF_EVOLVE_STAGE1_INSTANCES: List[str] = ["tiny"]
 SELF_EVOLVE_STAGE2_INSTANCES: Optional[List[str]] = None                              # CLI: --dev-set (None = auto-pick median-τ_g)

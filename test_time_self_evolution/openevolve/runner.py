@@ -3,7 +3,7 @@
 Functions here are the OpenEvolve runner / glue: spawning the OpenEvolve CLI,
 preparing its env, writing its YAML config, locating its best program, and
 the top-level :func:`run_self_evolve` orchestrator. Framework-agnostic
-helpers live in :mod:`self_evolving_frameworks.eval_modes`.
+helpers live in :mod:`test_time_self_evolution.eval_modes`.
 """
 
 from __future__ import annotations
@@ -20,8 +20,8 @@ import yaml
 
 import one_shot_eval as eval_core
 
-from self_evolving_frameworks import eval_modes
-from self_evolving_frameworks.openevolve.preflight import preflight_environment_check
+from test_time_self_evolution import eval_modes
+from test_time_self_evolution.openevolve.preflight import preflight_environment_check
 
 
 ROOT_DIR = os.path.dirname(
@@ -193,9 +193,9 @@ def augment_results_with_staged_qte(
     Modifies ``results`` in place and returns it. Logs follow the
     ``log_<inst>.jsonl`` convention (one_shot_eval._run_one_instance:708).
     """
-    from self_evolving_frameworks.scoring import get_scorer
-    from self_evolving_frameworks.scoring.base import ScoreContext
-    from self_evolving_frameworks.scoring.building_blocks import lookup_gurobi_time
+    from test_time_self_evolution.scoring import get_scorer
+    from test_time_self_evolution.scoring.base import ScoreContext
+    from test_time_self_evolution.scoring.building_blocks import lookup_gurobi_time
 
     if not results:
         return results
@@ -492,7 +492,7 @@ def run_self_evolve(
     oe_run_dir = os.path.join(base_dir, "openevolve_run")
     oe_config_path = os.path.join(base_dir, "openevolve_config.yaml")
     write_openevolve_config(oe_config_path, primary_model, secondary_model)
-    evaluator_path = os.path.join(ROOT_DIR, "self_evolving_frameworks", "openevolve", "evaluator.py")
+    evaluator_path = os.path.join(ROOT_DIR, "test_time_self_evolution", "openevolve", "evaluator.py")
     if resume and resume_remaining_iters == 0:
         # Already at or past the target budget — skip evolution entirely.
         # Just resolve the best program from the existing checkpoints.

@@ -1,7 +1,7 @@
 """Framework-agnostic helpers for multi-mode evaluation runners.
 
 OpenEvolve-specific orchestration lives in
-:mod:`self_evolving_frameworks.openevolve.runner`.
+:mod:`test_time_self_evolution.openevolve.runner`.
 """
 
 from __future__ import annotations
@@ -405,7 +405,7 @@ def _resolve_test_time_limits(
     """Per-instance time budget for the post-evolve test eval.
     Returns ``{inst: seconds}``.
     """
-    from self_evolving_frameworks.scoring.building_blocks import lookup_gurobi_time
+    from test_time_self_evolution.scoring.building_blocks import lookup_gurobi_time
 
     final_tl: Dict[str, int] = {}
     for inst in test_instances:

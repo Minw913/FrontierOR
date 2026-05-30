@@ -21,7 +21,7 @@ from typing import Dict, List, Optional
 import yaml
 
 import one_shot_eval as eval_core
-from self_evolving_frameworks import eval_modes
+from test_time_self_evolution import eval_modes
 
 
 ROOT_DIR = os.path.dirname(
@@ -169,7 +169,7 @@ class Grader(TaskGrader):
         old_env = {{key: os.environ.get(key) for key in env}}
         os.environ.update(env)
         try:
-            from self_evolving_frameworks.openevolve import evaluator
+            from test_time_self_evolution.openevolve import evaluator
 
             # OpenEvolve's evaluator returns EvaluationResult (dataclass with
             # .metrics + .artifacts) when openevolve is importable, dict
@@ -407,7 +407,7 @@ def write_coral_task(
 
 
 def _coral_cli() -> List[str]:
-    return [sys.executable, "-m", "self_evolving_frameworks.coral.coral_cli_wrapper"]
+    return [sys.executable, "-m", "test_time_self_evolution.coral.coral_cli_wrapper"]
 
 
 def read_attempts(coral_dir: str) -> List[Dict]:

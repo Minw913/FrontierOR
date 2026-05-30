@@ -9,7 +9,7 @@ import os
 import re
 from typing import Callable, Dict, Iterable, List, Optional
 
-from self_evolving_frameworks.openevolve import evaluator
+from test_time_self_evolution.openevolve import evaluator
 
 
 ROOT_DIR = os.path.dirname(
@@ -28,7 +28,7 @@ def code_hash(code_string: str) -> str:
 def _to_metrics(result) -> Dict:
     """Normalize evaluator return into a plain dict.
 
-    OpenEvolve's evaluator (``self_evolving_frameworks.openevolve.evaluator``)
+    OpenEvolve's evaluator (``test_time_self_evolution.openevolve.evaluator``)
     returns ``EvaluationResult(metrics, artifacts)`` when the ``openevolve``
     package is importable, and a bare ``dict`` otherwise. ``EvaluationResult``
     is a dataclass without ``.get()``, so callers that read scores via

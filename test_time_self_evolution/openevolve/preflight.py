@@ -81,7 +81,7 @@ def _check_gurobi_time_required(
     gurobi_time / gurobi_time_plus_buffer time policies additionally need
     it for sizing per-instance budgets.
     """
-    from self_evolving_frameworks.scoring.building_blocks import lookup_gurobi_time
+    from test_time_self_evolution.scoring.building_blocks import lookup_gurobi_time
 
     issues: List[str] = []
     needs: Dict[str, List[str]] = {}  # inst -> list of reason labels

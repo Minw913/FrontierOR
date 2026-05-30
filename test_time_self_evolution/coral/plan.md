@@ -1,6 +1,6 @@
 # CORAL → frontier-or 接入计划
 
-> 参照 `self_evolving_frameworks/openevolve/` 的接入形态，把 CORAL 这套
+> 参照 `test_time_self_evolution/openevolve/` 的接入形态，把 CORAL 这套
 > multi-agent 编排框架接到本 bench 的 `self_evolve` 模式上来。
 >
 > CORAL 与 OpenEvolve 在三件事上根本不同，决定了接入工作量比 OpenEvolve 大：
@@ -36,9 +36,9 @@
 
 **setup.sh 修改**：开启 `pip install -e ${TARGET_DIR}`（当前注释掉），加一行 sanity check 确认 `coral --version` 可执行。
 
-## T2. 要新写的文件（`self_evolving_frameworks/coral/`）
+## T2. 要新写的文件（`test_time_self_evolution/coral/`）
 
-参照 `self_evolving_frameworks/openevolve/` 的产物，对应映射：
+参照 `test_time_self_evolution/openevolve/` 的产物，对应映射：
 
 | OpenEvolve | CORAL 等价物 | 职责 |
 |---|---|---|
@@ -60,7 +60,7 @@ coral_task/
 ├── task.yaml                    # 由 task_template.yaml 渲染：把 prompt 填进 task.description
 ├── eval/
 │   └── grader.py                # ★ 不复制 grader 代码，而是 import-shim：
-│                                #   `from self_evolving_frameworks.coral.efficient_or_grader import Grader`
+│                                #   `from test_time_self_evolution.coral.efficient_or_grader import Grader`
 │                                #   靠 PYTHONPATH 让 CORAL 子进程能找到我们的 bench 代码
 ├── seed/
 │   ├── solve.py                 # eval_core.generate_candidate_code 生的 seed solve()，
@@ -73,7 +73,7 @@ coral_task/
 **关键 trade-off — 共用 grader 代码 vs 复制**：
 
 - 复制 grader 代码到 `eval/grader.py`：CORAL 标准做法，自包含但每改一次 grader 都要 regenerate
-- import-shim：`eval/grader.py` 只一行 `from self_evolving_frameworks.coral.efficient_or_grader import Grader`，CORAL 跑前我们设 `PYTHONPATH=<bench_root>:$PYTHONPATH`。**推荐这个**——单一事实来源、改 grader 不用 regenerate per-paper
+- import-shim：`eval/grader.py` 只一行 `from test_time_self_evolution.coral.efficient_or_grader import Grader`，CORAL 跑前我们设 `PYTHONPATH=<bench_root>:$PYTHONPATH`。**推荐这个**——单一事实来源、改 grader 不用 regenerate per-paper
 
 ## T4. 起子进程 + 生命周期管理
 
@@ -104,8 +104,8 @@ OpenEvolve 是 `subprocess.run(['python', 'openevolve-run.py', ...], check=True)
 加一行 dispatch（参考 OpenEvolve 现有 pattern）：
 
 ```python
-# self_evolving_frameworks/__init__.py 或 run_eval_modes.py 顶部
-from self_evolving_frameworks.coral import runner as coral_runner
+# test_time_self_evolution/__init__.py 或 run_eval_modes.py 顶部
+from test_time_self_evolution.coral import runner as coral_runner
 
 FRAMEWORKS = {
     "openevolve": openevolve_runner.run_self_evolve,
@@ -231,7 +231,7 @@ subprocess.run(["coral", "stop"], cwd=task_dir)
 
 # 验收清单（v1 接入完成的标志）
 
-- [ ] `bash self_evolving_frameworks/coral/setup.sh` 一次运行 → `coral --version` 可用
+- [ ] `bash test_time_self_evolution/coral/setup.sh` 一次运行 → `coral --version` 可用
 - [ ] `coral/runner.py:run_self_evolve(...)` 签名与 OpenEvolve 完全一致
 - [ ] `coral/efficient_or_grader.py` 通过 unit test（mock `eval_core.evaluate_candidate_code` 验 ScoreBundle 形状）
 - [ ] 一个 smoke test 脚本 `coral/smoke_test.py`，类似 ReEvo 的——用极小 budget（attempts=2，wall=120s）跑通一个 paper（建议 bodur2017 这种小问题）

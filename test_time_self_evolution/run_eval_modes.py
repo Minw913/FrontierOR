@@ -18,10 +18,10 @@ if ROOT_DIR not in sys.path:
     sys.path.insert(0, ROOT_DIR)
 
 import one_shot_eval as eval_core  # noqa: E402
-from self_evolving_frameworks import eval_modes  # noqa: E402
-from self_evolving_frameworks.coral import runner as coral_runner  # noqa: E402
-from self_evolving_frameworks.eoh import runner as eoh_runner  # noqa: E402
-from self_evolving_frameworks.openevolve import runner as openevolve_runner  # noqa: E402
+from test_time_self_evolution import eval_modes  # noqa: E402
+from test_time_self_evolution.coral import runner as coral_runner  # noqa: E402
+from test_time_self_evolution.eoh import runner as eoh_runner  # noqa: E402
+from test_time_self_evolution.openevolve import runner as openevolve_runner  # noqa: E402
 from scripts.utils.instance_paths import (  # noqa: E402
     DEFAULT_INSTANCES,
     SELF_EVOLVE_STAGE1_INSTANCES,
@@ -159,7 +159,7 @@ def _resolve_dev_set_for_paper(paper_id: str, dev_set_arg):
     one-element sentinel list or a validated explicit instance list.
     """
     if dev_set_arg == [_DEV_SET_SENTINEL_MAX]:
-        from self_evolving_frameworks.scoring.building_blocks import pick_max_tau_g_instance
+        from test_time_self_evolution.scoring.building_blocks import pick_max_tau_g_instance
         picked = pick_max_tau_g_instance(paper_id)
         if not picked:
             raise SystemExit(
@@ -170,7 +170,7 @@ def _resolve_dev_set_for_paper(paper_id: str, dev_set_arg):
         print(f"  [dev-set auto] {paper_id} → {picked} (max τ_g)")
         return [picked]
     if dev_set_arg == [_DEV_SET_SENTINEL_MEDIAN]:
-        from self_evolving_frameworks.scoring.building_blocks import pick_median_tau_g_instance
+        from test_time_self_evolution.scoring.building_blocks import pick_median_tau_g_instance
         picked = pick_median_tau_g_instance(paper_id)
         if not picked:
             raise SystemExit(
@@ -257,7 +257,7 @@ def _coral_max_seconds_per_paper(
 
     Multiplied by ``attempts`` × ``multiplier`` for multi-attempt runs.
     """
-    from self_evolving_frameworks.scoring.building_blocks import lookup_gurobi_time
+    from test_time_self_evolution.scoring.building_blocks import lookup_gurobi_time
 
     stage2_actual = 0
     for inst in dev_instances:

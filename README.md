@@ -125,7 +125,7 @@ Key flags:
 A single CLI wrapper drives all three self-evolving frameworks (`eoh`, `coral`, `openevolve`) on top of the same one-shot starting program. Defaults match the configurations reported in the paper — you usually only need to choose the framework and papers:
 
 ```bash
-python -u self_evolving_frameworks/run_eval_modes.py \
+python -u test_time_self_evolution/run_eval_modes.py \
     --framework openevolve \
     --openevolve-iterations 30 \
     --primary-model google/gemini-3.1-pro-preview \
@@ -176,7 +176,7 @@ FrontierOR routes all LLM calls through OpenRouter, so adding a model is a confi
 3. **(Optional) Tune the prompt** by editing the `build_prompt()` function in `one_shot_eval.py` if the model has unusual formatting requirements.
 4. **Run** `python one_shot_eval.py --paper-id <ID> --models <short_name>` to verify the model's code is parsed correctly.
 
-For self-evolution, the same short name flows through `--primary-model` / `--secondary-model` in `self_evolving_frameworks/run_eval_modes.py`.
+For self-evolution, the same short name flows through `--primary-model` / `--secondary-model` in `test_time_self_evolution/run_eval_modes.py`.
 
 ---
 

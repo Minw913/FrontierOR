@@ -16,13 +16,13 @@ import yaml
 from joblib import parallel_backend
 
 import one_shot_eval as eval_core
-from self_evolving_frameworks import eval_modes
-from self_evolving_frameworks.eoh.problem_adapter import (
+from test_time_self_evolution import eval_modes
+from test_time_self_evolution.eoh.problem_adapter import (
     EohBenchmarkProblem,
     materialize_candidate,
     patched_env,
 )
-from self_evolving_frameworks.openevolve.runner import reconstruct_results_from_metrics
+from test_time_self_evolution.openevolve.runner import reconstruct_results_from_metrics
 
 
 ROOT_DIR = os.path.dirname(
@@ -74,7 +74,7 @@ def _ensure_eoh_importable():
             while path in sys.path:
                 sys.path.remove(path)
             sys.path.insert(0, path)
-    local_eoh_dir = os.path.join(ROOT_DIR, "self_evolving_frameworks", "eoh")
+    local_eoh_dir = os.path.join(ROOT_DIR, "test_time_self_evolution", "eoh")
     loaded = sys.modules.get("eoh")
     loaded_path = os.path.abspath(getattr(loaded, "__file__", "")) if loaded else ""
     if loaded_path.startswith(os.path.abspath(local_eoh_dir) + os.sep):
@@ -621,7 +621,7 @@ def run_eoh(
         from eoh.utils.getParas import Paras
     except Exception as exc:
         raise RuntimeError(
-            "EoH is not importable. Run self_evolving_frameworks/eoh/setup.sh "
+            "EoH is not importable. Run test_time_self_evolution/eoh/setup.sh "
             "or install external/eoh/eoh with pip -e."
         ) from exc
     patch_eoh_remote_api_path()

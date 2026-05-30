@@ -25,7 +25,7 @@ if ROOT_DIR not in sys.path:
     sys.path.insert(0, ROOT_DIR)
 
 import one_shot_eval as eval_core  # noqa: E402
-from self_evolving_frameworks import eval_modes  # noqa: E402
+from test_time_self_evolution import eval_modes  # noqa: E402
 
 # EvaluationResult lets us return artifacts alongside metrics. Imported
 # lazily so the evaluator still works if openevolve is not installed
@@ -391,7 +391,7 @@ def _abort_if_license_died(results, stage_label):
     if triggered_inst is None:
         return
 
-    from self_evolving_frameworks.openevolve.preflight import verify_gurobi_license_now
+    from test_time_self_evolution.openevolve.preflight import verify_gurobi_license_now
     probe_msg = verify_gurobi_license_now()
     if probe_msg is None:
         # License re-probe passed → was a transient hiccup or LLM misuse.
@@ -491,12 +491,12 @@ def evaluate_stage2(program_path: str):
     """Stage 2 scoring. Dispatches to a pluggable Scorer selected via env var.
 
     ``EFFICIENT_OR_STAGE2_SCORER`` ∈ {"staged_qte", "aocc"}
-    (default: staged_qte). See self_evolving_frameworks/scoring/ for details.
+    (default: staged_qte). See test_time_self_evolution/scoring/ for details.
     """
     # Imported lazily so unit tests that mock eval_core don't need the scoring deps.
-    from self_evolving_frameworks.scoring import DEFAULT_SCORER, get_scorer
-    from self_evolving_frameworks.scoring.base import ScoreContext
-    from self_evolving_frameworks.scoring.building_blocks import lookup_gurobi_time
+    from test_time_self_evolution.scoring import DEFAULT_SCORER, get_scorer
+    from test_time_self_evolution.scoring.base import ScoreContext
+    from test_time_self_evolution.scoring.building_blocks import lookup_gurobi_time
 
     paper_id, model_name, exec_mode, base_output, t_max, exec_cfg = _common_env()
     instances = _split_instances(os.environ.get("EFFICIENT_OR_STAGE2_INSTANCES", ""))
