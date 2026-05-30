@@ -1,7 +1,7 @@
 # <img src="figures/frontieror_logo.svg" alt="FrontierOR logo" height="40" valign="middle"> FrontierOR: Benchmarking LLMs' Capacity for Efficient Algorithm Design in Large-Scale Optimization
 
 <p align="center">
-  <a href="https://frontieror.vercel.app/"><img src="https://img.shields.io/badge/%F0%9F%8C%90%20Website-frontieror.vercel.app-000" alt="Website"></a>
+  <a href="https://frontieror.vercel.app/"><img src="https://img.shields.io/badge/%F0%9F%8C%90%20Website-frontieror.vercel.app-52487b" alt="Website"></a>
   &nbsp;
   <a href="https://arxiv.org/abs/2605.25246"><img src="https://img.shields.io/badge/arXiv-2605.25246-b31b1b?logo=arxiv&logoColor=white" alt="arXiv"></a>
   &nbsp;
@@ -16,7 +16,7 @@
 
 ---
 
-## Introduction
+## 📖 Introduction
 
 Large language models (LLMs) are increasingly used for optimization modeling and solver-code generation, yet practical operations research (OR) problems often require a harder capability: designing *scalable algorithms* that exploit problem structure and outperform direct formulation-and-solve baselines. Existing benchmarks are limited to small or simplified examples far below real-world scale and complexity.
 
@@ -32,7 +32,7 @@ We currently evaluate seven LLMs backbones and three test-time evalution methods
 
 ---
 
-## Environment Setup
+## ⚙️ Environment Setup
 
 You can run FrontierOR in any of three execution backends. Both one-shot and self-evolve evaluation pipelines accept the backend via `--exec-mode` (e.g. `--exec-mode systemd --cpus 1`):
 
@@ -83,7 +83,7 @@ You do **not** need this for the Quick Start below, which reuses pre-generated c
 
 ---
 
-## Quick Start
+## 🚀 Quick Start
 
 Run the following command to quickly conduct the one-shot evaluation, with results written to `eval/`. No API key is required, making this the fastest sanity check that the framework is set up correctly.
 
@@ -93,7 +93,7 @@ python -u one_shot_eval.py --paper_id bierwirth2017 liao2020 --reuse-code all --
 
 ---
 
-## Run Evaluation
+## 🧪 Run Evaluation
 
 FrontierOR exposes two evaluation pipelines: **one-shot LLM generation**, and **test-time self-evolution**.
 
@@ -141,7 +141,7 @@ Switch frameworks via `--framework {eoh,coral,openevolve}`; framework-specific k
 
 ---
 
-## Leaderboard
+## 🏆 Leaderboard
 
 One-shot performance on **FrontierOR Full** (180 tasks) and **FrontierOR Hard** (50 tasks). Metrics: **Exec.** = execution rate, **Feas.** = large-instance feasibility, **Sol. q.** = solution-quality pass rate vs. Gurobi, **QTE** = joint quality-time-efficiency pass rate. **Bold** = best, _underline_ = second-best per column.
 
@@ -167,7 +167,7 @@ For self-evolution results, continuous-metric variants, pair-wise comparisons, a
 
 ---
 
-## Adding Support for New Models
+## 🤖 Adding Support for New Models
 
 FrontierOR routes all LLM calls through OpenRouter, so adding a model is a configuration-only change in most cases.
 
@@ -180,7 +180,7 @@ For self-evolution, the same short name flows through `--primary-model` / `--sec
 
 ---
 
-## Citation
+## 📚 Citation
 
 If you use FrontierOR in your research, please cite:
 
