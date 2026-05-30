@@ -11,7 +11,8 @@
     "application_field": "Supply Chain & Inventory",
     "avg_num_var": 920934.0,
     "avg_num_int_var": 8934.0,
-    "avg_num_constr": 953310.0
+    "avg_num_constr": 953310.0,
+    "source_link": "https://doi.org/10.1287/opre.2015.1401"
   },
   {
     "paper_id": "wangk2020",
@@ -25,7 +26,8 @@
     "application_field": "Aerospace & Aviation",
     "avg_num_var": 2270298.0,
     "avg_num_int_var": 1861248.0,
-    "avg_num_constr": 6929616.0
+    "avg_num_constr": 6929616.0,
+    "source_link": "https://doi.org/10.1287/opre.2020.1985"
   },
   {
     "paper_id": "wangy2020",
@@ -39,7 +41,8 @@
     "application_field": "Foundational / Theoretical",
     "avg_num_var": 4000035.0,
     "avg_num_int_var": 4000017.0,
-    "avg_num_constr": 4070.0
+    "avg_num_constr": 4070.0,
+    "source_link": "https://pubsonline.informs.org/doi/10.1287/ijoc.2020.1003"
   },
   {
     "paper_id": "alba2013",
@@ -53,7 +56,8 @@
     "application_field": "Transportation & Logistics",
     "avg_num_var": 840.0,
     "avg_num_int_var": 840.0,
-    "avg_num_constr": 544.0
+    "avg_num_constr": 544.0,
+    "source_link": "https://doi.org/10.1287/ijoc.1110.0489"
   },
   {
     "paper_id": "alfieri2020",
@@ -67,7 +71,8 @@
     "application_field": "Foundational / Theoretical",
     "avg_num_var": 36018.0,
     "avg_num_int_var": 36018.0,
-    "avg_num_constr": 721747.0
+    "avg_num_constr": 721747.0,
+    "source_link": "https://doi.org/10.1609/aaai.v36i9.21230"
   },
   {
     "paper_id": "amaldi2013",
@@ -81,7 +86,8 @@
     "application_field": "Foundational / Theoretical",
     "avg_num_var": 10300.0,
     "avg_num_int_var": 10050.0,
-    "avg_num_constr": 30249.0
+    "avg_num_constr": 30249.0,
+    "source_link": "https://doi.org/10.1287/ijoc.1120.0513"
   },
   {
     "paper_id": "araujo2015",
@@ -95,7 +101,8 @@
     "application_field": "Manufacturing & Production",
     "avg_num_var": 2172.0,
     "avg_num_int_var": 720.0,
-    "avg_num_constr": 1512.0
+    "avg_num_constr": 1512.0,
+    "source_link": "https://pubsonline.informs.org/doi/10.1287/ijoc.2014.0636"
   },
   {
     "paper_id": "araujo2020",
@@ -109,7 +116,8 @@
     "application_field": "Manufacturing & Production",
     "avg_num_var": 290244.0,
     "avg_num_int_var": 290244.0,
-    "avg_num_constr": 146754.0
+    "avg_num_constr": 146754.0,
+    "source_link": "https://doi.org/10.1016/j.cor.2019.104782"
   },
   {
     "paper_id": "archetti2007",
@@ -123,7 +131,8 @@
     "application_field": "Supply Chain & Inventory",
     "avg_num_var": 8613.0,
     "avg_num_int_var": 7956.0,
-    "avg_num_constr": 11981.0
+    "avg_num_constr": 11981.0,
+    "source_link": "https://doi.org/10.1287/trsc.1060.0188"
   },
   {
     "paper_id": "armbruster2012",
@@ -137,7 +146,8 @@
     "application_field": "Foundational / Theoretical",
     "avg_num_var": 129581.0,
     "avg_num_int_var": 129581.0,
-    "avg_num_constr": 451734.0
+    "avg_num_constr": 451734.0,
+    "source_link": "https://link.springer.com/article/10.1007/s12532-012-0040-5"
   },
   {
     "paper_id": "carosi2019",
@@ -151,7 +161,8 @@
     "application_field": "Public Transit & Mobility",
     "avg_num_var": 1042742.0,
     "avg_num_int_var": 53088.0,
-    "avg_num_constr": 19982.0
+    "avg_num_constr": 19982.0,
+    "source_link": "https://doi.org/10.1016/j.trb.2019.07.004"
   },
   {
     "paper_id": "bard2002",
@@ -165,7 +176,8 @@
     "application_field": "Transportation & Logistics",
     "avg_num_var": 3998.0,
     "avg_num_int_var": 3798.0,
-    "avg_num_constr": 13699.0
+    "avg_num_constr": 13699.0,
+    "source_link": "https://doi.org/10.1287/trsc.36.2.250.565"
   },
   {
     "paper_id": "barnhart2000",
@@ -179,7 +191,8 @@
     "application_field": "Transportation & Logistics",
     "avg_num_var": 76635.0,
     "avg_num_int_var": 76635.0,
-    "avg_num_constr": 29380.0
+    "avg_num_constr": 29380.0,
+    "source_link": "https://doi.org/10.1287/opre.48.2.318.12378"
   },
   {
     "paper_id": "bayani2024",
@@ -193,7 +206,8 @@
     "application_field": "Foundational / Theoretical",
     "avg_num_var": 74725.0,
     "avg_num_int_var": 700.0,
-    "avg_num_constr": 222125.0
+    "avg_num_constr": 222125.0,
+    "source_link": "https://doi.org/10.1287/ijoc.2021.0186"
   },
   {
     "paper_id": "belvaux2000",
@@ -207,7 +221,8 @@
     "application_field": "Manufacturing & Production",
     "avg_num_var": 3300.0,
     "avg_num_int_var": 1800.0,
-    "avg_num_constr": 3990.0
+    "avg_num_constr": 3990.0,
+    "source_link": "https://doi.org/10.1287/mnsc.46.5.724.12048"
   },
   {
     "paper_id": "bentert2022",
@@ -221,7 +236,8 @@
     "application_field": "Telecommunications & Networking",
     "avg_num_var": 8177.0,
     "avg_num_int_var": 2701.0,
-    "avg_num_constr": 10878.0
+    "avg_num_constr": 10878.0,
+    "source_link": "https://doi.org/10.1287/ijoc.2020.1045"
   },
   {
     "paper_id": "bergman2019",
@@ -235,7 +251,8 @@
     "application_field": "Sports & Entertainment",
     "avg_num_var": 350.0,
     "avg_num_int_var": 350.0,
-    "avg_num_constr": 45.0
+    "avg_num_constr": 45.0,
+    "source_link": "https://doi.org/10.1287/ijoc.2018.0840"
   },
   {
     "paper_id": "bertsimas2022",
@@ -249,7 +266,8 @@
     "application_field": "Finance & Investment",
     "avg_num_var": 3000.0,
     "avg_num_int_var": 1000.0,
-    "avg_num_constr": 2.0
+    "avg_num_constr": 2.0,
+    "source_link": "https://doi.org/10.1287/ijoc.2021.1127"
   },
   {
     "paper_id": "bertsimas2024",
@@ -263,7 +281,8 @@
     "application_field": "Telecommunications & Networking",
     "avg_num_var": 1170900.0,
     "avg_num_int_var": 900.0,
-    "avg_num_constr": 322501.0
+    "avg_num_constr": 322501.0,
+    "source_link": "https://pubsonline.informs.org/doi/10.1287/ijoc.2023.0074"
   },
   {
     "paper_id": "bettinelli2017",
@@ -277,7 +296,8 @@
     "application_field": "Foundational / Theoretical",
     "avg_num_var": 500.0,
     "avg_num_int_var": 500.0,
-    "avg_num_constr": 18436.0
+    "avg_num_constr": 18436.0,
+    "source_link": "https://pubsonline.informs.org/doi/10.1287/ijoc.2016.0742"
   },
   {
     "paper_id": "bierwirth2017",
@@ -291,7 +311,8 @@
     "application_field": "Manufacturing & Production",
     "avg_num_var": 4710.0,
     "avg_num_int_var": 4350.0,
-    "avg_num_constr": 9060.0
+    "avg_num_constr": 9060.0,
+    "source_link": "https://doi.org/10.1016/j.ejor.2017.03.030"
   },
   {
     "paper_id": "bode2012",
@@ -305,7 +326,8 @@
     "application_field": "Transportation & Logistics",
     "avg_num_var": 350.0,
     "avg_num_int_var": 350.0,
-    "avg_num_constr": 112.0
+    "avg_num_constr": 112.0,
+    "source_link": "https://doi.org/10.1287/opre.1120.1079"
   },
   {
     "paper_id": "bodur2017",
@@ -319,7 +341,8 @@
     "application_field": "Foundational / Theoretical",
     "avg_num_var": 3750050.0,
     "avg_num_int_var": 50.0,
-    "avg_num_constr": 150001.0
+    "avg_num_constr": 150001.0,
+    "source_link": "https://doi.org/10.1287/ijoc.2016.0717"
   },
   {
     "paper_id": "boland2019",
@@ -333,7 +356,8 @@
     "application_field": "Supply Chain & Inventory",
     "avg_num_var": 7260.0,
     "avg_num_int_var": 7260.0,
-    "avg_num_constr": 7380.0
+    "avg_num_constr": 7380.0,
+    "source_link": "https://pubsonline.informs.org/doi/10.1287/ijoc.2018.0846"
   },
   {
     "paper_id": "bollapragada2001",
@@ -347,7 +371,8 @@
     "application_field": "Foundational / Theoretical",
     "avg_num_var": 6840.0,
     "avg_num_int_var": 2160.0,
-    "avg_num_constr": 11004.0
+    "avg_num_constr": 11004.0,
+    "source_link": "https://doi.org/10.1287/opre.49.1.42.11196"
   },
   {
     "paper_id": "borndorfer2007",
@@ -361,7 +386,8 @@
     "application_field": "Public Transit & Mobility",
     "avg_num_var": 166848.0,
     "avg_num_int_var": 50569.0,
-    "avg_num_constr": 61961.0
+    "avg_num_constr": 61961.0,
+    "source_link": "https://doi.org/10.1287/trsc.1060.0161"
   },
   {
     "paper_id": "bragin2022",
@@ -375,7 +401,8 @@
     "application_field": "Foundational / Theoretical",
     "avg_num_var": 128000.0,
     "avg_num_int_var": 128000.0,
-    "avg_num_constr": 1680.0
+    "avg_num_constr": 1680.0,
+    "source_link": "https://www.nature.com/articles/s41598-022-26264-1"
   },
   {
     "paper_id": "brandao2016",
@@ -389,7 +416,8 @@
     "application_field": "Foundational / Theoretical",
     "avg_num_var": 82000.0,
     "avg_num_int_var": 82000.0,
-    "avg_num_constr": 7165.0
+    "avg_num_constr": 7165.0,
+    "source_link": "https://www.sciencedirect.com/science/article/abs/pii/S0305054815002762"
   },
   {
     "paper_id": "bront2009",
@@ -403,7 +431,8 @@
     "application_field": "Retail & Revenue Management",
     "avg_num_var": 1.0,
     "avg_num_int_var": 0.0,
-    "avg_num_constr": 13.0
+    "avg_num_constr": 13.0,
+    "source_link": "https://doi.org/10.1287/opre.1080.0567"
   },
   {
     "paper_id": "buchheim2018",
@@ -417,7 +446,8 @@
     "application_field": "Foundational / Theoretical",
     "avg_num_var": 420.0,
     "avg_num_int_var": 420.0,
-    "avg_num_constr": 225.0
+    "avg_num_constr": 225.0,
+    "source_link": "https://doi.org/10.1287/ijoc.2017.0789"
   },
   {
     "paper_id": "byeon2022",
@@ -431,7 +461,8 @@
     "application_field": "Foundational / Theoretical",
     "avg_num_var": 6828.0,
     "avg_num_int_var": 774.0,
-    "avg_num_constr": 10693.0
+    "avg_num_constr": 10693.0,
+    "source_link": "https://doi.org/10.1287/ijoc.2021.1128"
   },
   {
     "paper_id": "caprara1999",
@@ -445,7 +476,8 @@
     "application_field": "Foundational / Theoretical",
     "avg_num_var": 90000.0,
     "avg_num_int_var": 90000.0,
-    "avg_num_constr": 134851.0
+    "avg_num_constr": 134851.0,
+    "source_link": "https://pubsonline.informs.org/doi/10.1287/ijoc.11.2.125"
   },
   {
     "paper_id": "carvalho1999",
@@ -459,7 +491,8 @@
     "application_field": "Foundational / Theoretical",
     "avg_num_var": 38404.0,
     "avg_num_int_var": 38404.0,
-    "avg_num_constr": 1232.0
+    "avg_num_constr": 1232.0,
+    "source_link": "https://link.springer.com/article/10.1023/A:1018952112615"
   },
   {
     "paper_id": "carvalho2022",
@@ -473,7 +506,8 @@
     "application_field": "Manufacturing & Production",
     "avg_num_var": 30390.0,
     "avg_num_int_var": 13290.0,
-    "avg_num_constr": 23333.0
+    "avg_num_constr": 23333.0,
+    "source_link": "https://doi.org/10.1016/j.ejor.2021.03.050"
   },
   {
     "paper_id": "castro2021",
@@ -487,7 +521,8 @@
     "application_field": "Foundational / Theoretical",
     "avg_num_var": 100000000.0,
     "avg_num_int_var": 0.0,
-    "avg_num_constr": 500200.0
+    "avg_num_constr": 500200.0,
+    "source_link": "https://doi.org/10.1016/j.ejor.2020.10.027"
   },
   {
     "paper_id": "chebil2015",
@@ -501,7 +536,8 @@
     "application_field": "Foundational / Theoretical",
     "avg_num_var": 10030.0,
     "avg_num_int_var": 10030.0,
-    "avg_num_constr": 10001.0
+    "avg_num_constr": 10001.0,
+    "source_link": "https://www.sciencedirect.com/science/article/abs/pii/S0305054815001215"
   },
   {
     "paper_id": "chebil2019",
@@ -515,7 +551,8 @@
     "application_field": "Foundational / Theoretical",
     "avg_num_var": 50100.0,
     "avg_num_int_var": 50100.0,
-    "avg_num_constr": 50001.0
+    "avg_num_constr": 50001.0,
+    "source_link": "https://doi.org/10.1016/j.cor.2016.11.015"
   },
   {
     "paper_id": "chen1999",
@@ -529,7 +566,8 @@
     "application_field": "Manufacturing & Production",
     "avg_num_var": 101200.0,
     "avg_num_int_var": 51600.0,
-    "avg_num_constr": 149810.0
+    "avg_num_constr": 149810.0,
+    "source_link": "https://doi.org/10.1287/ijoc.11.1.78"
   },
   {
     "paper_id": "cherkesly2015",
@@ -543,7 +581,8 @@
     "application_field": "Transportation & Logistics",
     "avg_num_var": 1048880.0,
     "avg_num_int_var": 1029000.0,
-    "avg_num_constr": 2415979.0
+    "avg_num_constr": 2415979.0,
+    "source_link": "https://doi.org/10.1287/trsc.2014.0535"
   },
   {
     "paper_id": "colombi2017",
@@ -557,7 +596,8 @@
     "application_field": "Transportation & Logistics",
     "avg_num_var": 8453.0,
     "avg_num_int_var": 2635.0,
-    "avg_num_constr": 8028.0
+    "avg_num_constr": 8028.0,
+    "source_link": "https://doi.org/10.1016/j.ejor.2017.02.002"
   },
   {
     "paper_id": "contreras2011",
@@ -571,7 +611,8 @@
     "application_field": "Transportation & Logistics",
     "avg_num_var": 2561600.0,
     "avg_num_int_var": 1600.0,
-    "avg_num_constr": 131241.0
+    "avg_num_constr": 131241.0,
+    "source_link": "https://doi.org/10.1287/ijoc.1100.0391"
   },
   {
     "paper_id": "cordeau2006",
@@ -585,7 +626,8 @@
     "application_field": "Public Transit & Mobility",
     "avg_num_var": 11456.0,
     "avg_num_int_var": 11260.0,
-    "avg_num_constr": 4349.0
+    "avg_num_constr": 4349.0,
+    "source_link": "https://doi.org/10.1287/opre.1060.0283"
   },
   {
     "paper_id": "cordeau2014",
@@ -599,7 +641,8 @@
     "application_field": "Transportation & Logistics",
     "avg_num_var": 41412.0,
     "avg_num_int_var": 41412.0,
-    "avg_num_constr": 408.0
+    "avg_num_constr": 408.0,
+    "source_link": "https://doi.org/10.1287/trsc.1120.0449"
   },
   {
     "paper_id": "cordeau2019",
@@ -613,7 +656,8 @@
     "application_field": "Public Service & Government",
     "avg_num_var": 100100.0,
     "avg_num_int_var": 100.0,
-    "avg_num_constr": 100001.0
+    "avg_num_constr": 100001.0,
+    "source_link": "https://www.sciencedirect.com/science/article/abs/pii/S0377221718310737"
   },
   {
     "paper_id": "cote2018",
@@ -627,7 +671,8 @@
     "application_field": "Foundational / Theoretical",
     "avg_num_var": 67310.0,
     "avg_num_int_var": 67310.0,
-    "avg_num_constr": 21292.0
+    "avg_num_constr": 21292.0,
+    "source_link": "https://pubsonline.informs.org/doi/10.1287/ijoc.2018.0806"
   },
   {
     "paper_id": "cunha2021",
@@ -641,7 +686,8 @@
     "application_field": "Supply Chain & Inventory",
     "avg_num_var": 19890.0,
     "avg_num_int_var": 6630.0,
-    "avg_num_constr": 13260.0
+    "avg_num_constr": 13260.0,
+    "source_link": "https://www.sciencedirect.com/science/article/abs/pii/S0377221721002551"
   },
   {
     "paper_id": "damcikurt2016",
@@ -655,7 +701,8 @@
     "application_field": "Energy & Power Systems",
     "avg_num_var": 3145724.0,
     "avg_num_int_var": 2097149.0,
-    "avg_num_constr": 11534314.0
+    "avg_num_constr": 11534314.0,
+    "source_link": "https://doi.org/10.1287/opre.2016.1520"
   },
   {
     "paper_id": "dayarian2019",
@@ -669,7 +716,8 @@
     "application_field": "Transportation & Logistics",
     "avg_num_var": 19310.0,
     "avg_num_int_var": 16964.0,
-    "avg_num_constr": 35831.0
+    "avg_num_constr": 35831.0,
+    "source_link": "https://doi.org/10.1287/trsc.2018.0854"
   },
   {
     "paper_id": "degraeve2007",
@@ -683,7 +731,8 @@
     "application_field": "Manufacturing & Production",
     "avg_num_var": 1830.0,
     "avg_num_int_var": 600.0,
-    "avg_num_constr": 1220.0
+    "avg_num_constr": 1220.0,
+    "source_link": "https://pubsonline.informs.org/doi/10.1287/opre.1070.0404"
   },
   {
     "paper_id": "delage2022",
@@ -697,7 +746,8 @@
     "application_field": "Manufacturing & Production",
     "avg_num_var": 5910.0,
     "avg_num_int_var": 2520.0,
-    "avg_num_constr": 8400.0
+    "avg_num_constr": 8400.0,
+    "source_link": "https://doi.org/10.1287/ijoc.2021.1079"
   },
   {
     "paper_id": "delorme2020",
@@ -711,7 +761,8 @@
     "application_field": "Foundational / Theoretical",
     "avg_num_var": 1641755.0,
     "avg_num_int_var": 1641755.0,
-    "avg_num_constr": 5467.0
+    "avg_num_constr": 5467.0,
+    "source_link": "https://pubsonline.informs.org/doi/abs/10.1287/ijoc.2018.0880"
   },
   {
     "paper_id": "desaulniers2010",
@@ -725,7 +776,8 @@
     "application_field": "Transportation & Logistics",
     "avg_num_var": 98817.0,
     "avg_num_int_var": 92289.0,
-    "avg_num_constr": 99008.0
+    "avg_num_constr": 99008.0,
+    "source_link": "https://doi.org/10.1287/opre.1090.0713"
   },
   {
     "paper_id": "desaulniers2014",
@@ -739,7 +791,8 @@
     "application_field": "Supply Chain & Inventory",
     "avg_num_var": 15753.0,
     "avg_num_int_var": 7800.0,
-    "avg_num_constr": 8709.0
+    "avg_num_constr": 8709.0,
+    "source_link": "https://doi.org/10.1287/trsc.2015.0635"
   },
   {
     "paper_id": "desaulniers2016",
@@ -753,7 +806,8 @@
     "application_field": "Supply Chain & Inventory",
     "avg_num_var": 33213.0,
     "avg_num_int_var": 31725.0,
-    "avg_num_constr": 32868.0
+    "avg_num_constr": 32868.0,
+    "source_link": "https://doi.org/10.1287/trsc.2015.0635"
   },
   {
     "paper_id": "dienstknecht2024",
@@ -767,7 +821,8 @@
     "application_field": "Manufacturing & Production",
     "avg_num_var": 14560.0,
     "avg_num_int_var": 7378.0,
-    "avg_num_constr": 23714.0
+    "avg_num_constr": 23714.0,
+    "source_link": "https://doi.org/10.1016/j.ejor.2023.11.045"
   },
   {
     "paper_id": "lai2021",
@@ -781,7 +836,8 @@
     "application_field": "Foundational / Theoretical",
     "avg_num_var": 20000.0,
     "avg_num_int_var": 20000.0,
-    "avg_num_constr": 500.0
+    "avg_num_constr": 500.0,
+    "source_link": "https://www.sciencedirect.com/science/article/abs/pii/S0377221720306743"
   },
   {
     "paper_id": "elci2022",
@@ -795,7 +851,8 @@
     "application_field": "Manufacturing & Production",
     "avg_num_var": 1525989.0,
     "avg_num_int_var": 1525864.0,
-    "avg_num_constr": 1617160.0
+    "avg_num_constr": 1617160.0,
+    "source_link": "https://doi.org/10.1287/ijoc.2022.1184"
   },
   {
     "paper_id": "engineer2012",
@@ -809,7 +866,8 @@
     "application_field": "Supply Chain & Inventory",
     "avg_num_var": 13456.0,
     "avg_num_int_var": 6588.0,
-    "avg_num_constr": 14305.0
+    "avg_num_constr": 14305.0,
+    "source_link": "https://doi.org/10.1287/opre.1110.0997"
   },
   {
     "paper_id": "schwerdfeger2016",
@@ -823,7 +881,8 @@
     "application_field": "Manufacturing & Production",
     "avg_num_var": 3934.0,
     "avg_num_int_var": 3920.0,
-    "avg_num_constr": 294.0
+    "avg_num_constr": 294.0,
+    "source_link": "https://doi.org/10.1016/j.cor.2016.03.008"
   },
   {
     "paper_id": "fischetti1997",
@@ -837,7 +896,8 @@
     "application_field": "Transportation & Logistics",
     "avg_num_var": 96814.0,
     "avg_num_int_var": 96814.0,
-    "avg_num_constr": 39516.0
+    "avg_num_constr": 39516.0,
+    "source_link": "https://doi.org/10.1287/opre.45.3.378"
   },
   {
     "paper_id": "fischetti1998",
@@ -851,7 +911,8 @@
     "application_field": "Transportation & Logistics",
     "avg_num_var": 125250.0,
     "avg_num_int_var": 125250.0,
-    "avg_num_constr": 249503.0
+    "avg_num_constr": 249503.0,
+    "source_link": "https://doi.org/10.1287/ijoc.10.2.133"
   },
   {
     "paper_id": "fischetti2017",
@@ -865,7 +926,8 @@
     "application_field": "Transportation & Logistics",
     "avg_num_var": 933380.0,
     "avg_num_int_var": 140.0,
-    "avg_num_constr": 469953.0
+    "avg_num_constr": 469953.0,
+    "source_link": "https://pubsonline.informs.org/doi/10.1287/mnsc.2016.2461"
   },
   {
     "paper_id": "fleszar2022b",
@@ -879,7 +941,8 @@
     "application_field": "Foundational / Theoretical",
     "avg_num_var": 600.0,
     "avg_num_int_var": 600.0,
-    "avg_num_constr": 70.0
+    "avg_num_constr": 70.0,
+    "source_link": "https://www.sciencedirect.com/science/article/abs/pii/S0377221721005336"
   },
   {
     "paper_id": "samarghandi2017",
@@ -893,7 +956,8 @@
     "application_field": "Manufacturing & Production",
     "avg_num_var": 601.0,
     "avg_num_int_var": 400.0,
-    "avg_num_constr": 4271.0
+    "avg_num_constr": 4271.0,
+    "source_link": "https://doi.org/10.1016/j.cor.2016.12.013"
   },
   {
     "paper_id": "forrest2006",
@@ -907,7 +971,8 @@
     "application_field": "Manufacturing & Production",
     "avg_num_var": 82355.0,
     "avg_num_int_var": 82355.0,
-    "avg_num_constr": 75237.0
+    "avg_num_constr": 75237.0,
+    "source_link": "https://doi.org/10.1287/ijoc.1040.0078"
   },
   {
     "paper_id": "fragkos2016",
@@ -921,7 +986,8 @@
     "application_field": "Manufacturing & Production",
     "avg_num_var": 3010.0,
     "avg_num_int_var": 1000.0,
-    "avg_num_constr": 2110.0
+    "avg_num_constr": 2110.0,
+    "source_link": "https://doi.org/10.1287/ijoc.2016.0691"
   },
   {
     "paper_id": "fragkos2021",
@@ -935,7 +1001,8 @@
     "application_field": "Transportation & Logistics",
     "avg_num_var": 10001.0,
     "avg_num_int_var": 10000.0,
-    "avg_num_constr": 0.0
+    "avg_num_constr": 0.0,
+    "source_link": "https://doi.org/10.1287/ijoc.2021.1063"
   },
   {
     "paper_id": "eiselt2009",
@@ -949,7 +1016,8 @@
     "application_field": "Aerospace & Aviation",
     "avg_num_var": 195925.0,
     "avg_num_int_var": 325.0,
-    "avg_num_constr": 586201.0
+    "avg_num_constr": 586201.0,
+    "source_link": "https://doi.org/10.1016/j.cor.2008.11.014"
   },
   {
     "paper_id": "freeman2018",
@@ -963,7 +1031,8 @@
     "application_field": "Sports & Entertainment",
     "avg_num_var": 234930.0,
     "avg_num_int_var": 1710.0,
-    "avg_num_constr": 692599.0
+    "avg_num_constr": 692599.0,
+    "source_link": "https://doi.org/10.1016/j.ejor.2017.09.025"
   },
   {
     "paper_id": "freling2003",
@@ -977,7 +1046,8 @@
     "application_field": "Manufacturing & Production",
     "avg_num_var": 1974.0,
     "avg_num_int_var": 1890.0,
-    "avg_num_constr": 219.0
+    "avg_num_constr": 219.0,
+    "source_link": "https://doi.org/10.1287/opre.51.6.922.24914"
   },
   {
     "paper_id": "frey2017",
@@ -991,7 +1061,8 @@
     "application_field": "Aerospace & Aviation",
     "avg_num_var": 1205240.0,
     "avg_num_int_var": 1156189.0,
-    "avg_num_constr": 62996.0
+    "avg_num_constr": 62996.0,
+    "source_link": "https://doi.org/10.1287/trsc.2017.0739"
   },
   {
     "paper_id": "furini2016",
@@ -1005,7 +1076,8 @@
     "application_field": "Manufacturing & Production",
     "avg_num_var": 3281559.0,
     "avg_num_int_var": 3281559.0,
-    "avg_num_constr": 37797.0
+    "avg_num_constr": 37797.0,
+    "source_link": "https://doi.org/10.1287/ijoc.2016.0710"
   },
   {
     "paper_id": "furini2017",
@@ -1019,7 +1091,8 @@
     "application_field": "Foundational / Theoretical",
     "avg_num_var": 1029.0,
     "avg_num_int_var": 1029.0,
-    "avg_num_constr": 14465.0
+    "avg_num_constr": 14465.0,
+    "source_link": "https://onlinelibrary.wiley.com/doi/abs/10.1002/net.21716"
   },
   {
     "paper_id": "furini2019",
@@ -1033,7 +1106,8 @@
     "application_field": "Foundational / Theoretical",
     "avg_num_var": 1000.0,
     "avg_num_int_var": 1000.0,
-    "avg_num_constr": 349500.0
+    "avg_num_constr": 349500.0,
+    "source_link": "https://doi.org/10.1016/0305-0548(92)90067-f"
   },
   {
     "paper_id": "furini2021",
@@ -1047,7 +1121,8 @@
     "application_field": "Foundational / Theoretical",
     "avg_num_var": 2543.0,
     "avg_num_int_var": 2543.0,
-    "avg_num_constr": 2.0
+    "avg_num_constr": 2.0,
+    "source_link": "https://www.sciencedirect.com/science/article/abs/pii/S0377221721000606"
   },
   {
     "paper_id": "gamache1999",
@@ -1061,7 +1136,8 @@
     "application_field": "Aerospace & Aviation",
     "avg_num_var": 228907.0,
     "avg_num_int_var": 228875.0,
-    "avg_num_constr": 82.0
+    "avg_num_constr": 82.0,
+    "source_link": "https://doi.org/10.1287/opre.47.2.247"
   },
   {
     "paper_id": "garcia2011",
@@ -1075,7 +1151,8 @@
     "application_field": "Foundational / Theoretical",
     "avg_num_var": 88397.0,
     "avg_num_int_var": 300.0,
-    "avg_num_constr": 88098.0
+    "avg_num_constr": 88098.0,
+    "source_link": "https://pubsonline.informs.org/doi/10.1287/ijoc.1100.0418"
   },
   {
     "paper_id": "gruson2021",
@@ -1089,7 +1166,8 @@
     "application_field": "Supply Chain & Inventory",
     "avg_num_var": 4825320.0,
     "avg_num_int_var": 1320.0,
-    "avg_num_constr": 4824088.0
+    "avg_num_constr": 4824088.0,
+    "source_link": "https://doi.org/10.1016/j.ejor.2020.09.019"
   },
   {
     "paper_id": "gschwind2021",
@@ -1103,7 +1181,8 @@
     "application_field": "Foundational / Theoretical",
     "avg_num_var": 500.0,
     "avg_num_int_var": 0.0,
-    "avg_num_constr": 500.0
+    "avg_num_constr": 500.0,
+    "source_link": "https://doi.org/10.1287/ijoc.2020.0984"
   },
   {
     "paper_id": "gualandi2012",
@@ -1117,7 +1196,8 @@
     "application_field": "Foundational / Theoretical",
     "avg_num_var": 10251.0,
     "avg_num_int_var": 10251.0,
-    "avg_num_constr": 634540.0
+    "avg_num_constr": 634540.0,
+    "source_link": "https://pubsonline.informs.org/doi/10.1287/ijoc.1100.0436"
   },
   {
     "paper_id": "guo2021",
@@ -1131,7 +1211,8 @@
     "application_field": "Healthcare",
     "avg_num_var": 568286.0,
     "avg_num_int_var": 568286.0,
-    "avg_num_constr": 575895.0
+    "avg_num_constr": 575895.0,
+    "source_link": "https://pubsonline.informs.org/doi/10.1287/ijoc.2020.1036"
   },
   {
     "paper_id": "hadjar2006",
@@ -1145,7 +1226,8 @@
     "application_field": "Public Transit & Mobility",
     "avg_num_var": 780210.0,
     "avg_num_int_var": 780210.0,
-    "avg_num_constr": 4212.0
+    "avg_num_constr": 4212.0,
+    "source_link": "https://doi.org/10.1287/opre.1050.0240"
   },
   {
     "paper_id": "hewitt2024",
@@ -1159,7 +1241,8 @@
     "application_field": "Manufacturing & Production",
     "avg_num_var": 307640.0,
     "avg_num_int_var": 2590.0,
-    "avg_num_constr": 551595.0
+    "avg_num_constr": 551595.0,
+    "source_link": "https://doi.org/10.1287/ijoc.2023.0067"
   },
   {
     "paper_id": "hoffman1993",
@@ -1173,7 +1256,8 @@
     "application_field": "Aerospace & Aviation",
     "avg_num_var": 15000.0,
     "avg_num_int_var": 15000.0,
-    "avg_num_constr": 100.0
+    "avg_num_constr": 100.0,
+    "source_link": "https://doi.org/10.1287/mnsc.39.6.657"
   },
   {
     "paper_id": "hosseinian2020",
@@ -1187,7 +1271,8 @@
     "application_field": "Foundational / Theoretical",
     "avg_num_var": 40300.0,
     "avg_num_int_var": 40300.0,
-    "avg_num_constr": 119700.0
+    "avg_num_constr": 119700.0,
+    "source_link": "https://pubsonline.informs.org/doi/10.1287/ijoc.2019.0898"
   },
   {
     "paper_id": "huisman2005",
@@ -1201,7 +1286,8 @@
     "application_field": "Public Transit & Mobility",
     "avg_num_var": 287214.0,
     "avg_num_int_var": 287214.0,
-    "avg_num_constr": 1512.0
+    "avg_num_constr": 1512.0,
+    "source_link": "https://doi.org/10.1287/trsc.1040.0104"
   },
   {
     "paper_id": "ji2019",
@@ -1215,7 +1301,8 @@
     "application_field": "Transportation & Logistics",
     "avg_num_var": 3738.0,
     "avg_num_int_var": 2274.0,
-    "avg_num_constr": 7261.0
+    "avg_num_constr": 7261.0,
+    "source_link": "https://doi.org/10.1016/j.ejor.2019.03.010"
   },
   {
     "paper_id": "juvin2023",
@@ -1229,7 +1316,8 @@
     "application_field": "Manufacturing & Production",
     "avg_num_var": 39828.0,
     "avg_num_int_var": 39827.0,
-    "avg_num_constr": 111343.0
+    "avg_num_constr": 111343.0,
+    "source_link": "https://doi.org/10.1016/j.cor.2023.106156"
   },
   {
     "paper_id": "kang2021",
@@ -1243,7 +1331,8 @@
     "application_field": "Transportation & Logistics",
     "avg_num_var": 7654.0,
     "avg_num_int_var": 7551.0,
-    "avg_num_constr": 2809.0
+    "avg_num_constr": 2809.0,
+    "source_link": "https://doi.org/10.1287/trsc.2021.1055"
   },
   {
     "paper_id": "klose2005",
@@ -1257,7 +1346,8 @@
     "application_field": "Transportation & Logistics",
     "avg_num_var": 1125750.0,
     "avg_num_int_var": 750.0,
-    "avg_num_constr": 1127251.0
+    "avg_num_constr": 1127251.0,
+    "source_link": "https://doi.org/10.1287/mnsc.1050.0410"
   },
   {
     "paper_id": "knueven2020",
@@ -1271,7 +1361,8 @@
     "application_field": "Energy & Power Systems",
     "avg_num_var": 450144.0,
     "avg_num_int_var": 129600.0,
-    "avg_num_constr": 623040.0
+    "avg_num_constr": 623040.0,
+    "source_link": "https://doi.org/10.1287/ijoc.2019.0944"
   },
   {
     "paper_id": "kobayashi2021",
@@ -1285,7 +1376,8 @@
     "application_field": "Finance & Investment",
     "avg_num_var": 10452.0,
     "avg_num_int_var": 225.0,
-    "avg_num_constr": 10229.0
+    "avg_num_constr": 10229.0,
+    "source_link": "https://doi.org/10.1007/s10898-021-01048-5"
   },
   {
     "paper_id": "kobeaga2024",
@@ -1299,7 +1391,8 @@
     "application_field": "Foundational / Theoretical",
     "avg_num_var": 45150.0,
     "avg_num_int_var": 45150.0,
-    "avg_num_constr": 90002.0
+    "avg_num_constr": 90002.0,
+    "source_link": "https://www.sciencedirect.com/science/article/pii/S0377221723005933"
   },
   {
     "paper_id": "kowalczyk2018",
@@ -1313,7 +1406,8 @@
     "application_field": "Manufacturing & Production",
     "avg_num_var": 284784.0,
     "avg_num_int_var": 284784.0,
-    "avg_num_constr": 31.0
+    "avg_num_constr": 31.0,
+    "source_link": "https://doi.org/10.1287/ijoc.2018.0809"
   },
   {
     "paper_id": "kowalczyk2024",
@@ -1327,7 +1421,8 @@
     "application_field": "Manufacturing & Production",
     "avg_num_var": 130970.0,
     "avg_num_int_var": 65485.0,
-    "avg_num_constr": 65536.0
+    "avg_num_constr": 65536.0,
+    "source_link": "https://doi.org/10.1287/ijoc.2022.0301"
   },
   {
     "paper_id": "kress2019",
@@ -1341,7 +1436,8 @@
     "application_field": "Transportation & Logistics",
     "avg_num_var": 47600.0,
     "avg_num_int_var": 47029.0,
-    "avg_num_constr": 65965.0
+    "avg_num_constr": 65965.0,
+    "source_link": "https://doi.org/10.1016/j.ejor.2018.07.045"
   },
   {
     "paper_id": "kreter2018",
@@ -1355,7 +1451,8 @@
     "application_field": "Manufacturing & Production",
     "avg_num_var": 52059.0,
     "avg_num_int_var": 52055.0,
-    "avg_num_constr": 110513.0
+    "avg_num_constr": 110513.0,
+    "source_link": "https://doi.org/10.1016/j.ejor.2017.10.014"
   },
   {
     "paper_id": "laporte2003",
@@ -1369,7 +1466,8 @@
     "application_field": "Transportation & Logistics",
     "avg_num_var": 10091.0,
     "avg_num_int_var": 5050.0,
-    "avg_num_constr": 5440.0
+    "avg_num_constr": 5440.0,
+    "source_link": "https://doi.org/10.1287/opre.51.6.940.24921"
   },
   {
     "paper_id": "lee1996",
@@ -1383,7 +1481,8 @@
     "application_field": "Telecommunications & Networking",
     "avg_num_var": 12985.0,
     "avg_num_int_var": 70.0,
-    "avg_num_constr": 15621.0
+    "avg_num_constr": 15621.0,
+    "source_link": "https://doi.org/10.1287/ijoc.8.3.194"
   },
   {
     "paper_id": "legrain2020",
@@ -1397,7 +1496,8 @@
     "application_field": "Healthcare",
     "avg_num_var": 176408.0,
     "avg_num_int_var": 104672.0,
-    "avg_num_constr": 183512.0
+    "avg_num_constr": 183512.0,
+    "source_link": "https://link.springer.com/article/10.1007/s12532-019-00172-4"
   },
   {
     "paper_id": "legrain2024",
@@ -1411,7 +1511,8 @@
     "application_field": "Healthcare",
     "avg_num_var": 99298.0,
     "avg_num_int_var": 60736.0,
-    "avg_num_constr": 92762.0
+    "avg_num_constr": 92762.0,
+    "source_link": "https://pubsonline.informs.org/doi/10.1287/ijoc.2023.0019"
   },
   {
     "paper_id": "letelier2022",
@@ -1425,7 +1526,8 @@
     "application_field": "Transportation & Logistics",
     "avg_num_var": 188544.0,
     "avg_num_int_var": 188544.0,
-    "avg_num_constr": 26914.0
+    "avg_num_constr": 26914.0,
+    "source_link": "https://pubsonline.informs.org/doi/10.1287/ijoc.2022.1165"
   },
   {
     "paper_id": "li2020",
@@ -1439,7 +1541,8 @@
     "application_field": "Public Service & Government",
     "avg_num_var": 10171.0,
     "avg_num_int_var": 140.0,
-    "avg_num_constr": 9977.0
+    "avg_num_constr": 9977.0,
+    "source_link": "https://doi.org/10.1016/j.cor.2019.104831"
   },
   {
     "paper_id": "liao2020",
@@ -1453,7 +1556,8 @@
     "application_field": "Healthcare",
     "avg_num_var": 6104.0,
     "avg_num_int_var": 729.0,
-    "avg_num_constr": 18848.0
+    "avg_num_constr": 18848.0,
+    "source_link": "https://doi.org/10.1016/j.ejor.2019.11.039"
   },
   {
     "paper_id": "lozano2017",
@@ -1467,7 +1571,8 @@
     "application_field": "Foundational / Theoretical",
     "avg_num_var": 4658.0,
     "avg_num_int_var": 0.0,
-    "avg_num_constr": 1862.0
+    "avg_num_constr": 1862.0,
+    "source_link": "https://doi.org/10.1287/opre.2017.1589"
   },
   {
     "paper_id": "luo2017",
@@ -1481,7 +1586,8 @@
     "application_field": "Transportation & Logistics",
     "avg_num_var": 42867.0,
     "avg_num_int_var": 20856.0,
-    "avg_num_constr": 44054.0
+    "avg_num_constr": 44054.0,
+    "source_link": "https://doi.org/10.1287/trsc.2015.0666"
   },
   {
     "paper_id": "riley2025",
@@ -1495,7 +1601,8 @@
     "application_field": "Supply Chain & Inventory",
     "avg_num_var": 10357863.0,
     "avg_num_int_var": 3969663.0,
-    "avg_num_constr": 370020.0
+    "avg_num_constr": 370020.0,
+    "source_link": "https://arxiv.org/abs/2511.06340"
   },
   {
     "paper_id": "mansini2020",
@@ -1509,7 +1616,8 @@
     "application_field": "Foundational / Theoretical",
     "avg_num_var": 612000.0,
     "avg_num_int_var": 612000.0,
-    "avg_num_constr": 12051.0
+    "avg_num_constr": 12051.0,
+    "source_link": "https://pubsonline.informs.org/doi/10.1287/ijoc.2019.0909"
   },
   {
     "paper_id": "martello1999",
@@ -1523,7 +1631,8 @@
     "application_field": "Foundational / Theoretical",
     "avg_num_var": 10000000.0,
     "avg_num_int_var": 10000000.0,
-    "avg_num_constr": 1.0
+    "avg_num_constr": 1.0,
+    "source_link": "https://pubsonline.informs.org/doi/10.1287/mnsc.45.3.414"
   },
   {
     "paper_id": "martin-iradi2024",
@@ -1537,7 +1646,8 @@
     "application_field": "Transportation & Logistics",
     "avg_num_var": 9067.0,
     "avg_num_int_var": 8500.0,
-    "avg_num_constr": 10721.0
+    "avg_num_constr": 10721.0,
+    "source_link": "https://doi.org/10.1016/j.ejor.2024.02.003"
   },
   {
     "paper_id": "mehrotra1996",
@@ -1551,7 +1661,8 @@
     "application_field": "Foundational / Theoretical",
     "avg_num_var": 98.0,
     "avg_num_int_var": 0.0,
-    "avg_num_constr": 250.0
+    "avg_num_constr": 250.0,
+    "source_link": "https://doi.org/10.1287/ijoc.8.4.344"
   },
   {
     "paper_id": "mingozzi1999",
@@ -1565,7 +1676,8 @@
     "application_field": "Transportation & Logistics",
     "avg_num_var": 9866126.0,
     "avg_num_int_var": 9866126.0,
-    "avg_num_constr": 33.0
+    "avg_num_constr": 33.0,
+    "source_link": "https://doi.org/10.1287/trsc.33.3.315"
   },
   {
     "paper_id": "arslan2021",
@@ -1579,7 +1691,8 @@
     "application_field": "Foundational / Theoretical",
     "avg_num_var": 1081.0,
     "avg_num_int_var": 270.0,
-    "avg_num_constr": 811.0
+    "avg_num_constr": 811.0,
+    "source_link": "https://doi.org/10.1287/ijoc.2021.1061"
   },
   {
     "paper_id": "hassannayebi2016",
@@ -1593,7 +1706,8 @@
     "application_field": "Public Transit & Mobility",
     "avg_num_var": 585.0,
     "avg_num_int_var": 0.0,
-    "avg_num_constr": 584.0
+    "avg_num_constr": 584.0,
+    "source_link": "https://doi.org/10.1016/j.cor.2015.12.011"
   },
   {
     "paper_id": "morrison2016",
@@ -1607,7 +1721,8 @@
     "application_field": "Foundational / Theoretical",
     "avg_num_var": 4497833.0,
     "avg_num_int_var": 4497833.0,
-    "avg_num_constr": 300.0
+    "avg_num_constr": 300.0,
+    "source_link": "https://pubsonline.informs.org/doi/10.1287/ijoc.2015.0667"
   },
   {
     "paper_id": "nagy2015",
@@ -1621,7 +1736,8 @@
     "application_field": "Transportation & Logistics",
     "avg_num_var": 477603.0,
     "avg_num_int_var": 159201.0,
-    "avg_num_constr": 240399.0
+    "avg_num_constr": 240399.0,
+    "source_link": "https://doi.org/10.1287/trsc.2013.0501"
   },
   {
     "paper_id": "oliveira2020",
@@ -1635,10 +1751,11 @@
     "application_field": "Manufacturing & Production",
     "avg_num_var": 71116.0,
     "avg_num_int_var": 71116.0,
-    "avg_num_constr": 5381.0
+    "avg_num_constr": 5381.0,
+    "source_link": "https://pubsonline.informs.org/doi/10.1287/ijoc.2018.0854"
   },
   {
-    "paper_id": "ostrowski2012",
+    "paper_id": "earl2005",
     "paper_title": "Multi-vehicle Cooperative Control Using Mixed Integer Linear Programming",
     "publication": "arXiv preprint",
     "year": 2005,
@@ -1649,7 +1766,8 @@
     "application_field": "Aerospace & Aviation",
     "avg_num_var": 44170.0,
     "avg_num_int_var": 41174.0,
-    "avg_num_constr": 122024.0
+    "avg_num_constr": 122024.0,
+    "source_link": "https://arxiv.org/abs/cs/0501092"
   },
   {
     "paper_id": "ozturk2020",
@@ -1663,7 +1781,8 @@
     "application_field": "Manufacturing & Production",
     "avg_num_var": 10450.0,
     "avg_num_int_var": 10000.0,
-    "avg_num_constr": 30446.0
+    "avg_num_constr": 30446.0,
+    "source_link": "https://doi.org/10.1016/j.ejor.2020.03.044"
   },
   {
     "paper_id": "pecin2017",
@@ -1677,7 +1796,8 @@
     "application_field": "Transportation & Logistics",
     "avg_num_var": 40605.0,
     "avg_num_int_var": 40201.0,
-    "avg_num_constr": 81207.0
+    "avg_num_constr": 81207.0,
+    "source_link": "https://doi.org/10.1287/ijoc.2016.0744"
   },
   {
     "paper_id": "pedersen2024",
@@ -1691,7 +1811,8 @@
     "application_field": "Energy & Power Systems",
     "avg_num_var": 878414.0,
     "avg_num_int_var": 439532.0,
-    "avg_num_constr": 440844.0
+    "avg_num_constr": 440844.0,
+    "source_link": "https://doi.org/10.1016/j.ejor.2024.04.026"
   },
   {
     "paper_id": "pessoa2021",
@@ -1705,7 +1826,8 @@
     "application_field": "Transportation & Logistics",
     "avg_num_var": 6560.0,
     "avg_num_int_var": 6480.0,
-    "avg_num_constr": 6482.0
+    "avg_num_constr": 6482.0,
+    "source_link": "https://pubsonline.informs.org/doi/abs/10.1287/opre.2020.2035"
   },
   {
     "paper_id": "pettersson2020",
@@ -1719,7 +1841,8 @@
     "application_field": "Foundational / Theoretical",
     "avg_num_var": 10000000.0,
     "avg_num_int_var": 10000000.0,
-    "avg_num_constr": 1.0
+    "avg_num_constr": 1.0,
+    "source_link": "https://doi.org/10.1287/ijoc.2018.0875"
   },
   {
     "paper_id": "pinnoi1997",
@@ -1733,7 +1856,8 @@
     "application_field": "Manufacturing & Production",
     "avg_num_var": 896.0,
     "avg_num_int_var": 895.0,
-    "avg_num_constr": 192.0
+    "avg_num_constr": 192.0,
+    "source_link": "https://doi.org/10.1287/ijoc.9.4.335"
   },
   {
     "paper_id": "potthoff2010",
@@ -1747,7 +1871,8 @@
     "application_field": "Public Transit & Mobility",
     "avg_num_var": 35948.0,
     "avg_num_int_var": 35948.0,
-    "avg_num_constr": 103.0
+    "avg_num_constr": 103.0,
+    "source_link": "https://doi.org/10.1287/trsc.1100.0322"
   },
   {
     "paper_id": "rahimian2017",
@@ -1761,7 +1886,8 @@
     "application_field": "Healthcare",
     "avg_num_var": 112684.0,
     "avg_num_int_var": 112684.0,
-    "avg_num_constr": 166431.0
+    "avg_num_constr": 166431.0,
+    "source_link": "https://doi.org/10.1016/j.ejor.2016.09.030"
   },
   {
     "paper_id": "rahmaniani2017",
@@ -1775,7 +1901,8 @@
     "application_field": "Transportation & Logistics",
     "avg_num_var": 3139014.0,
     "avg_num_int_var": 100.0,
-    "avg_num_constr": 499951.0
+    "avg_num_constr": 499951.0,
+    "source_link": "https://doi.org/10.1287/opre.1110.0965"
   },
   {
     "paper_id": "rahmaniani2018",
@@ -1789,7 +1916,8 @@
     "application_field": "Energy & Power Systems",
     "avg_num_var": 69793.0,
     "avg_num_int_var": 159.0,
-    "avg_num_constr": 122237.0
+    "avg_num_constr": 122237.0,
+    "source_link": "https://doi.org/10.1287/ijoo.2023.0005"
   },
   {
     "paper_id": "rahmaniani2020",
@@ -1803,7 +1931,8 @@
     "application_field": "Foundational / Theoretical",
     "avg_num_var": 1750050.0,
     "avg_num_int_var": 50.0,
-    "avg_num_constr": 52501.0
+    "avg_num_constr": 52501.0,
+    "source_link": "https://doi.org/10.1287/opre.2019.1892"
   },
   {
     "paper_id": "rahmaniani2022",
@@ -1817,7 +1946,8 @@
     "application_field": "Energy & Power Systems",
     "avg_num_var": 47208.0,
     "avg_num_int_var": 108.0,
-    "avg_num_constr": 115427.0
+    "avg_num_constr": 115427.0,
+    "source_link": "https://doi.org/10.1287/ijoo.2023.0005"
   },
   {
     "paper_id": "reihaneh2019",
@@ -1831,7 +1961,8 @@
     "application_field": "Transportation & Logistics",
     "avg_num_var": 12800.0,
     "avg_num_int_var": 5150.0,
-    "avg_num_constr": 26637.0
+    "avg_num_constr": 26637.0,
+    "source_link": "https://doi.org/10.1016/j.ejor.2018.06.049"
   },
   {
     "paper_id": "reinhardt2016",
@@ -1845,7 +1976,8 @@
     "application_field": "Transportation & Logistics",
     "avg_num_var": 67248.0,
     "avg_num_int_var": 65608.0,
-    "avg_num_constr": 66395.0
+    "avg_num_constr": 66395.0,
+    "source_link": "https://doi.org/10.1287/trsc.2014.0580"
   },
   {
     "paper_id": "ribeiro1994",
@@ -1859,7 +1991,8 @@
     "application_field": "Public Transit & Mobility",
     "avg_num_var": 537318.0,
     "avg_num_int_var": 537318.0,
-    "avg_num_constr": 4518.0
+    "avg_num_constr": 4518.0,
+    "source_link": "https://doi.org/10.1287/opre.42.1.41"
   },
   {
     "paper_id": "roberti2015",
@@ -1873,7 +2006,8 @@
     "application_field": "Transportation & Logistics",
     "avg_num_var": 9800.0,
     "avg_num_int_var": 4900.0,
-    "avg_num_constr": 5040.0
+    "avg_num_constr": 5040.0,
+    "source_link": "https://doi.org/10.1287/mnsc.2014.1947"
   },
   {
     "paper_id": "roberti2018",
@@ -1887,7 +2021,8 @@
     "application_field": "Transportation & Logistics",
     "avg_num_var": 6600.0,
     "avg_num_int_var": 3550.0,
-    "avg_num_constr": 21345.0
+    "avg_num_constr": 21345.0,
+    "source_link": "https://doi.org/10.1016/j.ejor.2017.10.017"
   },
   {
     "paper_id": "roberti2021",
@@ -1901,7 +2036,8 @@
     "application_field": "Transportation & Logistics",
     "avg_num_var": 478.0,
     "avg_num_int_var": 462.0,
-    "avg_num_constr": 602.0
+    "avg_num_constr": 602.0,
+    "source_link": "https://doi.org/10.1287/trsc.2020.1017"
   },
   {
     "paper_id": "ropke2009",
@@ -1915,7 +2051,8 @@
     "application_field": "Transportation & Logistics",
     "avg_num_var": 216161.0,
     "avg_num_int_var": 208593.0,
-    "avg_num_constr": 424753.0
+    "avg_num_constr": 424753.0,
+    "source_link": "https://doi.org/10.1287/trsc.1090.0272"
   },
   {
     "paper_id": "roshanaei2017",
@@ -1929,7 +2066,8 @@
     "application_field": "Healthcare",
     "avg_num_var": 103862.0,
     "avg_num_int_var": 101663.0,
-    "avg_num_constr": 213791.0
+    "avg_num_constr": 213791.0,
+    "source_link": "https://doi.org/10.1287/ijoc.2017.0745"
   },
   {
     "paper_id": "rostami2021",
@@ -1943,7 +2081,8 @@
     "application_field": "Transportation & Logistics",
     "avg_num_var": 5049600.0,
     "avg_num_int_var": 49600.0,
-    "avg_num_constr": 150501.0
+    "avg_num_constr": 150501.0,
+    "source_link": "https://doi.org/10.1016/j.ejor.2020.07.051"
   },
   {
     "paper_id": "rothenbacher2018",
@@ -1957,7 +2096,8 @@
     "application_field": "Transportation & Logistics",
     "avg_num_var": 268028.0,
     "avg_num_int_var": 258932.0,
-    "avg_num_constr": 1067602.0
+    "avg_num_constr": 1067602.0,
+    "source_link": "https://doi.org/10.1287/trsc.2017.0765"
   },
   {
     "paper_id": "rothenbacher2019",
@@ -1971,7 +2111,8 @@
     "application_field": "Supply Chain & Inventory",
     "avg_num_var": 64115.0,
     "avg_num_int_var": 64115.0,
-    "avg_num_constr": 214.0
+    "avg_num_constr": 214.0,
+    "source_link": "https://doi.org/10.1287/trsc.2018.0855"
   },
   {
     "paper_id": "ruiz2007",
@@ -1985,7 +2126,8 @@
     "application_field": "Manufacturing & Production",
     "avg_num_var": 9167.0,
     "avg_num_int_var": 7921.0,
-    "avg_num_constr": 2656.0
+    "avg_num_constr": 2656.0,
+    "source_link": "https://doi.org/10.1016/j.omega.2013.10.002"
   },
   {
     "paper_id": "sadykov2013",
@@ -1999,12 +2141,13 @@
     "application_field": "Foundational / Theoretical",
     "avg_num_var": 12210.0,
     "avg_num_int_var": 12210.0,
-    "avg_num_constr": 461889.0
+    "avg_num_constr": 461889.0,
+    "source_link": "https://pubsonline.informs.org/doi/10.1287/ijoc.1120.0499"
   },
   {
     "paper_id": "salemi2022",
     "paper_title": "On the Structure of Decision Diagram-Representable Mixed Integer Programs with Application to Unit Commitment",
-    "publication": "INFORMS Journal on Computing",
+    "publication": "Operations Research",
     "year": 2022,
     "direction": "min",
     "problem_class": "Energy & Unit Commitment",
@@ -2013,7 +2156,8 @@
     "application_field": "Energy & Power Systems",
     "avg_num_var": 489600.0,
     "avg_num_int_var": 7200.0,
-    "avg_num_constr": 1238956.0
+    "avg_num_constr": 1238956.0,
+    "source_link": "https://doi.org/10.1287/opre.2022.2353"
   },
   {
     "paper_id": "sansegundo2023",
@@ -2027,7 +2171,8 @@
     "application_field": "Foundational / Theoretical",
     "avg_num_var": 1000.0,
     "avg_num_int_var": 1000.0,
-    "avg_num_constr": 399124.0
+    "avg_num_constr": 399124.0,
+    "source_link": "https://www.sciencedirect.com/science/article/pii/S0377221722008165"
   },
   {
     "paper_id": "savelsbergh1997",
@@ -2041,7 +2186,8 @@
     "application_field": "Foundational / Theoretical",
     "avg_num_var": 2000.0,
     "avg_num_int_var": 2000.0,
-    "avg_num_constr": 120.0
+    "avg_num_constr": 120.0,
+    "source_link": "https://doi.org/10.1287/opre.45.6.831"
   },
   {
     "paper_id": "segundo2019",
@@ -2055,7 +2201,8 @@
     "application_field": "Foundational / Theoretical",
     "avg_num_var": 627430.0,
     "avg_num_int_var": 627430.0,
-    "avg_num_constr": 3748680.0
+    "avg_num_constr": 3748680.0,
+    "source_link": "https://www.sciencedirect.com/science/article/abs/pii/S0377221719303054"
   },
   {
     "paper_id": "segundo2019b",
@@ -2069,7 +2216,8 @@
     "application_field": "Foundational / Theoretical",
     "avg_num_var": 3000.0,
     "avg_num_int_var": 3000.0,
-    "avg_num_constr": 3600074.0
+    "avg_num_constr": 3600074.0,
+    "source_link": "https://www.sciencedirect.com/science/article/abs/pii/S0305054819301303"
   },
   {
     "paper_id": "seker2021",
@@ -2083,7 +2231,8 @@
     "application_field": "Foundational / Theoretical",
     "avg_num_var": 33567.0,
     "avg_num_int_var": 33567.0,
-    "avg_num_constr": 5768230.0
+    "avg_num_constr": 5768230.0,
+    "source_link": "https://www.sciencedirect.com/science/article/abs/pii/S0377221720308031"
   },
   {
     "paper_id": "levin2017",
@@ -2097,7 +2246,8 @@
     "application_field": "Transportation & Logistics",
     "avg_num_var": 9451376.0,
     "avg_num_int_var": 0.0,
-    "avg_num_constr": 3920817.0
+    "avg_num_constr": 3920817.0,
+    "source_link": "https://doi.org/10.1016/j.trc.2017.06.020"
   },
   {
     "paper_id": "song2021",
@@ -2111,7 +2261,8 @@
     "application_field": "Manufacturing & Production",
     "avg_num_var": 69536.0,
     "avg_num_int_var": 62367.0,
-    "avg_num_constr": 14563.0
+    "avg_num_constr": 14563.0,
+    "source_link": "https://doi.org/10.1287/ijoc.2020.0957"
   },
   {
     "paper_id": "spliet2015",
@@ -2125,7 +2276,8 @@
     "application_field": "Transportation & Logistics",
     "avg_num_var": 2131.0,
     "avg_num_int_var": 1950.0,
-    "avg_num_constr": 4053.0
+    "avg_num_constr": 4053.0,
+    "source_link": "https://doi.org/10.1287/trsc.2013.0510"
   },
   {
     "paper_id": "he2020",
@@ -2139,7 +2291,8 @@
     "application_field": "Transportation & Logistics",
     "avg_num_var": 27962.0,
     "avg_num_int_var": 27930.0,
-    "avg_num_constr": 28949.0
+    "avg_num_constr": 28949.0,
+    "source_link": "https://pubsonline.informs.org/doi/10.1287/trsc.2019.0891"
   },
   {
     "paper_id": "muter2010",
@@ -2153,7 +2306,8 @@
     "application_field": "Transportation & Logistics",
     "avg_num_var": 526526.0,
     "avg_num_int_var": 526526.0,
-    "avg_num_constr": 33.0
+    "avg_num_constr": 33.0,
+    "source_link": "https://pubsonline.informs.org/doi/10.1287/ijoc.1090.0376"
   },
   {
     "paper_id": "taninmis2022",
@@ -2167,7 +2321,8 @@
     "application_field": "Energy & Power Systems",
     "avg_num_var": 3747938.0,
     "avg_num_int_var": 1113649.0,
-    "avg_num_constr": 6714930.0
+    "avg_num_constr": 6714930.0,
+    "source_link": "https://doi.org/10.1287/ijoc.2022.1177"
   },
   {
     "paper_id": "cote2019",
@@ -2181,7 +2336,8 @@
     "application_field": "Transportation & Logistics",
     "avg_num_var": 56.0,
     "avg_num_int_var": 55.0,
-    "avg_num_constr": 11.0
+    "avg_num_constr": 11.0,
+    "source_link": "https://doi.org/10.1287/trsc.2019.0904"
   },
   {
     "paper_id": "tran2018",
@@ -2195,7 +2351,8 @@
     "application_field": "Transportation & Logistics",
     "avg_num_var": 4160.0,
     "avg_num_int_var": 1000.0,
-    "avg_num_constr": 56280.0
+    "avg_num_constr": 56280.0,
+    "source_link": "https://doi.org/10.1016/j.ejor.2017.10.012"
   },
   {
     "paper_id": "sansegundo2016",
@@ -2209,7 +2366,8 @@
     "application_field": "Foundational / Theoretical",
     "avg_num_var": 4000.0,
     "avg_num_int_var": 4000.0,
-    "avg_num_constr": 7997482.0
+    "avg_num_constr": 7997482.0,
+    "source_link": "https://doi.org/10.1016/j.cor.2015.07.013"
   },
   {
     "paper_id": "vidal2011",
@@ -2223,7 +2381,8 @@
     "application_field": "Transportation & Logistics",
     "avg_num_var": 70548.0,
     "avg_num_int_var": 70548.0,
-    "avg_num_constr": 4412.0
+    "avg_num_constr": 4412.0,
+    "source_link": "https://doi.org/10.1287/opre.1120.1048"
   },
   {
     "paper_id": "walteros2020",
@@ -2237,7 +2396,8 @@
     "application_field": "Foundational / Theoretical",
     "avg_num_var": 3000.0,
     "avg_num_int_var": 3000.0,
-    "avg_num_constr": 4497847.0
+    "avg_num_constr": 4497847.0,
+    "source_link": "https://pubsonline.informs.org/doi/10.1287/opre.2019.1970"
   },
   {
     "paper_id": "wang2019",
@@ -2251,7 +2411,8 @@
     "application_field": "Transportation & Logistics",
     "avg_num_var": 328000.0,
     "avg_num_int_var": 8000.0,
-    "avg_num_constr": 17200.0
+    "avg_num_constr": 17200.0,
+    "source_link": "https://doi.org/10.1016/j.ejor.2019.01.022"
   },
   {
     "paper_id": "wang2025",
@@ -2265,7 +2426,8 @@
     "application_field": "Foundational / Theoretical",
     "avg_num_var": 61.0,
     "avg_num_int_var": 60.0,
-    "avg_num_constr": 10.0
+    "avg_num_constr": 10.0,
+    "source_link": "https://doi.org/10.1109/smc.2019.8913989"
   },
   {
     "paper_id": "watermeyer2020",
@@ -2279,7 +2441,8 @@
     "application_field": "Manufacturing & Production",
     "avg_num_var": 149432.0,
     "avg_num_int_var": 149432.0,
-    "avg_num_constr": 150393.0
+    "avg_num_constr": 150393.0,
+    "source_link": "https://link.springer.com/article/10.1007/s00291-020-00583-z"
   },
   {
     "paper_id": "watermeyer2022",
@@ -2293,7 +2456,8 @@
     "application_field": "Manufacturing & Production",
     "avg_num_var": 124616.0,
     "avg_num_int_var": 124616.0,
-    "avg_num_constr": 38024.0
+    "avg_num_constr": 38024.0,
+    "source_link": "https://link.springer.com/article/10.1007/s00291-021-00654-9"
   },
   {
     "paper_id": "watermeyer2023",
@@ -2307,7 +2471,8 @@
     "application_field": "Manufacturing & Production",
     "avg_num_var": 30383.0,
     "avg_num_int_var": 30383.0,
-    "avg_num_constr": 3108.0
+    "avg_num_constr": 3108.0,
+    "source_link": "https://link.springer.com/article/10.1007/s10951-022-00735-9"
   },
   {
     "paper_id": "wei2020",
@@ -2321,7 +2486,8 @@
     "application_field": "Transportation & Logistics",
     "avg_num_var": 670672.0,
     "avg_num_int_var": 670672.0,
-    "avg_num_constr": 2338.0
+    "avg_num_constr": 2338.0,
+    "source_link": "https://pubsonline.informs.org/doi/abs/10.1287/ijoc.2018.0867"
   },
   {
     "paper_id": "wei2020b",
@@ -2335,7 +2501,8 @@
     "application_field": "Transportation & Logistics",
     "avg_num_var": 1440.0,
     "avg_num_int_var": 1440.0,
-    "avg_num_constr": 130.0
+    "avg_num_constr": 130.0,
+    "source_link": "https://www.sciencedirect.com/science/article/abs/pii/S0377221719306770"
   },
   {
     "paper_id": "wu2018",
@@ -2349,12 +2516,13 @@
     "application_field": "Manufacturing & Production",
     "avg_num_var": 3850.0,
     "avg_num_int_var": 1540.0,
-    "avg_num_constr": 3192.0
+    "avg_num_constr": 3192.0,
+    "source_link": "https://pubsonline.informs.org/doi/10.1287/ijoc.2017.0777"
   },
   {
     "paper_id": "wu2023",
     "paper_title": "Optimal Scenario Reduction for One- and Two-Stage Robust Optimization",
-    "publication": "INFORMS Journal on Computing",
+    "publication": "European Journal of Operational Research",
     "year": 2023,
     "direction": "max",
     "problem_class": "Stochastic / Robust / Bilevel Optimization",
@@ -2363,7 +2531,8 @@
     "application_field": "Foundational / Theoretical",
     "avg_num_var": 101.0,
     "avg_num_int_var": 50.0,
-    "avg_num_constr": 7551.0
+    "avg_num_constr": 7551.0,
+    "source_link": "https://doi.org/10.1016/j.ejor.2023.03.025"
   },
   {
     "paper_id": "wu2022",
@@ -2377,7 +2546,8 @@
     "application_field": "Manufacturing & Production",
     "avg_num_var": 659306.0,
     "avg_num_int_var": 18848.0,
-    "avg_num_constr": 56666.0
+    "avg_num_constr": 56666.0,
+    "source_link": "https://doi.org/10.1016/j.ejor.2021.11.028"
   },
   {
     "paper_id": "xie2019",
@@ -2391,7 +2561,8 @@
     "application_field": "Transportation & Logistics",
     "avg_num_var": 125916.0,
     "avg_num_int_var": 125756.0,
-    "avg_num_constr": 229352.0
+    "avg_num_constr": 229352.0,
+    "source_link": "https://doi.org/10.1287/trsc.2019.0894"
   },
   {
     "paper_id": "xu2024",
@@ -2405,7 +2576,8 @@
     "application_field": "Finance & Investment",
     "avg_num_var": 200.0,
     "avg_num_int_var": 100.0,
-    "avg_num_constr": 3.0
+    "avg_num_constr": 3.0,
+    "source_link": "https://doi.org/10.1287/ijoc.2022.0344"
   },
   {
     "paper_id": "yang2013",
@@ -2419,7 +2591,8 @@
     "application_field": "Foundational / Theoretical",
     "avg_num_var": 2000.0,
     "avg_num_int_var": 2000.0,
-    "avg_num_constr": 1.0
+    "avg_num_constr": 1.0,
+    "source_link": "https://www.sciencedirect.com/science/article/abs/pii/S0305054812002675"
   },
   {
     "paper_id": "zetina2019",
@@ -2433,7 +2606,8 @@
     "application_field": "Telecommunications & Networking",
     "avg_num_var": 1121400.0,
     "avg_num_int_var": 1400.0,
-    "avg_num_constr": 1160000.0
+    "avg_num_constr": 1160000.0,
+    "source_link": "https://doi.org/10.1016/j.cor.2019.07.007"
   },
   {
     "paper_id": "zetina2020",
@@ -2447,7 +2621,8 @@
     "application_field": "Foundational / Theoretical",
     "avg_num_var": 182.0,
     "avg_num_int_var": 182.0,
-    "avg_num_constr": 0.0
+    "avg_num_constr": 0.0,
+    "source_link": "https://doi.org/10.1109/qce60285.2024.00062"
   },
   {
     "paper_id": "zhang2025",
@@ -2461,7 +2636,8 @@
     "application_field": "Foundational / Theoretical",
     "avg_num_var": 120000.0,
     "avg_num_int_var": 120000.0,
-    "avg_num_constr": 260.0
+    "avg_num_constr": 260.0,
+    "source_link": "https://arxiv.org/abs/2503.16652"
   },
   {
     "paper_id": "gangammanavar2020",
@@ -2475,7 +2651,8 @@
     "application_field": "Foundational / Theoretical",
     "avg_num_var": 3302127.0,
     "avg_num_int_var": 0.0,
-    "avg_num_constr": 76400.0
+    "avg_num_constr": 76400.0,
+    "source_link": "https://doi.org/10.1287/ijoc.2019.0929"
   },
   {
     "paper_id": "belhoul2014",
@@ -2489,7 +2666,8 @@
     "application_field": "Foundational / Theoretical",
     "avg_num_var": 1265626.0,
     "avg_num_int_var": 1265625.0,
-    "avg_num_constr": 2252.0
+    "avg_num_constr": 2252.0,
+    "source_link": "https://doi.org/10.1016/j.cor.2014.03.013"
   },
   {
     "paper_id": "zohali2022",
@@ -2503,6 +2681,7 @@
     "application_field": "Manufacturing & Production",
     "avg_num_var": 325571.0,
     "avg_num_int_var": 325570.0,
-    "avg_num_constr": 15434.0
+    "avg_num_constr": 15434.0,
+    "source_link": "https://doi.org/10.1287/ijoc.2020.1015"
   }
 ]

@@ -1,6 +1,8 @@
 # FrontierOR: Benchmarking LLMs' Capacity for Efficient Algorithm Design in Large-Scale Optimization
 
 <p align="center">
+  <a href="https://frontieror.vercel.app/"><img src="https://img.shields.io/badge/Website-frontieror.vercel.app-000?logo=vercel&logoColor=white" alt="Website"></a>
+  &nbsp;
   <a href="https://arxiv.org/abs/2605.25246"><img src="https://img.shields.io/badge/arXiv-2605.25246-b31b1b?logo=arxiv&logoColor=white" alt="arXiv"></a>
   &nbsp;
   <a href="https://huggingface.co/datasets/SmartOR/FrontierOR"><img src="https://img.shields.io/badge/%F0%9F%A4%97%20Dataset-SmartOR%2FFrontierOR-FFD21E" alt="HuggingFace Dataset"></a>
@@ -91,7 +93,7 @@ python -u one_shot_eval.py --paper_id bierwirth2017 liao2020 --reuse-code all --
 
 ---
 
-## Evaluation
+## Run Evaluation
 
 FrontierOR exposes two evaluation pipelines: **one-shot LLM generation**, and **test-time self-evolution**.
 
@@ -149,7 +151,7 @@ One-shot performance on **FrontierOR Full** (180 tasks) and **FrontierOR Hard** 
 | Claude Opus 4.6      | _0.93_   | **0.62** | _0.48_   | **0.31** | 0.94     | _0.60_   | _0.44_   | **0.32** |
 | GPT-5.3-Codex        | **0.98** | 0.60     | _0.48_   | _0.26_   | _0.98_   | 0.49     | 0.30     | 0.18     |
 | Gemini 3.1 Pro       | _0.93_   | _0.61_   | **0.52** | 0.25     | **1.00** | **0.64** | **0.44** | _0.22_   |
-| _**Cost-effective / open-source models**_ | | | | | | | | |
+| _**Cost-effective**_ | | | | | | | | |
 | DeepSeek-R1          | 0.74     | 0.42     | 0.31     | 0.17     | 0.82     | 0.37     | 0.20     | 0.11     |
 | Grok-4.20-beta       | 0.74     | 0.28     | 0.22     | 0.13     | 0.76     | 0.20     | 0.14     | 0.06     |
 | Qwen3-Coder-Plus     | 0.60     | 0.26     | 0.20     | 0.09     | 0.52     | 0.21     | 0.12     | 0.07     |
@@ -172,7 +174,7 @@ FrontierOR routes all LLM calls through OpenRouter, so adding a model is a confi
 1. **Pick the OpenRouter route** (e.g. `anthropic/claude-opus-4.6`, `openai/gpt-5.3-codex`).
 2. **Register a short name and route** in `configs/oneshot.yaml` — copy an existing block and edit the `route`, `short_name`, and any sampling parameters (temperature, max tokens, reasoning effort).
 3. **(Optional) Tune the prompt** by editing the `build_prompt()` function in `one_shot_eval.py` if the model has unusual formatting requirements.
-4. **Run** `python one_shot_eval.py --paper-id <ID> --models <short_name>` to verify the model's code is parsed correctly, then scale up via `--models all` or `--paper-tag`.
+4. **Run** `python one_shot_eval.py --paper-id <ID> --models <short_name>` to verify the model's code is parsed correctly.
 
 For self-evolution, the same short name flows through `--primary-model` / `--secondary-model` in `self_evolving_frameworks/run_eval_modes.py`.
 
