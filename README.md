@@ -1,7 +1,11 @@
+<p align="center">
+  <img src="figures/frontieror_logo.svg" alt="FrontierOR logo" height="100">
+</p>
+
 # FrontierOR: Benchmarking LLMs' Capacity for Efficient Algorithm Design in Large-Scale Optimization
 
 <p align="center">
-  <a href="https://frontieror.vercel.app/"><img src="https://img.shields.io/badge/Website-frontieror.vercel.app-000?logo=vercel&logoColor=white" alt="Website"></a>
+  <a href="https://frontieror.vercel.app/"><img src="https://img.shields.io/badge/%F0%9F%8C%90%20Website-frontieror.vercel.app-000" alt="Website"></a>
   &nbsp;
   <a href="https://arxiv.org/abs/2605.25246"><img src="https://img.shields.io/badge/arXiv-2605.25246-b31b1b?logo=arxiv&logoColor=white" alt="arXiv"></a>
   &nbsp;
