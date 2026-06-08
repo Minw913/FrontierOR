@@ -12,6 +12,12 @@
   <img src="figures/FrontierOR.png" alt="FrontierOR overview" width="100%">
 </p>
 
+<p align="center">
+
+<a href="#-introduction">Introduction</a> · <a href="#-environment-setup">Setup</a> · <a href="#-quick-start">Quick Start</a> · <a href="#-run-evaluation">Evaluation</a> · <a href="#-leaderboard">Leaderboard</a> · <a href="#-adding-support-for-new-models">Submit New Models</a>
+
+</p>
+
 > Overview of the FrontierOR benchmark. FrontierOR spans diverse problem domains, formulation types, and application fields. Each optimization problem involves 10² to 10⁷ decision variables and constraints (median ~10⁴), with Gurobi failing to reach optimality on **46%** of large-scale instances within a one-hour time budget. We construct the benchmark by collecting problems from leading OR journals, and ensure data quality through multi-round expert review.
 
 ---
