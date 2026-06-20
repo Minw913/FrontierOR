@@ -8,11 +8,11 @@
   <a href="https://huggingface.co/datasets/SmartOR/FrontierOR"><img src="https://img.shields.io/badge/%F0%9F%A4%97%20Dataset-SmartOR%2FFrontierOR-FFD21E" alt="HuggingFace Dataset"></a>
 </p>
 
-<p align="center">
+<div align="center">
 
 <a href="#-introduction">Introduction</a> · <a href="#-environment-setup">Setup</a> · <a href="#-quick-start">Quick Start</a> · <a href="#-run-evaluation">Evaluation</a> · <a href="#-leaderboard">Leaderboard</a> · <a href="#-adding-support-for-new-models">Submit New Models</a>
 
-</p>
+</div>
 
 <p align="center">
   <img src="figures/FrontierOR.png" alt="FrontierOR overview" width="100%">
@@ -40,7 +40,7 @@ We currently evaluate seven LLMs backbones and three test-time evalution methods
 
 ## ⚙️ Environment Setup
 
-### Step 1 — Clone the repo and download the dataset
+### Step 1: Clone the repo and download the dataset
 
 The code lives on GitHub; the benchmark data is hosted on HuggingFace at [`SmartOR/FrontierOR`](https://huggingface.co/datasets/SmartOR/FrontierOR).
 
@@ -54,7 +54,7 @@ pip install -U "huggingface_hub[cli]"
 huggingface-cli download SmartOR/FrontierOR --repo-type dataset --local-dir frontier-or
 ```
 
-### Step 2 — Python environment
+### Step 2: Python environment
 
 We recommend [`uv`](https://github.com/astral-sh/uv) for fast, reproducible installs:
 
@@ -64,11 +64,11 @@ source .venv/bin/activate
 uv pip install -r requirements.txt
 ```
 
-### Step 3 — Gurobi license
+### Step 3: Gurobi license
 
 During evaluation some LLM-generated solver programs require a valid `gurobipy` license. Place it at the path pointed to by `GRB_LICENSE_FILE` (the Dockerfile mounts it at `/opt/gurobi/gurobi.lic`).
 
-### Step 4 — OpenRouter API key
+### Step 4: OpenRouter API key
 
 LLM calls go through OpenRouter and the model registry is in `configs/oneshot.yaml`. `configs/api_keys.yaml` provides two scoped keys (one-shot generation and test-time self-evolution), allowing each workload to use a separate OpenRouter account or quota:
 
@@ -149,6 +149,12 @@ Switch frameworks via `--framework {eoh,coral,openevolve}`; framework-specific k
 ## 🏆 Leaderboard
 
 See performance details for **one-shot generation**, **test-time self-evolution**, and **individual tasks** on the [🌐 FrontierOR website](https://frontieror.vercel.app/).
+
+Key takeaways:
+
+1. **Frontier vs. cost-effective.** Frontier-tier feasibility clusters at 0.60–0.62 on Full and 0.49–0.64 on Hard; cost-effective models sit at 0.18–0.42 and 0.13–0.37 respectively — the gap is preserved at both scales.
+2. **Execution is no longer the bottleneck.** GPT-5.3-Codex executes 98% of tasks but still scores only 0.49 feasibility on Hard; the difficulty has shifted from "compiles and runs" to "produces a valid, scalable algorithm".
+3. **The Hard subset re-separates leaders.** On Full, the three frontier models are tightly bunched; on Hard the band widens — Claude Opus 4.6 retains the highest QTE (0.31 / 0.32), while GPT-5.3-Codex's Hard feasibility / QTE drop furthest.
 
 ---
 
