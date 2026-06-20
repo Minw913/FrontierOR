@@ -1,16 +1,16 @@
-You are generating `scale_diversity_parameters.txt` for paper `{paper_id}`. This file specifies (a) the locked scale parameters matching the paper's `large_instance_11.json`, (b) a STRICT real-world scale cap pulled from the survey CSV, (c) a non-scale diversity dimension, and (d) 5 diversity structures that all share the locked scale and stay within the cap.
+You are generating `scale_diversity_parameters.txt` for paper `{paper_id}`. This file specifies (a) the locked scale parameters matching the paper's `large_instance_1.json`, (b) a STRICT real-world scale cap pulled from the survey CSV, (c) a non-scale diversity dimension, and (d) 5 diversity structures that all share the locked scale and stay within the cap.
 
 Downstream use:
 - Phase 1/B Agents read this file to produce `pilot_instruction_{paper_id}.txt` / `full_plan.json` entries.
 - Future `--mode scale-up` reads the [STRICT] cap to decide whether a user override is needed.
-- All 74 papers under `frontier-or/` will get one; the file format must be identical across papers.
+- All 179 papers under `FrontierOR/` will get one; the file format must be identical across papers.
 
 ## Inputs to read
 
 1. `data/paper_data/{paper_id}/all_instances.json` — paper-extracted instance specs (read fully)
 2. `data/paper_data/{paper_id}/problem_description.txt` — problem context
-3. `data/paper_data/{paper_id}/math_model.txt` — identifies which params drive variable/constraint count (i.e., the "scale" axes)
-4. `frontier-or/{paper_id}/instance/large_instance_11.json` — READ FIRST 100 LINES ONLY (it can be huge); capture the top-level parameter values to lock the scale
+3. `data/paper_data/{paper_id}/mathematical_formulation.md` — identifies which params drive variable/constraint count (i.e., the "scale" axes)
+4. `FrontierOR/{paper_id}/instance/large_instance_1.json` — READ FIRST 100 LINES ONLY (it can be huge); capture the top-level parameter values to lock the scale
 5. `docs/data_instance/plan/instance_diversity.md` — 10-dimension taxonomy + problem-class defaults for diversity
 6. `docs/data_instance/results/largest_realistic_instance_survey.csv` — extract the row for `{paper_id}`; you need these 3 columns: `problem_class`, `primary_param`, `real_world_scale_threshold`, `largest_real_world_config`
 
@@ -27,11 +27,11 @@ Use EXACTLY the following template (preserve section headers and order):
 - name: <problem_name from all_instances.json.global_parameters>
 - class: <exact value from CSV problem_class column>
 
-## Scale parameters (locking to large_instance_11.json current values)
+## Scale parameters (locking to large_instance_1.json current values)
 - <key1>: <value1>
 - <key2>: <value2>
 ...
-(One-line note: which math_model expressions these parameters drive, e.g., "these drive O(n*T) binary variables and O(m*T) capacity constraints". Do NOT vary these across large_instance_11..51.)
+(One-line note: which math_model expressions these parameters drive, e.g., "these drive O(n*T) binary variables and O(m*T) capacity constraints". Do NOT vary these across large_instance_1..5.)
 
 ## [STRICT] Real-world largest-scale cap (source: largest_realistic_instance_survey.csv)
 - <axis1>: <cap_value1>
@@ -51,27 +51,25 @@ at-cap instances too quickly, bump further").
 
 ## 5 diversity structures (all share the Scale parameters above; all within [STRICT] cap)
 
-Naming convention: files are named `large_instance_{ij}.json` where `i` ∈ 1..5 is the
-diversity index and `j` ∈ 1..4 is the scale index. This file populates row j=1 only;
-columns j=2..4 are reserved for future `--mode scale-up` variants (same diversity,
-larger scale). List the 5 diversity structures below using indices `11, 21, 31, 41, 51`.
+Naming convention: files are named `large_instance_{i}.json` where `i` ∈ 1..5 is the
+diversity index. List the 5 diversity structures below using indices `1, 2, 3, 4, 5`.
 
-### large_instance_11 (EXISTING, source: native)
-- <diversity axis field>: <current value from large_instance_11.json>
+### large_instance_1 (EXISTING, source: native)
+- <diversity axis field>: <current value from large_instance_1.json>
 - other non-scale params: <list key values; be concrete>
 
-### large_instance_21 (source: <native Tier-1 | Tier-2 | Tier-3>)
+### large_instance_2 (source: <native Tier-1 | Tier-2 | Tier-3>)
 - <diversity axis field>: <new value>
-- parameter changes vs. large_instance_11: <key=value pairs>
+- parameter changes vs. large_instance_1: <key=value pairs>
 - rationale: <one sentence>
 
-### large_instance_31 (source: ...)
+### large_instance_3 (source: ...)
 ...
 
-### large_instance_41 (source: ...)
+### large_instance_4 (source: ...)
 ...
 
-### large_instance_51 (source: ...)
+### large_instance_5 (source: ...)
 ...
 
 ## Notes
@@ -85,29 +83,29 @@ larger scale). List the 5 diversity structures below using indices `11, 21, 31, 
 
 ### R1. Scale-parameter naming alignment (critical for [STRICT] cap)
 
-The CSV's `primary_param` and `largest_real_world_config` may use slightly different identifier styles than the txt's Scale parameters section (which mirrors `large_instance_11.json` and `generate_multiple_instances.py`). Always use the TXT's convention throughout the file. If the CSV says `num_requests` but the generator uses `num_requests_n`, write `num_requests_n` in BOTH the Scale parameters AND the [STRICT] cap sections. Same underlying concept → same name everywhere.
+The CSV's `primary_param` and `largest_real_world_config` may use slightly different identifier styles than the txt's Scale parameters section (which mirrors `large_instance_1.json` and `generate_multiple_instances.py`). Always use the TXT's convention throughout the file. If the CSV says `num_requests` but the generator uses `num_requests_n`, write `num_requests_n` in BOTH the Scale parameters AND the [STRICT] cap sections. Same underlying concept → same name everywhere.
 
 Examples of alignment you'll need to do:
-- CSV `num_requests` vs. large_instance_11 `num_requests_n` → use `num_requests_n`
-- CSV `num_edges` vs. large_instance_11 `graph.num_edges` → use `E (num_edges)` or just `num_edges` consistently
-- CSV `num_jobs` vs. large_instance_11 `num_jobs` → use `num_jobs` (already aligned)
+- CSV `num_requests` vs. large_instance_1 `num_requests_n` → use `num_requests_n`
+- CSV `num_edges` vs. large_instance_1 `graph.num_edges` → use `E (num_edges)` or just `num_edges` consistently
+- CSV `num_jobs` vs. large_instance_1 `num_jobs` → use `num_jobs` (already aligned)
 
 ### R2. Current-state line of the Enforcement rule
 
-Compare large_instance_11's values against the [STRICT] cap and pick ONE of:
+Compare large_instance_1's values against the [STRICT] cap and pick ONE of:
 
-(a) If large_instance_11 meets the cap on ALL axes:
-   "`large_instance_11.json` is AT the cap exactly, so any scale-up requires explicit user override"
+(a) If large_instance_1 meets the cap on ALL axes:
+   "`large_instance_1.json` is AT the cap exactly, so any scale-up requires explicit user override"
 
-(b) If large_instance_11 is STRICTLY BELOW the cap on every axis:
-   "`large_instance_11.json` (axes: <field=value, ...>) is within the cap on all axes; scale-up within the cap can proceed automatically, and moving toward the cap is the default scale-up direction"
+(b) If large_instance_1 is STRICTLY BELOW the cap on every axis:
+   "`large_instance_1.json` (axes: <field=value, ...>) is within the cap on all axes; scale-up within the cap can proceed automatically, and moving toward the cap is the default scale-up direction"
 
-(c) If large_instance_11 EXCEEDS the cap on any axis (e.g., paper pushed to synthetic stress beyond realistic applications):
-   "`large_instance_11.json` already exceeds the cap on axis <field> (value <X>, cap <Y>) — treating this as a user-endorsed override-in-effect; all new variants must still not exceed large_instance_11 on any axis"
+(c) If large_instance_1 EXCEEDS the cap on any axis (e.g., paper pushed to synthetic stress beyond realistic applications):
+   "`large_instance_1.json` already exceeds the cap on axis <field> (value <X>, cap <Y>) — treating this as a user-endorsed override-in-effect; all new variants must still not exceed large_instance_1 on any axis"
 
 ### R3. Scale parameters must drive variable/constraint count
 
-The Scale parameters section should list ONLY axes that make the MIP larger when increased — i.e., determine the number of binary/continuous variables or constraints. Read `math_model.txt` to identify these. Non-scale parameters (cost values, distribution shapes, benchmark family labels) belong in the Diversity section, NOT the Scale section.
+The Scale parameters section should list ONLY axes that make the MIP larger when increased — i.e., determine the number of binary/continuous variables or constraints. Read `mathematical_formulation.md` to identify these. Non-scale parameters (cost values, distribution shapes, benchmark family labels) belong in the Diversity section, NOT the Scale section.
 
 ### R4. Diversity dimension selection — Tier 1/2/3
 
@@ -140,7 +138,7 @@ Only fall back to Tier 2/3 if the paper's native diversity options along ONE axi
 - All 5 MUST share the Scale parameters values exactly (strict axes).
 - All 5 MUST be within the [STRICT] cap on every axis.
 - For every Tier-2/3 synthetic variant, provide a concrete generation recipe (algorithm name, distribution parameters, seed scheme).
-- `large_instance_11` is always entry #1 (the EXISTING file); entries #2–5 describe how to generate `large_instance_21.json` through `large_instance_51.json`.
+- `large_instance_1` is always entry #1 (the EXISTING file); entries #2–5 describe how to generate `large_instance_2.json` through `large_instance_5.json`.
 
 ### R6. External-benchmark note
 
@@ -152,4 +150,4 @@ If a Tier-1 diversity option requires an external benchmark file (TSPLIB, OR-lib
 2. Respond with a summary (≤150 words):
    - problem_class, scale keys + values, [STRICT] cap keys + values, current-state variant (a/b/c)
    - diversity dimension + Tier breakdown across the 5 structures (e.g., "5 Tier-1" or "2 Tier-1 + 3 Tier-2")
-   - If the CSV row is missing for this paper: flag it explicitly and populate the cap as "CSV MISSING — cap identical to large_instance_11 values (most-conservative default)"; continue with the rest of the file.
+   - If the CSV row is missing for this paper: flag it explicitly and populate the cap as "CSV MISSING — cap identical to large_instance_1 values (most-conservative default)"; continue with the rest of the file.

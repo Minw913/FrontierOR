@@ -40,14 +40,6 @@ We currently evaluate seven LLMs backbones and three test-time evalution methods
 
 ## ⚙️ Environment Setup
 
-You can run FrontierOR in any of three execution backends. Both one-shot and self-evolve evaluation pipelines accept the backend via `--exec-mode` (e.g. `--exec-mode systemd --cpus 1`):
-
-| Backend | What it does | When to use |
-|---|---|---|
-| `bare` | Runs each `code.py` subprocess directly in the host environment, no resource caps. | Local development, fastest startup, you trust the generated code. |
-| `systemd` (default) | Wraps each subprocess in a `systemd-run --scope` unit with pinned CPUs (`AllowedCPUs`) and `MemoryMax`. | Multi-paper parallel runs on a Linux server — reproducible CPU/RAM caps, no Docker. |
-| `docker` | Runs each subprocess in a Docker container with `--cpuset-cpus`, `--memory`, and `--network=none`. | Untrusted code, full isolation, or air-gapped reproducibility. Requires building the `frontier-or` image first (`docker build -t frontier-or .`). |
-
 ### Step 1 — Clone the repo and download the dataset
 
 The code lives on GitHub; the benchmark data is hosted on HuggingFace at [`SmartOR/FrontierOR`](https://huggingface.co/datasets/SmartOR/FrontierOR).
@@ -57,7 +49,7 @@ The code lives on GitHub; the benchmark data is hosted on HuggingFace at [`Smart
 git clone git@github.com:Minw913/FrontierOR.git
 cd FrontierOR
 
-# 2. Download the dataset into ./frontier-or/ (the path the eval scripts read from)
+# 2. Download the dataset into ./frontier-or/
 pip install -U "huggingface_hub[cli]"
 huggingface-cli download SmartOR/FrontierOR --repo-type dataset --local-dir frontier-or
 ```
@@ -101,7 +93,13 @@ python -u one_shot_eval.py --paper_id bierwirth2017 liao2020 --reuse-code all --
 
 ## 🧪 Run Evaluation
 
-FrontierOR exposes two evaluation pipelines: **one-shot LLM generation**, and **test-time self-evolution**.
+FrontierOR exposes two evaluation pipelines: **one-shot LLM generation**, and **test-time self-evolution**. You can run FrontierOR in any of three execution backends:
+
+| Backend | What it does | When to use |
+|---|---|---|
+| `bare` | Runs each LLM-generated code subprocess directly in the host environment, no resource caps. | Local development, fastest startup. |
+| `systemd` (default) | Wraps each subprocess in a `systemd-run --scope` unit with pinned CPUs (`AllowedCPUs`) and `MemoryMax`. | Multi-paper parallel runs on a Linux server — reproducible CPU/RAM caps, no Docker. |
+| `docker` | Runs each subprocess in a Docker container with `--cpuset-cpus`, `--memory`, and `--network=none`. | Untrusted code, full isolation, or air-gapped reproducibility. Requires building the `frontier-or` image first (`docker build -t frontier-or .`). |
 
 ### One-shot LLM generation
 
@@ -109,33 +107,34 @@ Drives the full one-shot pipeline: prompt assembly → LLM code generation → t
 
 ```bash
 python -u one_shot_eval.py \
-    --models gpt-5.3-codex \
-    --instances large_11 large_21 large_31 large_41 large_51 \
+    --models claude-opus-4.6 gpt-5.3-codex \
+    --instances tiny large_1 large_2 large_3 large_4 large_5 \
     --max_debug_retries 5 \
     --time_limit 3600 \
-    --paper_workers 10 --model_workers 7 --instance_workers 50 \
-    --exec-mode bare
+    --paper_workers 1 --model_workers 1 --instance_workers 5 \
+    --exec-mode systemd
 ```
 
 Key flags:
 
-- `--paper_id` — explicit paper IDs.
-- `--models` — short names from `configs/oneshot.yaml` (`gpt-5.3-codex`, `claude-opus-4.6`, `gemini-3.1-pro-preview`, `deepseek-r1`, `grok-4.20-beta`, `qwen3-coder-plus`, `llama-4-maverick`), or `all`.
+- `--paper_id` — paper IDs.
+- `--models` — model names registered in `configs/oneshot.yaml`. Pass `all` to evaluate every model in the file.
+- `--instances` — instances to evaluater. Put `tiny` first as a sanity gate: stop here if it's not feasible with gap ≤ 10%, before running the computationally expensive large instances.
 - `--max_debug_retries` — bounded debug loop when the LLM's program raises.
 - `--paper_workers` / `--model_workers` / `--instance_workers` — three-level parallelism across the (paper × model × instance) grid.
-- `--exec-mode` — `bare` / `systemd` / `docker`, paired with `--cpus` / `--memory`.
-- `--reuse-code {none,incomplete,all}` — `incomplete` (default) skips (paper, instance) rows already in CSV; `all` re-runs against existing `code.py`; `none` always re-generates.
+- `--exec-mode` — `bare` / `systemd` / `docker`, paired with `--cpus` / `--memory`. Isolation strength: `bare` only pins CPUs; `systemd` adds cgroup-enforced memory cap + network block; `docker` adds full container isolation (no host filesystem access).
+- `--reuse-code {none,incomplete,all}` —  `none` always re-generates; `all` skips LLM generation and re-runs evaluation on the existing code
 
 ### Test-time Self-evolution
 
-A single CLI wrapper drives all three self-evolving frameworks (`eoh`, `coral`, `openevolve`) on top of the same one-shot starting program. Defaults match the configurations reported in the paper — you usually only need to choose the framework and papers:
+A single CLI wrapper drives all self-evolving frameworks, each starting from the same one-shot-generated code. Defaults match the configurations reported in the paper, you usually only need to choose the framework and papers:
 
 ```bash
 python -u test_time_self_evolution/run_eval_modes.py \
     --framework openevolve \
     --openevolve-iterations 30 \
-    --primary-model google/gemini-3.1-pro-preview \
-    --paper-workers 30 \
+    --primary-model gpt-5.3-codex \
+    --paper-workers 20 \
     --dev-set median \
     --test-instance-workers 4 \
     --exec-mode systemd \
@@ -149,27 +148,7 @@ Switch frameworks via `--framework {eoh,coral,openevolve}`; framework-specific k
 
 ## 🏆 Leaderboard
 
-One-shot performance on **FrontierOR Full** (180 tasks) and **FrontierOR Hard** (50 tasks). Metrics: **Exec.** = execution rate, **Feas.** = large-instance feasibility, **Sol. q.** = solution-quality pass rate vs. Gurobi, **QTE** = joint quality-time-efficiency pass rate. **Bold** = best, _underline_ = second-best per column.
-
-| Model | Exec. (Full) | Feas. (Full) | Sol. q. (Full) | QTE (Full) | Exec. (Hard) | Feas. (Hard) | Sol. q. (Hard) | QTE (Hard) |
-|---|---|---|---|---|---|---|---|---|
-| _**Frontier models**_ | | | | | | | | |
-| Claude Opus 4.6      | _0.93_   | **0.62** | _0.48_   | **0.31** | 0.94     | _0.60_   | _0.44_   | **0.32** |
-| GPT-5.3-Codex        | **0.98** | 0.60     | _0.48_   | _0.26_   | _0.98_   | 0.49     | 0.30     | 0.18     |
-| Gemini 3.1 Pro       | _0.93_   | _0.61_   | **0.52** | 0.25     | **1.00** | **0.64** | **0.44** | _0.22_   |
-| _**Cost-effective**_ | | | | | | | | |
-| DeepSeek-R1          | 0.74     | 0.42     | 0.31     | 0.17     | 0.82     | 0.37     | 0.20     | 0.11     |
-| Grok-4.20-beta       | 0.74     | 0.28     | 0.22     | 0.13     | 0.76     | 0.20     | 0.14     | 0.06     |
-| Qwen3-Coder-Plus     | 0.60     | 0.26     | 0.20     | 0.09     | 0.52     | 0.21     | 0.12     | 0.07     |
-| LLaMA-4-Maverick     | 0.47     | 0.18     | 0.13     | 0.06     | 0.52     | 0.13     | 0.07     | 0.02     |
-
-Key takeaways:
-
-1. **Frontier vs. cost-effective.** Frontier-tier feasibility clusters at 0.60–0.62 on Full and 0.49–0.64 on Hard; cost-effective models sit at 0.18–0.42 and 0.13–0.37 respectively — the gap is preserved at both scales.
-2. **Execution is no longer the bottleneck.** GPT-5.3-Codex executes 98% of tasks but still scores only 0.49 feasibility on Hard; the difficulty has shifted from "compiles and runs" to "produces a valid, scalable algorithm".
-3. **The Hard subset re-separates leaders.** On Full, the three frontier models are tightly bunched; on Hard the band widens — Claude Opus 4.6 retains the highest QTE (0.31 / 0.32), while GPT-5.3-Codex's Hard feasibility / QTE drop furthest.
-
-For self-evolution results, continuous-metric variants, pair-wise comparisons, and per-paper case studies, see the [FrontierOR paper](https://arxiv.org/abs/2605.25246).
+See performance details for **One-shot generation**, **Test-time self-evolution**, and **individual tasks** on the [🌐 FrontierOR website](https://frontieror.vercel.app/).
 
 ---
 

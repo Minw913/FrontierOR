@@ -346,7 +346,7 @@ def write_self_evolve_results(
     Args:
         paper_id, model_name: identifiers (model_name is e.g. 'deepseek-r1')
         framework: 'openevolve' / 'eoh' / 'coral' — used in CSV filename
-        dev_instances: dev-set instance names (typically 1, e.g. ['large_21'])
+        dev_instances: dev-set instance names (typically 1, e.g. ['large_2'])
         dev_results: best program's per-dev-instance result dict
         dev_seed_results: seed's per-dev-instance result dict (sets first_status);
                           pass {} or None to leave first_status blank

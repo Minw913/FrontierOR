@@ -104,12 +104,12 @@ CSV_SCHEMAS = {
 # so parallel runs don't fight for the same lock and rows stay grouped.
 # Match by exact instance name. Adding a new scale? Drop a line here.
 _INSTANCE_RESULTS_CSV = {
-    "tiny":     os.path.join(BASE_DIR, "gurobi_results_tiny.csv"),
-    "large_11": os.path.join(BASE_DIR, "gurobi_results_11.csv"),
-    "large_21": os.path.join(BASE_DIR, "gurobi_results_21.csv"),
-    "large_31": os.path.join(BASE_DIR, "gurobi_results_31.csv"),
-    "large_41": os.path.join(BASE_DIR, "gurobi_results_41.csv"),
-    "large_51": os.path.join(BASE_DIR, "gurobi_results_51.csv"),
+    "tiny":    os.path.join(BASE_DIR, "gurobi_results_tiny.csv"),
+    "large_1": os.path.join(BASE_DIR, "gurobi_results_1.csv"),
+    "large_2": os.path.join(BASE_DIR, "gurobi_results_2.csv"),
+    "large_3": os.path.join(BASE_DIR, "gurobi_results_3.csv"),
+    "large_4": os.path.join(BASE_DIR, "gurobi_results_4.csv"),
+    "large_5": os.path.join(BASE_DIR, "gurobi_results_5.csv"),
 }
 
 # Source for tag-based paper selection (--paper-tag).
@@ -616,7 +616,7 @@ def main():
         "--csv-path", dest="csv_path", default=None,
         help="Override the CSV output file (single file for ALL --instances). "
              "When omitted: each instance writes to its per-instance default "
-             "(large_51 -> gurobi_results_51.csv, large_11 -> gurobi_results_11.csv, "
+             "(large_5 -> gurobi_results_5.csv, large_1 -> gurobi_results_1.csv, "
              "etc.); unmapped names fall back to the --schema default. "
              "See _INSTANCE_RESULTS_CSV.",
     )

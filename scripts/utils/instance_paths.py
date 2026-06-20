@@ -24,7 +24,7 @@ from __future__ import annotations
 import os
 from typing import Iterable, List, Optional
 
-# Canonical eval set. The on-disk dataset ships large_11..large_51; the default
+# Canonical eval set. The on-disk dataset ships large_1..large_5; the default
 # below stays at "tiny" only so a no-flag run does a fast smoke test. Callers
 # that want the full large sweep pass --instances explicitly.
 DEFAULT_INSTANCES: List[str] = ["tiny"]
@@ -44,7 +44,7 @@ DEFAULT_INSTANCES: List[str] = ["tiny"]
 # Pass '--dev-set max' (or 'max_tau_g' / 'auto') to opt into the largest-τ_g pick.
 SELF_EVOLVE_STAGE1_INSTANCES: List[str] = ["tiny"]
 SELF_EVOLVE_STAGE2_INSTANCES: Optional[List[str]] = None                              # CLI: --dev-set (None = auto-pick median-τ_g)
-SELF_EVOLVE_TEST_INSTANCES: List[str] = ["large_21", "large_31", "large_41", "large_51"]  # CLI: --test-set
+SELF_EVOLVE_TEST_INSTANCES: List[str] = ["large_2", "large_3", "large_4", "large_5"]  # CLI: --test-set
 
 
 def is_valid_instance_name(name: str) -> bool:

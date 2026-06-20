@@ -5,6 +5,9 @@ FrontierOR/
 # Source PDFs — copyright belongs to publishers, not redistributable
 source_paper/
 
+# Hardlink staging tree built by scripts/publish_to_hf.py
+_publish_staging/
+
 # Python
 *__pycache__*
 *.pyc

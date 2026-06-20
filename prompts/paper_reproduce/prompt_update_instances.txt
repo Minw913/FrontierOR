@@ -3,7 +3,7 @@ You are given an existing instance generation script (`generate_multiple_instanc
 ## Context Files (in `data/paper_data/{paper_id}/`)
 
 - `generate_multiple_instances.py` — Contains `INSTANCE_CONFIGS` (list of dicts), `generate_instance(config, base_seed)` function, and feasibility checks. **Read this file first** to understand the parameter structure.
-- `instance/tiny_instance.json`, `instance/large_instance_{ij}.json` (canonical eval set, where `i` ∈ 1..5 is the diversity index and `j` ∈ 1..4 is the scale index) plus optional legacy `instance_2.json` ... `instance_9.json` at the paper folder root — existing instances (for reference). Currently only scale index `j=1` is populated, so existing files are `large_instance_11.json` ... `large_instance_51.json`.
+- `instance/tiny_instance.json`, `instance/large_instance_{i}.json` (canonical eval set, where `i` ∈ 1..5 is the diversity index — files are `large_instance_1.json` ... `large_instance_5.json`) plus optional legacy `instance_2.json` ... `instance_9.json` at the paper folder root — existing instances (for reference).
 - `all_instances.json` — Parameter specifications extracted from the paper (for reference).
 - The paper PDF — For understanding the optimization problem context.
 
@@ -28,7 +28,7 @@ You are given an existing instance generation script (`generate_multiple_instanc
 
    b. **Define a new `UPDATE_CONFIGS` list** — each entry is a dict with the same keys as entries in the original `INSTANCE_CONFIGS`, plus a required `"output_filename"` key specifying the output file PATH **relative to the paper directory**. Use the new categorical layout:
       - `"instance/tiny_instance.json"` for the smoke-test instance
-      - `"instance/large_instance_{ij}.json"` for main-test instances, where `i` ∈ 1..5 is the diversity index and `j` ∈ 1..4 is the scale index. Current populated set is `large_instance_11.json` through `large_instance_51.json` (i=1..5, j=1). Higher scale indices (j=2, 3, 4) will be added by future `--mode scale-up` runs; do NOT generate them unless the update instruction explicitly asks.
+      - `"instance/large_instance_{i}.json"` for main-test instances, where `i` ∈ 1..5 is the diversity index. Files are `large_instance_1.json` through `large_instance_5.json`.
       - `"instance_2.json"` ... `"instance_9.json"` for any legacy intermediate-scale instances at root
       Make sure the script `os.makedirs("instance", exist_ok=True)` before writing to the `instance/` subdirectory.
 

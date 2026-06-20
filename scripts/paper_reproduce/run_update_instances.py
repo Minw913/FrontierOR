@@ -1594,7 +1594,7 @@ def compute_fix_by_condition_targets(paper_ids, csv_path):
             sols = _parse_csv_string_list(row.get("gurobi_solution", ""))
             n = min(len(times), len(sols))
             failing = []
-            # Per merge_and_classify: index 0 is tiny, 1..5 are large_11..51
+            # Per merge_and_classify: index 0 is tiny, 1..5 are large_1..5
             for i in range(1, min(n, 6)):
                 if _is_failing_per_condition(times[i], sols[i]):
                     failing.append(i)

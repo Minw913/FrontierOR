@@ -275,7 +275,7 @@ def lookup_gurobi_time(paper_id: str, instance: str) -> Optional[float]:
 def _instance_suffix(instance: str) -> Optional[str]:
     """Map instance canonical name → CSV-file suffix.
 
-    ``"tiny"`` → ``"tiny"``;  ``"large_21"`` → ``"21"``. Returns None for
+    ``"tiny"`` → ``"tiny"``;  ``"large_2"`` → ``"2"``. Returns None for
     names that don't match either pattern (caller falls through to log).
     """
     if instance == "tiny":

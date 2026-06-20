@@ -1479,12 +1479,12 @@ def load_gurobi_csv_data(paper_id):
     Each CSV is tidy long format with columns:
         paper_id, instance, gurobi_feasibility_status, gurobi_solution,
         solution_status, gurobi_time, time_limit, failure_reason, failure_error
-    ``instance`` values use the new categorical naming (``tiny``, ``large_11``,
-    ``large_31``), matching eval's internal instance names.
+    ``instance`` values use the new categorical naming (``tiny``, ``large_1``,
+    ``large_3``), matching eval's internal instance names.
 
     Returns dict keyed by instance name:
         {"tiny": {"solution": float|None, "time": float|None},
-         "large_11": {...}, ...}
+         "large_1": {...}, ...}
     ``N/A`` / ``time_out`` / empty values become ``None``."""
     csv_paths = sorted(glob.glob(os.path.join(ROOT_DIR, "gurobi_results_*.csv")))
     if not csv_paths:
@@ -1823,8 +1823,8 @@ def _process_paper_model_inner(paper_id, config, model, instance_indices,
             return
 
     # Phase 1 gate uses ``instance_indices[0]`` as the "tiny-instance" gate
-    # reference. If the user ran with ``--instances large_11 large_21 ...``
-    # (no tiny), Phase 1 would accidentally gate on large_11 with strict
+    # reference. If the user ran with ``--instances large_1 large_2 ...``
+    # (no tiny), Phase 1 would accidentally gate on large_1 with strict
     # gap<=10% and cascade gate_fail to all the rest. To avoid that, auto-
     # inject tiny at position 0 when the CSV already has a tiny row for this
     # (paper, model). The injected tiny is treated as CSV-frozen regardless

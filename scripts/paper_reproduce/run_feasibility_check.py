@@ -43,12 +43,12 @@ CSV_PATH = os.path.join(BASE_DIR, "solving_results_full.csv")
 # its own file (mirrors run_program_solutions.py). Adding a new scale? Drop
 # a line here.
 _INSTANCE_RESULTS_CSV = {
-    "tiny":     os.path.join(BASE_DIR, "gurobi_results_tiny.csv"),
-    "large_11": os.path.join(BASE_DIR, "gurobi_results_11.csv"),
-    "large_21": os.path.join(BASE_DIR, "gurobi_results_21.csv"),
-    "large_31": os.path.join(BASE_DIR, "gurobi_results_31.csv"),
-    "large_41": os.path.join(BASE_DIR, "gurobi_results_41.csv"),
-    "large_51": os.path.join(BASE_DIR, "gurobi_results_51.csv"),
+    "tiny":    os.path.join(BASE_DIR, "gurobi_results_tiny.csv"),
+    "large_1": os.path.join(BASE_DIR, "gurobi_results_1.csv"),
+    "large_2": os.path.join(BASE_DIR, "gurobi_results_2.csv"),
+    "large_3": os.path.join(BASE_DIR, "gurobi_results_3.csv"),
+    "large_4": os.path.join(BASE_DIR, "gurobi_results_4.csv"),
+    "large_5": os.path.join(BASE_DIR, "gurobi_results_5.csv"),
 }
 
 
@@ -309,9 +309,9 @@ def collect_feasibility_results(paper_ids: list[str],
         paper_dir = os.path.join(PAPER_DATA_DIR, paper_id)
 
         if inst_filter is not None:
-            # User explicitly named the instance keys (e.g. large_11). Use them
+            # User explicitly named the instance keys (e.g. large_1). Use them
             # directly — do NOT intersect with DEFAULT_INSTANCES, which is
-            # ["tiny","large_1"] and would drop large_11/21/31/41/51 etc.
+            # ["tiny"] and would drop large_1..large_5 etc.
             all_keys = sorted(inst_filter)
         else:
             # Per-instance keys to backfill: legacy 2..9 from disk + DEFAULT_INSTANCES.
@@ -378,13 +378,13 @@ def main():
     parser.add_argument(
         "--csv-path", type=str, default=None,
         help="Override the output CSV path. When omitted: a single mapped "
-             "--instances picks its per-instance default (large_51 -> "
-             "gurobi_results_51.csv, etc.); otherwise falls back to "
+             "--instances picks its per-instance default (large_5 -> "
+             "gurobi_results_5.csv, etc.); otherwise falls back to "
              "solving_results_full.csv. See _INSTANCE_RESULTS_CSV.",
     )
     parser.add_argument(
         "--instances", nargs="+", default=None,
-        help="Restrict to these instance keys (e.g. 'tiny', 'large_11'). "
+        help="Restrict to these instance keys (e.g. 'tiny', 'large_1'). "
              "When set, feasibility_check.py only runs for these solution files "
              "and only their rows are touched in the CSV. Omit for all instances.",
     )

@@ -132,7 +132,7 @@ def _normalize_dev_set_arg(raw):
       - ``None``                  → median-τ_g sentinel (omit-flag default)
       - ``["max"|"auto"|...]``    → max-τ_g sentinel
       - ``["median"|"median_tau_g"]`` → median-τ_g sentinel
-      - ``["large_11", ...]``     → explicit list (validated by parse_instances_arg)
+      - ``["large_1", ...]``      → explicit list (validated by parse_instances_arg)
     """
     if raw is None:
         return [_DEV_SET_SENTINEL_MEDIAN]
@@ -191,8 +191,8 @@ def _resolve_test_set_for_paper(paper_id: str, test_set_arg, dev_set_resolved):
     auto-compute test = (all ``large_*`` instances on disk for this paper)
     minus dev pick. This avoids the dev/test overlap that arises when
     ``--dev-set median`` happens to pick an instance also listed in the
-    default 4-instance test set (e.g. ``large_31`` often has median τ_g and
-    is also in ``[large_21, large_31, large_41, large_51]``).
+    default 4-instance test set (e.g. ``large_3`` often has median τ_g and
+    is also in ``[large_2, large_3, large_4, large_5]``).
 
     When the user explicitly passes ``--test-set``, trust them and use as-is
     — preserves backwards-compat escape hatch.
@@ -370,11 +370,12 @@ def parse_args():
     parser.add_argument("--models", nargs="+", default=None,
                         help="Model short names from configs/oneshot.yaml, e.g. gpt-5.3-codex. "
                              "Iterates one_shot/best_of_k over each. Ignored by self_evolve.")
-    parser.add_argument("--primary-model", default="google/gemini-3.1-pro-preview",
-                        help="self_evolve primary model (full OpenRouter id). "
-                             "Default: google/gemini-3.1-pro-preview. Override with e.g. "
-                             "openai/gpt-5.3-codex / deepseek/deepseek-r1 / "
-                             "anthropic/claude-opus-4.6.")
+    parser.add_argument("--primary-model", default="gpt-5.3-codex",
+                        help="self_evolve primary model. Accepts a short name "
+                             "(e.g. 'gpt-5.3-codex') or a full OpenRouter id "
+                             "(e.g. 'openai/gpt-5.3-codex'). Default: "
+                             "gpt-5.3-codex (matches the paper's openevolve baseline "
+                             "in configs/openevolve.yaml).")
     parser.add_argument("--secondary-model", default=None,
                         help="self_evolve secondary model. Defaults to --primary-model.")
     parser.add_argument("--instances", nargs="+", default=DEFAULT_INSTANCES,
@@ -470,14 +471,14 @@ def parse_args():
                              "Gurobi τ_g per paper (representative, avoids the worst-case slowest); "
                              "(2) '--dev-set max' (or 'max_tau_g' / 'auto') → auto-pick the LARGEST "
                              "τ_g instance per paper (hardest available); "
-                             "(3) '--dev-set large_11' (or multiple names) → explicit override. "
+                             "(3) '--dev-set large_1' (or multiple names) → explicit override. "
                              "Aliases for the flag: --dev_set, --stage2-instances.")
     parser.add_argument("--test-set", "--test_set", "--test-instances",
                         dest="test_instances",
                         nargs="+", default=SELF_EVOLVE_TEST_INSTANCES,
                         help="self_evolve held-out test set: instances used only after the "
                              "evolve loop, on the final best program. "
-                             "Preset: large_21 large_31 large_41 large_51. "
+                             "Preset: large_2 large_3 large_4 large_5. "
                              "Empty → skip the post-evolve eval and reconstruct per-instance "
                              "rows for the dev results CSV from OpenEvolve's checkpoint. "
                              "Aliases: --test_set, --test-instances.")
@@ -611,7 +612,7 @@ def main():
         args.stage1_instances = parse_instances_arg(args.stage1_instances)
         args.test_instances = parse_instances_arg(args.test_instances)
         # --dev-set: 3 modes (omit → max-τ_g auto, 'median' → median-τ_g auto,
-        # 'large_11 ...' → explicit). Normalize to either a sentinel string or
+        # 'large_1 ...' → explicit). Normalize to either a sentinel string or
         # a validated instance list; per-paper resolution happens later in
         # run_self_evolve_mode → _resolve_dev_set_for_paper.
         args.stage2_instances = _normalize_dev_set_arg(args.stage2_instances)
