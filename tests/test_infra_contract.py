@@ -21,6 +21,12 @@ def test_scoring_equation_is_public_but_instance_baselines_are_not() -> None:
     assert contract["aggregation"] == "arithmetic_mean_over_declared_instances"
     assert contract["aggregation_details"]["missing_or_failed_instance_score"] == 0.0
     assert contract["runtime_measurement"] == "trusted_host_wall_clock"
+    assert contract["runtime_budget"] == {
+        "host_hard_deadline": "declared_time_limit_seconds",
+        "candidate_argument": "max(1, floor(declared_time_limit_seconds)-2)",
+        "serialization_reserve_seconds": 2,
+        "compute_grace_seconds": 0,
+    }
     encoded_formula = json.dumps(contract["instance_score"], sort_keys=True)
     assert "signed_gap" in encoded_formula
     assert contract["instance_score"]["scale"]["near_zero_reference"] == 1e-3

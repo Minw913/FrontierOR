@@ -10,6 +10,7 @@ CONTRACT_SCHEMA_VERSION = 1
 SCORING_CONTRACT_VERSION = "staged-qte-v1"
 NEAR_ZERO_REFERENCE = 1e-3
 INSTANCE_SCORE_DECIMALS = 6
+CANDIDATE_SHUTDOWN_RESERVE_SECONDS = 2
 
 
 class Visibility(StrEnum):
@@ -77,6 +78,12 @@ def public_scoring_contract(*, stage_boundary: float = 0.01) -> dict[str, Any]:
             "missing_or_failed_instance_score": 0.0,
         },
         "runtime_measurement": "trusted_host_wall_clock",
+        "runtime_budget": {
+            "host_hard_deadline": "declared_time_limit_seconds",
+            "candidate_argument": "max(1, floor(declared_time_limit_seconds)-2)",
+            "serialization_reserve_seconds": CANDIDATE_SHUTDOWN_RESERVE_SECONDS,
+            "compute_grace_seconds": 0,
+        },
         "candidate_reported_timestamps_trusted": False,
         "private_parameters": [
             "reference_objective",

@@ -9,7 +9,10 @@ RUN apt-get update \
 COPY frontieror/infra/agent/codex_entrypoint.py /opt/frontieror/secure_codex_entrypoint.py
 COPY frontieror/infra/agent/egress_proxy.py /opt/frontieror/secure_egress_proxy.py
 COPY frontieror/infra/agent/submit.py /opt/frontieror/secure_submit.py
+COPY scripts/utils/solution_logger.py /opt/frontieror/solution_logger.py
+ENV PYTHONPATH=/opt/frontieror
 RUN mkdir -p /home/agent/.codex /codex-home \
+    && ln -s /usr/bin/python3 /usr/local/bin/python \
     && printf '#!/bin/sh\nexec python3 /opt/frontieror/secure_submit.py "$@"\n' > /usr/local/bin/coral \
     && chmod 0555 /usr/local/bin/coral /opt/frontieror/*.py \
     && chmod 0755 /home/agent /home/agent/.codex

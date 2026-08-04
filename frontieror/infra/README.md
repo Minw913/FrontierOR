@@ -55,6 +55,24 @@ surface, while official behavior has one canonical implementation under
 
 ## Container images
 
+Install the pinned CORAL checkout and configure the platform-owned model key:
+
+```bash
+bash test_time_self_evolution/coral/setup.sh
+export OPENROUTER_API_KEY="<platform-openrouter-key>"
+```
+
+The official proxy profile expects a full OpenRouter route such as
+`openai/gpt-5.4`. The route is reduced to the Codex short model name only
+inside the Agent container; the trusted proxy retains the full upstream route
+and credential.
+
+Run `setup.sh` after activating the benchmark Python environment. It fails if
+that interpreter imports any CORAL installation other than the pinned checkout.
+Use `--coral-max-seconds auto` for normal runs: the wall-clock cap covers both
+Agent reasoning and brokered dev evaluation, so a manually shortened cap may
+expire while an otherwise valid request is still being graded.
+
 Build the three independently versioned images from the repository root:
 
 ```bash
@@ -170,6 +188,9 @@ Isolation is the primary control. Detection is defense in depth:
   tampering in both directions to fail;
 - final scoring uses host wall-clock time and never trusts candidate-written
   convergence timestamps;
+- the hardened runner passes `max(1, floor(T)-2)` to `code.py` while retaining
+  the declared `T`-second host hard deadline, reserving two seconds for Docker
+  startup and output serialization without granting compute grace;
 - private traces record the artifact hash, image digest, policy, result, and
   selected commit. Public rows contain aggregate fields only.
 

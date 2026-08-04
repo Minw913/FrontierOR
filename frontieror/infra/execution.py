@@ -25,6 +25,8 @@ import time
 import uuid
 from pathlib import Path
 
+from frontieror.infra.contracts import CANDIDATE_SHUTDOWN_RESERVE_SECONDS
+
 # Default resource limits
 DEFAULT_CPUS = 1          # number of CPU cores
 DEFAULT_MEMORY = "32G"    # memory limit (uppercase for systemd compatibility)
@@ -575,6 +577,16 @@ def build_docker_cmd(code_path, instance_path, solution_path, time_limit,
     image = cfg.get("docker_image", DEFAULT_DOCKER_IMAGE)
     gurobi_lic = cfg.get("gurobi_lic", os.environ.get("GRB_LICENSE_FILE", ""))
     anti_hack = bool(cfg.get("anti_hack"))
+    candidate_time_limit = time_limit
+    if anti_hack:
+        # The trusted host deadline includes Docker startup and output
+        # promotion. Give untrusted code a slightly smaller integer budget so
+        # a solver that honors its CLI limit can serialize before that hard
+        # deadline without creating a compute grace period.
+        candidate_time_limit = max(
+            1,
+            int(float(time_limit)) - CANDIDATE_SHUTDOWN_RESERVE_SECONDS,
+        )
     restricted_network = cfg.get("_restricted_network")
     restricted_proxy = cfg.get("_restricted_proxy")
     if bool(restricted_network) != bool(restricted_proxy):
@@ -671,7 +683,7 @@ def build_docker_cmd(code_path, instance_path, solution_path, time_limit,
         "python", c_code,
         "--instance_path", c_instance,
         "--solution_path", c_solution,
-        "--time_limit", str(time_limit),
+        "--time_limit", str(candidate_time_limit),
     ]
     if c_log:
         cmd += ["--log_path", c_log]

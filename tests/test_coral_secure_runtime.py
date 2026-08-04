@@ -40,6 +40,9 @@ def test_secure_instructions_use_native_coral_lifecycle_and_no_research():
     assert "native attempt" in rendered
     assert "wall-clock budget" in rendered
     assert "coral eval" in rendered
+    assert "candidate evaluator" in rendered
+    assert "candidate-only dependencies" in rendered
+    assert "import failure" in rendered
     assert "Network access" in rendered
     assert "web search" not in rendered.lower()
     assert "deep-research" not in rendered
@@ -551,6 +554,20 @@ def test_secure_entrypoint_disables_external_tool_surfaces():
     assert '"action_limit_enforced": False' in source
     assert 'model_provider="frontieror_gateway"' in source
     assert 'env_key="OPENAI_API_KEY"' in source
+
+
+def test_agent_image_exposes_public_python_runtime_helpers():
+    dockerfile = (
+        Path(__file__).resolve().parents[1]
+        / "frontieror"
+        / "infra"
+        / "docker"
+        / "agent.Dockerfile"
+    ).read_text(encoding="utf-8")
+
+    assert "solution_logger.py /opt/frontieror/solution_logger.py" in dockerfile
+    assert "ENV PYTHONPATH=/opt/frontieror" in dockerfile
+    assert "ln -s /usr/bin/python3 /usr/local/bin/python" in dockerfile
 
 
 def test_secure_entrypoint_places_parent_options_before_resume():

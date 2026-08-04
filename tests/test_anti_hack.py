@@ -536,6 +536,23 @@ def test_hardened_docker_cmd_uses_clean_security_boundary(tmp_path, monkeypatch)
     assert "/workspace/output:rw,nosuid,nodev,size=64m" in flat
     assert f"{solution.parent}:/workspace/output" not in flat
     assert "--ulimit" in cmd
+    assert cmd[cmd.index("--time_limit") + 1] == "8"
+
+
+def test_research_docker_cmd_preserves_declared_candidate_time_limit(tmp_path):
+    code = _write(tmp_path / "code.py", "print('ok')\n")
+    instance = _write(tmp_path / "instance.json", "{}")
+    solution = tmp_path / "solution.json"
+
+    cmd = build_docker_cmd(
+        str(code),
+        str(instance),
+        str(solution),
+        10,
+        cfg={"anti_hack": False},
+    )
+
+    assert cmd[cmd.index("--time_limit") + 1] == "10"
 
 
 def test_hardened_docker_cmd_uses_only_restricted_wls_proxy(tmp_path):

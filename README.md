@@ -158,6 +158,9 @@ When the code-producing Agent or submitted solver is untrusted, use the
 separate fail-closed entry point:
 
 ```bash
+bash test_time_self_evolution/coral/setup.sh
+export OPENROUTER_API_KEY="<platform-openrouter-key>"
+
 docker build -f frontieror/infra/docker/candidate.Dockerfile \
     -t frontieror-candidate:1 .
 docker build -f frontieror/infra/docker/agent.Dockerfile \
@@ -167,7 +170,7 @@ docker build -f frontieror/infra/docker/model-proxy.Dockerfile \
 
 python -m frontieror.infra agent \
     --paper-id bierwirth2017 \
-    --primary-model gpt-5.4 \
+    --primary-model openai/gpt-5.4 \
     --stage1-instances tiny \
     --dev-set large_1 \
     --test-set large_2 \
@@ -178,6 +181,15 @@ python -m frontieror.infra agent \
     --cpus 1 --memory 128G \
     --run-id agent-smoke
 ```
+
+Proxy mode requires the full OpenRouter provider/model route, such as
+`openai/gpt-5.4`; the Agent container receives only the short Codex model name
+and an ephemeral proxy token, not the platform key.
+
+Run the setup script from the activated benchmark environment. Keeping
+`--coral-max-seconds auto` reserves time for Agent reasoning and trusted dev
+grading; an explicit wall-clock value includes both and can legitimately end
+with no selected artifact when an evaluation is submitted too late.
 
 `agent` always selects the platform CORAL adapter, Docker isolation, brokered
 dev evaluation, a credential-isolating fixed-model proxy, trusted host timing,

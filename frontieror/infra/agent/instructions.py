@@ -32,6 +32,10 @@ You are `{agent_id}`. Improve `code.py` for the optimization task in `README.md`
 - Do not probe mounts, credentials, processes, environment internals, or the
   scoring service. A high score is valid only when produced by `code.py`.
 - Treat attempt JSON and logs as read-only outputs. Never create or edit them.
+- The Agent shell is intentionally smaller than the candidate evaluator and may
+  omit candidate-only dependencies such as `gurobipy` and its license. A local
+  import failure does not describe the evaluator environment; use `coral eval`
+  for authoritative execution and scoring.
 {collaboration}
 
 ## Workflow
