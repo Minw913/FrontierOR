@@ -433,7 +433,20 @@ def _common_env():
     exec_cfg = {
         "cpus": int(os.environ.get("EFFICIENT_OR_EXEC_CPUS", "1")),
         "memory": os.environ.get("EFFICIENT_OR_EXEC_MEMORY", "32G"),
+        "wls_egress": os.environ.get("EFFICIENT_OR_EXEC_WLS_EGRESS", "auto"),
     }
+    docker_image = os.environ.get("EFFICIENT_OR_EXEC_DOCKER_IMAGE")
+    if docker_image:
+        exec_cfg["docker_image"] = docker_image
+    docker_image_ref = os.environ.get("EFFICIENT_OR_EXEC_DOCKER_IMAGE_REF")
+    if docker_image_ref:
+        exec_cfg["docker_image_ref"] = docker_image_ref
+    anti_raw = (
+        os.environ.get("EFFICIENT_OR_ANTI_HACK", "")
+        or os.environ.get("EFFICIENT_OR_EXEC_ANTI_HACK", "")
+    )
+    if str(anti_raw).strip().lower() in {"1", "true", "yes", "on"}:
+        exec_cfg["anti_hack"] = True
     return paper_id, model_name, exec_mode, base_output, t_max, exec_cfg
 
 

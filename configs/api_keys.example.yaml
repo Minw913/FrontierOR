@@ -1,0 +1,3 @@
+# Optional local fallback. Prefer environment variables in managed runners.
+OPENROUTER_API_KEY_ONESHOT:
+OPENROUTER_API_KEY_SELF_EVOLVE:

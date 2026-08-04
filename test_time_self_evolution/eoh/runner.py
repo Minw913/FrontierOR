@@ -17,6 +17,10 @@ from joblib import parallel_backend
 
 import one_shot_eval as eval_core
 from test_time_self_evolution import eval_modes
+from frontieror.infra.checkers import validate_objective_checker
+from frontieror.infra.policy import (
+    validate_anti_hack_runtime,
+)
 from test_time_self_evolution.eoh.problem_adapter import (
     EohBenchmarkProblem,
     materialize_candidate,
@@ -809,6 +813,19 @@ def run_self_evolve(
     enable_artifact: bool = False,
     system_include_spec: bool = False,
 ):
+    anti_hack = bool((exec_cfg or {}).get("anti_hack"))
+    validate_anti_hack_runtime(
+        enabled=anti_hack,
+        exec_mode=exec_mode,
+        final_test_instances=test_instances,
+        scorer=stage2_scorer,
+    )
+    if anti_hack:
+        for instance in test_instances:
+            validate_objective_checker(
+                paper_dir=eval_core.get_paper_dir(paper_id),
+                instance=instance,
+            )
     del secondary_model
     merged_config = dict(load_eoh_config())
     merged_config.update(config or {})

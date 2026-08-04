@@ -10,10 +10,10 @@ import csv
 import glob
 import math
 import os
-import shutil
 from typing import Dict, Iterable, List, Optional
 
 import one_shot_eval as eval_core
+from frontieror.infra.files import copy_regular_file
 
 
 ROOT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -153,7 +153,14 @@ def _fmt(value, decimals=6):
 def copy_selected_code(code_path: str, destination_dir: str) -> str:
     os.makedirs(destination_dir, exist_ok=True)
     dest = os.path.join(destination_dir, "selected_code.py")
-    shutil.copyfile(code_path, dest)
+    copy_regular_file(
+        code_path,
+        dest,
+        max_bytes=4 * 1024 * 1024,
+        label="selected code.py",
+        require_single_link=True,
+        mode=0o600,
+    )
     return dest
 
 
@@ -614,5 +621,3 @@ def run_best_of_k(
         "results": final_results,
         "code_path": selected_code or selected_code_path,
     }
-
-

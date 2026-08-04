@@ -27,9 +27,10 @@ import json
 import math
 import os
 import re
-import subprocess
+import shutil
 import sys
 import random
+import tempfile
 import threading
 import time
 from concurrent.futures import ThreadPoolExecutor, as_completed
@@ -310,7 +311,6 @@ def configure_gurobi_license():
     candidates = [
         os.path.join(ROOT_DIR, "gurobi.lic"),
         os.path.expanduser("~/gurobi.lic"),
-        "/home/chonghej/gurobi.lic",
         "/opt/gurobi/gurobi.lic",
     ]
     for candidate in candidates:
@@ -370,7 +370,7 @@ Do NOT implement your own logging mechanism. Just call `logger.log(objective_val
 3. Output only the Python code, enclosed in a single ```python ... ``` block.
 """
 
-def load_config():
+def load_config(*, require_api_key=True):
     config_path = os.path.join(ROOT_DIR, "configs", "oneshot.yaml")
     keys_path = os.path.join(ROOT_DIR, "configs", "api_keys.yaml")
     if not os.path.exists(config_path):
@@ -383,10 +383,15 @@ def load_config():
         with open(keys_path, "r") as f:
             keys = yaml.safe_load(f) or {}
     api_key = os.environ.get("OPENROUTER_API_KEY") or keys.get("OPENROUTER_API_KEY_ONESHOT")
-    if not api_key:
-        print("ERROR: set env OPENROUTER_API_KEY or OPENROUTER_API_KEY_ONESHOT in configs/api_keys.yaml")
+    if not api_key and require_api_key:
+        print(
+            "ERROR: set OPENROUTER_API_KEY or configure "
+            "OPENROUTER_API_KEY_ONESHOT in configs/api_keys.yaml "
+            "(start from configs/api_keys.example.yaml)"
+        )
         sys.exit(1)
-    config["OPENROUTER_API_KEY"] = api_key
+    if api_key:
+        config["OPENROUTER_API_KEY"] = api_key
     if not config.get("models"):
         if config.get("model"):
             config["models"] = [config["model"]]
@@ -542,27 +547,54 @@ def call_openrouter(messages, config, model, temperature=None):
     }
 
 
-def run_feasibility_check(paper_id, instance_path, solution_path, result_path):
+def run_feasibility_check(
+    paper_id,
+    instance_path,
+    solution_path,
+    result_path,
+    *,
+    exec_cfg=None,
+):
     """Run the paper's feasibility_check.py on a solution file.
     Returns (feasible, reason, error). reason/error are set when feasible is None."""
-    checker_path = os.path.join(get_paper_dir(paper_id), "feasibility_check.py")
+    checker_path = feasibility_checker_path(
+        paper_dir=get_paper_dir(paper_id),
+        paper_id=paper_id,
+    )
     if not os.path.exists(checker_path):
         return None, "checker_unavailable", "Feasibility checker not found"
     if not os.path.exists(solution_path):
         return None, "checker_error", "Solution file not found for feasibility check"
     try:
-        result = subprocess.run(
-            [sys.executable, checker_path,
-             "--instance_path", instance_path,
-             "--solution_path", solution_path,
-             "--result_path", result_path],
-            capture_output=True, text=True, timeout=60
+        if bool((exec_cfg or {}).get("anti_hack")):
+            success, checker_output, _ = run_checker_isolated(
+                checker_path=checker_path,
+                paper_dir=get_paper_dir(paper_id),
+                instance_file=instance_path,
+                solution_file=solution_path,
+                result_file=result_path,
+                cfg=exec_cfg or {},
+                timeout=60,
+            )
+        else:
+            success, checker_output, _ = run_bounded_process(
+                [sys.executable, checker_path,
+                 "--instance_path", instance_path,
+                 "--solution_path", solution_path,
+                 "--result_path", result_path],
+                60,
+            )
+        if not success:
+            print(f"    Feasibility check failed: {checker_output[:200]}")
+            return None, "checker_error", checker_output.strip()
+        raw_result = read_regular_file(
+            result_path,
+            max_bytes=MAX_CHECKER_RESULT_BYTES,
+            label="feasibility checker result",
         )
-        if result.returncode != 0:
-            print(f"    Feasibility check failed: {result.stderr[:200]}")
-            return None, "checker_error", result.stderr.strip() or result.stdout.strip()
-        with open(result_path, "r") as f:
-            data = json.load(f)
+        data = json.loads(raw_result.decode("utf-8"))
+        if not isinstance(data, dict) or not isinstance(data.get("feasible"), bool):
+            return None, "checker_error", "Feasibility checker returned an invalid result"
         return data.get("feasible"), None, None
     except Exception as e:
         print(f"    Feasibility check error: {e}")
@@ -570,13 +602,31 @@ def run_feasibility_check(paper_id, instance_path, solution_path, result_path):
 
 
 sys.path.insert(0, os.path.join(ROOT_DIR, "scripts", "utils"))
-from exec_backends import BACKENDS as EXEC_BACKENDS
+from exec_backends import (
+    BACKENDS as EXEC_BACKENDS,
+    _exec as run_bounded_process,
+    validate_docker_wls,
+)
+from frontieror.infra.checkers import (
+    feasibility_checker_path,
+    run_checker_isolated,
+    validate_objective_checker,
+)
+from frontieror.infra.policy import (
+    validate_anti_hack_runtime,
+    with_anti_hack_exec_cfg,
+)
+from frontieror.infra.files import SecureFileError, copy_regular_file, read_regular_file
 from instance_paths import (
     DEFAULT_INSTANCES,
     instance_path as _instance_path,
     gurobi_solution_path as _gurobi_solution_path,
     parse_instances_arg,
 )
+
+MAX_CANDIDATE_SOLUTION_BYTES = 256 * 1024 * 1024
+MAX_CANDIDATE_LOG_BYTES = 64 * 1024 * 1024
+MAX_CHECKER_RESULT_BYTES = 16 * 1024 * 1024
 
 
 def run_generated_code(code_path, solution_path, instance_path, time_limit,
@@ -586,6 +636,35 @@ def run_generated_code(code_path, solution_path, instance_path, time_limit,
     backend = EXEC_BACKENDS[exec_mode]
     return backend(code_path, instance_path, solution_path, time_limit,
                    log_path=log_path, cfg=exec_cfg)
+
+
+def _reset_output_path(path):
+    """Remove one fixed evaluator output without following a prior symlink."""
+    if not os.path.lexists(path):
+        return
+    if os.path.isdir(path) and not os.path.islink(path):
+        shutil.rmtree(path)
+    else:
+        os.unlink(path)
+
+
+def _create_candidate_output(path):
+    """Precreate a fixed bind-mounted output file for an untrusted container."""
+    flags = os.O_WRONLY | os.O_CREAT | os.O_EXCL | getattr(os, "O_CLOEXEC", 0)
+    fd = os.open(path, flags, 0o600)
+    os.close(fd)
+
+
+def _promote_candidate_output(source, destination, *, label, max_bytes):
+    """Copy a stopped container's output through a bounded no-follow read."""
+    return copy_regular_file(
+        source,
+        destination,
+        max_bytes=max_bytes,
+        label=label,
+        require_single_link=True,
+        mode=0o600,
+    )
 
 
 def parse_t_max(v):
@@ -653,7 +732,7 @@ def compute_aocc(log_path, gurobi_obj, time_limit, t_max=None, direction="min"):
                 continue
             try:
                 d = json.loads(line)
-            except (ValueError, TypeError):
+            except (MemoryError, RecursionError, TypeError, ValueError):
                 continue
             if not isinstance(d, dict):
                 continue
@@ -662,12 +741,16 @@ def compute_aocc(log_path, gurobi_obj, time_limit, t_max=None, direction="min"):
                 t = d.get("elapsed", d.get("elapsed_time", d.get("solve_time")))
             try:
                 t = float(t)
-            except (TypeError, ValueError):
+            except (MemoryError, OverflowError, RecursionError, TypeError, ValueError):
+                continue
+            if not math.isfinite(t) or t < 0:
                 continue
             obj = d.get("objective_value", d.get("obj", d.get("best_obj")))
             try:
                 obj = float(obj)
-            except (TypeError, ValueError):
+            except (MemoryError, OverflowError, RecursionError, TypeError, ValueError):
+                continue
+            if not math.isfinite(obj):
                 continue
             entries.append({"time": t, "objective_value": obj})
     if not entries:
@@ -732,12 +815,12 @@ def compare_objectives(llm_solution_path, gurobi_solution_path, direction="min")
     try:
         with open(llm_solution_path, "r") as f:
             llm_data = json.load(f)
-    except (json.JSONDecodeError, OSError) as e:
+    except (MemoryError, OSError, OverflowError, RecursionError, UnicodeError, ValueError) as e:
         return False, None, read_gurobi_obj(gurobi_solution_path), None, f"Invalid solution JSON: {e}"
     try:
         with open(gurobi_solution_path, "r") as f:
             gurobi_data = json.load(f)
-    except (json.JSONDecodeError, OSError) as e:
+    except (MemoryError, OSError, OverflowError, RecursionError, UnicodeError, ValueError) as e:
         # Gurobi side broke (e.g. LFS pointer stub) but llm_data is already
         # loaded — preserve the LLM's obj instead of discarding it.
         return False, _extract_obj_from_dict(llm_data), None, None, f"Invalid Gurobi solution JSON: {e}"
@@ -755,6 +838,10 @@ def compare_objectives(llm_solution_path, gurobi_solution_path, direction="min")
     if gurobi_obj is None:
         return False, llm_obj, None, None, "Gurobi solution missing 'objective_value'"
 
+    if isinstance(llm_obj, bool):
+        return False, None, gurobi_obj, None, f"LLM solution has non-numeric 'objective_value': {llm_obj!r}"
+    if isinstance(gurobi_obj, bool):
+        return False, llm_obj, None, None, f"Gurobi solution has non-numeric 'objective_value': {gurobi_obj!r}"
     try:
         llm_obj = float(llm_obj)
     except (ValueError, TypeError):
@@ -887,13 +974,82 @@ def run_and_evaluate_instance(paper_id, model_name, idx, code_path,
             "aocc": None, "error": "Instance file not found",
         }, None  # not a code error, no point in self-correction
 
-    if os.path.exists(solution_path):
+    anti_hack = bool((exec_cfg or {}).get("anti_hack"))
+    candidate_dir = None
+    candidate_solution_path = solution_path
+    candidate_log_path = log_path
+    output_error = None
+    if anti_hack:
+        # Each stopped candidate gets a private output mount. This prevents
+        # concurrent instances from reading or replacing one another's files,
+        # and lets the host validate files before promoting them to trusted
+        # evaluator paths.
+        safe_idx = re.sub(r"[^a-zA-Z0-9_.-]", "_", str(idx))[:80]
+        candidate_dir = tempfile.mkdtemp(
+            prefix=f".candidate_{safe_idx}_",
+            dir=model_dir,
+        )
+        candidate_solution_path = os.path.join(candidate_dir, "solution.json")
+        candidate_log_path = os.path.join(candidate_dir, "log.jsonl")
+        _create_candidate_output(candidate_solution_path)
+        _create_candidate_output(candidate_log_path)
+        _reset_output_path(solution_path)
+        _reset_output_path(log_path)
+    elif os.path.exists(solution_path):
         os.remove(solution_path)
 
-    success, output, elapsed = run_generated_code(
-        code_path, solution_path, instance_path, time_limit, log_path,
-        exec_mode=exec_mode, exec_cfg=exec_cfg
-    )
+    try:
+        success, output, elapsed = run_generated_code(
+            code_path,
+            candidate_solution_path,
+            instance_path,
+            time_limit,
+            candidate_log_path,
+            exec_mode=exec_mode,
+            exec_cfg=exec_cfg,
+        )
+        if anti_hack and success:
+            try:
+                _promote_candidate_output(
+                    candidate_solution_path,
+                    solution_path,
+                    label="candidate solution",
+                    max_bytes=int(
+                        (exec_cfg or {}).get(
+                            "max_solution_bytes",
+                            MAX_CANDIDATE_SOLUTION_BYTES,
+                        )
+                    ),
+                )
+                if os.path.lexists(candidate_log_path):
+                    _promote_candidate_output(
+                        candidate_log_path,
+                        log_path,
+                        label="candidate convergence log",
+                        max_bytes=int(
+                            (exec_cfg or {}).get(
+                                "max_log_bytes",
+                                MAX_CANDIDATE_LOG_BYTES,
+                            )
+                        ),
+                    )
+            except (OSError, SecureFileError, ValueError) as exc:
+                output_error = str(exc)
+    finally:
+        if candidate_dir is not None:
+            shutil.rmtree(candidate_dir, ignore_errors=True)
+
+    if output_error is not None:
+        error = f"Invalid candidate output: {output_error}"
+        print(f"  Instance {idx}: FAIL invalid_solution ({error[:120]})")
+        res = {
+            "status": "fail", "fail_reason": "invalid_solution", "retries": 0,
+            "llm_obj": None,
+            "gurobi_obj": read_gurobi_obj(gurobi_solution_path),
+            "solve_time": elapsed, "feasible": None, "gap": None,
+            "aocc": 1.0, "error": error,
+        }
+        return res, f"Instance {idx}: invalid solution output:\n{error[:300]}"
 
     if not success:
         print(f"  Instance {idx}: FAIL runtime_error ({elapsed}s)")
@@ -943,13 +1099,29 @@ def run_and_evaluate_instance(paper_id, model_name, idx, code_path,
         return res, f"Instance {idx}: {err}"
 
     feasi_result_path = os.path.join(model_dir, f"feasi_result_{idx}.json")
+    if anti_hack:
+        _reset_output_path(feasi_result_path)
     feasible, checker_reason, checker_error = run_feasibility_check(
-        paper_id, instance_path, solution_path, feasi_result_path
+        paper_id,
+        instance_path,
+        solution_path,
+        feasi_result_path,
+        exec_cfg=exec_cfg,
     )
     feasi_str = str(feasible) if feasible is not None else "N/A"
 
     aocc_t_max = _resolve_t_max(t_max, paper_id, idx)
-    aocc = compute_aocc(log_path, gurobi_obj, elapsed, t_max=aocc_t_max, direction=direction)
+    aocc = (
+        None
+        if anti_hack
+        else compute_aocc(
+            log_path,
+            gurobi_obj,
+            elapsed,
+            t_max=aocc_t_max,
+            direction=direction,
+        )
+    )
 
     gap_str = f"{gap:.2%}" if gap is not None else "N/A"
     # Classification rule:
@@ -1471,7 +1643,7 @@ def run_instances_with_existing_code(paper_id, instance_indices, model,
     return results, {"prompt_tokens": 0, "completion_tokens": 0}
 
 
-def load_gurobi_csv_data(paper_id):
+def load_gurobi_csv_data(paper_id, *, quiet=False):
     """Load Gurobi baseline (objective, time) for a paper across all
     ``gurobi_results_*.csv`` files in ROOT_DIR (one per instance slot:
     ``tiny``, ``11``, ``31``, ...).
@@ -1488,7 +1660,8 @@ def load_gurobi_csv_data(paper_id):
     ``N/A`` / ``time_out`` / empty values become ``None``."""
     csv_paths = sorted(glob.glob(os.path.join(ROOT_DIR, "gurobi_results_*.csv")))
     if not csv_paths:
-        print(f"WARNING: no gurobi_results_*.csv files found under {ROOT_DIR}")
+        if not quiet:
+            print(f"WARNING: no gurobi_results_*.csv files found under {ROOT_DIR}")
         return {}
 
     data = {}
@@ -1514,7 +1687,7 @@ def load_gurobi_csv_data(paper_id):
                 except (ValueError, TypeError):
                     t = None
                 data[inst] = {"solution": sol, "time": t}
-    if not found_paper:
+    if not found_paper and not quiet:
         print(f"WARNING: paper_id '{paper_id}' not found in any gurobi_results_*.csv")
     return data
 
@@ -2362,6 +2535,19 @@ def main():
                         help="Execution backend: bare (no CPU limits — debug only!), "
                              "systemd (default; cgroup + taskset pinning to --cpus cores), "
                              "docker (full container isolation).")
+    parser.add_argument("--anti-hack", action="store_true",
+                        help="Opt-in hardened evaluation mode. Requires --exec-mode docker "
+                             "and strips candidate access to host/private benchmark state.")
+    parser.add_argument(
+        "--wls-egress",
+        choices=["auto", "off", "required"],
+        default="auto",
+        help=(
+            "Gurobi WLS policy for Docker candidates. 'auto' enables an "
+            "exact-host proxy only when a WLS license is detected; 'off' keeps "
+            "network disabled; 'required' fails if restricted WLS cannot start."
+        ),
+    )
     parser.add_argument("--cpus", type=int, default=1,
                         help="CPU cores for systemd/docker execution (default: 1).")
     parser.add_argument("--memory", type=str, default="640G",
@@ -2399,6 +2585,14 @@ def main():
                              "eval/eval_results.csv). Use a per-run file to "
                              "isolate outputs from parallel one_shot_eval.py runs.")
     args = parser.parse_args()
+    try:
+        validate_anti_hack_runtime(
+            enabled=args.anti_hack,
+            exec_mode=args.exec_mode,
+        )
+    except ValueError as e:
+        print(f"ERROR: {e}", file=sys.stderr)
+        sys.exit(1)
     if args.code_root:
         global CODE_ROOT
         CODE_ROOT = os.path.abspath(os.path.expanduser(args.code_root))
@@ -2460,8 +2654,19 @@ def main():
     except ValueError as e:
         print(f"ERROR: {e}")
         sys.exit(1)
+    if args.anti_hack:
+        try:
+            for paper_id in args.paper_id:
+                for instance in instance_indices:
+                    validate_objective_checker(
+                        paper_dir=get_paper_dir(paper_id),
+                        instance=instance,
+                    )
+        except ValueError as e:
+            print(f"ERROR: {e}", file=sys.stderr)
+            sys.exit(1)
 
-    config = load_config()
+    config = load_config(require_api_key=args.reuse_code != "all")
     all_models = config["models"]
 
     if args.models:
@@ -2480,7 +2685,19 @@ def main():
     print(f"Data dir: {get_data_dir()}")
     print(f"GRB_LICENSE_FILE: {gurobi_license or os.environ.get('GRB_LICENSE_FILE') or '<not set>'}")
     exec_mode = args.exec_mode
-    exec_cfg = {"cpus": args.cpus, "memory": args.memory}
+    exec_cfg = with_anti_hack_exec_cfg(
+        {
+            "cpus": args.cpus,
+            "memory": args.memory,
+            "wls_egress": args.wls_egress,
+        },
+        args.anti_hack,
+    )
+    if exec_mode == "docker":
+        try:
+            validate_docker_wls(exec_cfg)
+        except (RuntimeError, ValueError) as exc:
+            raise SystemExit(f"ERROR: {exc}") from exc
     t_max = args.t_max
     reuse_code = args.reuse_code
     set_instance_workers(args.instance_workers)

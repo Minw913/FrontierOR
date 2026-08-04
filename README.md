@@ -10,7 +10,7 @@
 
 <div align="center">
 
-<a href="#-introduction">Introduction</a> · <a href="#-environment-setup">Setup</a> · <a href="#-quick-start">Quick Start</a> · <a href="#-run-evaluation">Evaluation</a> · <a href="#-leaderboard">Leaderboard</a> · <a href="#-adding-support-for-new-models">Submit New Models</a>
+<a href="#-introduction">Introduction</a> · <a href="#-environment-setup">Setup</a> · <a href="#-quick-start">Quick Start</a> · <a href="#-run-evaluation">Evaluation</a> · <a href="#-trusted-agent-evaluation">Trusted Agent Evaluation</a> · <a href="#-leaderboard">Leaderboard</a> · <a href="#-adding-support-for-new-models">Submit New Models</a>
 
 </div>
 
@@ -70,11 +70,18 @@ During evaluation some LLM-generated solver programs require a valid `gurobipy` 
 
 ### Step 4: OpenRouter API key
 
-LLM calls go through OpenRouter and the model registry is in `configs/oneshot.yaml`. `configs/api_keys.yaml` provides two scoped keys (one-shot generation and test-time self-evolution), allowing each workload to use a separate OpenRouter account or quota:
+LLM calls go through OpenRouter and the model registry is in
+`configs/oneshot.yaml`. Prefer the `OPENROUTER_API_KEY` environment variable.
+For local development, copy the ignored example file and configure separate
+one-shot and self-evolution keys if needed:
+
+```bash
+cp configs/api_keys.example.yaml configs/api_keys.yaml
+```
 
 ```yaml
-OPENROUTER_API_KEY_ONESHOT: sk-or-...       
-OPENROUTER_API_KEY_SELF_EVOLVE: sk-or-...   
+OPENROUTER_API_KEY_ONESHOT: sk-or-...
+OPENROUTER_API_KEY_SELF_EVOLVE: sk-or-...
 ```
 
 ---
@@ -141,6 +148,64 @@ python -u test_time_self_evolution/run_eval_modes.py \
 ```
 
 Switch frameworks via `--framework {eoh,coral,openevolve}`; framework-specific knobs (`--eoh-*`, `--coral-*`, `--openevolve-iterations`) override the defaults when needed. The stage1 (binary gate on `tiny`) → stage2 (dev set fitness) → test-set scoring pipeline is shared across all three frameworks for apples-to-apples comparison.
+
+---
+
+## 🔒 Trusted Agent Evaluation
+
+The research commands above remain configurable for experiment reproduction.
+When the code-producing Agent or submitted solver is untrusted, use the
+separate fail-closed entry point:
+
+```bash
+docker build -f frontieror/infra/docker/candidate.Dockerfile \
+    -t frontieror-candidate:1 .
+docker build -f frontieror/infra/docker/agent.Dockerfile \
+    -t frontieror-coral-agent:0.1 .
+docker build -f frontieror/infra/docker/model-proxy.Dockerfile \
+    -t frontieror-coral-model-proxy:0.1 .
+
+python -m frontieror.infra agent \
+    --paper-id bierwirth2017 \
+    --primary-model gpt-5.4 \
+    --stage1-instances tiny \
+    --dev-set large_1 \
+    --test-set large_2 \
+    --coral-agent-count 1 \
+    --coral-attempts 10 \
+    --coral-max-steps 10 \
+    --coral-max-seconds auto \
+    --cpus 1 --memory 128G \
+    --run-id agent-smoke
+```
+
+`agent` always selects the platform CORAL adapter, Docker isolation, brokered
+dev evaluation, a credential-isolating fixed-model proxy, trusted host timing,
+`staged_qte`, and final grading after `code.py` is frozen. Security downgrade
+flags are deliberately absent from this interface. The original
+`run_eval_modes.py` command remains available for trusted research runs.
+
+The instance-level score equation is public. During self-evolution, the Agent
+can read stage-1/dev JSON and receives aggregate dev feedback. Final JSON is
+not exposed to the Agent or framework; after the Agent stops, the frozen solver
+receives only the current final instance as a read-only file. Reference
+objectives/runtimes, checker code, and per-instance final traces remain in the
+trusted grader. Official final instances must be unpublished server-only data;
+files already distributed in the Hugging Face dataset are suitable for local
+integration tests, not as hidden leaderboard tests.
+
+Before releasing a runner image, execute the black-box boundary tests:
+
+```bash
+python -m frontieror.infra security-check \
+    --candidate-image frontieror-candidate:1
+```
+
+The command probes host-file and environment access, root writes, public
+networking, timeout escape, and output flooding in both candidate and checker
+containers. The complete architecture, visibility matrix, threat model, WLS
+policy, and Code-only verifier are documented in
+[`frontieror/infra/README.md`](frontieror/infra/README.md).
 
 ---
 

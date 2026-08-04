@@ -28,7 +28,12 @@ if BASE_DIR not in sys.path:
 
 from scripts.utils.claude_utils import run_claude_tracked
 PAPER_DATA_DIR = os.path.join(BASE_DIR, "data", "paper_data")
-PROMPT_PATH = os.path.join(BASE_DIR, "prompts", "paper_reproduce", "prompt_generate_programs.txt")
+PROMPT_PATH = os.path.join(
+    BASE_DIR,
+    "prompts",
+    "paper_reproduce",
+    "prompt_generate_gurobi_code.txt",
+)
 
 # Hardcoded paper_id list. If non-empty, this takes highest priority.
 HARDCODED_PAPER_IDS: list[str] = [

@@ -22,6 +22,10 @@ import one_shot_eval as eval_core
 
 from test_time_self_evolution import eval_modes
 from test_time_self_evolution.openevolve.preflight import preflight_environment_check
+from frontieror.infra.checkers import validate_objective_checker
+from frontieror.infra.policy import (
+    validate_anti_hack_runtime,
+)
 
 
 ROOT_DIR = os.path.dirname(
@@ -360,6 +364,19 @@ def run_self_evolve(
     test_time_buffer: int = 0,
     test_instance_workers: int = 4,
 ):
+    anti_hack = bool((exec_cfg or {}).get("anti_hack"))
+    validate_anti_hack_runtime(
+        enabled=anti_hack,
+        exec_mode=exec_mode,
+        final_test_instances=test_instances,
+        scorer=stage2_scorer,
+    )
+    if anti_hack:
+        for instance in test_instances:
+            validate_objective_checker(
+                paper_dir=eval_core.get_paper_dir(paper_id),
+                instance=instance,
+            )
     preflight_environment_check(
         paper_id=paper_id,
         stage1_instances=stage1_instances,
@@ -488,6 +505,8 @@ def run_self_evolve(
     })
     for key, value in (exec_cfg or {}).items():
         env[f"EFFICIENT_OR_EXEC_{key.upper()}"] = str(value)
+    if (exec_cfg or {}).get("anti_hack"):
+        env["EFFICIENT_OR_ANTI_HACK"] = "1"
 
     oe_run_dir = os.path.join(base_dir, "openevolve_run")
     oe_config_path = os.path.join(base_dir, "openevolve_config.yaml")
