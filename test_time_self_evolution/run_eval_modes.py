@@ -4,9 +4,7 @@
 from __future__ import annotations
 
 import argparse
-import glob
 import os
-import re
 import sys
 import time
 import traceback
@@ -29,9 +27,14 @@ from scripts.utils.instance_paths import (  # noqa: E402
     SELF_EVOLVE_TEST_INSTANCES,
     parse_instances_arg,
 )
+from frontieror.infra.checkers import validate_objective_checker  # noqa: E402
+from frontieror.infra.policy import (  # noqa: E402
+    validate_anti_hack_runtime,
+    with_anti_hack_exec_cfg,
+)
 
 
-def load_mode_config():
+def load_mode_config(*, require_api_key: bool = True):
     config_path = os.path.join(ROOT_DIR, "configs", "oneshot.yaml")
     keys_path = os.path.join(ROOT_DIR, "configs", "api_keys.yaml")
     config = {}
@@ -43,9 +46,14 @@ def load_mode_config():
         with open(keys_path, encoding="utf-8") as f:
             keys = yaml.safe_load(f) or {}
     api_key = os.environ.get("OPENROUTER_API_KEY") or keys.get("OPENROUTER_API_KEY_SELF_EVOLVE")
-    if not api_key:
-        raise SystemExit("ERROR: set env OPENROUTER_API_KEY or OPENROUTER_API_KEY_SELF_EVOLVE in configs/api_keys.yaml")
-    config["OPENROUTER_API_KEY"] = api_key
+    if not api_key and require_api_key:
+        raise SystemExit(
+            "ERROR: set OPENROUTER_API_KEY or configure "
+            "OPENROUTER_API_KEY_SELF_EVOLVE in configs/api_keys.yaml "
+            "(start from configs/api_keys.example.yaml)"
+        )
+    if api_key:
+        config["OPENROUTER_API_KEY"] = api_key
     if not config.get("models"):
         if config.get("model"):
             config["models"] = [config["model"]]
@@ -103,7 +111,14 @@ def run_per_model_modes(args, run_id, config, paper_id, model, prompt):
         "instances": args.instances,
         "time_limit": args.time_limit,
         "exec_mode": args.exec_mode,
-        "exec_cfg": {"cpus": args.cpus, "memory": args.memory},
+        "exec_cfg": with_anti_hack_exec_cfg(
+            {
+                "cpus": args.cpus,
+                "memory": args.memory,
+                "wls_egress": args.wls_egress,
+            },
+            args.anti_hack,
+        ),
         "t_max": args.t_max,
     }
     results = {}
@@ -159,25 +174,46 @@ def _resolve_dev_set_for_paper(paper_id: str, dev_set_arg):
     one-element sentinel list or a validated explicit instance list.
     """
     if dev_set_arg == [_DEV_SET_SENTINEL_MAX]:
-        from test_time_self_evolution.scoring.building_blocks import pick_max_tau_g_instance
+        from test_time_self_evolution.scoring.building_blocks import (
+            list_large_instances,
+            pick_max_tau_g_instance,
+        )
         picked = pick_max_tau_g_instance(paper_id)
         if not picked:
-            raise SystemExit(
-                f"ERROR: cannot auto-pick --dev-set for paper '{paper_id}' "
-                f"(no large_* instances on disk, or no Gurobi τ_g recorded for any). "
-                f"Pass --dev-set explicitly."
+            available = list_large_instances(paper_id)
+            if not available:
+                raise SystemExit(
+                    f"ERROR: cannot auto-pick --dev-set for paper '{paper_id}' "
+                    "(no large_* instances are available). Pass --dev-set explicitly."
+                )
+            picked = available[-1]
+            print(
+                f"  [dev-set fallback] {paper_id} → {picked} "
+                "(no Gurobi τ_g metadata; largest available instance)"
             )
+            return [picked]
         print(f"  [dev-set auto] {paper_id} → {picked} (max τ_g)")
         return [picked]
     if dev_set_arg == [_DEV_SET_SENTINEL_MEDIAN]:
-        from test_time_self_evolution.scoring.building_blocks import pick_median_tau_g_instance
+        from test_time_self_evolution.scoring.building_blocks import (
+            list_large_instances,
+            pick_median_tau_g_instance,
+        )
         picked = pick_median_tau_g_instance(paper_id)
         if not picked:
-            raise SystemExit(
-                f"ERROR: cannot auto-pick --dev-set (median) for paper '{paper_id}' "
-                f"(no large_* instances on disk, or no Gurobi τ_g recorded for any). "
-                f"Pass --dev-set explicitly."
+            available = list_large_instances(paper_id)
+            if not available:
+                raise SystemExit(
+                    "ERROR: cannot auto-pick --dev-set (median) for paper "
+                    f"'{paper_id}' (no large_* instances are available). "
+                    "Pass --dev-set explicitly."
+                )
+            picked = available[(len(available) - 1) // 2]
+            print(
+                f"  [dev-set fallback] {paper_id} → {picked} "
+                "(no Gurobi τ_g metadata; median available instance)"
             )
+            return [picked]
         print(f"  [dev-set auto] {paper_id} → {picked} (median τ_g)")
         return [picked]
     # Explicit list
@@ -188,49 +224,27 @@ def _resolve_test_set_for_paper(paper_id: str, test_set_arg, dev_set_resolved):
     """Compute final test instances per paper.
 
     When ``--test-set`` is the **default** (``SELF_EVOLVE_TEST_INSTANCES``),
-    auto-compute test = (all ``large_*`` instances on disk for this paper)
-    minus dev pick. This avoids the dev/test overlap that arises when
-    ``--dev-set median`` happens to pick an instance also listed in the
-    default 4-instance test set (e.g. ``large_3`` often has median τ_g and
-    is also in ``[large_2, large_3, large_4, large_5]``).
+    compute final = declared preset minus the resolved dev pick. This avoids
+    dev/test overlap without silently introducing an instance that the
+    command did not request.
 
-    When the user explicitly passes ``--test-set``, trust them and use as-is
-    — preserves backwards-compat escape hatch.
+    A non-default ``--test-set`` value is used as-is. Anti-hack validation
+    rejects it later if it overlaps the resolved dev set.
 
     Affects all 3 frameworks (OpenEvolve / EoH / CORAL) since the
     dispatcher (``run_self_evolve_mode``) is shared.
 
-    Edge cases:
-      - paper directory missing on disk → fall back to declared default
-      - no ``large_instance_*.json`` files → return empty (runner handles
-        empty test_instances by reading from cache instead of re-evaluating)
-      - dev pick not in any large_* (e.g. ``--dev-set tiny``) → test = all
-        large_* (no exclusion needed)
+    If the dev pick is outside the preset (for example ``large_1`` or
+    ``tiny``), the declared final preset is unchanged.
     """
     is_default = (list(test_set_arg) == list(SELF_EVOLVE_TEST_INSTANCES))
     if not is_default:
         return list(test_set_arg)
 
-    instance_dir = os.path.join(
-        ROOT_DIR, "frontier-or", paper_id, "instance",
-    )
-    if not os.path.isdir(instance_dir):
-        # Paper data missing — preserve original behavior
-        return list(test_set_arg)
-
-    pattern = os.path.join(instance_dir, "large_instance_*.json")
-    inst_ids = []
-    for path in sorted(glob.glob(pattern)):
-        m = re.search(r"large_instance_(\d+)\.json$", path)
-        if m:
-            inst_ids.append(f"large_{m.group(1)}")
-    if not inst_ids:
-        return []
-
     dev_set_clean = set(dev_set_resolved)
-    test_set = [i for i in inst_ids if i not in dev_set_clean]
+    test_set = [i for i in test_set_arg if i not in dev_set_clean]
     print(f"  [test-set auto] {paper_id} → {test_set} "
-          f"(all {len(inst_ids)} large_* on disk - dev {sorted(dev_set_clean)})")
+          f"(declared preset - dev {sorted(dev_set_clean)})")
     return test_set
 
 
@@ -314,7 +328,14 @@ def run_self_evolve_mode(args, run_id, config, paper_id, prompt, primary_model, 
         "test_time_limit": args.test_time_limit,
         "stage1_gap_threshold": args.stage1_gap_threshold,
         "exec_mode": args.exec_mode,
-        "exec_cfg": {"cpus": args.cpus, "memory": args.memory},
+        "exec_cfg": with_anti_hack_exec_cfg(
+            {
+                "cpus": args.cpus,
+                "memory": args.memory,
+                "wls_egress": args.wls_egress,
+            },
+            args.anti_hack,
+        ),
         "t_max": args.t_max,
         "stage2_scorer": args.stage2_scorer,
         "stage2_stage_boundary": args.stage2_stage_boundary,
@@ -345,10 +366,15 @@ def run_self_evolve_mode(args, run_id, config, paper_id, prompt, primary_model, 
             agent_count=args.coral_agent_count,
             agent_model=args.coral_agent_model,
             max_turns=args.coral_max_turns,
+            max_steps=args.coral_max_steps,
             gateway_enabled=args.coral_gateway,
             heartbeat_reflect_every=args.coral_heartbeat_reflect_every,
             heartbeat_pivot_every=args.coral_heartbeat_pivot_every,
             heartbeat_consolidate_every=args.coral_heartbeat_consolidate_every,
+            anti_hack=args.anti_hack,
+            agent_isolation=args.coral_agent_isolation,
+            model_access=args.coral_model_access,
+            agent_image=args.coral_agent_image,
             resume=args.resume,
         )
     return openevolve_runner.run_self_evolve(
@@ -358,7 +384,7 @@ def run_self_evolve_mode(args, run_id, config, paper_id, prompt, primary_model, 
     )
 
 
-def parse_args():
+def parse_args(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--modes", nargs="+", default=["self_evolve"],
                         choices=["one_shot", "best_of_k", "self_evolve"],
@@ -437,13 +463,27 @@ def parse_args():
                         choices=["codex", "claude_code", "opencode", "kiro"],
                         help="CORAL agent runtime. Default: codex.")
     parser.add_argument("--coral-agent-count", type=int, default=1,
-                        help="CORAL agent count. Default: 1.")
+                        help="CORAL agent count. Default: 1. Hardened CORAL supports "
+                             "1-8 registered agents in one shared outer container.")
     parser.add_argument("--coral-agent-model", default=None,
                         help="CORAL agent model override. Defaults to the primary model short name for codex.")
     parser.add_argument("--coral-max-turns", type=int, default=20,
-                        help="CORAL max turns per agent process. Default: 20.")
+                        help="Deprecated compatibility alias for CORAL runtimes that support turns.")
+    parser.add_argument("--coral-max-steps", type=int, default=20,
+                        help="Native CORAL runtime step/turn setting. The hardened "
+                             "Codex wrapper records and forwards this value but does "
+                             "not reinterpret shell or tool events as steps. Default: 20.")
+    parser.add_argument("--coral-agent-isolation", choices=["docker", "host"], default="docker",
+                        help="Outer runtime boundary for CORAL agents. Anti-hack requires docker.")
+    parser.add_argument("--coral-model-access", choices=["local-auth", "proxy"], default="local-auth",
+                        help="Model credential mode. local-auth mounts the current Codex login "
+                             "for controlled internal runs; proxy uses a platform-owned "
+                             "fixed-model gateway and exposes only an ephemeral agent token.")
+    parser.add_argument("--coral-agent-image", default="frontieror-coral-agent:0.1",
+                        help="Pinned Docker image used by the isolated CORAL agent runtime.")
     parser.add_argument("--coral-gateway", action="store_true",
-                        help="CORAL: route agent traffic through its LiteLLM gateway using OPENROUTER_API_KEY.")
+                        help="Legacy non-hardened CORAL LiteLLM gateway. Hardened proxy mode "
+                             "uses the credential-isolating platform model proxy instead.")
     parser.add_argument("--coral-heartbeat-reflect-every", type=int, default=0,
                         help="CORAL: trigger 'reflect' heartbeat every N agent evals (interval). "
                              "Pauses agent and resumes with a 'review your recent work' prompt. "
@@ -561,6 +601,20 @@ def parse_args():
                         help="Execution backend. Default 'systemd' pins each candidate to "
                              "--cpus cores (via taskset + cgroup), preventing multi-thread "
                              "fitness cheats. Use 'bare' only for debugging; it has no CPU limits.")
+    parser.add_argument("--anti-hack", action="store_true",
+                        help="Opt-in hardened evaluation mode. Requires --exec-mode docker, "
+                             "uses clean candidate containers, and requires a final held-out "
+                             "test set for self_evolve.")
+    parser.add_argument(
+        "--wls-egress",
+        choices=["auto", "off", "required"],
+        default="auto",
+        help=(
+            "Gurobi WLS policy for candidate Docker containers. 'auto' uses a "
+            "token.gurobi.com-only proxy when WLS credentials are detected; "
+            "'off' disables candidate egress; 'required' fails without WLS."
+        ),
+    )
     parser.add_argument("--cpus", type=int, default=1)
     parser.add_argument("--memory", default="640G",
                         help="cgroup memory hard cap per candidate subprocess (systemd "
@@ -577,11 +631,11 @@ def parse_args():
     parser.add_argument("--resume", action="store_true",
                         help="self_evolve: skip seed generation and resume OpenEvolve from the "
                              "latest checkpoint under eval/modes/<run-id>/self_evolve/.../openevolve_run/checkpoints/.")
-    return parser.parse_args()
+    return parser.parse_args(argv)
 
 
-def main():
-    args = parse_args()
+def main(argv=None):
+    args = parse_args(argv)
     # --eoh-workers: when omitted, default to pop_size so each operator's
     # pop_size offspring all run concurrently.
     if args.eoh_workers is None:
@@ -619,6 +673,31 @@ def main():
         if not args.stage1_instances:
             raise SystemExit("ERROR: self_evolve requires at least one --stage1-instances.")
 
+    try:
+        validate_anti_hack_runtime(
+            enabled=args.anti_hack,
+            exec_mode=args.exec_mode,
+            final_test_instances=args.test_instances if "self_evolve" in args.modes else None,
+            scorer=args.stage2_scorer if "self_evolve" in args.modes else None,
+        )
+    except ValueError as e:
+        raise SystemExit(f"ERROR: {e}") from e
+    if (
+        args.anti_hack
+        and args.framework == "coral"
+        and not 1 <= args.coral_agent_count <= coral_runner.MAX_SECURE_AGENTS
+    ):
+        raise SystemExit(
+            "ERROR: anti-hack CORAL requires between 1 and "
+            f"{coral_runner.MAX_SECURE_AGENTS} agents"
+        )
+    if args.anti_hack and args.framework == "coral":
+        if args.coral_gateway:
+            raise SystemExit(
+                "ERROR: anti-hack CORAL uses its credential-isolating platform "
+                "model proxy; do not pass the legacy --coral-gateway flag"
+            )
+
     # Dev-set instance fan-out: set BEFORE any framework subprocess spawns so
     # OpenEvolve/CORAL inherit the env var via prepare_*_env's
     # ``dict(os.environ)``; also call set_instance_workers directly so EOH
@@ -628,7 +707,25 @@ def main():
         eval_core.set_instance_workers(args.dev_instance_workers)
 
     gurobi_license = eval_core.configure_gurobi_license()
-    config = load_mode_config()
+    if args.exec_mode == "docker":
+        wls_probe_cfg = with_anti_hack_exec_cfg(
+            {
+                "cpus": args.cpus,
+                "memory": args.memory,
+                "wls_egress": args.wls_egress,
+            },
+            args.anti_hack,
+        )
+        try:
+            eval_core.validate_docker_wls(wls_probe_cfg)
+        except (RuntimeError, ValueError) as exc:
+            raise SystemExit(f"ERROR: {exc}") from exc
+    local_auth_only = (
+        not per_model_modes
+        and args.framework == "coral"
+        and args.coral_model_access == "local-auth"
+    )
+    config = load_mode_config(require_api_key=not local_auth_only)
     models = select_models(config, args.models) if per_model_modes else []
     data_dir = eval_core.get_data_dir()
     paper_ids = args.paper_ids or eval_modes.discover_papers(data_dir)
@@ -646,6 +743,22 @@ def main():
         if primary_model is None:
             raise SystemExit("ERROR: self_evolve requires --primary-model (or at least one --models entry).")
         secondary_model = resolve_model_id(config, args.secondary_model) or primary_model
+        if args.framework == "coral" and args.coral_agent_runtime == "codex":
+            coral_model = coral_runner._coral_model_for_runtime(
+                primary_model,
+                args.coral_agent_runtime,
+                args.coral_agent_model,
+            )
+            try:
+                if args.coral_model_access == "local-auth":
+                    coral_runner.validate_local_codex_model(coral_model)
+                else:
+                    coral_runner.validate_openrouter_model(
+                        primary_model,
+                        config.get("OPENROUTER_API_KEY", ""),
+                    )
+            except RuntimeError as exc:
+                raise SystemExit(f"ERROR: {exc}") from exc
 
     print(f"Run ID: {run_id}")
     print(f"Modes: {args.modes}")
@@ -694,6 +807,15 @@ def main():
         ThreadPoolExecutor task when --paper-workers > 1. Catches exceptions so
         one paper's failure doesn't kill the whole run."""
         try:
+            # Each self-evolution runner validates its resolved per-paper final
+            # set. Here we preflight only per-model modes, whose instance list
+            # is already final at this level.
+            if args.anti_hack and per_model_modes:
+                for instance in args.instances:
+                    validate_objective_checker(
+                        paper_dir=eval_core.get_paper_dir(paper_id),
+                        instance=instance,
+                    )
             prompt = build_prompt(paper_id)
             if per_model_modes:
                 for model in models:
@@ -706,6 +828,14 @@ def main():
                 print(f"\n=== {paper_id} | {label} | self_evolve:{args.framework} ===")
                 run_self_evolve_mode(args, run_id, config, paper_id, prompt, primary_model, secondary_model)
             return paper_id, "ok", None
+        except SystemExit as e:
+            message = str(e)
+            print(
+                f"\n!!! [paper={paper_id}] FAILED: SystemExit: {message}",
+                file=sys.stderr,
+                flush=True,
+            )
+            return paper_id, "failed", f"SystemExit: {message}"
         except Exception as e:
             tb = traceback.format_exc()
             print(f"\n!!! [paper={paper_id}] FAILED: {type(e).__name__}: {e}\n{tb}",
@@ -730,10 +860,11 @@ def main():
         for pid, err in failed:
             print(f"  - {pid}: {err}", file=sys.stderr)
 
-    print(f"\nDev results:  {os.path.join(ROOT_DIR, 'eval', 'eval_dev_results_openevolve.csv')}")
-    print(f"Test results: {os.path.join(ROOT_DIR, 'eval', 'eval_test_results_openevolve.csv')}")
+    print(f"\nDev results:  {os.path.join(ROOT_DIR, 'eval', f'eval_dev_results_{args.framework}.csv')}")
+    print(f"Test results: {os.path.join(ROOT_DIR, 'eval', f'eval_test_results_{args.framework}.csv')}")
     print(f"API cost:     {os.path.join(ROOT_DIR, 'eval', 'self_evolve_api_cost.csv')}")
+    return 1 if failed else 0
 
 
 if __name__ == "__main__":
-    main()
+    raise SystemExit(main())

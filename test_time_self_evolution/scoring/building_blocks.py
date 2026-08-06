@@ -147,7 +147,7 @@ def gurobi_log_path_for(paper_id: str, instance: str) -> Optional[str]:
         from instance_paths import gurobi_log_path  # noqa: E402
     except Exception:
         return None
-    paper_dir = os.path.join(ROOT_DIR, "frontier-or", paper_id)
+    paper_dir = os.path.join(_data_root(), paper_id)
     if not os.path.isdir(paper_dir):
         return None
     try:

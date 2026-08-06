@@ -1,0 +1,10 @@
+numpy==2.5.1
+scipy==1.18.0
+networkx==3.6.1
+gurobipy==13.0.2
+pyomo==6.10.1
+mip==1.17.6
+cvxpy==1.9.2
+ortools==9.15.6755
+pandas==3.0.5
+scikit-learn==1.9.0

@@ -17,16 +17,21 @@ fi
 git -C "${TARGET_DIR}" fetch --tags
 git -C "${TARGET_DIR}" checkout "${REF}"
 
-# Install coral globally so the `coral` CLI is on PATH inside agent bash
-# subshells. Without this the agent's `coral eval` / `coral log` etc. fail
-# with `coral: command not found` (the upstream `setup_worktree_env` hook
-# only creates a per-worktree .venv when `workspace.setup` is non-empty,
-# which we deliberately leave empty since we don't have per-task pyproject).
+# Install CORAL into the active Python environment. The hardened runner imports
+# this package directly; Agent containers receive a separate broker-only
+# `coral eval` shim and never execute this host CLI.
 if [ -f "${TARGET_DIR}/pyproject.toml" ]; then
   python -m pip install -e "${TARGET_DIR}"
 fi
 
 echo "CORAL ready at ${TARGET_DIR} (${REF})"
-command -v coral >/dev/null 2>&1 \
-  && echo "coral CLI: $(command -v coral) ($(coral --version 2>&1))" \
-  || echo "WARNING: coral CLI not on PATH after install — check pip install above"
+CORAL_IMPORT_PATH="$(python -c 'import pathlib, coral; print(pathlib.Path(coral.__file__).resolve())')"
+case "${CORAL_IMPORT_PATH}" in
+  "${TARGET_DIR}"/*)
+    echo "CORAL Python import: ${CORAL_IMPORT_PATH}"
+    ;;
+  *)
+    echo "ERROR: Python imports CORAL from ${CORAL_IMPORT_PATH}, not ${TARGET_DIR}" >&2
+    exit 1
+    ;;
+esac

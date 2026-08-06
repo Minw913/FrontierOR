@@ -1,16 +1,8 @@
-"""Compatibility wrapper around CORAL's CLI.
-
-Only patches the generated Codex ``config.toml`` (the pinned CORAL revision
-writes ``[tools].web_search = "disabled"``, which the locally-installed Codex
-CLI rejects). The instruction template (``CORAL.md`` / ``AGENTS.md``) is kept
-upstream so single/multi-agent auto-switching works and the full collaborative
-workflow is intact. Project-specific guardrails (e.g. forbid reading
-``gurobi_solution/``) are injected via ``task.tips`` in ``task.yaml``, which
-CORAL renders as a ``## Tips`` section appended to the original template.
-"""
+"""Compatibility and security wrapper around CORAL's CLI."""
 
 from __future__ import annotations
 
+import os
 from pathlib import Path
 
 
@@ -30,10 +22,15 @@ def _patch_codex_settings():
         del coral_dir, research, gateway_api_key
         codex_dir = worktree_path / ".codex"
         codex_dir.mkdir(exist_ok=True)
+        sandbox_mode = (
+            "workspace-write"
+            if os.environ.get("FRONTIER_OR_ANTI_HACK") == "1"
+            else "danger-full-access"
+        )
         lines = [
             'model = "gpt-5.4"',
             'approval_policy = "never"',
-            'sandbox_mode = "danger-full-access"',
+            f'sandbox_mode = "{sandbox_mode}"',
             'personality = "pragmatic"',
         ]
         if gateway_url:
@@ -53,8 +50,22 @@ def _patch_codex_settings():
     manager_module.setup_codex_settings = setup_codex_settings
 
 
+def _patch_anti_hack_runtime() -> None:
+    if os.environ.get("FRONTIER_OR_ANTI_HACK") != "1":
+        return
+    from coral.agent import manager as manager_module
+    from coral.agent import registry
+    from frontieror.infra.agent.instructions import generate_secure_coral_md
+    from frontieror.infra.agent.runtime import SecureCodexRuntime
+
+    registry.register_runtime("codex", SecureCodexRuntime, default_model="gpt-5.4")
+    # AgentManager imported this function by value, so patch its module binding.
+    manager_module.generate_coral_md = generate_secure_coral_md
+
+
 def main():
     _patch_codex_settings()
+    _patch_anti_hack_runtime()
     from coral.cli import main as coral_main
 
     coral_main()

@@ -8,6 +8,10 @@ source_paper/
 # Hardlink staging tree built by scripts/publish_to_hf.py
 _publish_staging/
 
+# Locally cloned benchmark/framework references
+external/
+reference/
+
 # Python
 *__pycache__*
 *.pyc
@@ -25,9 +29,13 @@ venv/
 env/
 .env
 .env.local
+configs/api_keys.yaml
+gurobi.lic
+*.gurobi.lic
 
 # Runtime output (one_shot_eval.py writes per-paper code + CSV here)
 eval/
+results/
 
 # Local planning / draft documents
 main.pdf
