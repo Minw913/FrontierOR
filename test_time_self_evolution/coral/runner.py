@@ -12,6 +12,7 @@ import hashlib
 import json
 import os
 import signal
+import shutil
 import socket
 import subprocess
 import sys
@@ -21,6 +22,7 @@ import time
 import urllib.error
 import urllib.request
 from dataclasses import dataclass
+from pathlib import Path
 from typing import Dict, List, Optional
 
 import yaml
@@ -518,7 +520,24 @@ def write_coral_task(
 
 
 def _coral_cli() -> List[str]:
-    return [sys.executable, "-m", "test_time_self_evolution.coral.coral_cli_wrapper"]
+    override = os.environ.get("FRONTIER_OR_CORAL_PYTHON", "").strip()
+    if override:
+        interpreter = override
+    else:
+        interpreter = sys.executable
+        coral_executable = shutil.which("coral")
+        if coral_executable:
+            try:
+                first_line = Path(coral_executable).read_text(
+                    encoding="utf-8", errors="replace"
+                ).splitlines()[0]
+            except (IndexError, OSError):
+                first_line = ""
+            if first_line.startswith("#!"):
+                candidate = first_line[2:].strip().split()[0]
+                if os.path.isfile(candidate) and os.access(candidate, os.X_OK):
+                    interpreter = candidate
+    return [interpreter, "-m", "test_time_self_evolution.coral.coral_cli_wrapper"]
 
 
 def read_attempts(coral_dir: str) -> List[Dict]:
@@ -674,9 +693,24 @@ def run_coral_until_done(task: CoralTask, env: Dict[str, str], attempts: int, ma
                 finalize_secure_runtime_audit,
             )
             try:
-                finalize_secure_runtime_audit(task.run_dir)
+                activity_path = os.path.join(
+                    task.coral_dir,
+                    "private",
+                    "audit",
+                    "agent_activity.json",
+                )
+                if os.path.isfile(activity_path):
+                    finalize_secure_runtime_audit(task.run_dir)
+                elif proc.returncode in (None, 0):
+                    raise RuntimeError(
+                        "CORAL exited without creating the required agent activity audit"
+                    )
             finally:
                 cleanup_secure_runtime(task.run_dir)
+    if stop_reason == "coral_process_exit" and proc.returncode != 0:
+        raise RuntimeError(
+            f"CORAL process exited with code {proc.returncode}; see {task.log_path}"
+        )
     return {"stop_reason": stop_reason, "supervisor": None}
 
 
@@ -1041,13 +1075,29 @@ def run_self_evolve(
             print(f"[warn] failed to read sidecar {sidecar_path}: {e}")
 
     if final_instances:
+        final_dir = os.path.join(base_dir, "final_eval")
+        final_time_limits = eval_modes._resolve_test_time_limits(
+            paper_id,
+            final_instances,
+            test_time_limit,
+            test_time_policy,
+            test_time_buffer,
+        )
         final_results = eval_modes.evaluate_best_on_test_set(
             paper_id, model_name, extracted, final_instances,
             test_time_limit, test_time_policy, test_time_buffer,
-            os.path.join(base_dir, "final_eval"),
+            final_dir,
             exec_mode, exec_cfg, t_max,
             max_workers=test_instance_workers,
         )
+        if stage2_scorer == "staged_qte":
+            final_results = eval_modes.augment_results_with_staged_qte(
+                final_results,
+                paper_id,
+                final_dir,
+                stage_boundary=stage2_stage_boundary,
+                time_limits=final_time_limits,
+            )
     else:
         final_results = _results_from_metadata(best_metadata, reporting_instances)
     selected_code = eval_modes.copy_selected_code(extracted, base_dir)

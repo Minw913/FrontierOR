@@ -57,7 +57,13 @@ def openevolve_runner_path() -> str:
     local_runner = os.path.join(ROOT_DIR, "external", "openevolve", "openevolve-run.py")
     if os.path.exists(local_runner):
         return local_runner
-    return "openevolve-run.py"
+    installed_runner = shutil.which("openevolve-run.py")
+    if installed_runner:
+        return installed_runner
+    raise RuntimeError(
+        "OpenEvolve is not installed. Run "
+        "'bash test_time_self_evolution/openevolve/setup.sh' first."
+    )
 
 
 def find_best_openevolve_program(run_dir: str, fallback_path: str) -> str:
@@ -76,7 +82,12 @@ def find_best_openevolve_program(run_dir: str, fallback_path: str) -> str:
     return candidates[0]
 
 
-def write_openevolve_config(config_path: str, primary_model: str, secondary_model: Optional[str] = None):
+def write_openevolve_config(
+    config_path: str,
+    primary_model: str,
+    secondary_model: Optional[str] = None,
+    api_base: Optional[str] = None,
+):
     """Load configs/openevolve.yaml as base and inject primary/secondary model fields.
 
     Also resolves any relative ``prompt.template_dir`` against the SOURCE
@@ -95,6 +106,8 @@ def write_openevolve_config(config_path: str, primary_model: str, secondary_mode
     llm = base.setdefault("llm", {})
     llm["primary_model"] = primary_model
     llm["secondary_model"] = secondary_model
+    if api_base:
+        llm["api_base"] = api_base
     prompt_block = base.get("prompt") or {}
     tpl_dir = prompt_block.get("template_dir")
     if tpl_dir and not os.path.isabs(tpl_dir):
@@ -183,55 +196,16 @@ def augment_results_with_staged_qte(
     paper_id: str,
     output_dir: str,
     stage_boundary: float = 0.01,
+    time_limits: Optional[Dict[str, int]] = None,
 ) -> Dict[str, Dict]:
-    """Run :class:`StagedQteScorer` on each instance's convergence log under
-    ``output_dir`` and merge the score + stage decomposition into ``results``.
-
-    Used by the post-evolve test-set eval path, where results come from
-    :func:`evaluate_best_on_test_set` (one-shot style) and lack the
-    flattened ``inst_<name>_*`` staged_qte fields that stage2 writes natively.
-
-    ``stage_boundary`` must match the boundary used during evolution so the
-    test-set rescore is on the same scale as the dev-set fitness.
-
-    Modifies ``results`` in place and returns it. Logs follow the
-    ``log_<inst>.jsonl`` convention (one_shot_eval._run_one_instance:708).
-    """
-    from test_time_self_evolution.scoring import get_scorer
-    from test_time_self_evolution.scoring.base import ScoreContext
-    from test_time_self_evolution.scoring.building_blocks import lookup_gurobi_time
-
-    if not results:
-        return results
-    scorer = get_scorer("staged_qte", stage_boundary=stage_boundary)
-    direction = eval_core.get_paper_direction(paper_id)
-
-    for inst, r in results.items():
-        if r is None:
-            continue
-        log_path = os.path.join(output_dir, f"log_{inst}.jsonl")
-        gurobi_obj = r.get("gurobi_obj")
-        gurobi_time = lookup_gurobi_time(paper_id, inst)
-        time_limit = int(r.get("solve_time") or 0) or int(gurobi_time or 0)
-        ctx = ScoreContext(
-            time_limit=time_limit,
-            gurobi_time=gurobi_time,
-            gurobi_obj=gurobi_obj,
-            direction=direction,
-            log_path=log_path,
-            paper_id=paper_id,
-            instance=inst,
-        )
-        score, dbg = scorer.score_instance(r, ctx)
-        r["score"] = round(float(score), 6)
-        r["stage_id"] = float(dbg.get("stage_id", 0))
-        r["quality_part"] = float(dbg.get("quality_part", 0.0))
-        r["speed_part"] = float(dbg.get("speed_part", 0.0))
-        r["signed_gap"] = float(dbg.get("signed_gap", 1.0))
-        r["beat_amount"] = float(dbg.get("beat_amount", 0.0))
-        r["beat_gurobi_flag"] = 1.0 if dbg.get("beat_gurobi") else 0.0
-        r["matched_flag"] = 1.0 if dbg.get("matched") else 0.0
-    return results
+    """Compatibility wrapper for the shared final scorer."""
+    return eval_modes.augment_results_with_staged_qte(
+        results,
+        paper_id,
+        output_dir,
+        stage_boundary=stage_boundary,
+        time_limits=time_limits,
+    )
 
 
 def reconstruct_results_from_metrics(metrics: Dict, instances: List[str]) -> Dict[str, Dict]:
@@ -510,7 +484,12 @@ def run_self_evolve(
 
     oe_run_dir = os.path.join(base_dir, "openevolve_run")
     oe_config_path = os.path.join(base_dir, "openevolve_config.yaml")
-    write_openevolve_config(oe_config_path, primary_model, secondary_model)
+    write_openevolve_config(
+        oe_config_path,
+        primary_model,
+        secondary_model,
+        api_base=config.get("MODEL_API_BASE"),
+    )
     evaluator_path = os.path.join(ROOT_DIR, "test_time_self_evolution", "openevolve", "evaluator.py")
     if resume and resume_remaining_iters == 0:
         # Already at or past the target budget — skip evolution entirely.
@@ -538,6 +517,13 @@ def run_self_evolve(
         # Explicit final eval on the user-supplied test_instances.
         # Per-instance time-policy + thread-pool fan-out are handled by the
         # shared helper (see :func:`eval_modes.evaluate_best_on_test_set`).
+        final_time_limits = eval_modes._resolve_test_time_limits(
+            paper_id,
+            final_instances,
+            test_time_limit,
+            test_time_policy,
+            test_time_buffer,
+        )
         final_results = eval_modes.evaluate_best_on_test_set(
             paper_id, model_name, best_code_path, final_instances,
             test_time_limit, test_time_policy, test_time_buffer,
@@ -547,7 +533,12 @@ def run_self_evolve(
         # Score test logs with staged_qte so test CSV gets the same stage
         # decomposition columns as dev. final_dir holds log_<inst>.jsonl.
         final_results = augment_results_with_staged_qte(
-            final_results, paper_id, final_dir, stage_boundary=stage2_stage_boundary)
+            final_results,
+            paper_id,
+            final_dir,
+            stage_boundary=stage2_stage_boundary,
+            time_limits=final_time_limits,
+        )
     else:
         # No explicit test set → reconstruct results from OpenEvolve's
         # latest checkpoint (relies on the evaluator flattening per-instance

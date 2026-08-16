@@ -200,10 +200,14 @@ def _load_all_paper_dirs():
     return out
 
 
-# Per-paper optimization direction ("min" or "max") from the metadata CSV.
-# Used by compare_objectives and compute_aocc to avoid treating "LLM beats ref"
-# as "LLM is further from ref".
-_DIRECTION_META_PATH = os.path.join(ROOT_DIR, "results", "data_statistics", "paper_meta_info.csv")
+# Per-paper optimization direction ("min" or "max") from a versioned registry.
+# The legacy results path can extend the versioned hard-set registry locally.
+_DIRECTION_META_PATH = os.path.join(
+    ROOT_DIR, "frontieror", "data", "paper_directions.csv"
+)
+_LEGACY_DIRECTION_META_PATH = os.path.join(
+    ROOT_DIR, "results", "data_statistics", "paper_meta_info.csv"
+)
 _DIRECTIONS_CACHE = None
 
 
@@ -218,8 +222,10 @@ def _load_directions():
     if _DIRECTIONS_CACHE is not None:
         return _DIRECTIONS_CACHE
     out = {}
-    if os.path.exists(_DIRECTION_META_PATH):
-        with open(_DIRECTION_META_PATH, newline="", encoding="utf-8") as f:
+    for registry in (_LEGACY_DIRECTION_META_PATH, _DIRECTION_META_PATH):
+        if not os.path.exists(registry):
+            continue
+        with open(registry, newline="", encoding="utf-8") as f:
             for row in csv.DictReader(f):
                 pid = (row.get("paper_id") or "").strip()
                 d = (row.get("direction") or "").strip().lower()
@@ -237,8 +243,7 @@ def get_paper_direction(paper_id):
     quality/QTE score, and for self-evolving frameworks it steers the search
     toward the *worst* solutions. There is therefore NO safe default --
     an unknown direction raises instead of guessing 'min'. Register the
-    paper in ``results/data_statistics/paper_meta_info.csv`` before
-    evaluating it.
+    paper in ``frontieror/data/paper_directions.csv`` before evaluating it.
     """
     d = _load_directions().get(paper_id)
     if d is None:

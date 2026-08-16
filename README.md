@@ -149,6 +149,18 @@ python -u test_time_self_evolution/run_eval_modes.py \
 
 Switch frameworks via `--framework {eoh,coral,openevolve}`; framework-specific knobs (`--eoh-*`, `--coral-*`, `--openevolve-iterations`) override the defaults when needed. The stage1 (binary gate on `tiny`) → stage2 (dev set fitness) → test-set scoring pipeline is shared across all three frameworks for apples-to-apples comparison.
 
+For resumable multi-paper orchestration, the hardened runner also implements
+the native `tide-eval` Executor contract. It supports CORAL, OpenEvolve, and
+EoH without changing their shared FrontierOR scoring path:
+
+```bash
+export TIDE_EVAL_PYTHON="$PWD/reference/tide-eval/.venv/bin/python"
+python -m frontieror.infra tide-eval --help
+```
+
+See [`frontieror/infra/README.md`](frontieror/infra/README.md#tide-eval-orchestration)
+for setup, trust boundaries, and complete examples.
+
 ---
 
 ## 🔒 Trusted Agent Evaluation

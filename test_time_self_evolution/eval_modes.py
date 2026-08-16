@@ -310,9 +310,12 @@ def _build_self_evolve_row(
 
 
 def _write_self_evolve_csv_with_dedup(csv_path, columns, new_row):
-    """Replace any existing row matching (paper_id, model, instance);
-    append otherwise. Uses fcntl.flock for cross-process safety."""
+    """Replace a row from the same run, preserving independent runs.
+
+    Uses fcntl.flock for cross-process safety.
+    """
     new_key = (
+        new_row.get("run_id", ""),
         new_row["paper_id"],
         new_row["model"],
         str(new_row["instance"]),
@@ -323,7 +326,12 @@ def _write_self_evolve_csv_with_dedup(csv_path, columns, new_row):
             with open(csv_path, "r", newline="") as f:
                 reader = csv.DictReader(f)
                 for row in reader:
-                    key = (row["paper_id"], row["model"], row["instance"])
+                    key = (
+                        row.get("run_id", ""),
+                        row["paper_id"],
+                        row["model"],
+                        row["instance"],
+                    )
                     if key != new_key:
                         existing.append(row)
         os.makedirs(os.path.dirname(csv_path), exist_ok=True)
@@ -424,6 +432,55 @@ def _resolve_test_time_limits(
         else:
             final_tl[inst] = test_time_limit
     return final_tl
+
+
+def augment_results_with_staged_qte(
+    results: Dict[str, Dict],
+    paper_id: str,
+    output_dir: str,
+    *,
+    stage_boundary: float = 0.01,
+    time_limits: Optional[Dict[str, int]] = None,
+) -> Dict[str, Dict]:
+    """Apply the benchmark's final staged-QTE scorer to evaluated results."""
+    from test_time_self_evolution.scoring import get_scorer
+    from test_time_self_evolution.scoring.base import ScoreContext
+    from test_time_self_evolution.scoring.building_blocks import lookup_gurobi_time
+
+    if not results:
+        return results
+    scorer = get_scorer("staged_qte", stage_boundary=stage_boundary)
+    direction = eval_core.get_paper_direction(paper_id)
+    for instance, result in results.items():
+        if result is None:
+            continue
+        gurobi_time = lookup_gurobi_time(paper_id, instance)
+        time_limit = (time_limits or {}).get(instance)
+        if time_limit is None:
+            time_limit = int(result.get("solve_time") or gurobi_time or 0)
+        context = ScoreContext(
+            time_limit=time_limit,
+            gurobi_time=gurobi_time,
+            gurobi_obj=result.get("gurobi_obj"),
+            direction=direction,
+            log_path=os.path.join(output_dir, f"log_{instance}.jsonl"),
+            paper_id=paper_id,
+            instance=instance,
+        )
+        score, debug = scorer.score_instance(result, context)
+        result.update(
+            {
+                "score": round(float(score), 6),
+                "stage_id": float(debug.get("stage_id", 0)),
+                "quality_part": float(debug.get("quality_part", 0.0)),
+                "speed_part": float(debug.get("speed_part", 0.0)),
+                "signed_gap": float(debug.get("signed_gap", 1.0)),
+                "beat_amount": float(debug.get("beat_amount", 0.0)),
+                "beat_gurobi_flag": 1.0 if debug.get("beat_gurobi") else 0.0,
+                "matched_flag": 1.0 if debug.get("matched") else 0.0,
+            }
+        )
+    return results
 
 
 def evaluate_best_on_test_set(
