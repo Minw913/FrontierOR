@@ -18,6 +18,7 @@ import os
 import subprocess
 import sys
 from typing import Dict, List, Optional
+from urllib.parse import urlparse
 
 import one_shot_eval as eval_core
 
@@ -114,6 +115,51 @@ def _check_openrouter_key(config: Dict, primary_model: str) -> List[str]:
     key = config.get("OPENROUTER_API_KEY") if isinstance(config, dict) else None
     if not key:
         issues.append(f"openrouter_key: not configured for model={primary_model!r}")
+        return issues
+    api_base = str(config.get("MODEL_API_BASE") or "").strip()
+    if api_base:
+        parsed = urlparse(api_base)
+        if parsed.scheme != "http" or parsed.hostname not in {
+            "127.0.0.1",
+            "::1",
+            "localhost",
+        }:
+            issues.append(
+                "model_api_base: local Codex bridge must use an HTTP loopback URL"
+            )
+            return issues
+        if os.environ.get("EFFICIENT_OR_SKIP_NETWORK_PREFLIGHT") == "1":
+            return issues
+        try:
+            import http.client
+
+            connection = http.client.HTTPConnection(parsed.netloc, timeout=10)
+            prefix = parsed.path.rstrip("/")
+            connection.request(
+                "GET",
+                f"{prefix}/models",
+                headers={"Authorization": f"Bearer {key}"},
+            )
+            response = connection.getresponse()
+            body = response.read(1024 * 1024)
+            connection.close()
+            payload = json.loads(body)
+            available = {
+                str(item.get("id", ""))
+                for item in payload.get("data", [])
+                if isinstance(item, dict)
+            }
+            requested = str(primary_model).removeprefix("openai/")
+            if response.status != 200 or requested not in available:
+                issues.append(
+                    f"local_codex_bridge: model={requested!r} unavailable "
+                    f"(HTTP {response.status})"
+                )
+        except Exception as exc:
+            issues.append(
+                "local_codex_bridge: health probe failed "
+                f"({type(exc).__name__}: {str(exc)[:80]})"
+            )
         return issues
     if os.environ.get("EFFICIENT_OR_SKIP_NETWORK_PREFLIGHT") == "1":
         return issues

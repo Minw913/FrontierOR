@@ -3,13 +3,22 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import os
+import re
+import subprocess
 import sys
+import tempfile
+import time
 from collections.abc import Sequence
+from pathlib import Path
 
 from .contracts import public_scoring_contract, visibility_contract
 from .policy import hardened_agent_argv
+
+
+TIDE_EVALUATOR_VERSION = "1"
 
 
 def _agent_parser() -> argparse.ArgumentParser:
@@ -123,6 +132,215 @@ def _run_security_check(argv: Sequence[str]) -> int:
     return 0 if report["passed"] else 1
 
 
+def _replace_option(
+    argv: Sequence[str], option: str, values: Sequence[str]
+) -> list[str]:
+    output: list[str] = []
+    index = 0
+    while index < len(argv):
+        token = argv[index]
+        if token == option:
+            index += 1
+            while index < len(argv) and not argv[index].startswith("--"):
+                index += 1
+            continue
+        if token.startswith(option + "="):
+            index += 1
+            continue
+        output.append(token)
+        index += 1
+    return [*output, option, *values]
+
+
+def _run_tide_eval(argv: Sequence[str]) -> int:
+    raw = list(argv)
+    if "--" not in raw:
+        if any(token in {"-h", "--help"} for token in raw):
+            raw = [*raw, "--"]
+        else:
+            raise SystemExit(
+                "ERROR: tide-eval options and FrontierOR options must be separated by --"
+            )
+    divider = raw.index("--")
+    own, forwarded = raw[:divider], raw[divider + 1 :]
+    parser = argparse.ArgumentParser(
+        prog="python -m frontieror.infra tide-eval",
+        description=(
+            "Run hardened CORAL, OpenEvolve, or EoH episodes under "
+            "Tide-eval orchestration."
+        ),
+    )
+    parser.add_argument(
+        "--framework",
+        choices=("coral", "openevolve", "eoh"),
+        required=True,
+    )
+    parser.add_argument(
+        "--tide-python",
+        default=os.environ.get("TIDE_EVAL_PYTHON"),
+        help="Python executable from an environment containing tide-eval.",
+    )
+    parser.add_argument("--lab", required=True)
+    parser.add_argument("--concurrency", type=int, default=1)
+    parser.add_argument("--budget-hours", type=float)
+    options = parser.parse_args(own)
+    if not options.tide_python:
+        parser.error("--tide-python or TIDE_EVAL_PYTHON is required")
+    if options.concurrency < 1:
+        parser.error("--concurrency must be positive")
+    if options.budget_hours is not None and options.budget_hours <= 0:
+        parser.error("--budget-hours must be positive")
+
+    if options.framework == "coral":
+        parsed = _agent_parser().parse_args(forwarded)
+        entrypoint = "agent"
+    else:
+        from test_time_self_evolution import run_eval_modes
+
+        forwarded = _replace_option(
+            forwarded, "--framework", [options.framework]
+        )
+        forwarded = _replace_option(forwarded, "--modes", ["self_evolve"])
+        forwarded = _replace_option(forwarded, "--exec-mode", ["docker"])
+        forwarded = _replace_option(
+            forwarded, "--stage2-scorer", ["staged_qte"]
+        )
+        if "--anti-hack" not in forwarded:
+            forwarded.append("--anti-hack")
+        parsed = run_eval_modes.parse_args(forwarded)
+        entrypoint = "runner"
+        if parsed.resume:
+            parser.error("Tide-eval owns resume; do not pass FrontierOR --resume")
+    if not parsed.test_instances:
+        parser.error("Tide episodes require an explicit FrontierOR --test-set")
+
+    paper_ids = list(parsed.paper_ids or [])
+    if not paper_ids:
+        parser.error("FrontierOR --paper-id is required")
+    run_id = parsed.run_id or f"tide-eval-{time.strftime('%Y%m%d-%H%M%S')}"
+    identity_pattern = re.compile(r"[A-Za-z0-9][A-Za-z0-9._-]{0,127}")
+    if identity_pattern.fullmatch(run_id) is None:
+        parser.error(
+            "FrontierOR --run-id must be 1-128 ASCII letters, digits, '.', '_', "
+            "or '-', and must start with a letter or digit"
+        )
+    invalid_papers = [
+        paper_id
+        for paper_id in paper_ids
+        if identity_pattern.fullmatch(paper_id) is None
+    ]
+    if invalid_papers:
+        parser.error(f"invalid FrontierOR paper id: {invalid_papers[0]!r}")
+    primary_model = parsed.primary_model or "gpt-5.3-codex"
+    budget = {
+        key: value
+        for key, value in {
+            "time_h": options.budget_hours,
+            "max_submissions": (
+                parsed.coral_attempts if options.framework == "coral" else None
+            ),
+        }.items()
+        if value is not None
+    }
+
+    calls = []
+    for paper_id in paper_ids:
+        episode_argv = _replace_option(forwarded, "--paper-id", [paper_id])
+        episode_argv = _replace_option(episode_argv, "--run-id", [run_id])
+        episode_argv = _replace_option(
+            episode_argv, "--primary-model", [primary_model]
+        )
+        episode_argv = _replace_option(episode_argv, "--paper-workers", ["1"])
+        config_digest = hashlib.sha256(
+            json.dumps(
+                {
+                    "evaluator_version": TIDE_EVALUATOR_VERSION,
+                    "argv": episode_argv,
+                },
+                separators=(",", ":"),
+            ).encode()
+        ).hexdigest()[:12]
+        calls.append(
+            {
+                "task": f"frontieror/{paper_id}",
+                "agent": {
+                    "name": options.framework,
+                    "entrypoint": entrypoint,
+                    "frontieror_argv": episode_argv,
+                },
+                "tags": {
+                    "benchmark": "FrontierOR",
+                    "framework": options.framework,
+                    "model": primary_model,
+                    "paper_id": paper_id,
+                    "run_id": run_id,
+                    "evaluator_version": TIDE_EVALUATOR_VERSION,
+                },
+                "budget": budget or None,
+                "key": (
+                    f"frontieror:{run_id}:{paper_id}:{options.framework}:"
+                    f"{config_digest}"
+                ),
+            }
+        )
+
+    tide_python = Path(os.path.abspath(os.path.expanduser(options.tide_python)))
+    if not tide_python.is_file():
+        parser.error(f"Tide-eval Python does not exist: {tide_python}")
+    tide_checkout = next(
+        (
+            parent
+            for parent in tide_python.parents
+            if (parent / "pyproject.toml").is_file()
+            and (parent / "tide" / "__init__.py").is_file()
+        ),
+        None,
+    )
+    repo_root = Path(__file__).resolve().parents[2]
+    request = {
+        "schema_version": 1,
+        "repo_root": str(repo_root),
+        "lab": str(Path(options.lab).expanduser().resolve()),
+        "concurrency": options.concurrency,
+        "worker_command": [
+            sys.executable,
+            "-m",
+            "frontieror.infra.tide_eval_worker",
+        ],
+        "calls": calls,
+    }
+    request_path: str | None = None
+    try:
+        with tempfile.NamedTemporaryFile(
+            mode="w",
+            encoding="utf-8",
+            prefix="frontieror-tide-eval-",
+            suffix=".json",
+            delete=False,
+        ) as handle:
+            json.dump(request, handle)
+            request_path = handle.name
+        driver = Path(__file__).with_name("tide_eval_driver.py")
+        driver_env = os.environ.copy()
+        if tide_checkout is not None:
+            existing_pythonpath = driver_env.get("PYTHONPATH")
+            driver_env["PYTHONPATH"] = os.pathsep.join(
+                value
+                for value in (str(tide_checkout), existing_pythonpath)
+                if value
+            )
+        proc = subprocess.run(
+            [str(tide_python), str(driver), request_path],
+            cwd=tide_checkout or repo_root,
+            env=driver_env,
+            check=False,
+        )
+        return proc.returncode
+    finally:
+        if request_path is not None:
+            Path(request_path).unlink(missing_ok=True)
+
+
 def main(argv: Sequence[str] | None = None) -> int:
     raw = list(sys.argv[1:] if argv is None else argv)
     parser = argparse.ArgumentParser(
@@ -132,7 +350,7 @@ def main(argv: Sequence[str] | None = None) -> int:
     parser.add_argument(
         "command",
         nargs="?",
-        choices=("agent", "submission", "contract", "security-check"),
+        choices=("agent", "submission", "contract", "security-check", "tide-eval"),
     )
     if not raw or raw[0] in {"-h", "--help"}:
         parser.print_help()
@@ -145,6 +363,8 @@ def main(argv: Sequence[str] | None = None) -> int:
         return _run_submission(remainder)
     if args.command == "security-check":
         return _run_security_check(remainder)
+    if args.command == "tide-eval":
+        return _run_tide_eval(remainder)
     if remainder:
         parser.error("contract does not accept additional arguments")
     return _show_contract()

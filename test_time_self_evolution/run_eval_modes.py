@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+import json
 import os
 import sys
 import time
@@ -32,6 +33,22 @@ from frontieror.infra.policy import (  # noqa: E402
     validate_anti_hack_runtime,
     with_anti_hack_exec_cfg,
 )
+
+
+def _write_episode_result(payload: dict) -> None:
+    """Atomically write a trusted result for an outer episode orchestrator."""
+    destination = os.environ.get("FRONTIER_OR_EPISODE_RESULT_PATH")
+    if not destination:
+        return
+    path = os.path.abspath(destination)
+    parent = os.path.dirname(path)
+    os.makedirs(parent, mode=0o700, exist_ok=True)
+    temporary = f"{path}.{os.getpid()}.tmp"
+    with open(temporary, "w", encoding="utf-8") as handle:
+        json.dump(payload, handle, indent=2, sort_keys=True, default=str)
+        handle.write("\n")
+    os.chmod(temporary, 0o600)
+    os.replace(temporary, path)
 
 
 def load_mode_config(*, require_api_key: bool = True):
@@ -404,6 +421,29 @@ def parse_args(argv=None):
                              "in configs/openevolve.yaml).")
     parser.add_argument("--secondary-model", default=None,
                         help="self_evolve secondary model. Defaults to --primary-model.")
+    parser.add_argument(
+        "--model-backend",
+        choices=["api", "local-codex"],
+        default="api",
+        help=(
+            "Model transport for OpenEvolve/EoH. 'local-codex' starts a "
+            "loopback Chat Completions bridge backed by the current Codex "
+            "login and rejects all tool use. CORAL uses its native "
+            "--coral-model-access setting. Default: api."
+        ),
+    )
+    parser.add_argument(
+        "--local-codex-max-concurrency",
+        type=int,
+        default=1,
+        help="Maximum simultaneous codex exec requests through the local bridge.",
+    )
+    parser.add_argument(
+        "--local-codex-timeout",
+        type=int,
+        default=900,
+        help="Wall-clock timeout in seconds for each local codex exec request.",
+    )
     parser.add_argument("--instances", nargs="+", default=DEFAULT_INSTANCES,
                         help="Instances for one_shot/best_of_k. Ignored by self_evolve.")
     parser.add_argument("--selection-instance", default="tiny",
@@ -640,6 +680,13 @@ def main(argv=None):
     # pop_size offspring all run concurrently.
     if args.eoh_workers is None:
         args.eoh_workers = max(1, args.eoh_pop_size)
+    if args.framework == "eoh" and (
+        args.eoh_pop_size < 1 or args.eoh_n_pop < 1 or args.eoh_workers < 1
+    ):
+        raise SystemExit(
+            "ERROR: EoH population size, population count, and workers must "
+            "all be positive"
+        )
     # --dev-instance-workers: when omitted, match --dev-set size. Sentinel
     # dev-sets (max/median auto-pick) resolve to a 1-element list before this
     # point, so default workers = 1 in that case.
@@ -656,6 +703,16 @@ def main(argv=None):
     if args.resume and "self_evolve" not in args.modes:
         raise SystemExit("ERROR: --resume only applies to --modes self_evolve.")
     per_model_modes = [m for m in args.modes if m in ("one_shot", "best_of_k")]
+    if args.model_backend == "local-codex":
+        if per_model_modes or args.framework not in {"openevolve", "eoh"}:
+            raise SystemExit(
+                "ERROR: --model-backend local-codex supports self_evolve with "
+                "--framework openevolve or eoh; CORAL uses local-auth."
+            )
+        if args.local_codex_max_concurrency < 1 or args.local_codex_timeout < 1:
+            raise SystemExit(
+                "ERROR: local Codex concurrency and timeout must be positive"
+            )
 
     if per_model_modes:
         args.instances = parse_instances_arg(args.instances)
@@ -720,16 +777,21 @@ def main(argv=None):
             eval_core.validate_docker_wls(wls_probe_cfg)
         except (RuntimeError, ValueError) as exc:
             raise SystemExit(f"ERROR: {exc}") from exc
-    local_auth_only = (
-        not per_model_modes
-        and args.framework == "coral"
-        and args.coral_model_access == "local-auth"
+    local_auth_only = not per_model_modes and (
+        (args.framework == "coral" and args.coral_model_access == "local-auth")
+        or args.model_backend == "local-codex"
     )
     config = load_mode_config(require_api_key=not local_auth_only)
     models = select_models(config, args.models) if per_model_modes else []
     data_dir = eval_core.get_data_dir()
     paper_ids = args.paper_ids or eval_modes.discover_papers(data_dir)
     run_id = args.run_id or time.strftime("%Y%m%d-%H%M%S")
+    if os.environ.get("FRONTIER_OR_EPISODE_RESULT_PATH"):
+        if len(paper_ids) != 1 or args.modes != ["self_evolve"]:
+            raise SystemExit(
+                "ERROR: the external episode result contract requires exactly "
+                "one paper in self_evolve mode"
+            )
 
     # Preflight: every paper must have a registered optimization direction.
     # A missing direction silently inverts quality/QTE scores and steers
@@ -743,6 +805,14 @@ def main(argv=None):
         if primary_model is None:
             raise SystemExit("ERROR: self_evolve requires --primary-model (or at least one --models entry).")
         secondary_model = resolve_model_id(config, args.secondary_model) or primary_model
+        if args.model_backend == "local-codex":
+            try:
+                for model in dict.fromkeys((primary_model, secondary_model)):
+                    coral_runner.validate_local_codex_model(
+                        eval_core.get_model_short_name(model)
+                    )
+            except RuntimeError as exc:
+                raise SystemExit(f"ERROR: {exc}") from exc
         if args.framework == "coral" and args.coral_agent_runtime == "codex":
             coral_model = coral_runner._coral_model_for_runtime(
                 primary_model,
@@ -770,6 +840,7 @@ def main(argv=None):
         print(f"Selection instance: {args.selection_instance}")
     if "self_evolve" in args.modes:
         print(f"self_evolve framework: {args.framework}")
+        print(f"self_evolve model backend: {args.model_backend}")
         print(f"self_evolve primary:   {primary_model}")
         print(f"self_evolve secondary: {secondary_model}")
         print(f"  stage1: {args.stage1_instances}  t={args.stage1_time_limit}s  gap<={args.stage1_gap_threshold}")
@@ -821,12 +892,32 @@ def main(argv=None):
                 for model in models:
                     print(f"\n=== {paper_id} | {eval_core.get_model_short_name(model)} | {per_model_modes} ===")
                     run_per_model_modes(args, run_id, config, paper_id, model, prompt)
+            self_evolve_result = None
             if "self_evolve" in args.modes:
                 label = eval_core.get_model_short_name(primary_model)
                 if primary_model != secondary_model:
                     label = f"{label} / {eval_core.get_model_short_name(secondary_model)}"
                 print(f"\n=== {paper_id} | {label} | self_evolve:{args.framework} ===")
-                run_self_evolve_mode(args, run_id, config, paper_id, prompt, primary_model, secondary_model)
+                self_evolve_result = run_self_evolve_mode(
+                    args,
+                    run_id,
+                    config,
+                    paper_id,
+                    prompt,
+                    primary_model,
+                    secondary_model,
+                )
+            _write_episode_result(
+                {
+                    "schema_version": 1,
+                    "status": "ok",
+                    "run_id": run_id,
+                    "paper_id": paper_id,
+                    "framework": args.framework,
+                    "model": eval_core.get_model_short_name(primary_model),
+                    "result": self_evolve_result,
+                }
+            )
             return paper_id, "ok", None
         except SystemExit as e:
             message = str(e)
@@ -835,24 +926,76 @@ def main(argv=None):
                 file=sys.stderr,
                 flush=True,
             )
+            _write_episode_result(
+                {
+                    "schema_version": 1,
+                    "status": "failed",
+                    "run_id": run_id,
+                    "paper_id": paper_id,
+                    "framework": args.framework,
+                    "error": f"SystemExit: {message}",
+                }
+            )
             return paper_id, "failed", f"SystemExit: {message}"
         except Exception as e:
             tb = traceback.format_exc()
             print(f"\n!!! [paper={paper_id}] FAILED: {type(e).__name__}: {e}\n{tb}",
                   file=sys.stderr, flush=True)
+            _write_episode_result(
+                {
+                    "schema_version": 1,
+                    "status": "failed",
+                    "run_id": run_id,
+                    "paper_id": paper_id,
+                    "framework": args.framework,
+                    "error": f"{type(e).__name__}: {e}",
+                }
+            )
             return paper_id, "failed", f"{type(e).__name__}: {e}"
 
-    n_paper_workers = max(1, args.paper_workers)
-    if n_paper_workers <= 1 or len(paper_ids) <= 1:
-        statuses = [_process_paper(pid) for pid in paper_ids]
-    else:
-        from concurrent.futures import ThreadPoolExecutor, as_completed
-        print(f"\n[paper-pool] running {len(paper_ids)} papers with {n_paper_workers} workers")
-        statuses = []
-        with ThreadPoolExecutor(max_workers=n_paper_workers) as ex:
-            futs = {ex.submit(_process_paper, pid): pid for pid in paper_ids}
-            for fut in as_completed(futs):
-                statuses.append(fut.result())
+    bridge = None
+    prior_openrouter_key = os.environ.get("OPENROUTER_API_KEY")
+    try:
+        if args.model_backend == "local-codex":
+            from frontieror.infra.local_codex_bridge import LocalCodexBridge
+
+            bridge = LocalCodexBridge(
+                allowed_models=(primary_model, secondary_model),
+                audit_path=os.path.join(
+                    ROOT_DIR, "eval", "local_codex", f"{run_id}.jsonl"
+                ),
+                timeout=args.local_codex_timeout,
+                max_concurrency=args.local_codex_max_concurrency,
+            )
+            bridge.__enter__()
+            config["OPENROUTER_API_KEY"] = bridge.api_token
+            config["MODEL_API_BASE"] = bridge.api_base
+            config["OPENROUTER_API_ENDPOINT"] = bridge.api_base
+            os.environ["OPENROUTER_API_KEY"] = bridge.api_token
+            print(f"Local Codex bridge: {bridge.api_base}")
+
+        n_paper_workers = max(1, args.paper_workers)
+        if n_paper_workers <= 1 or len(paper_ids) <= 1:
+            statuses = [_process_paper(pid) for pid in paper_ids]
+        else:
+            from concurrent.futures import ThreadPoolExecutor, as_completed
+
+            print(
+                f"\n[paper-pool] running {len(paper_ids)} papers "
+                f"with {n_paper_workers} workers"
+            )
+            statuses = []
+            with ThreadPoolExecutor(max_workers=n_paper_workers) as ex:
+                futs = {ex.submit(_process_paper, pid): pid for pid in paper_ids}
+                for fut in as_completed(futs):
+                    statuses.append(fut.result())
+    finally:
+        if bridge is not None:
+            bridge.__exit__(None, None, None)
+        if prior_openrouter_key is None:
+            os.environ.pop("OPENROUTER_API_KEY", None)
+        else:
+            os.environ["OPENROUTER_API_KEY"] = prior_openrouter_key
 
     failed = [(pid, err) for pid, st, err in statuses if st != "ok"]
     if failed:

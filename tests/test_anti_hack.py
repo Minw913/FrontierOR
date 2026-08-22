@@ -966,6 +966,63 @@ def test_coral_local_model_preflight_accepts_exact_requested_model(monkeypatch):
     coral_runner.validate_local_codex_model("gpt-5.3-codex")
 
 
+def test_coral_wrapper_uses_cli_python_environment(tmp_path, monkeypatch):
+    interpreter = tmp_path / "coral-python"
+    interpreter.symlink_to(sys.executable)
+    executable = _write(tmp_path / "coral", f"#!{interpreter}\n")
+    executable.chmod(0o755)
+    monkeypatch.delenv("FRONTIER_OR_CORAL_PYTHON", raising=False)
+    monkeypatch.setattr(coral_runner.shutil, "which", lambda _name: str(executable))
+
+    assert coral_runner._coral_cli() == [
+        str(interpreter),
+        "-m",
+        "test_time_self_evolution.coral.coral_cli_wrapper",
+    ]
+
+
+def test_coral_early_exit_preserves_process_failure(tmp_path, monkeypatch):
+    task = coral_runner.CoralTask(
+        task_name="task",
+        task_dir=str(tmp_path / "task"),
+        seed_dir=str(tmp_path / "seed"),
+        config_path=str(tmp_path / "task.yaml"),
+        run_dir=str(tmp_path / "run"),
+        coral_dir=str(tmp_path / "run" / ".coral"),
+        repo_dir=str(tmp_path / "run" / "repo"),
+        log_path=str(tmp_path / "coral.log"),
+        agent_ids=("agent-1",),
+    )
+    cleaned = []
+
+    class FailedProcess:
+        returncode = 23
+
+        def poll(self):
+            return self.returncode
+
+    monkeypatch.setattr(
+        coral_runner.subprocess,
+        "Popen",
+        lambda *_args, **_kwargs: FailedProcess(),
+    )
+    monkeypatch.setattr(coral_runner, "drain_eval_requests", lambda *_a, **_k: [])
+    monkeypatch.setattr(coral_runner, "_workspace_usage", lambda _path: (0, 0))
+    from frontieror.infra.agent import runtime
+
+    monkeypatch.setattr(runtime, "cleanup_secure_runtime", cleaned.append)
+
+    with pytest.raises(RuntimeError, match="CORAL process exited with code 23"):
+        coral_runner.run_coral_until_done(
+            task,
+            {"FRONTIER_OR_ANTI_HACK": "1"},
+            attempts=1,
+            max_seconds=1,
+        )
+
+    assert cleaned == [task.run_dir]
+
+
 def test_coral_openrouter_preflight_accepts_exact_requested_model(monkeypatch):
     captured = {}
 

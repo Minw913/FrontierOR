@@ -34,6 +34,75 @@ The `agent` command fixes these settings and does not expose downgrade flags:
 The old `--anti-hack` option remains an internal compatibility switch for
 existing scripts. It is not the public agent-mode interface.
 
+## Tide-eval orchestration
+
+FrontierOR integrates with
+[`Human-Agent-Society/tide-eval`](https://github.com/Human-Agent-Society/tide-eval)
+through its public `Executor` protocol. Tide-eval owns episode scheduling,
+stable-key resume, budgets, traces, and the SQLite Lab. The trusted FrontierOR
+worker still owns Agent Docker, Candidate Docker, brokered dev scoring,
+artifact freezing, and hidden final grading. This division keeps untrusted
+`code.py` outside the hidden checker's filesystem and protection domain.
+
+Install tide-eval in a separate environment so its optional Harbor dependency
+does not change the benchmark environment:
+
+```bash
+git clone https://github.com/Human-Agent-Society/tide-eval reference/tide-eval
+uv sync --project reference/tide-eval --dev
+export TIDE_EVAL_PYTHON="$PWD/reference/tide-eval/.venv/bin/python"
+```
+
+Install each self-evolution framework before selecting it:
+
+```bash
+bash test_time_self_evolution/openevolve/setup.sh
+bash test_time_self_evolution/eoh/setup.sh
+bash test_time_self_evolution/coral/setup.sh
+```
+
+One command creates one Tide episode per paper. CORAL uses the official agent
+profile; OpenEvolve and EoH use the same hardened Docker evaluator and hidden
+final scorer:
+
+```bash
+python -m frontieror.infra tide-eval \
+  --framework coral \
+  --lab eval/tide/coral \
+  --concurrency 1 \
+  -- \
+  --paper-id bierwirth2017 \
+  --primary-model openai/gpt-5.4 \
+  --stage1-instances tiny \
+  --dev-set large_1 \
+  --test-set large_2 \
+  --coral-agent-count 1 \
+  --coral-attempts 10 \
+  --run-id tide-coral-smoke
+
+python -m frontieror.infra tide-eval \
+  --framework openevolve \
+  --lab eval/tide/openevolve \
+  -- \
+  --paper-id bierwirth2017 \
+  --primary-model gpt-5.4 \
+  --model-backend local-codex \
+  --openevolve-iterations 1 \
+  --stage1-instances tiny \
+  --dev-set large_1 \
+  --test-set large_2 \
+  --run-id tide-openevolve-smoke
+```
+
+Use `--framework eoh` with the corresponding `--eoh-*` controls for EoH.
+The local Codex bridge is loopback-only, model-pinned, concurrency-bounded,
+and starts Codex with a read-only empty workspace and optional capabilities
+disabled. Candidate solver code never receives access to this bridge.
+
+This integration does not use the unrelated `gauthierpiarrette/tide` fleet
+manager. Current tide-eval exposes `Lab` and `Executor`; FrontierOR implements
+that interface directly instead of maintaining a fork.
+
 ## Package boundaries
 
 The security-sensitive implementation is owned by this package:

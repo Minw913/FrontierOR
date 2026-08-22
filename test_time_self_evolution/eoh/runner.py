@@ -58,6 +58,18 @@ def chat_completions_path(endpoint: Optional[str]) -> str:
     return "/v1/chat/completions"
 
 
+def _api_connection(endpoint: Optional[str]):
+    raw = (endpoint or "openrouter.ai").strip()
+    if raw.startswith("http://"):
+        host = urlparse(raw).hostname
+        if host not in {"127.0.0.1", "::1", "localhost"}:
+            raise ValueError("plain HTTP EoH endpoints must use a loopback host")
+        connection_type = http.client.HTTPConnection
+    else:
+        connection_type = http.client.HTTPSConnection
+    return connection_type(_endpoint_host(raw))
+
+
 def prepare_eoh_env(base_env: Optional[Dict[str, str]], config: Dict) -> Dict[str, str]:
     env = dict(base_env or os.environ)
     key = env.get("OPENROUTER_API_KEY") or config.get("OPENROUTER_API_KEY")
@@ -68,17 +80,34 @@ def prepare_eoh_env(base_env: Optional[Dict[str, str]], config: Dict) -> Dict[st
     return env
 
 
+def resolve_eoh_api_endpoint(config: Dict, llm_cfg: Dict) -> str:
+    """Prefer an explicit runtime endpoint over the checked-in default."""
+    return (
+        config.get("MODEL_API_BASE")
+        or config.get("OPENROUTER_API_ENDPOINT")
+        or config.get("OPENROUTER_BASE_URL")
+        or llm_cfg.get("api_endpoint")
+        or "openrouter.ai"
+    )
+
+
 def _ensure_eoh_importable():
+    local_eoh_dir = os.path.join(ROOT_DIR, "test_time_self_evolution", "eoh")
     source_paths = [
         os.path.join(ROOT_DIR, "external", "eoh", "eoh", "src"),
         os.path.join(ROOT_DIR, "external", "eoh", "eoh"),
     ]
+    for path in list(sys.path):
+        package_init = os.path.join(path, "eoh", "__init__.py")
+        if os.path.isfile(package_init) and not os.path.abspath(package_init).startswith(
+            os.path.abspath(local_eoh_dir) + os.sep
+        ):
+            source_paths.append(path)
     for path in reversed(source_paths):
         if os.path.exists(path):
             while path in sys.path:
                 sys.path.remove(path)
             sys.path.insert(0, path)
-    local_eoh_dir = os.path.join(ROOT_DIR, "test_time_self_evolution", "eoh")
     loaded = sys.modules.get("eoh")
     loaded_path = os.path.abspath(getattr(loaded, "__file__", "")) if loaded else ""
     if loaded_path.startswith(os.path.abspath(local_eoh_dir) + os.sep):
@@ -132,7 +161,7 @@ def patch_eoh_remote_api_path():
         response = None
         for _ in range(getattr(self, "n_trial", 5)):
             try:
-                conn = http.client.HTTPSConnection(_endpoint_host(self.api_endpoint))
+                conn = _api_connection(self.api_endpoint)
                 conn.request(
                     "POST",
                     chat_completions_path(self.api_endpoint),
@@ -586,7 +615,7 @@ def patch_eoh_i1_with_oneshot_seed(
         try:
             fd = os.open(claim_marker, os.O_CREAT | os.O_EXCL | os.O_WRONLY)
         except FileExistsError:
-            print(f"[i1] seed already claimed; calling original_i1 (LLM path)", flush=True)
+            print("[i1] seed already claimed; calling original_i1 (LLM path)", flush=True)
             return original_i1(self)
         try:
             with os.fdopen(fd, "w") as f:
@@ -664,12 +693,7 @@ def run_eoh(
     if not api_key:
         raise RuntimeError("OPENROUTER_API_KEY is required for EoH runs.")
 
-    api_endpoint = _endpoint_host(
-        llm_cfg.get("api_endpoint")
-        or config.get("OPENROUTER_API_ENDPOINT")
-        or config.get("OPENROUTER_BASE_URL")
-        or "openrouter.ai"
-    )
+    api_endpoint = resolve_eoh_api_endpoint(config, llm_cfg)
     eoh_cfg = config.get("eoh") or {}
 
     # Resume support: EoH's native ``exp_use_continue`` reloads a prior
@@ -834,9 +858,6 @@ def run_self_evolve(
     base_dir = eval_modes.mode_run_dir(run_id, "eoh", paper_id, model_name)
     eoh_run_dir = os.path.join(base_dir, "eoh_run")
     eval_dir = os.path.join(base_dir, "eoh_adapter")
-    selection_instance = stage1_instances[0] if stage1_instances else (
-        stage2_instances[0] if stage2_instances else "tiny"
-    )
     final_instances = list(test_instances)
     reporting_instances = final_instances or list(stage2_instances)
     timeout = timeout if timeout is not None else stage2_time_limit + 60
@@ -884,13 +905,29 @@ def run_self_evolve(
     )
 
     if final_instances:
+        final_dir = os.path.join(base_dir, "selected_eval")
+        final_time_limits = eval_modes._resolve_test_time_limits(
+            paper_id,
+            final_instances,
+            test_time_limit,
+            test_time_policy,
+            test_time_buffer,
+        )
         final_results = eval_modes.evaluate_best_on_test_set(
             paper_id, model_name, best_program_path, final_instances,
             test_time_limit, test_time_policy, test_time_buffer,
-            os.path.join(base_dir, "selected_eval"),
+            final_dir,
             exec_mode, exec_cfg, t_max,
             max_workers=test_instance_workers,
         )
+        if stage2_scorer == "staged_qte":
+            final_results = eval_modes.augment_results_with_staged_qte(
+                final_results,
+                paper_id,
+                final_dir,
+                stage_boundary=stage2_stage_boundary,
+                time_limits=final_time_limits,
+            )
     else:
         cached = problem.read_cached_metrics(best["code"])
         stage2_metrics = (cached or {}).get("stage2_metrics")
