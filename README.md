@@ -1,7 +1,7 @@
 # <img src="figures/frontieror_logo.svg" alt="FrontierOR logo" height="40" valign="middle"> FrontierOR: Benchmarking LLMs' Capacity for Efficient Algorithm Design in Large-Scale Optimization
 
 <p align="center">
-  <a href="https://frontieror.vercel.app/"><img src="https://img.shields.io/badge/%F0%9F%8C%90%20Website-frontieror.vercel.app-52487b" alt="Website"></a>
+  <a href="https://www.frontieror.org"><img src="https://img.shields.io/badge/%F0%9F%8C%90%20Website-www.frontieror.org-52487b" alt="Website"></a>
   &nbsp;
   <a href="https://arxiv.org/abs/2605.25246"><img src="https://img.shields.io/badge/arXiv-2605.25246-b31b1b?logo=arxiv&logoColor=white" alt="arXiv"></a>
   &nbsp;
@@ -235,7 +235,7 @@ policy, and Code-only verifier are documented in
 
 ## 🏆 Leaderboard
 
-See performance details for **one-shot generation**, **test-time self-evolution**, and **individual tasks** on the [🌐 FrontierOR website](https://frontieror.vercel.app/).
+See performance details for **one-shot generation**, **test-time self-evolution**, and **individual tasks** on the [🌐 FrontierOR website](https://www.frontieror.org).
 
 Key takeaways:
 
