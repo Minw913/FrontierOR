@@ -194,14 +194,14 @@ def _load_paper_ids_by_tag(tag):
 
 
 def _load_all_paper_dirs():
-    """Return sorted paper_ids by scanning the data dir for subdirectories.
+    """Return sorted paper_ids by scanning the dataset tasks directory.
     Used when both --paper_id and --paper-tag are omitted."""
-    data_dir = get_data_dir()
+    tasks_dir = get_tasks_dir()
     out = []
-    for name in sorted(os.listdir(data_dir)):
+    for name in sorted(os.listdir(tasks_dir)):
         if name.startswith("__") or name.startswith("."):
             continue
-        if os.path.isdir(os.path.join(data_dir, name)):
+        if os.path.isdir(os.path.join(tasks_dir, name)):
             out.append(name)
     return out
 
@@ -336,11 +336,16 @@ def configure_gurobi_license():
 
 
 def get_data_dir():
-    """Return the root directory containing paper_id subdirectories."""
+    """Return the dataset root containing metadata/ and tasks/."""
     override = os.environ.get("FRONTIER_OR_DATA_DIR")
     if override:
         return os.path.abspath(os.path.expanduser(override))
     return os.path.join(ROOT_DIR, "frontier-or")
+
+
+def get_tasks_dir():
+    """Return the directory containing paper_id task subdirectories."""
+    return os.path.join(get_data_dir(), "tasks")
 
 
 TASK_SPECIFICATION = """\
@@ -423,7 +428,7 @@ def load_config(*, require_api_key=True):
 
 
 def get_paper_dir(paper_id):
-    return os.path.join(get_data_dir(), paper_id)
+    return os.path.join(get_tasks_dir(), paper_id)
 
 
 def get_eval_dir(paper_id):

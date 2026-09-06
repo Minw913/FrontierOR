@@ -54,6 +54,10 @@ pip install -U "huggingface_hub[cli]"
 huggingface-cli download SmartOR/FrontierOR --repo-type dataset --local-dir frontier-or
 ```
 
+The downloaded dataset root contains repository-level files plus
+`metadata/paper_meta_info.json`. Per-paper task payloads live under
+`frontier-or/tasks/<paper_id>/`.
+
 ### Step 2: Python environment
 
 We recommend [`uv`](https://github.com/astral-sh/uv) for fast, reproducible installs:

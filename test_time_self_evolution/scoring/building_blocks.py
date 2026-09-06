@@ -147,7 +147,7 @@ def gurobi_log_path_for(paper_id: str, instance: str) -> Optional[str]:
         from task_paths import gurobi_log_path  # noqa: E402
     except Exception:
         return None
-    paper_dir = os.path.join(_data_root(), paper_id)
+    paper_dir = os.path.join(_tasks_root(), paper_id)
     if not os.path.isdir(paper_dir):
         return None
     try:
@@ -166,15 +166,19 @@ def _data_root() -> str:
     return os.path.join(ROOT_DIR, "frontier-or")
 
 
+def _tasks_root() -> str:
+    return os.path.join(_data_root(), "tasks")
+
+
 def list_large_instances(paper_id: str) -> List[str]:
     """Return canonical names of all ``large_*`` instances present on disk
     for a paper, sorted by integer suffix.
 
-    Scans ``<paper_dir>/instance/large_instance_*.json``. Used by the
+    Scans ``<data_root>/tasks/<paper_id>/instance/large_instance_*.json``. Used by the
     auto-pick logic for ``--dev-set`` (see ``pick_max_tau_g_instance``).
     """
     import glob
-    paper_dir = os.path.join(_data_root(), paper_id)
+    paper_dir = os.path.join(_tasks_root(), paper_id)
     pattern = os.path.join(paper_dir, "instance", "large_instance_*.json")
     out: List[Tuple[int, str]] = []
     for path in glob.glob(pattern):

@@ -32,12 +32,13 @@ MODE_API_COST_COLUMNS = [
 
 
 def discover_papers(data_dir: str) -> List[str]:
-    if not os.path.isdir(data_dir):
+    tasks_dir = os.path.join(data_dir, "tasks")
+    if not os.path.isdir(tasks_dir):
         return []
     return sorted(
         name
-        for name in os.listdir(data_dir)
-        if os.path.isdir(os.path.join(data_dir, name))
+        for name in os.listdir(tasks_dir)
+        if os.path.isdir(os.path.join(tasks_dir, name))
     )
 
 

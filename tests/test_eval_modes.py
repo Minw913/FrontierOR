@@ -91,6 +91,20 @@ def test_paper_direction_loads_from_dataset_metadata(tmp_path, monkeypatch):
     one_shot_eval.validate_paper_directions(["paper_min", "paper_max"])
 
 
+def test_paper_dirs_live_under_tasks_subdirectory(tmp_path, monkeypatch):
+    (tmp_path / "metadata").mkdir()
+    (tmp_path / "tasks" / "paper_b").mkdir(parents=True)
+    (tmp_path / "tasks" / "paper_a").mkdir(parents=True)
+    (tmp_path / "README.md").write_text("dataset root\n", encoding="utf-8")
+    monkeypatch.setenv("FRONTIER_OR_DATA_DIR", str(tmp_path))
+
+    assert one_shot_eval.get_paper_dir("paper_a") == str(
+        tmp_path / "tasks" / "paper_a"
+    )
+    assert one_shot_eval._load_all_paper_dirs() == ["paper_a", "paper_b"]
+    assert eval_modes.discover_papers(str(tmp_path)) == ["paper_a", "paper_b"]
+
+
 def test_eoh_rejects_empty_population_budget_before_startup():
     with pytest.raises(SystemExit, match="population count"):
         run_eval_modes.main(
