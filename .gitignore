@@ -40,9 +40,13 @@ results/
 # Local planning / draft documents
 main.pdf
 merge.md
+new_leaderboard_budget.md
 one-shot_submission_adapter_examples.md
 participate.md
 self_evolve_submission_adapter_examples.md
+skill4task.md
+task_submit_plan.md
+/FrontierOR_variants/
 
 # Draft community submission templates
 community/model_submissions/TEMPLATE/

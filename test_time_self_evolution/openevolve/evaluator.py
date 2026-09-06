@@ -554,7 +554,7 @@ def evaluate_stage2(program_path: str):
     _abort_if_license_died(results, "stage2")
 
     # Direction matters: "LLM beats Gurobi" is direction-dependent. Pulled from
-    # paper_meta_info.csv via eval_core.get_paper_direction.
+    # frontieror/data/paper_directions.csv via eval_core.get_paper_direction.
     direction = eval_core.get_paper_direction(paper_id)
 
     scorer = get_scorer(scorer_name, **scorer_kwargs)

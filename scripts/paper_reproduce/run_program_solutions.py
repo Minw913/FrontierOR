@@ -53,14 +53,12 @@ import os
 import sys as _sys_for_paths
 _sys_for_paths.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "utils"))
 import exec_backends  # noqa: E402
-from instance_paths import (  # noqa: E402
+from task_paths import (  # noqa: E402
     DEFAULT_INSTANCES,
     instance_path as _instance_path,
     gurobi_solution_path as _gurobi_solution_path,
     gurobi_log_path as _gurobi_log_path,
     gurobi_feasi_result_path as _gurobi_feasi_result_path,
-    efficient_solution_path as _efficient_solution_path,
-    efficient_log_path as _efficient_log_path,
     parse_instances_arg,
 )
 import subprocess
@@ -68,6 +66,15 @@ import sys
 import threading
 import time
 from concurrent.futures import ThreadPoolExecutor, as_completed
+
+
+def _paper_reproduce_output_path(paper_dir: str, directory: str, inst_name: str, suffix: str, ext: str) -> str:
+    if inst_name == "tiny":
+        return os.path.join(paper_dir, directory, f"tiny_{suffix}.{ext}")
+    if inst_name.startswith("large_"):
+        n = inst_name.split("_", 1)[1]
+        return os.path.join(paper_dir, directory, f"large_{suffix}_{n}.{ext}")
+    raise ValueError(f"Unknown instance name: {inst_name!r}")
 
 BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 PAPER_DATA_DIR = os.path.join(BASE_DIR, "frontier-or")
@@ -791,9 +798,13 @@ def main():
         # pass; it is no longer authoritative for the new solution.
         row["gurobi_feasibility_status"] = ""
 
-        eff_sol_path = _efficient_solution_path(paper_dir, inst_name)
+        eff_sol_path = _paper_reproduce_output_path(
+            paper_dir, "efficient_solution", inst_name, "solution", "json"
+        )
         gurobi_sol_path = _gurobi_solution_path(paper_dir, inst_name)
-        eff_log_path = _efficient_log_path(paper_dir, inst_name)
+        eff_log_path = _paper_reproduce_output_path(
+            paper_dir, "efficient_solution_log", inst_name, "log", "jsonl"
+        )
         gurobi_log_path = _gurobi_log_path(paper_dir, inst_name)
         for p in (eff_sol_path, gurobi_sol_path, eff_log_path, gurobi_log_path):
             os.makedirs(os.path.dirname(p), exist_ok=True)

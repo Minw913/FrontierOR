@@ -147,7 +147,7 @@ BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 if BASE_DIR not in sys.path:
     sys.path.insert(0, BASE_DIR)
 
-from scripts.utils.claude_utils import run_claude_capture, run_claude_tracked
+from scripts.paper_reproduce.claude_utils import run_claude_capture, run_claude_tracked
 
 # Judge-helper imports (lazy: only used when --judge-before-bump is set)
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))

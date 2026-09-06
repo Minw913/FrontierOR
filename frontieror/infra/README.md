@@ -237,7 +237,7 @@ agent stopped -> selected commit -> frozen code.py hash
                      one final instance per candidate container
                                     |
                                     v
-                   trusted checker + private reference + trace
+                   dataset checker + private reference + trace
                                     |
                                     v
                         aggregate public result only

@@ -33,7 +33,7 @@ BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 if BASE_DIR not in sys.path:
     sys.path.insert(0, BASE_DIR)
 
-from scripts.utils.claude_utils import run_claude_tracked
+from scripts.paper_reproduce.claude_utils import run_claude_tracked
 PAPER_DATA_DIR = os.path.join(BASE_DIR, "data", "paper_data")
 PROMPT_PATH = os.path.join(BASE_DIR, "prompts", "paper_reproduce", "prompt_feasibility_check.txt")
 CSV_PATH = os.path.join(BASE_DIR, "solving_results_full.csv")
@@ -124,13 +124,22 @@ def write_csv(csv_path: str, columns: list[str], rows_dict: dict[tuple[str, str]
 # on type to resolve paths.
 import sys as _sys_for_paths
 _sys_for_paths.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "utils"))
-from instance_paths import (  # noqa: E402
+from task_paths import (  # noqa: E402
     instance_path as _new_instance_path,
     gurobi_solution_path as _new_gurobi_solution_path,
     gurobi_feasi_result_path as _new_gurobi_feasi_result_path,
-    efficient_solution_path as _new_efficient_solution_path,
-    efficient_feasi_result_path as _new_efficient_feasi_result_path,
 )
+
+
+def _paper_reproduce_output_path(paper_dir: str, directory: str, inst_name: str, suffix: str) -> str:
+    if inst_name == "tiny":
+        filename = f"tiny_{suffix}.json"
+    elif inst_name.startswith("large_"):
+        n = inst_name.split("_", 1)[1]
+        filename = f"large_{suffix}_{n}.json"
+    else:
+        raise ValueError(f"Unknown instance name: {inst_name!r}")
+    return os.path.join(paper_dir, directory, filename)
 
 
 def _resolve_paths(paper_dir: str, prefix: str, key):
@@ -147,8 +156,8 @@ def _resolve_paths(paper_dir: str, prefix: str, key):
         sol = _new_gurobi_solution_path(paper_dir, key)
         feasi = _new_gurobi_feasi_result_path(paper_dir, key)
     else:
-        sol = _new_efficient_solution_path(paper_dir, key)
-        feasi = _new_efficient_feasi_result_path(paper_dir, key)
+        sol = _paper_reproduce_output_path(paper_dir, "efficient_solution", key, "solution")
+        feasi = _paper_reproduce_output_path(paper_dir, "efficient_feasi_result", key, "feasi_result")
     return _new_instance_path(paper_dir, key), sol, feasi
 
 
@@ -301,7 +310,7 @@ def collect_feasibility_results(paper_ids: list[str],
     else:
         columns = merge_columns(existing_columns, new_columns)
 
-    from instance_paths import DEFAULT_INSTANCES  # local import to avoid top-level shuffle
+    from task_paths import DEFAULT_INSTANCES  # local import to avoid top-level shuffle
 
     inst_filter = set(instances) if instances else None
 

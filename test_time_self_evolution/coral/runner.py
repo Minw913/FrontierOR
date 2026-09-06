@@ -974,7 +974,8 @@ def run_self_evolve(
           and os.path.exists(seed_code_path) and os.path.getsize(seed_code_path) > 0):
         print(f"[reuse-seed] using existing seed at {seed_code_path} (skip LLM generation)")
     else:
-        reused = _try_reuse_oneshot_seed(paper_id, primary_model, seed_dir)
+        seed_model = _coral_model_for_runtime(primary_model, agent_runtime, agent_model)
+        reused = _try_reuse_oneshot_seed(paper_id, seed_model, seed_dir)
         if reused is None:
             generated = eval_core.generate_candidate_code(
                 prompt, config, primary_model, seed_dir,

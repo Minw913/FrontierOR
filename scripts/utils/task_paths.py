@@ -1,5 +1,5 @@
 """
-Path resolvers for the post-migration paper folder layout.
+Path resolvers and instance-set defaults for FrontierOR task artifacts.
 
 Layout (per docs/self_evolve_agent_eval_plan.md, applied 2026-04):
 
@@ -8,8 +8,6 @@ Layout (per docs/self_evolve_agent_eval_plan.md, applied 2026-04):
     ├── gurobi_solution/           tiny_solution.json,  large_solution_1.json
     ├── gurobi_solution_log/       tiny_log.jsonl,      large_log_1.jsonl
     ├── gurobi_feasi_result/       tiny_feasi_result.json, large_feasi_result_1.json
-    ├── efficient_solution/        tiny_solution.json,  large_solution_1.json
-    ├── efficient_feasi_result/    tiny_feasi_result.json, large_feasi_result_1.json
     ├── instance_2..9.json         (legacy, untouched)
     ├── gurobi_solution_2..9.json  (legacy, untouched)
     └── ...
@@ -86,22 +84,6 @@ def gurobi_log_path(paper_dir: str, name: str) -> str:
 
 def gurobi_feasi_result_path(paper_dir: str, name: str) -> str:
     return os.path.join(paper_dir, "gurobi_feasi_result", _basename(name, "feasi_result", "json"))
-
-
-def efficient_solution_path(paper_dir: str, name: str) -> str:
-    return os.path.join(paper_dir, "efficient_solution", _basename(name, "solution", "json"))
-
-
-def efficient_log_path(paper_dir: str, name: str) -> str:
-    return os.path.join(paper_dir, "efficient_solution_log", _basename(name, "log", "jsonl"))
-
-
-def efficient_feasi_result_path(paper_dir: str, name: str) -> str:
-    return os.path.join(paper_dir, "efficient_feasi_result", _basename(name, "feasi_result", "json"))
-
-
-def evolved_efficient_solution_path(paper_dir: str, name: str) -> str:
-    return os.path.join(paper_dir, "evolved_efficient_solution", _basename(name, "solution", "json"))
 
 
 def parse_instances_arg(values: Iterable[str]) -> List[str]:

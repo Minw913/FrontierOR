@@ -139,12 +139,12 @@ def first_time_reaching_ref(log_entries: List[Tuple[float, float]],
 def gurobi_log_path_for(paper_id: str, instance: str) -> Optional[str]:
     """Path to Gurobi's convergence log for (paper, instance)."""
     try:
-        # Local import to avoid pulling instance_paths into scoring module at import time.
+        # Local import to avoid pulling task_paths into scoring module at import time.
         import sys
         utils_dir = os.path.join(ROOT_DIR, "scripts", "utils")
         if utils_dir not in sys.path:
             sys.path.insert(0, utils_dir)
-        from instance_paths import gurobi_log_path  # noqa: E402
+        from task_paths import gurobi_log_path  # noqa: E402
     except Exception:
         return None
     paper_dir = os.path.join(_data_root(), paper_id)

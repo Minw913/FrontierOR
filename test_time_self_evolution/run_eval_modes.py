@@ -21,7 +21,7 @@ from test_time_self_evolution import eval_modes  # noqa: E402
 from test_time_self_evolution.coral import runner as coral_runner  # noqa: E402
 from test_time_self_evolution.eoh import runner as eoh_runner  # noqa: E402
 from test_time_self_evolution.openevolve import runner as openevolve_runner  # noqa: E402
-from scripts.utils.instance_paths import (  # noqa: E402
+from scripts.utils.task_paths import (  # noqa: E402
     DEFAULT_INSTANCES,
     SELF_EVOLVE_STAGE1_INSTANCES,
     SELF_EVOLVE_STAGE2_INSTANCES,

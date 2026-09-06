@@ -13,8 +13,7 @@ import uuid
 from pathlib import Path
 
 from frontieror.infra.files import read_regular_file
-from frontieror.infra.paths import TRUSTED_CHECKER_ROOT
-from scripts.utils.instance_paths import gurobi_solution_path, instance_path
+from scripts.utils.task_paths import gurobi_solution_path, instance_path
 
 
 MAX_CHECKER_RESULT_BYTES = 16 * 1024 * 1024
@@ -23,7 +22,7 @@ DEFAULT_CHECKER_MEMORY = "8G"
 
 
 def feasibility_checker_path(*, paper_dir: str, paper_id: str | None = None) -> str:
-    """Prefer a versioned trusted overlay, falling back to the dataset checker."""
+    """Resolve the dataset feasibility checker for a paper directory."""
     resolved_paper_id = paper_id or os.path.basename(os.path.normpath(paper_dir))
     if re.fullmatch(
         r"[A-Za-z0-9][A-Za-z0-9._-]{0,127}",
@@ -31,13 +30,6 @@ def feasibility_checker_path(*, paper_dir: str, paper_id: str | None = None) -> 
     ) is None:
         raise ValueError(f"invalid paper id: {resolved_paper_id!r}")
 
-    overlay = os.path.join(
-        os.fspath(TRUSTED_CHECKER_ROOT),
-        resolved_paper_id,
-        "feasibility_check.py",
-    )
-    if os.path.isfile(overlay):
-        return overlay
     return os.path.join(os.path.abspath(paper_dir), "feasibility_check.py")
 
 

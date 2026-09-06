@@ -154,10 +154,15 @@ _MODEL_RESULTS_CSV = {
     "claude-opus-4.6":         "eval/eval_results_opus46.csv",
     "gemini-3.1-pro-preview":  "eval/eval_results_gemini31pro.csv",
     "gpt-5.3-codex":           "eval/eval_results_codex53.csv",
-    "grok-4.20-beta":          "eval/eval_results_grok42beta.csv",
+    "grok-4.20":               "eval/eval_results_grok420.csv",
     "deepseek-r1":             "eval/eval_results_deepseekr1.csv",
     "qwen3-coder-plus":        "eval/eval_results_qwen3coder.csv",
     "llama-4-maverick":        "eval/eval_results_llama4maverick.csv",
+    "gpt-5.6-sol":             "eval/eval_results_gpt56sol.csv",
+    "glm-5.3":                 "eval/eval_results_glm53.csv",
+    "claude-fable-5":          "eval/eval_results_fable5.csv",
+    "qwen3.8-max":             "eval/eval_results_qwen38max.csv",
+    "kimi-k3":                 "eval/eval_results_kimik3.csv",
 }
 
 
@@ -201,12 +206,8 @@ def _load_all_paper_dirs():
 
 
 # Per-paper optimization direction ("min" or "max") from a versioned registry.
-# The legacy results path can extend the versioned hard-set registry locally.
 _DIRECTION_META_PATH = os.path.join(
     ROOT_DIR, "frontieror", "data", "paper_directions.csv"
-)
-_LEGACY_DIRECTION_META_PATH = os.path.join(
-    ROOT_DIR, "results", "data_statistics", "paper_meta_info.csv"
 )
 _DIRECTIONS_CACHE = None
 
@@ -222,10 +223,8 @@ def _load_directions():
     if _DIRECTIONS_CACHE is not None:
         return _DIRECTIONS_CACHE
     out = {}
-    for registry in (_LEGACY_DIRECTION_META_PATH, _DIRECTION_META_PATH):
-        if not os.path.exists(registry):
-            continue
-        with open(registry, newline="", encoding="utf-8") as f:
+    if os.path.exists(_DIRECTION_META_PATH):
+        with open(_DIRECTION_META_PATH, newline="", encoding="utf-8") as f:
             for row in csv.DictReader(f):
                 pid = (row.get("paper_id") or "").strip()
                 d = (row.get("direction") or "").strip().lower()
@@ -343,7 +342,8 @@ The solution output schema (solution_schema.json) specifies the type, key format
 1. Consider the tradeoff between solution quality against computational efficiency based on the nature of the problem. You can use any solution approach and any internal formulation you find effective.
 2. The solution output schema describes the output format only. Your final output must project your solution onto the fields defined in solution_schema.json; any internal auxiliary variables should not appear in the output.
 3. If you use a MIP/LP solver, use Gurobi (gurobipy), which is pre-installed in the execution environment. Do not use other solvers (CPLEX, SCIP, CBC, PuLP, OR-Tools CP-SAT, etc.).
-4. Your program will run in a containerized environment restricted to a **single CPU core**.
+4. If you use Gurobi, explicitly set `Seed=0`, `MIPGap=1e-4`, `NumericFocus=0`, and `Threads=1`.
+5. Your program will run in a containerized environment restricted to a **single CPU core**.
 
 ### Time Limit Requirement
 1. The program must enforce a maximum runtime via an `argparse` command-line argument `--time_limit` (type: int, seconds).
@@ -484,8 +484,8 @@ def extract_python_code(text):
 
 
 def load_model_pricing():
-    """Load model pricing from model_pricing.json."""
-    pricing_path = os.path.join(ROOT_DIR, "model_pricing.json")
+    """Load model pricing from configs/model_pricing.json."""
+    pricing_path = os.path.join(ROOT_DIR, "configs", "model_pricing.json")
     if not os.path.exists(pricing_path):
         return {}
     with open(pricing_path, "r") as f:
@@ -622,7 +622,7 @@ from frontieror.infra.policy import (
     with_anti_hack_exec_cfg,
 )
 from frontieror.infra.files import SecureFileError, copy_regular_file, read_regular_file
-from instance_paths import (
+from task_paths import (
     DEFAULT_INSTANCES,
     instance_path as _instance_path,
     gurobi_solution_path as _gurobi_solution_path,
@@ -688,8 +688,7 @@ def _resolve_t_max(t_max, paper_id, idx):
 
     - ``None`` → None (caller falls back to elapsed wall time)
     - float    → that value (global override)
-    - "gurobi" → per-instance Gurobi solve time from ``gurobi_results_*.csv``;
-                 falls back to None if missing for this instance
+    - "gurobi" → per-instance runtime from the Gurobi reference solution JSON
     """
     if t_max is None or isinstance(t_max, (int, float)):
         return t_max
@@ -926,6 +925,19 @@ def read_gurobi_obj(gurobi_solution_path):
         with open(gurobi_solution_path, "r") as f:
             data = json.load(f)
         val = data.get("objective_value")
+        return float(val) if val is not None else None
+    except Exception:
+        return None
+
+
+def read_gurobi_runtime(gurobi_solution_path):
+    """Read runtime from a Gurobi reference solution JSON file."""
+    if not os.path.exists(gurobi_solution_path):
+        return None
+    try:
+        with open(gurobi_solution_path, "r") as f:
+            data = json.load(f)
+        val = data.get("runtime")
         return float(val) if val is not None else None
     except Exception:
         return None
@@ -1648,52 +1660,38 @@ def run_instances_with_existing_code(paper_id, instance_indices, model,
     return results, {"prompt_tokens": 0, "completion_tokens": 0}
 
 
+def _instance_name_from_gurobi_solution_file(path):
+    name = os.path.basename(path)
+    if name == "tiny_solution.json":
+        return "tiny"
+    match = re.fullmatch(r"large_solution_(\d+)\.json", name)
+    if match:
+        return f"large_{match.group(1)}"
+    return None
+
+
 def load_gurobi_csv_data(paper_id, *, quiet=False):
-    """Load Gurobi baseline (objective, time) for a paper across all
-    ``gurobi_results_*.csv`` files in ROOT_DIR (one per instance slot:
-    ``tiny``, ``11``, ``31``, ...).
+    """Load the Gurobi baseline for a paper.
 
-    Each CSV is tidy long format with columns:
-        paper_id, instance, gurobi_feasibility_status, gurobi_solution,
-        solution_status, gurobi_time, time_limit, failure_reason, failure_error
-    ``instance`` values use the new categorical naming (``tiny``, ``large_1``,
-    ``large_3``), matching eval's internal instance names.
-
-    Returns dict keyed by instance name:
-        {"tiny": {"solution": float|None, "time": float|None},
-         "large_1": {...}, ...}
-    ``N/A`` / ``time_out`` / empty values become ``None``."""
-    csv_paths = sorted(glob.glob(os.path.join(ROOT_DIR, "gurobi_results_*.csv")))
-    if not csv_paths:
-        if not quiet:
-            print(f"WARNING: no gurobi_results_*.csv files found under {ROOT_DIR}")
-        return {}
-
+    The canonical source is now each paper's ``gurobi_solution/*.json`` file:
+    ``objective_value`` is the reference objective and top-level ``runtime`` is
+    the Gurobi runtime.
+    """
     data = {}
-    found_paper = False
-    for csv_path in csv_paths:
-        with open(csv_path, "r") as f:
-            reader = csv.DictReader(f)
-            for row in reader:
-                if row.get("paper_id") != paper_id:
-                    continue
-                found_paper = True
-                inst = (row.get("instance") or "").strip()
-                if not inst:
-                    continue
-                sol_raw = (row.get("gurobi_solution") or "").strip()
-                time_raw = (row.get("gurobi_time") or "").strip()
-                try:
-                    sol = float(sol_raw) if sol_raw not in ("", "N/A", "time_out") else None
-                except (ValueError, TypeError):
-                    sol = None
-                try:
-                    t = float(time_raw) if time_raw not in ("", "N/A", "time_out") else None
-                except (ValueError, TypeError):
-                    t = None
-                data[inst] = {"solution": sol, "time": t}
-    if not found_paper and not quiet:
-        print(f"WARNING: paper_id '{paper_id}' not found in any gurobi_results_*.csv")
+    paper_dir = get_paper_dir(paper_id)
+    solution_dir = os.path.join(paper_dir, "gurobi_solution")
+    if os.path.isdir(solution_dir):
+        for path in sorted(glob.glob(os.path.join(solution_dir, "*.json"))):
+            inst = _instance_name_from_gurobi_solution_file(path)
+            if inst is None:
+                continue
+            data[inst] = {
+                "solution": read_gurobi_obj(path),
+                "time": read_gurobi_runtime(path),
+            }
+
+    if not data and not quiet:
+        print(f"WARNING: no Gurobi baseline found for {paper_id}: missing {solution_dir}")
     return data
 
 
@@ -2516,7 +2514,19 @@ def main():
     parser.add_argument("--max_debug_retries", type=int, default=5,
                         help="Max self-debug retries for non-timeout runtime errors "
                              "(separate budget from --max_correct_retries; default: 5)")
-    parser.add_argument("--time_limit", type=int, default=300, help="Time limit per code execution (seconds)")
+    parser.add_argument("--time_limit", type=int, default=300, help="Default time limit per code execution (seconds)")
+    parser.add_argument(
+        "--tiny_time_limit",
+        type=int,
+        default=None,
+        help="Override time limit for the tiny instance slot.",
+    )
+    parser.add_argument(
+        "--large_time_limit",
+        type=int,
+        default=None,
+        help="Override time limit for all large_N instance slots.",
+    )
     parser.add_argument("--model_workers", type=int, default=1,
                         help="Number of models to evaluate in parallel within each paper (default: 1).")
     parser.add_argument("--paper_workers", type=int, default=1,
@@ -2561,7 +2571,8 @@ def main():
                         help="Custom time horizon for AOCC computation. "
                              "Accepts a positive float (seconds, global) or the "
                              "literal 'gurobi' to use each instance's own Gurobi "
-                             "solve time (from gurobi_results_*.csv) as horizon. "
+                             "runtime from the Gurobi reference solution JSON "
+                             "as horizon. "
                              "If omitted, uses --time_limit.")
     parser.add_argument("--instances", nargs="+", default=None,
                         help="Categorical instance names to run (e.g., --instances tiny large_1). "
@@ -2659,6 +2670,18 @@ def main():
     except ValueError as e:
         print(f"ERROR: {e}")
         sys.exit(1)
+    eval_time_limit = args.time_limit
+    if args.tiny_time_limit is not None or args.large_time_limit is not None:
+        eval_time_limit = {
+            idx: (
+                args.tiny_time_limit
+                if idx == "tiny" and args.tiny_time_limit is not None
+                else args.large_time_limit
+                if idx.startswith("large_") and args.large_time_limit is not None
+                else args.time_limit
+            )
+            for idx in instance_indices
+        }
     if args.anti_hack:
         try:
             for paper_id in args.paper_id:
@@ -2707,8 +2730,14 @@ def main():
     reuse_code = args.reuse_code
     set_instance_workers(args.instance_workers)
     atexit.register(_shutdown_instance_pool)
+    if isinstance(eval_time_limit, dict):
+        time_limit_display = ", ".join(
+            f"{idx}={eval_time_limit[idx]}s" for idx in instance_indices
+        )
+    else:
+        time_limit_display = f"{eval_time_limit}s"
     print(f"Max correct retries: {args.max_correct_retries}, Max debug retries: {args.max_debug_retries}, "
-          f"Time limit: {args.time_limit}s, "
+          f"Time limit: {time_limit_display}, "
           f"Paper workers: {args.paper_workers}, Model workers: {args.model_workers}, "
           f"Instance workers: {args.instance_workers}")
     print(f"Exec: {exec_mode} (mem={args.memory}), T_max: {t_max or 'time_limit'}")
@@ -2752,7 +2781,7 @@ def main():
         prompt, gurobi_csv_data = paper_contexts[paper_id]
         process_paper_model(
             paper_id, config, model, instance_indices,
-            args.max_correct_retries, args.time_limit, prompt, gurobi_csv_data,
+            args.max_correct_retries, eval_time_limit, prompt, gurobi_csv_data,
             exec_mode=exec_mode, exec_cfg=exec_cfg, t_max=t_max,
             skip_existing=args.skip_existing, reuse_code=reuse_code,
             max_debug_retries=args.max_debug_retries,

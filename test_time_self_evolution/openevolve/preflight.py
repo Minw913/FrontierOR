@@ -31,7 +31,7 @@ def _check_paper_files(paper_dir: str, all_instances: List[str]) -> List[str]:
     plus the silent-failure cases where Stage1/Stage2 score=0 because no
     Gurobi baseline exists to compute ``gap`` against.
     """
-    from scripts.utils.instance_paths import (
+    from scripts.utils.task_paths import (
         gurobi_solution_path as _gurobi_solution_path,
         instance_path as _instance_path,
     )

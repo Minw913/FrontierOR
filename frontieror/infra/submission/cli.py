@@ -37,7 +37,7 @@ from frontieror.infra.submission.trace import (
     write_jsonl,
 )
 from frontieror.infra.execution import resolve_docker_image, validate_docker_wls
-from scripts.utils.instance_paths import (
+from scripts.utils.task_paths import (
     gurobi_solution_path,
     instance_path,
     parse_instances_arg,

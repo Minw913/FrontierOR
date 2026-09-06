@@ -26,7 +26,7 @@ BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 if BASE_DIR not in sys.path:
     sys.path.insert(0, BASE_DIR)
 
-from scripts.utils.claude_utils import run_claude_tracked
+from scripts.paper_reproduce.claude_utils import run_claude_tracked
 PAPER_DATA_DIR = os.path.join(BASE_DIR, "data", "paper_data")
 PROMPT_PATH = os.path.join(BASE_DIR, "prompts", "paper_reproduce", "prompt_extract_original_formulation.txt")
 

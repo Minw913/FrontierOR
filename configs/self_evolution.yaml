@@ -1,0 +1,48 @@
+coral:
+  agent_count: 1
+  attempts: 30
+
+  core_combinations:
+    - name: gpt-5.6-sol-codex
+      model: "openai/gpt-5.6-sol"
+      harness: codex
+      coral_agent_runtime: codex
+      coral_agent_model: "gpt-5.6-sol"
+      coral_model_access: local-auth
+      openrouter_backbone: false
+
+    - name: glm-5.3-codex
+      model: "z-ai/glm-5.3"
+      harness: codex
+      coral_agent_runtime: codex
+      coral_agent_model: "glm-5.3"
+      coral_model_access: proxy
+      coral_gateway: false
+      openrouter_backbone: true
+
+    - name: claude-fable-5-claude-code
+      model: "anthropic/claude-fable-5"
+      harness: claude_code
+      coral_agent_runtime: claude_code
+      coral_agent_model: "anthropic/claude-fable-5"
+      coral_model_access: local-auth
+      openrouter_backbone: false
+
+  extension_combinations:
+    - name: gemini-3.1-pro-gemini-cli
+      model: "google/gemini-3.1-pro-preview"
+      harness: gemini_cli
+      openrouter_backbone: false
+      requires_adapter: true
+
+    - name: glm-5.3-zcode
+      model: "z-ai/glm-5.3"
+      harness: zcode
+      openrouter_backbone: false
+      requires_adapter: true
+
+    - name: kimi-k3-kimi-code-cli
+      model: "moonshotai/kimi-k3"
+      harness: kimi_code_cli
+      openrouter_backbone: false
+      requires_adapter: true
