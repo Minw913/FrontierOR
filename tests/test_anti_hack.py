@@ -753,6 +753,165 @@ def test_candidate_solution_symlink_is_rejected_before_hidden_grader_reads_it(
     assert not (output / "solution_tiny.json").exists()
 
 
+def test_anti_hack_aocc_uses_host_stamped_log_events(tmp_path, monkeypatch):
+    import one_shot_eval
+
+    instance = _write(tmp_path / "private" / "instance.json", "{}")
+    reference = _write(
+        tmp_path / "private" / "reference.json",
+        '{"objective_value": 1}',
+    )
+    code = _write(tmp_path / "submission" / "code.py", "print('candidate')\n")
+    output = tmp_path / "output"
+
+    monkeypatch.setattr(one_shot_eval, "_instance_path", lambda _paper, _idx: str(instance))
+    monkeypatch.setattr(
+        one_shot_eval,
+        "_gurobi_solution_path",
+        lambda _paper, _idx: str(reference),
+    )
+    monkeypatch.setattr(one_shot_eval, "get_paper_dir", lambda _paper: str(tmp_path))
+    monkeypatch.setattr(one_shot_eval, "get_paper_direction", lambda _paper: "min")
+    monkeypatch.setattr(
+        one_shot_eval,
+        "run_feasibility_check",
+        lambda *_args, **_kwargs: (True, None, None),
+    )
+
+    def fake_run(
+        _code_path,
+        solution_path,
+        _instance_path,
+        _time_limit,
+        log_path,
+        **_kwargs,
+    ):
+        Path(solution_path).write_text('{"objective_value": 1}', encoding="utf-8")
+        with open(log_path, "w", encoding="utf-8") as log:
+            log.write(
+                '{"time":999,"objective_value":1,'
+                '"solution":{"objective_value":1}}\n'
+            )
+        return True, "", 1.0
+
+    monkeypatch.setattr(one_shot_eval, "run_generated_code", fake_run)
+
+    result, _ = one_shot_eval.run_and_evaluate_instance(
+        "paper1",
+        "model",
+        "tiny",
+        str(code),
+        2,
+        "docker",
+        {"anti_hack": True},
+        1.0,
+        output_dir=str(output),
+    )
+
+    trusted_events = [
+        json.loads(line)
+        for line in (output / "log_tiny.jsonl").read_text(encoding="utf-8").splitlines()
+    ]
+    assert result["status"] == "pass"
+    assert result["aocc"] is not None
+    assert trusted_events
+    assert trusted_events[0]["objective_value"] == 1.0
+    assert trusted_events[0]["time"] < 2
+    assert trusted_events[0]["time"] != 999
+
+
+def test_anti_hack_objective_only_log_events_are_not_scored(tmp_path, monkeypatch):
+    import one_shot_eval
+
+    instance = _write(tmp_path / "private" / "instance.json", "{}")
+    reference = _write(
+        tmp_path / "private" / "reference.json",
+        '{"objective_value": 1}',
+    )
+    code = _write(tmp_path / "submission" / "code.py", "print('candidate')\n")
+    output = tmp_path / "output"
+
+    monkeypatch.setattr(one_shot_eval, "_instance_path", lambda _paper, _idx: str(instance))
+    monkeypatch.setattr(
+        one_shot_eval,
+        "_gurobi_solution_path",
+        lambda _paper, _idx: str(reference),
+    )
+    monkeypatch.setattr(one_shot_eval, "get_paper_dir", lambda _paper: str(tmp_path))
+    monkeypatch.setattr(one_shot_eval, "get_paper_direction", lambda _paper: "min")
+    monkeypatch.setattr(
+        one_shot_eval,
+        "run_feasibility_check",
+        lambda *_args, **_kwargs: (True, None, None),
+    )
+
+    def fake_run(
+        _code_path,
+        solution_path,
+        _instance_path,
+        _time_limit,
+        log_path,
+        **_kwargs,
+    ):
+        Path(solution_path).write_text('{"objective_value": 1}', encoding="utf-8")
+        with open(log_path, "w", encoding="utf-8") as log:
+            log.write('{"time":999,"objective_value":1}\n')
+        return True, "", 1.0
+
+    monkeypatch.setattr(one_shot_eval, "run_generated_code", fake_run)
+
+    result, _ = one_shot_eval.run_and_evaluate_instance(
+        "paper1",
+        "model",
+        "tiny",
+        str(code),
+        2,
+        "docker",
+        {"anti_hack": True},
+        1.0,
+        output_dir=str(output),
+    )
+
+    assert result["status"] == "pass"
+    assert result["aocc"] == 1.0
+    assert (output / "log_tiny.jsonl").read_text(encoding="utf-8") == ""
+
+
+def test_solution_logger_can_emit_full_solution_snapshots(tmp_path):
+    from scripts.utils.solution_logger import SolutionLogger
+
+    log_path = tmp_path / "log.jsonl"
+    logger = SolutionLogger(str(log_path), sense="minimize")
+    logger.log_solution(5, {"objective_value": 5, "x": {"0": 1}})
+
+    event = json.loads(log_path.read_text(encoding="utf-8").strip())
+    assert event["objective_value"] == 5
+    assert event["solution"] == {"objective_value": 5, "x": {"0": 1}}
+
+
+def test_anti_hack_trusted_log_filters_objectives_better_than_final(tmp_path):
+    import one_shot_eval
+
+    log_path = tmp_path / "log.jsonl"
+    log_path.write_text(
+        '{"time":0.1,"objective_value":0.1}\n'
+        '{"time":0.2,"objective_value":1.0}\n',
+        encoding="utf-8",
+    )
+
+    one_shot_eval.filter_trusted_log_against_final(
+        str(log_path),
+        final_obj=1.0,
+        direction="min",
+    )
+
+    events = [
+        json.loads(line)
+        for line in log_path.read_text(encoding="utf-8").splitlines()
+    ]
+    assert events == [{"time": 0.2, "objective_value": 1.0}]
+
+
 def test_subprocess_capture_is_bounded():
     success, output, _ = _exec(
         [sys.executable, "-c", "print('x' * (2 * 1024 * 1024))"],

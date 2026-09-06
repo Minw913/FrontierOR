@@ -27,6 +27,7 @@ import json
 import math
 import os
 import re
+import select
 import shutil
 import sys
 import random
@@ -358,12 +359,17 @@ from solution_logger import SolutionLogger
 # After parsing args, initialize the logger (use "minimize" or "maximize"):
 logger = SolutionLogger(args.log_path, sense="minimize") if args.log_path else None
 
-# Whenever a better feasible solution is found, call:
+# Whenever a better feasible solution is found and you have the complete
+# solution dictionary ready, call:
+if logger:
+    logger.log_solution(objective_value, solution_dict)
+
+# If a full solution dictionary is not yet available, you may call:
 if logger:
     logger.log(objective_value)
 ```
 
-Do NOT implement your own logging mechanism. Just call `logger.log(objective_value)` each time the algorithm finds a new best feasible solution.
+Do NOT implement your own logging mechanism. Prefer `logger.log_solution(objective_value, solution_dict)` each time the algorithm finds a new best feasible solution; this lets hardened evaluation verify the incumbent snapshot before scoring convergence. Use `logger.log(objective_value)` only when no complete solution dictionary is available yet.
 
 ### Output Format and Structure
 1. The program MUST use `argparse` to define the following command-line arguments:
@@ -632,6 +638,8 @@ from task_paths import (
 MAX_CANDIDATE_SOLUTION_BYTES = 256 * 1024 * 1024
 MAX_CANDIDATE_LOG_BYTES = 64 * 1024 * 1024
 MAX_CHECKER_RESULT_BYTES = 16 * 1024 * 1024
+MAX_TRUSTED_LOG_LINE_BYTES = 16 * 1024 * 1024
+MAX_TRUSTED_SNAPSHOT_CHECKS = 64
 
 
 def run_generated_code(code_path, solution_path, instance_path, time_limit,
@@ -670,6 +678,138 @@ def _promote_candidate_output(source, destination, *, label, max_bytes):
         require_single_link=True,
         mode=0o600,
     )
+
+
+class TrustedLogBridge:
+    """Host-side timestamp bridge for untrusted incumbent events.
+
+    Candidate code still receives a ``--log_path`` and can use the usual
+    SolutionLogger API, but in anti-hack mode that path is a FIFO. The trusted
+    evaluator reads candidate-written JSONL events, ignores any candidate
+    timestamp, and writes a regular JSONL file with host monotonic elapsed
+    seconds. The objective value remains candidate-reported; final scoring
+    filters obviously invalid values separately.
+    """
+
+    def __init__(self, fifo_path, trusted_log_path, *, max_bytes=MAX_CANDIDATE_LOG_BYTES):
+        self.fifo_path = fifo_path
+        self.trusted_log_path = trusted_log_path
+        self.max_bytes = int(max_bytes)
+        self._stop = threading.Event()
+        self._ready = threading.Event()
+        self._thread = None
+        self._start = None
+        self._error = None
+        self._bytes_written = 0
+
+    def __enter__(self):
+        os.mkfifo(self.fifo_path, 0o600)
+        self._reset_trusted_log()
+        self._start = time.monotonic()
+        self._thread = threading.Thread(target=self._run, name="trusted-log-bridge", daemon=True)
+        self._thread.start()
+        if not self._ready.wait(timeout=5):
+            raise RuntimeError("trusted log bridge did not start")
+        return self
+
+    def __exit__(self, exc_type, exc, tb):
+        self.close()
+        return False
+
+    @property
+    def error(self):
+        return self._error
+
+    def close(self):
+        self._stop.set()
+        if self._thread is not None:
+            self._thread.join(timeout=5)
+            self._thread = None
+
+    def _reset_trusted_log(self):
+        flags = os.O_WRONLY | os.O_CREAT | os.O_TRUNC | getattr(os, "O_CLOEXEC", 0)
+        fd = os.open(self.trusted_log_path, flags, 0o600)
+        os.close(fd)
+
+    def _run(self):
+        fd = None
+        try:
+            # O_RDWR keeps the FIFO open from the host side. Candidate opens for
+            # write never block, and the reader does not exit between the
+            # SolutionLogger constructor's truncating open and later append opens.
+            fd = os.open(
+                self.fifo_path,
+                os.O_RDWR | os.O_NONBLOCK | getattr(os, "O_CLOEXEC", 0),
+            )
+            self._ready.set()
+            buffer = bytearray()
+            while not self._stop.is_set():
+                readable, _, _ = select.select([fd], [], [], 0.05)
+                if not readable:
+                    continue
+                try:
+                    chunk = os.read(fd, 65536)
+                except BlockingIOError:
+                    continue
+                if not chunk:
+                    continue
+                buffer.extend(chunk)
+                while True:
+                    nl = buffer.find(b"\n")
+                    if nl < 0:
+                        if len(buffer) > MAX_TRUSTED_LOG_LINE_BYTES:
+                            del buffer[:]
+                        break
+                    line = bytes(buffer[:nl])
+                    del buffer[:nl + 1]
+                    self._handle_line(line)
+        except Exception as exc:
+            self._error = str(exc)
+            self._ready.set()
+        finally:
+            if fd is not None:
+                try:
+                    os.close(fd)
+                except OSError:
+                    pass
+
+    def _handle_line(self, raw_line):
+        if not raw_line.strip():
+            return
+        if len(raw_line) > MAX_TRUSTED_LOG_LINE_BYTES:
+            return
+        try:
+            event = json.loads(raw_line.decode("utf-8"))
+        except (UnicodeDecodeError, ValueError, TypeError):
+            return
+        if not isinstance(event, dict):
+            return
+        obj = event.get("objective_value", event.get("obj", event.get("best_obj")))
+        if isinstance(obj, bool):
+            return
+        try:
+            obj = float(obj)
+        except (TypeError, ValueError, OverflowError):
+            return
+        if not math.isfinite(obj):
+            return
+        stamped = {
+            "time": round(max(0.0, time.monotonic() - self._start), 3),
+            "objective_value": obj,
+        }
+        solution = event.get("solution")
+        if isinstance(solution, dict):
+            stamped["solution"] = solution
+        payload = (json.dumps(stamped, separators=(",", ":")) + "\n").encode("utf-8")
+        if self._bytes_written + len(payload) > self.max_bytes:
+            return
+        flags = os.O_WRONLY | os.O_APPEND | getattr(os, "O_CLOEXEC", 0)
+        fd = os.open(self.trusted_log_path, flags)
+        try:
+            os.write(fd, payload)
+            self._bytes_written += len(payload)
+        finally:
+            os.close(fd)
 
 
 def parse_t_max(v):
@@ -794,6 +934,141 @@ def compute_aocc(log_path, gurobi_obj, time_limit, t_max=None, direction="min"):
         aocc += steps[i][1] * dt
 
     return round(aocc / T, 6) if T > 0 else None
+
+
+def filter_trusted_log_against_final(log_path, final_obj, direction="min"):
+    """Remove incumbent events that claim to beat the final feasible solution.
+
+    In anti-hack mode timestamps are host-stamped, but objective values are
+    still candidate-reported because the legacy logger API only reports an
+    objective, not a full solution snapshot. This filter rejects the clearest
+    fabrication: an intermediate objective better than the final checked
+    solution. It cannot prove that a retained objective was genuinely discovered
+    at that time.
+    """
+    if final_obj is None or not log_path or not os.path.exists(log_path):
+        return
+    try:
+        final_obj = float(final_obj)
+    except (TypeError, ValueError, OverflowError):
+        return
+    if not math.isfinite(final_obj):
+        return
+    try:
+        with open(log_path, "r", encoding="utf-8") as src:
+            lines = src.readlines()
+    except OSError:
+        return
+    kept = []
+    eps = max(1e-9, abs(final_obj) * 1e-9)
+    for line in lines:
+        try:
+            event = json.loads(line)
+            obj = float(event.get("objective_value"))
+        except (TypeError, ValueError, OverflowError, json.JSONDecodeError):
+            continue
+        if not math.isfinite(obj):
+            continue
+        if direction == "max":
+            if obj > final_obj + eps:
+                continue
+        else:
+            if obj < final_obj - eps:
+                continue
+        kept.append(line)
+    try:
+        with open(log_path, "w", encoding="utf-8") as dst:
+            dst.writelines(kept)
+    except OSError:
+        return
+
+
+def validate_trusted_snapshot_log(
+    paper_id,
+    instance_path,
+    log_path,
+    model_dir,
+    *,
+    exec_cfg=None,
+):
+    """Rewrite an anti-hack convergence log to checker-validated snapshots.
+
+    The trusted bridge has already stamped host times, but only events carrying
+    a complete ``solution`` snapshot can be verified. This function runs the
+    trusted feasibility checker on bounded snapshots and rewrites ``log_path``
+    to plain ``{"time", "objective_value"}`` events accepted for AOCC.
+    """
+    if not log_path or not os.path.exists(log_path):
+        return 0, 0
+    max_checks = int((exec_cfg or {}).get("max_snapshot_checks", MAX_TRUSTED_SNAPSHOT_CHECKS))
+    try:
+        raw = read_regular_file(
+            log_path,
+            max_bytes=int((exec_cfg or {}).get("max_log_bytes", MAX_CANDIDATE_LOG_BYTES)),
+            label="trusted candidate convergence log",
+            require_single_link=True,
+        ).decode("utf-8")
+    except (OSError, SecureFileError, UnicodeDecodeError, ValueError):
+        _reset_output_path(log_path)
+        _create_candidate_output(log_path)
+        return 0, 0
+
+    candidates = []
+    for line in raw.splitlines():
+        if len(candidates) >= max_checks:
+            break
+        try:
+            event = json.loads(line)
+        except (TypeError, ValueError):
+            continue
+        if not isinstance(event, dict) or not isinstance(event.get("solution"), dict):
+            continue
+        try:
+            t = float(event.get("time"))
+            obj = float(event.get("objective_value"))
+        except (TypeError, ValueError, OverflowError):
+            continue
+        if not math.isfinite(t) or t < 0 or not math.isfinite(obj):
+            continue
+        solution = dict(event["solution"])
+        snap_obj = solution.get("objective_value")
+        try:
+            snap_obj = float(snap_obj)
+        except (TypeError, ValueError, OverflowError):
+            continue
+        if not math.isfinite(snap_obj) or abs(snap_obj - obj) > max(1e-8, abs(obj) * 1e-8):
+            continue
+        candidates.append({"time": t, "objective_value": snap_obj, "solution": solution})
+
+    accepted = []
+    with tempfile.TemporaryDirectory(prefix=".trusted_snapshots_", dir=model_dir) as tmp:
+        for i, event in enumerate(candidates):
+            solution_file = os.path.join(tmp, f"snapshot_{i}.json")
+            result_file = os.path.join(tmp, f"snapshot_{i}_feasi.json")
+            try:
+                with open(solution_file, "w", encoding="utf-8") as f:
+                    json.dump(event["solution"], f, separators=(",", ":"))
+            except (OSError, TypeError, ValueError):
+                continue
+            feasible, _, _ = run_feasibility_check(
+                paper_id,
+                instance_path,
+                solution_file,
+                result_file,
+                exec_cfg=exec_cfg,
+            )
+            if feasible is True:
+                accepted.append(
+                    {
+                        "time": round(event["time"], 3),
+                        "objective_value": event["objective_value"],
+                    }
+                )
+
+    with open(log_path, "w", encoding="utf-8") as f:
+        for event in accepted:
+            f.write(json.dumps(event, separators=(",", ":")) + "\n")
+    return len(accepted), len(candidates)
 
 
 def compare_objectives(llm_solution_path, gurobi_solution_path, direction="min"):
@@ -1007,24 +1282,43 @@ def run_and_evaluate_instance(paper_id, model_name, idx, code_path,
             dir=model_dir,
         )
         candidate_solution_path = os.path.join(candidate_dir, "solution.json")
-        candidate_log_path = os.path.join(candidate_dir, "log.jsonl")
+        candidate_log_path = os.path.join(candidate_dir, "log.fifo")
         _create_candidate_output(candidate_solution_path)
-        _create_candidate_output(candidate_log_path)
         _reset_output_path(solution_path)
         _reset_output_path(log_path)
     elif os.path.exists(solution_path):
         os.remove(solution_path)
 
     try:
-        success, output, elapsed = run_generated_code(
-            code_path,
-            candidate_solution_path,
-            instance_path,
-            time_limit,
-            candidate_log_path,
-            exec_mode=exec_mode,
-            exec_cfg=exec_cfg,
-        )
+        if anti_hack:
+            with TrustedLogBridge(
+                candidate_log_path,
+                log_path,
+                max_bytes=int(
+                    (exec_cfg or {}).get("max_log_bytes", MAX_CANDIDATE_LOG_BYTES)
+                ),
+            ) as log_bridge:
+                success, output, elapsed = run_generated_code(
+                    code_path,
+                    candidate_solution_path,
+                    instance_path,
+                    time_limit,
+                    candidate_log_path,
+                    exec_mode=exec_mode,
+                    exec_cfg=exec_cfg,
+                )
+                if log_bridge.error and success:
+                    output_error = f"trusted log bridge failed: {log_bridge.error}"
+        else:
+            success, output, elapsed = run_generated_code(
+                code_path,
+                candidate_solution_path,
+                instance_path,
+                time_limit,
+                candidate_log_path,
+                exec_mode=exec_mode,
+                exec_cfg=exec_cfg,
+            )
         if anti_hack and success:
             try:
                 _promote_candidate_output(
@@ -1038,18 +1332,6 @@ def run_and_evaluate_instance(paper_id, model_name, idx, code_path,
                         )
                     ),
                 )
-                if os.path.lexists(candidate_log_path):
-                    _promote_candidate_output(
-                        candidate_log_path,
-                        log_path,
-                        label="candidate convergence log",
-                        max_bytes=int(
-                            (exec_cfg or {}).get(
-                                "max_log_bytes",
-                                MAX_CANDIDATE_LOG_BYTES,
-                            )
-                        ),
-                    )
             except (OSError, SecureFileError, ValueError) as exc:
                 output_error = str(exc)
     finally:
@@ -1128,16 +1410,20 @@ def run_and_evaluate_instance(paper_id, model_name, idx, code_path,
     feasi_str = str(feasible) if feasible is not None else "N/A"
 
     aocc_t_max = _resolve_t_max(t_max, paper_id, idx)
-    aocc = (
-        None
-        if anti_hack
-        else compute_aocc(
+    if anti_hack and feasible is True:
+        validate_trusted_snapshot_log(
+            paper_id,
+            instance_path,
             log_path,
-            gurobi_obj,
-            elapsed,
-            t_max=aocc_t_max,
-            direction=direction,
+            model_dir,
+            exec_cfg=exec_cfg,
         )
+    aocc = compute_aocc(
+        log_path,
+        gurobi_obj,
+        elapsed,
+        t_max=aocc_t_max,
+        direction=direction,
     )
 
     gap_str = f"{gap:.2%}" if gap is not None else "N/A"
@@ -2567,6 +2853,14 @@ def main():
                         help="CPU cores for systemd/docker execution (default: 1).")
     parser.add_argument("--memory", type=str, default="640G",
                         help="Memory limit for systemd/docker execution (default: 640G).")
+    parser.add_argument(
+        "--max_snapshot_checks",
+        type=int,
+        default=MAX_TRUSTED_SNAPSHOT_CHECKS,
+        help="Maximum full incumbent snapshots to verify per instance for "
+             "anti-hack AOCC (default: 64). Each accepted snapshot runs the "
+             "trusted feasibility checker once.",
+    )
     parser.add_argument("--t_max", type=parse_t_max, default=None,
                         help="Custom time horizon for AOCC computation. "
                              "Accepts a positive float (seconds, global) or the "
@@ -2718,6 +3012,7 @@ def main():
             "cpus": args.cpus,
             "memory": args.memory,
             "wls_egress": args.wls_egress,
+            "max_snapshot_checks": args.max_snapshot_checks,
         },
         args.anti_hack,
     )
