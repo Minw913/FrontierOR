@@ -2,7 +2,7 @@
 """Compatibility alias for the packaged official submission verifier."""
 
 import sys
-from infra.submission import cli as _implementation
+from trusted_eval_infra.submission import cli as _implementation
 
 sys.modules[__name__] = _implementation
 

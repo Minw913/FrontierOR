@@ -155,10 +155,10 @@ EoH without changing their shared FrontierOR scoring path:
 
 ```bash
 export TIDE_EVAL_PYTHON="$PWD/reference/tide-eval/.venv/bin/python"
-python -m infra tide-eval --help
+python -m trusted_eval_infra tide-eval --help
 ```
 
-See [`infra/README.md`](infra/README.md#tide-eval-orchestration)
+See [`trusted_eval_infra/README.md`](trusted_eval_infra/README.md#tide-eval-orchestration)
 for setup, trust boundaries, and complete examples.
 
 ---
@@ -173,14 +173,14 @@ separate fail-closed entry point:
 bash test_time_self_evolution/coral/setup.sh
 export OPENROUTER_API_KEY="<platform-openrouter-key>"
 
-docker build -f infra/docker/candidate.Dockerfile \
+docker build -f trusted_eval_infra/docker/candidate.Dockerfile \
     -t frontieror-candidate:1 .
-docker build -f infra/docker/agent.Dockerfile \
+docker build -f trusted_eval_infra/docker/agent.Dockerfile \
     -t frontieror-coral-agent:0.1 .
-docker build -f infra/docker/model-proxy.Dockerfile \
+docker build -f trusted_eval_infra/docker/model-proxy.Dockerfile \
     -t frontieror-coral-model-proxy:0.1 .
 
-python -m infra agent \
+python -m trusted_eval_infra agent \
     --paper-id bierwirth2017 \
     --primary-model openai/gpt-5.4 \
     --stage1-instances tiny \
@@ -221,7 +221,7 @@ integration tests, not as hidden leaderboard tests.
 Before releasing a runner image, execute the black-box boundary tests:
 
 ```bash
-python -m infra security-check \
+python -m trusted_eval_infra security-check \
     --candidate-image frontieror-candidate:1
 ```
 
@@ -229,7 +229,7 @@ The command probes host-file and environment access, root writes, public
 networking, timeout escape, and output flooding in both candidate and checker
 containers. The complete architecture, visibility matrix, threat model, WLS
 policy, and Code-only verifier are documented in
-[`infra/README.md`](infra/README.md).
+[`trusted_eval_infra/README.md`](trusted_eval_infra/README.md).
 
 ---
 

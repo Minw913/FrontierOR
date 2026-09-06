@@ -33,13 +33,13 @@ if BASE_DIR not in sys.path:
 from scripts.paper_reproduce.claude_utils import run_claude_tracked
 PAPER_DATA_DIR = os.path.join(BASE_DIR, "data", "paper_data")
 PROMPT_PATH = os.path.join(
-    BASE_DIR, "prompts", "paper_reproduce", "prompt_generate_problem_description.txt"
+    BASE_DIR, "scripts", "paper_reproduce", "prompts", "prompt_generate_problem_description.txt"
 )
 REWRITE_PROMPT_PATH = os.path.join(
-    BASE_DIR, "prompts", "paper_reproduce", "prompt_description_rewrite.txt"
+    BASE_DIR, "scripts", "paper_reproduce", "prompts", "prompt_description_rewrite.txt"
 )
 DATA_SPEC_PROMPT_PATH = os.path.join(
-    BASE_DIR, "prompts", "paper_reproduce", "prompt_generate_data_specification.txt"
+    BASE_DIR, "scripts", "paper_reproduce", "prompts", "prompt_generate_data_specification.txt"
 )
 REWRITE_CSV_PATH = os.path.join(BASE_DIR, "results", "data_reproduce", "rewrite_problem_description.csv")
 

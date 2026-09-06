@@ -13,7 +13,7 @@ import os
 from typing import Dict, Iterable, List, Optional
 
 import one_shot_eval as eval_core
-from infra.files import copy_regular_file
+from trusted_eval_infra.files import copy_regular_file
 
 
 ROOT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))

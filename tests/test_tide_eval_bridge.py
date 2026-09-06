@@ -5,8 +5,8 @@ from types import SimpleNamespace
 
 import pytest
 
-from infra import cli as infra_cli
-from infra import tide_eval_driver, tide_eval_worker
+from trusted_eval_infra import cli as infra_cli
+from trusted_eval_infra import tide_eval_driver, tide_eval_worker
 
 
 def _write_csv(path: Path, rows: list[dict[str, str]]) -> None:

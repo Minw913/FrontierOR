@@ -430,7 +430,7 @@ def test_secure_model_proxy_uses_distinct_ephemeral_agent_tokens():
     assert first != second
     source = (
         Path(__file__).resolve().parents[1]
-        / "infra"
+        / "trusted_eval_infra"
         / "agent"
         / "model_proxy.py"
     ).read_text(encoding="utf-8")
@@ -532,7 +532,7 @@ def test_secure_entrypoint_disables_external_tool_surfaces():
 
     source = (
         Path(__file__).resolve().parents[1]
-        / "infra" / "agent" / "codex_entrypoint.py"
+        / "trusted_eval_infra" / "agent" / "codex_entrypoint.py"
     ).read_text(encoding="utf-8")
     command = build_codex_command(
         model="gpt-5.3-codex",
@@ -558,7 +558,7 @@ def test_secure_entrypoint_disables_external_tool_surfaces():
 def test_agent_image_exposes_public_python_runtime_helpers():
     dockerfile = (
         Path(__file__).resolve().parents[1]
-        / "infra"
+        / "trusted_eval_infra"
         / "docker"
         / "agent.Dockerfile"
     ).read_text(encoding="utf-8")

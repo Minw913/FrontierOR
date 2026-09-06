@@ -29,15 +29,15 @@ import yaml
 
 import one_shot_eval as eval_core
 from test_time_self_evolution import eval_modes
-from infra.checkers import validate_objective_checker
-from infra.files import SecureFileError, copy_regular_file
-from infra.policy import AgentModePolicy, validate_anti_hack_runtime
-from infra.visibility import (
+from trusted_eval_infra.checkers import validate_objective_checker
+from trusted_eval_infra.files import SecureFileError, copy_regular_file
+from trusted_eval_infra.policy import AgentModePolicy, validate_anti_hack_runtime
+from trusted_eval_infra.visibility import (
     materialize_public_paper_view,
     validate_instance_content_split,
 )
-from infra.agent.broker import drain_eval_requests
-from infra.agent.runtime import MAX_SECURE_AGENTS
+from trusted_eval_infra.agent.broker import drain_eval_requests
+from trusted_eval_infra.agent.runtime import MAX_SECURE_AGENTS
 
 
 ROOT_DIR = os.path.dirname(
@@ -177,7 +177,7 @@ def _seed_readme(paper_id: str, prompt: str) -> str:
 
 def _grader_code(root_dir: str) -> str:
     del root_dir
-    return "from infra.agent.grader import Grader\n"
+    return "from trusted_eval_infra.agent.grader import Grader\n"
 
 
 def _write_gateway_config(path: str, model_alias: str, model_id: str):
@@ -688,7 +688,7 @@ def run_coral_until_done(task: CoralTask, env: Dict[str, str], attempts: int, ma
                     proc.kill()
                 proc.wait(timeout=10)
         if env.get("FRONTIER_OR_ANTI_HACK") == "1":
-            from infra.agent.runtime import (
+            from trusted_eval_infra.agent.runtime import (
                 cleanup_secure_runtime,
                 finalize_secure_runtime_audit,
             )

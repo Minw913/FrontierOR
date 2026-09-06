@@ -5,7 +5,7 @@ from pathlib import Path
 import pytest
 import yaml
 
-from infra import local_codex_bridge
+from trusted_eval_infra import local_codex_bridge
 from test_time_self_evolution.eoh import runner as eoh_runner
 from test_time_self_evolution.openevolve import preflight
 from test_time_self_evolution.openevolve import runner as openevolve_runner

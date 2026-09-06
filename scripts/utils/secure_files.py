@@ -1,3 +1,3 @@
-"""Compatibility imports for ``infra.files``."""
+"""Compatibility imports for ``trusted_eval_infra.files``."""
 
-from infra.files import *  # noqa: F401,F403
+from trusted_eval_infra.files import *  # noqa: F401,F403

@@ -278,7 +278,7 @@ def test_public_view_excludes_private_grader_and_reference_files(tmp_path):
 
 
 def test_public_view_contains_no_final_instance_name_or_canary(tmp_path):
-    from infra.visibility import materialize_public_paper_view
+    from trusted_eval_infra.visibility import materialize_public_paper_view
 
     paper = _paper_fixture(tmp_path)
     final_canary = "FRONTIEROR_FINAL_CANARY_7f33b4"
@@ -322,7 +322,7 @@ def test_public_view_rejects_symlinked_source_files(tmp_path):
 
 
 def test_public_view_fails_closed_on_missing_declared_instance(tmp_path):
-    from infra.visibility import materialize_public_paper_view
+    from trusted_eval_infra.visibility import materialize_public_paper_view
 
     paper = _paper_fixture(tmp_path)
     with pytest.raises(FileNotFoundError, match="large_instance_2.json"):
@@ -335,7 +335,7 @@ def test_public_view_fails_closed_on_missing_declared_instance(tmp_path):
 
 
 def test_agent_split_rejects_renamed_duplicate_instance_json(tmp_path):
-    from infra.visibility import validate_instance_content_split
+    from trusted_eval_infra.visibility import validate_instance_content_split
 
     paper = _paper_fixture(tmp_path)
     duplicate = paper / "instance" / "large_instance_2.json"
@@ -427,7 +427,7 @@ def test_anti_hack_rejects_non_docker_and_empty_final_test():
 
 
 def test_anti_hack_exec_config_pins_the_candidate_image(monkeypatch):
-    from infra import policy
+    from trusted_eval_infra import policy
     from scripts.utils import exec_backends
 
     policy._resolve_image.cache_clear()
@@ -585,7 +585,7 @@ def test_hardened_docker_cmd_uses_only_restricted_wls_proxy(tmp_path):
 
 
 def test_hardened_checker_cmd_mounts_only_trusted_inputs(tmp_path):
-    from infra.checkers import build_isolated_checker_cmd
+    from trusted_eval_infra.checkers import build_isolated_checker_cmd
 
     paper = _paper_fixture(tmp_path)
     checker = paper / "feasibility_check.py"
@@ -1167,7 +1167,7 @@ def test_coral_early_exit_preserves_process_failure(tmp_path, monkeypatch):
     )
     monkeypatch.setattr(coral_runner, "drain_eval_requests", lambda *_a, **_k: [])
     monkeypatch.setattr(coral_runner, "_workspace_usage", lambda _path: (0, 0))
-    from infra.agent import runtime
+    from trusted_eval_infra.agent import runtime
 
     monkeypatch.setattr(runtime, "cleanup_secure_runtime", cleaned.append)
 

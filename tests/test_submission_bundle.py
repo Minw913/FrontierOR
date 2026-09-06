@@ -24,7 +24,7 @@ def _write_bundle(root: Path, *, paper_id: str = "paper1", code: str = "print('o
 
 
 def test_load_submission_bundle_computes_stable_identity(tmp_path):
-    from infra.submission.bundle import load_submission_bundle
+    from trusted_eval_infra.submission.bundle import load_submission_bundle
 
     bundle_dir = _write_bundle(tmp_path / "submission")
 
@@ -49,7 +49,7 @@ def test_load_submission_bundle_computes_stable_identity(tmp_path):
     ],
 )
 def test_submission_bundle_rejects_private_leak_markers(tmp_path, marker, message):
-    from infra.submission.bundle import SubmissionBundleError, load_submission_bundle
+    from trusted_eval_infra.submission.bundle import SubmissionBundleError, load_submission_bundle
 
     bundle_dir = _write_bundle(tmp_path / "submission", code=f"# {marker}\n")
 
@@ -58,7 +58,7 @@ def test_submission_bundle_rejects_private_leak_markers(tmp_path, marker, messag
 
 
 def test_submission_bundle_rejects_malformed_layout(tmp_path):
-    from infra.submission.bundle import SubmissionBundleError, load_submission_bundle
+    from trusted_eval_infra.submission.bundle import SubmissionBundleError, load_submission_bundle
 
     bundle_dir = tmp_path / "submission"
     bundle_dir.mkdir()
@@ -73,7 +73,7 @@ def test_submission_bundle_rejects_malformed_layout(tmp_path):
 
 
 def test_submission_bundle_rejects_symlink_code(tmp_path):
-    from infra.submission.bundle import SubmissionBundleError, load_submission_bundle
+    from trusted_eval_infra.submission.bundle import SubmissionBundleError, load_submission_bundle
 
     bundle_dir = _write_bundle(tmp_path / "submission")
     target = tmp_path / "outside.py"
@@ -86,7 +86,7 @@ def test_submission_bundle_rejects_symlink_code(tmp_path):
 
 
 def test_submission_bundle_keeps_validated_code_bytes(tmp_path):
-    from infra.submission.bundle import load_submission_bundle
+    from trusted_eval_infra.submission.bundle import load_submission_bundle
 
     bundle_dir = _write_bundle(tmp_path / "submission", code="print('first')\n")
     bundle = load_submission_bundle(bundle_dir, expected_paper_id="paper1")
@@ -96,7 +96,7 @@ def test_submission_bundle_keeps_validated_code_bytes(tmp_path):
 
 
 def test_submission_bundle_rejects_paper_path_traversal(tmp_path):
-    from infra.submission.bundle import SubmissionBundleError, load_submission_bundle
+    from trusted_eval_infra.submission.bundle import SubmissionBundleError, load_submission_bundle
 
     bundle_dir = _write_bundle(tmp_path / "submission", paper_id="../../private")
 

@@ -260,7 +260,7 @@ def test_frontieror_submit_refuses_to_overwrite_existing_audit_run(
     tmp_path, monkeypatch
 ):
     import frontieror_submit
-    from infra.submission.bundle import load_submission_bundle
+    from trusted_eval_infra.submission.bundle import load_submission_bundle
 
     bundle = _write_bundle(tmp_path / "submission")
     loaded = load_submission_bundle(bundle, expected_paper_id="paper1")

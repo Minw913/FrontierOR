@@ -30,8 +30,7 @@ from scripts.paper_reproduce.claude_utils import run_claude_tracked
 PAPER_DATA_DIR = os.path.join(BASE_DIR, "data", "paper_data")
 PROMPT_PATH = os.path.join(
     BASE_DIR,
-    "prompts",
-    "paper_reproduce",
+    "scripts", "paper_reproduce", "prompts",
     "prompt_generate_gurobi_code.txt",
 )
 

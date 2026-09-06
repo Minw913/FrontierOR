@@ -2,6 +2,6 @@
 
 import sys
 
-from infra import execution as _implementation
+from trusted_eval_infra import execution as _implementation
 
 sys.modules[__name__] = _implementation

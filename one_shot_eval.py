@@ -628,16 +628,16 @@ from exec_backends import (
     _exec as run_bounded_process,
     validate_docker_wls,
 )
-from infra.checkers import (
+from trusted_eval_infra.checkers import (
     feasibility_checker_path,
     run_checker_isolated,
     validate_objective_checker,
 )
-from infra.policy import (
+from trusted_eval_infra.policy import (
     validate_anti_hack_runtime,
     with_anti_hack_exec_cfg,
 )
-from infra.files import SecureFileError, copy_regular_file, read_regular_file
+from trusted_eval_infra.files import SecureFileError, copy_regular_file, read_regular_file
 from task_paths import (
     DEFAULT_INSTANCES,
     instance_path as _instance_path,

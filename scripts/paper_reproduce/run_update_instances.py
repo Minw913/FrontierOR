@@ -158,7 +158,7 @@ except ImportError:
 
 PAPER_DATA_DIR = os.path.join(BASE_DIR, "data", "paper_data")
 BENCH_DIR = os.path.join(BASE_DIR, "frontier-or")
-PROMPT_PATH = os.path.join(BASE_DIR, "prompts", "paper_reproduce", "prompt_update_instances.txt")
+PROMPT_PATH = os.path.join(BASE_DIR, "scripts", "paper_reproduce", "prompts", "prompt_update_instances.txt")
 
 # Hardcoded paper_id list. If non-empty, this takes highest priority.
 HARDCODED_PAPER_IDS: list[str] = []
@@ -1729,13 +1729,13 @@ def main():
     )
     parser.add_argument(
         "--judge-prompt-path", type=str,
-        default=os.path.join(BASE_DIR, "prompts", "paper_reproduce",
+        default=os.path.join(BASE_DIR, "scripts", "paper_reproduce", "prompts",
                               "prompt_judge_scale_decision.txt"),
         help="Judge prompt template path (used in scale-down / replace).",
     )
     parser.add_argument(
         "--judge-prompt-path-scale-up", type=str,
-        default=os.path.join(BASE_DIR, "prompts", "paper_reproduce",
+        default=os.path.join(BASE_DIR, "scripts", "paper_reproduce", "prompts",
                               "prompt_judge_scale_up_decision.txt"),
         help="Judge prompt template path used in scale-up mode (the "
              '"too easy / 5/5 fast" diagnostic).',

@@ -17,8 +17,8 @@ from joblib import parallel_backend
 
 import one_shot_eval as eval_core
 from test_time_self_evolution import eval_modes
-from infra.checkers import validate_objective_checker
-from infra.policy import (
+from trusted_eval_infra.checkers import validate_objective_checker
+from trusted_eval_infra.policy import (
     validate_anti_hack_runtime,
 )
 from test_time_self_evolution.eoh.problem_adapter import (

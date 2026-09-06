@@ -35,7 +35,7 @@ if BASE_DIR not in sys.path:
 
 from scripts.paper_reproduce.claude_utils import run_claude_tracked
 PAPER_DATA_DIR = os.path.join(BASE_DIR, "data", "paper_data")
-PROMPT_PATH = os.path.join(BASE_DIR, "prompts", "paper_reproduce", "prompt_feasibility_check.txt")
+PROMPT_PATH = os.path.join(BASE_DIR, "scripts", "paper_reproduce", "prompts", "prompt_feasibility_check.txt")
 CSV_PATH = os.path.join(BASE_DIR, "solving_results_full.csv")
 
 # Per-instance default results CSV. Used when --csv-path is omitted and a
