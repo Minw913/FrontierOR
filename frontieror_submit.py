@@ -2,7 +2,7 @@
 """Compatibility alias for the packaged official submission verifier."""
 
 import sys
-from frontieror.infra.submission import cli as _implementation
+from infra.submission import cli as _implementation
 
 sys.modules[__name__] = _implementation
 

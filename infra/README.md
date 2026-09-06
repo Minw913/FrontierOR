@@ -9,16 +9,16 @@ agent or the submitted solver is not trusted.
 
 ```bash
 # Show the versioned scoring and visibility contracts.
-python -m frontieror.infra contract
+python -m infra contract
 
 # Run the platform CORAL adapter under the mandatory agent profile.
-python -m frontieror.infra agent --help
+python -m infra agent --help
 
 # Verify an immutable code-only submission.
-python -m frontieror.infra submission --help
+python -m infra submission --help
 
 # Attack the built candidate image through the official execution path.
-python -m frontieror.infra security-check --candidate-image frontieror-candidate:1
+python -m infra security-check --candidate-image frontieror-candidate:1
 ```
 
 The `agent` command fixes these settings and does not expose downgrade flags:
@@ -66,7 +66,7 @@ profile; OpenEvolve and EoH use the same hardened Docker evaluator and hidden
 final scorer:
 
 ```bash
-python -m frontieror.infra tide-eval \
+python -m infra tide-eval \
   --framework coral \
   --lab eval/tide/coral \
   --concurrency 1 \
@@ -80,7 +80,7 @@ python -m frontieror.infra tide-eval \
   --coral-attempts 10 \
   --run-id tide-coral-smoke
 
-python -m frontieror.infra tide-eval \
+python -m infra tide-eval \
   --framework openevolve \
   --lab eval/tide/openevolve \
   -- \
@@ -120,7 +120,7 @@ The security-sensitive implementation is owned by this package:
 Files retained at the old `scripts/utils` and `test_time_self_evolution/coral`
 paths are compatibility aliases. Upstream research commands keep their import
 surface, while official behavior has one canonical implementation under
-`frontieror/infra`.
+`infra`.
 
 ## Container images
 
@@ -146,15 +146,15 @@ Build the three independently versioned images from the repository root:
 
 ```bash
 docker build \
-  -f frontieror/infra/docker/candidate.Dockerfile \
+  -f infra/docker/candidate.Dockerfile \
   -t frontieror-candidate:1 .
 
 docker build \
-  -f frontieror/infra/docker/agent.Dockerfile \
+  -f infra/docker/agent.Dockerfile \
   -t frontieror-coral-agent:0.1 .
 
 docker build \
-  -f frontieror/infra/docker/model-proxy.Dockerfile \
+  -f infra/docker/model-proxy.Dockerfile \
   -t frontieror-coral-model-proxy:0.1 .
 ```
 

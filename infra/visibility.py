@@ -11,8 +11,8 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Iterable
 
-from frontieror.infra.contracts import public_scoring_contract, visibility_contract
-from frontieror.infra.files import copy_regular_file, sha256_regular_file
+from infra.contracts import public_scoring_contract, visibility_contract
+from infra.files import copy_regular_file, sha256_regular_file
 from scripts.utils.task_paths import instance_path, is_valid_instance_name
 
 

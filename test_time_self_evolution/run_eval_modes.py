@@ -28,8 +28,8 @@ from scripts.utils.task_paths import (  # noqa: E402
     SELF_EVOLVE_TEST_INSTANCES,
     parse_instances_arg,
 )
-from frontieror.infra.checkers import validate_objective_checker  # noqa: E402
-from frontieror.infra.policy import (  # noqa: E402
+from infra.checkers import validate_objective_checker  # noqa: E402
+from infra.policy import (  # noqa: E402
     validate_anti_hack_runtime,
     with_anti_hack_exec_cfg,
 )
@@ -957,7 +957,7 @@ def main(argv=None):
     prior_openrouter_key = os.environ.get("OPENROUTER_API_KEY")
     try:
         if args.model_backend == "local-codex":
-            from frontieror.infra.local_codex_bridge import LocalCodexBridge
+            from infra.local_codex_bridge import LocalCodexBridge
 
             bridge = LocalCodexBridge(
                 allowed_models=(primary_model, secondary_model),

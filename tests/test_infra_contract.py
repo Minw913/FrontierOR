@@ -7,8 +7,8 @@ from pathlib import Path
 
 import pytest
 
-from frontieror.infra.contracts import public_scoring_contract, visibility_contract
-from frontieror.infra.policy import AgentModePolicy, hardened_agent_argv
+from infra.contracts import public_scoring_contract, visibility_contract
+from infra.policy import AgentModePolicy, hardened_agent_argv
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -111,7 +111,7 @@ def test_agent_mode_forces_non_overridable_security_profile() -> None:
 
 def test_agent_cli_exposes_upstream_arguments() -> None:
     completed = subprocess.run(
-        [sys.executable, "-m", "frontieror.infra", "agent", "--help"],
+        [sys.executable, "-m", "infra", "agent", "--help"],
         cwd=ROOT,
         capture_output=True,
         text=True,
@@ -133,7 +133,7 @@ def test_agent_cli_rejects_security_downgrade_flags() -> None:
         [
             sys.executable,
             "-m",
-            "frontieror.infra",
+            "infra",
             "agent",
             "--coral-model-access",
             "local-auth",
@@ -151,7 +151,7 @@ def test_agent_cli_rejects_security_downgrade_flags() -> None:
 def test_black_box_security_check_uses_official_candidate_path(
     tmp_path, monkeypatch
 ) -> None:
-    from frontieror.infra import security_check
+    from infra import security_check
 
     image_digest = "sha256:" + ("c" * 64)
     monkeypatch.setattr(
@@ -230,8 +230,8 @@ def test_black_box_security_check_uses_official_candidate_path(
 
 
 def test_security_check_cli_propagates_failed_report(monkeypatch, capsys) -> None:
-    from frontieror.infra import cli
-    from frontieror.infra import security_check
+    from infra import cli
+    from infra import security_check
 
     monkeypatch.setattr(
         security_check,
@@ -246,8 +246,8 @@ def test_security_check_cli_propagates_failed_report(monkeypatch, capsys) -> Non
 def test_security_check_cli_reports_setup_error_without_traceback(
     monkeypatch, capsys
 ) -> None:
-    from frontieror.infra import cli
-    from frontieror.infra import security_check
+    from infra import cli
+    from infra import security_check
 
     monkeypatch.setattr(
         security_check,

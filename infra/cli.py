@@ -23,7 +23,7 @@ TIDE_EVALUATOR_VERSION = "1"
 
 def _agent_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
-        prog="python -m frontieror.infra agent",
+        prog="python -m infra agent",
         description=(
             "Run a CORAL agent system with the FrontierOR trusted evaluation "
             "profile. Docker isolation, brokered dev evaluation, staged_qte, "
@@ -103,14 +103,14 @@ def _show_contract() -> int:
 
 
 def _run_submission(argv: Sequence[str]) -> int:
-    from frontieror.infra.submission.cli import main as submission_main
+    from infra.submission.cli import main as submission_main
 
     return int(submission_main(list(argv)) or 0)
 
 
 def _run_security_check(argv: Sequence[str]) -> int:
     parser = argparse.ArgumentParser(
-        prog="python -m frontieror.infra security-check",
+        prog="python -m infra security-check",
         description="Run black-box attacks against the candidate Docker boundary.",
     )
     parser.add_argument("--candidate-image", default="frontieror-candidate:1")
@@ -164,7 +164,7 @@ def _run_tide_eval(argv: Sequence[str]) -> int:
     divider = raw.index("--")
     own, forwarded = raw[:divider], raw[divider + 1 :]
     parser = argparse.ArgumentParser(
-        prog="python -m frontieror.infra tide-eval",
+        prog="python -m infra tide-eval",
         description=(
             "Run hardened CORAL, OpenEvolve, or EoH episodes under "
             "Tide-eval orchestration."
@@ -296,7 +296,7 @@ def _run_tide_eval(argv: Sequence[str]) -> int:
         ),
         None,
     )
-    repo_root = Path(__file__).resolve().parents[2]
+    repo_root = Path(__file__).resolve().parents[1]
     request = {
         "schema_version": 1,
         "repo_root": str(repo_root),
@@ -305,7 +305,7 @@ def _run_tide_eval(argv: Sequence[str]) -> int:
         "worker_command": [
             sys.executable,
             "-m",
-            "frontieror.infra.tide_eval_worker",
+            "infra.tide_eval_worker",
         ],
         "calls": calls,
     }
@@ -344,7 +344,7 @@ def _run_tide_eval(argv: Sequence[str]) -> int:
 def main(argv: Sequence[str] | None = None) -> int:
     raw = list(sys.argv[1:] if argv is None else argv)
     parser = argparse.ArgumentParser(
-        prog="python -m frontieror.infra",
+        prog="python -m infra",
         description="Trusted FrontierOR agent and submission evaluation.",
     )
     parser.add_argument(

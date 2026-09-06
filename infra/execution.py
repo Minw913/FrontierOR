@@ -25,7 +25,7 @@ import time
 import uuid
 from pathlib import Path
 
-from frontieror.infra.contracts import CANDIDATE_SHUTDOWN_RESERVE_SECONDS
+from infra.contracts import CANDIDATE_SHUTDOWN_RESERVE_SECONDS
 
 # Default resource limits
 DEFAULT_CPUS = 1          # number of CPU cores
@@ -737,7 +737,7 @@ def _ensure_logger(code_path):
     code_dir = os.path.dirname(os.path.abspath(code_path))
     dest = os.path.join(code_dir, "solution_logger.py")
     if not os.path.exists(dest):
-        src = Path(__file__).resolve().parents[2] / "scripts" / "utils" / "solution_logger.py"
+        src = Path(__file__).resolve().parents[1] / "scripts" / "utils" / "solution_logger.py"
         if src.exists():
             shutil.copy2(src, dest)
 

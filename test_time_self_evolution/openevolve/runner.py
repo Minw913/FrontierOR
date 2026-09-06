@@ -22,8 +22,8 @@ import one_shot_eval as eval_core
 
 from test_time_self_evolution import eval_modes
 from test_time_self_evolution.openevolve.preflight import preflight_environment_check
-from frontieror.infra.checkers import validate_objective_checker
-from frontieror.infra.policy import (
+from infra.checkers import validate_objective_checker
+from infra.policy import (
     validate_anti_hack_runtime,
 )
 
@@ -256,7 +256,7 @@ def reconstruct_results_from_metrics(metrics: Dict, instances: List[str]) -> Dic
 
 
 def _try_reuse_oneshot_seed(paper_id: str, model_name: str, seed_dir: str) -> Optional[str]:
-    """Try to copy ``eval/eval_papers/<paper>/<model_short>/code_attempt0.py``
+    """Try to copy ``eval/eval_tasks/<paper>/<model_short>/code_attempt0.py``
     into ``seed_dir/code.py`` and return its path. Returns None if the one-shot
     artifact doesn't exist (caller should fall back to live LLM generation).
 
@@ -264,11 +264,11 @@ def _try_reuse_oneshot_seed(paper_id: str, model_name: str, seed_dir: str) -> Op
     self-evolve runs with deepseek-r1, only deepseek-r1's v0 can be reused.
 
     Saves 1 LLM call per paper (~$0.005-0.05 + 30-60s wall-time) when a one-shot
-    run with the same model has already populated eval_papers/.
+    run with the same model has already populated eval_tasks/.
     """
     short = eval_core.get_model_short_name(model_name)
     src = os.path.join(
-        ROOT_DIR, "eval", "eval_papers", paper_id, short, "code_attempt0.py",
+        ROOT_DIR, "eval", "eval_tasks", paper_id, short, "code_attempt0.py",
     )
     if not os.path.exists(src) or os.path.getsize(src) == 0:
         return None

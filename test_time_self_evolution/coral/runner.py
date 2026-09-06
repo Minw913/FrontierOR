@@ -29,15 +29,15 @@ import yaml
 
 import one_shot_eval as eval_core
 from test_time_self_evolution import eval_modes
-from frontieror.infra.checkers import validate_objective_checker
-from frontieror.infra.files import SecureFileError, copy_regular_file
-from frontieror.infra.policy import AgentModePolicy, validate_anti_hack_runtime
-from frontieror.infra.visibility import (
+from infra.checkers import validate_objective_checker
+from infra.files import SecureFileError, copy_regular_file
+from infra.policy import AgentModePolicy, validate_anti_hack_runtime
+from infra.visibility import (
     materialize_public_paper_view,
     validate_instance_content_split,
 )
-from frontieror.infra.agent.broker import drain_eval_requests
-from frontieror.infra.agent.runtime import MAX_SECURE_AGENTS
+from infra.agent.broker import drain_eval_requests
+from infra.agent.runtime import MAX_SECURE_AGENTS
 
 
 ROOT_DIR = os.path.dirname(
@@ -120,13 +120,13 @@ def _reserve_gateway_port(identity: str) -> int:
 
 
 def _try_reuse_oneshot_seed(paper_id: str, model_name: str, seed_dir: str) -> Optional[str]:
-    """Try to copy ``eval/eval_papers/<paper>/<model_short>/code_attempt0.py``
+    """Try to copy ``eval/eval_tasks/<paper>/<model_short>/code_attempt0.py``
     into ``<seed_dir>/code.py`` and return its path. Returns None if the
     one-shot artifact doesn't exist (caller should fall back to live LLM
     generation via ``eval_core.generate_candidate_code``).
 
     Saves 1 LLM call per paper when a one-shot run with the same model has
-    already populated eval_papers/. Also makes CORAL/OpenEvolve start from
+    already populated eval_tasks/. Also makes CORAL/OpenEvolve start from
     the same seed (apples-to-apples comparison).
     """
     seed_model_name = (
@@ -134,7 +134,7 @@ def _try_reuse_oneshot_seed(paper_id: str, model_name: str, seed_dir: str) -> Op
     )
     short = eval_core.get_model_short_name(seed_model_name)
     src = os.path.join(
-        ROOT_DIR, "eval", "eval_papers", paper_id, short, "code_attempt0.py",
+        ROOT_DIR, "eval", "eval_tasks", paper_id, short, "code_attempt0.py",
     )
     if not os.path.lexists(src):
         return None
@@ -157,7 +157,7 @@ def _try_reuse_oneshot_seed(paper_id: str, model_name: str, seed_dir: str) -> Op
     with open(provenance, "w", encoding="utf-8") as f:
         f.write(
             f"reused from one-shot v0: "
-            f"eval/eval_papers/{paper_id}/{short}/code_attempt0.py\n"
+            f"eval/eval_tasks/{paper_id}/{short}/code_attempt0.py\n"
             f"seed_model: {seed_model_name}\n"
             f"agent_model: {model_name}\n"
         )
@@ -177,7 +177,7 @@ def _seed_readme(paper_id: str, prompt: str) -> str:
 
 def _grader_code(root_dir: str) -> str:
     del root_dir
-    return "from frontieror.infra.agent.grader import Grader\n"
+    return "from infra.agent.grader import Grader\n"
 
 
 def _write_gateway_config(path: str, model_alias: str, model_id: str):
@@ -688,7 +688,7 @@ def run_coral_until_done(task: CoralTask, env: Dict[str, str], attempts: int, ma
                     proc.kill()
                 proc.wait(timeout=10)
         if env.get("FRONTIER_OR_ANTI_HACK") == "1":
-            from frontieror.infra.agent.runtime import (
+            from infra.agent.runtime import (
                 cleanup_secure_runtime,
                 finalize_secure_runtime_audit,
             )

@@ -12,7 +12,7 @@ import tempfile
 import uuid
 from pathlib import Path
 
-from frontieror.infra.files import read_regular_file
+from infra.files import read_regular_file
 from scripts.utils.task_paths import gurobi_solution_path, instance_path
 
 
@@ -43,7 +43,7 @@ def build_isolated_checker_cmd(
     cfg: dict,
 ) -> list[str]:
     """Build the no-network Docker command used for untrusted checker input."""
-    from frontieror.infra import execution
+    from infra import execution
 
     paper_root = Path(paper_dir).resolve()
     instance_path = Path(instance_file).resolve()
@@ -173,8 +173,8 @@ def run_checker_isolated(
     timeout: int = 60,
 ) -> tuple[bool, str, float]:
     """Evaluate untrusted solution data in a separate trusted-checker sandbox."""
-    from frontieror.infra import execution
-    from frontieror.infra.files import sha256_regular_file
+    from infra import execution
+    from infra.files import sha256_regular_file
 
     sha256_regular_file(
         solution_file,
@@ -231,7 +231,7 @@ def _run_checker(
     solution_file: str,
     result_file: str,
 ) -> dict:
-    from frontieror.infra.execution import _exec
+    from infra.execution import _exec
 
     success, output, _ = _exec(
         [

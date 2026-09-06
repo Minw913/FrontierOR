@@ -17,8 +17,8 @@ from joblib import parallel_backend
 
 import one_shot_eval as eval_core
 from test_time_self_evolution import eval_modes
-from frontieror.infra.checkers import validate_objective_checker
-from frontieror.infra.policy import (
+from infra.checkers import validate_objective_checker
+from infra.policy import (
     validate_anti_hack_runtime,
 )
 from test_time_self_evolution.eoh.problem_adapter import (
@@ -573,10 +573,10 @@ def patch_eoh_i1_with_oneshot_seed(
     the standard POSIX mutex primitive.
 
     Path lookup matches OpenEvolve's helper (``_try_reuse_oneshot_seed``):
-    ``eval/eval_papers/<paper>/<model_short>/code_attempt0.py``.
+    ``eval/eval_tasks/<paper>/<model_short>/code_attempt0.py``.
     """
     src = os.path.join(
-        ROOT_DIR, "eval", "eval_papers", paper_id, model_short, "code_attempt0.py",
+        ROOT_DIR, "eval", "eval_tasks", paper_id, model_short, "code_attempt0.py",
     )
     if not os.path.exists(src) or os.path.getsize(src) == 0:
         return False

@@ -15,8 +15,8 @@ import time
 from pathlib import Path
 from typing import Any
 
-from frontieror.infra.agent.model_proxy import agent_token
-from frontieror.infra.agent.protocol import AgentHandle, write_agent_log_entry
+from infra.agent.model_proxy import agent_token
+from infra.agent.protocol import AgentHandle, write_agent_log_entry
 
 logger = logging.getLogger(__name__)
 DEFAULT_IMAGE = "frontieror-coral-agent:0.1"
@@ -749,7 +749,7 @@ class SecureCodexRuntime:
         if _docker("image", "inspect", image, check=False).returncode != 0:
             raise RuntimeError(
                 f"Secure CORAL image {image!r} is not built. Run: "
-                "docker build -f frontieror/infra/docker/agent.Dockerfile "
+                "docker build -f infra/docker/agent.Dockerfile "
                 f"-t {image} ."
             )
         image_digest = _image_digest(image)
@@ -771,7 +771,7 @@ class SecureCodexRuntime:
                 raise RuntimeError(
                     f"Secure CORAL model proxy image {model_proxy_image!r} is not "
                     "built. Run: docker build -f "
-                    "frontieror/infra/docker/model-proxy.Dockerfile "
+                    "infra/docker/model-proxy.Dockerfile "
                     f"-t {model_proxy_image} ."
                 )
             model_proxy_image_digest = _image_digest(model_proxy_image)

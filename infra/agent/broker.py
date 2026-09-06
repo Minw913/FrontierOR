@@ -9,7 +9,7 @@ import subprocess
 from datetime import UTC, datetime
 from pathlib import Path
 
-from frontieror.infra.files import SecureFileError, read_regular_file
+from infra.files import SecureFileError, read_regular_file
 
 
 MAX_REQUEST_BYTES = 64 * 1024

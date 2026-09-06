@@ -27,7 +27,7 @@ except ImportError:  # pragma: no cover - only used when CORAL is absent in unit
             return {"score": score, "message": message, "feedback": feedback}
 
 
-ROOT_DIR = os.fspath(Path(__file__).resolve().parents[3])
+ROOT_DIR = os.fspath(Path(__file__).resolve().parents[2])
 if ROOT_DIR not in sys.path:
     sys.path.insert(0, ROOT_DIR)
 

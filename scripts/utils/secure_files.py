@@ -1,3 +1,3 @@
-"""Compatibility imports for ``frontieror.infra.files``."""
+"""Compatibility imports for ``infra.files``."""
 
-from frontieror.infra.files import *  # noqa: F401,F403
+from infra.files import *  # noqa: F401,F403

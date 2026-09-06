@@ -9,9 +9,9 @@ import tempfile
 from pathlib import Path
 from typing import Any
 
-from frontieror.infra import execution
-from frontieror.infra.checkers import run_checker_isolated
-from frontieror.infra.files import read_regular_file
+from infra import execution
+from infra.checkers import run_checker_isolated
+from infra.files import read_regular_file
 
 
 SCHEMA_VERSION = 1

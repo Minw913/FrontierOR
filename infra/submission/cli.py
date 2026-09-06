@@ -15,20 +15,20 @@ from pathlib import Path
 from typing import Any, Dict, List
 
 import one_shot_eval as eval_core
-from frontieror.infra.checkers import (
+from infra.checkers import (
     feasibility_checker_path,
     validate_objective_checker,
 )
-from frontieror.infra.paths import REPO_ROOT
-from frontieror.infra.policy import (
+from infra.paths import REPO_ROOT
+from infra.policy import (
     DEFAULT_AGENT_DOCKER_IMAGE,
     validate_anti_hack_runtime,
 )
-from frontieror.infra.submission.bundle import (
+from infra.submission.bundle import (
     SubmissionBundleError,
     load_submission_bundle,
 )
-from frontieror.infra.submission.trace import (
+from infra.submission.trace import (
     build_public_leaderboard_row,
     build_trace,
     build_verdict,
@@ -36,7 +36,7 @@ from frontieror.infra.submission.trace import (
     write_json,
     write_jsonl,
 )
-from frontieror.infra.execution import resolve_docker_image, validate_docker_wls
+from infra.execution import resolve_docker_image, validate_docker_wls
 from scripts.utils.task_paths import (
     gurobi_solution_path,
     instance_path,

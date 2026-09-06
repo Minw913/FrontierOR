@@ -78,7 +78,7 @@ def validate_anti_hack_runtime(
 
 @functools.lru_cache(maxsize=16)
 def _resolve_image(image_ref: str) -> str:
-    from frontieror.infra.execution import resolve_docker_image
+    from infra.execution import resolve_docker_image
 
     return resolve_docker_image(image_ref)
 

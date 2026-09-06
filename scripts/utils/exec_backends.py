@@ -2,6 +2,6 @@
 
 import sys
 
-from frontieror.infra import execution as _implementation
+from infra import execution as _implementation
 
 sys.modules[__name__] = _implementation

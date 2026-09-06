@@ -3,6 +3,7 @@ import json
 
 import pytest
 
+import one_shot_eval
 from test_time_self_evolution import eval_modes
 from test_time_self_evolution import run_eval_modes
 from test_time_self_evolution.scoring import building_blocks
@@ -68,6 +69,26 @@ def test_default_final_set_preserves_preset_and_excludes_dev():
     )
 
     assert resolved == ["large_2", "large_4", "large_5"]
+
+
+def test_paper_direction_loads_from_dataset_metadata(tmp_path, monkeypatch):
+    metadata = tmp_path / "metadata"
+    metadata.mkdir()
+    (metadata / "paper_meta_info.json").write_text(
+        json.dumps(
+            [
+                {"paper_id": "paper_min", "direction": "min"},
+                {"paper_id": "paper_max", "direction": "max"},
+            ]
+        ),
+        encoding="utf-8",
+    )
+    monkeypatch.setenv("FRONTIER_OR_DATA_DIR", str(tmp_path))
+    monkeypatch.setattr(one_shot_eval, "_DIRECTIONS_CACHE", None)
+
+    assert one_shot_eval.get_paper_direction("paper_min") == "min"
+    assert one_shot_eval.get_paper_direction("paper_max") == "max"
+    one_shot_eval.validate_paper_directions(["paper_min", "paper_max"])
 
 
 def test_eoh_rejects_empty_population_budget_before_startup():

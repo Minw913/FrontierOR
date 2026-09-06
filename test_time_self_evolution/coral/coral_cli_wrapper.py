@@ -55,8 +55,8 @@ def _patch_anti_hack_runtime() -> None:
         return
     from coral.agent import manager as manager_module
     from coral.agent import registry
-    from frontieror.infra.agent.instructions import generate_secure_coral_md
-    from frontieror.infra.agent.runtime import SecureCodexRuntime
+    from infra.agent.instructions import generate_secure_coral_md
+    from infra.agent.runtime import SecureCodexRuntime
 
     registry.register_runtime("codex", SecureCodexRuntime, default_model="gpt-5.4")
     # AgentManager imported this function by value, so patch its module binding.

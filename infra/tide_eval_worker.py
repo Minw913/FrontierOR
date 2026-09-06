@@ -16,7 +16,7 @@ from typing import Any
 
 
 SCHEMA_VERSION = 1
-REPO_ROOT = Path(__file__).resolve().parents[2]
+REPO_ROOT = Path(__file__).resolve().parents[1]
 IDENTITY_PATTERN = re.compile(r"[A-Za-z0-9][A-Za-z0-9._-]{0,127}")
 
 
@@ -232,13 +232,13 @@ def execute_episode(request: Any, *, root: Path = REPO_ROOT) -> dict[str, Any]:
     if entrypoint not in {"agent", "runner"}:
         raise WorkerRequestError("entrypoint must be 'agent' or 'runner'")
 
-    from frontieror.infra.cli import _agent_parser
+    from infra.cli import _agent_parser
     from test_time_self_evolution import run_eval_modes
 
     if entrypoint == "agent":
         parsed = _agent_parser().parse_args(argv)
         framework = "coral"
-        command = [sys.executable, "-m", "frontieror.infra", "agent", *argv]
+        command = [sys.executable, "-m", "infra", "agent", *argv]
     else:
         parsed = run_eval_modes.parse_args(argv)
         framework = parsed.framework

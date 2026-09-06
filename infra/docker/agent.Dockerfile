@@ -6,9 +6,9 @@ RUN apt-get update \
     && rm -rf /var/lib/apt/lists/* \
     && npm install --global "@openai/codex@${CODEX_VERSION}"
 
-COPY frontieror/infra/agent/codex_entrypoint.py /opt/frontieror/secure_codex_entrypoint.py
-COPY frontieror/infra/agent/egress_proxy.py /opt/frontieror/secure_egress_proxy.py
-COPY frontieror/infra/agent/submit.py /opt/frontieror/secure_submit.py
+COPY infra/agent/codex_entrypoint.py /opt/frontieror/secure_codex_entrypoint.py
+COPY infra/agent/egress_proxy.py /opt/frontieror/secure_egress_proxy.py
+COPY infra/agent/submit.py /opt/frontieror/secure_submit.py
 COPY scripts/utils/solution_logger.py /opt/frontieror/solution_logger.py
 ENV PYTHONPATH=/opt/frontieror
 RUN mkdir -p /home/agent/.codex /codex-home \

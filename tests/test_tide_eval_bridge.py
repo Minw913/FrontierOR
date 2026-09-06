@@ -5,8 +5,8 @@ from types import SimpleNamespace
 
 import pytest
 
-from frontieror.infra import cli as infra_cli
-from frontieror.infra import tide_eval_driver, tide_eval_worker
+from infra import cli as infra_cli
+from infra import tide_eval_driver, tide_eval_worker
 
 
 def _write_csv(path: Path, rows: list[dict[str, str]]) -> None:

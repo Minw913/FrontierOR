@@ -4,11 +4,11 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     gcc g++ ca-certificates && \
     rm -rf /var/lib/apt/lists/*
 
-COPY frontieror/infra/docker/requirements.txt /tmp/requirements.txt
+COPY infra/docker/requirements.txt /tmp/requirements.txt
 RUN pip install --no-cache-dir -r /tmp/requirements.txt
 
 COPY scripts/utils/solution_logger.py /opt/bench/solution_logger.py
-COPY frontieror/infra/wls_proxy.py /opt/bench/restricted_egress_proxy.py
+COPY infra/wls_proxy.py /opt/bench/restricted_egress_proxy.py
 ENV PYTHONPATH=/opt/bench
 ENV GRB_LICENSE_FILE=/opt/gurobi/gurobi.lic
 

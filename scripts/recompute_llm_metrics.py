@@ -2,7 +2,7 @@
 """Recompute stored LLM CSV metrics after Gurobi baselines change.
 
 This script does not rerun generated code or checkers. It reads existing
-LLM outputs under eval/eval_papers/ and refreshes CSV fields that depend on
+LLM outputs under eval/eval_tasks/ and refreshes CSV fields that depend on
 the Gurobi reference objective/runtime:
 
   gap, delta_time, aocc, first_gap
@@ -70,7 +70,7 @@ def _candidate_results_csvs(explicit):
 
 
 def _log_path(paper_id, model, instance):
-    return ROOT_DIR / "eval" / "eval_papers" / paper_id / model / f"log_{instance}.jsonl"
+    return ROOT_DIR / "eval" / "eval_tasks" / paper_id / model / f"log_{instance}.jsonl"
 
 
 def _recompute_row(row, baseline, *, t_max_mode):

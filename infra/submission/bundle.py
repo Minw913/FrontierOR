@@ -10,7 +10,7 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Any, Dict, Optional
 
-from frontieror.infra.files import SecureFileError, read_regular_file
+from infra.files import SecureFileError, read_regular_file
 
 
 REQUIRED_METADATA = (

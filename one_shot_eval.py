@@ -42,10 +42,10 @@ import yaml
 ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
 
 # Directory containing the per-(paper, model) ``code.py`` files to READ from.
-# Defaults to ``<repo>/eval/eval_papers``; overridden via ``--code-root`` (e.g.
+# Defaults to ``<repo>/eval/eval_tasks``; overridden via ``--code-root`` (e.g.
 # ``--code-root samples/oneshot_code`` to evaluate the shipped sample programs).
 # Pipeline WRITES (logs, solutions, intermediate code) always go to
-# ``eval/eval_papers/`` regardless, so the code-root tree stays untouched.
+# ``eval/eval_tasks/`` regardless, so the code-root tree stays untouched.
 CODE_ROOT = None
 
 # Results CSV resolution priority:
@@ -206,15 +206,16 @@ def _load_all_paper_dirs():
     return out
 
 
-# Per-paper optimization direction ("min" or "max") from a versioned registry.
-_DIRECTION_META_PATH = os.path.join(
-    ROOT_DIR, "frontieror", "data", "paper_directions.csv"
-)
+# Per-paper optimization direction ("min" or "max") from dataset metadata.
 _DIRECTIONS_CACHE = None
 
 
+def _paper_meta_info_path():
+    return os.path.join(get_data_dir(), "metadata", "paper_meta_info.json")
+
+
 def _load_directions():
-    """Load {paper_id: 'min'|'max'} from the direction registry CSV.
+    """Load {paper_id: 'min'|'max'} from paper_meta_info.json.
 
     Rows with a missing/malformed direction are deliberately *not* added to
     the dict, so that get_paper_direction() fails loud on them rather than
@@ -224,9 +225,14 @@ def _load_directions():
     if _DIRECTIONS_CACHE is not None:
         return _DIRECTIONS_CACHE
     out = {}
-    if os.path.exists(_DIRECTION_META_PATH):
-        with open(_DIRECTION_META_PATH, newline="", encoding="utf-8") as f:
-            for row in csv.DictReader(f):
+    path = _paper_meta_info_path()
+    if os.path.exists(path):
+        with open(path, "r", encoding="utf-8") as f:
+            data = json.load(f)
+        if isinstance(data, list):
+            for row in data:
+                if not isinstance(row, dict):
+                    continue
                 pid = (row.get("paper_id") or "").strip()
                 d = (row.get("direction") or "").strip().lower()
                 if pid and d in ("min", "max"):
@@ -243,19 +249,21 @@ def get_paper_direction(paper_id):
     quality/QTE score, and for self-evolving frameworks it steers the search
     toward the *worst* solutions. There is therefore NO safe default --
     an unknown direction raises instead of guessing 'min'. Register the
-    paper in ``frontieror/data/paper_directions.csv`` before evaluating it.
+    paper in the dataset ``metadata/paper_meta_info.json`` registry before
+    evaluating it.
     """
     d = _load_directions().get(paper_id)
     if d is None:
-        if not os.path.exists(_DIRECTION_META_PATH):
+        path = _paper_meta_info_path()
+        if not os.path.exists(path):
             raise ValueError(
                 f"Cannot resolve optimization direction for paper "
-                f"{paper_id!r}: direction registry not found at "
-                f"{_DIRECTION_META_PATH}."
+                f"{paper_id!r}: paper metadata not found at "
+                f"{path}."
             )
         raise ValueError(
             f"Cannot resolve optimization direction for paper {paper_id!r}: "
-            f"it has no valid 'min'/'max' row in {_DIRECTION_META_PATH}. "
+            f"it has no valid 'min'/'max' direction in {path}. "
             f"Add one before evaluating -- a missing direction silently "
             f"inverts the paper's quality/QTE scores."
         )
@@ -270,9 +278,10 @@ def validate_paper_directions(paper_ids):
     upfront instead of part-way through (or, worse, silently). Call this
     before doing any evaluation work.
     """
-    if not os.path.exists(_DIRECTION_META_PATH):
+    path = _paper_meta_info_path()
+    if not os.path.exists(path):
         raise ValueError(
-            f"Direction registry not found at {_DIRECTION_META_PATH}; "
+            f"Paper metadata not found at {path}; "
             f"cannot evaluate any paper without it."
         )
     directions = _load_directions()
@@ -280,7 +289,8 @@ def validate_paper_directions(paper_ids):
     if missing:
         raise ValueError(
             f"{len(missing)} paper(s) have no valid 'min'/'max' direction in "
-            f"{_DIRECTION_META_PATH}: {missing}. Add them before evaluating "
+            f"{path}: {missing}. "
+            f"Add them before evaluating "
             f"-- a missing direction silently inverts quality/QTE scores and "
             f"steers self-evolving search toward the worst solutions."
         )
@@ -417,13 +427,13 @@ def get_paper_dir(paper_id):
 
 
 def get_eval_dir(paper_id):
-    d = os.path.join(ROOT_DIR, "eval", "eval_papers", paper_id)
+    d = os.path.join(ROOT_DIR, "eval", "eval_tasks", paper_id)
     os.makedirs(d, exist_ok=True)
     return d
 
 
 def get_model_eval_dir(paper_id, model_name):
-    d = os.path.join(ROOT_DIR, "eval", "eval_papers", paper_id, model_name)
+    d = os.path.join(ROOT_DIR, "eval", "eval_tasks", paper_id, model_name)
     os.makedirs(d, exist_ok=True)
     return d
 
@@ -433,9 +443,9 @@ def get_model_code_dir(paper_id, model_name):
 
     Same as ``get_model_eval_dir`` unless ``--code-root`` overrides the base,
     in which case it points at the user-supplied tree (e.g. ``samples/oneshot_code``)
-    while writes still target ``eval/eval_papers``.
+    while writes still target ``eval/eval_tasks``.
     """
-    base = CODE_ROOT if CODE_ROOT else os.path.join(ROOT_DIR, "eval", "eval_papers")
+    base = CODE_ROOT if CODE_ROOT else os.path.join(ROOT_DIR, "eval", "eval_tasks")
     return os.path.join(base, paper_id, model_name)
 
 
@@ -618,16 +628,16 @@ from exec_backends import (
     _exec as run_bounded_process,
     validate_docker_wls,
 )
-from frontieror.infra.checkers import (
+from infra.checkers import (
     feasibility_checker_path,
     run_checker_isolated,
     validate_objective_checker,
 )
-from frontieror.infra.policy import (
+from infra.policy import (
     validate_anti_hack_runtime,
     with_anti_hack_exec_cfg,
 )
-from frontieror.infra.files import SecureFileError, copy_regular_file, read_regular_file
+from infra.files import SecureFileError, copy_regular_file, read_regular_file
 from task_paths import (
     DEFAULT_INSTANCES,
     instance_path as _instance_path,
@@ -2886,10 +2896,10 @@ def main():
     parser.add_argument("--code-root", type=str, default=None,
                         help="Directory to read code.py from, layout "
                              "<code-root>/<paper>/<model>/code.py "
-                             "(default: eval/eval_papers). Quick Start uses "
+                             "(default: eval/eval_tasks). Quick Start uses "
                              "'samples/oneshot_code' to evaluate the shipped "
                              "pre-generated programs directly. Pipeline writes "
-                             "still go to eval/eval_papers regardless.")
+                             "still go to eval/eval_tasks regardless.")
     parser.add_argument("--results_csv", type=str, default=None,
                         help="Path to the results CSV (default: "
                              "eval/eval_results.csv). Use a per-run file to "
