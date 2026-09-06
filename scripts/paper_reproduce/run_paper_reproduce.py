@@ -24,22 +24,21 @@ Paper selection priority (highest to lowest):
 
 Usage examples:
     # Paper-first (default): run all scripts per paper
-    python run_pipeline.py
+    python scripts/paper_reproduce/run_paper_reproduce.py
 
     # Script-first: run each script across all papers
-    python run_pipeline.py --order script
+    python scripts/paper_reproduce/run_paper_reproduce.py --order script
 
     # Run only scripts 0-2 for specific papers, 3 papers in parallel:
-    python run_pipeline.py --run_scripts 0-2 --paper-id mingozzi1999 amaldi2013 --workers 3
+    python scripts/paper_reproduce/run_paper_reproduce.py --run_scripts 0-2 --paper-id mingozzi1999 amaldi2013 --workers 3
 
     # Resume from a specific paper (paper-first only):
-    python run_pipeline.py --continue-from adulyasak2015
+    python scripts/paper_reproduce/run_paper_reproduce.py --continue-from adulyasak2015
 
     # All arguments combined:
-    python run_pipeline.py --order paper --run_scripts 0-4 --paper-id mingozzi1999 \
-                           --exclude-paper-id roberti2021 \
-                           --num_instances 10 --workers 2 \
-                           --instances tiny large_1 --time_limit 3600
+    python scripts/paper_reproduce/run_paper_reproduce.py --order paper --run_scripts 0-4 --paper-id mingozzi1999 \
+        --exclude-paper-id roberti2021 --num_instances 10 --workers 2 \
+        --instances tiny large_1 --time_limit 3600
 """
 
 import argparse
@@ -52,7 +51,7 @@ import threading
 from collections import defaultdict
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
-BASE_DIR = os.path.abspath(os.path.dirname(__file__))
+BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 USAGE_LOG = os.path.join(BASE_DIR, "token_usage.jsonl")
 PAPER_DATA_DIR = os.path.join(BASE_DIR, "data", "paper_data")
 

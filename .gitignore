@@ -5,7 +5,7 @@ FrontierOR/
 # Source PDFs — copyright belongs to publishers, not redistributable
 source_paper/
 
-# Hardlink staging tree built by scripts/publish_to_hf.py
+# Hardlink staging tree built by private HF publishing scripts
 _publish_staging/
 
 # Locally cloned benchmark/framework references
@@ -39,13 +39,9 @@ results/
 
 # Local planning / draft documents
 main.pdf
-merge.md
-new_leaderboard_budget.md
-one-shot_submission_adapter_examples.md
-participate.md
-self_evolve_submission_adapter_examples.md
-skill4task.md
-task_submit_plan.md
+local_docs/
+private/
+scripts/private/
 /FrontierOR_variants/
 
 # Draft community submission templates
