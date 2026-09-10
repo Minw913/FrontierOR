@@ -78,9 +78,16 @@ def validate_anti_hack_runtime(
 
 @functools.lru_cache(maxsize=16)
 def _resolve_image(image_ref: str) -> str:
-    from trusted_eval_infra.execution import resolve_docker_image
+    from trusted_eval_infra.execution import resolve_docker_image, validate_image_sources
+    from pathlib import Path
 
-    return resolve_docker_image(image_ref)
+    digest = resolve_docker_image(image_ref)
+    root = Path(__file__).resolve().parents[1]
+    validate_image_sources(digest, (
+        (str(root / "scripts/utils/solution_logger.py"), "/opt/bench/solution_logger.py"),
+        (str(root / "trusted_eval_infra/candidate_export.py"), "/opt/bench/candidate_export.py"),
+    ))
+    return digest
 
 
 # Name retained for callers from the pre-package implementation.

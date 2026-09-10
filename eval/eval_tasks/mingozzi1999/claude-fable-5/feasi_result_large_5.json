@@ -1,0 +1,19 @@
+{
+  "feasible": false,
+  "violated_constraints": [
+    5
+  ],
+  "violations": [
+    "Number of connecting arcs (A_0) is 1, should be exactly 3"
+  ],
+  "violation_magnitudes": [
+    {
+      "constraint": 5,
+      "lhs": 1.0,
+      "rhs": 3.0,
+      "raw_excess": 2.0,
+      "normalizer": 3.0,
+      "ratio": 0.6666666666666666
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "feasible": false,
+  "violated_constraints": [
+    9
+  ],
+  "violations": [
+    "Constraint (9): total_distance=5731.367073 does not equal the route-derived distance=5722.4"
+  ],
+  "violation_magnitudes": [
+    {
+      "constraint": 9,
+      "lhs": 5731.367073,
+      "rhs": 5722.4,
+      "raw_excess": 8.96707300000071,
+      "normalizer": 5722.4,
+      "ratio": 0.0015670126170838651
+    }
+  ]
+}

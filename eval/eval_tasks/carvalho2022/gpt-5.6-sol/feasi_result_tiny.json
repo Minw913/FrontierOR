@@ -1,0 +1,47 @@
+{
+  "feasible": false,
+  "violated_constraints": [
+    5,
+    6
+  ],
+  "violations": [
+    "Setup state count: machine 0, period 5: sum_z=0, expected=1",
+    "Setup state count: machine 1, period 5: sum_z=0, expected=1",
+    "Flow conservation: item 3, machine 1, period 4: in=1, out=0",
+    "Flow conservation: item 4, machine 0, period 4: in=1, out=0"
+  ],
+  "violation_magnitudes": [
+    {
+      "constraint": 5,
+      "lhs": 0,
+      "rhs": 1,
+      "raw_excess": 1,
+      "normalizer": 1,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 5,
+      "lhs": 0,
+      "rhs": 1,
+      "raw_excess": 1,
+      "normalizer": 1,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 6,
+      "lhs": 1,
+      "rhs": 0,
+      "raw_excess": 1,
+      "normalizer": 1e-05,
+      "ratio": 100000.0
+    },
+    {
+      "constraint": 6,
+      "lhs": 1,
+      "rhs": 0,
+      "raw_excess": 1,
+      "normalizer": 1e-05,
+      "ratio": 100000.0
+    }
+  ]
+}

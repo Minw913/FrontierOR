@@ -1,0 +1,307 @@
+{
+  "feasible": false,
+  "violated_constraints": [
+    3
+  ],
+  "violations": [
+    "Route 1 contains invalid customer ID 81 (must be integer in [1, 80])",
+    "Route 2 contains invalid customer ID 111 (must be integer in [1, 80])",
+    "Route 2 contains invalid customer ID 88 (must be integer in [1, 80])",
+    "Route 3 contains invalid customer ID 98 (must be integer in [1, 80])",
+    "Route 3 contains invalid customer ID 105 (must be integer in [1, 80])",
+    "Route 3 contains invalid customer ID 91 (must be integer in [1, 80])",
+    "Route 3 contains invalid customer ID 110 (must be integer in [1, 80])",
+    "Route 4 contains invalid customer ID 107 (must be integer in [1, 80])",
+    "Route 4 contains invalid customer ID 102 (must be integer in [1, 80])",
+    "Route 5 contains invalid customer ID 86 (must be integer in [1, 80])",
+    "Route 5 contains invalid customer ID 84 (must be integer in [1, 80])",
+    "Route 7 contains invalid customer ID 103 (must be integer in [1, 80])",
+    "Route 7 contains invalid customer ID 92 (must be integer in [1, 80])",
+    "Route 7 contains invalid customer ID 96 (must be integer in [1, 80])",
+    "Route 9 contains invalid customer ID 108 (must be integer in [1, 80])",
+    "Route 10 contains invalid customer ID 89 (must be integer in [1, 80])",
+    "Route 10 contains invalid customer ID 113 (must be integer in [1, 80])",
+    "Route 10 contains invalid customer ID 90 (must be integer in [1, 80])",
+    "Route 10 contains invalid customer ID 94 (must be integer in [1, 80])",
+    "Route 10 contains invalid customer ID 104 (must be integer in [1, 80])",
+    "Route 10 contains invalid customer ID 82 (must be integer in [1, 80])",
+    "Route 11 contains invalid customer ID 95 (must be integer in [1, 80])",
+    "Route 11 contains invalid customer ID 85 (must be integer in [1, 80])",
+    "Route 12 contains invalid customer ID 87 (must be integer in [1, 80])",
+    "Route 12 contains invalid customer ID 83 (must be integer in [1, 80])",
+    "Route 13 contains invalid customer ID 100 (must be integer in [1, 80])",
+    "Route 13 contains invalid customer ID 99 (must be integer in [1, 80])",
+    "Route 13 contains invalid customer ID 106 (must be integer in [1, 80])",
+    "Route 13 contains invalid customer ID 93 (must be integer in [1, 80])",
+    "Route 13 contains invalid customer ID 97 (must be integer in [1, 80])",
+    "Route 14 contains invalid customer ID 101 (must be integer in [1, 80])",
+    "Route 14 contains invalid customer ID 112 (must be integer in [1, 80])",
+    "Route 14 contains invalid customer ID 109 (must be integer in [1, 80])"
+  ],
+  "violation_magnitudes": [
+    {
+      "constraint": 3,
+      "lhs": 81.0,
+      "rhs": 0.0,
+      "raw_excess": 1.0,
+      "normalizer": 1e-05,
+      "ratio": 99999.99999999999
+    },
+    {
+      "constraint": 3,
+      "lhs": 111.0,
+      "rhs": 0.0,
+      "raw_excess": 1.0,
+      "normalizer": 1e-05,
+      "ratio": 99999.99999999999
+    },
+    {
+      "constraint": 3,
+      "lhs": 88.0,
+      "rhs": 0.0,
+      "raw_excess": 1.0,
+      "normalizer": 1e-05,
+      "ratio": 99999.99999999999
+    },
+    {
+      "constraint": 3,
+      "lhs": 98.0,
+      "rhs": 0.0,
+      "raw_excess": 1.0,
+      "normalizer": 1e-05,
+      "ratio": 99999.99999999999
+    },
+    {
+      "constraint": 3,
+      "lhs": 105.0,
+      "rhs": 0.0,
+      "raw_excess": 1.0,
+      "normalizer": 1e-05,
+      "ratio": 99999.99999999999
+    },
+    {
+      "constraint": 3,
+      "lhs": 91.0,
+      "rhs": 0.0,
+      "raw_excess": 1.0,
+      "normalizer": 1e-05,
+      "ratio": 99999.99999999999
+    },
+    {
+      "constraint": 3,
+      "lhs": 110.0,
+      "rhs": 0.0,
+      "raw_excess": 1.0,
+      "normalizer": 1e-05,
+      "ratio": 99999.99999999999
+    },
+    {
+      "constraint": 3,
+      "lhs": 107.0,
+      "rhs": 0.0,
+      "raw_excess": 1.0,
+      "normalizer": 1e-05,
+      "ratio": 99999.99999999999
+    },
+    {
+      "constraint": 3,
+      "lhs": 102.0,
+      "rhs": 0.0,
+      "raw_excess": 1.0,
+      "normalizer": 1e-05,
+      "ratio": 99999.99999999999
+    },
+    {
+      "constraint": 3,
+      "lhs": 86.0,
+      "rhs": 0.0,
+      "raw_excess": 1.0,
+      "normalizer": 1e-05,
+      "ratio": 99999.99999999999
+    },
+    {
+      "constraint": 3,
+      "lhs": 84.0,
+      "rhs": 0.0,
+      "raw_excess": 1.0,
+      "normalizer": 1e-05,
+      "ratio": 99999.99999999999
+    },
+    {
+      "constraint": 3,
+      "lhs": 103.0,
+      "rhs": 0.0,
+      "raw_excess": 1.0,
+      "normalizer": 1e-05,
+      "ratio": 99999.99999999999
+    },
+    {
+      "constraint": 3,
+      "lhs": 92.0,
+      "rhs": 0.0,
+      "raw_excess": 1.0,
+      "normalizer": 1e-05,
+      "ratio": 99999.99999999999
+    },
+    {
+      "constraint": 3,
+      "lhs": 96.0,
+      "rhs": 0.0,
+      "raw_excess": 1.0,
+      "normalizer": 1e-05,
+      "ratio": 99999.99999999999
+    },
+    {
+      "constraint": 3,
+      "lhs": 108.0,
+      "rhs": 0.0,
+      "raw_excess": 1.0,
+      "normalizer": 1e-05,
+      "ratio": 99999.99999999999
+    },
+    {
+      "constraint": 3,
+      "lhs": 89.0,
+      "rhs": 0.0,
+      "raw_excess": 1.0,
+      "normalizer": 1e-05,
+      "ratio": 99999.99999999999
+    },
+    {
+      "constraint": 3,
+      "lhs": 113.0,
+      "rhs": 0.0,
+      "raw_excess": 1.0,
+      "normalizer": 1e-05,
+      "ratio": 99999.99999999999
+    },
+    {
+      "constraint": 3,
+      "lhs": 90.0,
+      "rhs": 0.0,
+      "raw_excess": 1.0,
+      "normalizer": 1e-05,
+      "ratio": 99999.99999999999
+    },
+    {
+      "constraint": 3,
+      "lhs": 94.0,
+      "rhs": 0.0,
+      "raw_excess": 1.0,
+      "normalizer": 1e-05,
+      "ratio": 99999.99999999999
+    },
+    {
+      "constraint": 3,
+      "lhs": 104.0,
+      "rhs": 0.0,
+      "raw_excess": 1.0,
+      "normalizer": 1e-05,
+      "ratio": 99999.99999999999
+    },
+    {
+      "constraint": 3,
+      "lhs": 82.0,
+      "rhs": 0.0,
+      "raw_excess": 1.0,
+      "normalizer": 1e-05,
+      "ratio": 99999.99999999999
+    },
+    {
+      "constraint": 3,
+      "lhs": 95.0,
+      "rhs": 0.0,
+      "raw_excess": 1.0,
+      "normalizer": 1e-05,
+      "ratio": 99999.99999999999
+    },
+    {
+      "constraint": 3,
+      "lhs": 85.0,
+      "rhs": 0.0,
+      "raw_excess": 1.0,
+      "normalizer": 1e-05,
+      "ratio": 99999.99999999999
+    },
+    {
+      "constraint": 3,
+      "lhs": 87.0,
+      "rhs": 0.0,
+      "raw_excess": 1.0,
+      "normalizer": 1e-05,
+      "ratio": 99999.99999999999
+    },
+    {
+      "constraint": 3,
+      "lhs": 83.0,
+      "rhs": 0.0,
+      "raw_excess": 1.0,
+      "normalizer": 1e-05,
+      "ratio": 99999.99999999999
+    },
+    {
+      "constraint": 3,
+      "lhs": 100.0,
+      "rhs": 0.0,
+      "raw_excess": 1.0,
+      "normalizer": 1e-05,
+      "ratio": 99999.99999999999
+    },
+    {
+      "constraint": 3,
+      "lhs": 99.0,
+      "rhs": 0.0,
+      "raw_excess": 1.0,
+      "normalizer": 1e-05,
+      "ratio": 99999.99999999999
+    },
+    {
+      "constraint": 3,
+      "lhs": 106.0,
+      "rhs": 0.0,
+      "raw_excess": 1.0,
+      "normalizer": 1e-05,
+      "ratio": 99999.99999999999
+    },
+    {
+      "constraint": 3,
+      "lhs": 93.0,
+      "rhs": 0.0,
+      "raw_excess": 1.0,
+      "normalizer": 1e-05,
+      "ratio": 99999.99999999999
+    },
+    {
+      "constraint": 3,
+      "lhs": 97.0,
+      "rhs": 0.0,
+      "raw_excess": 1.0,
+      "normalizer": 1e-05,
+      "ratio": 99999.99999999999
+    },
+    {
+      "constraint": 3,
+      "lhs": 101.0,
+      "rhs": 0.0,
+      "raw_excess": 1.0,
+      "normalizer": 1e-05,
+      "ratio": 99999.99999999999
+    },
+    {
+      "constraint": 3,
+      "lhs": 112.0,
+      "rhs": 0.0,
+      "raw_excess": 1.0,
+      "normalizer": 1e-05,
+      "ratio": 99999.99999999999
+    },
+    {
+      "constraint": 3,
+      "lhs": 109.0,
+      "rhs": 0.0,
+      "raw_excess": 1.0,
+      "normalizer": 1e-05,
+      "ratio": 99999.99999999999
+    }
+  ]
+}

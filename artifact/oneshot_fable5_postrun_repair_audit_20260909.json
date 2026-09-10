@@ -1,0 +1,39 @@
+{
+  "run_status": "completed",
+  "run_exit_code": 0,
+  "row_count": 1074,
+  "unique_key_count": 1074,
+  "paper_count": 179,
+  "status_counts": {
+    "pass": 670,
+    "fail": 184,
+    "gate_fail": 220
+  },
+  "duplicate_keys": [],
+  "incomplete_papers": {},
+  "false_gates_on_passing_tiny": [],
+  "non_gate_rows_on_failed_tiny": [],
+  "checker_errors": [],
+  "missing_instances": [
+    [
+      "segundo2019",
+      "large_3"
+    ],
+    [
+      "segundo2019",
+      "large_4"
+    ]
+  ],
+  "allowed_data_block": [
+    [
+      "segundo2019",
+      "large_3"
+    ],
+    [
+      "segundo2019",
+      "large_4"
+    ]
+  ],
+  "repair_log_infrastructure_markers": [],
+  "audit_pass": true
+}

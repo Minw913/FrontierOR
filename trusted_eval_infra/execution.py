@@ -13,6 +13,10 @@ All backends share the same interface:
 
 import contextlib
 import fcntl
+import functools
+import hashlib
+import json
+import math
 import os
 import shutil
 import signal
@@ -26,6 +30,7 @@ import uuid
 from pathlib import Path
 
 from trusted_eval_infra.contracts import CANDIDATE_SHUTDOWN_RESERVE_SECONDS
+from trusted_eval_infra.files import copy_regular_file
 
 # Default resource limits
 DEFAULT_CPUS = 1          # number of CPU cores
@@ -39,6 +44,22 @@ WLS_EGRESS_MODES = frozenset({"auto", "off", "required"})
 WLS_TOKEN_HOST = "token.gurobi.com"
 DEFAULT_WLS_CONCURRENCY = 0
 MAX_WLS_CONCURRENCY = 64
+
+
+@functools.lru_cache(maxsize=32)
+def validate_image_sources(image: str, sources: tuple[tuple[str, str], ...]) -> None:
+    """Fail before spending model budget on a stale runtime image."""
+    expected = {target: hashlib.sha256(Path(source).read_bytes()).hexdigest()
+                for source, target in sources}
+    script = "import hashlib,json,pathlib; expected=json.loads(__import__('sys').argv[1]); assert all(hashlib.sha256(pathlib.Path(p).read_bytes()).hexdigest()==h for p,h in expected.items()), 'runtime image sources are stale'"
+    result = subprocess.run(
+        ["docker", "run", "--rm", "--network=none", "--read-only", "--cap-drop=ALL",
+         "--security-opt=no-new-privileges", "--pids-limit=32", "--memory=128m",
+         image, "python3", "-c", script, json.dumps(expected)],
+        capture_output=True, text=True, timeout=30,
+    )
+    if result.returncode:
+        raise RuntimeError(f"runtime image {image} is stale or incomplete; rebuild its Dockerfile")
 
 
 def resolve_docker_image(image: str) -> str:
@@ -144,6 +165,11 @@ def _wls_execution_slot(cfg: dict):
     if concurrency == 0:
         yield None
         return
+    release_delay = float(cfg.get("wls_release_delay_seconds", os.environ.get("FRONTIER_OR_WLS_RELEASE_DELAY_SECONDS", "0")))
+    if not 0 <= release_delay <= 3660:
+        raise ValueError("WLS release delay must be between 0 and 3660 seconds")
+    queue_timeout = wls_queue_timeout_seconds(cfg)
+    queue_deadline = time.monotonic() + queue_timeout
 
     runtime_root = os.environ.get("XDG_RUNTIME_DIR")
     if not runtime_root:
@@ -151,13 +177,19 @@ def _wls_execution_slot(cfg: dict):
             tempfile.gettempdir(),
             f"frontieror-wls-{os.getuid()}",
         )
-    lock_dir = os.path.join(runtime_root, "frontieror-wls-slots")
+    # Copies of one license share slots; independent licenses do not block
+    # each other. Hash only the license ID, never the access key or secret.
+    license_id = _wls_license_fields(license_path)["LICENSEID"]
+    license_scope = hashlib.sha256(license_id.encode()).hexdigest()[:16]
+    lock_dir = os.path.join(runtime_root, "frontieror-wls-slots", license_scope)
     os.makedirs(lock_dir, mode=0o700, exist_ok=True)
 
     flags = os.O_RDWR | os.O_CREAT | getattr(os, "O_CLOEXEC", 0)
     if hasattr(os, "O_NOFOLLOW"):
         flags |= os.O_NOFOLLOW
     while True:
+        if time.monotonic() >= queue_deadline:
+            raise RuntimeError("WLS license queue timed out before candidate execution")
         for index in range(concurrency):
             path = os.path.join(lock_dir, f"slot-{index}.lock")
             fd = os.open(path, flags, 0o600)
@@ -167,12 +199,38 @@ def _wls_execution_slot(cfg: dict):
                 os.close(fd)
                 continue
             try:
-                yield index
+                raw = os.read(fd, 128)
+                available_after = float(raw or b"0")
+                if available_after > time.time():
+                    continue
+                if release_delay:
+                    # Persist a conservative reservation before starting a
+                    # process, so a killed grader cannot immediately reuse it.
+                    reserved_until = time.time() + float(cfg.get("_wls_max_execution_seconds", 3600)) + release_delay
+                    os.lseek(fd, 0, os.SEEK_SET)
+                    os.ftruncate(fd, 0)
+                    os.write(fd, str(reserved_until).encode())
+                    os.fsync(fd)
+                try:
+                    yield index
+                finally:
+                    if release_delay:
+                        os.lseek(fd, 0, os.SEEK_SET)
+                        os.ftruncate(fd, 0)
+                        os.write(fd, str(time.time() + release_delay).encode())
+                        os.fsync(fd)
             finally:
                 fcntl.flock(fd, fcntl.LOCK_UN)
                 os.close(fd)
             return
         time.sleep(0.1)
+
+
+def wls_queue_timeout_seconds(cfg: dict) -> float:
+    value = float(cfg.get("wls_queue_timeout_seconds", os.environ.get("FRONTIER_OR_WLS_QUEUE_TIMEOUT_SECONDS", "14400")))
+    if not math.isfinite(value) or value <= 0:
+        raise ValueError("WLS queue timeout must be finite and positive")
+    return value
 
 
 def _docker_control(args: list[str], *, timeout: float = 30) -> subprocess.CompletedProcess:
@@ -350,9 +408,11 @@ p.add_argument("--instance_path", required=True)
 p.add_argument("--solution_path", required=True)
 p.add_argument("--time_limit", required=True)
 p.add_argument("--log_path")
-p.parse_args()
+args = p.parse_args()
 env = gp.Env()
 env.close()
+with open(args.solution_path, "w") as solution:
+    solution.write("{}")
 print("FRONTIEROR_WLS_READY")
 """
     with tempfile.TemporaryDirectory(prefix="frontieror-wls-preflight-") as root:
@@ -608,12 +668,15 @@ def build_docker_cmd(code_path, instance_path, solution_path, time_limit,
     c_solution = f"/workspace/output/{os.path.basename(solution_path)}"
     c_log = None
     if anti_hack:
+        output_volume = cfg.get("_private_output_volume")
+        if not output_volume or not str(output_volume).startswith("frontieror-output-"):
+            raise ValueError("hardened Docker requires a per-execution private output volume")
         volumes += [
             "--mount",
-            f"type=bind,src={os.path.abspath(solution_path)},dst={c_solution}",
+            f"type=volume,src={output_volume},dst=/workspace/output,volume-nocopy",
         ]
         if log_path:
-            c_log = f"/workspace/output/{os.path.basename(log_path)}"
+            c_log = "/workspace/logs/log.fifo"
             volumes += [
                 "--mount",
                 f"type=bind,src={os.path.abspath(log_path)},dst={c_log}",
@@ -655,11 +718,6 @@ def build_docker_cmd(code_path, instance_path, solution_path, time_limit,
             "fsize={0}:{0}".format(
                 int(cfg.get("max_output_file_bytes", DEFAULT_OUTPUT_FILE_BYTES))
             ),
-            "--tmpfs",
-            (
-                f"/workspace/output:rw,nosuid,nodev,size=64m,"
-                f"uid={os.getuid()},gid={os.getgid()},mode=0700"
-            ),
             "--tmpfs", "/tmp:rw,nosuid,nodev,size=1g",
         ]
     if core_set:
@@ -690,10 +748,41 @@ def build_docker_cmd(code_path, instance_path, solution_path, time_limit,
     return cmd
 
 
+@contextlib.contextmanager
+def _private_output_volume(cfg):
+    """Keep a bounded tmpfs alive until the stopped candidate's output is read.
+
+    The holder has no code, data, network, or credentials. Its only purpose is
+    to retain the volume mount and export the validated final file. No shared
+    host directory is ever writable by candidate code.
+    """
+    name = "frontieror-output-" + uuid.uuid4().hex
+    image = cfg.get("docker_image", DEFAULT_DOCKER_IMAGE)
+    limit = int(cfg.get("max_solution_bytes", DEFAULT_OUTPUT_FILE_BYTES))
+    size = 2 * limit + 64 * 1024 * 1024  # final file plus atomic temporary file
+    def docker(*args):
+        return subprocess.run(["docker", *args], capture_output=True, text=True, timeout=30, check=True)
+    docker("volume", "create", "--driver", "local", "--opt", "type=tmpfs",
+           "--opt", "device=tmpfs", "--opt",
+           f"o=size={size},uid={os.getuid()},gid={os.getgid()},mode=0700,nosuid,nodev", name)
+    try:
+        docker("run", "-d", "--rm", "--name", name, "--network=none",
+               "--read-only", "--cap-drop=ALL", "--security-opt=no-new-privileges",
+               "--pids-limit=16", "--memory=128m", "--log-driver=none",
+               f"--user={os.getuid()}:{os.getgid()}", "--mount",
+               f"type=volume,src={name},dst=/output,readonly,volume-nocopy",
+               image, "python3", "-c", "import time; time.sleep(86400)")
+        yield name, limit
+    finally:
+        subprocess.run(["docker", "rm", "-f", name], capture_output=True, timeout=30)
+        subprocess.run(["docker", "volume", "rm", name], capture_output=True, timeout=30)
+
+
 def run_docker(code_path, instance_path, solution_path, time_limit,
                log_path=None, cfg=None):
     """Run inside a Docker container with resource limits (pinned 1 core by default)."""
     effective_cfg = dict(cfg or {})
+    effective_cfg["_wls_max_execution_seconds"] = float(time_limit) + 120
     configured_license = str(
         effective_cfg.get(
             "gurobi_lic",
@@ -718,18 +807,39 @@ def run_docker(code_path, instance_path, solution_path, time_limit,
                     effective_cfg["_restricted_network"] = egress["network"]
                     effective_cfg["_restricted_proxy"] = egress["proxy_url"]
                     redactions = egress["redactions"]
-                cmd = build_docker_cmd(
-                    code_path,
-                    instance_path,
-                    solution_path,
-                    time_limit,
-                    log_path,
-                    effective_cfg,
-                )
-                success, output, elapsed = _exec(cmd, time_limit)
+                with contextlib.ExitStack() as stack:
+                    candidate_solution = solution_path
+                    if effective_cfg.get("anti_hack"):
+                        volume, limit = stack.enter_context(_private_output_volume(effective_cfg))
+                        effective_cfg["_private_output_volume"] = volume
+                        private_output = stack.enter_context(
+                            tempfile.TemporaryDirectory(prefix="frontieror-output-")
+                        )
+                        candidate_solution = os.path.join(private_output, "solution.json")
+                    cmd = build_docker_cmd(
+                        code_path, instance_path, candidate_solution, time_limit,
+                        log_path, effective_cfg,
+                    )
+                    success, output, elapsed = _exec(cmd, time_limit)
+                    if success and effective_cfg.get("anti_hack"):
+                        try:
+                            with open(candidate_solution, "xb") as exported:
+                                result = subprocess.run(
+                                    ["docker", "exec", volume, "python3", "/opt/bench/candidate_export.py", str(limit)],
+                                    stdout=exported, stderr=subprocess.PIPE, timeout=30,
+                                )
+                            if result.returncode:
+                                return False, "Invalid candidate output: expected a bounded single-link regular solution file", elapsed
+                            copy_regular_file(
+                                candidate_solution, solution_path,
+                                max_bytes=int(effective_cfg.get("max_solution_bytes", DEFAULT_OUTPUT_FILE_BYTES)),
+                                label="candidate solution",
+                            )
+                        except (OSError, ValueError) as exc:
+                            return False, f"Invalid candidate output: {exc}", elapsed
                 return success, _redact_values(output, redactions), elapsed
-    except (OSError, RuntimeError, ValueError) as exc:
-        return False, f"Restricted WLS setup failed: {exc}", 0.0
+    except (OSError, RuntimeError, ValueError, subprocess.SubprocessError) as exc:
+        return False, f"Docker execution setup/export failed: {exc}", 0.0
 
 
 def _ensure_logger(code_path):

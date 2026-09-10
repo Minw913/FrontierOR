@@ -1,0 +1,1 @@
+{"time": 0.001, "objective_value": 401, "solution": {"objective_value": 401.0, "routes": [{"customers": [5, 1, 10, 8, 3, 4], "cost": 158, "worst_case_demand": 128}, {"customers": [11, 7, 6, 9], "cost": 101, "worst_case_demand": 114}, {"customers": [12, 2], "cost": 142, "worst_case_demand": 99}]}}

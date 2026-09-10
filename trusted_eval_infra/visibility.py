@@ -21,7 +21,8 @@ PUBLIC_TASK_FILES = (
     "instance_schema.json",
     "solution_schema.json",
 )
-MAX_PUBLIC_FILE_BYTES = 512 * 1024 * 1024
+# FrontierOR's fragkos2021 public instances are approximately 1.8 GB each.
+MAX_PUBLIC_FILE_BYTES = 2 * 1024 * 1024 * 1024
 
 
 @dataclass(frozen=True)

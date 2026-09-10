@@ -1,0 +1,381 @@
+{
+  "feasible": false,
+  "violated_constraints": [
+    6,
+    7,
+    8
+  ],
+  "violations": [
+    "Constraint (6): Short-arc dh-task mismatch at (10,36), depot depot_2 (duties=0, y=1)",
+    "Constraint (6): Short-arc dh-task mismatch at (46,72), depot depot_2 (duties=0, y=1)",
+    "Constraint (6): Short-arc dh-task mismatch at (23,43), depot depot_2 (duties=0, y=1)",
+    "Constraint (6): Short-arc dh-task mismatch at (41,50), depot depot_2 (duties=0, y=1)",
+    "Constraint (6): Short-arc dh-task mismatch at (25,47), depot depot_2 (duties=1, y=0)",
+    "Constraint (6): Short-arc dh-task mismatch at (16,52), depot depot_2 (duties=0, y=1)",
+    "Constraint (6): Short-arc dh-task mismatch at (24,44), depot depot_1 (duties=0, y=1)",
+    "Constraint (6): Short-arc dh-task mismatch at (25,31), depot depot_2 (duties=0, y=1)",
+    "Constraint (6): Short-arc dh-task mismatch at (34,57), depot depot_2 (duties=0, y=1)",
+    "Constraint (6): Short-arc dh-task mismatch at (11,20), depot depot_2 (duties=0, y=1)",
+    "Constraint (6): Short-arc dh-task mismatch at (2,47), depot depot_2 (duties=0, y=1)",
+    "Constraint (6): Short-arc dh-task mismatch at (48,69), depot depot_2 (duties=0, y=1)",
+    "Constraint (6): Short-arc dh-task mismatch at (30,56), depot depot_2 (duties=0, y=1)",
+    "Constraint (6): Short-arc dh-task mismatch at (17,38), depot depot_2 (duties=0, y=1)",
+    "Constraint (6): Short-arc dh-task mismatch at (6,42), depot depot_2 (duties=0, y=1)",
+    "Constraint (7): End-to-depot dh-task mismatch at trip 24, depot depot_1 (duties_end=1, y_sink=0, y_long_out=0)",
+    "Constraint (7): End-to-depot dh-task mismatch at trip 2, depot depot_2 (duties_end=1, y_sink=0, y_long_out=0)",
+    "Constraint (7): End-to-depot dh-task mismatch at trip 6, depot depot_2 (duties_end=1, y_sink=0, y_long_out=0)",
+    "Constraint (7): End-to-depot dh-task mismatch at trip 10, depot depot_2 (duties_end=1, y_sink=0, y_long_out=0)",
+    "Constraint (7): End-to-depot dh-task mismatch at trip 11, depot depot_2 (duties_end=1, y_sink=0, y_long_out=0)",
+    "Constraint (7): End-to-depot dh-task mismatch at trip 16, depot depot_2 (duties_end=1, y_sink=0, y_long_out=0)",
+    "Constraint (7): End-to-depot dh-task mismatch at trip 17, depot depot_2 (duties_end=1, y_sink=0, y_long_out=0)",
+    "Constraint (7): End-to-depot dh-task mismatch at trip 23, depot depot_2 (duties_end=1, y_sink=0, y_long_out=0)",
+    "Constraint (7): End-to-depot dh-task mismatch at trip 30, depot depot_2 (duties_end=1, y_sink=0, y_long_out=0)",
+    "Constraint (7): End-to-depot dh-task mismatch at trip 34, depot depot_2 (duties_end=1, y_sink=0, y_long_out=0)",
+    "Constraint (7): End-to-depot dh-task mismatch at trip 41, depot depot_2 (duties_end=1, y_sink=0, y_long_out=0)",
+    "Constraint (7): End-to-depot dh-task mismatch at trip 46, depot depot_2 (duties_end=1, y_sink=0, y_long_out=0)",
+    "Constraint (7): End-to-depot dh-task mismatch at trip 48, depot depot_2 (duties_end=1, y_sink=0, y_long_out=0)",
+    "Constraint (8): Depot-to-start dh-task mismatch at trip 44, depot depot_1 (duties_start=1, y_source=0, y_long_in=0)",
+    "Constraint (8): Depot-to-start dh-task mismatch at trip 20, depot depot_2 (duties_start=1, y_source=0, y_long_in=0)",
+    "Constraint (8): Depot-to-start dh-task mismatch at trip 31, depot depot_2 (duties_start=1, y_source=0, y_long_in=0)",
+    "Constraint (8): Depot-to-start dh-task mismatch at trip 36, depot depot_2 (duties_start=1, y_source=0, y_long_in=0)",
+    "Constraint (8): Depot-to-start dh-task mismatch at trip 38, depot depot_2 (duties_start=1, y_source=0, y_long_in=0)",
+    "Constraint (8): Depot-to-start dh-task mismatch at trip 42, depot depot_2 (duties_start=1, y_source=0, y_long_in=0)",
+    "Constraint (8): Depot-to-start dh-task mismatch at trip 43, depot depot_2 (duties_start=1, y_source=0, y_long_in=0)",
+    "Constraint (8): Depot-to-start dh-task mismatch at trip 50, depot depot_2 (duties_start=1, y_source=0, y_long_in=0)",
+    "Constraint (8): Depot-to-start dh-task mismatch at trip 52, depot depot_2 (duties_start=1, y_source=0, y_long_in=0)",
+    "Constraint (8): Depot-to-start dh-task mismatch at trip 56, depot depot_2 (duties_start=1, y_source=0, y_long_in=0)",
+    "Constraint (8): Depot-to-start dh-task mismatch at trip 57, depot depot_2 (duties_start=1, y_source=0, y_long_in=0)",
+    "Constraint (8): Depot-to-start dh-task mismatch at trip 69, depot depot_2 (duties_start=1, y_source=0, y_long_in=0)",
+    "Constraint (8): Depot-to-start dh-task mismatch at trip 72, depot depot_2 (duties_start=1, y_source=0, y_long_in=0)"
+  ],
+  "violation_magnitudes": [
+    {
+      "constraint": 6,
+      "lhs": -1.0,
+      "rhs": 0.0,
+      "raw_excess": 1.0,
+      "normalizer": 1e-05,
+      "ratio": 99999.99999999999
+    },
+    {
+      "constraint": 6,
+      "lhs": -1.0,
+      "rhs": 0.0,
+      "raw_excess": 1.0,
+      "normalizer": 1e-05,
+      "ratio": 99999.99999999999
+    },
+    {
+      "constraint": 6,
+      "lhs": -1.0,
+      "rhs": 0.0,
+      "raw_excess": 1.0,
+      "normalizer": 1e-05,
+      "ratio": 99999.99999999999
+    },
+    {
+      "constraint": 6,
+      "lhs": -1.0,
+      "rhs": 0.0,
+      "raw_excess": 1.0,
+      "normalizer": 1e-05,
+      "ratio": 99999.99999999999
+    },
+    {
+      "constraint": 6,
+      "lhs": 1.0,
+      "rhs": 0.0,
+      "raw_excess": 1.0,
+      "normalizer": 1e-05,
+      "ratio": 99999.99999999999
+    },
+    {
+      "constraint": 6,
+      "lhs": -1.0,
+      "rhs": 0.0,
+      "raw_excess": 1.0,
+      "normalizer": 1e-05,
+      "ratio": 99999.99999999999
+    },
+    {
+      "constraint": 6,
+      "lhs": -1.0,
+      "rhs": 0.0,
+      "raw_excess": 1.0,
+      "normalizer": 1e-05,
+      "ratio": 99999.99999999999
+    },
+    {
+      "constraint": 6,
+      "lhs": -1.0,
+      "rhs": 0.0,
+      "raw_excess": 1.0,
+      "normalizer": 1e-05,
+      "ratio": 99999.99999999999
+    },
+    {
+      "constraint": 6,
+      "lhs": -1.0,
+      "rhs": 0.0,
+      "raw_excess": 1.0,
+      "normalizer": 1e-05,
+      "ratio": 99999.99999999999
+    },
+    {
+      "constraint": 6,
+      "lhs": -1.0,
+      "rhs": 0.0,
+      "raw_excess": 1.0,
+      "normalizer": 1e-05,
+      "ratio": 99999.99999999999
+    },
+    {
+      "constraint": 6,
+      "lhs": -1.0,
+      "rhs": 0.0,
+      "raw_excess": 1.0,
+      "normalizer": 1e-05,
+      "ratio": 99999.99999999999
+    },
+    {
+      "constraint": 6,
+      "lhs": -1.0,
+      "rhs": 0.0,
+      "raw_excess": 1.0,
+      "normalizer": 1e-05,
+      "ratio": 99999.99999999999
+    },
+    {
+      "constraint": 6,
+      "lhs": -1.0,
+      "rhs": 0.0,
+      "raw_excess": 1.0,
+      "normalizer": 1e-05,
+      "ratio": 99999.99999999999
+    },
+    {
+      "constraint": 6,
+      "lhs": -1.0,
+      "rhs": 0.0,
+      "raw_excess": 1.0,
+      "normalizer": 1e-05,
+      "ratio": 99999.99999999999
+    },
+    {
+      "constraint": 6,
+      "lhs": -1.0,
+      "rhs": 0.0,
+      "raw_excess": 1.0,
+      "normalizer": 1e-05,
+      "ratio": 99999.99999999999
+    },
+    {
+      "constraint": 7,
+      "lhs": 1.0,
+      "rhs": 0.0,
+      "raw_excess": 1.0,
+      "normalizer": 1e-05,
+      "ratio": 99999.99999999999
+    },
+    {
+      "constraint": 7,
+      "lhs": 1.0,
+      "rhs": 0.0,
+      "raw_excess": 1.0,
+      "normalizer": 1e-05,
+      "ratio": 99999.99999999999
+    },
+    {
+      "constraint": 7,
+      "lhs": 1.0,
+      "rhs": 0.0,
+      "raw_excess": 1.0,
+      "normalizer": 1e-05,
+      "ratio": 99999.99999999999
+    },
+    {
+      "constraint": 7,
+      "lhs": 1.0,
+      "rhs": 0.0,
+      "raw_excess": 1.0,
+      "normalizer": 1e-05,
+      "ratio": 99999.99999999999
+    },
+    {
+      "constraint": 7,
+      "lhs": 1.0,
+      "rhs": 0.0,
+      "raw_excess": 1.0,
+      "normalizer": 1e-05,
+      "ratio": 99999.99999999999
+    },
+    {
+      "constraint": 7,
+      "lhs": 1.0,
+      "rhs": 0.0,
+      "raw_excess": 1.0,
+      "normalizer": 1e-05,
+      "ratio": 99999.99999999999
+    },
+    {
+      "constraint": 7,
+      "lhs": 1.0,
+      "rhs": 0.0,
+      "raw_excess": 1.0,
+      "normalizer": 1e-05,
+      "ratio": 99999.99999999999
+    },
+    {
+      "constraint": 7,
+      "lhs": 1.0,
+      "rhs": 0.0,
+      "raw_excess": 1.0,
+      "normalizer": 1e-05,
+      "ratio": 99999.99999999999
+    },
+    {
+      "constraint": 7,
+      "lhs": 1.0,
+      "rhs": 0.0,
+      "raw_excess": 1.0,
+      "normalizer": 1e-05,
+      "ratio": 99999.99999999999
+    },
+    {
+      "constraint": 7,
+      "lhs": 1.0,
+      "rhs": 0.0,
+      "raw_excess": 1.0,
+      "normalizer": 1e-05,
+      "ratio": 99999.99999999999
+    },
+    {
+      "constraint": 7,
+      "lhs": 1.0,
+      "rhs": 0.0,
+      "raw_excess": 1.0,
+      "normalizer": 1e-05,
+      "ratio": 99999.99999999999
+    },
+    {
+      "constraint": 7,
+      "lhs": 1.0,
+      "rhs": 0.0,
+      "raw_excess": 1.0,
+      "normalizer": 1e-05,
+      "ratio": 99999.99999999999
+    },
+    {
+      "constraint": 7,
+      "lhs": 1.0,
+      "rhs": 0.0,
+      "raw_excess": 1.0,
+      "normalizer": 1e-05,
+      "ratio": 99999.99999999999
+    },
+    {
+      "constraint": 8,
+      "lhs": 1.0,
+      "rhs": 0.0,
+      "raw_excess": 1.0,
+      "normalizer": 1e-05,
+      "ratio": 99999.99999999999
+    },
+    {
+      "constraint": 8,
+      "lhs": 1.0,
+      "rhs": 0.0,
+      "raw_excess": 1.0,
+      "normalizer": 1e-05,
+      "ratio": 99999.99999999999
+    },
+    {
+      "constraint": 8,
+      "lhs": 1.0,
+      "rhs": 0.0,
+      "raw_excess": 1.0,
+      "normalizer": 1e-05,
+      "ratio": 99999.99999999999
+    },
+    {
+      "constraint": 8,
+      "lhs": 1.0,
+      "rhs": 0.0,
+      "raw_excess": 1.0,
+      "normalizer": 1e-05,
+      "ratio": 99999.99999999999
+    },
+    {
+      "constraint": 8,
+      "lhs": 1.0,
+      "rhs": 0.0,
+      "raw_excess": 1.0,
+      "normalizer": 1e-05,
+      "ratio": 99999.99999999999
+    },
+    {
+      "constraint": 8,
+      "lhs": 1.0,
+      "rhs": 0.0,
+      "raw_excess": 1.0,
+      "normalizer": 1e-05,
+      "ratio": 99999.99999999999
+    },
+    {
+      "constraint": 8,
+      "lhs": 1.0,
+      "rhs": 0.0,
+      "raw_excess": 1.0,
+      "normalizer": 1e-05,
+      "ratio": 99999.99999999999
+    },
+    {
+      "constraint": 8,
+      "lhs": 1.0,
+      "rhs": 0.0,
+      "raw_excess": 1.0,
+      "normalizer": 1e-05,
+      "ratio": 99999.99999999999
+    },
+    {
+      "constraint": 8,
+      "lhs": 1.0,
+      "rhs": 0.0,
+      "raw_excess": 1.0,
+      "normalizer": 1e-05,
+      "ratio": 99999.99999999999
+    },
+    {
+      "constraint": 8,
+      "lhs": 1.0,
+      "rhs": 0.0,
+      "raw_excess": 1.0,
+      "normalizer": 1e-05,
+      "ratio": 99999.99999999999
+    },
+    {
+      "constraint": 8,
+      "lhs": 1.0,
+      "rhs": 0.0,
+      "raw_excess": 1.0,
+      "normalizer": 1e-05,
+      "ratio": 99999.99999999999
+    },
+    {
+      "constraint": 8,
+      "lhs": 1.0,
+      "rhs": 0.0,
+      "raw_excess": 1.0,
+      "normalizer": 1e-05,
+      "ratio": 99999.99999999999
+    },
+    {
+      "constraint": 8,
+      "lhs": 1.0,
+      "rhs": 0.0,
+      "raw_excess": 1.0,
+      "normalizer": 1e-05,
+      "ratio": 99999.99999999999
+    }
+  ]
+}

@@ -1,0 +1,213 @@
+{
+  "feasible": false,
+  "violated_constraints": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    14
+  ],
+  "violations": [
+    "Supplier inventory mismatch at period 1: computed=553.0000, solution=395.0000",
+    "Supplier inventory mismatch at period 2: computed=747.0000, solution=638.0000",
+    "Customer 1 inventory mismatch at period 1: computed=-8.0000, solution=139.0000",
+    "Customer 1 inventory mismatch at period 2: computed=-29.0000, solution=54.0000",
+    "Customer 2 inventory mismatch at period 1: computed=-63.0000, solution=99.0000",
+    "Customer 2 inventory mismatch at period 2: computed=-77.0000, solution=86.0000",
+    "Customer 3 inventory mismatch at period 1: computed=84.0000, solution=55.0000",
+    "Customer 3 inventory mismatch at period 2: computed=47.0000, solution=16.0000",
+    "Customer 4 inventory mismatch at period 1: computed=104.0000, solution=17.0000",
+    "Customer 4 inventory mismatch at period 2: computed=17.0000, solution=4.0000",
+    "Customer 5 inventory mismatch at period 1: computed=135.0000, solution=100.0000",
+    "Customer 5 inventory mismatch at period 2: computed=100.0000, solution=7.0000",
+    "Customer 1 stockout at period 1: inventory=-8.0000 < 0",
+    "Customer 1 stockout at period 2: inventory=-29.0000 < 0",
+    "Customer 1 stockout at period 3: inventory=-114.0000 < 0",
+    "Customer 2 stockout at period 1: inventory=-63.0000 < 0",
+    "Customer 2 stockout at period 2: inventory=-77.0000 < 0",
+    "Customer 2 stockout at period 3: inventory=-90.0000 < 0",
+    "Customer 3 inventory capacity exceeded at period 1: prev_inv(20.0000) + delivery(85.0000) = 105.0000 > capacity(92.0000)",
+    "Supplier inventory capacity exceeded at period 2: inventory=747.0000 > capacity=638.0000",
+    "Supplier inventory capacity exceeded at period 3: inventory=990.0000 > capacity=638.0000",
+    "Objective consistency violated: reported objective_value=3018.5 differs from recomputed travel_cost+holding_cost=1633.5 (travel_cost=426.0, holding_cost=1207.5, |diff|=1385, tol=1.6335)"
+  ],
+  "violation_magnitudes": [
+    {
+      "constraint": 1,
+      "lhs": 553.0000000000089,
+      "rhs": 395.00000000000887,
+      "raw_excess": 158.0,
+      "normalizer": 395.00000000000887,
+      "ratio": 0.39999999999999103
+    },
+    {
+      "constraint": 1,
+      "lhs": 747.0000000000089,
+      "rhs": 638.0000000000089,
+      "raw_excess": 109.0,
+      "normalizer": 638.0000000000089,
+      "ratio": 0.17084639498432364
+    },
+    {
+      "constraint": 2,
+      "lhs": -8.0,
+      "rhs": 138.99999999999113,
+      "raw_excess": 146.99999999999113,
+      "normalizer": 138.99999999999113,
+      "ratio": 1.057553956834536
+    },
+    {
+      "constraint": 2,
+      "lhs": -29.0,
+      "rhs": 53.99999999999113,
+      "raw_excess": 82.99999999999113,
+      "normalizer": 53.99999999999113,
+      "ratio": 1.5370370370371251
+    },
+    {
+      "constraint": 2,
+      "lhs": -63.0,
+      "rhs": 99.0,
+      "raw_excess": 162.0,
+      "normalizer": 99.0,
+      "ratio": 1.6363636363636365
+    },
+    {
+      "constraint": 2,
+      "lhs": -77.0,
+      "rhs": 86.0,
+      "raw_excess": 163.0,
+      "normalizer": 86.0,
+      "ratio": 1.8953488372093024
+    },
+    {
+      "constraint": 2,
+      "lhs": 83.99999999999113,
+      "rhs": 55.0,
+      "raw_excess": 28.999999999991132,
+      "normalizer": 55.0,
+      "ratio": 0.527272727272566
+    },
+    {
+      "constraint": 2,
+      "lhs": 46.99999999999113,
+      "rhs": 16.0,
+      "raw_excess": 30.999999999991132,
+      "normalizer": 16.0,
+      "ratio": 1.9374999999994458
+    },
+    {
+      "constraint": 2,
+      "lhs": 104.0,
+      "rhs": 17.0,
+      "raw_excess": 87.0,
+      "normalizer": 17.0,
+      "ratio": 5.117647058823529
+    },
+    {
+      "constraint": 2,
+      "lhs": 17.0,
+      "rhs": 4.0,
+      "raw_excess": 13.0,
+      "normalizer": 4.0,
+      "ratio": 3.25
+    },
+    {
+      "constraint": 2,
+      "lhs": 135.0,
+      "rhs": 100.0,
+      "raw_excess": 35.0,
+      "normalizer": 100.0,
+      "ratio": 0.35
+    },
+    {
+      "constraint": 2,
+      "lhs": 100.0,
+      "rhs": 7.0,
+      "raw_excess": 93.0,
+      "normalizer": 7.0,
+      "ratio": 13.285714285714286
+    },
+    {
+      "constraint": 3,
+      "lhs": 0.0,
+      "rhs": -8.0,
+      "raw_excess": 8.0,
+      "normalizer": 8.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 3,
+      "lhs": 0.0,
+      "rhs": -29.0,
+      "raw_excess": 29.0,
+      "normalizer": 29.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 3,
+      "lhs": 0.0,
+      "rhs": -114.0,
+      "raw_excess": 114.0,
+      "normalizer": 114.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 3,
+      "lhs": 0.0,
+      "rhs": -63.0,
+      "raw_excess": 63.0,
+      "normalizer": 63.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 3,
+      "lhs": 0.0,
+      "rhs": -77.0,
+      "raw_excess": 77.0,
+      "normalizer": 77.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 3,
+      "lhs": 0.0,
+      "rhs": -90.0,
+      "raw_excess": 90.0,
+      "normalizer": 90.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 4,
+      "lhs": 104.99999999999113,
+      "rhs": 92.0,
+      "raw_excess": 12.999999999991132,
+      "normalizer": 92.0,
+      "ratio": 0.14130434782599058
+    },
+    {
+      "constraint": 5,
+      "lhs": 747.0000000000089,
+      "rhs": 638.0,
+      "raw_excess": 109.00000000000887,
+      "normalizer": 638.0,
+      "ratio": 0.17084639498433993
+    },
+    {
+      "constraint": 5,
+      "lhs": 990.0000000000089,
+      "rhs": 638.0,
+      "raw_excess": 352.00000000000887,
+      "normalizer": 638.0,
+      "ratio": 0.5517241379310484
+    },
+    {
+      "constraint": 14,
+      "lhs": 3018.5,
+      "rhs": 1633.5,
+      "raw_excess": 1385.0,
+      "normalizer": 1633.5,
+      "ratio": 0.8478726660544842
+    }
+  ]
+}

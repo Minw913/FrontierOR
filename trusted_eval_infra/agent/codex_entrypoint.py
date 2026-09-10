@@ -9,8 +9,10 @@ CORAL host process.
 from __future__ import annotations
 
 import argparse
+import ctypes
 import json
 import os
+import selectors
 import signal
 import subprocess
 import sys
@@ -25,6 +27,29 @@ ACTION_TYPES = {
     "tool_call",
     "web_search",
 }
+
+
+def _kill_descendants() -> None:
+    parents = {}
+    for entry in Path("/proc").iterdir():
+        if not entry.name.isdecimal():
+            continue
+        try:
+            fields = (entry / "stat").read_text().rsplit(")", 1)[1].split()
+            parents[int(entry.name)] = int(fields[1])
+        except (OSError, ValueError, IndexError):
+            continue
+    descendants = {os.getpid()}
+    while True:
+        found = {pid for pid, parent in parents.items() if parent in descendants}
+        if found <= descendants:
+            break
+        descendants.update(found)
+    for pid in descendants - {os.getpid()}:
+        try:
+            os.kill(pid, signal.SIGKILL)
+        except ProcessLookupError:
+            pass
 
 
 def build_codex_command(
@@ -144,6 +169,11 @@ def main() -> int:
         model_access=model_access,
         gateway_url=args.gateway_url,
     )
+    # Adopt detached tools when Codex exits, even if they scrub their environment
+    # or create another session. This wrapper is local to one agent invocation.
+    libc = ctypes.CDLL(None, use_errno=True)
+    if libc.prctl(36, 1, 0, 0, 0) != 0:  # PR_SET_CHILD_SUBREAPER
+        raise OSError(ctypes.get_errno(), "cannot establish agent child subreaper")
     proc = subprocess.Popen(
         cmd,
         stdout=subprocess.PIPE,
@@ -162,6 +192,7 @@ def main() -> int:
         nonlocal requested_signal
         requested_signal = signum
         shutdown.set()
+        signal.alarm(5)
         if proc.poll() is None:
             try:
                 os.killpg(os.getpgid(proc.pid), signum)
@@ -170,24 +201,46 @@ def main() -> int:
 
     signal.signal(signal.SIGINT, _forward_signal)
     signal.signal(signal.SIGTERM, _forward_signal)
+    signal.signal(signal.SIGALRM, lambda *_: _kill_descendants())
     assert proc.stdout is not None
     try:
-        for line in proc.stdout:
+        def emit(line):
+            nonlocal observed_actions
             sys.stdout.write(line)
             sys.stdout.flush()
             try:
                 event = json.loads(line)
             except json.JSONDecodeError:
-                continue
+                return
             item = event.get("item") or {}
             if event.get("type") == "item.completed" and item.get("type") in ACTION_TYPES:
                 observed_actions += 1
+        # Do not wait forever for EOF from a detached tool holding stdout open.
+        pending = b""
+        with selectors.DefaultSelector() as selector:
+            selector.register(proc.stdout, selectors.EVENT_READ)
+            while True:
+                if proc.poll() is not None:
+                    _kill_descendants()
+                if not selector.select(timeout=0.2):
+                    continue
+                chunk = os.read(proc.stdout.fileno(), 65536)
+                if not chunk:
+                    break
+                pending += chunk
+                while b"\n" in pending:
+                    line, pending = pending.split(b"\n", 1)
+                    emit(line.decode("utf-8", errors="replace") + "\n")
+            if pending:
+                emit(pending.decode("utf-8", errors="replace"))
     finally:
+        signal.alarm(0)
         try:
             return_code = proc.wait(timeout=10)
         except subprocess.TimeoutExpired:
-            os.killpg(os.getpgid(proc.pid), signal.SIGKILL)
+            _kill_descendants()
             return_code = proc.wait(timeout=5)
+        _kill_descendants()
     if requested_signal == signal.SIGINT:
         stop_reason = "host_interrupt"
     elif requested_signal == signal.SIGTERM:

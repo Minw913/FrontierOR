@@ -1,0 +1,21 @@
+{
+  "feasible": false,
+  "violated_constraints": [
+    "end_time",
+    "profile_domain"
+  ],
+  "violations": [
+    "Vessel 0: profile=8 outside valid range [0, 6].",
+    "Vessel 1: end=36 expected 24.",
+    "Vessel 2: profile=2 outside valid range [0, 1].",
+    "Vessel 3: end=36 expected 24.",
+    "Vessel 4: end=54 expected 42.",
+    "Vessel 5: end=48 expected 36.",
+    "Vessel 6: profile=8 outside valid range [0, 1].",
+    "Vessel 7: end=66 expected 48.",
+    "Vessel 8: end=84 expected 72.",
+    "Vessel 9: end=90 expected 78."
+  ],
+  "objective_value": 8000.0,
+  "recomputed_objective": 8000.0
+}

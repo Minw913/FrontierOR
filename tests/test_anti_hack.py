@@ -427,6 +427,7 @@ def test_anti_hack_rejects_non_docker_and_empty_final_test():
 
 
 def test_anti_hack_exec_config_pins_the_candidate_image(monkeypatch):
+    monkeypatch.setattr("trusted_eval_infra.execution.validate_image_sources", lambda *_args: None)
     from trusted_eval_infra import policy
     from scripts.utils import exec_backends
 
@@ -513,7 +514,7 @@ def test_hardened_docker_cmd_uses_clean_security_boundary(tmp_path, monkeypatch)
         str(solution),
         10,
         log_path=str(log),
-        cfg={"anti_hack": True, "cpus": 1, "memory": "1G"},
+        cfg={"anti_hack": True, "cpus": 1, "memory": "1G", "_private_output_volume": "frontieror-output-test"},
     )
 
     flat = " ".join(cmd)
@@ -532,8 +533,8 @@ def test_hardened_docker_cmd_uses_clean_security_boundary(tmp_path, monkeypatch)
     assert str(tmp_path / "frontier-or") not in flat
     assert f"{code}:/workspace/code.py:ro" in flat
     assert "/workspace/codedir" not in flat
-    assert "type=bind,src=" + str(solution) in flat
-    assert "/workspace/output:rw,nosuid,nodev,size=64m" in flat
+    assert "type=volume,src=frontieror-output-test,dst=/workspace/output,volume-nocopy" in flat
+    assert "dst=/workspace/logs/log.fifo" in flat
     assert f"{solution.parent}:/workspace/output" not in flat
     assert "--ulimit" in cmd
     assert cmd[cmd.index("--time_limit") + 1] == "8"
@@ -571,6 +572,7 @@ def test_hardened_docker_cmd_uses_only_restricted_wls_proxy(tmp_path):
             "anti_hack": True,
             "_restricted_network": "frontieror-wls-test",
             "_restricted_proxy": "http://frontieror-wls-egress:3128",
+            "_private_output_volume": "frontieror-output-test",
         },
     )
 
@@ -644,12 +646,17 @@ def test_anti_hack_feasibility_check_uses_isolated_checker(tmp_path, monkeypatch
         str(paper / "instance" / "tiny_instance.json"),
         str(solution),
         str(result),
-        exec_cfg={"anti_hack": True, "docker_image": "image"},
+        exec_cfg={
+            "anti_hack": True,
+            "docker_image": "image",
+            "checker_timeout": 123,
+        },
     )
 
     assert (feasible, reason, error) == (True, None, None)
     assert captured["paper_dir"] == str(paper)
     assert captured["cfg"]["anti_hack"] is True
+    assert captured["timeout"] == 123
 
 
 def test_wls_off_does_not_mount_platform_credentials(tmp_path, monkeypatch):
@@ -1166,7 +1173,7 @@ def test_coral_early_exit_preserves_process_failure(tmp_path, monkeypatch):
         lambda *_args, **_kwargs: FailedProcess(),
     )
     monkeypatch.setattr(coral_runner, "drain_eval_requests", lambda *_a, **_k: [])
-    monkeypatch.setattr(coral_runner, "_workspace_usage", lambda _path: (0, 0))
+    monkeypatch.setattr(coral_runner, "_workspace_usage", lambda *_args: (0, 0))
     from trusted_eval_infra.agent import runtime
 
     monkeypatch.setattr(runtime, "cleanup_secure_runtime", cleaned.append)

@@ -1,0 +1,340 @@
+{
+  "objective_value": 57787.399999999994,
+  "routes": [
+    {
+      "vehicle": 0,
+      "route": [
+        0,
+        15,
+        1,
+        5,
+        0
+      ],
+      "deliveries": {
+        "15": 25,
+        "1": 34,
+        "5": 36
+      },
+      "edges": [
+        {
+          "from": 0,
+          "to": 15,
+          "load_weight": 95.0
+        },
+        {
+          "from": 15,
+          "to": 1,
+          "load_weight": 70.0
+        },
+        {
+          "from": 1,
+          "to": 5,
+          "load_weight": 36.0
+        },
+        {
+          "from": 5,
+          "to": 0,
+          "load_weight": 0.0
+        }
+      ]
+    },
+    {
+      "vehicle": 1,
+      "route": [
+        0,
+        25,
+        23,
+        7,
+        16,
+        21,
+        0
+      ],
+      "deliveries": {
+        "25": 4,
+        "23": 36,
+        "7": 5,
+        "16": 14,
+        "21": 30
+      },
+      "edges": [
+        {
+          "from": 0,
+          "to": 25,
+          "load_weight": 89.0
+        },
+        {
+          "from": 25,
+          "to": 23,
+          "load_weight": 85.0
+        },
+        {
+          "from": 23,
+          "to": 7,
+          "load_weight": 49.0
+        },
+        {
+          "from": 7,
+          "to": 16,
+          "load_weight": 44.0
+        },
+        {
+          "from": 16,
+          "to": 21,
+          "load_weight": 30.0
+        },
+        {
+          "from": 21,
+          "to": 0,
+          "load_weight": 0.0
+        }
+      ]
+    },
+    {
+      "vehicle": 2,
+      "route": [
+        0,
+        18,
+        4,
+        6,
+        0
+      ],
+      "deliveries": {
+        "18": 6,
+        "4": 21,
+        "6": 11
+      },
+      "edges": [
+        {
+          "from": 0,
+          "to": 18,
+          "load_weight": 38.0
+        },
+        {
+          "from": 18,
+          "to": 4,
+          "load_weight": 32.0
+        },
+        {
+          "from": 4,
+          "to": 6,
+          "load_weight": 11.0
+        },
+        {
+          "from": 6,
+          "to": 0,
+          "load_weight": 0.0
+        }
+      ]
+    },
+    {
+      "vehicle": 3,
+      "route": [
+        0,
+        19,
+        3,
+        13,
+        0
+      ],
+      "deliveries": {
+        "19": 15,
+        "3": 38,
+        "13": 28
+      },
+      "edges": [
+        {
+          "from": 0,
+          "to": 19,
+          "load_weight": 81.0
+        },
+        {
+          "from": 19,
+          "to": 3,
+          "load_weight": 66.0
+        },
+        {
+          "from": 3,
+          "to": 13,
+          "load_weight": 28.0
+        },
+        {
+          "from": 13,
+          "to": 0,
+          "load_weight": 0.0
+        }
+      ]
+    },
+    {
+      "vehicle": 4,
+      "route": [
+        0,
+        12,
+        9,
+        0
+      ],
+      "deliveries": {
+        "12": 38,
+        "9": 32
+      },
+      "edges": [
+        {
+          "from": 0,
+          "to": 12,
+          "load_weight": 70.0
+        },
+        {
+          "from": 12,
+          "to": 9,
+          "load_weight": 32.0
+        },
+        {
+          "from": 9,
+          "to": 0,
+          "load_weight": 0.0
+        }
+      ]
+    },
+    {
+      "vehicle": 5,
+      "route": [
+        0,
+        10,
+        17,
+        0
+      ],
+      "deliveries": {
+        "10": 35,
+        "17": 31
+      },
+      "edges": [
+        {
+          "from": 0,
+          "to": 10,
+          "load_weight": 66.0
+        },
+        {
+          "from": 10,
+          "to": 17,
+          "load_weight": 31.0
+        },
+        {
+          "from": 17,
+          "to": 0,
+          "load_weight": 0.0
+        }
+      ]
+    },
+    {
+      "vehicle": 6,
+      "route": [
+        0,
+        11,
+        14,
+        0
+      ],
+      "deliveries": {
+        "11": 33,
+        "14": 5
+      },
+      "edges": [
+        {
+          "from": 0,
+          "to": 11,
+          "load_weight": 38.0
+        },
+        {
+          "from": 11,
+          "to": 14,
+          "load_weight": 5.0
+        },
+        {
+          "from": 14,
+          "to": 0,
+          "load_weight": 0.0
+        }
+      ]
+    },
+    {
+      "vehicle": 7,
+      "route": [
+        0,
+        22,
+        2,
+        20,
+        0
+      ],
+      "deliveries": {
+        "22": 39,
+        "2": 32,
+        "20": 10
+      },
+      "edges": [
+        {
+          "from": 0,
+          "to": 22,
+          "load_weight": 81.0
+        },
+        {
+          "from": 22,
+          "to": 2,
+          "load_weight": 42.0
+        },
+        {
+          "from": 2,
+          "to": 20,
+          "load_weight": 10.0
+        },
+        {
+          "from": 20,
+          "to": 0,
+          "load_weight": 0.0
+        }
+      ]
+    },
+    {
+      "vehicle": 8,
+      "route": [
+        0,
+        24,
+        0
+      ],
+      "deliveries": {
+        "24": 37
+      },
+      "edges": [
+        {
+          "from": 0,
+          "to": 24,
+          "load_weight": 37.0
+        },
+        {
+          "from": 24,
+          "to": 0,
+          "load_weight": 0.0
+        }
+      ]
+    },
+    {
+      "vehicle": 9,
+      "route": [
+        0,
+        8,
+        0
+      ],
+      "deliveries": {
+        "8": 20
+      },
+      "edges": [
+        {
+          "from": 0,
+          "to": 8,
+          "load_weight": 20.0
+        },
+        {
+          "from": 8,
+          "to": 0,
+          "load_weight": 0.0
+        }
+      ]
+    }
+  ]
+}

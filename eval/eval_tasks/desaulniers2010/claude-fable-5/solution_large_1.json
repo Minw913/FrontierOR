@@ -1,0 +1,687 @@
+{
+  "objective_value": 3381.4000000000005,
+  "num_vehicles_used": 39,
+  "routes": [
+    {
+      "vehicle": 1,
+      "route": [
+        0,
+        9,
+        49,
+        42,
+        51
+      ],
+      "deliveries": {
+        "9": 11,
+        "49": 8,
+        "42": 11
+      }
+    },
+    {
+      "vehicle": 2,
+      "route": [
+        0,
+        15,
+        8,
+        13,
+        34,
+        51
+      ],
+      "deliveries": {
+        "15": 7,
+        "8": 3,
+        "13": 5,
+        "34": 14
+      }
+    },
+    {
+      "vehicle": 3,
+      "route": [
+        0,
+        28,
+        11,
+        46,
+        51
+      ],
+      "deliveries": {
+        "28": 1,
+        "11": 16,
+        "46": 13
+      }
+    },
+    {
+      "vehicle": 4,
+      "route": [
+        0,
+        37,
+        50,
+        5,
+        51
+      ],
+      "deliveries": {
+        "37": 1,
+        "50": 1,
+        "5": 24
+      }
+    },
+    {
+      "vehicle": 5,
+      "route": [
+        0,
+        14,
+        29,
+        51
+      ],
+      "deliveries": {
+        "14": 1,
+        "29": 20
+      }
+    },
+    {
+      "vehicle": 6,
+      "route": [
+        0,
+        39,
+        51
+      ],
+      "deliveries": {
+        "39": 16
+      }
+    },
+    {
+      "vehicle": 7,
+      "route": [
+        0,
+        16,
+        40,
+        51
+      ],
+      "deliveries": {
+        "16": 12,
+        "40": 17
+      }
+    },
+    {
+      "vehicle": 8,
+      "route": [
+        0,
+        2,
+        41,
+        51
+      ],
+      "deliveries": {
+        "2": 15,
+        "41": 1
+      }
+    },
+    {
+      "vehicle": 9,
+      "route": [
+        0,
+        24,
+        27,
+        51
+      ],
+      "deliveries": {
+        "24": 7,
+        "27": 23
+      }
+    },
+    {
+      "vehicle": 10,
+      "route": [
+        0,
+        6,
+        12,
+        30,
+        51
+      ],
+      "deliveries": {
+        "6": 18,
+        "12": 3,
+        "30": 9
+      }
+    },
+    {
+      "vehicle": 11,
+      "route": [
+        0,
+        43,
+        22,
+        51
+      ],
+      "deliveries": {
+        "43": 6,
+        "22": 24
+      }
+    },
+    {
+      "vehicle": 12,
+      "route": [
+        0,
+        25,
+        19,
+        51
+      ],
+      "deliveries": {
+        "25": 2,
+        "19": 28
+      }
+    },
+    {
+      "vehicle": 13,
+      "route": [
+        0,
+        3,
+        7,
+        51
+      ],
+      "deliveries": {
+        "3": 3,
+        "7": 27
+      }
+    },
+    {
+      "vehicle": 14,
+      "route": [
+        0,
+        24,
+        51
+      ],
+      "deliveries": {
+        "24": 30
+      }
+    },
+    {
+      "vehicle": 15,
+      "route": [
+        0,
+        43,
+        51
+      ],
+      "deliveries": {
+        "43": 30
+      }
+    },
+    {
+      "vehicle": 16,
+      "route": [
+        0,
+        20,
+        32,
+        36,
+        51
+      ],
+      "deliveries": {
+        "20": 2,
+        "32": 24,
+        "36": 4
+      }
+    },
+    {
+      "vehicle": 17,
+      "route": [
+        0,
+        25,
+        51
+      ],
+      "deliveries": {
+        "25": 30
+      }
+    },
+    {
+      "vehicle": 18,
+      "route": [
+        0,
+        48,
+        51
+      ],
+      "deliveries": {
+        "48": 23
+      }
+    },
+    {
+      "vehicle": 19,
+      "route": [
+        0,
+        38,
+        51
+      ],
+      "deliveries": {
+        "38": 28
+      }
+    },
+    {
+      "vehicle": 20,
+      "route": [
+        0,
+        28,
+        51
+      ],
+      "deliveries": {
+        "28": 30
+      }
+    },
+    {
+      "vehicle": 21,
+      "route": [
+        0,
+        13,
+        51
+      ],
+      "deliveries": {
+        "13": 30
+      }
+    },
+    {
+      "vehicle": 22,
+      "route": [
+        0,
+        36,
+        51
+      ],
+      "deliveries": {
+        "36": 30
+      }
+    },
+    {
+      "vehicle": 23,
+      "route": [
+        0,
+        4,
+        51
+      ],
+      "deliveries": {
+        "4": 30
+      }
+    },
+    {
+      "vehicle": 24,
+      "route": [
+        0,
+        18,
+        47,
+        51
+      ],
+      "deliveries": {
+        "18": 1,
+        "47": 25
+      }
+    },
+    {
+      "vehicle": 25,
+      "route": [
+        0,
+        26,
+        51
+      ],
+      "deliveries": {
+        "26": 26
+      }
+    },
+    {
+      "vehicle": 26,
+      "route": [
+        0,
+        37,
+        51
+      ],
+      "deliveries": {
+        "37": 30
+      }
+    },
+    {
+      "vehicle": 27,
+      "route": [
+        0,
+        33,
+        51
+      ],
+      "deliveries": {
+        "33": 26
+      }
+    },
+    {
+      "vehicle": 28,
+      "route": [
+        0,
+        31,
+        45,
+        51
+      ],
+      "deliveries": {
+        "31": 24,
+        "45": 6
+      }
+    },
+    {
+      "vehicle": 29,
+      "route": [
+        0,
+        17,
+        35,
+        51
+      ],
+      "deliveries": {
+        "17": 9,
+        "35": 21
+      }
+    },
+    {
+      "vehicle": 30,
+      "route": [
+        0,
+        42,
+        51
+      ],
+      "deliveries": {
+        "42": 30
+      }
+    },
+    {
+      "vehicle": 31,
+      "route": [
+        0,
+        49,
+        51
+      ],
+      "deliveries": {
+        "49": 30
+      }
+    },
+    {
+      "vehicle": 32,
+      "route": [
+        0,
+        45,
+        51
+      ],
+      "deliveries": {
+        "45": 30
+      }
+    },
+    {
+      "vehicle": 33,
+      "route": [
+        0,
+        21,
+        51
+      ],
+      "deliveries": {
+        "21": 26
+      }
+    },
+    {
+      "vehicle": 34,
+      "route": [
+        0,
+        50,
+        51
+      ],
+      "deliveries": {
+        "50": 30
+      }
+    },
+    {
+      "vehicle": 35,
+      "route": [
+        0,
+        10,
+        51
+      ],
+      "deliveries": {
+        "10": 30
+      }
+    },
+    {
+      "vehicle": 36,
+      "route": [
+        0,
+        44,
+        10,
+        51
+      ],
+      "deliveries": {
+        "44": 20,
+        "10": 9
+      }
+    },
+    {
+      "vehicle": 37,
+      "route": [
+        0,
+        9,
+        51
+      ],
+      "deliveries": {
+        "9": 30
+      }
+    },
+    {
+      "vehicle": 38,
+      "route": [
+        0,
+        30,
+        51
+      ],
+      "deliveries": {
+        "30": 30
+      }
+    },
+    {
+      "vehicle": 39,
+      "route": [
+        0,
+        23,
+        1,
+        51
+      ],
+      "deliveries": {
+        "23": 12,
+        "1": 18
+      }
+    }
+  ],
+  "deliveries": {
+    "1": {
+      "demand": 18,
+      "total_delivered": 18.0
+    },
+    "2": {
+      "demand": 15,
+      "total_delivered": 15.0
+    },
+    "3": {
+      "demand": 3,
+      "total_delivered": 3.0
+    },
+    "4": {
+      "demand": 30,
+      "total_delivered": 30.0
+    },
+    "5": {
+      "demand": 24,
+      "total_delivered": 24.0
+    },
+    "6": {
+      "demand": 18,
+      "total_delivered": 18.0
+    },
+    "7": {
+      "demand": 27,
+      "total_delivered": 27.0
+    },
+    "8": {
+      "demand": 3,
+      "total_delivered": 3.0
+    },
+    "9": {
+      "demand": 41,
+      "total_delivered": 41.0
+    },
+    "10": {
+      "demand": 39,
+      "total_delivered": 39.0
+    },
+    "11": {
+      "demand": 16,
+      "total_delivered": 16.0
+    },
+    "12": {
+      "demand": 3,
+      "total_delivered": 3.0
+    },
+    "13": {
+      "demand": 35,
+      "total_delivered": 35.0
+    },
+    "14": {
+      "demand": 1,
+      "total_delivered": 1.0
+    },
+    "15": {
+      "demand": 7,
+      "total_delivered": 7.0
+    },
+    "16": {
+      "demand": 12,
+      "total_delivered": 12.0
+    },
+    "17": {
+      "demand": 9,
+      "total_delivered": 9.0
+    },
+    "18": {
+      "demand": 1,
+      "total_delivered": 1.0
+    },
+    "19": {
+      "demand": 28,
+      "total_delivered": 28.0
+    },
+    "20": {
+      "demand": 2,
+      "total_delivered": 2.0
+    },
+    "21": {
+      "demand": 26,
+      "total_delivered": 26.0
+    },
+    "22": {
+      "demand": 24,
+      "total_delivered": 24.0
+    },
+    "23": {
+      "demand": 12,
+      "total_delivered": 12.0
+    },
+    "24": {
+      "demand": 37,
+      "total_delivered": 37.0
+    },
+    "25": {
+      "demand": 32,
+      "total_delivered": 32.0
+    },
+    "26": {
+      "demand": 26,
+      "total_delivered": 26.0
+    },
+    "27": {
+      "demand": 23,
+      "total_delivered": 23.0
+    },
+    "28": {
+      "demand": 31,
+      "total_delivered": 31.0
+    },
+    "29": {
+      "demand": 20,
+      "total_delivered": 20.0
+    },
+    "30": {
+      "demand": 39,
+      "total_delivered": 39.0
+    },
+    "31": {
+      "demand": 24,
+      "total_delivered": 24.0
+    },
+    "32": {
+      "demand": 24,
+      "total_delivered": 24.0
+    },
+    "33": {
+      "demand": 26,
+      "total_delivered": 26.0
+    },
+    "34": {
+      "demand": 14,
+      "total_delivered": 14.0
+    },
+    "35": {
+      "demand": 21,
+      "total_delivered": 21.0
+    },
+    "36": {
+      "demand": 34,
+      "total_delivered": 34.0
+    },
+    "37": {
+      "demand": 31,
+      "total_delivered": 31.0
+    },
+    "38": {
+      "demand": 28,
+      "total_delivered": 28.0
+    },
+    "39": {
+      "demand": 16,
+      "total_delivered": 16.0
+    },
+    "40": {
+      "demand": 17,
+      "total_delivered": 17.0
+    },
+    "41": {
+      "demand": 1,
+      "total_delivered": 1.0
+    },
+    "42": {
+      "demand": 41,
+      "total_delivered": 41.0
+    },
+    "43": {
+      "demand": 36,
+      "total_delivered": 36.0
+    },
+    "44": {
+      "demand": 20,
+      "total_delivered": 20.0
+    },
+    "45": {
+      "demand": 36,
+      "total_delivered": 36.0
+    },
+    "46": {
+      "demand": 13,
+      "total_delivered": 13.0
+    },
+    "47": {
+      "demand": 25,
+      "total_delivered": 25.0
+    },
+    "48": {
+      "demand": 23,
+      "total_delivered": 23.0
+    },
+    "49": {
+      "demand": 38,
+      "total_delivered": 38.0
+    },
+    "50": {
+      "demand": 31,
+      "total_delivered": 31.0
+    }
+  }
+}

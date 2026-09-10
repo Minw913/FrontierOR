@@ -29,12 +29,10 @@ venv/
 env/
 .env
 .env.local
-configs/api_keys.yaml
 gurobi.lic
 *.gurobi.lic
 
-# Runtime output (one_shot_eval.py writes per-paper code + CSV here)
-eval/
+# Runtime output
 results/
 
 # Local planning / draft documents

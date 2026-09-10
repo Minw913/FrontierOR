@@ -1,0 +1,10 @@
+{
+  "feasible": false,
+  "violated_constraints": [
+    "malformed_solution"
+  ],
+  "violations": [
+    "checker rejected malformed candidate: ValueError: not enough values to unpack (expected 9, got 4)"
+  ],
+  "violation_magnitudes": []
+}

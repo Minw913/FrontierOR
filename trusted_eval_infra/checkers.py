@@ -57,12 +57,6 @@ def build_isolated_checker_cmd(
         raise ValueError("checker_cpus must be positive")
     memory = str(cfg.get("checker_memory", DEFAULT_CHECKER_MEMORY))
     image = str(cfg.get("docker_image", execution.DEFAULT_DOCKER_IMAGE))
-    restricted_network = cfg.get("_restricted_network")
-    restricted_proxy = cfg.get("_restricted_proxy")
-    if bool(restricted_network) != bool(restricted_proxy):
-        raise ValueError(
-            "restricted checker network and proxy must be configured together"
-        )
 
     core_set = execution._allocate_cores(cpus)
     container_name = f"frontieror-candidate-checker-{uuid.uuid4().hex}"
@@ -90,10 +84,7 @@ def build_isolated_checker_cmd(
         "--tmpfs",
         "/tmp:rw,nosuid,nodev,size=1g",
     ]
-    if restricted_network:
-        command.extend(["--network", str(restricted_network)])
-    else:
-        command.append("--network=none")
+    command.append("--network=none")
     if core_set:
         command.append(f"--cpuset-cpus={core_set}")
 
@@ -119,33 +110,9 @@ def build_isolated_checker_cmd(
         ]
     )
 
-    license_path = str(
-        cfg.get("gurobi_lic", os.environ.get("GRB_LICENSE_FILE", ""))
-    )
-    if license_path and Path(license_path).is_file():
-        command.extend(
-            [
-                "--mount",
-                (
-                    f"type=bind,src={Path(license_path).resolve()},"
-                    "dst=/opt/gurobi/gurobi.lic,readonly"
-                ),
-                "-e",
-                "GRB_LICENSE_FILE=/opt/gurobi/gurobi.lic",
-            ]
-        )
-    command.extend(["-e", "PYTHONDONTWRITEBYTECODE=1"])
-    if restricted_proxy:
-        command.extend(
-            [
-                "-e",
-                f"HTTPS_PROXY={restricted_proxy}",
-                "-e",
-                f"HTTP_PROXY={restricted_proxy}",
-                "-e",
-                "NO_PROXY=localhost,127.0.0.1",
-            ]
-        )
+    # Checkers validate completed decisions locally. Candidate execution config
+    # may contain WLS credentials and proxy settings; none cross this boundary.
+    command.extend(["-e", "PYTHONDONTWRITEBYTECODE=1", "-e", "GRB_LICENSE_FILE="])
     command.extend(
         [
             image,
@@ -195,32 +162,16 @@ def run_checker_isolated(
     )
     os.close(descriptor)
 
-    effective_cfg = dict(cfg)
-    configured_license = str(
-        effective_cfg.get("gurobi_lic", os.environ.get("GRB_LICENSE_FILE", ""))
-    )
-    if configured_license:
-        effective_cfg["gurobi_lic"] = execution._canonical_license_path(
-            configured_license
-        )
     try:
-        with execution._wls_execution_slot(effective_cfg):
-            with execution._restricted_wls_egress(effective_cfg) as egress:
-                redactions: tuple[str, ...] = ()
-                if egress is not None:
-                    effective_cfg["_restricted_network"] = egress["network"]
-                    effective_cfg["_restricted_proxy"] = egress["proxy_url"]
-                    redactions = egress["redactions"]
-                command = build_isolated_checker_cmd(
-                    checker_path=checker_path,
-                    paper_dir=paper_dir,
-                    instance_file=instance_file,
-                    solution_file=solution_file,
-                    result_file=result_file,
-                    cfg=effective_cfg,
-                )
-                success, output, elapsed = execution._exec(command, timeout)
-                return success, execution._redact_values(output, redactions), elapsed
+        command = build_isolated_checker_cmd(
+            checker_path=checker_path,
+            paper_dir=paper_dir,
+            instance_file=instance_file,
+            solution_file=solution_file,
+            result_file=result_file,
+            cfg=cfg,
+        )
+        return execution._exec(command, timeout)
     except (OSError, RuntimeError, ValueError) as exc:
         return False, f"Isolated checker setup failed: {exc}", 0.0
 

@@ -1,0 +1,34 @@
+{
+  "objective_value": 7900.000000000001,
+  "active_columns": [
+    {
+      "offer_set": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "time_allocated": 10.666666666666663
+    },
+    {
+      "offer_set": [
+        1,
+        3
+      ],
+      "time_allocated": 5.287356321839086
+    },
+    {
+      "offer_set": [
+        3
+      ],
+      "time_allocated": 7.411056376573604
+    },
+    {
+      "offer_set": [
+        2,
+        3
+      ],
+      "time_allocated": 6.634920634920648
+    }
+  ]
+}

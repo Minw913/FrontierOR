@@ -1,0 +1,19 @@
+{
+  "feasible": false,
+  "violated_constraints": [
+    5
+  ],
+  "violations": [
+    "Objective consistency violated: reported objective_value=28.0 differs from recomputed total cost=68.0 (|diff|=40, tol=0.068)"
+  ],
+  "violation_magnitudes": [
+    {
+      "constraint": 5,
+      "lhs": 28.0,
+      "rhs": 68.0,
+      "raw_excess": 40.0,
+      "normalizer": 68.0,
+      "ratio": 0.5882352941176471
+    }
+  ]
+}

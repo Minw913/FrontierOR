@@ -1,0 +1,19 @@
+{
+  "feasible": false,
+  "violated_constraints": [
+    6
+  ],
+  "violations": [
+    "Constraint (6) violated: reported objective_value=0.0 differs from recomputed objective sum_p c_p*e_p=36587.0 (|diff|=36587, tol=0.5)"
+  ],
+  "violation_magnitudes": [
+    {
+      "constraint": 6,
+      "lhs": 0.0,
+      "rhs": 36587.0,
+      "raw_excess": 36587.0,
+      "normalizer": 36587.0,
+      "ratio": 1.0
+    }
+  ]
+}

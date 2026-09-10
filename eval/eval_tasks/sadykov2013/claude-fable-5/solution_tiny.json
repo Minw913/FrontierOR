@@ -1,0 +1,180 @@
+{
+  "objective_value": 23,
+  "bins": {
+    "0": {
+      "items": [
+        40,
+        8,
+        16
+      ],
+      "total_weight": 1000
+    },
+    "1": {
+      "items": [
+        39,
+        49
+      ],
+      "total_weight": 797
+    },
+    "2": {
+      "items": [
+        20,
+        11
+      ],
+      "total_weight": 787
+    },
+    "3": {
+      "items": [
+        48,
+        58,
+        43
+      ],
+      "total_weight": 1000
+    },
+    "4": {
+      "items": [
+        53,
+        28,
+        7
+      ],
+      "total_weight": 982
+    },
+    "5": {
+      "items": [
+        27,
+        24,
+        23
+      ],
+      "total_weight": 993
+    },
+    "6": {
+      "items": [
+        3,
+        30
+      ],
+      "total_weight": 879
+    },
+    "7": {
+      "items": [
+        32,
+        1,
+        14
+      ],
+      "total_weight": 933
+    },
+    "8": {
+      "items": [
+        35,
+        38,
+        36
+      ],
+      "total_weight": 970
+    },
+    "9": {
+      "items": [
+        51,
+        26,
+        59
+      ],
+      "total_weight": 988
+    },
+    "10": {
+      "items": [
+        45,
+        10,
+        50
+      ],
+      "total_weight": 979
+    },
+    "11": {
+      "items": [
+        2,
+        46,
+        19
+      ],
+      "total_weight": 978
+    },
+    "12": {
+      "items": [
+        56,
+        0,
+        52
+      ],
+      "total_weight": 974
+    },
+    "13": {
+      "items": [
+        42,
+        15,
+        47
+      ],
+      "total_weight": 987
+    },
+    "14": {
+      "items": [
+        21,
+        29,
+        22
+      ],
+      "total_weight": 999
+    },
+    "15": {
+      "items": [
+        34,
+        5,
+        41
+      ],
+      "total_weight": 961
+    },
+    "16": {
+      "items": [
+        37,
+        54,
+        31
+      ],
+      "total_weight": 845
+    },
+    "17": {
+      "items": [
+        4,
+        9
+      ],
+      "total_weight": 539
+    },
+    "18": {
+      "items": [
+        44,
+        6
+      ],
+      "total_weight": 633
+    },
+    "19": {
+      "items": [
+        13,
+        55
+      ],
+      "total_weight": 707
+    },
+    "20": {
+      "items": [
+        12,
+        18
+      ],
+      "total_weight": 707
+    },
+    "21": {
+      "items": [
+        33,
+        25
+      ],
+      "total_weight": 723
+    },
+    "22": {
+      "items": [
+        57,
+        17
+      ],
+      "total_weight": 639
+    }
+  }
+}

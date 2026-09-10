@@ -1,0 +1,1075 @@
+paper_id,model,instance,status,fail_reason,error,gap,delta_time,feasible,debug_retries,correction_retries,obj,time,aocc,first_status,first_fail_reason,first_gap,first_feasible,first_time,first_obj
+bragin2022,claude-fable-5,tiny,pass,,,0.0,0.65,True,0,0,8126.0,2.07,0.037783,pass,,0.0,True,2.07,8126.0
+bettinelli2017,claude-fable-5,tiny,pass,,,0.0,-0.07,True,0,0,293.0,0.12,0.085324,pass,,0.0,True,0.12,293.0
+belhoul2014,claude-fable-5,tiny,pass,,,0.0,0.35,True,0,0,-0.658211,0.47,1.0,pass,,0.0,True,0.47,-0.658211
+araujo2015,claude-fable-5,tiny,pass,,,0.0,-0.33,True,0,0,24517.0,0.17,1.0,pass,,0.0,True,0.17,24517.0
+belvaux2000,claude-fable-5,tiny,fail,infeasible,"Solution is INFEASIBLE Violations: Constraint 13 (flow balance eq 9) violated for item 0, period 0: LHS=0.000000, RHS=34.000000, diff=34.000000; Constraint 13 (flow balance eq 9) violated for item 0, period 1: LHS=0.000000, RHS=19.000000, diff=19.000000; Constraint 13 (flow balance eq 9) violated for item 0, period 2: LHS=0.000000, RHS=10.000000, diff=10.000000; Constraint 13 (flow balance eq 9) violated for item 0, period 3: LHS=0.000000, RHS=25.000000, diff=25.000000; Constraint 13 (flow balan",0.0,-0.4,False,0,0,6025.0,0.17,1.0,fail,infeasible,0.0,False,0.17,6025.0
+bodur2017,claude-fable-5,tiny,pass,,,0.0,-3.23,True,0,0,74706.089881,6.23,0.443779,pass,,0.0,True,6.23,74706.089881
+barnhart2000,claude-fable-5,tiny,fail,infeasible,"Solution is INFEASIBLE Violations: Objective consistency violated: reported objective_value=28.0 differs from recomputed total cost=68.0 (|diff|=40, tol=0.068)",-0.5625,0.03,False,0,0,28.0,0.12,0.0,fail,infeasible,-0.5625,False,0.12,28.0
+bertsimas2024,claude-fable-5,tiny,fail,infeasible,"Solution is INFEASIBLE Violations: unknown model variable(s): z, x, y; constraint violated: flow_0_0_0: 0 == 5.36252937471 (excess 5.36253); constraint violated: flow_0_0_1: 0 == 12.2195500018 (excess 12.2196); constraint violated: flow_0_0_2: 0 == 9.3713403451 (excess 9.37134); constraint violated: flow_0_0_3: 0 == 5.95580852476 (excess 5.95581)",0.0,3.84,False,0,0,12007.403059,8.09,0.027354,fail,infeasible,0.0,False,8.09,12007.403059
+brandao2016,claude-fable-5,tiny,pass,,,0.0,0.98,True,0,0,24.0,1.22,0.036632,pass,,0.0,True,1.22,24.0
+buchheim2018,claude-fable-5,tiny,pass,,,0.0,1.81,True,0,0,1472.0,6.31,0.036198,pass,,0.0,True,6.31,1472.0
+armbruster2012,claude-fable-5,tiny,pass,,,0.0,-2.22,True,0,0,58.0,17.07,0.015624,pass,,0.0,True,17.07,58.0
+chebil2015,claude-fable-5,tiny,pass,,,0.0,1.18,True,0,0,11516.0,1.32,1.0,pass,,0.0,True,1.32,11516.0
+caprara1999,claude-fable-5,tiny,pass,,,0.0,5.33,True,0,0,1781.0,5.53,0.167322,pass,,0.0,True,5.53,1781.0
+bertsimas2022,claude-fable-5,tiny,pass,,,-0.0,5.28,True,0,0,-0.006301,5.53,0.06,pass,,-0.0,True,5.53,-0.006301
+chebil2019,claude-fable-5,tiny,pass,,,0.0,0.03,True,0,0,11443.0,0.17,1.0,pass,,0.0,True,0.17,11443.0
+alfieri2020,claude-fable-5,tiny,pass,,,0.0,-0.1,True,0,0,4.0,0.07,0.0,pass,,0.0,True,0.07,4.0
+castro2021,claude-fable-5,tiny,pass,,,-0.0,0.14,True,0,0,553065.0,0.28,0.857143,pass,,-0.0,True,0.28,553065.0
+boland2019,claude-fable-5,tiny,pass,,,0.0,-0.63,True,0,0,4910.0,2.27,0.138391,pass,,0.0,True,2.27,4910.0
+colombi2017,claude-fable-5,tiny,pass,,,0.0,-0.01,True,0,0,2844.0,0.12,1.0,pass,,0.0,True,0.12,2844.0
+cordeau2019,claude-fable-5,tiny,fail,infeasible,Solution is INFEASIBLE Violations: results.MCLP.problem_type must equal MCLP; results.PSCLP.problem_type must equal PSCLP,0.0,0.37,False,0,0,5.0,2.58,0.020814,fail,infeasible,0.0,False,2.58,5.0
+carvalho1999,claude-fable-5,tiny,pass,,,0.0,22.37,True,0,0,20.0,22.81,0.140341,pass,,0.0,True,22.81,20.0
+bront2009,claude-fable-5,tiny,pass,,,-0.0,-0.08,True,0,0,7900.0,0.12,0.207482,pass,,-0.0,True,0.12,7900.0
+bollapragada2001,claude-fable-5,tiny,fail,infeasible,"Solution is INFEASIBLE Violations: Equilibrium violated at DOF 1 (node 1, dir x), load 1: LHS=0.000048, RHS=0.000000, diff=0.000048; Equilibrium violated at DOF 2 (node 1, dir y), load 1: LHS=0.000048, RHS=0.000000, diff=0.000048; Equilibrium violated at DOF 3 (node 2, dir x), load 1: LHS=-0.030897, RHS=0.000000, diff=0.030897; Equilibrium violated at DOF 4 (node 2, dir y), load 1: LHS=-99999.969103, RHS=-100000.000000, diff=0.030897; Equilibrium violated at DOF 5 (node 3, dir x), load 1: LHS=0.",0.0,0.08,False,0,0,1673.999504,0.37,1.0,fail,infeasible,0.0,False,0.37,1673.999504
+degraeve2007,claude-fable-5,tiny,pass,,,-0.0,0.0,True,0,0,46597.34,0.17,1.0,pass,,-0.0,True,0.17,46597.34
+arslan2021,claude-fable-5,tiny,pass,,,-0.0,-0.06,True,0,0,-8385.740244,0.12,1.0,pass,,-0.0,True,0.12,-8385.740244
+damcikurt2016,claude-fable-5,tiny,pass,,,0.0,-62.48,True,0,0,1628.790088,0.42,0.086727,pass,,0.0,True,0.42,1628.790088
+adulyasak2015,claude-fable-5,tiny,fail,infeasible,"Solution is INFEASIBLE Violations: Constraint 23 (exact objective consistency) could not certify the candidate: ValueError: unknown model variable(s): y, z, x; constraint violated: cust_bal_1_1_0: 0 == 23.414811 (excess 23.4148); const",-0.114995,0.42,False,0,0,1235.254013,1.32,0.272546,fail,infeasible,-0.114995,False,1.32,1235.254013
+cote2018,claude-fable-5,tiny,fail,infeasible,"Solution is INFEASIBLE Violations: Constraint 1: unknown model variable(s): f_0_45_8, f_45_90_8, f_90_100_3, f_0_43_7, f_43_86_7; Constraint 1: constraint violated: flow_0: -8 == 0 (excess 8); Constraint 1: constraint violated: flow_100: 8 == 0 (excess 8); Constraint 1: constraint violated: demand_0: 0 >= 4 (excess 4); Constraint 1: constraint violated: demand_1: 0 >= 7 (excess 7)",0.0,-0.05,False,0,0,8.0,0.07,0.0,fail,infeasible,0.0,False,0.07,8.0
+archetti2007,claude-fable-5,tiny,pass,,,0.0,-0.37,True,1,0,1750.321712,0.17,0.605973,fail,runtime_error,,,0.11,
+amaldi2013,claude-fable-5,tiny,pass,,,0.0,-6.05,True,0,0,3.0,0.82,0.337312,pass,,0.0,True,0.82,3.0
+cunha2021,claude-fable-5,tiny,pass,,,-0.0,-10.82,True,0,0,184504.4103,0.87,0.06142,pass,,-0.0,True,0.87,184504.4103
+delorme2020,claude-fable-5,tiny,pass,,,0.0,0.03,True,0,0,30.0,0.17,0.0,pass,,0.0,True,0.17,30.0
+eiselt2009,claude-fable-5,tiny,fail,infeasible,"Solution is INFEASIBLE Violations: Constraint 5 violated: reported objective_value=297556.9623682347 does not match any of the 2 discrete hub-pair completions for hub_locations=[1, 8]; nearest=298578.3661310977, difference=1021.4, tole",0.003421,-14.77,False,0,0,297556.962368,0.12,0.027754,fail,infeasible,0.003421,False,0.12,297556.962368
+delage2022,claude-fable-5,tiny,pass,,,0.0,-9.47,True,0,0,59.0,13.3,0.036049,pass,,0.0,True,13.3,59.0
+bierwirth2017,claude-fable-5,tiny,fail,infeasible,Solution is INFEASIBLE Violations: checker rejected malformed candidate: KeyError: 'processing_time',0.0,295.81,False,0,0,2197.0,299.56,0.060938,fail,infeasible,0.0,False,299.56,2197.0
+cordeau2014,claude-fable-5,tiny,pass,,,0.0,299.24,True,0,0,15.295323,299.56,0.003836,pass,,0.0,True,299.56,15.295323
+forrest2006,claude-fable-5,tiny,pass,,,0.0,-0.06,True,0,0,17.122,0.11,1.0,pass,,0.0,True,0.11,17.122
+bayani2024,claude-fable-5,tiny,pass,,,0.0,298.51,True,0,0,8362.747785,299.11,0.04674,pass,,0.0,True,299.11,8362.747785
+fragkos2016,claude-fable-5,tiny,fail,invalid_obj,"Implausible objective reported by program: llm_obj=inf, gurobi_obj=8504.651195279992",inf,-0.02,False,0,0,inf,0.12,1.0,fail,invalid_obj,inf,False,0.12,inf
+bergman2019,claude-fable-5,tiny,pass,,,0.0,299.1,True,0,0,2244.0,299.37,0.112151,pass,,0.0,True,299.37,2244.0
+borndorfer2007,claude-fable-5,tiny,pass,,,-0.480336,-17.09,True,0,0,21246.862504,0.27,0.255704,pass,,-0.480336,True,0.27,21246.862504
+chen1999,claude-fable-5,tiny,pass,,,0.0,-14.84,True,0,0,14925.0,1.62,6.7e-05,pass,,0.0,True,1.62,14925.0
+araujo2020,claude-fable-5,tiny,pass,,,0.0,298.31,True,0,0,3.0,298.92,0.333333,pass,,0.0,True,298.92,3.0
+bode2012,claude-fable-5,tiny,pass,,,0.0,296.89,True,0,0,300.0,299.08,0.063761,pass,,0.0,True,299.08,300.0
+desaulniers2014,claude-fable-5,tiny,pass,,,0.0,-0.07,True,0,0,2669.1,0.22,0.059352,pass,,0.0,True,0.22,2669.1
+bentert2022,claude-fable-5,tiny,pass,,,0.0,208.8,True,0,0,82.0,299.05,2.2e-05,pass,,0.0,True,299.05,82.0
+freling2003,claude-fable-5,tiny,pass,,,0.0,0.01,True,0,0,2085.089084,0.12,0.26382,pass,,0.0,True,0.12,2085.089084
+engineer2012,claude-fable-5,tiny,fail,infeasible,"Solution is INFEASIBLE Violations: Port S1 inventory times do not exactly cover 1..30; Port S1 reported inventory 38.0 at t=1, expected 34.0; ... and 118 more violation(s) for constraint 1; Port S1 inventory below 0 at t=6: I=-0.2667 < 0; Port S1 inventory below 0 at t=10: I=-1.0000 < 0",0.293681,-8.19,False,0,0,-649.27,4.22,0.354784,fail,infeasible,0.293681,False,4.22,-649.27
+carvalho2022,claude-fable-5,tiny,fail,infeasible,"Solution is INFEASIBLE Violations: Setup state count: machine 0, period 5: sum_z=0, expected=1; Setup state count: machine 1, period 5: sum_z=0, expected=1; Flow conservation: item 3, machine 1, period 4: in=1, out=0; Flow conservation: item 8, machine 0, period 4: in=1, out=0",-0.0,227.73,False,0,0,8209.999968,297.1,0.012367,fail,infeasible,-0.0,False,297.1,8209.999968
+fischetti2017,claude-fable-5,tiny,pass,,,-0.0,-0.09,True,0,0,180.097123,0.32,1.0,pass,,-0.0,True,0.32,180.097123
+bard2002,claude-fable-5,tiny,fail,infeasible,Solution is INFEASIBLE Violations: Constraint (9): total_distance=537.136715 does not equal the route-derived distance=536.2,0.0,275.91,False,0,0,2.0,276.09,0.502806,fail,infeasible,0.0,False,276.09,2.0
+carosi2019,claude-fable-5,tiny,fail,infeasible,Solution is INFEASIBLE Violations: cannot derive num_vehicles from decision witness field vs_flows,6.252082,-0.24,False,0,0,175892.0,0.87,1.0,fail,infeasible,6.252082,False,0.87,175892.0
+desaulniers2016,claude-fable-5,tiny,fail,infeasible,"Solution is INFEASIBLE Violations: Supplier inventory mismatch at period 1: computed=553.0000, solution=395.0000; Supplier inventory mismatch at period 2: computed=747.0000, solution=638.0000; Customer 1 inventory mismatch at period 1: computed=-8.0000, solution=139.0000; Customer 1 inventory mismatch at period 2: computed=-29.0000, solution=54.0000; Customer 2 inventory mismatch at period 1: computed=-63.0000, solution=99.0000",0.0,-0.26,False,0,0,3018.5,0.22,0.506543,fail,infeasible,0.0,False,0.22,3018.5
+byeon2022,claude-fable-5,tiny,pass,,,-0.0,-0.15,True,0,0,27454.240534,0.12,0.527246,pass,,-0.0,True,0.12,27454.240534
+desaulniers2010,claude-fable-5,tiny,pass,,,0.0,295.42,True,0,0,1100.3,298.57,0.106527,pass,,0.0,True,298.57,1100.3
+cherkesly2015,claude-fable-5,tiny,pass,,,-0.662299,287.24,True,0,0,102616.4,299.08,0.000338,pass,,-0.662299,True,299.08,102616.4
+cordeau2006,claude-fable-5,tiny,pass,,,0.0,296.45,True,0,0,313.184943,298.59,0.072852,pass,,0.0,True,298.59,313.184943
+furini2019,claude-fable-5,tiny,pass,,,0.0,74.96,True,0,0,3.0,75.08,0.666667,pass,,0.0,True,75.08,3.0
+earl2005,claude-fable-5,tiny,fail,infeasible,"Solution is INFEASIBLE Violations: Constraint 6: Attacker 0 state-machine k=7: a[k]=1, gamma=0, delta_comb=0 -> expected a[k+1]=1, got 0",0.0,-0.04,False,0,0,0.0,0.11,1.0,fail,infeasible,0.0,False,0.11,0.0
+alba2013,claude-fable-5,tiny,fail,infeasible,"Solution is INFEASIBLE Violations: Constraint 1 (out-degree): Vertex 0 in pickup tour has out-degree 2, expected 1; Constraint 1 (out-degree): Vertex 0 in delivery tour has out-degree 2, expected 1; Constraint 2 (in-degree): Vertex 0 in pickup tour has in-degree 2, expected 1; Constraint 2 (in-degree): Vertex 0 in delivery tour has in-degree 2, expected 1; Constraint 3 (subtour elimination): pickup tour has 1 repeated vertex visit(s); tour length 10 but only 9 unique vertices",0.0,298.97,False,0,0,6025.0,299.31,0.130201,fail,infeasible,0.0,False,299.31,6025.0
+dienstknecht2024,claude-fable-5,tiny,pass,,,0.0,-0.34,True,0,0,0.0,0.07,0.002439,pass,,0.0,True,0.07,0.0
+fischetti1997,claude-fable-5,tiny,pass,,,0.0,299.19,True,0,0,1083.0,299.45,0.189055,pass,,0.0,True,299.45,1083.0
+contreras2011,claude-fable-5,tiny,pass,,,0.0,298.55,True,0,0,263399.946066,298.77,0.463399,pass,,0.0,True,298.77,263399.946066
+elci2022,claude-fable-5,tiny,pass,,,0.0,299.34,True,0,0,61.0,299.8,0.04918,pass,,0.0,True,299.8,61.0
+fleszar2022b,claude-fable-5,tiny,pass,,,0.0,299.19,True,0,0,2397.0,299.41,0.075441,pass,,0.0,True,299.41,2397.0
+fischetti1998,claude-fable-5,tiny,pass,,,0.0,298.39,True,0,0,287.0,298.6,0.0,pass,,0.0,True,298.6,287.0
+cote2019,claude-fable-5,tiny,pass,,,0.001493,203.45,True,0,0,671.0,295.27,0.001618,pass,,0.001493,True,295.27,671.0
+furini2017,claude-fable-5,tiny,pass,,,0.0,297.66,True,0,0,4.0,299.12,0.000685,pass,,0.0,True,299.12,4.0
+furini2016,claude-fable-5,tiny,pass,,,-0.005025,-5.94,True,0,0,1600.0,0.17,0.0,pass,,-0.005025,True,0.17,1600.0
+fragkos2021,claude-fable-5,tiny,pass,,,-0.0,299.51,True,0,0,774228.66792,299.62,1.0,pass,,-0.0,True,299.62,774228.66792
+freeman2018,claude-fable-5,tiny,fail,infeasible,Solution is INFEASIBLE Violations: empty required decision witness field(s): event_sites,1.0,298.75,False,0,0,0.0,299.65,1.0,fail,infeasible,1.0,False,299.65,0.0
+frey2017,claude-fable-5,tiny,pass,,,0.0,0.52,True,0,0,0.0,0.77,0.324,pass,,0.0,True,0.77,0.0
+hoffman1993,claude-fable-5,tiny,pass,,,0.0,0.24,True,0,0,16.0,0.32,1.0,pass,,0.0,True,0.32,16.0
+kobayashi2021,claude-fable-5,tiny,pass,,,-0.0,0.01,True,0,0,-1.707153,0.37,0.278741,pass,,-0.0,True,0.37,-1.707153
+klose2005,claude-fable-5,tiny,pass,,,0.0,13.84,True,0,0,6153.257932,15.86,0.177323,pass,,0.0,True,15.86,6153.257932
+hosseinian2020,claude-fable-5,tiny,pass,,,0.0,0.03,True,0,0,939.0,0.17,1.0,pass,,0.0,True,0.17,939.0
+kobeaga2024,claude-fable-5,tiny,pass,,,0.0,-0.06,True,0,0,5.0,0.22,0.0,pass,,0.0,True,0.22,5.0
+gangammanavar2020,claude-fable-5,tiny,fail,infeasible,"Solution is INFEASIBLE Violations: Constraint 4 violated: reported objective_value=29.4127188977 differs from exactly recomputed value=29.2438140943 (difference=0.168905, tol=0.001)",0.007624,0.02,False,0,0,29.412719,0.32,0.299292,fail,infeasible,0.007624,False,0.32,29.412719
+garcia2011,claude-fable-5,tiny,pass,,,0.0,-3.54,True,0,0,167268.0,0.67,0.004226,pass,,0.0,True,0.67,167268.0
+hadjar2006,claude-fable-5,tiny,pass,,,4.3e-05,0.35,True,0,0,232301.76,0.77,0.019183,pass,,4.3e-05,True,0.77,232301.76
+kreter2018,claude-fable-5,tiny,pass,,,0.0,0.01,True,0,0,57.0,0.12,0.473684,pass,,0.0,True,0.12,57.0
+hewitt2024,claude-fable-5,tiny,fail,infeasible,"Solution is INFEASIBLE Violations: Product 0, dist 1, scenario 0: z=0.000000 != sum(Y*x)=7480.666350; Product 0, dist 1, scenario 1: z=0.000000 != sum(Y*x)=6204.471300; Product 0, dist 1, scenario 2: z=0.000000 != sum(Y*x)=4118.433750;",0.0,-0.05,False,0,0,3963357.250997,0.21,0.473077,fail,infeasible,0.0,False,0.21,3963357.250997
+mansini2020,claude-fable-5,tiny,pass,,,0.0,-0.02,True,0,0,5143.0,0.12,0.346263,pass,,0.0,True,0.12,5143.0
+legrain2020,claude-fable-5,tiny,pass,,,0.0,-0.99,True,0,0,990.0,2.85,0.555758,pass,,0.0,True,2.85,990.0
+martello1999,claude-fable-5,tiny,pass,,,0.0,-0.02,True,0,0,20189.0,0.12,0.001535,pass,,0.0,True,0.12,20189.0
+mehrotra1996,claude-fable-5,tiny,pass,,,0.0,-0.1,True,0,0,5.0,0.07,0.00577,pass,,0.0,True,0.07,5.0
+gruson2021,claude-fable-5,tiny,pass,,,-0.0,1.64,True,0,0,179645.653626,15.44,0.391381,pass,,-0.0,True,15.44,179645.653626
+letelier2022,claude-fable-5,tiny,pass,,,0.0,-0.02,True,0,0,8.0,0.12,0.25,pass,,0.0,True,0.12,8.0
+gamache1999,claude-fable-5,tiny,pass,,,0.0,-23.52,True,0,0,0.0,0.17,1.0,pass,,0.0,True,0.17,0.0
+guo2021,claude-fable-5,tiny,pass,,,-0.0,0.12,True,0,0,-38094.0,0.77,0.017479,pass,,-0.0,True,0.77,-38094.0
+gschwind2021,claude-fable-5,tiny,pass,,,0.0,0.96,True,0,0,11.0,1.07,1.0,pass,,0.0,True,1.07,11.0
+li2020,claude-fable-5,tiny,pass,,,-0.0,-0.24,True,0,0,64110554.710739,0.27,0.355606,pass,,-0.0,True,0.27,64110554.710739
+morrison2016,claude-fable-5,tiny,pass,,,0.0,-0.03,True,0,0,2.0,0.06,0.0,pass,,0.0,True,0.06,2.0
+furini2021,claude-fable-5,tiny,pass,,,0.0,0.02,True,0,0,2.0,0.12,0.5,pass,,0.0,True,0.12,2.0
+laporte2003,claude-fable-5,tiny,fail,infeasible,"Solution is INFEASIBLE Violations: Objective consistency violated: reported objective_value=70.0 differs from recomputed sum_e(c_e*x_e)+sum_ki(b_ki*z_ki)=421.0 (routing=28, purchase=393.0, |diff|=351, tol=0.421)",2.888889,59.8,False,0,0,70.0,60.19,1.0,fail,infeasible,2.888889,False,60.19,70.0
+gualandi2012,claude-fable-5,tiny,pass,,,0.0,299.47,True,0,0,5.0,299.6,0.2,pass,,0.0,True,299.6,5.0
+legrain2024,claude-fable-5,tiny,pass,,,0.0,-0.01,True,0,0,10.0,0.17,1.0,pass,,0.0,True,0.17,10.0
+lai2021,claude-fable-5,tiny,pass,,,0.0,297.87,True,0,0,2242.763031,299.56,0.364925,pass,,0.0,True,299.56,2242.763031
+pinnoi1997,claude-fable-5,tiny,pass,,,0.0,0.01,True,0,0,4.0,0.12,0.772727,pass,,0.0,True,0.12,4.0
+lozano2017,claude-fable-5,tiny,pass,,,0.0,-0.1,True,0,0,300.0,0.12,1.0,pass,,0.0,True,0.12,300.0
+huisman2005,claude-fable-5,tiny,fail,infeasible,"Solution is INFEASIBLE Violations: Constraint (6): Short-arc dh-task mismatch at (53,65), depot depot_1 (duties=0, y=1); Constraint (6): Short-arc dh-task mismatch at (35,44), depot depot_1 (duties=0, y=1); Constraint (6): Short-arc dh-task mismatch at (34,38), depot depot_1 (duties=0, y=1); Constraint (6): Short-arc dh-task mismatch at (59,71), depot depot_1 (duties=0, y=1); Constraint (6): Short-arc dh-task mismatch at (62,70), depot depot_1 (duties=0, y=1)",-0.027027,-47.0,False,0,0,36.0,0.12,0.486508,fail,infeasible,-0.027027,False,0.12,36.0
+kowalczyk2024,claude-fable-5,tiny,pass,,,0.0,275.36,True,0,0,322.0,299.5,0.049631,pass,,0.0,True,299.5,322.0
+pettersson2020,claude-fable-5,tiny,pass,,,0.0,-0.06,True,0,0,1.0,0.07,0.0,pass,,0.0,True,0.07,1.0
+pedersen2024,claude-fable-5,tiny,pass,,,0.0,0.37,True,0,0,58.6944,0.54,0.120635,pass,,0.0,True,0.54,58.6944
+rahmaniani2020,claude-fable-5,tiny,pass,,,0.0,-0.03,True,0,0,6251.751,0.12,0.388785,pass,,0.0,True,0.12,6251.751
+martin-iradi2024,claude-fable-5,tiny,pass,,,0.0,0.02,True,0,0,181866.841,0.11,0.008052,pass,,0.0,True,0.11,181866.841
+knueven2020,claude-fable-5,tiny,pass,,,6.1e-05,253.54,True,0,0,8407180.206516,297.23,0.123442,pass,,6.1e-05,True,297.23,8407180.206516
+roberti2015,claude-fable-5,tiny,pass,,,0.0,-0.08,True,0,0,4959.0,0.32,1.0,pass,,0.0,True,0.32,4959.0
+kowalczyk2018,claude-fable-5,tiny,pass,,,0.0,292.3,True,0,0,19179.0,299.38,0.000289,pass,,0.0,True,299.38,19179.0
+rahimian2017,claude-fable-5,tiny,fail,gap_exceeds,"Gap 12512.50% exceeds 10% threshold (obj=10090.0, gurobi=80.0)",125.125,-0.01,True,0,0,10090.0,0.12,1.0,fail,gap_exceeds,125.125,True,0.12,10090.0
+kang2021,claude-fable-5,tiny,fail,infeasible,"Solution is INFEASIBLE Violations: Constraint (3): sum x_{i,t} for i in N = 0, expected 1; Constraint (4): Flow imbalance at node 10: out=0, in=1; Constraint (5): Subtour detected — directed cycle among active truck arcs involving nodes [0, 1, 9, 10]; Constraint (11): Truck arc (10,0) not in arc set A",0.0,290.22,False,0,0,17530.0,290.57,0.548374,fail,infeasible,0.0,False,290.57,17530.0
+reihaneh2019,claude-fable-5,tiny,fail,infeasible,"Solution is INFEASIBLE Violations: checker rejected malformed candidate: KeyError: (0, 5, 3)",0.0,-0.17,False,0,0,534.0064,0.12,0.172158,fail,infeasible,0.0,False,0.12,534.0064
+lee1996,claude-fable-5,tiny,pass,,,-0.0,298.27,True,0,0,9756.478577,298.62,0.861308,pass,,-0.0,True,298.62,9756.478577
+juvin2023,claude-fable-5,tiny,fail,infeasible,"Solution is INFEASIBLE Violations: Precedence violated: O(1,0) at t=1, remaining y sum=1 > 0 (max_p=1, y_next=1); Precedence violated: O(1,0) at t=2, remaining y sum=1 > 0 (max_p=1, y_next=1); ... and 3 more violations of constraint 3",-0.125,298.96,False,0,0,7.0,299.07,0.25,fail,infeasible,-0.125,False,299.07,7.0
+ji2019,claude-fable-5,tiny,fail,infeasible,"Solution is INFEASIBLE Violations: Constraint 54 (objective consistency): reported objective_value=1918.3000000000002 differs from recomputed T1+T2+penalty=5759.3 (T1=1546.3, T2=4154.0, penalty=59, |diff|=3841, tol=5.76)",-0.265863,298.47,False,0,0,1918.3,299.07,0.001667,fail,infeasible,-0.265863,False,299.07,1918.3
+riley2025,claude-fable-5,tiny,fail,infeasible,Solution is INFEASIBLE Violations: unknown model variable 'u_0_0_0'; unknown model variable 'u_1_0_0'; unknown model variable 'u_2_0_0'; unknown model variable 'u_3_0_0'; unknown model variable 'u_4_0_0',-0.0,-0.1,False,0,0,367596.548102,0.52,0.44722,fail,infeasible,-0.0,False,0.52,367596.548102
+luo2017,claude-fable-5,tiny,fail,infeasible,"Solution is INFEASIBLE Violations: Constraint (6): Vehicle 0 has 0 arrivals at depot (n+1), expected 1; Constraint (6): Vehicle 1 has 0 arrivals at depot (n+1), expected 1; Constraint (6): Vehicle 2 has 0 arrivals at depot (n+1), expected 1; Constraint (6): Vehicle 3 has 0 arrivals at depot (n+1), expected 1; Constraint (6): Vehicle 4 has 0 arrivals at depot (n+1), expected 1",-0.0,286.98,False,0,0,57787.4,299.58,0.063728,fail,infeasible,-0.0,False,299.58,57787.4
+ribeiro1994,claude-fable-5,tiny,pass,,,0.0,0.0,True,0,0,110314.0,0.12,0.126856,pass,,0.0,True,0.12,110314.0
+muter2010,claude-fable-5,tiny,pass,,,-0.008071,291.16,True,0,0,1092.902042,299.72,0.237103,pass,,-0.008071,True,299.72,1092.902042
+roberti2021,claude-fable-5,tiny,pass,,,0.0,0.04,True,0,0,93.0,0.42,0.258065,pass,,0.0,True,0.42,93.0
+he2020,claude-fable-5,tiny,pass,,,-0.0,294.8,True,0,0,1102.698,299.05,0.001554,pass,,-0.0,True,299.05,1102.698
+savelsbergh1997,claude-fable-5,tiny,pass,,,0.0,0.01,True,0,0,374.0,0.12,1.0,pass,,0.0,True,0.12,374.0
+mingozzi1999,claude-fable-5,tiny,pass,,,0.0,296.07,True,0,0,657.0,299.24,0.064222,pass,,0.0,True,299.24,657.0
+salemi2022,claude-fable-5,tiny,pass,,,-0.0,-0.01,True,0,0,457720.714676,6.23,0.377691,pass,,-0.0,True,6.23,457720.714676
+hassannayebi2016,claude-fable-5,tiny,fail,runtime_error,Execution timed out after 300 seconds,,299.44,,0,0,,300.0,1.0,fail,runtime_error,,,300.0,
+ozturk2020,claude-fable-5,tiny,pass,,,0.0,299.05,True,0,0,27.0,299.56,0.407407,pass,,0.0,True,299.56,27.0
+sadykov2013,claude-fable-5,tiny,pass,,,0.0,42.1,True,0,0,23.0,47.14,0.218012,pass,,0.0,True,47.14,23.0
+oliveira2020,claude-fable-5,tiny,fail,gap_exceeds,"Gap 98.67% exceeds 10% threshold (obj=149.0, gurobi=75.0)",0.986667,-3301.31,True,0,0,149.0,299.07,0.987774,fail,gap_exceeds,0.986667,True,299.07,149.0
+rahmaniani2017,claude-fable-5,tiny,fail,infeasible,Solution is INFEASIBLE Violations: Commodity 0 cost=1294.1879475093153 does not match decision-derived cost 1426.0251523729353; Commodity 1 cost=860.3122724090761 does not match decision-derived cost 2113.3200756617875; Commodity 2 cost=673.8943348520384 does not match decision-derived cost 708.5947643358404; Commodity 3 cost=675.7734255061032 does not match decision-derived cost 683.8114444517352; Commodity 4 cost=685.045976612437 does not match decision-derived cost 711.099358729496,0.0,45.59,False,0,0,147053.728968,46.26,0.040045,fail,infeasible,0.0,False,46.26,147053.728968
+segundo2019,claude-fable-5,tiny,pass,,,0.0,-20.6,True,0,0,1614.0,12.09,0.205426,pass,,0.0,True,12.09,1614.0
+sansegundo2023,claude-fable-5,tiny,pass,,,0.0,21.47,True,0,0,17.0,45.38,0.117795,pass,,0.0,True,45.38,17.0
+nagy2015,claude-fable-5,tiny,fail,infeasible,"Solution is INFEASIBLE Violations: Constraint 15: Arc from backhaul 11 to linehaul 1 (customer 1): x = 1, expected 0; Constraint 15: Arc from backhaul 12 to linehaul 2 (customer 2): x = 1, expected 0",0.0,298.82,False,0,0,948.0,299.05,0.164557,fail,infeasible,0.0,False,299.05,948.0
+rahmaniani2018,claude-fable-5,tiny,fail,infeasible,"Solution is INFEASIBLE Violations: Constraint 49 (complete witness): unknown model variable(s): y_P_ret[2], y_P_ret[3], y_P_ret[4], y_P_ret[5], y_P_ret[24]; constraint violated: inv_total_cap_1: 0 == 140 (excess 140); constraint violat",-7.4e-05,-71.33,False,0,0,1524038992.623617,29.62,0.174021,fail,infeasible,-7.4e-05,False,29.62,1524038992.623617
+song2021,claude-fable-5,tiny,pass,,,0.0,3.84,True,0,0,49.690476,6.18,0.653761,pass,,0.0,True,6.18,49.690476
+seker2021,claude-fable-5,tiny,pass,,,0.0,-0.06,True,0,0,1.0,0.07,1.0,pass,,0.0,True,0.07,1.0
+wang2019,claude-fable-5,tiny,pass,,,0.0,0.09,True,0,0,4113.0,0.37,0.551719,pass,,0.0,True,0.37,4113.0
+pessoa2021,claude-fable-5,tiny,pass,,,0.0,298.01,True,0,0,380.0,298.59,0.056892,pass,,0.0,True,298.59,380.0
+sansegundo2016,claude-fable-5,tiny,pass,,,0.0,44.17,True,0,0,4.0,45.01,0.750298,pass,,0.0,True,45.01,4.0
+segundo2019b,claude-fable-5,tiny,pass,,,0.0,30.66,True,0,0,1644.0,32.49,0.191995,pass,,0.0,True,32.49,1644.0
+tran2018,claude-fable-5,tiny,pass,,,0.0,0.02,True,0,0,6497155.84,0.12,0.01,pass,,0.0,True,0.12,6497155.84
+pecin2017,claude-fable-5,tiny,pass,,,-0.0,283.74,True,0,0,349.674922,299.66,0.624431,pass,,-0.0,True,299.66,349.674922
+wei2020,claude-fable-5,tiny,pass,,,0.0,-0.38,True,0,0,29.0,0.12,0.0,pass,,0.0,True,0.12,29.0
+walteros2020,claude-fable-5,tiny,pass,,,0.0,-6.34,True,0,0,7.0,0.07,0.000624,pass,,0.0,True,0.07,7.0
+watermeyer2023,claude-fable-5,tiny,pass,,,0.0,0.01,True,0,0,17.0,0.12,0.0,pass,,0.0,True,0.12,17.0
+potthoff2010,claude-fable-5,tiny,fail,infeasible,"Solution is INFEASIBLE Violations: unknown/non-reschedulable canceled tasks: ['T00001', 'T00003', 'T00006', 'T00008', 'T00010']; D0000: return_station=S003 does not match derived S002; D0000: return_time_minutes does not match derived return time; D0000: cost=0.0 does not match derived 400; D0001: no timely connection to task T00002",0.096031,-0.0,False,0,0,687102.0,0.12,0.235776,fail,infeasible,0.096031,False,0.12,687102.0
+watermeyer2020,claude-fable-5,tiny,pass,,,0.0,0.03,True,0,0,34.0,0.17,0.655882,pass,,0.0,True,0.17,34.0
+wu2018,claude-fable-5,tiny,pass,,,-0.0,-0.02,True,0,0,3363.072341,0.17,0.532299,pass,,-0.0,True,0.17,3363.072341
+wei2020b,claude-fable-5,tiny,pass,,,0.0,-0.04,True,0,0,2.0,0.07,0.0,pass,,0.0,True,0.07,2.0
+wang2025,claude-fable-5,tiny,pass,,,0.0,-0.29,True,0,0,19.756311,0.17,0.024263,pass,,0.0,True,0.17,19.756311
+zetina2019,claude-fable-5,tiny,pass,,,0.0,-0.13,True,0,0,10477.0,0.92,0.379468,pass,,0.0,True,0.92,10477.0
+zhang2025,claude-fable-5,tiny,pass,,,0.0,-0.04,True,0,0,8.0,0.12,1.0,pass,,0.0,True,0.12,8.0
+xu2024,claude-fable-5,tiny,pass,,,0.0,0.01,True,0,0,0.00021,0.92,0.651455,pass,,0.0,True,0.92,0.00021
+wu2022,claude-fable-5,tiny,pass,,,0.0,0.01,True,1,0,15938.0,0.12,0.211299,fail,runtime_error,,,0.12,
+zetina2020,claude-fable-5,tiny,pass,,,0.0,-0.05,True,0,0,2.574961,0.07,0.039508,pass,,0.0,True,0.07,2.574961
+watermeyer2022,claude-fable-5,tiny,pass,,,0.0,0.0,True,0,0,64.0,0.12,0.43125,pass,,0.0,True,0.12,64.0
+rahmaniani2022,claude-fable-5,tiny,fail,infeasible,"Solution is INFEASIBLE Violations: Constraint 49 (Objective consistency): trusted fixed-investment recourse failed: ValueError: unknown model variable(s): vP[0,0], vP[0,1], vP[0,2], vP[0,3], vP[0,4]; constraint violated: cap_bal_0: 0 =",1e-06,-75.41,False,0,0,9638653011.047499,11.78,0.116685,fail,infeasible,1e-06,False,11.78,9638653011.047499
+ropke2009,claude-fable-5,tiny,pass,,,0.0,293.34,True,0,0,485.577985,299.59,0.029078,pass,,0.0,True,299.59,485.577985
+ruiz2007,claude-fable-5,tiny,pass,,,0.0,299.44,True,0,0,1097.0,299.63,0.063359,pass,,0.0,True,299.63,1097.0
+reinhardt2016,claude-fable-5,tiny,pass,,,0.0,280.25,True,0,0,369.3,299.05,0.272717,pass,,0.0,True,299.05,369.3
+roberti2018,claude-fable-5,tiny,pass,,,0.0,297.58,True,0,0,839.942292,299.06,0.0,pass,,0.0,True,299.06,839.942292
+wangk2020,claude-fable-5,tiny,pass,,,0.0,-1.55,True,0,0,0.0,0.82,1.0,pass,,0.0,True,0.82,0.0
+xie2019,claude-fable-5,tiny,fail,infeasible,"Solution is INFEASIBLE Violations: Vessel 0: profile=8 outside valid range [0, 6].; Vessel 1: end=36 expected 24.; Vessel 2: profile=2 outside valid range [0, 1].; Vessel 3: end=36 expected 24.; Vessel 4: end=54 expected 42.",7.0,-1.98,False,0,0,8000.0,0.17,1.0,fail,infeasible,7.0,False,0.17,8000.0
+roshanaei2017,claude-fable-5,tiny,pass,,,0.0,-0.24,True,0,0,4435.474767,0.42,0.484848,pass,,0.0,True,0.42,4435.474767
+schwerdfeger2016,claude-fable-5,tiny,pass,,,0.0,299.45,True,0,0,0.316336,299.57,0.0,pass,,0.0,True,299.57,0.316336
+dayarian2019,claude-fable-5,tiny,fail,infeasible,"Solution is INFEASIBLE Violations: Route for vehicle 0 must list the active trip prefix in order; got trip ids [1, 2]; Route for vehicle 1 must list the active trip prefix in order; got trip ids [1, 2]; Route for vehicle 2 must list the active trip prefix in order; got trip ids [1]; Setup continuity violated for product 0, subperiod 1: f=1 > previous f + setup=0; Setup continuity violated for product 1, subperiod 4: f=1 > previous f + setup=0",-0.036666,289.53,False,0,0,373.865,292.1,0.634706,fail,infeasible,-0.036666,False,292.1,373.865
+samarghandi2017,claude-fable-5,tiny,pass,,,0.0,298.63,True,0,0,683.0,299.33,0.109619,pass,,0.0,True,299.33,683.0
+rothenbacher2019,claude-fable-5,tiny,pass,,,0.0,294.34,True,0,0,1072.033211,297.07,0.417627,pass,,0.0,True,297.07,1072.033211
+rostami2021,claude-fable-5,tiny,pass,,,-0.0,35.94,True,0,0,2032.99,36.12,0.064553,pass,,-0.0,True,36.12,2032.99
+rothenbacher2018,claude-fable-5,tiny,fail,infeasible,Solution is INFEASIBLE Violations: checker rejected malformed candidate: ValueError: expanded node id 1010 is out of range,0.152449,295.26,False,0,0,398.57,299.07,0.323896,fail,infeasible,0.152449,False,299.07,398.57
+wangy2020,claude-fable-5,tiny,pass,,,0.0,297.77,True,0,0,423031.0,299.15,1.0,pass,,0.0,True,299.15,423031.0
+vidal2011,claude-fable-5,tiny,fail,infeasible,"Solution is INFEASIBLE Violations: Domain: routes[0] vehicle 0 not in [1, 2]; Domain: routes[1] vehicle 0 not in [1, 2]; Domain: routes[3] vehicle 0 not in [1, 2]; Domain: routes[5] vehicle 0 not in [1, 2]",-0.0,296.29,False,0,0,5113.630429,299.07,0.239561,fail,infeasible,-0.0,False,299.07,5113.630429
+yang2013,claude-fable-5,tiny,pass,,,0.0,298.05,True,0,0,49686.0,298.93,1.0,pass,,0.0,True,298.93,49686.0
+spliet2015,claude-fable-5,tiny,pass,,,0.029926,285.45,True,0,0,17.666667,287.87,0.056354,pass,,0.029926,True,287.87,17.666667
+zohali2022,claude-fable-5,tiny,pass,,,0.0,298.61,True,0,0,61.0,299.13,0.147541,pass,,0.0,True,299.13,61.0
+taninmis2022,claude-fable-5,tiny,fail,infeasible,"Solution is INFEASIBLE Violations: (2g) Spinning reserve violated at bus 3, n=1,k=1,p=0,h=0: reserve=0.0000 < required=1.3584 (and 1727 more similar violations); (2l) Power balance violated at bus 3, n=1,k=1,p=0,h=0: supply=0.0000 != demand=27.1686 (and 1727 more similar violations)",0.058921,-30.73,False,0,0,16018797.367652,4.73,0.179789,fail,infeasible,0.058921,False,4.73,16018797.367652
+liao2020,claude-fable-5,tiny,fail,infeasible,"Solution is INFEASIBLE Violations: Constraint 13: unknown model variable(s): x_1_1, x_2_2, x_4_3, x_3_4, t_2; lower bound violated: rho[1]=0 < 11.7522; lower bound violated: rho[2]=0 < 11.7522; lower bound violated: rho[3]=0 < 11.7522;",-0.914167,0.21,False,0,0,108.458991,0.37,0.139503,fail,infeasible,-0.914167,False,0.37,108.458991
+levin2017,claude-fable-5,tiny,fail,infeasible,"Solution is INFEASIBLE Violations: Constraint 1 (Eq.34) violated: link (J_0_0,J_0_1), dest A, t=5: N_U(t+1)=0.666667 != 0 (and 107 more violations of constraint 1); Constraint 2 (Eq.35) violated: link (J_0_0,J_0_1), dest A, t=5: N_D(t+1)=0 != 0.666667 (and 107 more violations of constraint 2)",1.683333,0.07,False,0,0,1717.333334,0.32,1.0,fail,infeasible,1.683333,False,0.32,1717.333334
+kress2019,claude-fable-5,tiny,fail,gap_exceeds,"Gap 27.27% exceeds 10% threshold (obj=28.0, gurobi=22.0)",0.272727,-113.08,True,0,0,28.0,0.07,0.636364,fail,gap_exceeds,0.272727,True,0.07,28.0
+wu2023,claude-fable-5,tiny,pass,,,0.0,-1.27,True,0,0,1.0,2.62,0.000257,pass,,0.0,True,2.62,1.0
+alba2013,claude-fable-5,large_1,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+alba2013,claude-fable-5,large_2,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+adulyasak2015,claude-fable-5,large_1,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+alba2013,claude-fable-5,large_3,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+barnhart2000,claude-fable-5,large_1,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+adulyasak2015,claude-fable-5,large_2,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+alba2013,claude-fable-5,large_4,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+barnhart2000,claude-fable-5,large_2,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+bierwirth2017,claude-fable-5,large_1,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+bollapragada2001,claude-fable-5,large_1,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+adulyasak2015,claude-fable-5,large_3,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+alba2013,claude-fable-5,large_5,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+barnhart2000,claude-fable-5,large_3,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+bierwirth2017,claude-fable-5,large_2,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+bollapragada2001,claude-fable-5,large_2,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+adulyasak2015,claude-fable-5,large_4,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+barnhart2000,claude-fable-5,large_4,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+bierwirth2017,claude-fable-5,large_3,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+bollapragada2001,claude-fable-5,large_3,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+adulyasak2015,claude-fable-5,large_5,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+barnhart2000,claude-fable-5,large_5,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+bierwirth2017,claude-fable-5,large_4,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+bollapragada2001,claude-fable-5,large_4,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+bierwirth2017,claude-fable-5,large_5,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+bollapragada2001,claude-fable-5,large_5,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+carosi2019,claude-fable-5,large_1,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+carosi2019,claude-fable-5,large_2,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+carosi2019,claude-fable-5,large_3,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+carvalho2022,claude-fable-5,large_1,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+carosi2019,claude-fable-5,large_4,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+carvalho2022,claude-fable-5,large_2,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+carosi2019,claude-fable-5,large_5,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+carvalho2022,claude-fable-5,large_3,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+carvalho2022,claude-fable-5,large_4,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+carvalho2022,claude-fable-5,large_5,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+araujo2015,claude-fable-5,large_1,pass,,,-3e-06,-5.13,True,0,0,3746151.0,3596.65,0.002103,pass,,-3e-06,True,3596.65,3746151.0
+araujo2015,claude-fable-5,large_2,pass,,,0.021213,-5.37,True,0,0,3014407.0,3595.45,0.040072,pass,,0.021213,True,3595.45,3014407.0
+byeon2022,claude-fable-5,large_1,fail,infeasible,"Solution is INFEASIBLE Violations: RampDown[0,0]: delta_p=85.545200 > 17.516500 (and 316 more violations of constraint 3)",-1.0,-360.04,False,0,0,0.0,0.16,0.000225,fail,infeasible,-1.0,False,0.16,0.0
+araujo2015,claude-fable-5,large_3,pass,,,0.00738,-5.11,True,0,0,474484.0,3595.6,0.012245,pass,,0.00738,True,3595.6,474484.0
+byeon2022,claude-fable-5,large_2,pass,,,0.001476,-163.72,True,0,0,100718.806384,0.32,0.004363,pass,,0.001476,True,0.32,100718.806384
+araujo2015,claude-fable-5,large_4,pass,,,0.0,0.03,True,0,0,137751.0,4.47,0.038138,pass,,0.0,True,4.47,137751.0
+byeon2022,claude-fable-5,large_3,pass,,,-0.0,-4.33,True,0,0,681529.59645,0.27,0.032374,pass,,-0.0,True,0.27,681529.59645
+araujo2015,claude-fable-5,large_5,pass,,,5.5e-05,-4.99,True,0,0,867891.0,3596.14,0.000961,pass,,5.5e-05,True,3596.14,867891.0
+byeon2022,claude-fable-5,large_4,pass,,,0.000746,-3.08,True,0,0,183571.19188,0.47,0.057956,pass,,0.000746,True,0.47,183571.19188
+byeon2022,claude-fable-5,large_5,pass,,,-0.0,-624.6,True,0,0,179417.133224,0.27,1.0,pass,,-0.0,True,0.27,179417.133224
+bragin2022,claude-fable-5,large_1,pass,,,0.0,11.43,True,0,0,128063.0,13.89,0.237311,pass,,0.0,True,13.89,128063.0
+bront2009,claude-fable-5,large_1,pass,,,0.0,-50.8,True,0,0,243985.563419,1.22,0.00101,pass,,0.0,True,1.22,243985.563419
+bragin2022,claude-fable-5,large_2,fail,runtime_error,Execution timed out after 3600 seconds,,-0.97,,0,0,,3600.11,1.0,fail,runtime_error,,,3600.11,
+bront2009,claude-fable-5,large_2,pass,,,0.0,-162.58,True,0,0,298455.008601,1.99,0.000253,pass,,0.0,True,1.99,298455.008601
+bragin2022,claude-fable-5,large_3,pass,,,0.0,0.04,True,0,0,16259.0,1.4,0.807353,pass,,0.0,True,1.4,16259.0
+bront2009,claude-fable-5,large_3,pass,,,-0.0,-146.53,True,0,0,336390.534683,1.27,0.00022,pass,,-0.0,True,1.27,336390.534683
+bragin2022,claude-fable-5,large_4,pass,,,0.0,0.18,True,0,0,16252.0,1.39,0.880992,pass,,0.0,True,1.39,16252.0
+bront2009,claude-fable-5,large_4,pass,,,-0.0,-233.8,True,0,0,357579.624339,0.62,0.000159,pass,,-0.0,True,0.62,357579.624339
+bragin2022,claude-fable-5,large_5,pass,,,0.0,-0.39,True,0,0,24000.0,1.42,0.395826,pass,,0.0,True,1.42,24000.0
+bront2009,claude-fable-5,large_5,pass,,,-0.0,-140.55,True,0,0,365988.696392,0.27,0.013588,pass,,-0.0,True,0.27,365988.696392
+arslan2021,claude-fable-5,large_1,fail,runtime_error,Execution timed out after 3600 seconds,,3370.91,,0,0,,3600.93,1.0,fail,runtime_error,,,3600.93,
+arslan2021,claude-fable-5,large_2,pass,,,0.0,3599.13,True,0,0,-110269.949149,3599.61,0.345597,pass,,0.0,True,3599.61,-110269.949149
+arslan2021,claude-fable-5,large_3,fail,runtime_error,Execution timed out after 3600 seconds,,3573.69,,0,0,,3601.17,1.0,fail,runtime_error,,,3601.17,
+arslan2021,claude-fable-5,large_4,fail,runtime_error,Execution timed out after 3600 seconds,,3582.4,,0,0,,3602.22,1.0,fail,runtime_error,,,3602.22,
+arslan2021,claude-fable-5,large_5,fail,runtime_error,Execution timed out after 3600 seconds,,3530.25,,0,0,,3601.87,1.0,fail,runtime_error,,,3601.87,
+amaldi2013,claude-fable-5,large_1,pass,,,0.0,-144.8,True,0,0,2.0,0.84,0.000731,pass,,0.0,True,0.84,2.0
+amaldi2013,claude-fable-5,large_2,pass,,,0.0,-3600.07,True,0,0,3.0,0.82,0.66667,pass,,0.0,True,0.82,3.0
+amaldi2013,claude-fable-5,large_3,pass,,,-0.5,-3601.25,True,0,0,3.0,0.82,1.1e-05,pass,,-0.5,True,0.82,3.0
+amaldi2013,claude-fable-5,large_4,pass,,,-0.2,-3599.83,True,0,0,4.0,1.49,1.3e-05,pass,,-0.2,True,1.49,4.0
+amaldi2013,claude-fable-5,large_5,pass,,,-0.285714,-3599.63,True,0,0,5.0,2.02,1.1e-05,pass,,-0.285714,True,2.02,5.0
+cordeau2019,claude-fable-5,large_1,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+cordeau2019,claude-fable-5,large_2,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+cordeau2019,claude-fable-5,large_3,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+cordeau2019,claude-fable-5,large_4,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+cordeau2019,claude-fable-5,large_5,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+cote2018,claude-fable-5,large_1,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+cote2018,claude-fable-5,large_2,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+cote2018,claude-fable-5,large_3,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+cote2018,claude-fable-5,large_4,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+cote2018,claude-fable-5,large_5,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+alfieri2020,claude-fable-5,large_1,pass,,,-0.3125,-14.5,True,0,0,11.0,3599.19,4e-05,pass,,-0.3125,True,3599.19,11.0
+alfieri2020,claude-fable-5,large_2,pass,,,-0.142857,-2513.42,True,0,0,12.0,1091.55,1.2e-05,pass,,-0.142857,True,1091.55,12.0
+alfieri2020,claude-fable-5,large_3,pass,,,-0.15,-10.52,True,0,0,17.0,3599.07,1.6e-05,pass,,-0.15,True,3599.07,17.0
+alfieri2020,claude-fable-5,large_4,pass,,,-0.129032,-16.17,True,0,0,27.0,3599.05,1.4e-05,pass,,-0.129032,True,3599.05,27.0
+alfieri2020,claude-fable-5,large_5,pass,,,-0.3125,-6.22,True,0,0,11.0,3599.09,1.1e-05,pass,,-0.3125,True,3599.09,11.0
+armbruster2012,claude-fable-5,large_1,fail,runtime_error,Execution timed out after 3600 seconds,,-5.37,,0,0,,3600.26,1.0,fail,runtime_error,,,3600.26,
+armbruster2012,claude-fable-5,large_2,fail,runtime_error,Execution timed out after 3600 seconds,,-22.77,,0,0,,3600.16,1.0,fail,runtime_error,,,3600.16,
+armbruster2012,claude-fable-5,large_3,fail,runtime_error,Execution timed out after 3600 seconds,,-15.6,,0,0,,3600.16,1.0,fail,runtime_error,,,3600.16,
+armbruster2012,claude-fable-5,large_4,fail,runtime_error,Execution timed out after 3600 seconds,,-15.65,,0,0,,3600.11,1.0,fail,runtime_error,,,3600.11,
+armbruster2012,claude-fable-5,large_5,fail,runtime_error,Execution timed out after 3600 seconds,,-14.35,,0,0,,3600.16,1.0,fail,runtime_error,,,3600.16,
+dayarian2019,claude-fable-5,large_1,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+dayarian2019,claude-fable-5,large_2,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+dayarian2019,claude-fable-5,large_3,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+dayarian2019,claude-fable-5,large_4,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+dayarian2019,claude-fable-5,large_5,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+carvalho1999,claude-fable-5,large_1,fail,gap_exceeds,"Gap 16.31% exceeds 10% threshold (obj=9693.0, gurobi=8334.0)",0.163067,-17.95,True,0,0,9693.0,0.67,0.175742,fail,gap_exceeds,0.163067,True,0.67,9693.0
+carvalho1999,claude-fable-5,large_2,pass,,,0.00999,-1399.73,True,0,0,10110.0,0.77,0.010235,pass,,0.00999,True,0.77,10110.0
+carvalho1999,claude-fable-5,large_3,pass,,,0.0,-0.87,True,0,0,12501.0,0.77,0.19878,pass,,0.0,True,0.77,12501.0
+carvalho1999,claude-fable-5,large_4,pass,,,0.0,-3.95,True,0,0,9995.0,0.87,0.077593,pass,,0.0,True,0.87,9995.0
+carvalho1999,claude-fable-5,large_5,pass,,,0.010179,-464.9,True,0,0,2878.0,0.72,0.010934,pass,,0.010179,True,0.72,2878.0
+bettinelli2017,claude-fable-5,large_1,pass,,,-0.010348,-13.24,True,0,0,1074.0,3598.64,0.000675,pass,,-0.010348,True,3598.64,1074.0
+bettinelli2017,claude-fable-5,large_2,pass,,,0.0,-2457.31,True,0,0,1930.0,1148.76,0.001138,pass,,0.0,True,1148.76,1930.0
+bettinelli2017,claude-fable-5,large_3,pass,,,-0.001179,-4.31,True,0,0,1699.0,3598.79,0.002841,pass,,-0.001179,True,3598.79,1699.0
+bettinelli2017,claude-fable-5,large_4,pass,,,0.0,-700.81,True,0,0,722.0,2910.09,0.015055,pass,,0.0,True,2910.09,722.0
+bettinelli2017,claude-fable-5,large_5,pass,,,0.0,-3285.53,True,0,0,453.0,329.45,0.001472,pass,,0.0,True,329.45,453.0
+boland2019,claude-fable-5,large_1,pass,,,0.0,-0.59,True,0,0,30525.0,3599.64,3.2e-05,pass,,0.0,True,3599.64,30525.0
+boland2019,claude-fable-5,large_2,pass,,,-0.133763,-0.5,True,0,0,4164.0,3599.97,0.0,pass,,-0.133763,True,3599.97,4164.0
+boland2019,claude-fable-5,large_3,fail,runtime_error,Execution timed out after 3600 seconds,,-1.13,,0,0,,3600.11,1.0,fail,runtime_error,,,3600.11,
+boland2019,claude-fable-5,large_4,pass,,,-0.012058,-0.35,True,0,0,20728.5,3599.87,1.8e-05,pass,,-0.012058,True,3599.87,20728.5
+boland2019,claude-fable-5,large_5,pass,,,-0.000215,-0.59,True,0,0,18582.0,3599.63,2e-06,pass,,-0.000215,True,3599.63,18582.0
+desaulniers2016,claude-fable-5,large_1,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+desaulniers2016,claude-fable-5,large_2,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+desaulniers2016,claude-fable-5,large_3,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+desaulniers2016,claude-fable-5,large_4,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+desaulniers2016,claude-fable-5,large_5,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+archetti2007,claude-fable-5,large_1,pass,,,-0.012546,3061.57,True,0,0,29015.327697,3598.9,0.038458,pass,,-0.012546,True,3598.9,29015.327697
+archetti2007,claude-fable-5,large_2,pass,,,0.0,-277.16,True,0,0,38884.936163,2719.2,0.008337,pass,,0.0,True,2719.2,38884.936163
+archetti2007,claude-fable-5,large_3,pass,,,0.000135,2162.95,True,0,0,72951.540919,3598.34,0.001207,pass,,0.000135,True,3598.34,72951.540919
+archetti2007,claude-fable-5,large_4,pass,,,9.2e-05,-2.73,True,0,0,43429.084746,3598.37,0.007327,pass,,9.2e-05,True,3598.37,43429.084746
+archetti2007,claude-fable-5,large_5,pass,,,-0.000423,-2.71,True,0,0,27499.437632,3598.37,0.008844,pass,,-0.000423,True,3598.37,27499.437632
+earl2005,claude-fable-5,large_1,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+earl2005,claude-fable-5,large_2,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+earl2005,claude-fable-5,large_3,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+earl2005,claude-fable-5,large_4,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+earl2005,claude-fable-5,large_5,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+eiselt2009,claude-fable-5,large_1,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+eiselt2009,claude-fable-5,large_2,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+eiselt2009,claude-fable-5,large_3,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+eiselt2009,claude-fable-5,large_4,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+eiselt2009,claude-fable-5,large_5,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+borndorfer2007,claude-fable-5,large_1,fail,infeasible,Solution is INFEASIBLE Violations: Arc 907: total flow 153.000000 > capacity 146.000000; Arc 1042: total flow 303.000000 > capacity 141.000000; Arc 1190: total flow 303.000000 > capacity 205.500000; Arc 920: total flow 530.000000 > capacity 496.000000; Arc 1224: total flow 141.000000 > capacity 46.000000,-0.522306,-106.86,False,0,0,4186312.516624,3496.18,0.019686,fail,infeasible,-0.522306,False,3496.18,4186312.516624
+borndorfer2007,claude-fable-5,large_2,fail,infeasible,Solution is INFEASIBLE Violations: Arc 1103: total flow 250.000000 > capacity 55.200000; Arc 1506: total flow 477.000000 > capacity 233.000000; Arc 1102: total flow 250.000000 > capacity 55.200000; Arc 1090: total flow 58.000000 > capacity 55.200000; Arc 1096: total flow 67.000000 > capacity 55.200000,0.205732,-105.62,False,0,0,4405631.60633,3496.77,0.222216,fail,infeasible,0.205732,False,3496.77,4405631.60633
+borndorfer2007,claude-fable-5,large_3,pass,,,0.049215,-106.09,True,0,0,2579728.280593,3496.57,0.553691,pass,,0.049215,True,3496.57,2579728.280593
+borndorfer2007,claude-fable-5,large_4,fail,infeasible,"Solution is INFEASIBLE Violations: OD (160, 239): sum y_p = 0.000000 != demand 19; OD (239, 160): sum y_p = 0.000000 != demand 19; OD (160, 258): sum y_p = 0.000000 != demand 10; OD (258, 160): sum y_p = 0.000000 != demand 10; OD (225, 258): sum y_p = 0.000000 != demand 7",-0.600255,-106.53,False,0,0,2236618.942636,3496.85,0.178695,fail,infeasible,-0.600255,False,3496.85,2236618.942636
+borndorfer2007,claude-fable-5,large_5,fail,infeasible,"Solution is INFEASIBLE Violations: OD (34, 456): sum y_p = 0.000000 != demand 2; OD (456, 34): sum y_p = 0.000000 != demand 2; OD (34, 122): sum y_p = 0.000000 != demand 2; OD (122, 34): sum y_p = 0.000000 != demand 2; OD (34, 365): sum y_p = 0.000000 != demand 2",0.624703,-102.61,False,0,0,3699730.976275,3499.62,0.900666,fail,infeasible,0.624703,False,3499.62,3699730.976275
+engineer2012,claude-fable-5,large_1,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+engineer2012,claude-fable-5,large_2,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+engineer2012,claude-fable-5,large_3,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+engineer2012,claude-fable-5,large_4,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+engineer2012,claude-fable-5,large_5,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+bentert2022,claude-fable-5,large_1,pass,,,-0.0,3520.4,True,0,0,90.0,3599.23,0.000114,pass,,-0.0,True,3599.23,90.0
+bayani2024,claude-fable-5,large_1,pass,,,-0.016815,-3.13,True,0,0,36072.582949,3599.16,0.413258,pass,,-0.016815,True,3599.16,36072.582949
+buchheim2018,claude-fable-5,large_1,pass,,,0.0,-2.26,True,0,0,3731.0,3598.56,0.00084,pass,,0.0,True,3598.56,3731.0
+bentert2022,claude-fable-5,large_2,pass,,,-0.0,3339.98,True,0,0,92.0,3599.05,8e-06,pass,,-0.0,True,3599.05,92.0
+bayani2024,claude-fable-5,large_2,pass,,,-0.003193,-2.12,True,0,0,20553.528638,3599.11,1e-05,pass,,-0.003193,True,3599.11,20553.528638
+buchheim2018,claude-fable-5,large_2,pass,,,0.0,360.23,True,0,0,670.0,3293.08,0.018796,pass,,0.0,True,3293.08,670.0
+bentert2022,claude-fable-5,large_3,pass,,,0.0,-2.12,True,0,0,80.492874,3599.02,2.8e-05,pass,,0.0,True,3599.02,80.492874
+bayani2024,claude-fable-5,large_3,pass,,,-0.058488,-2.08,True,0,0,23490.958956,3599.11,3.2e-05,pass,,-0.058488,True,3599.11,23490.958956
+buchheim2018,claude-fable-5,large_3,pass,,,0.0,-1.63,True,0,0,1603.0,3598.93,0.000348,pass,,0.0,True,3598.93,1603.0
+bentert2022,claude-fable-5,large_4,pass,,,0.0,-1.78,True,0,0,83.631373,3599.22,0.00086,pass,,0.0,True,3599.22,83.631373
+bayani2024,claude-fable-5,large_4,pass,,,-0.102841,-1.93,True,0,0,48145.529822,3599.56,2.6e-05,pass,,-0.102841,True,3599.56,48145.529822
+buchheim2018,claude-fable-5,large_4,pass,,,0.0,-1.67,True,0,0,2662.0,3599.06,0.025256,pass,,0.0,True,3599.06,2662.0
+bentert2022,claude-fable-5,large_5,pass,,,0.0,24.38,True,0,0,56.52278,3599.07,1.9e-05,pass,,0.0,True,3599.07,56.52278
+bayani2024,claude-fable-5,large_5,pass,,,-0.100433,-2.29,True,0,0,23400.769409,3599.46,0.229092,pass,,-0.100433,True,3599.46,23400.769409
+buchheim2018,claude-fable-5,large_5,pass,,,0.0,-0.25,True,0,0,2719.0,315.85,0.001617,pass,,0.0,True,315.85,2719.0
+fragkos2016,claude-fable-5,large_1,gate_fail,invalid_obj,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,invalid_obj,,,,
+fragkos2016,claude-fable-5,large_2,gate_fail,invalid_obj,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,invalid_obj,,,,
+fragkos2016,claude-fable-5,large_3,gate_fail,invalid_obj,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,invalid_obj,,,,
+fragkos2016,claude-fable-5,large_4,gate_fail,invalid_obj,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,invalid_obj,,,,
+fragkos2016,claude-fable-5,large_5,gate_fail,invalid_obj,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,invalid_obj,,,,
+belhoul2014,claude-fable-5,large_1,pass,,,0.0,4.34,True,0,0,-0.717911,38.75,0.068439,pass,,0.0,True,38.75,-0.717911
+belhoul2014,claude-fable-5,large_2,pass,,,0.0,2.58,True,0,0,-0.039829,29.77,0.760347,pass,,0.0,True,29.77,-0.039829
+belhoul2014,claude-fable-5,large_3,pass,,,-0.0,25.24,True,0,0,-0.037529,74.66,0.800816,pass,,-0.0,True,74.66,-0.037529
+belhoul2014,claude-fable-5,large_4,pass,,,0.0,-8.36,True,0,0,-0.508367,50.94,0.040682,pass,,0.0,True,50.94,-0.508367
+belhoul2014,claude-fable-5,large_5,fail,runtime_error,Execution timed out after 3600 seconds,,-24.49,,0,0,,3601.07,1.0,fail,runtime_error,,,3601.07,
+freeman2018,claude-fable-5,large_1,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+freeman2018,claude-fable-5,large_2,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+freeman2018,claude-fable-5,large_3,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+freeman2018,claude-fable-5,large_4,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+freeman2018,claude-fable-5,large_5,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+bertsimas2022,claude-fable-5,large_1,pass,,,-0.01569,-1827.29,True,0,0,0.035471,1779.67,3.1e-05,pass,,-0.01569,True,1779.67,0.035471
+bertsimas2022,claude-fable-5,large_2,pass,,,-0.020373,-11.81,True,0,0,0.016589,3598.24,0.018177,pass,,-0.020373,True,3598.24,0.016589
+bertsimas2022,claude-fable-5,large_3,pass,,,-0.019849,-8.46,True,0,0,0.052742,3598.4,0.000257,pass,,-0.019849,True,3598.4,0.052742
+bertsimas2022,claude-fable-5,large_4,pass,,,-0.00014,-8.46,True,0,0,1.567079,3598.5,3.7e-05,pass,,-0.00014,True,3598.5,1.567079
+bertsimas2022,claude-fable-5,large_5,pass,,,-0.000132,-13.82,True,0,0,1.581916,3598.29,9.4e-05,pass,,-0.000132,True,3598.29,1.581916
+araujo2020,claude-fable-5,large_1,pass,,,0.0,3544.88,True,0,0,0.0,3599.19,0.496391,pass,,0.0,True,3599.19,0.0
+araujo2020,claude-fable-5,large_2,pass,,,0.0,3450.92,True,0,0,1.0,3598.97,0.17257,pass,,0.0,True,3598.97,1.0
+araujo2020,claude-fable-5,large_3,pass,,,0.0,3586.19,True,0,0,0.0,3599.82,0.026779,pass,,0.0,True,3599.82,0.0
+araujo2020,claude-fable-5,large_4,pass,,,0.0,3407.69,True,0,0,4.0,3599.27,0.122869,pass,,0.0,True,3599.27,4.0
+araujo2020,claude-fable-5,large_5,pass,,,0.0,3582.78,True,0,0,0.0,3598.94,1.0,pass,,0.0,True,3598.94,0.0
+caprara1999,claude-fable-5,large_1,fail,runtime_error,Execution timed out after 3600 seconds,,3584.28,,0,0,,3600.56,1.0,fail,runtime_error,,,3600.56,
+caprara1999,claude-fable-5,large_2,fail,runtime_error,Execution timed out after 3600 seconds,,3406.24,,0,0,,3600.16,1.0,fail,runtime_error,,,3600.16,
+caprara1999,claude-fable-5,large_3,pass,,,0.0,-3.04,True,0,0,2244555.0,1.02,0.003448,pass,,0.0,True,1.02,2244555.0
+caprara1999,claude-fable-5,large_4,fail,runtime_error,Execution timed out after 3600 seconds,,3587.54,,0,0,,3600.21,1.0,fail,runtime_error,,,3600.21,
+caprara1999,claude-fable-5,large_5,fail,runtime_error,Execution timed out after 3600 seconds,,2009.62,,0,0,,3600.21,1.0,fail,runtime_error,,,3600.21,
+chebil2015,claude-fable-5,large_1,pass,,,0.0,27.64,True,0,0,225666.0,62.18,0.063683,pass,,0.0,True,62.18,225666.0
+chebil2015,claude-fable-5,large_2,pass,,,0.0,4.56,True,0,0,278307.0,6.73,0.921512,pass,,0.0,True,6.73,278307.0
+chebil2015,claude-fable-5,large_3,pass,,,-3.1e-05,0.11,True,0,0,227359.0,1.27,0.941127,pass,,-3.1e-05,True,1.27,227359.0
+chebil2015,claude-fable-5,large_4,pass,,,0.0,-0.22,True,0,0,186641.0,2.37,0.169219,pass,,0.0,True,2.37,186641.0
+chebil2015,claude-fable-5,large_5,pass,,,0.0,1409.82,True,0,0,186057.0,3598.42,0.000366,pass,,0.0,True,3598.42,186057.0
+chebil2019,claude-fable-5,large_1,pass,,,1e-06,-1.66,True,0,0,1100493.0,3599.11,0.000471,pass,,1e-06,True,3599.11,1100493.0
+chebil2019,claude-fable-5,large_2,pass,,,0.0,3.64,True,0,0,110731794.0,21.2,1.0,pass,,0.0,True,21.2,110731794.0
+chebil2019,claude-fable-5,large_3,pass,,,2e-06,-27.09,True,0,0,92895494.0,152.15,0.023314,pass,,2e-06,True,152.15,92895494.0
+chebil2019,claude-fable-5,large_4,pass,,,0.0,-2.07,True,0,0,737201.0,3598.92,0.000319,pass,,0.0,True,3598.92,737201.0
+chebil2019,claude-fable-5,large_5,pass,,,1.4e-05,-5.04,True,0,0,934334.0,10.0,0.093259,pass,,1.4e-05,True,10.0,934334.0
+gangammanavar2020,claude-fable-5,large_1,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+gangammanavar2020,claude-fable-5,large_2,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+gangammanavar2020,claude-fable-5,large_3,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+gangammanavar2020,claude-fable-5,large_4,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+gangammanavar2020,claude-fable-5,large_5,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+chen1999,claude-fable-5,large_1,pass,,,-0.26294,-3.92,True,0,0,1424.0,3598.14,1e-06,pass,,-0.26294,True,3598.14,1424.0
+chen1999,claude-fable-5,large_2,pass,,,-0.442529,-3.75,True,0,0,776.0,3598.33,1e-06,pass,,-0.442529,True,3598.33,776.0
+chen1999,claude-fable-5,large_3,pass,,,-0.134328,-3601.4,True,0,0,232.0,0.47,8e-06,pass,,-0.134328,True,0.47,232.0
+chen1999,claude-fable-5,large_4,pass,,,0.0,-67.68,True,0,0,0.0,0.27,4.4e-05,pass,,0.0,True,0.27,0.0
+chen1999,claude-fable-5,large_5,pass,,,0.0,-161.28,True,0,0,0.0,0.27,0.00112,pass,,0.0,True,0.27,0.0
+cherkesly2015,claude-fable-5,large_1,pass,,,-0.723459,3422.73,True,0,0,196068.7,3599.07,0.000102,pass,,-0.723459,True,3599.07,196068.7
+cherkesly2015,claude-fable-5,large_2,pass,,,-0.724041,3202.29,True,0,0,195599.9,3599.07,0.001507,pass,,-0.724041,True,3599.07,195599.9
+cherkesly2015,claude-fable-5,large_3,pass,,,-0.851786,3377.38,True,0,0,105053.0,3599.07,0.000108,pass,,-0.851786,True,3599.07,105053.0
+cherkesly2015,claude-fable-5,large_4,fail,infeasible,"Solution is INFEASIBLE Violations: Constraint (11): Vehicle 0, node 15: T=356.20 > latest=248; Constraint (11): Vehicle 0, node 85: T=385.10 > latest=263; Constraint (11): Vehicle 0, node 67: T=442.90 > latest=203; Constraint (11): Vehicle 0, node 137: T=499.80 > latest=218; Constraint (11): Vehicle 0, node 25: T=779.60 > latest=551",-0.985867,3339.87,False,0,0,10015.8,3599.08,7.3e-05,fail,infeasible,-0.985867,False,3599.08,10015.8
+cherkesly2015,claude-fable-5,large_5,pass,,,-0.723982,3292.26,True,0,0,195840.8,3599.05,5.9e-05,pass,,-0.723982,True,3599.05,195840.8
+colombi2017,claude-fable-5,large_1,pass,,,0.007602,-2.1,True,0,0,54828.0,3598.2,0.026961,pass,,0.007602,True,3598.2,54828.0
+colombi2017,claude-fable-5,large_2,pass,,,-0.041527,-2.27,True,0,0,29495.0,3598.22,0.007689,pass,,-0.041527,True,3598.22,29495.0
+colombi2017,claude-fable-5,large_3,pass,,,-0.116222,-1.88,True,0,0,43440.0,3598.39,0.05786,pass,,-0.116222,True,3598.39,43440.0
+colombi2017,claude-fable-5,large_4,pass,,,-0.000875,-2.06,True,0,0,73168.0,3598.19,0.000996,pass,,-0.000875,True,3598.19,73168.0
+colombi2017,claude-fable-5,large_5,pass,,,0.0,-0.26,True,0,0,136909.0,0.42,0.178403,pass,,0.0,True,0.42,136909.0
+contreras2011,claude-fable-5,large_1,pass,,,-0.0,3125.53,True,0,0,272218.326624,3598.77,0.054248,pass,,-0.0,True,3598.77,272218.326624
+contreras2011,claude-fable-5,large_2,fail,runtime_error,Execution timed out after 3600 seconds,,2909.26,,0,0,,3600.91,1.0,fail,runtime_error,,,3600.91,
+contreras2011,claude-fable-5,large_3,fail,runtime_error,Execution timed out after 3600 seconds,,2948.42,,0,0,,3600.66,1.0,fail,runtime_error,,,3600.66,
+contreras2011,claude-fable-5,large_4,pass,,,-0.0,3017.9,True,0,0,354874.097417,3598.65,0.022659,pass,,-0.0,True,3598.65,354874.097417
+contreras2011,claude-fable-5,large_5,pass,,,-0.0,3235.51,True,0,0,233062.518341,3598.68,0.242559,pass,,-0.0,True,3598.68,233062.518341
+cordeau2006,claude-fable-5,large_1,pass,,,-0.04391,-2.42,True,0,0,475.29734,3598.57,2e-05,pass,,-0.04391,True,3598.57,475.29734
+cordeau2006,claude-fable-5,large_2,pass,,,-0.01449,-2.17,True,0,0,324.781956,3598.57,2.1e-05,pass,,-0.01449,True,3598.57,324.781956
+cordeau2006,claude-fable-5,large_3,pass,,,0.0,3596.07,True,0,0,243.750445,3598.57,0.016308,pass,,0.0,True,3598.57,243.750445
+cordeau2006,claude-fable-5,large_4,pass,,,-0.004244,-2.35,True,0,0,506.504516,3598.58,2.4e-05,pass,,-0.004244,True,3598.58,506.504516
+cordeau2006,claude-fable-5,large_5,pass,,,0.0,643.5,True,0,0,131.089717,3599.94,0.234891,pass,,0.0,True,3599.94,131.089717
+cunha2021,claude-fable-5,large_1,pass,,,-0.032839,-881.39,True,0,0,983632.939,2718.96,0.163167,pass,,-0.032839,True,2718.96,983632.939
+cunha2021,claude-fable-5,large_2,pass,,,-0.00885,-627.15,True,0,0,985317.8739,2973.22,0.226741,pass,,-0.00885,True,2973.22,985317.8739
+cunha2021,claude-fable-5,large_3,pass,,,-0.023574,-3132.26,True,0,0,920352.6627,468.22,0.069714,pass,,-0.023574,True,468.22,920352.6627
+cunha2021,claude-fable-5,large_4,pass,,,-0.100603,-3388.39,True,0,0,1068493.089,212.09,0.058699,pass,,-0.100603,True,212.09,1068493.089
+cunha2021,claude-fable-5,large_5,pass,,,-0.03634,-3289.42,True,0,0,995071.6905,311.14,0.086206,pass,,-0.03634,True,311.14,995071.6905
+hassannayebi2016,claude-fable-5,large_1,gate_fail,runtime_error,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,runtime_error,,,,
+hassannayebi2016,claude-fable-5,large_2,gate_fail,runtime_error,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,runtime_error,,,,
+hassannayebi2016,claude-fable-5,large_3,gate_fail,runtime_error,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,runtime_error,,,,
+hassannayebi2016,claude-fable-5,large_4,gate_fail,runtime_error,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,runtime_error,,,,
+hassannayebi2016,claude-fable-5,large_5,gate_fail,runtime_error,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,runtime_error,,,,
+cordeau2014,claude-fable-5,large_1,pass,,,-0.002745,-1.5,True,0,0,41.35983,3599.56,0.002514,pass,,-0.002745,True,3599.56,41.35983
+cordeau2014,claude-fable-5,large_2,pass,,,-0.003201,-1.92,True,0,0,40.989047,3599.58,0.006235,pass,,-0.003201,True,3599.58,40.989047
+cordeau2014,claude-fable-5,large_3,pass,,,0.003363,-3.06,True,0,0,40.803767,3599.57,0.011604,pass,,0.003363,True,3599.57,40.803767
+cordeau2014,claude-fable-5,large_4,pass,,,-0.002722,-2.09,True,0,0,41.15246,3599.59,0.004068,pass,,-0.002722,True,3599.59,41.15246
+cordeau2014,claude-fable-5,large_5,pass,,,0.0,-4.52,True,0,0,47.748571,3599.61,0.004113,pass,,0.0,True,3599.61,47.748571
+hewitt2024,claude-fable-5,large_1,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+hewitt2024,claude-fable-5,large_2,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+hewitt2024,claude-fable-5,large_3,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+hewitt2024,claude-fable-5,large_4,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+hewitt2024,claude-fable-5,large_5,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+cote2019,claude-fable-5,large_1,pass,,,0.0,2998.55,True,0,0,604.76,3595.12,7e-06,pass,,0.0,True,3595.12,604.76
+cote2019,claude-fable-5,large_2,pass,,,0.0,3534.4,True,0,0,437.0,3595.12,6.6e-05,pass,,0.0,True,3595.12,437.0
+cote2019,claude-fable-5,large_3,fail,infeasible,"Solution is INFEASIBLE Violations: Constraint 6 (objective): reported objective_value=444.765625 does not match routing + recourse = 448.359375 (routing=435.0, recourse=13.359375, |diff|=3.59, tol=4.48e-06)",-0.00079,3314.36,False,0,0,444.765625,3595.22,2.1e-05,fail,infeasible,-0.00079,False,3595.22,444.765625
+cote2019,claude-fable-5,large_4,pass,,,0.0,3534.53,True,0,0,519.0,3595.14,0.038552,pass,,0.0,True,3595.14,519.0
+cote2019,claude-fable-5,large_5,fail,infeasible,"Solution is INFEASIBLE Violations: Constraint 5 (binary): edge (0,2) has value 2, expected 0 or 1; Constraint 6 (objective): reported objective_value=289.0533333333333 does not match routing + recourse = 289.0809364929123 (routing=280.0, recourse=9.080936492912342, |diff|=0.0276, tol=2.89e-06)",-0.030005,3409.9,False,0,0,289.053333,3595.09,5.4e-05,fail,infeasible,-0.030005,False,3595.09,289.053333
+damcikurt2016,claude-fable-5,large_1,fail,runtime_error,Execution timed out after 3600 seconds,,-34.99,,0,0,,3602.37,1.0,fail,runtime_error,,,3602.37,
+damcikurt2016,claude-fable-5,large_2,fail,infeasible,"Solution is INFEASIBLE Violations: Objective consistency violated: reported objective_value=68298.96313377285 differs from recomputed expected profit=68398.96313377275 (|diff|=100, tol=68.399)",0.001508,-272.0,False,0,0,68298.963134,483.45,0.503103,fail,infeasible,0.001508,False,483.45,68298.963134
+damcikurt2016,claude-fable-5,large_3,pass,,,0.039514,-227.44,True,0,0,1.29877,354.51,0.587546,pass,,0.039514,True,354.51,1.29877
+damcikurt2016,claude-fable-5,large_4,fail,runtime_error,Execution timed out after 3600 seconds,,2.64,,0,0,,3602.32,1.0,fail,runtime_error,,,3602.32,
+degraeve2007,claude-fable-5,large_1,pass,,,0.01183,-4.91,True,0,0,29249097.346895,3596.11,0.013595,pass,,0.01183,True,3596.11,29249097.346895
+damcikurt2016,claude-fable-5,large_5,pass,,,5e-06,14.25,True,0,0,28855.529575,726.1,0.602906,pass,,5e-06,True,726.1,28855.529575
+degraeve2007,claude-fable-5,large_2,fail,infeasible,"Solution is INFEASIBLE Violations: Setup forcing violated for product 10 in period 7: x=0.00017391044769965447, UB*y=0, excess=0.00017391044769965447",-4e-06,1.12,False,0,0,493656.339983,6.48,0.172955,fail,infeasible,-4e-06,False,6.48,493656.339983
+degraeve2007,claude-fable-5,large_3,pass,,,-0.0,9.78,True,0,0,350635.699996,86.2,0.027737,pass,,-0.0,True,86.2,350635.699996
+degraeve2007,claude-fable-5,large_4,pass,,,0.0,-4.92,True,0,0,484731.104697,3596.17,0.001332,pass,,0.0,True,3596.17,484731.104697
+degraeve2007,claude-fable-5,large_5,pass,,,4.5e-05,0.19,True,0,0,457471.939996,6.58,0.149241,pass,,4.5e-05,True,6.58,457471.939996
+ji2019,claude-fable-5,large_1,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+ji2019,claude-fable-5,large_2,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+ji2019,claude-fable-5,large_3,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+ji2019,claude-fable-5,large_4,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+ji2019,claude-fable-5,large_5,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+juvin2023,claude-fable-5,large_1,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+juvin2023,claude-fable-5,large_2,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+juvin2023,claude-fable-5,large_3,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+juvin2023,claude-fable-5,large_4,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+juvin2023,claude-fable-5,large_5,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+kang2021,claude-fable-5,large_1,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+kang2021,claude-fable-5,large_2,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+kang2021,claude-fable-5,large_3,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+kang2021,claude-fable-5,large_4,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+kang2021,claude-fable-5,large_5,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+delage2022,claude-fable-5,large_1,pass,,,0.0,-1.48,True,0,0,304.0,3598.89,0.013147,pass,,0.0,True,3598.89,304.0
+delage2022,claude-fable-5,large_2,pass,,,0.0,-1.09,True,0,0,304.0,3598.91,0.013019,pass,,0.0,True,3598.91,304.0
+delage2022,claude-fable-5,large_3,pass,,,0.0,-1.37,True,0,0,304.0,3598.92,0.013202,pass,,0.0,True,3598.92,304.0
+delage2022,claude-fable-5,large_4,pass,,,-0.002674,-1.33,True,0,0,373.0,3599.05,0.009362,pass,,-0.002674,True,3599.05,373.0
+delage2022,claude-fable-5,large_5,pass,,,-0.008646,-2.59,True,0,0,344.0,3598.94,0.004565,pass,,-0.008646,True,3598.94,344.0
+delorme2020,claude-fable-5,large_1,pass,,,0.006711,2739.0,True,0,0,150.0,3599.22,0.006713,pass,,0.006711,True,3599.22,150.0
+delorme2020,claude-fable-5,large_2,pass,,,0.005263,3496.94,True,0,0,191.0,3599.37,0.021583,pass,,0.005263,True,3599.37,191.0
+delorme2020,claude-fable-5,large_3,pass,,,0.059259,3294.44,True,0,0,143.0,3599.17,0.064936,pass,,0.059259,True,3599.17,143.0
+delorme2020,claude-fable-5,large_4,pass,,,0.005988,1697.97,True,0,0,168.0,3599.2,0.005989,pass,,0.005988,True,3599.2,168.0
+delorme2020,claude-fable-5,large_5,pass,,,0.0,-1076.37,True,0,0,64.0,0.11,1e-06,pass,,0.0,True,0.11,64.0
+desaulniers2010,claude-fable-5,large_1,pass,,,0.032646,-3.98,True,0,0,3381.4,3598.58,0.032665,pass,,0.032646,True,3598.58,3381.4
+desaulniers2010,claude-fable-5,large_2,pass,,,0.006087,-9.91,True,0,0,3504.1,3598.58,0.1052,pass,,0.006087,True,3598.58,3504.1
+desaulniers2010,claude-fable-5,large_3,pass,,,0.015222,-5.33,True,0,0,3261.4,3598.54,0.01968,pass,,0.015222,True,3598.54,3261.4
+desaulniers2010,claude-fable-5,large_4,pass,,,0.03374,-29.52,True,0,0,4148.4,3598.69,0.033743,pass,,0.03374,True,3598.69,4148.4
+desaulniers2010,claude-fable-5,large_5,pass,,,-0.064604,-13.68,True,0,0,5800.3,3598.55,4e-06,pass,,-0.064604,True,3598.55,5800.3
+forrest2006,claude-fable-5,large_1,pass,,,0.0,-97.2,True,0,0,0.0,9.68,0.007532,pass,,0.0,True,9.68,0.0
+forrest2006,claude-fable-5,large_2,fail,gap_exceeds,"Gap 100.00% exceeds 10% threshold (obj=0.0, gurobi=7.516132133585153e-05)",1.0,-371.28,True,0,0,0.0,12.34,1.0,fail,gap_exceeds,1.0,True,12.34,0.0
+forrest2006,claude-fable-5,large_3,fail,gap_exceeds,"Gap 100.00% exceeds 10% threshold (obj=0.0, gurobi=4.259139009621851e-05)",1.0,-345.82,True,0,0,0.0,20.4,1.0,fail,gap_exceeds,1.0,True,20.4,0.0
+forrest2006,claude-fable-5,large_4,fail,gap_exceeds,"Gap 100.00% exceeds 10% threshold (obj=0.0, gurobi=0.00014334295995921335)",1.0,-250.31,True,0,0,0.0,7.33,1.0,fail,gap_exceeds,1.0,True,7.33,0.0
+forrest2006,claude-fable-5,large_5,fail,gap_exceeds,"Gap 100.00% exceeds 10% threshold (obj=0.0, gurobi=8.35123527789105e-05)",1.0,-264.37,True,0,0,0.0,10.18,1.0,fail,gap_exceeds,1.0,True,10.18,0.0
+desaulniers2014,claude-fable-5,large_1,fail,gap_exceeds,"Gap 21.90% exceeds 10% threshold (obj=6527.650000000001, gurobi=5355.110000000001)",0.218957,-1.38,True,0,0,6527.65,3598.9,0.495365,fail,gap_exceeds,0.218957,True,3598.9,6527.65
+desaulniers2014,claude-fable-5,large_2,fail,gap_exceeds,"Gap 45.64% exceeds 10% threshold (obj=8742.39, gurobi=6002.539937521255)",0.456448,-1.15,True,0,0,8742.39,3599.12,0.495439,fail,gap_exceeds,0.456448,True,3599.12,8742.39
+desaulniers2014,claude-fable-5,large_3,pass,,,0.023251,-1.32,True,0,0,5024.04,3598.99,0.077472,pass,,0.023251,True,3598.99,5024.04
+desaulniers2014,claude-fable-5,large_4,fail,gap_exceeds,"Gap 67.25% exceeds 10% threshold (obj=8633.68, gurobi=5162.29)",0.672452,-1.36,True,0,0,8633.68,3599.0,0.749534,fail,gap_exceeds,0.672452,True,3599.0,8633.68
+desaulniers2014,claude-fable-5,large_5,fail,gap_exceeds,"Gap 61.16% exceeds 10% threshold (obj=9232.16, gurobi=5728.469950059014)",0.611628,-1.34,True,0,0,9232.16,3598.96,0.639832,fail,gap_exceeds,0.611628,True,3598.96,9232.16
+kress2019,claude-fable-5,large_1,gate_fail,gap_exceeds,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,gap_exceeds,,,,
+kress2019,claude-fable-5,large_2,gate_fail,gap_exceeds,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,gap_exceeds,,,,
+kress2019,claude-fable-5,large_3,gate_fail,gap_exceeds,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,gap_exceeds,,,,
+kress2019,claude-fable-5,large_4,gate_fail,gap_exceeds,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,gap_exceeds,,,,
+kress2019,claude-fable-5,large_5,gate_fail,gap_exceeds,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,gap_exceeds,,,,
+dienstknecht2024,claude-fable-5,large_1,pass,,,0.0,-1.7,True,0,0,0.0,4.43,0.710604,pass,,0.0,True,4.43,0.0
+dienstknecht2024,claude-fable-5,large_2,pass,,,0.0,-699.21,True,0,0,0.0,0.42,1.0,pass,,0.0,True,0.42,0.0
+dienstknecht2024,claude-fable-5,large_3,pass,,,0.0,-1.06,True,0,0,0.0,1.47,0.185771,pass,,0.0,True,1.47,0.0
+dienstknecht2024,claude-fable-5,large_4,pass,,,0.0,-3.53,True,0,0,0.0,0.12,1.0,pass,,0.0,True,0.12,0.0
+dienstknecht2024,claude-fable-5,large_5,fail,gap_exceeds,"Gap 1000000000000.00% exceeds 10% threshold (obj=1.0, gurobi=0.0)",,3598.37,True,0,0,1.0,3599.07,1.0,fail,gap_exceeds,,True,3599.07,1.0
+freling2003,claude-fable-5,large_1,pass,,,0.0,-58.4,True,0,0,43756.552507,59.19,0.001087,pass,,0.0,True,59.19,43756.552507
+freling2003,claude-fable-5,large_2,pass,,,0.0,8.15,True,0,0,27398.289095,10.63,0.058551,pass,,0.0,True,10.63,27398.289095
+freling2003,claude-fable-5,large_3,pass,,,0.0,439.7,True,0,0,31584.542214,1155.98,0.000391,pass,,0.0,True,1155.98,31584.542214
+freling2003,claude-fable-5,large_4,pass,,,0.0,103.64,True,0,0,25972.140584,141.69,0.017444,pass,,0.0,True,141.69,25972.140584
+freling2003,claude-fable-5,large_5,pass,,,-0.0,545.68,True,0,0,35524.288576,666.88,0.010537,pass,,-0.0,True,666.88,35524.288576
+laporte2003,claude-fable-5,large_1,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+laporte2003,claude-fable-5,large_2,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+laporte2003,claude-fable-5,large_3,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+laporte2003,claude-fable-5,large_4,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+laporte2003,claude-fable-5,large_5,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+elci2022,claude-fable-5,large_1,pass,,,-0.0,751.66,True,0,0,15.76,3599.79,0.017133,pass,,-0.0,True,3599.79,15.76
+elci2022,claude-fable-5,large_2,pass,,,0.0,1599.57,True,0,0,16.89,3599.75,0.000118,pass,,0.0,True,3599.75,16.89
+elci2022,claude-fable-5,large_3,pass,,,0.0,1016.4,True,0,0,13.68,3599.78,0.000182,pass,,0.0,True,3599.78,13.68
+elci2022,claude-fable-5,large_4,pass,,,0.0,1724.1,True,0,0,16.76,3599.75,0.230908,pass,,0.0,True,3599.75,16.76
+elci2022,claude-fable-5,large_5,pass,,,-0.0,2412.9,True,0,0,13.85,3599.75,2e-06,pass,,-0.0,True,3599.75,13.85
+fischetti1997,claude-fable-5,large_1,pass,,,-0.001621,-3.41,True,0,0,51132.0,3599.56,0.000148,pass,,-0.001621,True,3599.56,51132.0
+fischetti1997,claude-fable-5,large_2,pass,,,-0.027303,-3.79,True,0,0,51266.0,3599.44,3e-05,pass,,-0.027303,True,3599.44,51266.0
+fischetti1997,claude-fable-5,large_3,pass,,,-0.012893,-2.76,True,0,0,51524.0,3599.65,5.8e-05,pass,,-0.012893,True,3599.65,51524.0
+fischetti1997,claude-fable-5,large_4,pass,,,0.0,-3.77,True,0,0,49867.0,3599.41,0.000569,pass,,0.0,True,3599.41,49867.0
+fischetti1997,claude-fable-5,large_5,pass,,,1.7e-05,3553.06,True,0,0,57542.0,3599.43,0.004332,pass,,1.7e-05,True,3599.43,57542.0
+fischetti1998,claude-fable-5,large_1,pass,,,0.0,3554.59,True,0,0,17388.0,3599.0,0.176158,pass,,0.0,True,3599.0,17388.0
+fischetti1998,claude-fable-5,large_2,pass,,,0.0,3473.53,True,0,0,9528.0,3598.76,0.14507,pass,,0.0,True,3598.76,9528.0
+fischetti1998,claude-fable-5,large_3,pass,,,5e-05,3369.14,True,0,0,20168.0,3598.97,0.143043,pass,,5e-05,True,3598.97,20168.0
+fischetti1998,claude-fable-5,large_4,pass,,,0.0,3571.16,True,0,0,23368.0,3598.94,0.179902,pass,,0.0,True,3598.94,23368.0
+fischetti1998,claude-fable-5,large_5,pass,,,0.0,3461.87,True,0,0,25982.0,3599.01,0.074585,pass,,0.0,True,3599.01,25982.0
+fischetti2017,claude-fable-5,large_1,pass,,,-0.0,-14.69,True,0,0,2017.148988,3598.72,0.000351,pass,,-0.0,True,3598.72,2017.148988
+fischetti2017,claude-fable-5,large_2,pass,,,-0.0,-15.11,True,0,0,9207.191462,3598.73,0.000465,pass,,-0.0,True,3598.73,9207.191462
+fischetti2017,claude-fable-5,large_3,pass,,,-0.0,3483.76,True,0,0,926.525514,3598.68,0.332155,pass,,-0.0,True,3598.68,926.525514
+fischetti2017,claude-fable-5,large_4,pass,,,1e-06,-1737.9,True,0,0,6984.630373,580.31,1.0,pass,,1e-06,True,580.31,6984.630373
+fischetti2017,claude-fable-5,large_5,pass,,,-0.000557,-1.97,True,0,0,7078.542086,3598.81,1.0,pass,,-0.000557,True,3598.81,7078.542086
+levin2017,claude-fable-5,large_1,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+levin2017,claude-fable-5,large_2,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+levin2017,claude-fable-5,large_3,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+levin2017,claude-fable-5,large_4,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+levin2017,claude-fable-5,large_5,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+fleszar2022b,claude-fable-5,large_1,pass,,,-0.12927,-0.88,True,0,0,11505.0,3599.44,8.3e-05,pass,,-0.12927,True,3599.44,11505.0
+fleszar2022b,claude-fable-5,large_2,pass,,,-0.046453,-0.87,True,0,0,8245.0,3599.4,5e-06,pass,,-0.046453,True,3599.4,8245.0
+fleszar2022b,claude-fable-5,large_3,pass,,,-0.063307,-0.66,True,0,0,10296.0,3599.52,9e-06,pass,,-0.063307,True,3599.52,10296.0
+fleszar2022b,claude-fable-5,large_4,pass,,,-0.008325,-0.8,True,0,0,6419.0,3599.42,5e-05,pass,,-0.008325,True,3599.42,6419.0
+fleszar2022b,claude-fable-5,large_5,pass,,,-0.02289,-2.88,True,0,0,12825.0,3599.4,4.8e-05,pass,,-0.02289,True,3599.4,12825.0
+liao2020,claude-fable-5,large_1,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+liao2020,claude-fable-5,large_2,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+liao2020,claude-fable-5,large_3,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+liao2020,claude-fable-5,large_4,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+liao2020,claude-fable-5,large_5,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+gschwind2021,claude-fable-5,large_1,pass,,,0.075758,-3383.3,True,0,0,71.0,239.44,0.07647,pass,,0.075758,True,239.44,71.0
+gschwind2021,claude-fable-5,large_2,fail,gap_exceeds,"Gap 12.50% exceeds 10% threshold (obj=27.0, gurobi=24.0)",0.125,-233.3,True,0,0,27.0,17.84,0.126293,fail,gap_exceeds,0.125,True,17.84,27.0
+gschwind2021,claude-fable-5,large_3,pass,,,-0.152941,-3567.41,True,0,0,72.0,70.91,9.6e-05,pass,,-0.152941,True,70.91,72.0
+gschwind2021,claude-fable-5,large_4,pass,,,-0.183333,-3568.51,True,0,0,49.0,55.63,0.000103,pass,,-0.183333,True,55.63,49.0
+gschwind2021,claude-fable-5,large_5,fail,gap_exceeds,"Gap 12.96% exceeds 10% threshold (obj=61.0, gurobi=54.0)",0.12963,-3514.37,True,0,0,61.0,103.81,0.129719,fail,gap_exceeds,0.12963,True,103.81,61.0
+luo2017,claude-fable-5,large_1,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+luo2017,claude-fable-5,large_2,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+luo2017,claude-fable-5,large_3,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+luo2017,claude-fable-5,large_4,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+luo2017,claude-fable-5,large_5,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+gamache1999,claude-fable-5,large_1,fail,infeasible,"Solution is INFEASIBLE Violations: Constraint (2) violated for pairing 4: coverage=4, slack=-1, LHS=4, RHS(b_p)=3; Constraint (2) violated for pairing 6: coverage=6, slack=-1, LHS=6, RHS(b_p)=5; Constraint (2) violated for pairing 10: coverage=5, slack=-3, LHS=5, RHS(b_p)=2; Constraint (2) violated for pairing 16: coverage=5, slack=-1, LHS=5, RHS(b_p)=4; Constraint (2) violated for pairing 19: coverage=6, slack=-1, LHS=6, RHS(b_p)=5",-1.0,-104.01,False,0,0,0.0,1.23,0.00668,fail,infeasible,-1.0,False,1.23,0.0
+gamache1999,claude-fable-5,large_2,fail,infeasible,"Solution is INFEASIBLE Violations: Constraint (6) violated: reported objective_value=0.0 differs from recomputed objective sum_p c_p*e_p=29490.0 (|diff|=29490, tol=0.5)",-1.0,-226.1,False,0,0,0.0,0.27,1.0,fail,infeasible,-1.0,False,0.27,0.0
+gamache1999,claude-fable-5,large_3,fail,infeasible,"Solution is INFEASIBLE Violations: Constraint (2) violated for pairing 14: coverage=4, slack=-1, LHS=4, RHS(b_p)=3; Constraint (2) violated for pairing 16: coverage=10, slack=-7, LHS=10, RHS(b_p)=3; Constraint (2) violated for pairing 17: coverage=10, slack=-3, LHS=10, RHS(b_p)=7; Constraint (2) violated for pairing 20: coverage=10, slack=-6, LHS=10, RHS(b_p)=4; Constraint (2) violated for pairing 27: coverage=10, slack=-2, LHS=10, RHS(b_p)=8",-0.157577,1837.19,False,0,0,139277.0,1964.97,0.005755,fail,infeasible,-0.157577,False,1964.97,139277.0
+gamache1999,claude-fable-5,large_4,fail,infeasible,"Solution is INFEASIBLE Violations: Constraint (2) violated for pairing 5: coverage=3, slack=-1, LHS=3, RHS(b_p)=2; Constraint (2) violated for pairing 6: coverage=4, slack=-1, LHS=4, RHS(b_p)=3; Constraint (2) violated for pairing 8: coverage=3, slack=-1, LHS=3, RHS(b_p)=2; Constraint (2) violated for pairing 9: coverage=6, slack=-4, LHS=6, RHS(b_p)=2; Constraint (2) violated for pairing 14: coverage=3, slack=-1, LHS=3, RHS(b_p)=2",-1.0,-71.45,False,0,0,0.0,0.27,0.002328,fail,infeasible,-1.0,False,0.27,0.0
+gamache1999,claude-fable-5,large_5,fail,infeasible,"Solution is INFEASIBLE Violations: Constraint (6) violated: reported objective_value=0.0 differs from recomputed objective sum_p c_p*e_p=36587.0 (|diff|=36587, tol=0.5)",-1.0,-36.92,False,0,0,0.0,0.37,0.006222,fail,infeasible,-1.0,False,0.37,0.0
+gruson2021,claude-fable-5,large_1,pass,,,-0.0,138.01,True,0,0,298703.687779,941.58,0.283897,pass,,-0.0,True,941.58,298703.687779
+gruson2021,claude-fable-5,large_2,pass,,,0.0,570.97,True,0,0,363972.210326,2375.1,0.482706,pass,,0.0,True,2375.1,363972.210326
+gruson2021,claude-fable-5,large_3,pass,,,-0.0,100.51,True,0,0,320171.386276,388.85,0.465269,pass,,-0.0,True,388.85,320171.386276
+gruson2021,claude-fable-5,large_4,pass,,,0.0,506.46,True,0,0,344997.028089,2004.99,0.512777,pass,,0.0,True,2004.99,344997.028089
+gruson2021,claude-fable-5,large_5,pass,,,-0.0,9.29,True,0,0,275116.354568,32.12,0.450189,pass,,-0.0,True,32.12,275116.354568
+frey2017,claude-fable-5,large_1,fail,runtime_error,Execution timed out after 3600 seconds,,3314.18,,0,0,,3600.93,1.0,fail,runtime_error,,,3600.93,
+frey2017,claude-fable-5,large_2,fail,runtime_error,Execution timed out after 3600 seconds,,3556.65,,0,0,,3601.63,1.0,fail,runtime_error,,,3601.63,
+frey2017,claude-fable-5,large_3,fail,infeasible,"Solution is INFEASIBLE Violations: Constraint (2): Flight 151: depletion_start=130 > max allowed 129 (end_period=136, depletion_offset=6); Constraint (2): Flight 164: depletion_start=148 > max allowed 147 (end_period=154, depletion_offset=6); Constraint (2): Flight 175: depletion_start=140 > max allowed 139 (end_period=146, depletion_offset=6); Constraint (2): Flight 177: depletion_start=141 > max allowed 140 (end_period=147, depletion_offset=6); Constraint (2): Flight 265: depletion_start=207 >",,979.78,False,0,0,2.0,1014.62,1.0,fail,infeasible,,False,1014.62,2.0
+frey2017,claude-fable-5,large_4,fail,runtime_error,Execution timed out after 3600 seconds,,3426.61,,0,0,,3601.62,1.0,fail,runtime_error,,,3601.62,
+frey2017,claude-fable-5,large_5,fail,runtime_error,Execution timed out after 3600 seconds,,3306.53,,0,0,,3600.82,1.0,fail,runtime_error,,,3600.82,
+furini2016,claude-fable-5,large_1,pass,,,,-3618.57,True,0,0,40000.0,3.96,0.000461,pass,,,True,3.96,40000.0
+furini2016,claude-fable-5,large_2,fail,runtime_error,Execution timed out after 3600 seconds,,-25.8,,0,0,,3600.07,1.0,fail,runtime_error,,,3600.07,
+furini2016,claude-fable-5,large_3,pass,,,,-3619.53,True,0,0,40000.0,1.78,0.0,pass,,,True,1.78,40000.0
+furini2016,claude-fable-5,large_4,pass,,,,-24.68,True,0,0,3830766.0,3598.73,0.0,pass,,,True,3598.73,3830766.0
+furini2016,claude-fable-5,large_5,pass,,,,-3622.07,True,0,0,57865.0,0.22,0.0,pass,,,True,0.22,57865.0
+furini2017,claude-fable-5,large_1,pass,,,0.0,3597.97,True,0,0,46.0,3599.09,0.064907,pass,,0.0,True,3599.09,46.0
+furini2017,claude-fable-5,large_2,pass,,,0.0,3557.25,True,0,0,14.0,3599.09,0.00012,pass,,0.0,True,3599.09,14.0
+furini2017,claude-fable-5,large_3,pass,,,0.0,3525.41,True,0,0,11.0,3599.07,0.090934,pass,,0.0,True,3599.07,11.0
+furini2017,claude-fable-5,large_4,pass,,,0.0,-381.35,True,0,0,19.0,0.07,0.052639,pass,,0.0,True,0.07,19.0
+furini2017,claude-fable-5,large_5,fail,gap_exceeds,"Gap 11.11% exceeds 10% threshold (obj=10.0, gurobi=9.0)",0.111111,3309.38,True,0,0,10.0,3599.1,0.119628,fail,gap_exceeds,0.111111,True,3599.1,10.0
+furini2019,claude-fable-5,large_1,pass,,,-0.111111,-2698.91,True,0,0,10.0,903.74,0.222077,pass,,-0.111111,True,903.74,10.0
+furini2019,claude-fable-5,large_2,pass,,,0.0,-2702.93,True,0,0,7.0,900.54,0.142899,pass,,0.0,True,900.54,7.0
+furini2019,claude-fable-5,large_3,pass,,,0.0,-2705.87,True,0,0,6.0,900.08,0.833335,pass,,0.0,True,900.08,6.0
+furini2019,claude-fable-5,large_4,pass,,,0.0,880.1,True,0,0,54.0,900.09,0.981579,pass,,0.0,True,900.09,54.0
+furini2019,claude-fable-5,large_5,pass,,,0.05,-6.29,True,0,0,38.0,3599.59,0.050084,pass,,0.05,True,3599.59,38.0
+nagy2015,claude-fable-5,large_1,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+nagy2015,claude-fable-5,large_2,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+nagy2015,claude-fable-5,large_3,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+nagy2015,claude-fable-5,large_4,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+nagy2015,claude-fable-5,large_5,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+oliveira2020,claude-fable-5,large_1,gate_fail,gap_exceeds,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,gap_exceeds,,,,
+oliveira2020,claude-fable-5,large_2,gate_fail,gap_exceeds,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,gap_exceeds,,,,
+oliveira2020,claude-fable-5,large_3,gate_fail,gap_exceeds,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,gap_exceeds,,,,
+oliveira2020,claude-fable-5,large_4,gate_fail,gap_exceeds,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,gap_exceeds,,,,
+oliveira2020,claude-fable-5,large_5,gate_fail,gap_exceeds,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,gap_exceeds,,,,
+furini2021,claude-fable-5,large_1,fail,gap_exceeds,"Gap 33.33% exceeds 10% threshold (obj=8.0, gurobi=6.0)",0.333333,-1.17,True,0,0,8.0,3599.01,0.333695,fail,gap_exceeds,0.333333,True,3599.01,8.0
+furini2021,claude-fable-5,large_2,fail,gap_exceeds,"Gap 77.78% exceeds 10% threshold (obj=16.0, gurobi=9.0)",0.777778,-1.34,True,0,0,16.0,3598.93,0.783665,fail,gap_exceeds,0.777778,True,3598.93,16.0
+furini2021,claude-fable-5,large_3,fail,gap_exceeds,"Gap 22.22% exceeds 10% threshold (obj=11.0, gurobi=9.0)",0.222222,-1.6,True,0,0,11.0,3598.6,0.224073,fail,gap_exceeds,0.222222,True,3598.6,11.0
+furini2021,claude-fable-5,large_4,fail,gap_exceeds,"Gap 16.67% exceeds 10% threshold (obj=7.0, gurobi=6.0)",0.166667,-1.28,True,0,0,7.0,3598.89,0.173694,fail,gap_exceeds,0.166667,True,3598.89,7.0
+furini2021,claude-fable-5,large_5,fail,gap_exceeds,"Gap 28.57% exceeds 10% threshold (obj=9.0, gurobi=7.0)",0.285714,-1.49,True,0,0,9.0,3598.68,0.296131,fail,gap_exceeds,0.285714,True,3598.68,9.0
+gualandi2012,claude-fable-5,large_1,pass,,,-0.3,-6.45,True,0,0,28.0,3599.56,4e-06,pass,,-0.3,True,3599.56,28.0
+gualandi2012,claude-fable-5,large_2,pass,,,-0.3,-5.22,True,0,0,28.0,3599.56,3e-06,pass,,-0.3,True,3599.56,28.0
+gualandi2012,claude-fable-5,large_3,pass,,,0.0,-8.15,True,0,0,50.0,0.12,0.001935,pass,,0.0,True,0.12,50.0
+gualandi2012,claude-fable-5,large_4,pass,,,0.0,3588.97,True,0,0,64.0,3599.56,0.001133,pass,,0.0,True,3599.56,64.0
+gualandi2012,claude-fable-5,large_5,pass,,,-0.212766,-5.08,True,0,0,37.0,3599.59,6e-06,pass,,-0.212766,True,3599.59,37.0
+guo2021,claude-fable-5,large_1,pass,,,0.015256,-8.7,True,0,0,-720979.2,3599.63,0.015258,pass,,0.015256,True,3599.63,-720979.2
+guo2021,claude-fable-5,large_2,pass,,,-16.526565,-10.97,True,0,0,-497331.4,3599.46,1e-06,pass,,-16.526565,True,3599.46,-497331.4
+guo2021,claude-fable-5,large_3,fail,infeasible,"Solution is INFEASIBLE Violations: Constraint 11 (objective consistency): reported objective_value=-734275.3999999997 exceeds the plausibility cap obj_upper=-739686.383 (recomputed lower bound=-743403.4, +0.5% legacy-incumbent margin);",0.094737,-8.15,False,0,0,-734275.4,3599.68,0.094748,fail,infeasible,0.094737,False,3599.68,-734275.4
+guo2021,claude-fable-5,large_4,pass,,,-0.059077,-8.27,True,0,0,-786044.8,3599.51,0.056023,pass,,-0.059077,True,3599.51,-786044.8
+guo2021,claude-fable-5,large_5,pass,,,-41.123015,-8.3,True,0,0,-807498.2,3599.43,2e-06,pass,,-41.123015,True,3599.43,-807498.2
+hadjar2006,claude-fable-5,large_1,pass,,,2e-06,61.35,True,0,0,1167725.8,247.79,0.020844,pass,,2e-06,True,247.79,1167725.8
+hadjar2006,claude-fable-5,large_2,pass,,,-0.000327,-7.24,True,0,0,587981.05,3598.84,0.002209,pass,,-0.000327,True,3598.84,587981.05
+hadjar2006,claude-fable-5,large_3,pass,,,-4e-06,-1.5,True,0,0,1610750.81,89.69,0.021867,pass,,-4e-06,True,89.69,1610750.81
+hadjar2006,claude-fable-5,large_4,pass,,,-7.3e-05,2765.18,True,0,0,1059428.21,3599.0,0.002647,pass,,-7.3e-05,True,3599.0,1059428.21
+hadjar2006,claude-fable-5,large_5,pass,,,-4.1e-05,-1.31,True,0,0,746703.77,109.62,0.0422,pass,,-4.1e-05,True,109.62,746703.77
+he2020,claude-fable-5,large_1,pass,,,0.0,-1.76,True,0,0,980.022,3599.11,1.9e-05,pass,,0.0,True,3599.11,980.022
+he2020,claude-fable-5,large_2,pass,,,-0.049331,-4.15,True,0,0,1148.9885,3599.06,1.4e-05,pass,,-0.049331,True,3599.06,1148.9885
+he2020,claude-fable-5,large_3,pass,,,-0.166647,-25.15,True,0,0,1045.398,3599.11,4.7e-05,pass,,-0.166647,True,3599.11,1045.398
+he2020,claude-fable-5,large_4,pass,,,-0.10566,-26.07,True,0,0,735.2485,3599.12,2e-05,pass,,-0.10566,True,3599.12,735.2485
+he2020,claude-fable-5,large_5,pass,,,-0.10896,-25.57,True,0,0,2582.296283,3599.11,2.8e-05,pass,,-0.10896,True,3599.11,2582.296283
+hoffman1993,claude-fable-5,large_1,pass,,,0.0,-2.37,True,0,0,657.0,3598.52,6.6e-05,pass,,0.0,True,3598.52,657.0
+hoffman1993,claude-fable-5,large_2,pass,,,0.0,0.18,True,0,0,229.0,0.44,1.0,pass,,0.0,True,0.44,229.0
+hoffman1993,claude-fable-5,large_3,pass,,,-0.251208,-1.15,True,0,0,155.0,3599.68,0.11465,pass,,-0.251208,True,3599.68,155.0
+hoffman1993,claude-fable-5,large_4,pass,,,0.0,-2.13,True,0,0,331.0,3598.46,9.4e-05,pass,,0.0,True,3598.46,331.0
+hoffman1993,claude-fable-5,large_5,pass,,,0.0,6.65,True,0,0,180.0,19.49,0.034268,pass,,0.0,True,19.49,180.0
+potthoff2010,claude-fable-5,large_1,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+potthoff2010,claude-fable-5,large_2,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+potthoff2010,claude-fable-5,large_3,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+potthoff2010,claude-fable-5,large_4,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+potthoff2010,claude-fable-5,large_5,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+rahimian2017,claude-fable-5,large_1,gate_fail,gap_exceeds,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,gap_exceeds,,,,
+rahimian2017,claude-fable-5,large_2,gate_fail,gap_exceeds,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,gap_exceeds,,,,
+rahimian2017,claude-fable-5,large_3,gate_fail,gap_exceeds,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,gap_exceeds,,,,
+rahimian2017,claude-fable-5,large_4,gate_fail,gap_exceeds,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,gap_exceeds,,,,
+rahimian2017,claude-fable-5,large_5,gate_fail,gap_exceeds,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,gap_exceeds,,,,
+rahmaniani2017,claude-fable-5,large_1,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+rahmaniani2017,claude-fable-5,large_2,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+rahmaniani2017,claude-fable-5,large_3,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+rahmaniani2017,claude-fable-5,large_4,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+rahmaniani2017,claude-fable-5,large_5,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+rahmaniani2018,claude-fable-5,large_1,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+rahmaniani2018,claude-fable-5,large_2,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+rahmaniani2018,claude-fable-5,large_3,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+rahmaniani2018,claude-fable-5,large_4,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+rahmaniani2018,claude-fable-5,large_5,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+hosseinian2020,claude-fable-5,large_1,pass,,,-0.28454,-1.54,True,0,0,7345.0,3599.53,1.0,pass,,-0.28454,True,3599.53,7345.0
+hosseinian2020,claude-fable-5,large_2,pass,,,-0.026345,-2.06,True,0,0,46165.0,3599.43,1.0,pass,,-0.026345,True,3599.43,46165.0
+hosseinian2020,claude-fable-5,large_3,pass,,,0.004774,-2.07,True,0,0,62545.0,3599.48,1.0,pass,,0.004774,True,3599.48,62545.0
+hosseinian2020,claude-fable-5,large_4,pass,,,-0.083458,-2.07,True,0,0,573481.0,3599.76,4.5e-05,pass,,-0.083458,True,3599.76,573481.0
+hosseinian2020,claude-fable-5,large_5,pass,,,-0.483571,-1.57,True,0,0,7495.0,3599.54,1.0,pass,,-0.483571,True,3599.54,7495.0
+rahmaniani2022,claude-fable-5,large_1,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+rahmaniani2022,claude-fable-5,large_2,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+rahmaniani2022,claude-fable-5,large_3,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+rahmaniani2022,claude-fable-5,large_4,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+rahmaniani2022,claude-fable-5,large_5,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+reihaneh2019,claude-fable-5,large_1,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+reihaneh2019,claude-fable-5,large_2,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+reihaneh2019,claude-fable-5,large_3,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+reihaneh2019,claude-fable-5,large_4,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+reihaneh2019,claude-fable-5,large_5,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+klose2005,claude-fable-5,large_1,fail,runtime_error,Execution timed out after 3600 seconds,,-13.6,,0,0,,3601.22,1.0,fail,runtime_error,,,3601.22,
+klose2005,claude-fable-5,large_2,fail,runtime_error,Execution timed out after 3600 seconds,,-14.08,,0,0,,3601.13,1.0,fail,runtime_error,,,3601.13,
+klose2005,claude-fable-5,large_3,pass,,,-5e-06,923.09,True,0,0,151605.073346,1121.53,1.0,pass,,-5e-06,True,1121.53,151605.073346
+klose2005,claude-fable-5,large_4,fail,runtime_error,Execution timed out after 3600 seconds,,-13.9,,0,0,,3600.99,1.0,fail,runtime_error,,,3600.99,
+klose2005,claude-fable-5,large_5,pass,,,1e-06,769.56,True,0,0,199049.710506,1439.31,1.0,pass,,1e-06,True,1439.31,199049.710506
+knueven2020,claude-fable-5,large_1,pass,,,4.6e-05,2039.23,True,0,0,98557774.460114,2968.86,1.0,pass,,4.6e-05,True,2968.86,98557774.460114
+knueven2020,claude-fable-5,large_2,pass,,,3.6e-05,2187.13,True,0,0,59046128.355387,3598.96,0.290904,pass,,3.6e-05,True,3598.96,59046128.355387
+knueven2020,claude-fable-5,large_3,pass,,,0.000987,2111.01,True,0,0,128443265.2299,2988.95,1.0,pass,,0.000987,True,2988.95,128443265.2299
+knueven2020,claude-fable-5,large_4,pass,,,7.3e-05,1757.62,True,0,0,98561035.705102,2986.96,0.781049,pass,,7.3e-05,True,2986.96,98561035.705102
+knueven2020,claude-fable-5,large_5,fail,infeasible,"Solution is INFEASIBLE Violations: Power balance violated at t=1: sum_p=0.0000, demand=41023.5600; Power balance violated at t=2: sum_p=0.0000, demand=37245.8500; ... and 46 more constraint 1 violations; Reserve violated at t=1: sum_pb=0.0000, demand+reserve=47211.4100; Reserve violated at t=2: sum_pb=0.0000, demand+reserve=43433.7000",-1.0,1203.59,False,0,0,0.0,3598.58,1.0,fail,infeasible,-1.0,False,3598.58,0.0
+riley2025,claude-fable-5,large_1,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+riley2025,claude-fable-5,large_2,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+riley2025,claude-fable-5,large_3,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+riley2025,claude-fable-5,large_4,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+riley2025,claude-fable-5,large_5,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+kobayashi2021,claude-fable-5,large_1,pass,,,-0.0,64.71,True,0,0,-1.841356,113.43,0.461318,pass,,-0.0,True,113.43,-1.841356
+kobayashi2021,claude-fable-5,large_2,pass,,,-0.0,154.5,True,0,0,3.10243,253.96,1.0,pass,,-0.0,True,253.96,3.10243
+kobayashi2021,claude-fable-5,large_3,pass,,,0.000428,-5.01,True,0,0,9.075134,3597.89,0.004311,pass,,0.000428,True,3597.89,9.075134
+kobayashi2021,claude-fable-5,large_4,pass,,,-0.0,50.14,True,0,0,1.894579,256.62,0.629036,pass,,-0.0,True,256.62,1.894579
+kobayashi2021,claude-fable-5,large_5,pass,,,-0.0,37.62,True,0,0,3.156456,114.59,1.0,pass,,-0.0,True,114.59,3.156456
+kobeaga2024,claude-fable-5,large_1,pass,,,-6.6875,-2309.38,True,0,0,123.0,1301.31,7.9e-05,pass,,-6.6875,True,1301.31,123.0
+kobeaga2024,claude-fable-5,large_2,pass,,,-7.466667,-3.33,True,0,0,127.0,3599.88,6.6e-05,pass,,-7.466667,True,3599.88,127.0
+kobeaga2024,claude-fable-5,large_3,pass,,,0.0,-3327.03,True,0,0,96.0,72.97,0.001167,pass,,0.0,True,72.97,96.0
+kobeaga2024,claude-fable-5,large_4,pass,,,-3.424242,-3.72,True,0,0,146.0,3599.73,7.5e-05,pass,,-3.424242,True,3599.73,146.0
+kobeaga2024,claude-fable-5,large_5,pass,,,-3.5,-4.47,True,0,0,45.0,3599.78,1.4e-05,pass,,-3.5,True,3599.78,45.0
+kowalczyk2018,claude-fable-5,large_1,pass,,,0.0,3590.89,True,0,0,13952.0,3599.68,0.012655,pass,,0.0,True,3599.68,13952.0
+kowalczyk2018,claude-fable-5,large_2,pass,,,0.0,3505.95,True,0,0,11329.0,3599.58,0.018635,pass,,0.0,True,3599.58,11329.0
+kowalczyk2018,claude-fable-5,large_3,pass,,,-3e-05,3338.99,True,0,0,65611.0,3599.64,0.019116,pass,,-3e-05,True,3599.64,65611.0
+kowalczyk2018,claude-fable-5,large_4,pass,,,0.0,3597.15,True,0,0,584089.0,3599.55,0.002729,pass,,0.0,True,3599.55,584089.0
+kowalczyk2018,claude-fable-5,large_5,pass,,,0.0,3597.47,True,0,0,620822.0,3599.58,0.00531,pass,,0.0,True,3599.58,620822.0
+kowalczyk2024,claude-fable-5,large_1,pass,,,0.0,3458.35,True,0,0,10691.0,3599.38,0.131805,pass,,0.0,True,3599.38,10691.0
+kowalczyk2024,claude-fable-5,large_2,pass,,,0.0,-1131.76,True,0,0,0.0,0.08,2e-06,pass,,0.0,True,0.08,0.0
+kowalczyk2024,claude-fable-5,large_3,pass,,,-0.53586,-6.94,True,0,0,1482.0,3599.36,1e-06,pass,,-0.53586,True,3599.36,1482.0
+kowalczyk2024,claude-fable-5,large_4,pass,,,0.0,3363.74,True,0,0,31751.0,3599.4,0.006402,pass,,0.0,True,3599.4,31751.0
+kowalczyk2024,claude-fable-5,large_5,pass,,,0.0,3453.18,True,0,0,41062.0,3599.38,0.006948,pass,,0.0,True,3599.38,41062.0
+kreter2018,claude-fable-5,large_1,fail,runtime_error,Execution timed out after 3600 seconds,,-5.74,,0,0,,3600.11,1.0,fail,runtime_error,,,3600.11,
+kreter2018,claude-fable-5,large_2,fail,runtime_error,Execution timed out after 3600 seconds,,-13.03,,0,0,,3600.11,1.0,fail,runtime_error,,,3600.11,
+kreter2018,claude-fable-5,large_3,fail,runtime_error,Execution timed out after 3600 seconds,,-15.91,,0,0,,3600.12,1.0,fail,runtime_error,,,3600.12,
+kreter2018,claude-fable-5,large_4,fail,runtime_error,Execution timed out after 3600 seconds,,-8.07,,0,0,,3600.07,1.0,fail,runtime_error,,,3600.07,
+kreter2018,claude-fable-5,large_5,fail,runtime_error,Execution timed out after 3600 seconds,,-16.45,,0,0,,3600.11,1.0,fail,runtime_error,,,3600.11,
+rothenbacher2018,claude-fable-5,large_1,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+rothenbacher2018,claude-fable-5,large_2,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+rothenbacher2018,claude-fable-5,large_3,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+rothenbacher2018,claude-fable-5,large_4,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+rothenbacher2018,claude-fable-5,large_5,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+mansini2020,claude-fable-5,large_1,pass,,,0.0,-511.96,True,0,0,1236774.0,161.01,0.105303,pass,,0.0,True,161.01,1236774.0
+mansini2020,claude-fable-5,large_2,pass,,,0.0,-61.75,True,0,0,1182143.0,155.5,0.434027,pass,,0.0,True,155.5,1182143.0
+mansini2020,claude-fable-5,large_3,pass,,,0.0,59.35,True,0,0,829202.0,189.56,0.386391,pass,,0.0,True,189.56,829202.0
+mansini2020,claude-fable-5,large_4,pass,,,0.0,86.3,True,0,0,949064.0,190.13,0.442281,pass,,0.0,True,190.13,949064.0
+mansini2020,claude-fable-5,large_5,pass,,,0.0,65.56,True,0,0,751920.0,184.94,0.454647,pass,,0.0,True,184.94,751920.0
+lozano2017,claude-fable-5,large_1,pass,,,0.0,-271.19,True,0,0,50.0,304.77,0.528778,pass,,0.0,True,304.77,50.0
+lozano2017,claude-fable-5,large_2,pass,,,0.0,-303.99,True,0,0,51.0,242.29,0.443177,pass,,0.0,True,242.29,51.0
+lozano2017,claude-fable-5,large_3,pass,,,0.0,-135.75,True,0,0,50.0,86.02,0.386935,pass,,0.0,True,86.02,50.0
+lozano2017,claude-fable-5,large_4,pass,,,0.0,-273.18,True,0,0,50.0,224.13,0.450262,pass,,0.0,True,224.13,50.0
+lozano2017,claude-fable-5,large_5,pass,,,0.0,-244.11,True,0,0,50.0,326.48,0.571884,pass,,0.0,True,326.48,50.0
+lai2021,claude-fable-5,large_1,pass,,,-0.632227,-17.03,True,0,0,1131083.0,3599.53,6e-06,pass,,-0.632227,True,3599.53,1131083.0
+lai2021,claude-fable-5,large_2,pass,,,-0.622762,-17.16,True,0,0,1194960.0,3599.54,7e-06,pass,,-0.622762,True,3599.54,1194960.0
+lai2021,claude-fable-5,large_3,pass,,,-0.561089,-16.8,True,0,0,119960.518872,3599.54,1e-05,pass,,-0.561089,True,3599.54,119960.518872
+lai2021,claude-fable-5,large_4,pass,,,-0.62501,-16.88,True,0,0,119903.0,3599.54,0.000227,pass,,-0.62501,True,3599.54,119903.0
+lai2021,claude-fable-5,large_5,pass,,,-0.08783,-16.8,True,0,0,20674.307691,3599.61,8e-06,pass,,-0.08783,True,3599.61,20674.307691
+lee1996,claude-fable-5,large_1,pass,,,0.0,3588.32,True,0,0,20574.929388,3598.75,0.016015,pass,,0.0,True,3598.75,20574.929388
+lee1996,claude-fable-5,large_2,pass,,,0.0,2105.02,True,0,0,11787.697181,3598.69,0.000198,pass,,0.0,True,3598.69,11787.697181
+lee1996,claude-fable-5,large_3,pass,,,0.0,3583.06,True,0,0,24607.497549,3598.75,0.014305,pass,,0.0,True,3598.75,24607.497549
+lee1996,claude-fable-5,large_4,pass,,,0.0,3591.85,True,0,0,28441.159151,3598.7,1.0,pass,,0.0,True,3598.7,28441.159151
+lee1996,claude-fable-5,large_5,fail,runtime_error,Execution timed out after 3600 seconds,,3594.91,,0,0,,3600.11,1.0,fail,runtime_error,,,3600.11,
+legrain2020,claude-fable-5,large_1,fail,runtime_error,Execution timed out after 3600 seconds,,-2.26,,0,0,,3600.11,1.0,fail,runtime_error,,,3600.11,
+legrain2020,claude-fable-5,large_2,fail,runtime_error,Execution timed out after 3600 seconds,,-2.28,,0,0,,3600.21,1.0,fail,runtime_error,,,3600.21,
+legrain2020,claude-fable-5,large_3,fail,runtime_error,Execution timed out after 3600 seconds,,-2.16,,0,0,,3600.16,1.0,fail,runtime_error,,,3600.16,
+legrain2020,claude-fable-5,large_4,pass,,,0.05412,-2.8,True,0,0,64860.0,3599.82,0.622336,pass,,0.05412,True,3599.82,64860.0
+legrain2020,claude-fable-5,large_5,pass,,,0.032632,-2.72,True,0,0,87340.0,3599.63,0.314438,pass,,0.032632,True,3599.63,87340.0
+legrain2024,claude-fable-5,large_1,pass,,,0.0,-2.83,True,0,0,1240.0,3598.73,0.314127,pass,,0.0,True,3598.73,1240.0
+legrain2024,claude-fable-5,large_2,pass,,,-0.066634,-3.28,True,0,0,19190.0,3598.79,0.86302,pass,,-0.066634,True,3598.79,19190.0
+legrain2024,claude-fable-5,large_3,fail,infeasible,"Solution is INFEASIBLE Violations: Nurse Nurse_1 works 56 days, max allowed 39; Nurse Nurse_2 works 55 days, max allowed 39; Nurse Nurse_3 works 53 days, max allowed 39; Nurse Nurse_4 works 53 days, max allowed 39; Nurse Nurse_5 works 54 days, max allowed 39",-1.0,-7.26,False,0,0,0.0,12.79,0.539465,fail,infeasible,-1.0,False,12.79,0.0
+legrain2024,claude-fable-5,large_4,pass,,,0.0,1195.15,True,0,0,835.0,1349.99,1.0,pass,,0.0,True,1349.99,835.0
+legrain2024,claude-fable-5,large_5,pass,,,-0.211716,-2.79,True,0,0,7670.0,3598.76,0.448934,pass,,-0.211716,True,3598.76,7670.0
+letelier2022,claude-fable-5,large_1,pass,,,0.035714,-1.78,True,0,0,29.0,3599.92,0.081225,pass,,0.035714,True,3599.92,29.0
+letelier2022,claude-fable-5,large_2,pass,,,0.0,-2310.39,True,0,0,48.0,1293.68,0.000543,pass,,0.0,True,1293.68,48.0
+letelier2022,claude-fable-5,large_3,pass,,,0.0,-4.29,True,0,0,35.0,3598.56,0.000677,pass,,0.0,True,3598.56,35.0
+letelier2022,claude-fable-5,large_4,pass,,,0.0,-121.2,True,0,0,24.0,74.66,0.044297,pass,,0.0,True,74.66,24.0
+letelier2022,claude-fable-5,large_5,pass,,,0.0,-4.39,True,0,0,96.0,3598.67,1e-06,pass,,0.0,True,3598.67,96.0
+li2020,claude-fable-5,large_1,pass,,,-0.0,-2216.34,True,0,0,531989338.009407,1383.95,0.000292,pass,,-0.0,True,1383.95,531989338.009407
+li2020,claude-fable-5,large_2,pass,,,-0.006184,-8.02,True,0,0,380815382.773378,3592.39,0.000505,pass,,-0.006184,True,3592.39,380815382.773378
+li2020,claude-fable-5,large_3,pass,,,0.0,-7.82,True,0,0,216027206.246208,3592.44,0.000782,pass,,0.0,True,3592.44,216027206.246208
+li2020,claude-fable-5,large_4,pass,,,0.0,-3313.7,True,0,0,678010057.571795,286.95,0.000153,pass,,0.0,True,286.95,678010057.571795
+li2020,claude-fable-5,large_5,pass,,,0.0,-3.93,True,0,0,772261787.99493,1.84,0.052832,pass,,0.0,True,1.84,772261787.99493
+martin-iradi2024,claude-fable-5,large_1,pass,,,-0.025342,-2.7,True,0,0,81509548.039589,3599.2,0.052517,pass,,-0.025342,True,3599.2,81509548.039589
+martin-iradi2024,claude-fable-5,large_2,pass,,,-0.014673,-2.5,True,0,0,50474831.389799,3599.25,0.100314,pass,,-0.014673,True,3599.25,50474831.389799
+martin-iradi2024,claude-fable-5,large_3,pass,,,0.094727,-1.73,True,0,0,117998672.654498,3599.37,0.136922,pass,,0.094727,True,3599.37,117998672.654498
+martin-iradi2024,claude-fable-5,large_4,pass,,,-0.282156,-1.16,True,0,0,60663277.331476,3599.43,0.001518,pass,,-0.282156,True,3599.43,60663277.331476
+martin-iradi2024,claude-fable-5,large_5,pass,,,-0.053545,-1.6,True,0,0,66006827.009874,3598.78,0.028983,pass,,-0.053545,True,3598.78,66006827.009874
+mehrotra1996,claude-fable-5,large_1,pass,,,-0.173469,-27.63,True,0,0,81.0,3599.12,0.000187,pass,,-0.173469,True,3599.12,81.0
+mehrotra1996,claude-fable-5,large_2,pass,,,0.017647,-67.59,True,0,0,173.0,3599.09,0.019302,pass,,0.017647,True,3599.09,173.0
+mehrotra1996,claude-fable-5,large_3,pass,,,-0.078947,-12.58,True,0,0,35.0,3599.1,0.00015,pass,,-0.078947,True,3599.1,35.0
+mehrotra1996,claude-fable-5,large_4,pass,,,-0.026087,-43.05,True,0,0,112.0,3599.1,0.000578,pass,,-0.026087,True,3599.1,112.0
+mehrotra1996,claude-fable-5,large_5,pass,,,-0.19,-34.9,True,0,0,81.0,3599.1,0.000149,pass,,-0.19,True,3599.1,81.0
+mingozzi1999,claude-fable-5,large_1,fail,infeasible,"Solution is INFEASIBLE Violations: Number of connecting arcs (A_0) is 1, should be exactly 3",0.146497,3279.31,False,0,0,540.0,3599.28,0.152869,fail,infeasible,0.146497,False,3599.28,540.0
+mingozzi1999,claude-fable-5,large_2,fail,infeasible,"Solution is INFEASIBLE Violations: Number of connecting arcs (A_0) is 2, should be exactly 3",-0.109215,3412.18,False,0,0,261.0,3599.47,0.064851,fail,infeasible,-0.109215,False,3599.47,261.0
+mingozzi1999,claude-fable-5,large_3,fail,infeasible,"Solution is INFEASIBLE Violations: Number of connecting arcs (A_0) is 2, should be exactly 3",-0.037037,3577.33,False,0,0,494.0,3599.28,0.177425,fail,infeasible,-0.037037,False,3599.28,494.0
+mingozzi1999,claude-fable-5,large_4,fail,infeasible,"Solution is INFEASIBLE Violations: Number of connecting arcs (A_0) is 2, should be exactly 3",-0.017375,3511.38,False,0,0,509.0,3599.27,0.07337,fail,infeasible,-0.017375,False,3599.27,509.0
+mingozzi1999,claude-fable-5,large_5,fail,infeasible,"Solution is INFEASIBLE Violations: Number of connecting arcs (A_0) is 1, should be exactly 3",0.077273,3258.67,False,0,0,474.0,3599.25,0.077275,fail,infeasible,0.077273,False,3599.25,474.0
+pinnoi1997,claude-fable-5,large_1,pass,,,0.0,-0.16,True,0,0,1.0,0.32,1.0,pass,,0.0,True,0.32,1.0
+pinnoi1997,claude-fable-5,large_2,pass,,,0.0,0.61,True,0,0,7.0,0.97,0.680952,pass,,0.0,True,0.97,7.0
+pinnoi1997,claude-fable-5,large_3,pass,,,0.0,-3577.89,True,0,0,7.0,22.46,0.000741,pass,,0.0,True,22.46,7.0
+pinnoi1997,claude-fable-5,large_4,pass,,,0.0,-0.84,True,0,0,7.0,0.42,0.288095,pass,,0.0,True,0.42,7.0
+pinnoi1997,claude-fable-5,large_5,pass,,,0.0,0.92,True,0,0,6.0,1.27,1.0,pass,,0.0,True,1.27,6.0
+morrison2016,claude-fable-5,large_1,fail,runtime_error,Execution timed out after 3600 seconds,,43.1,,0,0,,3601.62,1.0,fail,runtime_error,,,3601.62,
+morrison2016,claude-fable-5,large_2,fail,infeasible,Solution is INFEASIBLE Violations: Selected set 41 is not maximal: vertex(es) 113 could be added; Selected set 68 is not maximal: vertex(es) 117 could be added; Selected set 76 is not maximal: vertex(es) 195 could be added,0.0,3502.03,False,0,0,83.0,3599.24,0.01473,fail,infeasible,0.0,False,3599.24,83.0
+morrison2016,claude-fable-5,large_3,fail,infeasible,"Solution is INFEASIBLE Violations: Selected set 17 is not maximal: vertex(es) 143 could be added; Selected set 19 is not maximal: vertex(es) 15, 83, 96, 102 could be added; Selected set 21 is not maximal: vertex(es) 143 could be added; Selected set 25 is not maximal: vertex(es) 143 could be added; Selected set 30 is not maximal: vertex(es) 100, 165, 191, 257, 284 could be added",0.013514,-399.66,False,0,0,75.0,0.11,0.013568,fail,infeasible,0.013514,False,0.11,75.0
+morrison2016,claude-fable-5,large_4,fail,infeasible,"Solution is INFEASIBLE Violations: Selected set 21 is not maximal: vertex(es) 53, 271 could be added; Selected set 30 is not maximal: vertex(es) 206 could be added; Selected set 32 is not maximal: vertex(es) 148, 246, 261 could be added; Selected set 33 is not maximal: vertex(es) 124 could be added; Selected set 44 is not maximal: vertex(es) 14, 17, 98, 293 could be added",0.0,-0.05,False,0,0,70.0,0.11,0.25,fail,infeasible,0.0,False,0.11,70.0
+morrison2016,claude-fable-5,large_5,fail,infeasible,"Solution is INFEASIBLE Violations: Selected set 6 is not maximal: vertex(es) 254 could be added; Selected set 13 is not maximal: vertex(es) 215, 294 could be added; Selected set 14 is not maximal: vertex(es) 190, 282 could be added; Selected set 15 is not maximal: vertex(es) 258 could be added; Selected set 16 is not maximal: vertex(es) 239 could be added",0.0,-12.85,False,0,0,134.0,0.11,0.002469,fail,infeasible,0.0,False,0.11,134.0
+pettersson2020,claude-fable-5,large_1,pass,,,0.0,119.24,True,0,0,1.0,260.55,0.021945,pass,,0.0,True,260.55,1.0
+pettersson2020,claude-fable-5,large_2,pass,,,0.0,122.75,True,0,0,1.0,262.38,0.021908,pass,,0.0,True,262.38,1.0
+pettersson2020,claude-fable-5,large_3,pass,,,0.0,131.37,True,0,0,1.0,270.8,0.022269,pass,,0.0,True,270.8,1.0
+pettersson2020,claude-fable-5,large_4,pass,,,0.0,140.48,True,0,0,1.0,278.4,0.022542,pass,,0.0,True,278.4,1.0
+pettersson2020,claude-fable-5,large_5,pass,,,0.0,142.75,True,0,0,1.0,282.22,0.025984,pass,,0.0,True,282.22,1.0
+taninmis2022,claude-fable-5,large_1,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+taninmis2022,claude-fable-5,large_2,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+taninmis2022,claude-fable-5,large_3,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+taninmis2022,claude-fable-5,large_4,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+taninmis2022,claude-fable-5,large_5,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+ribeiro1994,claude-fable-5,large_1,pass,,,2e-06,-1.17,True,0,0,1419502.0,36.99,0.020854,pass,,2e-06,True,36.99,1419502.0
+ribeiro1994,claude-fable-5,large_2,pass,,,3.9e-05,13.15,True,0,0,1349612.0,66.75,0.017324,pass,,3.9e-05,True,66.75,1349612.0
+ribeiro1994,claude-fable-5,large_3,pass,,,-1e-06,-7.38,True,0,0,1285693.0,41.49,0.015179,pass,,-1e-06,True,41.49,1285693.0
+ribeiro1994,claude-fable-5,large_4,pass,,,-1.3e-05,-84.14,True,0,0,1415411.0,36.88,0.006149,pass,,-1.3e-05,True,36.88,1415411.0
+ribeiro1994,claude-fable-5,large_5,pass,,,2e-06,-3.18,True,0,0,1250336.0,241.75,0.003111,pass,,2e-06,True,241.75,1250336.0
+vidal2011,claude-fable-5,large_1,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+vidal2011,claude-fable-5,large_2,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+vidal2011,claude-fable-5,large_3,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+vidal2011,claude-fable-5,large_4,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+vidal2011,claude-fable-5,large_5,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+ozturk2020,claude-fable-5,large_1,pass,,,-0.065476,-1.16,True,0,0,628.0,3599.59,5.4e-05,pass,,-0.065476,True,3599.59,628.0
+ozturk2020,claude-fable-5,large_2,pass,,,-0.014733,-1.79,True,0,0,1070.0,3599.58,1.6e-05,pass,,-0.014733,True,3599.58,1070.0
+ozturk2020,claude-fable-5,large_3,pass,,,0.0,-1.41,True,0,0,6855.0,3599.57,0.054559,pass,,0.0,True,3599.57,6855.0
+ozturk2020,claude-fable-5,large_4,pass,,,-0.026201,-1.81,True,0,0,669.0,3599.59,0.000294,pass,,-0.026201,True,3599.59,669.0
+ozturk2020,claude-fable-5,large_5,pass,,,-0.03367,-0.95,True,0,0,574.0,3599.58,7.1e-05,pass,,-0.03367,True,3599.58,574.0
+pecin2017,claude-fable-5,large_1,pass,,,-0.171176,-5.02,True,0,0,1374.719183,3599.67,6.7e-05,pass,,-0.171176,True,3599.67,1374.719183
+pecin2017,claude-fable-5,large_2,pass,,,-0.123246,-1.81,True,0,0,2206.085852,3599.68,0.002016,pass,,-0.123246,True,3599.68,2206.085852
+pecin2017,claude-fable-5,large_3,pass,,,-0.049391,-1.08,True,0,0,3501.188997,3599.67,0.005365,pass,,-0.049391,True,3599.67,3501.188997
+pecin2017,claude-fable-5,large_4,pass,,,-0.140488,-1.94,True,0,0,762.626582,3599.67,0.000153,pass,,-0.140488,True,3599.67,762.626582
+pecin2017,claude-fable-5,large_5,fail,runtime_error,Execution timed out after 3600 seconds,,-7.32,,0,0,,3600.21,1.0,fail,runtime_error,,,3600.21,
+pedersen2024,claude-fable-5,large_1,fail,runtime_error,Execution timed out after 3600 seconds,,3041.32,,0,0,,3600.36,1.0,fail,runtime_error,,,3600.36,
+pedersen2024,claude-fable-5,large_2,fail,runtime_error,Execution timed out after 3600 seconds,,2225.81,,0,0,,3600.41,1.0,fail,runtime_error,,,3600.41,
+pedersen2024,claude-fable-5,large_3,fail,runtime_error,Execution timed out after 3600 seconds,,2212.73,,0,0,,3600.41,1.0,fail,runtime_error,,,3600.41,
+pedersen2024,claude-fable-5,large_4,fail,runtime_error,Execution timed out after 3600 seconds,,1809.17,,0,0,,3600.42,1.0,fail,runtime_error,,,3600.42,
+pedersen2024,claude-fable-5,large_5,fail,runtime_error,Execution timed out after 3600 seconds,,1513.97,,0,0,,3600.41,1.0,fail,runtime_error,,,3600.41,
+rahmaniani2020,claude-fable-5,large_1,pass,,,0.0,98.55,True,0,0,18935.769528,321.34,0.203406,pass,,0.0,True,321.34,18935.769528
+rahmaniani2020,claude-fable-5,large_2,pass,,,0.0,-32.61,True,0,0,20131.348214,104.05,0.167592,pass,,0.0,True,104.05,20131.348214
+rahmaniani2020,claude-fable-5,large_3,pass,,,0.0,-5.88,True,0,0,45026.97838,321.15,0.106659,pass,,0.0,True,321.15,45026.97838
+rahmaniani2020,claude-fable-5,large_4,pass,,,0.0,89.13,True,0,0,27077.738637,2592.13,0.069568,pass,,0.0,True,2592.13,27077.738637
+rahmaniani2020,claude-fable-5,large_5,pass,,,0.00105,-10.31,True,0,0,42970.480397,3599.6,0.019636,pass,,0.00105,True,3599.6,42970.480397
+reinhardt2016,claude-fable-5,large_1,pass,,,-0.043668,-2.5,True,0,0,1007.4,3599.11,6.8e-05,pass,,-0.043668,True,3599.11,1007.4
+reinhardt2016,claude-fable-5,large_2,pass,,,-0.011803,-2.65,True,0,0,845.6,3599.06,0.000738,pass,,-0.011803,True,3599.06,845.6
+reinhardt2016,claude-fable-5,large_3,pass,,,-0.21711,-2.62,True,0,0,799.8,3599.06,2.1e-05,pass,,-0.21711,True,3599.06,799.8
+reinhardt2016,claude-fable-5,large_4,pass,,,-0.196214,-2.66,True,0,0,615.7,3599.06,3.1e-05,pass,,-0.196214,True,3599.06,615.7
+reinhardt2016,claude-fable-5,large_5,pass,,,0.0,-2.83,True,0,0,1017.9,3599.06,0.000167,pass,,0.0,True,3599.06,1017.9
+roberti2015,claude-fable-5,large_1,pass,,,0.001228,-1.97,True,0,0,21207.0,3598.3,0.013212,pass,,0.001228,True,3598.3,21207.0
+roberti2015,claude-fable-5,large_2,pass,,,-0.002035,-2.01,True,0,0,28912.0,3598.23,0.001737,pass,,-0.002035,True,3598.23,28912.0
+roberti2015,claude-fable-5,large_3,pass,,,-0.01478,-2.03,True,0,0,37610.71123,3598.28,0.000919,pass,,-0.01478,True,3598.28,37610.71123
+roberti2015,claude-fable-5,large_4,pass,,,0.00177,-1.17,True,0,0,24334.0,3599.1,0.006836,pass,,0.00177,True,3599.1,24334.0
+roberti2015,claude-fable-5,large_5,pass,,,-0.016143,-2.05,True,0,0,40615.99458,3598.3,0.000156,pass,,-0.016143,True,3598.3,40615.99458
+roberti2018,claude-fable-5,large_1,pass,,,0.007732,-1.31,True,0,0,1689.279125,3599.09,0.007733,pass,,0.007732,True,3599.09,1689.279125
+roberti2018,claude-fable-5,large_2,pass,,,0.006073,-1.36,True,0,0,2036.774633,3599.04,0.006073,pass,,0.006073,True,3599.04,2036.774633
+roberti2018,claude-fable-5,large_3,pass,,,0.00998,-1.35,True,0,0,1774.318766,3599.06,0.049091,pass,,0.00998,True,3599.06,1774.318766
+roberti2018,claude-fable-5,large_4,pass,,,0.002137,-1.43,True,0,0,1769.250643,3599.09,0.029046,pass,,0.002137,True,3599.09,1769.250643
+roberti2018,claude-fable-5,large_5,pass,,,0.006471,-1.54,True,0,0,1457.59307,3599.07,0.013079,pass,,0.006471,True,3599.07,1457.59307
+sadykov2013,claude-fable-5,large_1,pass,,,-0.085106,-3075.79,True,0,0,43.0,541.97,0.000497,pass,,-0.085106,True,541.97,43.0
+sadykov2013,claude-fable-5,large_2,pass,,,-0.022727,-3592.12,True,0,0,43.0,9.05,5.7e-05,pass,,-0.022727,True,9.05,43.0
+sadykov2013,claude-fable-5,large_3,pass,,,-0.021739,-3062.1,True,0,0,45.0,544.37,1.9e-05,pass,,-0.021739,True,544.37,45.0
+sadykov2013,claude-fable-5,large_4,pass,,,-0.022727,-3062.21,True,0,0,43.0,541.59,0.000568,pass,,-0.022727,True,541.59,43.0
+sadykov2013,claude-fable-5,large_5,pass,,,0.0,-3064.04,True,0,0,50.0,540.14,0.026058,pass,,0.0,True,540.14,50.0
+roberti2021,claude-fable-5,large_1,pass,,,0.047619,3477.81,True,0,0,110.0,3598.26,0.327482,pass,,0.047619,True,3598.26,110.0
+roberti2021,claude-fable-5,large_2,pass,,,0.0,-1.85,True,0,0,176.0,3598.44,0.011093,pass,,0.0,True,3598.44,176.0
+roberti2021,claude-fable-5,large_3,pass,,,0.078431,3562.42,True,0,0,110.0,3598.52,0.436364,pass,,0.078431,True,3598.52,110.0
+roberti2021,claude-fable-5,large_4,pass,,,0.061538,3416.48,True,0,0,138.0,3598.31,0.333461,pass,,0.061538,True,3598.31,138.0
+roberti2021,claude-fable-5,large_5,fail,gap_exceeds,"Gap 17.95% exceeds 10% threshold (obj=92.0, gurobi=78.0)",0.179487,3470.33,True,0,0,92.0,3598.66,0.275961,fail,gap_exceeds,0.179487,True,3598.66,92.0
+schwerdfeger2016,claude-fable-5,large_1,pass,,,0.0,-26.44,True,0,0,0.000537,0.06,1.0,pass,,0.0,True,0.06,0.000537
+schwerdfeger2016,claude-fable-5,large_2,pass,,,0.0,-95.48,True,0,0,0.000623,0.06,0.0,pass,,0.0,True,0.06,0.000623
+schwerdfeger2016,claude-fable-5,large_3,pass,,,0.0,-22.75,True,0,0,0.000578,0.06,0.658327,pass,,0.0,True,0.06,0.000578
+schwerdfeger2016,claude-fable-5,large_4,pass,,,0.0,-2519.13,True,0,0,0.000815,0.06,0.647509,pass,,0.0,True,0.06,0.000815
+schwerdfeger2016,claude-fable-5,large_5,pass,,,0.0,-9.46,True,0,0,0.001578,0.06,0.498147,pass,,0.0,True,0.06,0.001578
+ropke2009,claude-fable-5,large_1,pass,,,-0.47638,-9.76,True,0,0,1438.825507,3599.58,5.6e-05,pass,,-0.47638,True,3599.58,1438.825507
+ropke2009,claude-fable-5,large_2,pass,,,-0.281884,-16.03,True,0,0,1365.162616,3599.58,4.2e-05,pass,,-0.281884,True,3599.58,1365.162616
+ropke2009,claude-fable-5,large_3,pass,,,-0.161017,-8.78,True,0,0,1099.688846,3599.58,1.2e-05,pass,,-0.161017,True,3599.58,1099.688846
+ropke2009,claude-fable-5,large_4,pass,,,-0.202799,-8.59,True,0,0,1542.828554,3599.59,4.3e-05,pass,,-0.202799,True,3599.59,1542.828554
+ropke2009,claude-fable-5,large_5,pass,,,-0.048327,-8.07,True,0,0,1603.934505,3599.59,4.5e-05,pass,,-0.048327,True,3599.59,1603.934505
+sansegundo2016,claude-fable-5,large_1,pass,,,0.0,427.21,True,0,0,2.0,540.01,0.500009,pass,,0.0,True,540.01,2.0
+sansegundo2016,claude-fable-5,large_2,pass,,,0.0,351.29,True,0,0,3.0,540.02,0.666714,pass,,0.0,True,540.02,3.0
+sansegundo2016,claude-fable-5,large_3,pass,,,0.0,469.72,True,0,0,6.0,539.97,0.833336,pass,,0.0,True,539.97,6.0
+sansegundo2016,claude-fable-5,large_4,pass,,,0.0,358.52,True,0,0,10.0,539.99,0.900008,pass,,0.0,True,539.99,10.0
+sansegundo2016,claude-fable-5,large_5,pass,,,0.0,458.73,True,0,0,4.0,539.97,0.750006,pass,,0.0,True,539.97,4.0
+xie2019,claude-fable-5,large_1,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+xie2019,claude-fable-5,large_2,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+xie2019,claude-fable-5,large_3,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+xie2019,claude-fable-5,large_4,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+xie2019,claude-fable-5,large_5,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+sansegundo2023,claude-fable-5,large_1,pass,,,-0.142857,-3062.54,True,0,0,8.0,540.41,2.1e-05,pass,,-0.142857,True,540.41,8.0
+sansegundo2023,claude-fable-5,large_2,pass,,,0.0,-3064.16,True,0,0,5.0,540.12,9e-06,pass,,0.0,True,540.12,5.0
+sansegundo2023,claude-fable-5,large_3,pass,,,0.0,526.74,True,0,0,44.0,540.09,0.028803,pass,,0.0,True,540.09,44.0
+sansegundo2023,claude-fable-5,large_4,pass,,,0.0,-2989.65,True,0,0,35.0,614.14,3.2e-05,pass,,0.0,True,614.14,35.0
+sansegundo2023,claude-fable-5,large_5,pass,,,0.0,276.6,True,0,0,90.0,540.38,0.166954,pass,,0.0,True,540.38,90.0
+rostami2021,claude-fable-5,large_1,fail,runtime_error,Execution timed out after 3600 seconds,,2882.75,,0,0,,3601.02,1.0,fail,runtime_error,,,3601.02,
+rostami2021,claude-fable-5,large_2,fail,runtime_error,Execution timed out after 3600 seconds,,2606.31,,0,0,,3601.07,1.0,fail,runtime_error,,,3601.07,
+rostami2021,claude-fable-5,large_3,fail,runtime_error,Execution timed out after 3600 seconds,,2772.54,,0,0,,3600.87,1.0,fail,runtime_error,,,3600.87,
+rostami2021,claude-fable-5,large_4,fail,runtime_error,Execution timed out after 3600 seconds,,2882.2,,0,0,,3600.86,1.0,fail,runtime_error,,,3600.86,
+rostami2021,claude-fable-5,large_5,fail,runtime_error,Execution timed out after 3600 seconds,,2816.03,,0,0,,3600.86,1.0,fail,runtime_error,,,3600.86,
+rothenbacher2019,claude-fable-5,large_1,pass,,,-0.015211,2140.87,True,0,0,2998.66167,3597.05,0.002748,pass,,-0.015211,True,3597.05,2998.66167
+rothenbacher2019,claude-fable-5,large_2,pass,,,-0.004863,2073.24,True,0,0,2805.20894,3597.07,0.008681,pass,,-0.004863,True,3597.07,2805.20894
+rothenbacher2019,claude-fable-5,large_3,pass,,,-0.093709,2097.79,True,0,0,2619.043803,3597.07,4e-05,pass,,-0.093709,True,3597.07,2619.043803
+rothenbacher2019,claude-fable-5,large_4,pass,,,-0.03144,2121.58,True,0,0,2952.835243,3597.06,9.4e-05,pass,,-0.03144,True,3597.06,2952.835243
+rothenbacher2019,claude-fable-5,large_5,pass,,,-0.133992,1908.32,True,0,0,2055.602799,3597.05,3.8e-05,pass,,-0.133992,True,3597.05,2055.602799
+walteros2020,claude-fable-5,large_1,pass,,,0.0,-37.51,True,0,0,35.0,0.07,8e-05,pass,,0.0,True,0.07,35.0
+walteros2020,claude-fable-5,large_2,pass,,,0.0,-36.62,True,0,0,2.0,0.07,5.5e-05,pass,,0.0,True,0.07,2.0
+walteros2020,claude-fable-5,large_3,pass,,,0.0,-96.67,True,0,0,4.0,0.07,9.3e-05,pass,,0.0,True,0.07,4.0
+walteros2020,claude-fable-5,large_4,pass,,,0.0,-88.56,True,0,0,6.0,0.07,0.166714,pass,,0.0,True,0.07,6.0
+walteros2020,claude-fable-5,large_5,pass,,,0.0,-36.27,True,0,0,2.0,0.07,5.5e-05,pass,,0.0,True,0.07,2.0
+tran2018,claude-fable-5,large_1,pass,,,0.0,168.48,True,0,0,69887241.71,527.0,0.210605,pass,,0.0,True,527.0,69887241.71
+tran2018,claude-fable-5,large_2,pass,,,-0.0,8.77,True,0,0,50145998.71,11.99,1.0,pass,,-0.0,True,11.99,50145998.71
+tran2018,claude-fable-5,large_3,pass,,,0.0,23.49,True,0,0,55853874.91,26.92,1.0,pass,,0.0,True,26.92,55853874.91
+tran2018,claude-fable-5,large_4,pass,,,0.0,41.44,True,0,0,71978589.79,117.26,0.53039,pass,,0.0,True,117.26,71978589.79
+tran2018,claude-fable-5,large_5,pass,,,-0.0,106.06,True,0,0,91706792.36,414.2,0.252338,pass,,-0.0,True,414.2,91706792.36
+salemi2022,claude-fable-5,large_1,fail,runtime_error,Execution timed out after 3600 seconds,,-14.8,,0,0,,3600.21,1.0,fail,runtime_error,,,3600.21,
+salemi2022,claude-fable-5,large_2,fail,runtime_error,Execution timed out after 3600 seconds,,-19.17,,0,0,,3600.36,1.0,fail,runtime_error,,,3600.36,
+salemi2022,claude-fable-5,large_3,fail,runtime_error,Execution timed out after 3600 seconds,,689.39,,0,0,,3600.26,1.0,fail,runtime_error,,,3600.26,
+salemi2022,claude-fable-5,large_4,fail,runtime_error,Execution timed out after 3600 seconds,,-18.24,,0,0,,3600.41,1.0,fail,runtime_error,,,3600.41,
+salemi2022,claude-fable-5,large_5,fail,runtime_error,Execution timed out after 3600 seconds,,-14.94,,0,0,,3600.21,1.0,fail,runtime_error,,,3600.21,
+samarghandi2017,claude-fable-5,large_1,fail,runtime_error,Execution timed out after 3600 seconds,,-3.83,,0,0,,3600.36,1.0,fail,runtime_error,,,3600.36,
+samarghandi2017,claude-fable-5,large_2,fail,runtime_error,Execution timed out after 3600 seconds,,-2.57,,0,0,,3600.21,1.0,fail,runtime_error,,,3600.21,
+samarghandi2017,claude-fable-5,large_3,fail,runtime_error,Execution timed out after 3600 seconds,,0.47,,0,0,,3601.37,1.0,fail,runtime_error,,,3601.37,
+samarghandi2017,claude-fable-5,large_4,fail,runtime_error,Execution timed out after 3600 seconds,,6.36,,0,0,,3610.4,1.0,fail,runtime_error,,,3610.4,
+samarghandi2017,claude-fable-5,large_5,pass,,,0.0,-1.23,True,0,0,2979.0,3602.52,2.3e-05,pass,,0.0,True,3602.52,2979.0
+wangk2020,claude-fable-5,large_1,pass,,,0.0,57.74,True,0,0,0.0,296.7,1.0,pass,,0.0,True,296.7,0.0
+wangk2020,claude-fable-5,large_2,pass,,,0.0,56.92,True,0,0,0.0,294.61,1.0,pass,,0.0,True,294.61,0.0
+wangk2020,claude-fable-5,large_3,pass,,,0.0,41.77,True,0,0,0.0,276.5,1.0,pass,,0.0,True,276.5,0.0
+wangk2020,claude-fable-5,large_4,pass,,,0.0,-181.18,True,0,0,0.0,290.19,0.517982,pass,,0.0,True,290.19,0.0
+wangk2020,claude-fable-5,large_5,pass,,,0.0,-200.58,True,0,0,0.0,285.66,0.503363,pass,,0.0,True,285.66,0.0
+savelsbergh1997,claude-fable-5,large_1,pass,,,0.000696,-1.44,True,0,0,5746.0,3599.95,1.0,pass,,0.000696,True,3599.95,5746.0
+savelsbergh1997,claude-fable-5,large_2,pass,,,0.0,-0.11,True,0,0,1562.0,0.12,1.0,pass,,0.0,True,0.12,1562.0
+savelsbergh1997,claude-fable-5,large_3,pass,,,0.0,-0.06,True,0,0,1560.0,0.17,1.0,pass,,0.0,True,0.17,1560.0
+savelsbergh1997,claude-fable-5,large_4,pass,,,0.0,-0.02,True,0,0,1543.0,0.32,1.0,pass,,0.0,True,0.32,1543.0
+savelsbergh1997,claude-fable-5,large_5,fail,runtime_error,Execution timed out after 3600 seconds,,-1.75,,0,0,,3600.21,1.0,fail,runtime_error,,,3600.21,
+segundo2019,claude-fable-5,large_1,fail,runtime_error,Execution timed out after 3600 seconds,,-28.52,,0,0,,3600.41,1.0,fail,runtime_error,,,3600.41,
+segundo2019,claude-fable-5,large_2,fail,runtime_error,Execution timed out after 3600 seconds,,-28.65,,0,0,,3600.51,1.0,fail,runtime_error,,,3600.51,
+segundo2019,claude-fable-5,large_3,fail,missing_instance,Instance file not found,,,,0,0,,,,fail,missing_instance,,,,
+segundo2019,claude-fable-5,large_4,fail,missing_instance,Instance file not found,,,,0,0,,,,fail,missing_instance,,,,
+segundo2019,claude-fable-5,large_5,fail,runtime_error,Execution timed out after 3600 seconds,,-28.19,,0,0,,3600.41,1.0,fail,runtime_error,,,3600.41,
+watermeyer2022,claude-fable-5,large_1,pass,,,0.0,-35.46,True,0,0,1654.0,104.54,0.729736,pass,,0.0,True,104.54,1654.0
+watermeyer2022,claude-fable-5,large_2,pass,,,0.0,16.43,True,0,0,1655.0,70.45,1.0,pass,,0.0,True,70.45,1655.0
+watermeyer2022,claude-fable-5,large_3,pass,,,0.0,-66.79,True,0,0,1669.0,63.04,0.474333,pass,,0.0,True,63.04,1669.0
+watermeyer2022,claude-fable-5,large_4,pass,,,0.0,-153.48,True,0,0,1707.0,107.73,0.402772,pass,,0.0,True,107.73,1707.0
+watermeyer2022,claude-fable-5,large_5,pass,,,0.0,-147.01,True,0,0,1690.0,86.53,0.366682,pass,,0.0,True,86.53,1690.0
+segundo2019b,claude-fable-5,large_1,pass,,,-0.19375,-2406.22,True,0,0,1337.0,1219.87,0.000168,pass,,-0.19375,True,1219.87,1337.0
+segundo2019b,claude-fable-5,large_2,pass,,,0.0,2391.14,True,0,0,12392.0,3599.14,0.001648,pass,,0.0,True,3599.14,12392.0
+segundo2019b,claude-fable-5,large_3,fail,runtime_error,Execution timed out after 3600 seconds,,-14.88,,0,0,,3600.16,1.0,fail,runtime_error,,,3600.16,
+segundo2019b,claude-fable-5,large_4,fail,runtime_error,Execution timed out after 3600 seconds,,-16.57,,0,0,,3600.21,1.0,fail,runtime_error,,,3600.21,
+segundo2019b,claude-fable-5,large_5,pass,,,-0.088576,-2253.11,True,0,0,1315.0,1372.08,0.000252,pass,,-0.088576,True,1372.08,1315.0
+seker2021,claude-fable-5,large_1,fail,runtime_error,Execution timed out after 3600 seconds,,3516.37,,0,0,,3600.41,1.0,fail,runtime_error,,,3600.41,
+seker2021,claude-fable-5,large_2,fail,runtime_error,Execution timed out after 3600 seconds,,3552.49,,0,0,,3600.61,1.0,fail,runtime_error,,,3600.61,
+seker2021,claude-fable-5,large_3,pass,,,0.0,-1151.34,True,0,0,3.0,877.49,0.117073,pass,,0.0,True,877.49,3.0
+seker2021,claude-fable-5,large_4,pass,,,0.0,-163.93,True,0,0,2.0,7.33,1.0,pass,,0.0,True,7.33,2.0
+seker2021,claude-fable-5,large_5,pass,,,0.0,440.65,True,0,0,10.0,490.95,0.306497,pass,,0.0,True,490.95,10.0
+song2021,claude-fable-5,large_1,pass,,,0.0,-2.86,True,0,0,230.239683,22.31,0.391685,pass,,0.0,True,22.31,230.239683
+song2021,claude-fable-5,large_2,pass,,,0.0,2.99,True,0,0,747.583333,8.28,1.0,pass,,0.0,True,8.28,747.583333
+song2021,claude-fable-5,large_3,pass,,,-0.0,5.06,True,0,0,101.517063,14.44,1.0,pass,,-0.0,True,14.44,101.517063
+song2021,claude-fable-5,large_4,pass,,,0.000576,-2.12,True,0,0,1156.334722,3599.09,0.002066,pass,,0.000576,True,3599.09,1156.334722
+song2021,claude-fable-5,large_5,pass,,,-0.0,-2.96,True,0,0,340.390476,13.79,0.472315,pass,,-0.0,True,13.79,340.390476
+spliet2015,claude-fable-5,large_1,pass,,,0.059268,-145.02,True,0,0,35.983333,3455.91,0.06129,pass,,0.059268,True,3455.91,35.983333
+spliet2015,claude-fable-5,large_2,pass,,,0.005623,-144.87,True,0,0,38.153333,3455.89,0.005795,pass,,0.005623,True,3455.89,38.153333
+spliet2015,claude-fable-5,large_3,pass,,,0.020999,-145.13,True,0,0,39.06,3455.88,0.021479,pass,,0.020999,True,3455.88,39.06
+spliet2015,claude-fable-5,large_4,pass,,,0.077023,-145.44,True,0,0,38.733333,3455.88,0.077056,pass,,0.077023,True,3455.88,38.733333
+spliet2015,claude-fable-5,large_5,pass,,,0.034261,-145.44,True,0,0,31.093333,3455.88,0.034393,pass,,0.034261,True,3455.88,31.093333
+wei2020b,claude-fable-5,large_1,pass,,,0.052632,-3600.97,True,0,0,20.0,0.07,0.052632,pass,,0.052632,True,0.07,20.0
+wei2020b,claude-fable-5,large_2,pass,,,0.0,-12.46,True,0,0,20.0,0.07,0.0,pass,,0.0,True,0.07,20.0
+wei2020b,claude-fable-5,large_3,pass,,,0.0,-0.14,True,0,0,5.0,0.07,0.0,pass,,0.0,True,0.07,5.0
+wei2020b,claude-fable-5,large_4,pass,,,0.0,-3.17,True,0,0,36.0,0.06,0.0,pass,,0.0,True,0.06,36.0
+wei2020b,claude-fable-5,large_5,pass,,,0.0,-3607.54,True,0,0,32.0,0.07,0.03125,pass,,0.0,True,0.07,32.0
+watermeyer2023,claude-fable-5,large_1,pass,,,0.0,2.2,True,0,0,183.0,274.01,1.0,pass,,0.0,True,274.01,183.0
+watermeyer2023,claude-fable-5,large_2,pass,,,0.0,-1369.53,True,0,0,205.0,1058.0,0.435421,pass,,0.0,True,1058.0,205.0
+watermeyer2023,claude-fable-5,large_3,pass,,,0.0,1106.4,True,0,0,138.0,1140.56,1.0,pass,,0.0,True,1140.56,138.0
+watermeyer2023,claude-fable-5,large_4,pass,,,0.0,-19.84,True,0,0,109.0,38.58,0.655135,pass,,0.0,True,38.58,109.0
+watermeyer2023,claude-fable-5,large_5,pass,,,0.0,292.15,True,0,0,122.0,394.69,1.0,pass,,0.0,True,394.69,122.0
+wang2019,claude-fable-5,large_1,pass,,,0.015335,-3.08,True,0,0,50361.186047,3599.48,0.047753,pass,,0.015335,True,3599.48,50361.186047
+wang2019,claude-fable-5,large_2,pass,,,0.021848,-2.4,True,0,0,45696.0,3599.48,0.03243,pass,,0.021848,True,3599.48,45696.0
+wang2019,claude-fable-5,large_3,pass,,,0.020395,-3.38,True,0,0,47187.0,3599.31,0.042781,pass,,0.020395,True,3599.31,47187.0
+wang2019,claude-fable-5,large_4,pass,,,-0.010165,-3.11,True,0,0,46557.512195,3599.48,0.017136,pass,,-0.010165,True,3599.48,46557.512195
+wang2019,claude-fable-5,large_5,pass,,,-0.044481,-2.3,True,0,0,43175.991505,3599.64,0.015974,pass,,-0.044481,True,3599.64,43175.991505
+wang2025,claude-fable-5,large_1,fail,infeasible,"Solution is INFEASIBLE Violations: Objective consistency violated: reported objective_value = 38.21907980720614 differs from recomputed f(S*) = 47.0 (|diff| = 8.78092, tol = 0.047)",0.278885,-3.33,False,0,0,38.21908,3597.13,0.278887,fail,infeasible,0.278885,False,3597.13,38.21908
+wang2025,claude-fable-5,large_2,pass,,,-0.005496,-3598.83,True,0,0,56.714462,1.47,4e-06,pass,,-0.005496,True,1.47,56.714462
+wang2025,claude-fable-5,large_3,pass,,,0.0,-495.16,True,0,0,28.58165,0.52,2.9e-05,pass,,0.0,True,0.52,28.58165
+wang2025,claude-fable-5,large_4,fail,infeasible,"Solution is INFEASIBLE Violations: Objective consistency violated: reported objective_value = 59.30326291859811 differs from recomputed f(S*) = 61.0 (|diff| = 1.69674, tol = 0.061)",0.027815,3596.99,False,0,0,59.303263,3597.17,0.076425,fail,infeasible,0.027815,False,3597.17,59.303263
+wang2025,claude-fable-5,large_5,pass,,,0.0,0.03,True,0,0,28.66581,0.22,0.047368,pass,,0.0,True,0.22,28.66581
+watermeyer2020,claude-fable-5,large_1,pass,,,-0.025316,-3.82,True,0,0,1078.0,3599.56,0.005123,pass,,-0.025316,True,3599.56,1078.0
+watermeyer2020,claude-fable-5,large_2,fail,infeasible,Solution is INFEASIBLE Violations: Constraint 2 (resource capacity): 30 violation(s) - Resource 0: total consumption 1310.0 > capacity 330.0; Resource 1: total consumption 1646.0 > capacity 438.0; Resource 2: total consumption 1304.0 >,-0.648113,-3.98,False,0,0,373.0,3599.49,1.0,fail,infeasible,-0.648113,False,3599.49,373.0
+watermeyer2020,claude-fable-5,large_3,pass,,,-0.293283,-6.2,True,0,0,747.0,3599.64,0.211387,pass,,-0.293283,True,3599.64,747.0
+watermeyer2020,claude-fable-5,large_4,pass,,,-0.031092,-5.94,True,0,0,1153.0,3599.75,0.190985,pass,,-0.031092,True,3599.75,1153.0
+watermeyer2020,claude-fable-5,large_5,pass,,,-0.264239,-4.99,True,0,0,788.0,3599.6,0.102282,pass,,-0.264239,True,3599.6,788.0
+wei2020,claude-fable-5,large_1,pass,,,0.0,-3603.53,True,0,0,668.0,0.08,8e-06,pass,,0.0,True,0.08,668.0
+wei2020,claude-fable-5,large_2,pass,,,0.026829,-3602.13,True,0,0,421.0,0.07,0.026833,pass,,0.026829,True,0.07,421.0
+wei2020,claude-fable-5,large_3,pass,,,-0.754736,-3601.06,True,0,0,246.0,0.07,4e-06,pass,,-0.754736,True,0.07,246.0
+wei2020,claude-fable-5,large_4,fail,runtime_error,Execution timed out after 3600 seconds,,-2.53,,0,0,,3600.06,1.0,fail,runtime_error,,,3600.06,
+wei2020,claude-fable-5,large_5,pass,,,0.0,-3603.22,True,0,0,502.0,0.07,5e-06,pass,,0.0,True,0.07,502.0
+wu2018,claude-fable-5,large_1,pass,,,-0.118355,-2.94,True,0,0,227566226.540141,3597.27,0.00652,pass,,-0.118355,True,3597.27,227566226.540141
+wu2018,claude-fable-5,large_2,pass,,,-0.009638,-3.07,True,0,0,11111955.756329,3597.18,0.008643,pass,,-0.009638,True,3597.18,11111955.756329
+wu2018,claude-fable-5,large_3,pass,,,-0.002548,-3.03,True,0,0,25214998.029112,3597.19,0.007751,pass,,-0.002548,True,3597.19,25214998.029112
+wu2018,claude-fable-5,large_4,pass,,,-0.006117,-2.96,True,0,0,88487889.937734,3597.23,0.012974,pass,,-0.006117,True,3597.23,88487889.937734
+wu2018,claude-fable-5,large_5,pass,,,-0.002632,-3.02,True,0,0,200466466.30101,3597.2,0.017501,pass,,-0.002632,True,3597.2,200466466.30101
+wu2022,claude-fable-5,large_1,pass,,,1e-06,75.87,True,0,0,3769709.0,235.79,0.20387,pass,,1e-06,True,235.79,3769709.0
+wu2022,claude-fable-5,large_2,pass,,,0.000596,-29.47,True,0,0,4052249.0,3598.53,0.097673,pass,,0.000596,True,3598.53,4052249.0
+wu2022,claude-fable-5,large_3,pass,,,5e-06,-42.52,True,0,0,7302575.0,27.82,0.072978,pass,,5e-06,True,27.82,7302575.0
+wu2022,claude-fable-5,large_4,pass,,,1.3e-05,1749.48,True,0,0,4279587.0,1891.18,0.530782,pass,,1.3e-05,True,1891.18,4279587.0
+wu2022,claude-fable-5,large_5,pass,,,-1.5e-05,48.02,True,0,0,7165664.998699,113.86,0.200854,pass,,-1.5e-05,True,113.86,7165664.998699
+wu2023,claude-fable-5,large_1,pass,,,-0.065194,1837.97,True,0,0,0.521314,3492.69,0.005352,pass,,-0.065194,True,3492.69,0.521314
+wu2023,claude-fable-5,large_2,pass,,,-0.768979,612.8,True,0,0,0.798787,2054.9,0.004041,pass,,-0.768979,True,2054.9,0.798787
+wu2023,claude-fable-5,large_3,pass,,,-0.227304,1771.19,True,0,0,0.33707,3492.95,0.010314,pass,,-0.227304,True,3492.95,0.33707
+wu2023,claude-fable-5,large_4,pass,,,-0.07965,1244.5,True,0,0,0.866439,2086.09,0.000404,pass,,-0.07965,True,2086.09,0.866439
+wu2023,claude-fable-5,large_5,pass,,,-0.033717,1669.17,True,0,0,0.82234,3320.89,0.000607,pass,,-0.033717,True,3320.89,0.82234
+xu2024,claude-fable-5,large_1,pass,,,-0.0,-2.87,True,0,0,6.9e-05,3597.83,0.00052,pass,,-0.0,True,3597.83,6.9e-05
+xu2024,claude-fable-5,large_2,pass,,,0.0,-3.34,True,0,0,2.9e-05,3598.47,5.4e-05,pass,,0.0,True,3598.47,2.9e-05
+xu2024,claude-fable-5,large_3,pass,,,0.0,-2.93,True,0,0,5.7e-05,3597.7,0.000608,pass,,0.0,True,3597.7,5.7e-05
+xu2024,claude-fable-5,large_4,pass,,,0.0,47.14,True,0,0,0.000383,412.42,0.000163,pass,,0.0,True,412.42,0.000383
+xu2024,claude-fable-5,large_5,pass,,,0.0,-2.98,True,0,0,2.3e-05,3597.84,2.8e-05,pass,,0.0,True,3597.84,2.3e-05
+yang2013,claude-fable-5,large_1,pass,,,0.0,-6.27,True,0,0,38991017.0,3599.14,1.0,pass,,0.0,True,3599.14,38991017.0
+yang2013,claude-fable-5,large_2,pass,,,0.0,-5.33,True,0,0,1978139.0,3599.11,0.000671,pass,,0.0,True,3599.11,1978139.0
+yang2013,claude-fable-5,large_3,pass,,,0.000136,-9.4,True,0,0,12567475.0,3599.16,0.002725,pass,,0.000136,True,3599.16,12567475.0
+yang2013,claude-fable-5,large_4,pass,,,0.000126,-8.45,True,0,0,36773768.0,3599.14,0.000538,pass,,0.000126,True,3599.14,36773768.0
+yang2013,claude-fable-5,large_5,pass,,,0.0,-2.27,True,0,0,171597.0,3599.12,0.000315,pass,,0.0,True,3599.12,171597.0
+zetina2019,claude-fable-5,large_1,fail,runtime_error,Execution timed out after 3600 seconds,,-13.75,,0,0,,3600.36,1.0,fail,runtime_error,,,3600.36,
+zetina2019,claude-fable-5,large_2,fail,runtime_error,Execution timed out after 3600 seconds,,-21.63,,0,0,,3600.47,1.0,fail,runtime_error,,,3600.47,
+zetina2019,claude-fable-5,large_3,fail,runtime_error,Execution timed out after 3600 seconds,,-16.34,,0,0,,3600.37,1.0,fail,runtime_error,,,3600.37,
+zetina2019,claude-fable-5,large_4,fail,runtime_error,Execution timed out after 3600 seconds,,-14.64,,0,0,,3600.37,1.0,fail,runtime_error,,,3600.37,
+zetina2019,claude-fable-5,large_5,fail,runtime_error,Execution timed out after 3600 seconds,,-14.61,,0,0,,3600.37,1.0,fail,runtime_error,,,3600.37,
+zetina2020,claude-fable-5,large_1,pass,,,-0.000832,-1.67,True,0,0,2401.0,3599.58,1e-06,pass,,-0.000832,True,3599.58,2401.0
+zetina2020,claude-fable-5,large_2,pass,,,0.0,-1.57,True,0,0,2410.0,3599.58,1e-06,pass,,0.0,True,3599.58,2410.0
+zetina2020,claude-fable-5,large_3,pass,,,-0.00125,-1.33,True,0,0,2397.0,3599.59,1e-06,pass,,-0.00125,True,3599.59,2397.0
+zetina2020,claude-fable-5,large_4,pass,,,-0.007491,-1.4,True,0,0,2385.0,3599.58,1e-06,pass,,-0.007491,True,3599.58,2385.0
+zetina2020,claude-fable-5,large_5,pass,,,-0.001706,-1.7,True,0,0,2341.0,3599.57,1e-06,pass,,-0.001706,True,3599.57,2341.0
+zhang2025,claude-fable-5,large_1,pass,,,0.035714,-9.83,True,0,0,5.8,3596.08,0.046838,pass,,0.035714,True,3596.08,5.8
+zhang2025,claude-fable-5,large_2,pass,,,0.021277,-11.23,True,0,0,48.0,3596.0,0.058687,pass,,0.021277,True,3596.0,48.0
+zhang2025,claude-fable-5,large_3,pass,,,0.0,-9.73,True,0,0,218.84,1.78,0.061251,pass,,0.0,True,1.78,218.84
+zhang2025,claude-fable-5,large_4,pass,,,0.0,-9.67,True,0,0,44.3289,3596.09,0.009339,pass,,0.0,True,3596.09,44.3289
+zhang2025,claude-fable-5,large_5,pass,,,0.0,488.32,True,0,0,9.7247,2261.26,0.003106,pass,,0.0,True,2261.26,9.7247
+zohali2022,claude-fable-5,large_1,pass,,,-0.021645,3568.92,True,0,0,226.0,3599.14,0.038844,pass,,-0.021645,True,3599.14,226.0
+zohali2022,claude-fable-5,large_2,pass,,,-0.017467,3568.9,True,0,0,225.0,3599.12,0.034526,pass,,-0.017467,True,3599.12,225.0
+zohali2022,claude-fable-5,large_3,pass,,,-0.113208,3569.03,True,0,0,235.0,3599.15,0.000938,pass,,-0.113208,True,3599.15,235.0
+zohali2022,claude-fable-5,large_4,pass,,,-0.069767,3568.9,True,0,0,240.0,3599.12,0.018924,pass,,-0.069767,True,3599.12,240.0
+zohali2022,claude-fable-5,large_5,pass,,,-0.374677,3568.97,True,0,0,242.0,3599.13,0.000199,pass,,-0.374677,True,3599.13,242.0
+roshanaei2017,claude-fable-5,large_1,pass,,,-0.148796,-727.24,True,1,0,63851.775417,2880.51,0.124766,pass,,-0.137814,True,2880.55,64675.54815
+roshanaei2017,claude-fable-5,large_2,pass,,,-0.430422,-728.37,True,1,0,-17329.6484,2880.39,0.124722,pass,,-0.404074,True,2880.39,-17010.444083
+roshanaei2017,claude-fable-5,large_3,pass,,,-0.280624,-729.43,True,1,0,-13648.2352,2880.44,0.124685,pass,,-0.371569,True,2880.84,-14617.477167
+roshanaei2017,claude-fable-5,large_4,fail,gap_exceeds,"Gap 2349.36% exceeds 10% threshold (obj=4767.775666666654, gurobi=-211.96133333332546)",23.49361,-729.32,True,1,0,4767.775667,2880.4,1.0,fail,gap_exceeds,14.32798,True,2880.81,2825.01635
+roshanaei2017,claude-fable-5,large_5,fail,infeasible,Solution is INFEASIBLE Violations: Overtime > V_max h=1 d=1 r=0: v=144.60 > 120; Overtime > V_max h=0 d=0 r=2: v=164.70 > 120; Overtime > V_max h=1 d=2 r=1: v=166.40 > 120; Overtime > V_max h=0 d=3 r=0: v=148.30 > 120; Overtime > V_max h=2 d=4 r=0: v=167.60 > 120,0.017508,-723.77,False,1,0,61939.286217,2884.04,1.0,fail,runtime_error,,,2701.18,
+garcia2011,claude-fable-5,large_1,pass,,,0.0,3406.54,True,3,0,206865.0,3491.16,0.00178,fail,runtime_error,,,0.12,
+garcia2011,claude-fable-5,large_2,pass,,,0.0,3402.57,True,3,0,34485.0,3491.16,0.000597,fail,runtime_error,,,0.12,
+garcia2011,claude-fable-5,large_3,pass,,,0.0,3464.74,True,3,0,55937.0,3491.15,0.004349,fail,runtime_error,,,0.22,
+garcia2011,claude-fable-5,large_4,pass,,,0.0,3414.86,True,3,0,196586.0,3491.14,0.003082,fail,runtime_error,,,0.13,
+garcia2011,claude-fable-5,large_5,pass,,,0.0,3412.11,True,3,0,124165.0,3491.15,0.055546,fail,runtime_error,,,0.12,
+ruiz2007,claude-fable-5,large_1,pass,,,-0.041271,-1.09,True,1,0,6458.0,3599.62,1.3e-05,fail,runtime_error,,,0.12,
+ruiz2007,claude-fable-5,large_2,fail,runtime_error,Execution timed out after 3600 seconds,,-0.67,,1,0,,3600.02,1.0,fail,runtime_error,,,0.12,
+ruiz2007,claude-fable-5,large_3,pass,,,0.000605,2926.87,True,1,0,4958.0,3599.65,0.000662,fail,runtime_error,,,0.11,
+ruiz2007,claude-fable-5,large_4,pass,,,-0.015177,-0.91,True,1,0,5970.0,3599.64,1.7e-05,fail,runtime_error,,,0.12,
+ruiz2007,claude-fable-5,large_5,pass,,,0.0,2935.47,True,1,0,4657.0,3599.64,0.000667,fail,runtime_error,,,0.12,
+wangy2020,claude-fable-5,large_1,pass,,,0.024272,3498.23,True,1,0,407976301.0,3599.22,0.056797,fail,runtime_error,,,3600.06,
+wangy2020,claude-fable-5,large_2,fail,gap_exceeds,"Gap 28.65% exceeds 10% threshold (obj=266346567.0, gurobi=207034000.0)",0.286487,3498.82,True,1,0,266346567.0,3599.23,0.327612,pass,,0.0,True,3599.69,207034000.0
+wangy2020,claude-fable-5,large_3,pass,,,0.022384,3478.17,True,1,0,204706222.0,3599.2,0.05215,pass,,0.0,True,3599.57,200224384.0
+wangy2020,claude-fable-5,large_4,pass,,,0.008568,3388.62,True,1,0,3030281628.0,3599.2,0.019684,pass,,0.0,True,3599.46,3004538328.0
+wangy2020,claude-fable-5,large_5,fail,gap_exceeds,"Gap 60.73% exceeds 10% threshold (obj=-36663330.0, gurobi=-93363990.0)",0.607308,3504.54,True,1,0,-36663330.0,3599.18,0.719607,fail,runtime_error,,,1.02,
+pessoa2021,claude-fable-5,large_1,fail,infeasible,"Solution is INFEASIBLE Violations: Route 1 contains invalid customer ID 91 (must be integer in [1, 80]); Route 1 contains invalid customer ID 86 (must be integer in [1, 80]); Route 1 contains invalid customer ID 105 (must be integer in [1, 80]); Route 1 contains invalid customer ID 98 (must be integer in [1, 80]); Route 2 contains invalid customer ID 111 (must be integer in [1, 80])",-0.397702,3569.09,False,2,0,1625.0,3598.58,0.005154,fail,runtime_error,,,0.07,
+pessoa2021,claude-fable-5,large_2,pass,,,-0.429806,-2.78,True,2,0,1320.0,3598.59,1.5e-05,pass,,-0.429806,True,3598.6,1320.0
+pessoa2021,claude-fable-5,large_3,fail,infeasible,"Solution is INFEASIBLE Violations: Route 2 contains invalid customer ID 111 (must be integer in [1, 80]); Route 2 contains invalid customer ID 81 (must be integer in [1, 80]); Route 3 contains invalid customer ID 94 (must be integer in [1, 80]); Route 3 contains invalid customer ID 113 (must be integer in [1, 80]); Route 3 contains invalid customer ID 90 (must be integer in [1, 80])",-0.401038,3590.03,False,2,0,1616.0,3598.57,0.017564,fail,runtime_error,,,0.11,
+pessoa2021,claude-fable-5,large_4,pass,,,-0.455017,-2.76,True,2,0,1260.0,3598.58,1.6e-05,pass,,-0.455017,True,3598.57,1260.0
+pessoa2021,claude-fable-5,large_5,fail,infeasible,"Solution is INFEASIBLE Violations: Route 1 contains invalid customer ID 81 (must be integer in [1, 80]); Route 2 contains invalid customer ID 111 (must be integer in [1, 80]); Route 2 contains invalid customer ID 88 (must be integer in [1, 80]); Route 3 contains invalid customer ID 98 (must be integer in [1, 80]); Route 3 contains invalid customer ID 105 (must be integer in [1, 80])",-0.391562,-2.06,False,2,0,1644.0,3598.59,4.2e-05,fail,runtime_error,,,0.07,
+bard2002,claude-fable-5,large_1,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+bertsimas2024,claude-fable-5,large_1,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+belvaux2000,claude-fable-5,large_1,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+bard2002,claude-fable-5,large_2,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+bertsimas2024,claude-fable-5,large_2,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+huisman2005,claude-fable-5,large_1,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+belvaux2000,claude-fable-5,large_2,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+bard2002,claude-fable-5,large_3,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+bertsimas2024,claude-fable-5,large_3,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+huisman2005,claude-fable-5,large_2,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+belvaux2000,claude-fable-5,large_3,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+bard2002,claude-fable-5,large_4,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+bertsimas2024,claude-fable-5,large_4,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+huisman2005,claude-fable-5,large_3,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+belvaux2000,claude-fable-5,large_4,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+bard2002,claude-fable-5,large_5,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+bertsimas2024,claude-fable-5,large_5,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+huisman2005,claude-fable-5,large_4,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+belvaux2000,claude-fable-5,large_5,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+huisman2005,claude-fable-5,large_5,gate_fail,infeasible,Skipped: tiny-instance gate failed on instance tiny,,,,0,0,,,1.0,gate_fail,infeasible,,,,
+bodur2017,claude-fable-5,large_1,pass,,,-1.4e-05,154.66,True,0,0,63726.606006,514.9,0.238637,pass,,-1.4e-05,True,514.9,63726.606006
+bodur2017,claude-fable-5,large_2,pass,,,-0.003552,379.29,True,0,0,54336.075452,491.15,1.0,pass,,-0.003552,True,491.15,54336.075452
+bodur2017,claude-fable-5,large_3,pass,,,0.0,39.05,True,0,0,48283.708491,104.16,0.957297,pass,,0.0,True,104.16,48283.708491
+bodur2017,claude-fable-5,large_4,pass,,,0.0,198.4,True,0,0,48495.883383,403.56,0.414825,pass,,0.0,True,403.56,48495.883383
+bodur2017,claude-fable-5,large_5,pass,,,0.0,388.95,True,0,0,50576.020916,609.01,0.424711,pass,,0.0,True,609.01,50576.020916
+martello1999,claude-fable-5,large_1,pass,,,-0.0,-136.16,True,0,0,3728222614.0,97.08,0.07169,pass,,-0.0,True,97.08,3728222614.0
+martello1999,claude-fable-5,large_2,pass,,,-0.0,-632.03,True,0,0,404425185456.0,598.76,0.015488,pass,,-0.0,True,598.76,404425185456.0
+martello1999,claude-fable-5,large_3,pass,,,-0.0,61.61,True,0,0,273435164757.0,2341.62,0.007158,pass,,-0.0,True,2341.62,273435164757.0
+martello1999,claude-fable-5,large_4,pass,,,0.0,31.3,True,0,0,317899206946.0,95.17,0.277235,pass,,0.0,True,95.17,317899206946.0
+martello1999,claude-fable-5,large_5,pass,,,0.0,3.17,True,0,0,247406881552.0,63.84,0.141536,pass,,0.0,True,63.84,247406881552.0
+bergman2019,claude-fable-5,large_1,pass,,,-0.081622,-1.5,True,0,0,4267.0,3598.65,5e-06,pass,,-0.081622,True,3598.65,4267.0
+bergman2019,claude-fable-5,large_2,pass,,,-0.005199,-1.54,True,0,0,8120.0,3598.61,5e-06,pass,,-0.005199,True,3598.61,8120.0
+bergman2019,claude-fable-5,large_3,pass,,,-0.000949,-1.57,True,0,0,9496.0,3598.6,8e-06,pass,,-0.000949,True,3598.6,9496.0
+bergman2019,claude-fable-5,large_4,pass,,,-0.002085,-1.56,True,0,0,9614.0,3598.61,0.008969,pass,,-0.002085,True,3598.61,9614.0
+bode2012,claude-fable-5,large_1,pass,,,0.0,3366.96,True,0,0,401.0,3599.13,0.057361,pass,,0.0,True,3599.13,401.0
+bergman2019,claude-fable-5,large_5,pass,,,-0.001251,-1.53,True,0,0,1601.0,3598.65,1.8e-05,pass,,-0.001251,True,3598.65,1601.0
+bode2012,claude-fable-5,large_2,pass,,,0.0,3182.87,True,0,0,394.0,3599.18,0.071086,pass,,0.0,True,3599.18,394.0
+bode2012,claude-fable-5,large_3,pass,,,0.0,3597.26,True,0,0,250.0,3599.12,0.080989,pass,,0.0,True,3599.12,250.0
+brandao2016,claude-fable-5,large_1,pass,,,0.0,-766.56,True,0,0,93.0,0.13,0.0,pass,,0.0,True,0.13,93.0
+bode2012,claude-fable-5,large_4,pass,,,0.0,3598.59,True,0,0,250.0,3599.14,0.043127,pass,,0.0,True,3599.14,250.0
+brandao2016,claude-fable-5,large_2,pass,,,0.0,-133.92,True,0,0,53.0,27.63,0.003221,pass,,0.0,True,27.63,53.0
+bode2012,claude-fable-5,large_5,pass,,,0.0,3597.56,True,0,0,246.0,3599.17,0.034924,pass,,0.0,True,3599.17,246.0
+brandao2016,claude-fable-5,large_3,pass,,,0.022727,3527.98,True,0,0,45.0,3598.61,0.026908,pass,,0.022727,True,3598.61,45.0
+brandao2016,claude-fable-5,large_4,pass,,,0.0,-339.07,True,0,0,51.0,0.08,0.0,pass,,0.0,True,0.08,51.0
+brandao2016,claude-fable-5,large_5,fail,runtime_error,Execution timed out after 3600 seconds,,3588.43,,0,0,,3600.31,1.0,fail,runtime_error,,,3600.31,
+fragkos2021,claude-fable-5,large_1,fail,runtime_error,Execution timed out after 3600 seconds,,0.61,,0,0,,3600.61,1.0,fail,runtime_error,,,3600.61,
+fragkos2021,claude-fable-5,large_2,fail,runtime_error,Execution timed out after 3600 seconds,,0.61,,0,0,,3600.61,1.0,fail,runtime_error,,,3600.61,
+fragkos2021,claude-fable-5,large_3,fail,runtime_error,Execution timed out after 3600 seconds,,0.56,,0,0,,3600.56,1.0,fail,runtime_error,,,3600.56,
+fragkos2021,claude-fable-5,large_4,fail,runtime_error,Execution timed out after 3600 seconds,,0.61,,0,0,,3600.61,1.0,fail,runtime_error,,,3600.61,
+fragkos2021,claude-fable-5,large_5,fail,runtime_error,Execution timed out after 3600 seconds,,0.56,,0,0,,3600.56,1.0,fail,runtime_error,,,3600.56,
+castro2021,claude-fable-5,large_1,pass,,,-2.7e-05,724.55,True,0,0,1780138830.398697,2367.9,1.0,pass,,-2.7e-05,True,2367.9,1780138830.398697
+castro2021,claude-fable-5,large_2,fail,runtime_error,Execution timed out after 3600 seconds,,2408.05,,0,0,,3607.02,1.0,fail,runtime_error,,,3607.02,
+castro2021,claude-fable-5,large_3,fail,runtime_error,Execution timed out after 3600 seconds,,1272.21,,0,0,,3607.26,1.0,fail,runtime_error,,,3607.26,
+castro2021,claude-fable-5,large_4,pass,,,-5.7e-05,-1373.66,True,0,0,134772602.739296,2226.34,0.540877,pass,,-5.7e-05,True,2226.34,134772602.739296
+castro2021,claude-fable-5,large_5,pass,,,-1.9e-05,545.18,True,0,0,6375424980.923589,2083.96,1.0,pass,,-1.9e-05,True,2083.96,6375424980.923589
+muter2010,claude-fable-5,large_1,pass,,,0.006461,-1.14,True,0,0,721.19763,3599.72,0.006509,pass,,0.006461,True,3599.72,721.19763
+muter2010,claude-fable-5,large_2,pass,,,0.0,2076.01,True,0,0,991.02254,3599.7,0.000684,pass,,0.0,True,3599.7,991.02254
+muter2010,claude-fable-5,large_3,pass,,,0.0,3594.5,True,0,0,846.048059,3599.73,0.008937,pass,,0.0,True,3599.73,846.048059
+muter2010,claude-fable-5,large_4,pass,,,0.099109,3589.67,True,0,0,661.0609,3599.74,0.198082,pass,,0.099109,True,3599.74,661.0609
+muter2010,claude-fable-5,large_5,pass,,,0.0,-1.32,True,0,0,979.047261,3599.71,0.337267,pass,,0.0,True,3599.71,979.047261

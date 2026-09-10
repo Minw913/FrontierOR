@@ -1,0 +1,1 @@
+{"time": 0.0, "objective_value": 0.31633605673949555, "solution": {"objective_value": 0.31633605673949555, "assignment": {"0": [0], "1": [1, 4], "2": [2, 3]}, "machine_completion_times": {"0": 281, "1": 432, "2": 423}}}

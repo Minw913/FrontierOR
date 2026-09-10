@@ -17,6 +17,7 @@ from typing import Any
 
 from trusted_eval_infra.agent.model_proxy import agent_token
 from trusted_eval_infra.agent.protocol import AgentHandle, write_agent_log_entry
+from trusted_eval_infra.agent.container_handle import ContainerAgentHandle
 
 logger = logging.getLogger(__name__)
 DEFAULT_IMAGE = "frontieror-coral-agent:0.1"
@@ -439,10 +440,11 @@ def _ensure_shared_agent_container(
         request_dir = coral_dir / "private" / "eval_requests" / "inbox"
         public_dir = coral_dir / "public"
         attempts_dir = public_dir / "attempts"
+        responses_dir = public_dir / "request_status"
         notes_dir = public_dir / "notes"
         git_config = repo_dir / ".git" / "config"
         git_hooks = repo_dir / ".git" / "hooks"
-        for path in (agents_dir, request_dir, attempts_dir, notes_dir):
+        for path in (agents_dir, request_dir, attempts_dir, responses_dir, notes_dir):
             path.mkdir(parents=True, exist_ok=True)
         if not git_config.is_file() or not git_hooks.is_dir():
             raise RuntimeError(
@@ -525,6 +527,8 @@ def _ensure_shared_agent_container(
             f"type=bind,src={git_config},dst={git_config},readonly",
             "--mount",
             f"type=bind,src={attempts_dir},dst={attempts_dir},readonly",
+            "--mount",
+            f"type=bind,src={responses_dir},dst={responses_dir},readonly",
             "--mount",
             f"type=bind,src={notes_dir},dst={notes_dir}",
             "--mount",
@@ -758,6 +762,12 @@ class SecureCodexRuntime:
                 f"Secure CORAL image {image!r} has no immutable local image ID"
             )
         model_proxy_image: str | None = None
+        from trusted_eval_infra.execution import validate_image_sources
+        source_dir = Path(__file__).resolve().parent
+        validate_image_sources(image_digest, tuple(
+            (str(source_dir / name), f"/opt/frontieror/secure_{name}")
+            for name in ("codex_entrypoint.py", "submit.py", "process_control.py")
+        ))
         model_proxy_image_digest: str | None = None
         if model_access == "proxy":
             model_proxy_image = os.environ.get(
@@ -861,6 +871,8 @@ class SecureCodexRuntime:
             "--env",
             f"FRONTIER_OR_ATTEMPTS_DIR={attempts_dir}",
             "--env",
+            f"FRONTIER_OR_EVAL_RESPONSE_DIR={coral_dir / 'public' / 'request_status'}",
+            "--env",
             (
                 "FRONTIER_OR_EVAL_WAIT_SECONDS="
                 + os.environ.get("FRONTIER_OR_CORAL_EVAL_WAIT_SECONDS", "7200")
@@ -906,6 +918,10 @@ class SecureCodexRuntime:
             agent_id,
             container_name,
         )
+        invocation = secrets.token_hex(16)
+        # Docker exec options precede the container name.
+        container_index = cmd.index(container_name)
+        cmd[container_index:container_index] = ["--env", f"FRONTIER_OR_INVOCATION={invocation}"]
         process = subprocess.Popen(
             cmd,
             stdout=log_file,
@@ -913,11 +929,13 @@ class SecureCodexRuntime:
             text=True,
             start_new_session=True,
         )
-        return AgentHandle(
+        return ContainerAgentHandle(
             agent_id=agent_id,
             process=process,
             worktree_path=worktree_path,
             log_path=log_path,
             session_id=resume_session_id,
             _log_file=log_file,
+            container_name=container_name,
+            invocation=invocation,
         )

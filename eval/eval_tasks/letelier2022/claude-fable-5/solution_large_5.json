@@ -1,0 +1,1352 @@
+{
+  "objective_value": 96.0,
+  "assignments": [
+    {
+      "item_id": 0,
+      "bin": 1,
+      "period": 96,
+      "weight": 12
+    },
+    {
+      "item_id": 1,
+      "bin": 1,
+      "period": 33,
+      "weight": 11
+    },
+    {
+      "item_id": 2,
+      "bin": 1,
+      "period": 76,
+      "weight": 19
+    },
+    {
+      "item_id": 3,
+      "bin": 1,
+      "period": 27,
+      "weight": 13
+    },
+    {
+      "item_id": 4,
+      "bin": 1,
+      "period": 34,
+      "weight": 24
+    },
+    {
+      "item_id": 5,
+      "bin": 1,
+      "period": 19,
+      "weight": 24
+    },
+    {
+      "item_id": 6,
+      "bin": 1,
+      "period": 73,
+      "weight": 13
+    },
+    {
+      "item_id": 7,
+      "bin": 1,
+      "period": 25,
+      "weight": 11
+    },
+    {
+      "item_id": 8,
+      "bin": 1,
+      "period": 15,
+      "weight": 8
+    },
+    {
+      "item_id": 9,
+      "bin": 1,
+      "period": 13,
+      "weight": 20
+    },
+    {
+      "item_id": 10,
+      "bin": 1,
+      "period": 57,
+      "weight": 14
+    },
+    {
+      "item_id": 11,
+      "bin": 1,
+      "period": 43,
+      "weight": 18
+    },
+    {
+      "item_id": 12,
+      "bin": 1,
+      "period": 51,
+      "weight": 22
+    },
+    {
+      "item_id": 13,
+      "bin": 1,
+      "period": 56,
+      "weight": 23
+    },
+    {
+      "item_id": 14,
+      "bin": 1,
+      "period": 18,
+      "weight": 11
+    },
+    {
+      "item_id": 15,
+      "bin": 1,
+      "period": 8,
+      "weight": 11
+    },
+    {
+      "item_id": 16,
+      "bin": 1,
+      "period": 70,
+      "weight": 13
+    },
+    {
+      "item_id": 17,
+      "bin": 1,
+      "period": 24,
+      "weight": 8
+    },
+    {
+      "item_id": 18,
+      "bin": 1,
+      "period": 61,
+      "weight": 17
+    },
+    {
+      "item_id": 19,
+      "bin": 1,
+      "period": 94,
+      "weight": 12
+    },
+    {
+      "item_id": 20,
+      "bin": 1,
+      "period": 26,
+      "weight": 23
+    },
+    {
+      "item_id": 21,
+      "bin": 1,
+      "period": 11,
+      "weight": 21
+    },
+    {
+      "item_id": 22,
+      "bin": 1,
+      "period": 79,
+      "weight": 7
+    },
+    {
+      "item_id": 23,
+      "bin": 1,
+      "period": 35,
+      "weight": 12
+    },
+    {
+      "item_id": 24,
+      "bin": 1,
+      "period": 54,
+      "weight": 11
+    },
+    {
+      "item_id": 25,
+      "bin": 1,
+      "period": 71,
+      "weight": 10
+    },
+    {
+      "item_id": 26,
+      "bin": 1,
+      "period": 91,
+      "weight": 8
+    },
+    {
+      "item_id": 27,
+      "bin": 1,
+      "period": 90,
+      "weight": 12
+    },
+    {
+      "item_id": 28,
+      "bin": 1,
+      "period": 22,
+      "weight": 10
+    },
+    {
+      "item_id": 29,
+      "bin": 1,
+      "period": 86,
+      "weight": 14
+    },
+    {
+      "item_id": 30,
+      "bin": 1,
+      "period": 38,
+      "weight": 9
+    },
+    {
+      "item_id": 31,
+      "bin": 1,
+      "period": 32,
+      "weight": 22
+    },
+    {
+      "item_id": 32,
+      "bin": 1,
+      "period": 48,
+      "weight": 6
+    },
+    {
+      "item_id": 33,
+      "bin": 1,
+      "period": 31,
+      "weight": 11
+    },
+    {
+      "item_id": 34,
+      "bin": 1,
+      "period": 4,
+      "weight": 19
+    },
+    {
+      "item_id": 35,
+      "bin": 1,
+      "period": 36,
+      "weight": 20
+    },
+    {
+      "item_id": 36,
+      "bin": 1,
+      "period": 66,
+      "weight": 17
+    },
+    {
+      "item_id": 37,
+      "bin": 1,
+      "period": 29,
+      "weight": 23
+    },
+    {
+      "item_id": 38,
+      "bin": 1,
+      "period": 10,
+      "weight": 12
+    },
+    {
+      "item_id": 39,
+      "bin": 1,
+      "period": 83,
+      "weight": 18
+    },
+    {
+      "item_id": 40,
+      "bin": 1,
+      "period": 3,
+      "weight": 19
+    },
+    {
+      "item_id": 41,
+      "bin": 1,
+      "period": 28,
+      "weight": 17
+    },
+    {
+      "item_id": 42,
+      "bin": 1,
+      "period": 39,
+      "weight": 8
+    },
+    {
+      "item_id": 43,
+      "bin": 1,
+      "period": 63,
+      "weight": 16
+    },
+    {
+      "item_id": 44,
+      "bin": 1,
+      "period": 42,
+      "weight": 9
+    },
+    {
+      "item_id": 45,
+      "bin": 1,
+      "period": 82,
+      "weight": 9
+    },
+    {
+      "item_id": 46,
+      "bin": 1,
+      "period": 92,
+      "weight": 17
+    },
+    {
+      "item_id": 47,
+      "bin": 1,
+      "period": 74,
+      "weight": 12
+    },
+    {
+      "item_id": 48,
+      "bin": 1,
+      "period": 7,
+      "weight": 23
+    },
+    {
+      "item_id": 49,
+      "bin": 1,
+      "period": 89,
+      "weight": 21
+    },
+    {
+      "item_id": 50,
+      "bin": 1,
+      "period": 95,
+      "weight": 6
+    },
+    {
+      "item_id": 51,
+      "bin": 1,
+      "period": 78,
+      "weight": 10
+    },
+    {
+      "item_id": 52,
+      "bin": 1,
+      "period": 17,
+      "weight": 16
+    },
+    {
+      "item_id": 53,
+      "bin": 1,
+      "period": 67,
+      "weight": 20
+    },
+    {
+      "item_id": 54,
+      "bin": 1,
+      "period": 2,
+      "weight": 15
+    },
+    {
+      "item_id": 55,
+      "bin": 1,
+      "period": 87,
+      "weight": 9
+    },
+    {
+      "item_id": 56,
+      "bin": 1,
+      "period": 50,
+      "weight": 7
+    },
+    {
+      "item_id": 57,
+      "bin": 1,
+      "period": 58,
+      "weight": 19
+    },
+    {
+      "item_id": 58,
+      "bin": 1,
+      "period": 80,
+      "weight": 14
+    },
+    {
+      "item_id": 59,
+      "bin": 1,
+      "period": 40,
+      "weight": 9
+    },
+    {
+      "item_id": 60,
+      "bin": 1,
+      "period": 5,
+      "weight": 7
+    },
+    {
+      "item_id": 61,
+      "bin": 1,
+      "period": 12,
+      "weight": 14
+    },
+    {
+      "item_id": 62,
+      "bin": 1,
+      "period": 21,
+      "weight": 19
+    },
+    {
+      "item_id": 63,
+      "bin": 1,
+      "period": 46,
+      "weight": 21
+    },
+    {
+      "item_id": 64,
+      "bin": 1,
+      "period": 69,
+      "weight": 20
+    },
+    {
+      "item_id": 65,
+      "bin": 1,
+      "period": 16,
+      "weight": 11
+    },
+    {
+      "item_id": 66,
+      "bin": 1,
+      "period": 65,
+      "weight": 24
+    },
+    {
+      "item_id": 67,
+      "bin": 1,
+      "period": 93,
+      "weight": 20
+    },
+    {
+      "item_id": 68,
+      "bin": 1,
+      "period": 81,
+      "weight": 21
+    },
+    {
+      "item_id": 69,
+      "bin": 1,
+      "period": 1,
+      "weight": 13
+    },
+    {
+      "item_id": 70,
+      "bin": 1,
+      "period": 49,
+      "weight": 13
+    },
+    {
+      "item_id": 71,
+      "bin": 1,
+      "period": 37,
+      "weight": 20
+    },
+    {
+      "item_id": 72,
+      "bin": 1,
+      "period": 14,
+      "weight": 12
+    },
+    {
+      "item_id": 73,
+      "bin": 1,
+      "period": 23,
+      "weight": 6
+    },
+    {
+      "item_id": 74,
+      "bin": 1,
+      "period": 6,
+      "weight": 19
+    },
+    {
+      "item_id": 75,
+      "bin": 1,
+      "period": 44,
+      "weight": 7
+    },
+    {
+      "item_id": 76,
+      "bin": 1,
+      "period": 20,
+      "weight": 18
+    },
+    {
+      "item_id": 77,
+      "bin": 1,
+      "period": 60,
+      "weight": 23
+    },
+    {
+      "item_id": 78,
+      "bin": 1,
+      "period": 30,
+      "weight": 20
+    },
+    {
+      "item_id": 79,
+      "bin": 1,
+      "period": 64,
+      "weight": 8
+    },
+    {
+      "item_id": 80,
+      "bin": 1,
+      "period": 45,
+      "weight": 16
+    },
+    {
+      "item_id": 81,
+      "bin": 1,
+      "period": 85,
+      "weight": 9
+    },
+    {
+      "item_id": 82,
+      "bin": 1,
+      "period": 41,
+      "weight": 15
+    },
+    {
+      "item_id": 83,
+      "bin": 1,
+      "period": 88,
+      "weight": 19
+    },
+    {
+      "item_id": 84,
+      "bin": 1,
+      "period": 59,
+      "weight": 21
+    },
+    {
+      "item_id": 85,
+      "bin": 1,
+      "period": 52,
+      "weight": 20
+    },
+    {
+      "item_id": 86,
+      "bin": 1,
+      "period": 55,
+      "weight": 8
+    },
+    {
+      "item_id": 87,
+      "bin": 1,
+      "period": 77,
+      "weight": 15
+    },
+    {
+      "item_id": 88,
+      "bin": 1,
+      "period": 84,
+      "weight": 19
+    },
+    {
+      "item_id": 89,
+      "bin": 1,
+      "period": 62,
+      "weight": 11
+    },
+    {
+      "item_id": 90,
+      "bin": 1,
+      "period": 9,
+      "weight": 6
+    },
+    {
+      "item_id": 91,
+      "bin": 1,
+      "period": 68,
+      "weight": 7
+    },
+    {
+      "item_id": 92,
+      "bin": 1,
+      "period": 47,
+      "weight": 11
+    },
+    {
+      "item_id": 93,
+      "bin": 1,
+      "period": 72,
+      "weight": 22
+    },
+    {
+      "item_id": 94,
+      "bin": 1,
+      "period": 53,
+      "weight": 6
+    },
+    {
+      "item_id": 95,
+      "bin": 1,
+      "period": 75,
+      "weight": 20
+    }
+  ],
+  "active_bin_periods": [
+    {
+      "bin": 1,
+      "period": 1,
+      "items": [
+        69
+      ],
+      "total_weight": 13
+    },
+    {
+      "bin": 1,
+      "period": 2,
+      "items": [
+        54
+      ],
+      "total_weight": 15
+    },
+    {
+      "bin": 1,
+      "period": 3,
+      "items": [
+        40
+      ],
+      "total_weight": 19
+    },
+    {
+      "bin": 1,
+      "period": 4,
+      "items": [
+        34
+      ],
+      "total_weight": 19
+    },
+    {
+      "bin": 1,
+      "period": 5,
+      "items": [
+        60
+      ],
+      "total_weight": 7
+    },
+    {
+      "bin": 1,
+      "period": 6,
+      "items": [
+        74
+      ],
+      "total_weight": 19
+    },
+    {
+      "bin": 1,
+      "period": 7,
+      "items": [
+        48
+      ],
+      "total_weight": 23
+    },
+    {
+      "bin": 1,
+      "period": 8,
+      "items": [
+        15
+      ],
+      "total_weight": 11
+    },
+    {
+      "bin": 1,
+      "period": 9,
+      "items": [
+        90
+      ],
+      "total_weight": 6
+    },
+    {
+      "bin": 1,
+      "period": 10,
+      "items": [
+        38
+      ],
+      "total_weight": 12
+    },
+    {
+      "bin": 1,
+      "period": 11,
+      "items": [
+        21
+      ],
+      "total_weight": 21
+    },
+    {
+      "bin": 1,
+      "period": 12,
+      "items": [
+        61
+      ],
+      "total_weight": 14
+    },
+    {
+      "bin": 1,
+      "period": 13,
+      "items": [
+        9
+      ],
+      "total_weight": 20
+    },
+    {
+      "bin": 1,
+      "period": 14,
+      "items": [
+        72
+      ],
+      "total_weight": 12
+    },
+    {
+      "bin": 1,
+      "period": 15,
+      "items": [
+        8
+      ],
+      "total_weight": 8
+    },
+    {
+      "bin": 1,
+      "period": 16,
+      "items": [
+        65
+      ],
+      "total_weight": 11
+    },
+    {
+      "bin": 1,
+      "period": 17,
+      "items": [
+        52
+      ],
+      "total_weight": 16
+    },
+    {
+      "bin": 1,
+      "period": 18,
+      "items": [
+        14
+      ],
+      "total_weight": 11
+    },
+    {
+      "bin": 1,
+      "period": 19,
+      "items": [
+        5
+      ],
+      "total_weight": 24
+    },
+    {
+      "bin": 1,
+      "period": 20,
+      "items": [
+        76
+      ],
+      "total_weight": 18
+    },
+    {
+      "bin": 1,
+      "period": 21,
+      "items": [
+        62
+      ],
+      "total_weight": 19
+    },
+    {
+      "bin": 1,
+      "period": 22,
+      "items": [
+        28
+      ],
+      "total_weight": 10
+    },
+    {
+      "bin": 1,
+      "period": 23,
+      "items": [
+        73
+      ],
+      "total_weight": 6
+    },
+    {
+      "bin": 1,
+      "period": 24,
+      "items": [
+        17
+      ],
+      "total_weight": 8
+    },
+    {
+      "bin": 1,
+      "period": 25,
+      "items": [
+        7
+      ],
+      "total_weight": 11
+    },
+    {
+      "bin": 1,
+      "period": 26,
+      "items": [
+        20
+      ],
+      "total_weight": 23
+    },
+    {
+      "bin": 1,
+      "period": 27,
+      "items": [
+        3
+      ],
+      "total_weight": 13
+    },
+    {
+      "bin": 1,
+      "period": 28,
+      "items": [
+        41
+      ],
+      "total_weight": 17
+    },
+    {
+      "bin": 1,
+      "period": 29,
+      "items": [
+        37
+      ],
+      "total_weight": 23
+    },
+    {
+      "bin": 1,
+      "period": 30,
+      "items": [
+        78
+      ],
+      "total_weight": 20
+    },
+    {
+      "bin": 1,
+      "period": 31,
+      "items": [
+        33
+      ],
+      "total_weight": 11
+    },
+    {
+      "bin": 1,
+      "period": 32,
+      "items": [
+        31
+      ],
+      "total_weight": 22
+    },
+    {
+      "bin": 1,
+      "period": 33,
+      "items": [
+        1
+      ],
+      "total_weight": 11
+    },
+    {
+      "bin": 1,
+      "period": 34,
+      "items": [
+        4
+      ],
+      "total_weight": 24
+    },
+    {
+      "bin": 1,
+      "period": 35,
+      "items": [
+        23
+      ],
+      "total_weight": 12
+    },
+    {
+      "bin": 1,
+      "period": 36,
+      "items": [
+        35
+      ],
+      "total_weight": 20
+    },
+    {
+      "bin": 1,
+      "period": 37,
+      "items": [
+        71
+      ],
+      "total_weight": 20
+    },
+    {
+      "bin": 1,
+      "period": 38,
+      "items": [
+        30
+      ],
+      "total_weight": 9
+    },
+    {
+      "bin": 1,
+      "period": 39,
+      "items": [
+        42
+      ],
+      "total_weight": 8
+    },
+    {
+      "bin": 1,
+      "period": 40,
+      "items": [
+        59
+      ],
+      "total_weight": 9
+    },
+    {
+      "bin": 1,
+      "period": 41,
+      "items": [
+        82
+      ],
+      "total_weight": 15
+    },
+    {
+      "bin": 1,
+      "period": 42,
+      "items": [
+        44
+      ],
+      "total_weight": 9
+    },
+    {
+      "bin": 1,
+      "period": 43,
+      "items": [
+        11
+      ],
+      "total_weight": 18
+    },
+    {
+      "bin": 1,
+      "period": 44,
+      "items": [
+        75
+      ],
+      "total_weight": 7
+    },
+    {
+      "bin": 1,
+      "period": 45,
+      "items": [
+        80
+      ],
+      "total_weight": 16
+    },
+    {
+      "bin": 1,
+      "period": 46,
+      "items": [
+        63
+      ],
+      "total_weight": 21
+    },
+    {
+      "bin": 1,
+      "period": 47,
+      "items": [
+        92
+      ],
+      "total_weight": 11
+    },
+    {
+      "bin": 1,
+      "period": 48,
+      "items": [
+        32
+      ],
+      "total_weight": 6
+    },
+    {
+      "bin": 1,
+      "period": 49,
+      "items": [
+        70
+      ],
+      "total_weight": 13
+    },
+    {
+      "bin": 1,
+      "period": 50,
+      "items": [
+        56
+      ],
+      "total_weight": 7
+    },
+    {
+      "bin": 1,
+      "period": 51,
+      "items": [
+        12
+      ],
+      "total_weight": 22
+    },
+    {
+      "bin": 1,
+      "period": 52,
+      "items": [
+        85
+      ],
+      "total_weight": 20
+    },
+    {
+      "bin": 1,
+      "period": 53,
+      "items": [
+        94
+      ],
+      "total_weight": 6
+    },
+    {
+      "bin": 1,
+      "period": 54,
+      "items": [
+        24
+      ],
+      "total_weight": 11
+    },
+    {
+      "bin": 1,
+      "period": 55,
+      "items": [
+        86
+      ],
+      "total_weight": 8
+    },
+    {
+      "bin": 1,
+      "period": 56,
+      "items": [
+        13
+      ],
+      "total_weight": 23
+    },
+    {
+      "bin": 1,
+      "period": 57,
+      "items": [
+        10
+      ],
+      "total_weight": 14
+    },
+    {
+      "bin": 1,
+      "period": 58,
+      "items": [
+        57
+      ],
+      "total_weight": 19
+    },
+    {
+      "bin": 1,
+      "period": 59,
+      "items": [
+        84
+      ],
+      "total_weight": 21
+    },
+    {
+      "bin": 1,
+      "period": 60,
+      "items": [
+        77
+      ],
+      "total_weight": 23
+    },
+    {
+      "bin": 1,
+      "period": 61,
+      "items": [
+        18
+      ],
+      "total_weight": 17
+    },
+    {
+      "bin": 1,
+      "period": 62,
+      "items": [
+        89
+      ],
+      "total_weight": 11
+    },
+    {
+      "bin": 1,
+      "period": 63,
+      "items": [
+        43
+      ],
+      "total_weight": 16
+    },
+    {
+      "bin": 1,
+      "period": 64,
+      "items": [
+        79
+      ],
+      "total_weight": 8
+    },
+    {
+      "bin": 1,
+      "period": 65,
+      "items": [
+        66
+      ],
+      "total_weight": 24
+    },
+    {
+      "bin": 1,
+      "period": 66,
+      "items": [
+        36
+      ],
+      "total_weight": 17
+    },
+    {
+      "bin": 1,
+      "period": 67,
+      "items": [
+        53
+      ],
+      "total_weight": 20
+    },
+    {
+      "bin": 1,
+      "period": 68,
+      "items": [
+        91
+      ],
+      "total_weight": 7
+    },
+    {
+      "bin": 1,
+      "period": 69,
+      "items": [
+        64
+      ],
+      "total_weight": 20
+    },
+    {
+      "bin": 1,
+      "period": 70,
+      "items": [
+        16
+      ],
+      "total_weight": 13
+    },
+    {
+      "bin": 1,
+      "period": 71,
+      "items": [
+        25
+      ],
+      "total_weight": 10
+    },
+    {
+      "bin": 1,
+      "period": 72,
+      "items": [
+        93
+      ],
+      "total_weight": 22
+    },
+    {
+      "bin": 1,
+      "period": 73,
+      "items": [
+        6
+      ],
+      "total_weight": 13
+    },
+    {
+      "bin": 1,
+      "period": 74,
+      "items": [
+        47
+      ],
+      "total_weight": 12
+    },
+    {
+      "bin": 1,
+      "period": 75,
+      "items": [
+        95
+      ],
+      "total_weight": 20
+    },
+    {
+      "bin": 1,
+      "period": 76,
+      "items": [
+        2
+      ],
+      "total_weight": 19
+    },
+    {
+      "bin": 1,
+      "period": 77,
+      "items": [
+        87
+      ],
+      "total_weight": 15
+    },
+    {
+      "bin": 1,
+      "period": 78,
+      "items": [
+        51
+      ],
+      "total_weight": 10
+    },
+    {
+      "bin": 1,
+      "period": 79,
+      "items": [
+        22
+      ],
+      "total_weight": 7
+    },
+    {
+      "bin": 1,
+      "period": 80,
+      "items": [
+        58
+      ],
+      "total_weight": 14
+    },
+    {
+      "bin": 1,
+      "period": 81,
+      "items": [
+        68
+      ],
+      "total_weight": 21
+    },
+    {
+      "bin": 1,
+      "period": 82,
+      "items": [
+        45
+      ],
+      "total_weight": 9
+    },
+    {
+      "bin": 1,
+      "period": 83,
+      "items": [
+        39
+      ],
+      "total_weight": 18
+    },
+    {
+      "bin": 1,
+      "period": 84,
+      "items": [
+        88
+      ],
+      "total_weight": 19
+    },
+    {
+      "bin": 1,
+      "period": 85,
+      "items": [
+        81
+      ],
+      "total_weight": 9
+    },
+    {
+      "bin": 1,
+      "period": 86,
+      "items": [
+        29
+      ],
+      "total_weight": 14
+    },
+    {
+      "bin": 1,
+      "period": 87,
+      "items": [
+        55
+      ],
+      "total_weight": 9
+    },
+    {
+      "bin": 1,
+      "period": 88,
+      "items": [
+        83
+      ],
+      "total_weight": 19
+    },
+    {
+      "bin": 1,
+      "period": 89,
+      "items": [
+        49
+      ],
+      "total_weight": 21
+    },
+    {
+      "bin": 1,
+      "period": 90,
+      "items": [
+        27
+      ],
+      "total_weight": 12
+    },
+    {
+      "bin": 1,
+      "period": 91,
+      "items": [
+        26
+      ],
+      "total_weight": 8
+    },
+    {
+      "bin": 1,
+      "period": 92,
+      "items": [
+        46
+      ],
+      "total_weight": 17
+    },
+    {
+      "bin": 1,
+      "period": 93,
+      "items": [
+        67
+      ],
+      "total_weight": 20
+    },
+    {
+      "bin": 1,
+      "period": 94,
+      "items": [
+        19
+      ],
+      "total_weight": 12
+    },
+    {
+      "bin": 1,
+      "period": 95,
+      "items": [
+        50
+      ],
+      "total_weight": 6
+    },
+    {
+      "bin": 1,
+      "period": 96,
+      "items": [
+        0
+      ],
+      "total_weight": 12
+    }
+  ],
+  "num_active_bin_periods": 96
+}

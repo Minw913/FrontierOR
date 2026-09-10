@@ -1,0 +1,29 @@
+{
+  "feasible": false,
+  "violated_constraints": [
+    1
+  ],
+  "violations": [
+    "Constraint 1: unknown model variable(s): f_0_45_8, f_45_90_8, f_90_100_3, f_0_43_7, f_43_86_7",
+    "Constraint 1: constraint violated: flow_0: -8 == 0 (excess 8)",
+    "Constraint 1: constraint violated: flow_100: 8 == 0 (excess 8)",
+    "Constraint 1: constraint violated: demand_0: 0 >= 4 (excess 4)",
+    "Constraint 1: constraint violated: demand_1: 0 >= 7 (excess 7)",
+    "Constraint 1: constraint violated: demand_2: 0 >= 2 (excess 2)",
+    "Constraint 1: constraint violated: demand_3: 0 >= 2 (excess 2)",
+    "Constraint 1: constraint violated: demand_4: 0 >= 1 (excess 1)",
+    "Constraint 1: constraint violated: demand_5: 0 >= 6 (excess 6)",
+    "Constraint 1: constraint violated: demand_6: 0 >= 5 (excess 5)",
+    "Constraint 1: constraint violated: demand_7: 0 >= 3 (excess 3)"
+  ],
+  "violation_magnitudes": [
+    {
+      "constraint": 1,
+      "lhs": 8.0,
+      "rhs": 8.0,
+      "raw_excess": 1.0,
+      "normalizer": 8.0,
+      "ratio": 0.125
+    }
+  ]
+}

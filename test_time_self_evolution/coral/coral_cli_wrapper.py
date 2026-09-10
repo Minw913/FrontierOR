@@ -57,10 +57,12 @@ def _patch_anti_hack_runtime() -> None:
     from coral.agent import registry
     from trusted_eval_infra.agent.instructions import generate_secure_coral_md
     from trusted_eval_infra.agent.runtime import SecureCodexRuntime
+    from trusted_eval_infra.agent.scheduling import install_pending_guards
 
     registry.register_runtime("codex", SecureCodexRuntime, default_model="gpt-5.4")
     # AgentManager imported this function by value, so patch its module binding.
     manager_module.generate_coral_md = generate_secure_coral_md
+    install_pending_guards(manager_module.AgentManager)
 
 
 def main():

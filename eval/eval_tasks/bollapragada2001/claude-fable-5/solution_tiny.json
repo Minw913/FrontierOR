@@ -1,0 +1,149 @@
+{
+  "objective_value": 1673.999504482,
+  "bar_areas": [
+    {
+      "bar_id": 1,
+      "area": 8.0,
+      "area_index": 8
+    },
+    {
+      "bar_id": 2,
+      "area": 0.01,
+      "area_index": 0
+    },
+    {
+      "bar_id": 3,
+      "area": 9.0,
+      "area_index": 9
+    },
+    {
+      "bar_id": 4,
+      "area": 4.0,
+      "area_index": 4
+    },
+    {
+      "bar_id": 5,
+      "area": 0.01,
+      "area_index": 0
+    },
+    {
+      "bar_id": 6,
+      "area": 0.01,
+      "area_index": 0
+    },
+    {
+      "bar_id": 7,
+      "area": 6.0,
+      "area_index": 6
+    },
+    {
+      "bar_id": 8,
+      "area": 6.0,
+      "area_index": 6
+    },
+    {
+      "bar_id": 9,
+      "area": 6.0,
+      "area_index": 6
+    },
+    {
+      "bar_id": 10,
+      "area": 0.01,
+      "area_index": 0
+    }
+  ],
+  "displacements": [
+    {
+      "dof_id": 1,
+      "load": 1,
+      "value": 1.4553535893805805
+    },
+    {
+      "dof_id": 2,
+      "load": 1,
+      "value": -6.329976150807713
+    },
+    {
+      "dof_id": 3,
+      "load": 1,
+      "value": -1.6993301657651458
+    },
+    {
+      "dof_id": 4,
+      "load": 1,
+      "value": -6.886140388592853
+    },
+    {
+      "dof_id": 5,
+      "load": 1,
+      "value": 0.8991893515954406
+    },
+    {
+      "dof_id": 6,
+      "load": 1,
+      "value": -2.5931874299380273
+    },
+    {
+      "dof_id": 7,
+      "load": 1,
+      "value": -0.8007205763596085
+    },
+    {
+      "dof_id": 8,
+      "load": 1,
+      "value": -2.5008329440755213
+    }
+  ],
+  "bar_forces": [
+    {
+      "bar_id": 1,
+      "load": 1,
+      "force": 199819.8559100979
+    },
+    {
+      "bar_id": 2,
+      "load": 1,
+      "force": 154.49006605142495
+    },
+    {
+      "bar_id": 3,
+      "load": 1,
+      "force": -200180.14408990214
+    },
+    {
+      "bar_id": 4,
+      "load": 1,
+      "force": -99845.50993394858
+    },
+    {
+      "bar_id": 5,
+      "load": 1,
+      "force": -25.65402385070047
+    },
+    {
+      "bar_id": 6,
+      "load": 1,
+      "force": 154.49006605142495
+    },
+    {
+      "bar_id": 7,
+      "load": 1,
+      "force": 141676.07461091763
+    },
+    {
+      "bar_id": 8,
+      "load": 1,
+      "force": -141166.55033834747
+    },
+    {
+      "bar_id": 9,
+      "load": 1,
+      "force": 141202.8305955797
+    },
+    {
+      "bar_id": 10,
+      "load": 1,
+      "force": -218.48187905285158
+    }
+  ]
+}

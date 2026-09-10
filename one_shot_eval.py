@@ -40,6 +40,7 @@ import requests
 import yaml
 
 ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
+DEFAULT_CHECKER_TIMEOUT = 60
 
 # Directory containing the per-(paper, model) ``code.py`` files to READ from.
 # Defaults to ``<repo>/eval/eval_tasks``; overridden via ``--code-root`` (e.g.
@@ -591,6 +592,9 @@ def run_feasibility_check(
         return None, "checker_unavailable", "Feasibility checker not found"
     if not os.path.exists(solution_path):
         return None, "checker_error", "Solution file not found for feasibility check"
+    checker_timeout = (exec_cfg or {}).get(
+        "checker_timeout", DEFAULT_CHECKER_TIMEOUT
+    )
     try:
         if bool((exec_cfg or {}).get("anti_hack")):
             success, checker_output, _ = run_checker_isolated(
@@ -600,7 +604,7 @@ def run_feasibility_check(
                 solution_file=solution_path,
                 result_file=result_path,
                 cfg=exec_cfg or {},
-                timeout=60,
+                timeout=checker_timeout,
             )
         else:
             success, checker_output, _ = run_bounded_process(
@@ -608,7 +612,7 @@ def run_feasibility_check(
                  "--instance_path", instance_path,
                  "--solution_path", solution_path,
                  "--result_path", result_path],
-                60,
+                checker_timeout,
             )
         if not success:
             print(f"    Feasibility check failed: {checker_output[:200]}")
@@ -1806,14 +1810,19 @@ def _get_csv_done_instances(paper_id, model_name):
     done = set()
     if not os.path.exists(csv_path):
         return done
-    with open(csv_path, "r", newline="") as f:
-        reader = csv.DictReader(f)
-        for row in reader:
-            if row.get("paper_id") != paper_id or row.get("model") != model_name:
-                continue
-            inst = (row.get("instance") or "").strip()
-            if inst:
-                done.add(inst)
+    # Writers replace the full CSV in place.  Readers must share the same
+    # lock or a high-concurrency resume can observe the file after truncation
+    # but before all rows have been rewritten, incorrectly treating a frozen
+    # tiny result as missing.
+    with _csv_file_lock(csv_path):
+        with open(csv_path, "r", newline="") as f:
+            reader = csv.DictReader(f)
+            for row in reader:
+                if row.get("paper_id") != paper_id or row.get("model") != model_name:
+                    continue
+                inst = (row.get("instance") or "").strip()
+                if inst:
+                    done.add(inst)
     return done
 
 
@@ -1851,30 +1860,31 @@ def _read_prev_result_rows(paper_id, model_name):
         except (ValueError, TypeError):
             return 0
 
-    with open(csv_path, "r", newline="") as f:
-        reader = csv.DictReader(f)
-        for row in reader:
-            if row.get("paper_id") != paper_id or row.get("model") != model_name:
-                continue
-            inst = (row.get("instance") or "").strip()
-            if not inst:
-                continue
-            debug_r = _to_int(row.get("debug_retries"))
-            corr_r = _to_int(row.get("correction_retries"))
-            out[inst] = {
-                "status": row.get("status") or None,
-                "fail_reason": row.get("fail_reason") or None,
-                "error": row.get("error") or None,
-                "llm_obj": _to_float(row.get("obj")),
-                "gurobi_obj": None,
-                "solve_time": _to_float(row.get("time")),
-                "feasible": _to_bool(row.get("feasible")),
-                "gap": _to_float(row.get("gap")),
-                "aocc": _to_float(row.get("aocc")),
-                "retries": debug_r + corr_r,
-                "debug_retries": debug_r,
-                "correction_retries": corr_r,
-            }
+    with _csv_file_lock(csv_path):
+        with open(csv_path, "r", newline="") as f:
+            reader = csv.DictReader(f)
+            for row in reader:
+                if row.get("paper_id") != paper_id or row.get("model") != model_name:
+                    continue
+                inst = (row.get("instance") or "").strip()
+                if not inst:
+                    continue
+                debug_r = _to_int(row.get("debug_retries"))
+                corr_r = _to_int(row.get("correction_retries"))
+                out[inst] = {
+                    "status": row.get("status") or None,
+                    "fail_reason": row.get("fail_reason") or None,
+                    "error": row.get("error") or None,
+                    "llm_obj": _to_float(row.get("obj")),
+                    "gurobi_obj": None,
+                    "solve_time": _to_float(row.get("time")),
+                    "feasible": _to_bool(row.get("feasible")),
+                    "gap": _to_float(row.get("gap")),
+                    "aocc": _to_float(row.get("aocc")),
+                    "retries": debug_r + corr_r,
+                    "debug_retries": debug_r,
+                    "correction_retries": corr_r,
+                }
     return out
 
 
@@ -1908,21 +1918,22 @@ def _read_prev_first_results(paper_id, model_name):
             return False
         return None
 
-    with open(csv_path, "r", newline="") as f:
-        reader = csv.DictReader(f)
-        for row in reader:
-            if row.get("paper_id") != paper_id or row.get("model") != model_name:
-                continue
-            inst = (row.get("instance") or "").strip()
-            if not inst:
-                continue
-            out[inst] = {
-                "status": row.get("first_status") or None,
-                "fail_reason": row.get("first_fail_reason") or None,
-                "feasible": _to_bool(row.get("first_feasible")),
-                "solve_time": _to_float(row.get("first_time")),
-                "llm_obj": _to_float(row.get("first_obj")),
-            }
+    with _csv_file_lock(csv_path):
+        with open(csv_path, "r", newline="") as f:
+            reader = csv.DictReader(f)
+            for row in reader:
+                if row.get("paper_id") != paper_id or row.get("model") != model_name:
+                    continue
+                inst = (row.get("instance") or "").strip()
+                if not inst:
+                    continue
+                out[inst] = {
+                    "status": row.get("first_status") or None,
+                    "fail_reason": row.get("first_fail_reason") or None,
+                    "feasible": _to_bool(row.get("first_feasible")),
+                    "solve_time": _to_float(row.get("first_time")),
+                    "llm_obj": _to_float(row.get("first_obj")),
+                }
     return out
 
 
@@ -2869,6 +2880,24 @@ def main():
     parser.add_argument("--memory", type=str, default="640G",
                         help="Memory limit for systemd/docker execution (default: 640G).")
     parser.add_argument(
+        "--checker-timeout",
+        type=int,
+        default=DEFAULT_CHECKER_TIMEOUT,
+        help=(
+            "Maximum feasibility-checker runtime in seconds "
+            f"(default: {DEFAULT_CHECKER_TIMEOUT})."
+        ),
+    )
+    parser.add_argument(
+        "--temp-dir",
+        type=str,
+        default=None,
+        help=(
+            "Directory for evaluator and candidate temporary files. Use a "
+            "scratch filesystem when the system /tmp quota is small."
+        ),
+    )
+    parser.add_argument(
         "--max_snapshot_checks",
         type=int,
         default=MAX_TRUSTED_SNAPSHOT_CHECKS,
@@ -2910,6 +2939,25 @@ def main():
                              "eval/eval_results.csv). Use a per-run file to "
                              "isolate outputs from parallel one_shot_eval.py runs.")
     args = parser.parse_args()
+    if args.checker_timeout <= 0:
+        parser.error("--checker-timeout must be a positive integer")
+    if args.temp_dir:
+        evaluator_temp_dir = os.path.abspath(os.path.expanduser(args.temp_dir))
+        try:
+            os.makedirs(evaluator_temp_dir, exist_ok=True)
+        except OSError as exc:
+            parser.error(f"cannot create --temp-dir {evaluator_temp_dir!r}: {exc}")
+        if not os.path.isdir(evaluator_temp_dir) or not os.access(
+            evaluator_temp_dir, os.W_OK | os.X_OK
+        ):
+            parser.error(
+                f"--temp-dir must be a writable directory: {evaluator_temp_dir!r}"
+            )
+        # tempfile caches its selected directory, so set both the process
+        # environment (for candidates) and the module override (for this
+        # already-imported evaluator).
+        os.environ["TMPDIR"] = evaluator_temp_dir
+        tempfile.tempdir = evaluator_temp_dir
     try:
         validate_anti_hack_runtime(
             enabled=args.anti_hack,
@@ -3026,6 +3074,7 @@ def main():
         {
             "cpus": args.cpus,
             "memory": args.memory,
+            "checker_timeout": args.checker_timeout,
             "wls_egress": args.wls_egress,
             "max_snapshot_checks": args.max_snapshot_checks,
         },
@@ -3051,6 +3100,10 @@ def main():
           f"Paper workers: {args.paper_workers}, Model workers: {args.model_workers}, "
           f"Instance workers: {args.instance_workers}")
     print(f"Exec: {exec_mode} (mem={args.memory}), T_max: {t_max or 'time_limit'}")
+    print(
+        f"Checker timeout: {args.checker_timeout}s, "
+        f"Temp dir: {tempfile.gettempdir()}"
+    )
     if reuse_code == "all":
         print("Mode: REUSE-CODE=all (reuse code.py on disk; "
               "fresh init-gen where missing; run all --instances)")

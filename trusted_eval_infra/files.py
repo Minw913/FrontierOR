@@ -23,7 +23,7 @@ def _open_regular(
 ) -> tuple[int, os.stat_result]:
     if max_bytes < 0:
         raise ValueError("max_bytes must be non-negative")
-    flags = os.O_RDONLY | getattr(os, "O_CLOEXEC", 0) | getattr(os, "O_NOFOLLOW", 0)
+    flags = os.O_RDONLY | getattr(os, "O_CLOEXEC", 0) | getattr(os, "O_NOFOLLOW", 0) | os.O_NONBLOCK
     try:
         fd = os.open(os.fspath(path), flags)
     except OSError as exc:

@@ -1,0 +1,425 @@
+{
+  "feasible": false,
+  "violated_constraints": [
+    [
+      1,
+      "OD (34, 456): sum y_p = 0.000000 != demand 2"
+    ],
+    [
+      1,
+      "OD (456, 34): sum y_p = 0.000000 != demand 2"
+    ],
+    [
+      1,
+      "OD (34, 122): sum y_p = 0.000000 != demand 2"
+    ],
+    [
+      1,
+      "OD (122, 34): sum y_p = 0.000000 != demand 2"
+    ],
+    [
+      1,
+      "OD (34, 365): sum y_p = 0.000000 != demand 2"
+    ],
+    [
+      1,
+      "OD (365, 34): sum y_p = 0.000000 != demand 2"
+    ],
+    [
+      1,
+      "OD (34, 197): sum y_p = 0.000000 != demand 1"
+    ],
+    [
+      1,
+      "OD (197, 34): sum y_p = 0.000000 != demand 1"
+    ],
+    [
+      1,
+      "OD (34, 184): sum y_p = 0.000000 != demand 1"
+    ],
+    [
+      1,
+      "OD (184, 34): sum y_p = 0.000000 != demand 1"
+    ],
+    [
+      1,
+      "OD (34, 97): sum y_p = 0.000000 != demand 1"
+    ],
+    [
+      1,
+      "OD (97, 34): sum y_p = 0.000000 != demand 1"
+    ],
+    [
+      1,
+      "OD (34, 416): sum y_p = 0.000000 != demand 1"
+    ],
+    [
+      1,
+      "OD (416, 34): sum y_p = 0.000000 != demand 1"
+    ],
+    [
+      1,
+      "OD (34, 358): sum y_p = 0.000000 != demand 1"
+    ],
+    [
+      1,
+      "OD (358, 34): sum y_p = 0.000000 != demand 1"
+    ],
+    [
+      1,
+      "OD (34, 389): sum y_p = 0.000000 != demand 1"
+    ],
+    [
+      1,
+      "OD (389, 34): sum y_p = 0.000000 != demand 1"
+    ],
+    [
+      1,
+      "OD (34, 115): sum y_p = 0.000000 != demand 1"
+    ],
+    [
+      1,
+      "OD (115, 34): sum y_p = 0.000000 != demand 1"
+    ],
+    [
+      1,
+      "OD (34, 39): sum y_p = 0.000000 != demand 1"
+    ],
+    [
+      1,
+      "OD (39, 34): sum y_p = 0.000000 != demand 1"
+    ],
+    [
+      1,
+      "OD (34, 273): sum y_p = 0.000000 != demand 1"
+    ],
+    [
+      1,
+      "OD (273, 34): sum y_p = 0.000000 != demand 1"
+    ],
+    [
+      1,
+      "OD (11, 34): sum y_p = 0.000000 != demand 1"
+    ],
+    [
+      1,
+      "OD (34, 11): sum y_p = 0.000000 != demand 1"
+    ],
+    [
+      1,
+      "OD (24, 34): sum y_p = 0.000000 != demand 1"
+    ],
+    [
+      1,
+      "OD (34, 24): sum y_p = 0.000000 != demand 1"
+    ],
+    [
+      1,
+      "OD (34, 334): sum y_p = 0.000000 != demand 1"
+    ],
+    [
+      1,
+      "OD (334, 34): sum y_p = 0.000000 != demand 1"
+    ],
+    [
+      1,
+      "OD (34, 331): sum y_p = 0.000000 != demand 1"
+    ],
+    [
+      1,
+      "OD (331, 34): sum y_p = 0.000000 != demand 1"
+    ]
+  ],
+  "violations": [
+    "OD (34, 456): sum y_p = 0.000000 != demand 2",
+    "OD (456, 34): sum y_p = 0.000000 != demand 2",
+    "OD (34, 122): sum y_p = 0.000000 != demand 2",
+    "OD (122, 34): sum y_p = 0.000000 != demand 2",
+    "OD (34, 365): sum y_p = 0.000000 != demand 2",
+    "OD (365, 34): sum y_p = 0.000000 != demand 2",
+    "OD (34, 197): sum y_p = 0.000000 != demand 1",
+    "OD (197, 34): sum y_p = 0.000000 != demand 1",
+    "OD (34, 184): sum y_p = 0.000000 != demand 1",
+    "OD (184, 34): sum y_p = 0.000000 != demand 1",
+    "OD (34, 97): sum y_p = 0.000000 != demand 1",
+    "OD (97, 34): sum y_p = 0.000000 != demand 1",
+    "OD (34, 416): sum y_p = 0.000000 != demand 1",
+    "OD (416, 34): sum y_p = 0.000000 != demand 1",
+    "OD (34, 358): sum y_p = 0.000000 != demand 1",
+    "OD (358, 34): sum y_p = 0.000000 != demand 1",
+    "OD (34, 389): sum y_p = 0.000000 != demand 1",
+    "OD (389, 34): sum y_p = 0.000000 != demand 1",
+    "OD (34, 115): sum y_p = 0.000000 != demand 1",
+    "OD (115, 34): sum y_p = 0.000000 != demand 1",
+    "OD (34, 39): sum y_p = 0.000000 != demand 1",
+    "OD (39, 34): sum y_p = 0.000000 != demand 1",
+    "OD (34, 273): sum y_p = 0.000000 != demand 1",
+    "OD (273, 34): sum y_p = 0.000000 != demand 1",
+    "OD (11, 34): sum y_p = 0.000000 != demand 1",
+    "OD (34, 11): sum y_p = 0.000000 != demand 1",
+    "OD (24, 34): sum y_p = 0.000000 != demand 1",
+    "OD (34, 24): sum y_p = 0.000000 != demand 1",
+    "OD (34, 334): sum y_p = 0.000000 != demand 1",
+    "OD (334, 34): sum y_p = 0.000000 != demand 1",
+    "OD (34, 331): sum y_p = 0.000000 != demand 1",
+    "OD (331, 34): sum y_p = 0.000000 != demand 1"
+  ],
+  "violation_magnitudes": [
+    {
+      "constraint": 1,
+      "lhs": 0.0,
+      "rhs": 2,
+      "raw_excess": 2.0,
+      "normalizer": 2,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 1,
+      "lhs": 0.0,
+      "rhs": 2,
+      "raw_excess": 2.0,
+      "normalizer": 2,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 1,
+      "lhs": 0.0,
+      "rhs": 2,
+      "raw_excess": 2.0,
+      "normalizer": 2,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 1,
+      "lhs": 0.0,
+      "rhs": 2,
+      "raw_excess": 2.0,
+      "normalizer": 2,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 1,
+      "lhs": 0.0,
+      "rhs": 2,
+      "raw_excess": 2.0,
+      "normalizer": 2,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 1,
+      "lhs": 0.0,
+      "rhs": 2,
+      "raw_excess": 2.0,
+      "normalizer": 2,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 1,
+      "lhs": 0.0,
+      "rhs": 1,
+      "raw_excess": 1.0,
+      "normalizer": 1,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 1,
+      "lhs": 0.0,
+      "rhs": 1,
+      "raw_excess": 1.0,
+      "normalizer": 1,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 1,
+      "lhs": 0.0,
+      "rhs": 1,
+      "raw_excess": 1.0,
+      "normalizer": 1,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 1,
+      "lhs": 0.0,
+      "rhs": 1,
+      "raw_excess": 1.0,
+      "normalizer": 1,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 1,
+      "lhs": 0.0,
+      "rhs": 1,
+      "raw_excess": 1.0,
+      "normalizer": 1,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 1,
+      "lhs": 0.0,
+      "rhs": 1,
+      "raw_excess": 1.0,
+      "normalizer": 1,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 1,
+      "lhs": 0.0,
+      "rhs": 1,
+      "raw_excess": 1.0,
+      "normalizer": 1,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 1,
+      "lhs": 0.0,
+      "rhs": 1,
+      "raw_excess": 1.0,
+      "normalizer": 1,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 1,
+      "lhs": 0.0,
+      "rhs": 1,
+      "raw_excess": 1.0,
+      "normalizer": 1,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 1,
+      "lhs": 0.0,
+      "rhs": 1,
+      "raw_excess": 1.0,
+      "normalizer": 1,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 1,
+      "lhs": 0.0,
+      "rhs": 1,
+      "raw_excess": 1.0,
+      "normalizer": 1,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 1,
+      "lhs": 0.0,
+      "rhs": 1,
+      "raw_excess": 1.0,
+      "normalizer": 1,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 1,
+      "lhs": 0.0,
+      "rhs": 1,
+      "raw_excess": 1.0,
+      "normalizer": 1,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 1,
+      "lhs": 0.0,
+      "rhs": 1,
+      "raw_excess": 1.0,
+      "normalizer": 1,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 1,
+      "lhs": 0.0,
+      "rhs": 1,
+      "raw_excess": 1.0,
+      "normalizer": 1,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 1,
+      "lhs": 0.0,
+      "rhs": 1,
+      "raw_excess": 1.0,
+      "normalizer": 1,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 1,
+      "lhs": 0.0,
+      "rhs": 1,
+      "raw_excess": 1.0,
+      "normalizer": 1,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 1,
+      "lhs": 0.0,
+      "rhs": 1,
+      "raw_excess": 1.0,
+      "normalizer": 1,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 1,
+      "lhs": 0.0,
+      "rhs": 1,
+      "raw_excess": 1.0,
+      "normalizer": 1,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 1,
+      "lhs": 0.0,
+      "rhs": 1,
+      "raw_excess": 1.0,
+      "normalizer": 1,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 1,
+      "lhs": 0.0,
+      "rhs": 1,
+      "raw_excess": 1.0,
+      "normalizer": 1,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 1,
+      "lhs": 0.0,
+      "rhs": 1,
+      "raw_excess": 1.0,
+      "normalizer": 1,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 1,
+      "lhs": 0.0,
+      "rhs": 1,
+      "raw_excess": 1.0,
+      "normalizer": 1,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 1,
+      "lhs": 0.0,
+      "rhs": 1,
+      "raw_excess": 1.0,
+      "normalizer": 1,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 1,
+      "lhs": 0.0,
+      "rhs": 1,
+      "raw_excess": 1.0,
+      "normalizer": 1,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 1,
+      "lhs": 0.0,
+      "rhs": 1,
+      "raw_excess": 1.0,
+      "normalizer": 1,
+      "ratio": 1.0
+    }
+  ]
+}

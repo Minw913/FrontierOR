@@ -1,0 +1,53 @@
+{
+  "feasible": false,
+  "violated_constraints": [
+    3
+  ],
+  "violations": [
+    "Precedence violated: O(1,0) at t=1, remaining y sum=1 > 0 (max_p=1, y_next=1)",
+    "Precedence violated: O(1,0) at t=2, remaining y sum=1 > 0 (max_p=1, y_next=1)",
+    "... and 3 more violations of constraint 3"
+  ],
+  "violation_magnitudes": [
+    {
+      "constraint": 3,
+      "lhs": 1.0,
+      "rhs": 0.0,
+      "raw_excess": 1.0,
+      "normalizer": 1e-05,
+      "ratio": 99999.99999999999
+    },
+    {
+      "constraint": 3,
+      "lhs": 1.0,
+      "rhs": 0.0,
+      "raw_excess": 1.0,
+      "normalizer": 1e-05,
+      "ratio": 99999.99999999999
+    },
+    {
+      "constraint": 3,
+      "lhs": 1.0,
+      "rhs": 0.0,
+      "raw_excess": 1.0,
+      "normalizer": 1e-05,
+      "ratio": 99999.99999999999
+    },
+    {
+      "constraint": 3,
+      "lhs": 1.0,
+      "rhs": 0.0,
+      "raw_excess": 1.0,
+      "normalizer": 1e-05,
+      "ratio": 99999.99999999999
+    },
+    {
+      "constraint": 3,
+      "lhs": 1.0,
+      "rhs": 0.0,
+      "raw_excess": 1.0,
+      "normalizer": 1e-05,
+      "ratio": 99999.99999999999
+    }
+  ]
+}

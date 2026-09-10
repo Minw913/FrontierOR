@@ -1,0 +1,294 @@
+{
+  "objective_value": 2036.7746330596299,
+  "first_echelon_routes": [
+    {
+      "vehicle": 0,
+      "route": [
+        0,
+        1,
+        0
+      ],
+      "deliveries": {
+        "1": 30
+      }
+    },
+    {
+      "vehicle": 1,
+      "route": [
+        0,
+        2,
+        0
+      ],
+      "deliveries": {
+        "2": 30
+      }
+    },
+    {
+      "vehicle": 2,
+      "route": [
+        0,
+        3,
+        0
+      ],
+      "deliveries": {
+        "3": 30
+      }
+    },
+    {
+      "vehicle": 3,
+      "route": [
+        0,
+        5,
+        0
+      ],
+      "deliveries": {
+        "5": 30
+      }
+    },
+    {
+      "vehicle": 4,
+      "route": [
+        0,
+        1,
+        0
+      ],
+      "deliveries": {
+        "1": 18
+      }
+    },
+    {
+      "vehicle": 5,
+      "route": [
+        0,
+        2,
+        0
+      ],
+      "deliveries": {
+        "2": 15
+      }
+    },
+    {
+      "vehicle": 6,
+      "route": [
+        0,
+        3,
+        0
+      ],
+      "deliveries": {
+        "3": 18
+      }
+    },
+    {
+      "vehicle": 7,
+      "route": [
+        0,
+        4,
+        0
+      ],
+      "deliveries": {
+        "4": 28
+      }
+    },
+    {
+      "vehicle": 8,
+      "route": [
+        0,
+        5,
+        0
+      ],
+      "deliveries": {
+        "5": 18
+      }
+    }
+  ],
+  "second_echelon_routes": [
+    {
+      "satellite": 1,
+      "route": [
+        1,
+        19,
+        54,
+        8,
+        1
+      ]
+    },
+    {
+      "satellite": 1,
+      "route": [
+        1,
+        44,
+        36,
+        55,
+        1
+      ]
+    },
+    {
+      "satellite": 1,
+      "route": [
+        1,
+        38,
+        1
+      ]
+    },
+    {
+      "satellite": 1,
+      "route": [
+        1,
+        18,
+        9,
+        53,
+        43,
+        1
+      ]
+    },
+    {
+      "satellite": 2,
+      "route": [
+        2,
+        12,
+        51,
+        2
+      ]
+    },
+    {
+      "satellite": 2,
+      "route": [
+        2,
+        15,
+        31,
+        2
+      ]
+    },
+    {
+      "satellite": 2,
+      "route": [
+        2,
+        13,
+        11,
+        39,
+        34,
+        2
+      ]
+    },
+    {
+      "satellite": 2,
+      "route": [
+        2,
+        48,
+        2
+      ]
+    },
+    {
+      "satellite": 3,
+      "route": [
+        3,
+        32,
+        7,
+        33,
+        3
+      ]
+    },
+    {
+      "satellite": 3,
+      "route": [
+        3,
+        30,
+        47,
+        16,
+        3
+      ]
+    },
+    {
+      "satellite": 3,
+      "route": [
+        3,
+        28,
+        50,
+        17,
+        3
+      ]
+    },
+    {
+      "satellite": 3,
+      "route": [
+        3,
+        35,
+        41,
+        45,
+        29,
+        3
+      ]
+    },
+    {
+      "satellite": 4,
+      "route": [
+        4,
+        6,
+        37,
+        52,
+        26,
+        4
+      ]
+    },
+    {
+      "satellite": 4,
+      "route": [
+        4,
+        20,
+        10,
+        42,
+        4
+      ]
+    },
+    {
+      "satellite": 5,
+      "route": [
+        5,
+        14,
+        21,
+        5
+      ]
+    },
+    {
+      "satellite": 5,
+      "route": [
+        5,
+        22,
+        23,
+        25,
+        5
+      ]
+    },
+    {
+      "satellite": 5,
+      "route": [
+        5,
+        40,
+        24,
+        46,
+        27,
+        5
+      ]
+    },
+    {
+      "satellite": 5,
+      "route": [
+        5,
+        49,
+        5
+      ]
+    }
+  ],
+  "group_assignments": {
+    "2": 5,
+    "8": 3,
+    "0": 1,
+    "4": 4,
+    "3": 2,
+    "1": 1,
+    "7": 3,
+    "9": 5,
+    "6": 2,
+    "5": 2
+  }
+}

@@ -492,6 +492,28 @@ def evaluate_stage1(program_path: str):
         "stage1_worst_gap": float(worst_gap) if worst_gap > 0 else 0.0,
         "stage1_gap_threshold": gap_threshold,
     }
+    # Only fixed categories cross the anti-hack feedback boundary. Never send
+    # arbitrary candidate stdout, checker text, or reference data to the agent.
+    for inst in instances:
+        result = results.get(inst) or {}
+        kind = _classify_failure(result)
+        key = f"stage1_failure_{kind}"
+        metrics[key] = metrics.get(key, 0) + 1
+        if kind == "runtime_crash":
+            error = str(result.get("error") or "")
+            for category, marker in {
+                "logger_interface": "has no attribute 'log_solution'",
+                "atomic_output": "Device or resource busy",
+                "import": "ModuleNotFoundError:",
+                "syntax": "SyntaxError:",
+                "memory": "MemoryError",
+                "type": "TypeError:",
+                "key": "KeyError:",
+                "index": "IndexError:",
+            }.items():
+                if marker in error:
+                    key = f"stage1_runtime_{category}"
+                    metrics[key] = metrics.get(key, 0) + 1
     # Build artifact for the *first* stage1 instance (typically "tiny").
     # Multi-instance stage1 is supported but rare; we summarize the first.
     artifacts = _build_stage1_artifacts(

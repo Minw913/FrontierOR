@@ -84,8 +84,8 @@ cp configs/api_keys.example.yaml configs/api_keys.yaml
 ```
 
 ```yaml
-OPENROUTER_API_KEY_ONESHOT: sk-or-...
-OPENROUTER_API_KEY_SELF_EVOLVE: sk-or-...
+OPENROUTER_API_KEY_ONESHOT: "<your-one-shot-openrouter-key>"
+OPENROUTER_API_KEY_SELF_EVOLVE: "<your-self-evolve-openrouter-key>"
 ```
 
 ---

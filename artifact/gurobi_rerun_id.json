@@ -1,0 +1,81 @@
+{
+  "source": "https://huggingface.co/datasets/LeoJiangOR/FrontierOR-Audited-180",
+  "criteria": {
+    "mipgap_target": "1e-4",
+    "seed_target": 0,
+    "note": "Missing explicit Gurobi parameters are treated as OK when the Gurobi default equals the target value."
+  },
+  "mipgap_not_1e-4": [
+    {
+      "paper_id": "bodur2017",
+      "observed": "0.001"
+    },
+    {
+      "paper_id": "brandao2016",
+      "observed": "0"
+    },
+    {
+      "paper_id": "cunha2021",
+      "observed": "1e-6"
+    },
+    {
+      "paper_id": "engineer2012",
+      "observed": "args.mip_gap",
+      "note": "Default args.mip_gap is 0.0 and MIPGap is only set when args.mip_gap > 0, so default execution likely uses Gurobi's default 1e-4."
+    },
+    {
+      "paper_id": "fischetti2017",
+      "observed": "1e-9"
+    },
+    {
+      "paper_id": "gruson2021",
+      "observed": "1e-6"
+    },
+    {
+      "paper_id": "guo2021",
+      "observed": "0.01"
+    },
+    {
+      "paper_id": "rahmaniani2018",
+      "observed": "0.001"
+    },
+    {
+      "paper_id": "rahmaniani2022",
+      "observed": "tol",
+      "resolved_value": "1e-3"
+    },
+    {
+      "paper_id": "riley2025",
+      "observed": "1e-9"
+    },
+    {
+      "paper_id": "rothenbacher2018",
+      "observed": "1e-6"
+    },
+    {
+      "paper_id": "wangy2020",
+      "observed": "1e-08"
+    }
+  ],
+  "seed_not_0": [
+    {
+      "paper_id": "zohali2022",
+      "observed": 20260829
+    }
+  ],
+  "unique_task_ids": [
+    "bodur2017",
+    "brandao2016",
+    "cunha2021",
+    "engineer2012",
+    "fischetti2017",
+    "gruson2021",
+    "guo2021",
+    "rahmaniani2018",
+    "rahmaniani2022",
+    "riley2025",
+    "rothenbacher2018",
+    "wangy2020",
+    "zohali2022"
+  ]
+}

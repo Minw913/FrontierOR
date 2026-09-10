@@ -1,0 +1,650 @@
+Results CSV: per-model auto-routing
+  claude-fable-5            -> eval/eval_results_fable5.csv
+Models: ['anthropic/claude-fable-5']
+Papers: ['bard2002', 'belvaux2000', 'bergman2019', 'bertsimas2024', 'bode2012', 'bodur2017', 'brandao2016', 'castro2021', 'fragkos2021', 'huisman2005', 'martello1999', 'muter2010']
+Instances: ['large_1', 'large_2', 'large_3', 'large_4', 'large_5']
+Data dir: /scratch/chonghej/LLM4OR/FrontierOR-run/frontier-or
+GRB_LICENSE_FILE: /scratch/chonghej/Gurobi_dh/gurobi.lic
+Max correct retries: 0, Max debug retries: 5, Time limit: large_1=3600s, large_2=3600s, large_3=3600s, large_4=3600s, large_5=3600s, Paper workers: 12, Model workers: 1, Instance workers: 30
+Exec: systemd (mem=640G), T_max: gurobi
+Checker timeout: 300s, Temp dir: /scratch/chonghej/LLM4OR/FrontierOR-run/.tmp/fable5_repair
+Mode: REUSE-CODE=incomplete (reuse code.py on disk; fresh init-gen where missing; skip (paper, instance) pairs already in eval_results.csv)
+
+[task-pool] dispatching 12 (paper, model) tasks across 12 worker(s) (paper_workers × model_workers = 12 × 1)
+  [gate] tiny row present in CSV; auto-injecting at position 0 of --instances so Phase 1 gates on tiny instead of 'large_1'. Tiny is frozen (not re-run / not re-flushed).
+  [gate] tiny row present in CSV; auto-injecting at position 0 of --instances so Phase 1 gates on tiny instead of 'large_1'. Tiny is frozen (not re-run / not re-flushed).
+  [gate] tiny row present in CSV; auto-injecting at position 0 of --instances so Phase 1 gates on tiny instead of 'large_1'. Tiny is frozen (not re-run / not re-flushed).
+  [gate] tiny row present in CSV; auto-injecting at position 0 of --instances so Phase 1 gates on tiny instead of 'large_1'. Tiny is frozen (not re-run / not re-flushed).
+  [gate] tiny row present in CSV; auto-injecting at position 0 of --instances so Phase 1 gates on tiny instead of 'large_1'. Tiny is frozen (not re-run / not re-flushed).
+
+  [reuse=incomplete] bard2002/claude-fable-5: frozen from CSV ['tiny'], running ['large_1', 'large_2', 'large_3', 'large_4', 'large_5']
+
+================================================================================
+PAPER: bard2002  |  MODEL: anthropic/claude-fable-5 (claude-fable-5)
+================================================================================
+
+  [gate] tiny row present in CSV; auto-injecting at position 0 of --instances so Phase 1 gates on tiny instead of 'large_1'. Tiny is frozen (not re-run / not re-flushed).
+  [reuse] no prior code_attempt files — starting counters at 0.
+
+  *** Pre-judge: tiny 'tiny' frozen from CSV (status=fail, gap=0.0, feasible=False) fails Phase 1 gate. Skipping v0 run; cascading gate_fail to ['large_1', 'large_2', 'large_3', 'large_4', 'large_5']. ***
+
+  [gate] tiny row present in CSV; auto-injecting at position 0 of --instances so Phase 1 gates on tiny instead of 'large_1'. Tiny is frozen (not re-run / not re-flushed).
+  [gate] tiny row present in CSV; auto-injecting at position 0 of --instances so Phase 1 gates on tiny instead of 'large_1'. Tiny is frozen (not re-run / not re-flushed).
+
+  [reuse=incomplete] bertsimas2024/claude-fable-5: frozen from CSV ['tiny'], running ['large_1', 'large_2', 'large_3', 'large_4', 'large_5']
+
+================================================================================
+PAPER: bertsimas2024  |  MODEL: anthropic/claude-fable-5 (claude-fable-5)
+================================================================================
+
+  [gate] tiny row present in CSV; auto-injecting at position 0 of --instances so Phase 1 gates on tiny instead of 'large_1'. Tiny is frozen (not re-run / not re-flushed).
+  [reuse] no prior code_attempt files — starting counters at 0.
+
+  [reuse=incomplete] bergman2019/claude-fable-5: frozen from CSV ['tiny'], running ['large_1', 'large_2', 'large_3', 'large_4', 'large_5']
+  *** Pre-judge: tiny 'tiny' frozen from CSV (status=fail, gap=0.0, feasible=False) fails Phase 1 gate. Skipping v0 run; cascading gate_fail to ['large_1', 'large_2', 'large_3', 'large_4', 'large_5']. ***
+
+
+
+================================================================================
+PAPER: bergman2019  |  MODEL: anthropic/claude-fable-5 (claude-fable-5)
+================================================================================
+
+  [gate] tiny row present in CSV; auto-injecting at position 0 of --instances so Phase 1 gates on tiny instead of 'large_1'. Tiny is frozen (not re-run / not re-flushed).
+  [reuse] no prior code_attempt files — starting counters at 0.
+
+  --- Running code_v0 on instances ['large_1', 'large_2', 'large_3', 'large_4', 'large_5'] for first_results ---
+
+  [reuse=incomplete] belvaux2000/claude-fable-5: frozen from CSV ['tiny'], running ['large_1', 'large_2', 'large_3', 'large_4', 'large_5']
+
+================================================================================
+PAPER: belvaux2000  |  MODEL: anthropic/claude-fable-5 (claude-fable-5)
+================================================================================
+
+  [gate] tiny row present in CSV; auto-injecting at position 0 of --instances so Phase 1 gates on tiny instead of 'large_1'. Tiny is frozen (not re-run / not re-flushed).
+  [reuse] no prior code_attempt files — starting counters at 0.  [gate] tiny row present in CSV; auto-injecting at position 0 of --instances so Phase 1 gates on tiny instead of 'large_1'. Tiny is frozen (not re-run / not re-flushed).
+
+  *** Pre-judge: tiny 'tiny' frozen from CSV (status=fail, gap=0.0, feasible=False) fails Phase 1 gate. Skipping v0 run; cascading gate_fail to ['large_1', 'large_2', 'large_3', 'large_4', 'large_5']. ***
+
+
+
+  [reuse=incomplete] bode2012/claude-fable-5: frozen from CSV ['tiny'], running ['large_1', 'large_2', 'large_3', 'large_4', 'large_5']
+
+================================================================================
+PAPER: bode2012  |  MODEL: anthropic/claude-fable-5 (claude-fable-5)
+================================================================================
+
+
+  [reuse=incomplete] bodur2017/claude-fable-5: frozen from CSV ['tiny'], running ['large_1', 'large_2', 'large_3', 'large_4', 'large_5']
+
+================================================================================
+PAPER: bodur2017  |  MODEL: anthropic/claude-fable-5 (claude-fable-5)
+================================================================================
+
+  [reuse] no prior code_attempt files — starting counters at 0.
+
+  --- Running code_v0 on instances ['large_1', 'large_2', 'large_3', 'large_4', 'large_5'] for first_results ---
+  [reuse] no prior code_attempt files — starting counters at 0.
+
+  --- Running code_v0 on instances ['large_1', 'large_2', 'large_3', 'large_4', 'large_5'] for first_results ---
+  [reuse=incomplete] brandao2016/claude-fable-5: frozen from CSV ['tiny'], running ['large_1', 'large_2', 'large_3', 'large_4', 'large_5']
+
+
+================================================================================
+PAPER: brandao2016  |  MODEL: anthropic/claude-fable-5 (claude-fable-5)
+================================================================================
+
+
+  [reuse=incomplete] castro2021/claude-fable-5: frozen from CSV ['tiny'], running ['large_1', 'large_2', 'large_3', 'large_4', 'large_5']
+
+================================================================================
+PAPER: castro2021  |  MODEL: anthropic/claude-fable-5 (claude-fable-5)
+================================================================================
+
+  [reuse=incomplete] fragkos2021/claude-fable-5: frozen from CSV ['tiny'], running ['large_1', 'large_2', 'large_3', 'large_4', 'large_5']
+
+
+================================================================================
+PAPER: fragkos2021  |  MODEL: anthropic/claude-fable-5 (claude-fable-5)
+================================================================================
+
+  [reuse] no prior code_attempt files — starting counters at 0.  [reuse] no prior code_attempt files — starting counters at 0.
+
+  --- Running code_v0 on instances ['large_1', 'large_2', 'large_3', 'large_4', 'large_5'] for first_results ---
+
+
+  --- Running code_v0 on instances ['large_1', 'large_2', 'large_3', 'large_4', 'large_5'] for first_results ---
+  [reuse] no prior code_attempt files — starting counters at 0.
+
+  --- Running code_v0 on instances ['large_1', 'large_2', 'large_3', 'large_4', 'large_5'] for first_results ---
+
+  [reuse=incomplete] huisman2005/claude-fable-5: frozen from CSV ['tiny'], running ['large_1', 'large_2', 'large_3', 'large_4', 'large_5']
+
+================================================================================
+PAPER: huisman2005  |  MODEL: anthropic/claude-fable-5 (claude-fable-5)
+================================================================================
+
+  [reuse] no prior code_attempt files — starting counters at 0.
+
+  *** Pre-judge: tiny 'tiny' frozen from CSV (status=fail, gap=-0.027027, feasible=False) fails Phase 1 gate. Skipping v0 run; cascading gate_fail to ['large_1', 'large_2', 'large_3', 'large_4', 'large_5']. ***
+
+
+  [reuse=incomplete] martello1999/claude-fable-5: frozen from CSV ['tiny'], running ['large_1', 'large_2', 'large_3', 'large_4', 'large_5']
+
+================================================================================
+PAPER: martello1999  |  MODEL: anthropic/claude-fable-5 (claude-fable-5)
+================================================================================
+
+  [reuse] no prior code_attempt files — starting counters at 0.
+
+  --- Running code_v0 on instances ['large_1', 'large_2', 'large_3', 'large_4', 'large_5'] for first_results ---
+
+  [reuse=incomplete] muter2010/claude-fable-5: frozen from CSV ['tiny'], running ['large_1', 'large_2', 'large_3', 'large_4', 'large_5']
+
+================================================================================
+PAPER: muter2010  |  MODEL: anthropic/claude-fable-5 (claude-fable-5)
+================================================================================
+
+  [reuse] no prior code_attempt files — starting counters at 0.
+
+  --- Running code_v0 on instances ['large_1', 'large_2', 'large_3', 'large_4', 'large_5'] for first_results ---
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_fable5.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_fable5.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_fable5.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_fable5.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_fable5.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_fable5.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_fable5.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_fable5.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_fable5.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_fable5.csv
+  Instance large_4: PASS (LLM=51.0, gap=0.00%, time=0.08s, feasible=True)
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_fable5.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_fable5.csv
+  Instance large_1: PASS (LLM=93.0, gap=0.00%, time=0.13s, feasible=True)
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_fable5.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_fable5.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_fable5.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_fable5.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_fable5.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_fable5.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_fable5.csv
+    API cost written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/one_shot_api_cost.csv
+
+================================================================================
+EVALUATION SUMMARY
+================================================================================
+Instance     Status   Retries   LLM Obj            Gurobi Obj         Error
+--------------------------------------------------------------------------------
+  large_1    gate_fail 0         N/A                N/A                Skipped: tiny-instance gate...
+  large_2    gate_fail 0         N/A                N/A                Skipped: tiny-instance gate...
+  large_3    gate_fail 0         N/A                N/A                Skipped: tiny-instance gate...
+  large_4    gate_fail 0         N/A                N/A                Skipped: tiny-instance gate...
+  large_5    gate_fail 0         N/A                N/A                Skipped: tiny-instance gate...
+  tiny       fail     0         2.0000             N/A                Solution is INFEASIBLE Viol...
+--------------------------------------------------------------------------------
+Total: 6  |  Pass: 0  |  Fail: 1  |  Skip: 5
+================================================================================
+
+ERROR DETAILS
+--------------------------------------------------------------------------------
+  Instance large_1:
+Skipped: tiny-instance gate failed on instance tiny
+
+  Instance large_2:
+Skipped: tiny-instance gate failed on instance tiny
+
+  Instance large_3:
+Skipped: tiny-instance gate failed on instance tiny
+
+  Instance large_4:
+Skipped: tiny-instance gate failed on instance tiny
+
+  Instance large_5:
+Skipped: tiny-instance gate failed on instance tiny
+
+  Instance tiny:
+Solution is INFEASIBLE Violations: Constraint (9): total_distance=537.136715 does not equal the route-derived distance=536.2
+
+    API cost written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/one_shot_api_cost.csv
+
+================================================================================
+EVALUATION SUMMARY
+================================================================================
+Instance     Status   Retries   LLM Obj            Gurobi Obj         Error
+--------------------------------------------------------------------------------
+  large_1    gate_fail 0         N/A                N/A                Skipped: tiny-instance gate...
+  large_2    gate_fail 0         N/A                N/A                Skipped: tiny-instance gate...
+  large_3    gate_fail 0         N/A                N/A                Skipped: tiny-instance gate...
+  large_4    gate_fail 0         N/A                N/A                Skipped: tiny-instance gate...
+  large_5    gate_fail 0         N/A                N/A                Skipped: tiny-instance gate...
+  tiny       fail     0         12007.4031         N/A                Solution is INFEASIBLE Viol...
+--------------------------------------------------------------------------------
+Total: 6  |  Pass: 0  |  Fail: 1  |  Skip: 5
+================================================================================
+
+ERROR DETAILS
+--------------------------------------------------------------------------------
+  Instance large_1:
+Skipped: tiny-instance gate failed on instance tiny
+
+  Instance large_2:
+Skipped: tiny-instance gate failed on instance tiny
+
+  Instance large_3:
+Skipped: tiny-instance gate failed on instance tiny
+
+  Instance large_4:
+Skipped: tiny-instance gate failed on instance tiny
+
+  Instance large_5:
+Skipped: tiny-instance gate failed on instance tiny
+
+  Instance tiny:
+Solution is INFEASIBLE Violations: unknown model variable(s): z, x, y; constraint violated: flow_0_0_0: 0 == 5.36252937471 (excess 5.36253); constraint violated: flow_0_0_1: 0 == 12.2195500018 (excess 12.2196); constraint violated: flow_0_0_2: 0 == 9.3713403451 (excess 9.37134); constraint violated: flow_0_0_3: 0 == 5.95580852476 (excess 5.95581)
+
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_fable5.csv
+    API cost written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/one_shot_api_cost.csv
+
+================================================================================
+EVALUATION SUMMARY
+================================================================================
+Instance     Status   Retries   LLM Obj            Gurobi Obj         Error
+--------------------------------------------------------------------------------
+  large_1    gate_fail 0         N/A                N/A                Skipped: tiny-instance gate...
+  large_2    gate_fail 0         N/A                N/A                Skipped: tiny-instance gate...
+  large_3    gate_fail 0         N/A                N/A                Skipped: tiny-instance gate...
+  large_4    gate_fail 0         N/A                N/A                Skipped: tiny-instance gate...
+  large_5    gate_fail 0         N/A                N/A                Skipped: tiny-instance gate...
+  tiny       fail     0         6025.0000          N/A                Solution is INFEASIBLE Viol...
+--------------------------------------------------------------------------------
+Total: 6  |  Pass: 0  |  Fail: 1  |  Skip: 5
+================================================================================
+
+ERROR DETAILS
+--------------------------------------------------------------------------------
+  Instance large_1:
+Skipped: tiny-instance gate failed on instance tiny
+
+  Instance large_2:
+Skipped: tiny-instance gate failed on instance tiny
+
+  Instance large_3:
+Skipped: tiny-instance gate failed on instance tiny
+
+  Instance large_4:
+Skipped: tiny-instance gate failed on instance tiny
+
+  Instance large_5:
+Skipped: tiny-instance gate failed on instance tiny
+
+  Instance tiny:
+Solution is INFEASIBLE Violations: Constraint 13 (flow balance eq 9) violated for item 0, period 0: LHS=0.000000, RHS=34.000000, diff=34.000000; Constraint 13 (flow balance eq 9) violated for item 0, period 1: LHS=0.000000, RHS=19.000000, diff=19.000000; Constraint 13 (flow balance eq 9) violated for item 0, period 2: LHS=0.000000, RHS=10.000000, diff=10.000000; Constraint 13 (flow balance eq 9) violated for item 0, period 3: LHS=0.000000, RHS=25.000000, diff=25.000000; Constraint 13 (flow balan
+
+    API cost written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/one_shot_api_cost.csv
+
+================================================================================
+EVALUATION SUMMARY
+================================================================================
+Instance     Status   Retries   LLM Obj            Gurobi Obj         Error
+--------------------------------------------------------------------------------
+  large_1    gate_fail 0         N/A                N/A                Skipped: tiny-instance gate...
+  large_2    gate_fail 0         N/A                N/A                Skipped: tiny-instance gate...
+  large_3    gate_fail 0         N/A                N/A                Skipped: tiny-instance gate...
+  large_4    gate_fail 0         N/A                N/A                Skipped: tiny-instance gate...
+  large_5    gate_fail 0         N/A                N/A                Skipped: tiny-instance gate...
+  tiny       fail     0         36.0000            N/A                Solution is INFEASIBLE Viol...
+--------------------------------------------------------------------------------
+Total: 6  |  Pass: 0  |  Fail: 1  |  Skip: 5
+================================================================================
+
+ERROR DETAILS
+--------------------------------------------------------------------------------
+  Instance large_1:
+Skipped: tiny-instance gate failed on instance tiny
+
+  Instance large_2:
+Skipped: tiny-instance gate failed on instance tiny
+
+  Instance large_3:
+Skipped: tiny-instance gate failed on instance tiny
+
+  Instance large_4:
+Skipped: tiny-instance gate failed on instance tiny
+
+  Instance large_5:
+Skipped: tiny-instance gate failed on instance tiny
+
+  Instance tiny:
+Solution is INFEASIBLE Violations: Constraint (6): Short-arc dh-task mismatch at (53,65), depot depot_1 (duties=0, y=1); Constraint (6): Short-arc dh-task mismatch at (35,44), depot depot_1 (duties=0, y=1); Constraint (6): Short-arc dh-task mismatch at (34,38), depot depot_1 (duties=0, y=1); Constraint (6): Short-arc dh-task mismatch at (59,71), depot depot_1 (duties=0, y=1); Constraint (6): Short-arc dh-task mismatch at (62,70), depot depot_1 (duties=0, y=1)
+
+  Instance large_2: PASS (LLM=53.0, gap=0.00%, time=27.63s, feasible=True)
+  Instance large_3: PASS (LLM=48283.70849064936, gap=0.00%, time=104.16s, feasible=True)
+  Instance large_1: PASS (LLM=3728222614.0, gap=0.00%, time=97.08s, feasible=True)
+  Instance large_5: PASS (LLM=247406881552.0, gap=0.00%, time=63.84s, feasible=True)
+  Instance large_4: PASS (LLM=317899206946.0, gap=0.00%, time=95.17s, feasible=True)
+  Instance large_4: PASS (LLM=48495.883382629, gap=0.00%, time=403.56s, feasible=True)
+  Instance large_2: PASS (LLM=54336.07545156866, gap=0.00%, time=491.15s, feasible=True)
+  Instance large_1: PASS (LLM=63726.60600637875, gap=0.00%, time=514.9s, feasible=True)
+  Instance large_5: PASS (LLM=50576.02091634332, gap=0.00%, time=609.01s, feasible=True)
+
+  --- Phase 0: Self-debug for runtime_error (budget=5 remaining of 5, already used=0) ---
+
+  --- Phase 1: Tiny-instance gate (instance tiny, gap<=10%) ---
+  [reuse=incomplete] tiny 'tiny' frozen from CSV (status=pass, gap=0.0). Skipping correction loop.
+
+  --- Phase 1: gate PASSED (tiny gap=0.0) ---
+
+  --- Phase 2: v0 code passed gate; reusing v0 results for instances ['large_1', 'large_2', 'large_3', 'large_4', 'large_5'] ---
+
+  All correction-triggering failures resolved.
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_fable5.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_fable5.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_fable5.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_fable5.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_fable5.csv
+    API cost written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/one_shot_api_cost.csv
+
+================================================================================
+EVALUATION SUMMARY
+================================================================================
+Instance     Status   Retries   LLM Obj            Gurobi Obj         Error
+--------------------------------------------------------------------------------
+  large_1    pass     0         63726.6060         63727.5266         
+  large_2    pass     0         54336.0755         54529.7619         
+  large_3    pass     0         48283.7085         48283.7085         
+  large_4    pass     0         48495.8834         48495.8834         
+  large_5    pass     0         50576.0209         50576.0209         
+  tiny       pass     0         74706.0899         N/A                
+--------------------------------------------------------------------------------
+Total: 6  |  Pass: 6  |  Fail: 0  |  Skip: 0
+================================================================================
+  Instance large_2: PASS (LLM=404425185456.0, gap=0.00%, time=598.76s, feasible=True)
+  Instance large_3: PASS (LLM=273435164757.0, gap=0.00%, time=2341.62s, feasible=True)
+
+  --- Phase 0: Self-debug for runtime_error (budget=5 remaining of 5, already used=0) ---
+
+  --- Phase 1: Tiny-instance gate (instance tiny, gap<=10%) ---
+  [reuse=incomplete] tiny 'tiny' frozen from CSV (status=pass, gap=0.0). Skipping correction loop.
+
+  --- Phase 1: gate PASSED (tiny gap=0.0) ---
+
+  --- Phase 2: v0 code passed gate; reusing v0 results for instances ['large_1', 'large_2', 'large_3', 'large_4', 'large_5'] ---
+
+  All correction-triggering failures resolved.
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_fable5.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_fable5.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_fable5.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_fable5.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_fable5.csv
+    API cost written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/one_shot_api_cost.csv
+
+================================================================================
+EVALUATION SUMMARY
+================================================================================
+Instance     Status   Retries   LLM Obj            Gurobi Obj         Error
+--------------------------------------------------------------------------------
+  large_1    pass     0         3728222614.0000    3728222249.0000    
+  large_2    pass     0         404425185456.0000  404425159544.0000  
+  large_3    pass     0         273435164757.0000  273435123576.0000  
+  large_4    pass     0         317899206946.0000  317899209220.0000  
+  large_5    pass     0         247406881552.0000  247406881552.0000  
+  tiny       pass     0         20189.0000         N/A                
+--------------------------------------------------------------------------------
+Total: 6  |  Pass: 6  |  Fail: 0  |  Skip: 0
+================================================================================
+    Feasibility check failed: Execution timed out after 300 seconds
+  Instance large_5: FAIL checker_error (LLM=6375424980.923589, gap=0.00%)
+  Instance large_4: PASS (LLM=134772602.73929614, gap=0.00%, time=2226.34s, feasible=True)
+  Instance large_1: PASS (LLM=1780138830.3986967, gap=0.00%, time=2367.9s, feasible=True)
+  Instance large_3: PASS (LLM=9496.0, gap=0.00%, time=3598.6s, feasible=True)
+  Instance large_2: PASS (LLM=8120.0, gap=0.00%, time=3598.61s, feasible=True)
+  Instance large_4: PASS (LLM=9614.0, gap=0.00%, time=3598.61s, feasible=True)
+  Instance large_5: PASS (LLM=1601.0, gap=0.00%, time=3598.65s, feasible=True)
+  Instance large_1: PASS (LLM=4267.0, gap=0.00%, time=3598.65s, feasible=True)
+
+  --- Phase 0: Self-debug for runtime_error (budget=5 remaining of 5, already used=0) ---
+
+  --- Phase 1: Tiny-instance gate (instance tiny, gap<=10%) ---
+  [reuse=incomplete] tiny 'tiny' frozen from CSV (status=pass, gap=0.0). Skipping correction loop.
+
+  --- Phase 1: gate PASSED (tiny gap=0.0) ---
+
+  --- Phase 2: v0 code passed gate; reusing v0 results for instances ['large_1', 'large_2', 'large_3', 'large_4', 'large_5'] ---
+
+  All correction-triggering failures resolved.
+  Instance large_3: PASS (LLM=45.0, gap=2.27%, time=3598.61s, feasible=True)
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_fable5.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_fable5.csv
+  Instance large_1: PASS (LLM=401.0, gap=0.00%, time=3599.13s, feasible=True)
+  Instance large_3: PASS (LLM=250.0, gap=0.00%, time=3599.12s, feasible=True)
+  Instance large_4: PASS (LLM=250.0, gap=0.00%, time=3599.14s, feasible=True)
+  Instance large_2: PASS (LLM=394.0, gap=0.00%, time=3599.18s, feasible=True)
+  Instance large_5: PASS (LLM=246.0, gap=0.00%, time=3599.17s, feasible=True)
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_fable5.csv
+
+  --- Phase 0: Self-debug for runtime_error (budget=5 remaining of 5, already used=0) ---
+
+  --- Phase 1: Tiny-instance gate (instance tiny, gap<=10%) ---
+  [reuse=incomplete] tiny 'tiny' frozen from CSV (status=pass, gap=0.0). Skipping correction loop.
+
+  --- Phase 1: gate PASSED (tiny gap=0.0) ---
+
+  --- Phase 2: v0 code passed gate; reusing v0 results for instances ['large_1', 'large_2', 'large_3', 'large_4', 'large_5'] ---
+
+  All correction-triggering failures resolved.
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_fable5.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_fable5.csv
+  Instance large_5: FAIL runtime_error (3600.31s)
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_fable5.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_fable5.csv
+
+  --- Phase 0: Self-debug for runtime_error (budget=5 remaining of 5, already used=0) ---
+
+  --- Phase 1: Tiny-instance gate (instance tiny, gap<=10%) ---
+  [reuse=incomplete] tiny 'tiny' frozen from CSV (status=pass, gap=0.0). Skipping correction loop.
+
+  --- Phase 1: gate PASSED (tiny gap=0.0) ---
+
+  --- Phase 2: v0 code passed gate; reusing v0 results for instances ['large_1', 'large_2', 'large_3', 'large_4', 'large_5'] ---
+
+  1 instance(s) still failing (infeasible/invalid_solution/timeout) after retry budget exhausted.
+    API cost written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/one_shot_api_cost.csv
+
+================================================================================
+EVALUATION SUMMARY
+================================================================================
+Instance     Status   Retries   LLM Obj            Gurobi Obj         Error
+--------------------------------------------------------------------------------
+  large_1    pass     0         4267.0000          3945.0000          
+  large_2    pass     0         8120.0000          8078.0000          
+  large_3    pass     0         9496.0000          9487.0000          
+  large_4    pass     0         9614.0000          9594.0000          
+  large_5    pass     0         1601.0000          1599.0000          
+  tiny       pass     0         2244.0000          N/A                
+--------------------------------------------------------------------------------
+Total: 6  |  Pass: 6  |  Fail: 0  |  Skip: 0
+================================================================================
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_fable5.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_fable5.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_fable5.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_fable5.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_fable5.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_fable5.csv
+    API cost written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/one_shot_api_cost.csv
+
+================================================================================
+EVALUATION SUMMARY
+================================================================================
+Instance     Status   Retries   LLM Obj            Gurobi Obj         Error
+--------------------------------------------------------------------------------
+  large_1    pass     0         401.0000           401.0000           
+  large_2    pass     0         394.0000           394.0000           
+  large_3    pass     0         250.0000           250.0000           
+  large_4    pass     0         250.0000           250.0000           
+  large_5    pass     0         246.0000           246.0000           
+  tiny       pass     0         300.0000           N/A                
+--------------------------------------------------------------------------------
+Total: 6  |  Pass: 6  |  Fail: 0  |  Skip: 0
+================================================================================
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_fable5.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_fable5.csv
+    API cost written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/one_shot_api_cost.csv
+
+================================================================================
+EVALUATION SUMMARY
+================================================================================
+Instance     Status   Retries   LLM Obj            Gurobi Obj         Error
+--------------------------------------------------------------------------------
+  large_1    pass     0         93.0000            93.0000            
+  large_2    pass     0         53.0000            53.0000            
+  large_3    pass     0         45.0000            44.0000            
+  large_4    pass     0         51.0000            51.0000            
+  large_5    fail     0         N/A                19.0000            Execution timed out after 3...
+  tiny       pass     0         24.0000            N/A                
+--------------------------------------------------------------------------------
+Total: 6  |  Pass: 5  |  Fail: 1  |  Skip: 0
+================================================================================
+
+ERROR DETAILS
+--------------------------------------------------------------------------------
+  Instance large_5:
+Execution timed out after 3600 seconds
+
+  Instance large_5: FAIL runtime_error (3600.56s)
+  Instance large_2: FAIL runtime_error (3600.61s)
+  Instance large_4: FAIL runtime_error (3600.61s)
+  Instance large_1: FAIL runtime_error (3600.61s)
+  Instance large_3: FAIL runtime_error (3600.56s)
+
+  --- Phase 0: Self-debug for runtime_error (budget=5 remaining of 5, already used=0) ---
+
+  --- Phase 1: Tiny-instance gate (instance tiny, gap<=10%) ---
+  [reuse=incomplete] tiny 'tiny' frozen from CSV (status=pass, gap=-0.0). Skipping correction loop.
+
+  --- Phase 1: gate PASSED (tiny gap=-0.0) ---
+
+  --- Phase 2: v0 code passed gate; reusing v0 results for instances ['large_1', 'large_2', 'large_3', 'large_4', 'large_5'] ---
+
+  5 instance(s) still failing (infeasible/invalid_solution/timeout) after retry budget exhausted.
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_fable5.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_fable5.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_fable5.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_fable5.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_fable5.csv
+    API cost written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/one_shot_api_cost.csv
+
+================================================================================
+EVALUATION SUMMARY
+================================================================================
+Instance     Status   Retries   LLM Obj            Gurobi Obj         Error
+--------------------------------------------------------------------------------
+  large_1    fail     0         N/A                3755466060.3777    Execution timed out after 3...
+  large_2    fail     0         N/A                3777492290.2288    Execution timed out after 3...
+  large_3    fail     0         N/A                3772191757.6813    Execution timed out after 3...
+  large_4    fail     0         N/A                3732094714.7522    Execution timed out after 3...
+  large_5    fail     0         N/A                3758391761.1087    Execution timed out after 3...
+  tiny       pass     0         774228.6679        N/A                
+--------------------------------------------------------------------------------
+Total: 6  |  Pass: 1  |  Fail: 5  |  Skip: 0
+================================================================================
+
+ERROR DETAILS
+--------------------------------------------------------------------------------
+  Instance large_1:
+Execution timed out after 3600 seconds
+
+  Instance large_2:
+Execution timed out after 3600 seconds
+
+  Instance large_3:
+Execution timed out after 3600 seconds
+
+  Instance large_4:
+Execution timed out after 3600 seconds
+
+  Instance large_5:
+Execution timed out after 3600 seconds
+
+  Instance large_2: FAIL runtime_error (3607.02s)
+  Instance large_3: FAIL runtime_error (3607.26s)
+
+  --- Phase 0: Self-debug for runtime_error (budget=5 remaining of 5, already used=0) ---
+
+  --- Phase 1: Tiny-instance gate (instance tiny, gap<=10%) ---
+  [reuse=incomplete] tiny 'tiny' frozen from CSV (status=pass, gap=-0.0). Skipping correction loop.
+
+  --- Phase 1: gate PASSED (tiny gap=-0.0) ---
+
+  --- Phase 2: v0 code passed gate; reusing v0 results for instances ['large_1', 'large_2', 'large_3', 'large_4', 'large_5'] ---
+
+  2 instance(s) still failing (infeasible/invalid_solution/timeout) after retry budget exhausted.
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_fable5.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_fable5.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_fable5.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_fable5.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_fable5.csv
+    API cost written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/one_shot_api_cost.csv
+
+================================================================================
+EVALUATION SUMMARY
+================================================================================
+Instance     Status   Retries   LLM Obj            Gurobi Obj         Error
+--------------------------------------------------------------------------------
+  large_1    pass     0         1780138830.3987    1780186358.2285    
+  large_2    fail     0         N/A                1553640293.6807    Execution timed out after 3...
+  large_3    fail     0         N/A                1431915404.8265    Execution timed out after 3...
+  large_4    pass     0         134772602.7393     134780305.0809     
+  large_5    fail     0         6375424980.9236    6375548980.1188    Execution timed out after 3...
+  tiny       pass     0         553065.0000        N/A                
+--------------------------------------------------------------------------------
+Total: 6  |  Pass: 3  |  Fail: 3  |  Skip: 0
+================================================================================
+
+ERROR DETAILS
+--------------------------------------------------------------------------------
+  Instance large_2:
+Execution timed out after 3600 seconds
+
+  Instance large_3:
+Execution timed out after 3600 seconds
+
+  Instance large_5:
+Execution timed out after 300 seconds
+
+  Instance large_1: PASS (LLM=721.1976301446192, gap=0.65%, time=3599.72s, feasible=True)
+  Instance large_2: PASS (LLM=991.0225397187877, gap=0.00%, time=3599.7s, feasible=True)
+  Instance large_3: PASS (LLM=846.0480588991634, gap=0.00%, time=3599.73s, feasible=True)
+  Instance large_4: PASS (LLM=661.0609003598465, gap=9.91%, time=3599.74s, feasible=True)
+  Instance large_5: PASS (LLM=979.0472612475181, gap=0.00%, time=3599.71s, feasible=True)
+
+  --- Phase 0: Self-debug for runtime_error (budget=5 remaining of 5, already used=0) ---
+
+  --- Phase 1: Tiny-instance gate (instance tiny, gap<=10%) ---
+  [reuse=incomplete] tiny 'tiny' frozen from CSV (status=pass, gap=-0.008071). Skipping correction loop.
+
+  --- Phase 1: gate PASSED (tiny gap=-0.008071) ---
+
+  --- Phase 2: v0 code passed gate; reusing v0 results for instances ['large_1', 'large_2', 'large_3', 'large_4', 'large_5'] ---
+
+  All correction-triggering failures resolved.
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_fable5.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_fable5.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_fable5.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_fable5.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_fable5.csv
+    API cost written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/one_shot_api_cost.csv
+
+================================================================================
+EVALUATION SUMMARY
+================================================================================
+Instance     Status   Retries   LLM Obj            Gurobi Obj         Error
+--------------------------------------------------------------------------------
+  large_1    pass     0         721.1976           716.5680           
+  large_2    pass     0         991.0225           991.0225           
+  large_3    pass     0         846.0481           846.0481           
+  large_4    pass     0         661.0609           601.4517           
+  large_5    pass     0         979.0473           979.0470           
+  tiny       pass     0         1092.9020          N/A                
+--------------------------------------------------------------------------------
+Total: 6  |  Pass: 6  |  Fail: 0  |  Skip: 0
+================================================================================

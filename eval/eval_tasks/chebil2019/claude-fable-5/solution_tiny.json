@@ -1,0 +1,809 @@
+{
+  "objective_value": 11443.0,
+  "families_selected": [
+    3,
+    4
+  ],
+  "items_selected": [
+    {
+      "family": 3,
+      "item": 1
+    },
+    {
+      "family": 3,
+      "item": 2
+    },
+    {
+      "family": 3,
+      "item": 3
+    },
+    {
+      "family": 3,
+      "item": 4
+    },
+    {
+      "family": 3,
+      "item": 5
+    },
+    {
+      "family": 3,
+      "item": 6
+    },
+    {
+      "family": 3,
+      "item": 7
+    },
+    {
+      "family": 3,
+      "item": 8
+    },
+    {
+      "family": 3,
+      "item": 9
+    },
+    {
+      "family": 3,
+      "item": 10
+    },
+    {
+      "family": 3,
+      "item": 11
+    },
+    {
+      "family": 3,
+      "item": 12
+    },
+    {
+      "family": 3,
+      "item": 13
+    },
+    {
+      "family": 3,
+      "item": 14
+    },
+    {
+      "family": 3,
+      "item": 15
+    },
+    {
+      "family": 3,
+      "item": 16
+    },
+    {
+      "family": 3,
+      "item": 17
+    },
+    {
+      "family": 3,
+      "item": 18
+    },
+    {
+      "family": 3,
+      "item": 19
+    },
+    {
+      "family": 3,
+      "item": 20
+    },
+    {
+      "family": 3,
+      "item": 21
+    },
+    {
+      "family": 3,
+      "item": 22
+    },
+    {
+      "family": 3,
+      "item": 23
+    },
+    {
+      "family": 3,
+      "item": 24
+    },
+    {
+      "family": 3,
+      "item": 25
+    },
+    {
+      "family": 3,
+      "item": 26
+    },
+    {
+      "family": 3,
+      "item": 27
+    },
+    {
+      "family": 3,
+      "item": 28
+    },
+    {
+      "family": 3,
+      "item": 29
+    },
+    {
+      "family": 3,
+      "item": 30
+    },
+    {
+      "family": 3,
+      "item": 31
+    },
+    {
+      "family": 3,
+      "item": 32
+    },
+    {
+      "family": 3,
+      "item": 33
+    },
+    {
+      "family": 3,
+      "item": 34
+    },
+    {
+      "family": 3,
+      "item": 35
+    },
+    {
+      "family": 3,
+      "item": 36
+    },
+    {
+      "family": 3,
+      "item": 37
+    },
+    {
+      "family": 3,
+      "item": 38
+    },
+    {
+      "family": 3,
+      "item": 39
+    },
+    {
+      "family": 3,
+      "item": 40
+    },
+    {
+      "family": 3,
+      "item": 41
+    },
+    {
+      "family": 3,
+      "item": 42
+    },
+    {
+      "family": 3,
+      "item": 43
+    },
+    {
+      "family": 3,
+      "item": 44
+    },
+    {
+      "family": 3,
+      "item": 45
+    },
+    {
+      "family": 3,
+      "item": 46
+    },
+    {
+      "family": 3,
+      "item": 47
+    },
+    {
+      "family": 3,
+      "item": 48
+    },
+    {
+      "family": 3,
+      "item": 49
+    },
+    {
+      "family": 3,
+      "item": 50
+    },
+    {
+      "family": 3,
+      "item": 51
+    },
+    {
+      "family": 3,
+      "item": 52
+    },
+    {
+      "family": 3,
+      "item": 53
+    },
+    {
+      "family": 3,
+      "item": 54
+    },
+    {
+      "family": 3,
+      "item": 55
+    },
+    {
+      "family": 3,
+      "item": 56
+    },
+    {
+      "family": 3,
+      "item": 57
+    },
+    {
+      "family": 3,
+      "item": 58
+    },
+    {
+      "family": 3,
+      "item": 59
+    },
+    {
+      "family": 3,
+      "item": 60
+    },
+    {
+      "family": 3,
+      "item": 61
+    },
+    {
+      "family": 3,
+      "item": 62
+    },
+    {
+      "family": 3,
+      "item": 63
+    },
+    {
+      "family": 3,
+      "item": 64
+    },
+    {
+      "family": 3,
+      "item": 65
+    },
+    {
+      "family": 3,
+      "item": 66
+    },
+    {
+      "family": 3,
+      "item": 67
+    },
+    {
+      "family": 3,
+      "item": 68
+    },
+    {
+      "family": 3,
+      "item": 69
+    },
+    {
+      "family": 3,
+      "item": 70
+    },
+    {
+      "family": 3,
+      "item": 71
+    },
+    {
+      "family": 3,
+      "item": 72
+    },
+    {
+      "family": 3,
+      "item": 73
+    },
+    {
+      "family": 3,
+      "item": 74
+    },
+    {
+      "family": 3,
+      "item": 75
+    },
+    {
+      "family": 3,
+      "item": 76
+    },
+    {
+      "family": 3,
+      "item": 77
+    },
+    {
+      "family": 3,
+      "item": 78
+    },
+    {
+      "family": 3,
+      "item": 79
+    },
+    {
+      "family": 3,
+      "item": 80
+    },
+    {
+      "family": 3,
+      "item": 81
+    },
+    {
+      "family": 3,
+      "item": 82
+    },
+    {
+      "family": 3,
+      "item": 83
+    },
+    {
+      "family": 3,
+      "item": 84
+    },
+    {
+      "family": 3,
+      "item": 85
+    },
+    {
+      "family": 3,
+      "item": 86
+    },
+    {
+      "family": 3,
+      "item": 87
+    },
+    {
+      "family": 3,
+      "item": 88
+    },
+    {
+      "family": 3,
+      "item": 89
+    },
+    {
+      "family": 3,
+      "item": 90
+    },
+    {
+      "family": 3,
+      "item": 91
+    },
+    {
+      "family": 3,
+      "item": 92
+    },
+    {
+      "family": 3,
+      "item": 93
+    },
+    {
+      "family": 3,
+      "item": 94
+    },
+    {
+      "family": 3,
+      "item": 95
+    },
+    {
+      "family": 3,
+      "item": 96
+    },
+    {
+      "family": 3,
+      "item": 97
+    },
+    {
+      "family": 3,
+      "item": 98
+    },
+    {
+      "family": 3,
+      "item": 99
+    },
+    {
+      "family": 3,
+      "item": 100
+    },
+    {
+      "family": 4,
+      "item": 1
+    },
+    {
+      "family": 4,
+      "item": 2
+    },
+    {
+      "family": 4,
+      "item": 3
+    },
+    {
+      "family": 4,
+      "item": 4
+    },
+    {
+      "family": 4,
+      "item": 5
+    },
+    {
+      "family": 4,
+      "item": 6
+    },
+    {
+      "family": 4,
+      "item": 7
+    },
+    {
+      "family": 4,
+      "item": 8
+    },
+    {
+      "family": 4,
+      "item": 9
+    },
+    {
+      "family": 4,
+      "item": 10
+    },
+    {
+      "family": 4,
+      "item": 11
+    },
+    {
+      "family": 4,
+      "item": 12
+    },
+    {
+      "family": 4,
+      "item": 13
+    },
+    {
+      "family": 4,
+      "item": 14
+    },
+    {
+      "family": 4,
+      "item": 15
+    },
+    {
+      "family": 4,
+      "item": 16
+    },
+    {
+      "family": 4,
+      "item": 17
+    },
+    {
+      "family": 4,
+      "item": 18
+    },
+    {
+      "family": 4,
+      "item": 19
+    },
+    {
+      "family": 4,
+      "item": 20
+    },
+    {
+      "family": 4,
+      "item": 21
+    },
+    {
+      "family": 4,
+      "item": 22
+    },
+    {
+      "family": 4,
+      "item": 23
+    },
+    {
+      "family": 4,
+      "item": 24
+    },
+    {
+      "family": 4,
+      "item": 25
+    },
+    {
+      "family": 4,
+      "item": 26
+    },
+    {
+      "family": 4,
+      "item": 27
+    },
+    {
+      "family": 4,
+      "item": 28
+    },
+    {
+      "family": 4,
+      "item": 29
+    },
+    {
+      "family": 4,
+      "item": 30
+    },
+    {
+      "family": 4,
+      "item": 31
+    },
+    {
+      "family": 4,
+      "item": 32
+    },
+    {
+      "family": 4,
+      "item": 33
+    },
+    {
+      "family": 4,
+      "item": 34
+    },
+    {
+      "family": 4,
+      "item": 35
+    },
+    {
+      "family": 4,
+      "item": 36
+    },
+    {
+      "family": 4,
+      "item": 37
+    },
+    {
+      "family": 4,
+      "item": 38
+    },
+    {
+      "family": 4,
+      "item": 39
+    },
+    {
+      "family": 4,
+      "item": 40
+    },
+    {
+      "family": 4,
+      "item": 41
+    },
+    {
+      "family": 4,
+      "item": 42
+    },
+    {
+      "family": 4,
+      "item": 43
+    },
+    {
+      "family": 4,
+      "item": 44
+    },
+    {
+      "family": 4,
+      "item": 45
+    },
+    {
+      "family": 4,
+      "item": 46
+    },
+    {
+      "family": 4,
+      "item": 47
+    },
+    {
+      "family": 4,
+      "item": 48
+    },
+    {
+      "family": 4,
+      "item": 49
+    },
+    {
+      "family": 4,
+      "item": 50
+    },
+    {
+      "family": 4,
+      "item": 51
+    },
+    {
+      "family": 4,
+      "item": 52
+    },
+    {
+      "family": 4,
+      "item": 53
+    },
+    {
+      "family": 4,
+      "item": 54
+    },
+    {
+      "family": 4,
+      "item": 55
+    },
+    {
+      "family": 4,
+      "item": 56
+    },
+    {
+      "family": 4,
+      "item": 57
+    },
+    {
+      "family": 4,
+      "item": 58
+    },
+    {
+      "family": 4,
+      "item": 59
+    },
+    {
+      "family": 4,
+      "item": 60
+    },
+    {
+      "family": 4,
+      "item": 61
+    },
+    {
+      "family": 4,
+      "item": 62
+    },
+    {
+      "family": 4,
+      "item": 63
+    },
+    {
+      "family": 4,
+      "item": 64
+    },
+    {
+      "family": 4,
+      "item": 65
+    },
+    {
+      "family": 4,
+      "item": 66
+    },
+    {
+      "family": 4,
+      "item": 67
+    },
+    {
+      "family": 4,
+      "item": 68
+    },
+    {
+      "family": 4,
+      "item": 69
+    },
+    {
+      "family": 4,
+      "item": 70
+    },
+    {
+      "family": 4,
+      "item": 71
+    },
+    {
+      "family": 4,
+      "item": 72
+    },
+    {
+      "family": 4,
+      "item": 73
+    },
+    {
+      "family": 4,
+      "item": 74
+    },
+    {
+      "family": 4,
+      "item": 75
+    },
+    {
+      "family": 4,
+      "item": 76
+    },
+    {
+      "family": 4,
+      "item": 77
+    },
+    {
+      "family": 4,
+      "item": 78
+    },
+    {
+      "family": 4,
+      "item": 79
+    },
+    {
+      "family": 4,
+      "item": 80
+    },
+    {
+      "family": 4,
+      "item": 81
+    },
+    {
+      "family": 4,
+      "item": 82
+    },
+    {
+      "family": 4,
+      "item": 83
+    },
+    {
+      "family": 4,
+      "item": 84
+    },
+    {
+      "family": 4,
+      "item": 85
+    },
+    {
+      "family": 4,
+      "item": 86
+    },
+    {
+      "family": 4,
+      "item": 87
+    },
+    {
+      "family": 4,
+      "item": 88
+    },
+    {
+      "family": 4,
+      "item": 89
+    },
+    {
+      "family": 4,
+      "item": 90
+    },
+    {
+      "family": 4,
+      "item": 91
+    },
+    {
+      "family": 4,
+      "item": 92
+    },
+    {
+      "family": 4,
+      "item": 93
+    },
+    {
+      "family": 4,
+      "item": 94
+    },
+    {
+      "family": 4,
+      "item": 95
+    },
+    {
+      "family": 4,
+      "item": 96
+    },
+    {
+      "family": 4,
+      "item": 97
+    },
+    {
+      "family": 4,
+      "item": 98
+    },
+    {
+      "family": 4,
+      "item": 99
+    },
+    {
+      "family": 4,
+      "item": 100
+    }
+  ]
+}

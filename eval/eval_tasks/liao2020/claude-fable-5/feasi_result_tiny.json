@@ -1,0 +1,203 @@
+{
+  "feasible": false,
+  "violated_constraints": [
+    13
+  ],
+  "violations": [
+    "Constraint 13: unknown model variable(s): x_1_1, x_2_2, x_4_3, x_3_4, t_2; lower bound violated: rho[1]=0 < 11.7522; lower bound violated: rho[2]=0 < 11.7522; lower bound violated: rho[3]=0 < 11.7522; lower bound violated: rho[4]=0 < 11.7522; lower bound violated: alpha[1]=0 < 13.1628; constraint violated: assign_pos_1: 0 == 1 (excess 1); constraint violated: assign_pos_2: 0 == 1 (excess 1); constraint violated: assign_pos_3: 0 == 1 (excess 1); constraint violated: assign_pos_4: 0 == 1 (excess 1); constraint violated: assign_pat_1: 0 == 1 (excess 1); constraint violated: assign_pat_2: 0 == 1 (excess 1); constraint violated: assign_pat_3: 0 == 1 (excess 1); constraint violated: assign_pat_4: 0 == 1 (excess 1); constraint violated: mc_eta_ub2_1_1: 0 <= -11.766 (excess 11.766); constraint violated: mc_tau_ub2_1_1: 0 <= -13.1628 (excess 13.1628); public decision and model witness disagree for x[1,1]: 1.0 versus 0.0; public decision and model witness disagree for x[2,2]: 1.0 versus 0.0; public decision and model witness disagree for x[3,4]: 1.0 versus 0.0; public decision and model witness disagree for x[4,3]: 1.0 versus 0.0; public decision and model witness disagree for t[2]: 21.26674 versus 0.0; public decision and model witness disagree for t[3]: 42.635745299999996 versus 0.0; public decision and model witness disagree for t[4]: 63.8118558 versus 0.0; Objective consistency: objective_value=108.45899118392889 does not match complete-witness DRO value 0.0 (|diff|=108.5, tol=0.001)."
+  ],
+  "violation_magnitudes": [
+    {
+      "constraint": 13,
+      "lhs": 1.0,
+      "rhs": 0.0,
+      "raw_excess": 1.0,
+      "normalizer": 1e-05,
+      "ratio": 99999.99999999999
+    },
+    {
+      "constraint": 13,
+      "lhs": 1.0,
+      "rhs": 0.0,
+      "raw_excess": 1.0,
+      "normalizer": 1e-05,
+      "ratio": 99999.99999999999
+    },
+    {
+      "constraint": 13,
+      "lhs": 1.0,
+      "rhs": 0.0,
+      "raw_excess": 1.0,
+      "normalizer": 1e-05,
+      "ratio": 99999.99999999999
+    },
+    {
+      "constraint": 13,
+      "lhs": 1.0,
+      "rhs": 0.0,
+      "raw_excess": 1.0,
+      "normalizer": 1e-05,
+      "ratio": 99999.99999999999
+    },
+    {
+      "constraint": 13,
+      "lhs": 1.0,
+      "rhs": 0.0,
+      "raw_excess": 1.0,
+      "normalizer": 1e-05,
+      "ratio": 99999.99999999999
+    },
+    {
+      "constraint": 13,
+      "lhs": 1.0,
+      "rhs": 0.0,
+      "raw_excess": 1.0,
+      "normalizer": 1e-05,
+      "ratio": 99999.99999999999
+    },
+    {
+      "constraint": 13,
+      "lhs": 1.0,
+      "rhs": 0.0,
+      "raw_excess": 1.0,
+      "normalizer": 1e-05,
+      "ratio": 99999.99999999999
+    },
+    {
+      "constraint": 13,
+      "lhs": 1.0,
+      "rhs": 0.0,
+      "raw_excess": 1.0,
+      "normalizer": 1e-05,
+      "ratio": 99999.99999999999
+    },
+    {
+      "constraint": 13,
+      "lhs": 1.0,
+      "rhs": 0.0,
+      "raw_excess": 1.0,
+      "normalizer": 1e-05,
+      "ratio": 99999.99999999999
+    },
+    {
+      "constraint": 13,
+      "lhs": 1.0,
+      "rhs": 0.0,
+      "raw_excess": 1.0,
+      "normalizer": 1e-05,
+      "ratio": 99999.99999999999
+    },
+    {
+      "constraint": 13,
+      "lhs": 1.0,
+      "rhs": 0.0,
+      "raw_excess": 1.0,
+      "normalizer": 1e-05,
+      "ratio": 99999.99999999999
+    },
+    {
+      "constraint": 13,
+      "lhs": 1.0,
+      "rhs": 0.0,
+      "raw_excess": 1.0,
+      "normalizer": 1e-05,
+      "ratio": 99999.99999999999
+    },
+    {
+      "constraint": 13,
+      "lhs": 1.0,
+      "rhs": 0.0,
+      "raw_excess": 1.0,
+      "normalizer": 1e-05,
+      "ratio": 99999.99999999999
+    },
+    {
+      "constraint": 13,
+      "lhs": 1.0,
+      "rhs": 0.0,
+      "raw_excess": 1.0,
+      "normalizer": 1e-05,
+      "ratio": 99999.99999999999
+    },
+    {
+      "constraint": 13,
+      "lhs": 1.0,
+      "rhs": 0.0,
+      "raw_excess": 1.0,
+      "normalizer": 1e-05,
+      "ratio": 99999.99999999999
+    },
+    {
+      "constraint": 13,
+      "lhs": 1.0,
+      "rhs": 0.0,
+      "raw_excess": 1.0,
+      "normalizer": 1e-05,
+      "ratio": 99999.99999999999
+    },
+    {
+      "constraint": 13,
+      "lhs": 1.0,
+      "rhs": 0.0,
+      "raw_excess": 1.0,
+      "normalizer": 1e-05,
+      "ratio": 99999.99999999999
+    },
+    {
+      "constraint": 13,
+      "lhs": 1.0,
+      "rhs": 0.0,
+      "raw_excess": 1.0,
+      "normalizer": 1e-05,
+      "ratio": 99999.99999999999
+    },
+    {
+      "constraint": 13,
+      "lhs": 1.0,
+      "rhs": 0.0,
+      "raw_excess": 1.0,
+      "normalizer": 1e-05,
+      "ratio": 99999.99999999999
+    },
+    {
+      "constraint": 13,
+      "lhs": 1.0,
+      "rhs": 0.0,
+      "raw_excess": 1.0,
+      "normalizer": 1e-05,
+      "ratio": 99999.99999999999
+    },
+    {
+      "constraint": 13,
+      "lhs": 1.0,
+      "rhs": 0.0,
+      "raw_excess": 1.0,
+      "normalizer": 1e-05,
+      "ratio": 99999.99999999999
+    },
+    {
+      "constraint": 13,
+      "lhs": 1.0,
+      "rhs": 0.0,
+      "raw_excess": 1.0,
+      "normalizer": 1e-05,
+      "ratio": 99999.99999999999
+    },
+    {
+      "constraint": 13,
+      "lhs": 1.0,
+      "rhs": 0.0,
+      "raw_excess": 1.0,
+      "normalizer": 1e-05,
+      "ratio": 99999.99999999999
+    },
+    {
+      "constraint": 13,
+      "lhs": 108.45899118392889,
+      "rhs": 0.0,
+      "raw_excess": 108.45899118392889,
+      "normalizer": 1e-05,
+      "ratio": 10845899.118392888
+    }
+  ]
+}

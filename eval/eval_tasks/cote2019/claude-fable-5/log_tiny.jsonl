@@ -1,0 +1,2 @@
+{"time": 0.006, "objective_value": 704.5, "solution": {"objective_value": 704.5, "routes": [[11, 3, 4, 12], [5, 10, 14], [1, 8, 9, 7], [6, 2, 15, 13]]}}
+{"time": 0.117, "objective_value": 671.0, "solution": {"objective_value": 671.0, "routes": [[11, 4, 9, 7], [15, 6, 3, 12], [14, 10, 1], [5, 2, 13, 8]]}}

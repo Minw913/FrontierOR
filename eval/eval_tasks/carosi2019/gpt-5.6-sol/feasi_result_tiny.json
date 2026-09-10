@@ -1,0 +1,10 @@
+{
+  "feasible": false,
+  "violated_constraints": [
+    "solution_schema"
+  ],
+  "violations": [
+    "cannot derive num_vehicles from decision witness field vs_flows"
+  ],
+  "violation_magnitudes": []
+}

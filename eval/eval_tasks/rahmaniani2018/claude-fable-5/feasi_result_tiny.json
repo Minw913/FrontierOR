@@ -1,0 +1,10 @@
+{
+  "feasible": false,
+  "violated_constraints": [
+    49
+  ],
+  "violations": [
+    "Constraint 49 (complete witness): unknown model variable(s): y_P_ret[2], y_P_ret[3], y_P_ret[4], y_P_ret[5], y_P_ret[24]; constraint violated: inv_total_cap_1: 0 == 140 (excess 140); constraint violated: inv_total_cap_2: 0 == 140 (excess 140); constraint violated: inv_total_cap_3: 0 == 300 (excess 300); constraint violated: inv_total_cap_4: 0 == 250 (excess 250); constraint violated: inv_total_cap_5: 0 == 175 (excess 175); constraint violated: inv_total_cap_6: 0 == 325 (excess 325); constraint violated: inv_total_cap_7: 0 == 200 (excess 200); constraint violated: inv_total_cap_8: 0 == 75 (excess 75); constraint violated: inv_total_cap_9: 0 == 225 (excess 225); constraint violated: inv_total_cap_10: 0 == 2000 (excess 2000); public decision and model witness disagree for yPret_1: 7.0 versus 0.0; public decision and model witness disagree for yPret_2: 7.0 versus 0.0; public decision and model witness disagree for yPret_3: 6.0 versus 0.0; public decision and model witness disagree for yPret_4: 5.0 versus 0.0; public decision and model witness disagree for yPret_23: 4.0 versus 0.0; public decision and model witness disagree for yPnew_29: 10.0 versus 0.0; public decision and model witness disagree for yPnew_30: 8.0 versus 0.0; public decision and model witness disagree for yPret_31: 4.0 versus 0.0; public decision and model witness disagree for yPret_32: 5.0 versus 0.0"
+  ],
+  "violation_magnitudes": []
+}

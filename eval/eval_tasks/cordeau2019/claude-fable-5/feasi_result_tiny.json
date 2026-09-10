@@ -1,0 +1,11 @@
+{
+  "feasible": false,
+  "violated_constraints": [
+    "solution_schema"
+  ],
+  "violations": [
+    "results.MCLP.problem_type must equal MCLP",
+    "results.PSCLP.problem_type must equal PSCLP"
+  ],
+  "violation_magnitudes": []
+}

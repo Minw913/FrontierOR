@@ -1,0 +1,19 @@
+{
+  "feasible": false,
+  "violated_constraints": [
+    4
+  ],
+  "violations": [
+    "Constraint 4 violated: reported objective_value=29.4127188977 differs from exactly recomputed value=29.2438140943 (difference=0.168905, tol=0.001)"
+  ],
+  "violation_magnitudes": [
+    {
+      "constraint": 4,
+      "lhs": 29.412718897661538,
+      "rhs": 29.243814094330226,
+      "raw_excess": 0.16890480333131208,
+      "normalizer": 29.243814094330226,
+      "ratio": 0.005775744668136816
+    }
+  ]
+}

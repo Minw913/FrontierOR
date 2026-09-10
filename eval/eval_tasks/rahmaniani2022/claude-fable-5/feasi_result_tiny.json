@@ -1,0 +1,19 @@
+{
+  "feasible": false,
+  "violated_constraints": [
+    49
+  ],
+  "violations": [
+    "Constraint 49 (Objective consistency): trusted fixed-investment recourse failed: ValueError: unknown model variable(s): vP[0,0], vP[0,1], vP[0,2], vP[0,3], vP[0,4]; constraint violated: cap_bal_0: 0 == 2400 (excess 2400); constraint violated: cap_bal_1: 0 == 2000 (excess 2000); constraint violated: cap_bal_2: 0 == 400 (excess 400); constraint violated: cap_bal_3: 0 == 1600 (excess 1600); co"
+  ],
+  "violation_magnitudes": [
+    {
+      "constraint": 49,
+      "lhs": 1.0,
+      "rhs": 0.0,
+      "raw_excess": 1.0,
+      "normalizer": 1e-05,
+      "ratio": 99999.99999999999
+    }
+  ]
+}

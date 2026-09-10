@@ -1,0 +1,73 @@
+{
+  "feasible": false,
+  "violated_constraints": [
+    1
+  ],
+  "violations": [
+    "Equilibrium violated at DOF 1 (node 1, dir x), load 1: LHS=0.000048, RHS=0.000000, diff=0.000048",
+    "Equilibrium violated at DOF 2 (node 1, dir y), load 1: LHS=0.000048, RHS=0.000000, diff=0.000048",
+    "Equilibrium violated at DOF 3 (node 2, dir x), load 1: LHS=-0.030897, RHS=0.000000, diff=0.030897",
+    "Equilibrium violated at DOF 4 (node 2, dir y), load 1: LHS=-99999.969103, RHS=-100000.000000, diff=0.030897",
+    "Equilibrium violated at DOF 5 (node 3, dir x), load 1: LHS=0.061786, RHS=0.000000, diff=0.061786",
+    "Equilibrium violated at DOF 7 (node 4, dir x), load 1: LHS=-0.031048, RHS=0.000000, diff=0.031048",
+    "Equilibrium violated at DOF 8 (node 4, dir y), load 1: LHS=-99999.969047, RHS=-100000.000000, diff=0.030953"
+  ],
+  "violation_magnitudes": [
+    {
+      "constraint": 1,
+      "lhs": 4.7806774489345116e-05,
+      "rhs": 0.0,
+      "raw_excess": 4.7806774489345116e-05,
+      "normalizer": 1e-05,
+      "ratio": 4.780677448934512
+    },
+    {
+      "constraint": 1,
+      "lhs": 4.7806774489345116e-05,
+      "rhs": 0.0,
+      "raw_excess": 4.7806774489345116e-05,
+      "normalizer": 1e-05,
+      "ratio": 4.780677448934512
+    },
+    {
+      "constraint": 1,
+      "lhs": -0.030897078875568695,
+      "rhs": 0.0,
+      "raw_excess": 0.030897078875568695,
+      "normalizer": 1e-05,
+      "ratio": 3089.707887556869
+    },
+    {
+      "constraint": 1,
+      "lhs": -99999.96910292112,
+      "rhs": -100000.0,
+      "raw_excess": 0.030897078875568695,
+      "normalizer": 100000.0,
+      "ratio": 3.0897078875568695e-07
+    },
+    {
+      "constraint": 1,
+      "lhs": 0.06178621915751137,
+      "rhs": 0.0,
+      "raw_excess": 0.06178621915751137,
+      "normalizer": 1e-05,
+      "ratio": 6178.621915751136
+    },
+    {
+      "constraint": 1,
+      "lhs": -0.03104843780641886,
+      "rhs": 0.0,
+      "raw_excess": 0.03104843780641886,
+      "normalizer": 1e-05,
+      "ratio": 3104.8437806418856
+    },
+    {
+      "constraint": 1,
+      "lhs": -99999.96904717576,
+      "rhs": -100000.0,
+      "raw_excess": 0.0309528242360102,
+      "normalizer": 100000.0,
+      "ratio": 3.09528242360102e-07
+    }
+  ]
+}

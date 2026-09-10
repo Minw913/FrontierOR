@@ -1,0 +1,28 @@
+{
+  "feasible": false,
+  "violated_constraints": [
+    15
+  ],
+  "violations": [
+    "Constraint 15: Arc from backhaul 11 to linehaul 1 (customer 1): x = 1, expected 0",
+    "Constraint 15: Arc from backhaul 12 to linehaul 2 (customer 2): x = 1, expected 0"
+  ],
+  "violation_magnitudes": [
+    {
+      "constraint": 15,
+      "lhs": 1.0,
+      "rhs": 0.0,
+      "raw_excess": 1.0,
+      "normalizer": 1e-05,
+      "ratio": 99999.99999999999
+    },
+    {
+      "constraint": 15,
+      "lhs": 1.0,
+      "rhs": 0.0,
+      "raw_excess": 1.0,
+      "normalizer": 1e-05,
+      "ratio": 99999.99999999999
+    }
+  ]
+}

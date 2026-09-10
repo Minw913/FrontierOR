@@ -9,6 +9,7 @@ RUN apt-get update \
 COPY trusted_eval_infra/agent/codex_entrypoint.py /opt/frontieror/secure_codex_entrypoint.py
 COPY trusted_eval_infra/agent/egress_proxy.py /opt/frontieror/secure_egress_proxy.py
 COPY trusted_eval_infra/agent/submit.py /opt/frontieror/secure_submit.py
+COPY trusted_eval_infra/agent/process_control.py /opt/frontieror/secure_process_control.py
 COPY scripts/utils/solution_logger.py /opt/frontieror/solution_logger.py
 ENV PYTHONPATH=/opt/frontieror
 RUN mkdir -p /home/agent/.codex /codex-home \

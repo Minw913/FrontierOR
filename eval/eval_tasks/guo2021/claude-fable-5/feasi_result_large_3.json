@@ -1,0 +1,19 @@
+{
+  "feasible": false,
+  "violated_constraints": [
+    11
+  ],
+  "violations": [
+    "Constraint 11 (objective consistency): reported objective_value=-734275.3999999997 exceeds the plausibility cap obj_upper=-739686.383 (recomputed lower bound=-743403.4, +0.5% legacy-incumbent margin); the reported cost is too far above what the first-stage decisions u,y,x,w can yield (excess=5410.98)"
+  ],
+  "violation_magnitudes": [
+    {
+      "constraint": 11,
+      "lhs": -734275.3999999997,
+      "rhs": -739686.383,
+      "raw_excess": 5410.983000000357,
+      "normalizer": 739686.383,
+      "ratio": 0.007315239437090403
+    }
+  ]
+}

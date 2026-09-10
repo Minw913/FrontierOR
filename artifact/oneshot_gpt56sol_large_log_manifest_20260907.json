@@ -1,0 +1,874 @@
+{
+  "schema_version": 1,
+  "storage": "Local files retained; raw large JSONL logs excluded from Git due to size.",
+  "local_repository_root": "/scratch/chonghej/LLM4OR/FrontierOR-run",
+  "count": 173,
+  "total_bytes": 2074372951,
+  "files": [
+    {
+      "path": "eval/eval_tasks/alfieri2020/gpt-5.6-sol/log_large_1.jsonl",
+      "bytes": 21405,
+      "sha256": "64a6f7e447003782d0bc26f28616a2a2f52ac99361173d089fc3327b179b0ea7"
+    },
+    {
+      "path": "eval/eval_tasks/alfieri2020/gpt-5.6-sol/log_large_2.jsonl",
+      "bytes": 42584,
+      "sha256": "eeceef5f6def42020533ae4aba9358451c99cb534a5b20a97657a2e3bf3d5d56"
+    },
+    {
+      "path": "eval/eval_tasks/alfieri2020/gpt-5.6-sol/log_large_3.jsonl",
+      "bytes": 43429,
+      "sha256": "1143c930a8329847e18d94b8a80aa3c62f8b26c952b3c6f2c38f0de877449eb7"
+    },
+    {
+      "path": "eval/eval_tasks/alfieri2020/gpt-5.6-sol/log_large_4.jsonl",
+      "bytes": 22058,
+      "sha256": "4d6b3207e928e6453bb6303b6891ffce130e68cba6cb1edea827796691a45100"
+    },
+    {
+      "path": "eval/eval_tasks/alfieri2020/gpt-5.6-sol/log_large_5.jsonl",
+      "bytes": 42670,
+      "sha256": "9f1fa344ddc93ed25147fc71f394e4b308b9869994e44ec0c682af790849d04f"
+    },
+    {
+      "path": "eval/eval_tasks/amaldi2013/gpt-5.6-sol/log_large_1.jsonl",
+      "bytes": 9952,
+      "sha256": "63dbf775b54cbc246e0959a5c66bc79e39964505e433d3faae7009b42ac44b81"
+    },
+    {
+      "path": "eval/eval_tasks/amaldi2013/gpt-5.6-sol/log_large_2.jsonl",
+      "bytes": 9678,
+      "sha256": "72aae792c5fae637d12a6e120da9e2b9ff8b20a9fea93dfe23ec7995c11b1705"
+    },
+    {
+      "path": "eval/eval_tasks/amaldi2013/gpt-5.6-sol/log_large_3.jsonl",
+      "bytes": 11591,
+      "sha256": "4ec999b619960347c1f245eea1df090c8ba4d5f2817dce7c85a3b1e20d92e5ba"
+    },
+    {
+      "path": "eval/eval_tasks/amaldi2013/gpt-5.6-sol/log_large_4.jsonl",
+      "bytes": 11026,
+      "sha256": "4405ec6c80905eefa506117b27a9c22d6fe79fe2ce916a14099496ad9d0302d1"
+    },
+    {
+      "path": "eval/eval_tasks/amaldi2013/gpt-5.6-sol/log_large_5.jsonl",
+      "bytes": 12893,
+      "sha256": "778fdc90813ac8ea7e239fda6b33131d71d8fa400618616a2d809abee384315c"
+    },
+    {
+      "path": "eval/eval_tasks/armbruster2012/gpt-5.6-sol/log_large_1.jsonl",
+      "bytes": 972194,
+      "sha256": "8f2280368ed10abbe658cfbc3a2fcc50969ae96de93ad958f1ac642303f4f4bd"
+    },
+    {
+      "path": "eval/eval_tasks/armbruster2012/gpt-5.6-sol/log_large_2.jsonl",
+      "bytes": 5185041,
+      "sha256": "eb4751e8c524fe0be3bbc829ae01cb3d05266d0420aa426b27a833563d42a149"
+    },
+    {
+      "path": "eval/eval_tasks/armbruster2012/gpt-5.6-sol/log_large_3.jsonl",
+      "bytes": 5941180,
+      "sha256": "2dc418d2429f36851557ca4d78064d10e712374bee695e287ca4079d794c000a"
+    },
+    {
+      "path": "eval/eval_tasks/armbruster2012/gpt-5.6-sol/log_large_4.jsonl",
+      "bytes": 5509098,
+      "sha256": "cc25f2f89bd435276355249d06ed25b0846e058612d42a8e9c34a1c5fefa91a3"
+    },
+    {
+      "path": "eval/eval_tasks/armbruster2012/gpt-5.6-sol/log_large_5.jsonl",
+      "bytes": 8857672,
+      "sha256": "85c110014368b3b8bb7f51acce7b6d6ddba9c8ce645dada22c6f47abd541dade"
+    },
+    {
+      "path": "eval/eval_tasks/bard2002/gpt-5.6-sol/log_large_1.jsonl",
+      "bytes": 31526,
+      "sha256": "442b3473af2cce66cc4c562e7c376523a8fc4da2c065a351cc2f281b2b3d6144"
+    },
+    {
+      "path": "eval/eval_tasks/bard2002/gpt-5.6-sol/log_large_2.jsonl",
+      "bytes": 34601,
+      "sha256": "9ba7791198c9972a61cc4a20d7b7b6a91305518342a7d14470323943ecb1ac8a"
+    },
+    {
+      "path": "eval/eval_tasks/bard2002/gpt-5.6-sol/log_large_3.jsonl",
+      "bytes": 3551,
+      "sha256": "16ff3237b78c015be20ffbe3971fd68670d4369b40b556a0e65f70fe413b6372"
+    },
+    {
+      "path": "eval/eval_tasks/bard2002/gpt-5.6-sol/log_large_4.jsonl",
+      "bytes": 31860,
+      "sha256": "4189456e57af1901285f14fd3e85fe66a8e1bdc439773b915986e0286ab89d7c"
+    },
+    {
+      "path": "eval/eval_tasks/bard2002/gpt-5.6-sol/log_large_5.jsonl",
+      "bytes": 25705,
+      "sha256": "a87f3059354c9f133d0dcc0191fb63dddd8367c2c6b8a0f882b1338d9ac9f750"
+    },
+    {
+      "path": "eval/eval_tasks/bayani2024/gpt-5.6-sol/log_large_1.jsonl",
+      "bytes": 1813,
+      "sha256": "93cd6846977b71e3077de4165f25401cfdb4bd9eb971fd1d76d2ad2ee1584a95"
+    },
+    {
+      "path": "eval/eval_tasks/bayani2024/gpt-5.6-sol/log_large_2.jsonl",
+      "bytes": 19004,
+      "sha256": "e63e4431301d79cc4ea68442be8256d57639f3305d19b087c79f6495707cd9ff"
+    },
+    {
+      "path": "eval/eval_tasks/bayani2024/gpt-5.6-sol/log_large_3.jsonl",
+      "bytes": 4593,
+      "sha256": "e4a01dcfb3fdcbb8a330abd289d49b1573eee37269c8ff215f8440a94da24b67"
+    },
+    {
+      "path": "eval/eval_tasks/bayani2024/gpt-5.6-sol/log_large_4.jsonl",
+      "bytes": 562,
+      "sha256": "d12ac6940635c65e0f78f454fddc07ddefe2379437b787275b5ddfced11a7a54"
+    },
+    {
+      "path": "eval/eval_tasks/bayani2024/gpt-5.6-sol/log_large_5.jsonl",
+      "bytes": 2271,
+      "sha256": "5f9997e04437bb5dfef1a8a3a752091e5d10c224656bf33f31b0e1003c8fcc3a"
+    },
+    {
+      "path": "eval/eval_tasks/boland2019/gpt-5.6-sol/log_large_1.jsonl",
+      "bytes": 18506,
+      "sha256": "25c532f69d49824976549a02be68cbf8e6131501dc77b23e579a16feff678457"
+    },
+    {
+      "path": "eval/eval_tasks/boland2019/gpt-5.6-sol/log_large_2.jsonl",
+      "bytes": 16133,
+      "sha256": "4557af156e037ba07a99d449a7113004dfd1b07645e15b59bf0b6367cd70de67"
+    },
+    {
+      "path": "eval/eval_tasks/boland2019/gpt-5.6-sol/log_large_3.jsonl",
+      "bytes": 12022,
+      "sha256": "031c37fada6554bb40b6c6fe9288bd622cf072a5a2cb0be9c2852ef8545c784b"
+    },
+    {
+      "path": "eval/eval_tasks/boland2019/gpt-5.6-sol/log_large_4.jsonl",
+      "bytes": 34716,
+      "sha256": "716757c0ee5713f59af3804483a8bb38006980ee924a1a0de9e443ec1e075537"
+    },
+    {
+      "path": "eval/eval_tasks/boland2019/gpt-5.6-sol/log_large_5.jsonl",
+      "bytes": 10290,
+      "sha256": "c21b740a91843d94c6d1739af4a88c7909e24b53936f8ab1f12eecaaad274ee7"
+    },
+    {
+      "path": "eval/eval_tasks/borndorfer2007/gpt-5.6-sol/log_large_1.jsonl",
+      "bytes": 128,
+      "sha256": "fd6a5091bf35ba6e4b6c42182ddf9e982c3fa22a976947135fbb85cf4459c100"
+    },
+    {
+      "path": "eval/eval_tasks/borndorfer2007/gpt-5.6-sol/log_large_2.jsonl",
+      "bytes": 129,
+      "sha256": "c6ab081f1d4f5053756eaa3875bb30295c500634b7acd9e5555cf564adabd56f"
+    },
+    {
+      "path": "eval/eval_tasks/borndorfer2007/gpt-5.6-sol/log_large_3.jsonl",
+      "bytes": 128,
+      "sha256": "280b827abd414df678c66faafcb096fa401973524a6f06bda27a59412d8f635f"
+    },
+    {
+      "path": "eval/eval_tasks/borndorfer2007/gpt-5.6-sol/log_large_4.jsonl",
+      "bytes": 128,
+      "sha256": "a6f48c27157d82938c7375408aca01244d1d5714a50c03a3a5991a2ea809b598"
+    },
+    {
+      "path": "eval/eval_tasks/borndorfer2007/gpt-5.6-sol/log_large_5.jsonl",
+      "bytes": 127,
+      "sha256": "ccc70645afab8d0a0a1f987b21dc3c0d773e108f4b54270e63e9e6d04fdfbea1"
+    },
+    {
+      "path": "eval/eval_tasks/cunha2021/gpt-5.6-sol/log_large_1.jsonl",
+      "bytes": 11506800,
+      "sha256": "77d8a07a86d83e7833eca94a3b0848336b902da9bf5fe570b321bc87f88aa411"
+    },
+    {
+      "path": "eval/eval_tasks/cunha2021/gpt-5.6-sol/log_large_2.jsonl",
+      "bytes": 19848037,
+      "sha256": "89a089ab4d0b474797a4a94dda071c988129df575a5c7a0b721735b4e54602dd"
+    },
+    {
+      "path": "eval/eval_tasks/cunha2021/gpt-5.6-sol/log_large_3.jsonl",
+      "bytes": 19748382,
+      "sha256": "3a9f49f15decb8f95d0dfb34ae9cf8b0a57806de53e8b08baa9d103ddffe267a"
+    },
+    {
+      "path": "eval/eval_tasks/cunha2021/gpt-5.6-sol/log_large_4.jsonl",
+      "bytes": 14928350,
+      "sha256": "053c1733d8df6559c5e65ba53d400d8ac4b0b6368c6e583c10daafc790382501"
+    },
+    {
+      "path": "eval/eval_tasks/cunha2021/gpt-5.6-sol/log_large_5.jsonl",
+      "bytes": 21627698,
+      "sha256": "b9bf7f2dffc3a7dc3f4626e85a59bb9a558b1338389de82f42a62af2c30fd8f0"
+    },
+    {
+      "path": "eval/eval_tasks/delage2022/gpt-5.6-sol/log_large_1.jsonl",
+      "bytes": 517194,
+      "sha256": "97b1dee75340450f7f2508257a030d0d76236321a99dc040392fe2032e735994"
+    },
+    {
+      "path": "eval/eval_tasks/delage2022/gpt-5.6-sol/log_large_2.jsonl",
+      "bytes": 517193,
+      "sha256": "1731578f6f813c873fcfbd897487568f6a458501a6e565f478b73c92fbbd311a"
+    },
+    {
+      "path": "eval/eval_tasks/delage2022/gpt-5.6-sol/log_large_3.jsonl",
+      "bytes": 517194,
+      "sha256": "a2c3edecc947e8e8ceadc2e8b93ad8b186d2f8dc2bab0a06146b75e495d00b84"
+    },
+    {
+      "path": "eval/eval_tasks/delage2022/gpt-5.6-sol/log_large_4.jsonl",
+      "bytes": 930613,
+      "sha256": "ec556655ac45024f8f5dcf0aa21b7b3c1794d2053a1c77776534dbcfaaea77d1"
+    },
+    {
+      "path": "eval/eval_tasks/delage2022/gpt-5.6-sol/log_large_5.jsonl",
+      "bytes": 862272,
+      "sha256": "2c7e21e1549e34751841171127836b1f19098ef0b5189f9aaf087fee73983263"
+    },
+    {
+      "path": "eval/eval_tasks/desaulniers2010/gpt-5.6-sol/log_large_1.jsonl",
+      "bytes": 202073,
+      "sha256": "f56d2aa8a035b3229f10bdb62b05c2827b58fced74ed19861d96be9b9eda78dd"
+    },
+    {
+      "path": "eval/eval_tasks/desaulniers2010/gpt-5.6-sol/log_large_2.jsonl",
+      "bytes": 153132,
+      "sha256": "01fa76275eef5af3bc121786e946005b0faa63a17d2ee652acd3398b0f826baa"
+    },
+    {
+      "path": "eval/eval_tasks/desaulniers2010/gpt-5.6-sol/log_large_3.jsonl",
+      "bytes": 173184,
+      "sha256": "debfa84ae56cb4eb9ed0c288fe2ef1a81fab0768b1e431779eed25ed4c15a8b1"
+    },
+    {
+      "path": "eval/eval_tasks/desaulniers2010/gpt-5.6-sol/log_large_4.jsonl",
+      "bytes": 145031,
+      "sha256": "b64f3fbeb094dd61749b439166fe6f2090f3813fab72f98b3a5150a7f6b91084"
+    },
+    {
+      "path": "eval/eval_tasks/desaulniers2010/gpt-5.6-sol/log_large_5.jsonl",
+      "bytes": 201007,
+      "sha256": "45d2a674c4c734c7d5b54efaf2149709f27dacee831598b3d6bec2e39a8c4f44"
+    },
+    {
+      "path": "eval/eval_tasks/desaulniers2014/gpt-5.6-sol/log_large_1.jsonl",
+      "bytes": 99128,
+      "sha256": "f4644d8c16ea7d853ccb2882056ec096fc69980d23e10bc05fb312d13d280638"
+    },
+    {
+      "path": "eval/eval_tasks/desaulniers2014/gpt-5.6-sol/log_large_2.jsonl",
+      "bytes": 219789,
+      "sha256": "1b6c1e604b846599d4ec91c659e8765c7ecf61bede2361ba1877aece38bada39"
+    },
+    {
+      "path": "eval/eval_tasks/desaulniers2014/gpt-5.6-sol/log_large_3.jsonl",
+      "bytes": 84671,
+      "sha256": "8573d3c9b35dc75903816d9bc817aab03010fe14a5e01036f8286e27ae839ad0"
+    },
+    {
+      "path": "eval/eval_tasks/desaulniers2014/gpt-5.6-sol/log_large_4.jsonl",
+      "bytes": 122087,
+      "sha256": "12769e702ae53c234bf637bbc48abeab82b3961cb422f590e646b59a29d941cb"
+    },
+    {
+      "path": "eval/eval_tasks/desaulniers2014/gpt-5.6-sol/log_large_5.jsonl",
+      "bytes": 132652,
+      "sha256": "3659b5070cda78063b42a6ff27ab3a0e3a1c1c6175c49cc33a6b54f21fbc481f"
+    },
+    {
+      "path": "eval/eval_tasks/fischetti1997/gpt-5.6-sol/log_large_1.jsonl",
+      "bytes": 951,
+      "sha256": "0e713dc502fa13ffd08ab4c52b8581ad196924dcaaf13561d4779bc674b15fe6"
+    },
+    {
+      "path": "eval/eval_tasks/fischetti1997/gpt-5.6-sol/log_large_2.jsonl",
+      "bytes": 951,
+      "sha256": "c75c803c11bd32857424c9a75864a376bc9bf3564c84dbdca6b4fe5ff4c9efd7"
+    },
+    {
+      "path": "eval/eval_tasks/fischetti1997/gpt-5.6-sol/log_large_3.jsonl",
+      "bytes": 7886,
+      "sha256": "26fda91baa3f8d21302b7f9a11bbec62c516d6665a9ebc68562ae089c6fabc52"
+    },
+    {
+      "path": "eval/eval_tasks/fischetti1997/gpt-5.6-sol/log_large_4.jsonl",
+      "bytes": 943,
+      "sha256": "f23c50c27ed7479c71c76999b9a990d7b4f744989e0ab8e7905e7c89e01a4fff"
+    },
+    {
+      "path": "eval/eval_tasks/fischetti1997/gpt-5.6-sol/log_large_5.jsonl",
+      "bytes": 931,
+      "sha256": "dd780fabf0cc55554d08860125c8dac478647881d018932c962e21903938fedb"
+    },
+    {
+      "path": "eval/eval_tasks/fragkos2021/gpt-5.6-sol/log_large_1.jsonl",
+      "bytes": 60265,
+      "sha256": "2bbe0af5ea714326601f5e8038d5cf499438a01389b840a629075f58eda2271c"
+    },
+    {
+      "path": "eval/eval_tasks/fragkos2021/gpt-5.6-sol/log_large_2.jsonl",
+      "bytes": 60264,
+      "sha256": "eeca53da89882c57b12ebc1c69d2b1ce21302bec1a18ebffa689e7728f56eedf"
+    },
+    {
+      "path": "eval/eval_tasks/fragkos2021/gpt-5.6-sol/log_large_3.jsonl",
+      "bytes": 60264,
+      "sha256": "45daf050f9c20b442637ea936ca5946f943abdf25ecedace347c65513f084c40"
+    },
+    {
+      "path": "eval/eval_tasks/fragkos2021/gpt-5.6-sol/log_large_4.jsonl",
+      "bytes": 60263,
+      "sha256": "3a98492d3569dbf8a725225016386b435d498efa941cca9e1b43c6dc5cb367f7"
+    },
+    {
+      "path": "eval/eval_tasks/fragkos2021/gpt-5.6-sol/log_large_5.jsonl",
+      "bytes": 60267,
+      "sha256": "4bb79d4d978d5988e67fc3a28f697cddc54ac18c8e88f8f5c23e1dfe31faccba"
+    },
+    {
+      "path": "eval/eval_tasks/furini2016/gpt-5.6-sol/log_large_1.jsonl",
+      "bytes": 98,
+      "sha256": "700f3de7c78e147f8c9f083b642464633b0c7ed658858657a63d4831d13555da"
+    },
+    {
+      "path": "eval/eval_tasks/furini2016/gpt-5.6-sol/log_large_2.jsonl",
+      "bytes": 98,
+      "sha256": "700f3de7c78e147f8c9f083b642464633b0c7ed658858657a63d4831d13555da"
+    },
+    {
+      "path": "eval/eval_tasks/furini2016/gpt-5.6-sol/log_large_3.jsonl",
+      "bytes": 98,
+      "sha256": "700f3de7c78e147f8c9f083b642464633b0c7ed658858657a63d4831d13555da"
+    },
+    {
+      "path": "eval/eval_tasks/furini2016/gpt-5.6-sol/log_large_4.jsonl",
+      "bytes": 98,
+      "sha256": "700f3de7c78e147f8c9f083b642464633b0c7ed658858657a63d4831d13555da"
+    },
+    {
+      "path": "eval/eval_tasks/furini2016/gpt-5.6-sol/log_large_5.jsonl",
+      "bytes": 98,
+      "sha256": "700f3de7c78e147f8c9f083b642464633b0c7ed658858657a63d4831d13555da"
+    },
+    {
+      "path": "eval/eval_tasks/guo2021/gpt-5.6-sol/log_large_1.jsonl",
+      "bytes": 3709,
+      "sha256": "0e7ce1388ef64eef713c302a7f84f9b83813146827b0bcac95261d450b209007"
+    },
+    {
+      "path": "eval/eval_tasks/guo2021/gpt-5.6-sol/log_large_2.jsonl",
+      "bytes": 3697,
+      "sha256": "44ee2006cc98412a98c9e2817e5795157f2d5350d41e8653f609de1f4f6a1ad8"
+    },
+    {
+      "path": "eval/eval_tasks/guo2021/gpt-5.6-sol/log_large_3.jsonl",
+      "bytes": 3745,
+      "sha256": "bd016ebed930c1149546d3906fec548d52b6c35dfbda0b7083786ffc25a9638d"
+    },
+    {
+      "path": "eval/eval_tasks/guo2021/gpt-5.6-sol/log_large_4.jsonl",
+      "bytes": 3721,
+      "sha256": "d1e3da615e81444ccbe29cbe3b11900fb6af3f08b041b6428b3d907b70d535bf"
+    },
+    {
+      "path": "eval/eval_tasks/guo2021/gpt-5.6-sol/log_large_5.jsonl",
+      "bytes": 3722,
+      "sha256": "3e1bf60390a9cc15318f9d9ba1ab2748d912dc419bffd5fbea2a1e235ace7331"
+    },
+    {
+      "path": "eval/eval_tasks/he2020/gpt-5.6-sol/log_large_1.jsonl",
+      "bytes": 1513,
+      "sha256": "519295c99de16568926a3b8557b88531d4ed4427788daa98a28c532a2dae17cf"
+    },
+    {
+      "path": "eval/eval_tasks/he2020/gpt-5.6-sol/log_large_2.jsonl",
+      "bytes": 20729,
+      "sha256": "656900099d00686c2c32dc2376487a585483611e1f78fdc19a9c72bd282c3bda"
+    },
+    {
+      "path": "eval/eval_tasks/he2020/gpt-5.6-sol/log_large_3.jsonl",
+      "bytes": 46743,
+      "sha256": "bd776359e28d0d62c40899339c53303425d9a95f73aacec67f320b2595bd0a1c"
+    },
+    {
+      "path": "eval/eval_tasks/he2020/gpt-5.6-sol/log_large_4.jsonl",
+      "bytes": 10572,
+      "sha256": "67a62142301ed497ca75247ea0a3c55b02dd172b2ea68822ae2644814d7a1caf"
+    },
+    {
+      "path": "eval/eval_tasks/he2020/gpt-5.6-sol/log_large_5.jsonl",
+      "bytes": 66835,
+      "sha256": "cea6b352a15368123a078c17365431c3e94015ba0ae582a7b3bb768ca2b5aa1e"
+    },
+    {
+      "path": "eval/eval_tasks/hosseinian2020/gpt-5.6-sol/log_large_1.jsonl",
+      "bytes": 222,
+      "sha256": "f278a362d1dede3b83b56ac7c0cfeffd338a6d9d77ae6ed2ba80d7289de74bb6"
+    },
+    {
+      "path": "eval/eval_tasks/hosseinian2020/gpt-5.6-sol/log_large_2.jsonl",
+      "bytes": 553,
+      "sha256": "de3a3081c355a37c88d4fadb71b53a681f09e299d7937de70d0818bb04a11fd3"
+    },
+    {
+      "path": "eval/eval_tasks/hosseinian2020/gpt-5.6-sol/log_large_3.jsonl",
+      "bytes": 519,
+      "sha256": "197106352750d06087bac74b31bb1fe8f0258f3e0c50e533dd55ab8b3b2ce992"
+    },
+    {
+      "path": "eval/eval_tasks/hosseinian2020/gpt-5.6-sol/log_large_4.jsonl",
+      "bytes": 2385,
+      "sha256": "11d16f4d1740e0b6bedcc07218cf962a8fef6b599bce88fb4b66c124b8ec112d"
+    },
+    {
+      "path": "eval/eval_tasks/hosseinian2020/gpt-5.6-sol/log_large_5.jsonl",
+      "bytes": 229,
+      "sha256": "aadf82168a01cd93aa222d50763ddaac5e225cb6595b90b9c5737a957b1a254a"
+    },
+    {
+      "path": "eval/eval_tasks/kobeaga2024/gpt-5.6-sol/log_large_1.jsonl",
+      "bytes": 32558,
+      "sha256": "4db71d96443971f7a4b128f62008005922f7ea8d620f9e64ba2082d6b7995753"
+    },
+    {
+      "path": "eval/eval_tasks/kobeaga2024/gpt-5.6-sol/log_large_2.jsonl",
+      "bytes": 10872,
+      "sha256": "09df435d102358a94dffa157c33a9d262cd6cc21008f0a7ed0957f1cf6660db5"
+    },
+    {
+      "path": "eval/eval_tasks/kobeaga2024/gpt-5.6-sol/log_large_3.jsonl",
+      "bytes": 6874,
+      "sha256": "352255b91fc304b87e1b39d666f8e6e677b7b340729601de247ce7b65a35653a"
+    },
+    {
+      "path": "eval/eval_tasks/kobeaga2024/gpt-5.6-sol/log_large_4.jsonl",
+      "bytes": 22120,
+      "sha256": "24e945d56a9690eda51f3f900eb02124133e69b9b73482e3c0077f29f6fbfa4b"
+    },
+    {
+      "path": "eval/eval_tasks/kobeaga2024/gpt-5.6-sol/log_large_5.jsonl",
+      "bytes": 1924,
+      "sha256": "055bd31cf5196f22a34242237e77a634291bfcb3118bd6fa993ec42a479e924f"
+    },
+    {
+      "path": "eval/eval_tasks/kreter2018/gpt-5.6-sol/log_large_1.jsonl",
+      "bytes": 139988,
+      "sha256": "335acbaee7511f4d750a5f0d2e67598d84465817ab39238978e16991160c2d8e"
+    },
+    {
+      "path": "eval/eval_tasks/kreter2018/gpt-5.6-sol/log_large_2.jsonl",
+      "bytes": 58863,
+      "sha256": "d89de0e065a49afff1d88829d96eaa4caf51a8472b6a5eab4fe656a9bdb78044"
+    },
+    {
+      "path": "eval/eval_tasks/kreter2018/gpt-5.6-sol/log_large_3.jsonl",
+      "bytes": 95040,
+      "sha256": "bc0e8eff1649aa9aad7a485a950d53691214fb7d8f19eda2e4bcc891806ea407"
+    },
+    {
+      "path": "eval/eval_tasks/kreter2018/gpt-5.6-sol/log_large_4.jsonl",
+      "bytes": 168697,
+      "sha256": "b49b815ac228748c8fbf9fd48e35490ed5aedcc829cc22054fcb2366c75be85c"
+    },
+    {
+      "path": "eval/eval_tasks/kreter2018/gpt-5.6-sol/log_large_5.jsonl",
+      "bytes": 47041,
+      "sha256": "4ba1cd8babeed2aa3bd7ac129408d4802aebd164ecbe589959638675a7c76b90"
+    },
+    {
+      "path": "eval/eval_tasks/lai2021/gpt-5.6-sol/log_large_1.jsonl",
+      "bytes": 389913,
+      "sha256": "ac6472dc1581044787be8ad94d92243c8fe15d73dfe913364bba8710d756e0d7"
+    },
+    {
+      "path": "eval/eval_tasks/lai2021/gpt-5.6-sol/log_large_2.jsonl",
+      "bytes": 402665,
+      "sha256": "c87a23c91aafa8a4e8a24c61ac71daeb50435b2bf94b8dfb9a219b850a233be4"
+    },
+    {
+      "path": "eval/eval_tasks/lai2021/gpt-5.6-sol/log_large_3.jsonl",
+      "bytes": 562556,
+      "sha256": "09ccbb38d5ddf7a4aae8231c3075cc59c74d2d3efd1d6fcb06a9f2b3fb1ed8f9"
+    },
+    {
+      "path": "eval/eval_tasks/lai2021/gpt-5.6-sol/log_large_4.jsonl",
+      "bytes": 454515,
+      "sha256": "bb7513ead4f50adde9619c62726ff7274040ea428e642cc77e4f0d54dca21dc9"
+    },
+    {
+      "path": "eval/eval_tasks/lai2021/gpt-5.6-sol/log_large_5.jsonl",
+      "bytes": 423570,
+      "sha256": "4549aa66cfa0270b8175f28fbc83b2fc1a8071057917445a3bdf08b571f6a8dd"
+    },
+    {
+      "path": "eval/eval_tasks/legrain2020/gpt-5.6-sol/log_large_1.jsonl",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "eval/eval_tasks/legrain2020/gpt-5.6-sol/log_large_2.jsonl",
+      "bytes": 13620239,
+      "sha256": "ace91b9125372fe1e9985b0a9cda98e12f3905296532dce5b6b8a0d3e3dd0a49"
+    },
+    {
+      "path": "eval/eval_tasks/legrain2020/gpt-5.6-sol/log_large_3.jsonl",
+      "bytes": 6789470,
+      "sha256": "5dd8fbf1b4893ef9e3886b23bf90d89db6210d643a7b84552639e09661178765"
+    },
+    {
+      "path": "eval/eval_tasks/legrain2020/gpt-5.6-sol/log_large_4.jsonl",
+      "bytes": 10710328,
+      "sha256": "a6af396dc8e0864f6047369e08b17f18693f814165a32dcb699c8c9b6a236c45"
+    },
+    {
+      "path": "eval/eval_tasks/legrain2020/gpt-5.6-sol/log_large_5.jsonl",
+      "bytes": 39528333,
+      "sha256": "dc1285e5e2ce6da104d6572ee098b611508134be732c5aecd78bbdfb2b4826e4"
+    },
+    {
+      "path": "eval/eval_tasks/letelier2022/gpt-5.6-sol/log_large_1.jsonl",
+      "bytes": 18751,
+      "sha256": "95443334037dc5d088e4577d1c73fcf42b6742a93d251c37328a34d1078d0f76"
+    },
+    {
+      "path": "eval/eval_tasks/letelier2022/gpt-5.6-sol/log_large_2.jsonl",
+      "bytes": 19652,
+      "sha256": "c74c714864e0ca557b1e4fe96ae0837c245520f778b1c1bfc5a6fc628e5ba72f"
+    },
+    {
+      "path": "eval/eval_tasks/letelier2022/gpt-5.6-sol/log_large_3.jsonl",
+      "bytes": 27503,
+      "sha256": "95a4fdba7604c609aa8d7f7fc3a7ce8b98393749ee63b3fbe842bc116f6e6587"
+    },
+    {
+      "path": "eval/eval_tasks/letelier2022/gpt-5.6-sol/log_large_4.jsonl",
+      "bytes": 26046,
+      "sha256": "ee1b8f83b63a64d96a5dfe9998c33e296f92c0351e00b071b810f9f39b313169"
+    },
+    {
+      "path": "eval/eval_tasks/letelier2022/gpt-5.6-sol/log_large_5.jsonl",
+      "bytes": 11205,
+      "sha256": "b57c4c7d70a4d503bc1bf96969de86db3001a23df1f0cbce3639238b9397d676"
+    },
+    {
+      "path": "eval/eval_tasks/martin-iradi2024/gpt-5.6-sol/log_large_1.jsonl",
+      "bytes": 4272472,
+      "sha256": "c68a9cc7df2153de6d292cf4cd761ef0590e2f2b634e78a522534765d941595f"
+    },
+    {
+      "path": "eval/eval_tasks/martin-iradi2024/gpt-5.6-sol/log_large_2.jsonl",
+      "bytes": 2067083,
+      "sha256": "84cce442ac3a0323cd6dfda43d22b7c5f8eebe94d6aaea6cc0542b4175b14daf"
+    },
+    {
+      "path": "eval/eval_tasks/martin-iradi2024/gpt-5.6-sol/log_large_3.jsonl",
+      "bytes": 3928010,
+      "sha256": "f2a90061c2c10cb1498dda51f10cbabe9993b60af1a99bb2e5e1369f4d36dbc2"
+    },
+    {
+      "path": "eval/eval_tasks/martin-iradi2024/gpt-5.6-sol/log_large_4.jsonl",
+      "bytes": 2946971,
+      "sha256": "789d5eecb9f1821dfa547d2a0bdd554b949c1fb1463b5d9b651f28f84bd90937"
+    },
+    {
+      "path": "eval/eval_tasks/martin-iradi2024/gpt-5.6-sol/log_large_5.jsonl",
+      "bytes": 3322665,
+      "sha256": "04294043832dd6668e9106172d7ec912af14006c34f57b8f4b053878f88ebe36"
+    },
+    {
+      "path": "eval/eval_tasks/pecin2017/gpt-5.6-sol/log_large_1.jsonl",
+      "bytes": 23185,
+      "sha256": "710a42a7879c977f9ab56d43cdddae20e45bc26fed9a5f0a9ba503d05f296b98"
+    },
+    {
+      "path": "eval/eval_tasks/pecin2017/gpt-5.6-sol/log_large_2.jsonl",
+      "bytes": 39001,
+      "sha256": "fee150dd1d46bf2ef5782e891bf7f9ab4e82c5a1dda21d545c422dcbd3fad9b0"
+    },
+    {
+      "path": "eval/eval_tasks/pecin2017/gpt-5.6-sol/log_large_3.jsonl",
+      "bytes": 70518,
+      "sha256": "fe9fff73e1559e888faf5b7b1b23c63c9b4ce4bf31e55c7591a03524b2342103"
+    },
+    {
+      "path": "eval/eval_tasks/pecin2017/gpt-5.6-sol/log_large_4.jsonl",
+      "bytes": 28320,
+      "sha256": "031c7f02995070b54d1156f445923dd5315395f2abd1a9d85f0401f345a62671"
+    },
+    {
+      "path": "eval/eval_tasks/pecin2017/gpt-5.6-sol/log_large_5.jsonl",
+      "bytes": 33317,
+      "sha256": "c4fa75e405ef2cf17fbdbef7f4df3262d50d99a19ce57f86b8b0e6149465a4b7"
+    },
+    {
+      "path": "eval/eval_tasks/reinhardt2016/gpt-5.6-sol/log_large_1.jsonl",
+      "bytes": 49607,
+      "sha256": "a68f31d9724f0898c5928e3c1e16184d1fb589a2b6ad58f6dccd4d395724f60c"
+    },
+    {
+      "path": "eval/eval_tasks/reinhardt2016/gpt-5.6-sol/log_large_2.jsonl",
+      "bytes": 25500,
+      "sha256": "59b6034129ff427429bfd778c21199b71fa05f29f8a608fbe68565f239d2b858"
+    },
+    {
+      "path": "eval/eval_tasks/reinhardt2016/gpt-5.6-sol/log_large_3.jsonl",
+      "bytes": 83831,
+      "sha256": "6d1143ee3c979e888ffd57190f7fc288ab53f5ee5b5aed0b009c32290ce4ce9e"
+    },
+    {
+      "path": "eval/eval_tasks/reinhardt2016/gpt-5.6-sol/log_large_4.jsonl",
+      "bytes": 72569,
+      "sha256": "8b04c74014c8afefff6de29fd05446724d9f39125ce8992a7693145c09898ffa"
+    },
+    {
+      "path": "eval/eval_tasks/reinhardt2016/gpt-5.6-sol/log_large_5.jsonl",
+      "bytes": 18774,
+      "sha256": "3df59e8e7279b9090ed10009b763c22f59cd7860597d98361de55bd080447dcd"
+    },
+    {
+      "path": "eval/eval_tasks/roberti2018/gpt-5.6-sol/log_large_1.jsonl",
+      "bytes": 1488,
+      "sha256": "0d52251fb811ad336b6c1038170512b57cdb57e05eb3f048e71e98e351b2880b"
+    },
+    {
+      "path": "eval/eval_tasks/roberti2018/gpt-5.6-sol/log_large_2.jsonl",
+      "bytes": 1623,
+      "sha256": "7ce96a3ff4366eefc7c83a4aff92c97c7fb86dbf34fd12ca4117c6c53f27bf42"
+    },
+    {
+      "path": "eval/eval_tasks/roberti2018/gpt-5.6-sol/log_large_3.jsonl",
+      "bytes": 1457,
+      "sha256": "ac0de92ebe6be6b77d5f6249c31492a8f6104950e92b13afd2a8f002d471a1f1"
+    },
+    {
+      "path": "eval/eval_tasks/roberti2018/gpt-5.6-sol/log_large_4.jsonl",
+      "bytes": 1493,
+      "sha256": "d49d19d0069a650e359fd7d05af3f10574601b93d2dbefe97fda9f8fe80ba1e9"
+    },
+    {
+      "path": "eval/eval_tasks/roberti2018/gpt-5.6-sol/log_large_5.jsonl",
+      "bytes": 2722,
+      "sha256": "b052bb4d2f5709fa7f11e4cf651348eeed411b204de15703de65b6be8ce796ef"
+    },
+    {
+      "path": "eval/eval_tasks/sadykov2013/gpt-5.6-sol/log_large_1.jsonl",
+      "bytes": 11770,
+      "sha256": "06747452465cd944b430059c1d59a40e1f7db537b6a774a092832d42b4d515cb"
+    },
+    {
+      "path": "eval/eval_tasks/sadykov2013/gpt-5.6-sol/log_large_2.jsonl",
+      "bytes": 7058,
+      "sha256": "361885bda32595206296c5f603897b754ec02d5f5d4ef6f7d7aecf0630b1eefa"
+    },
+    {
+      "path": "eval/eval_tasks/sadykov2013/gpt-5.6-sol/log_large_3.jsonl",
+      "bytes": 7175,
+      "sha256": "2f73037ef9042b647caf3fe9fc53ea6521cf101743876f5ae534e492d428f6b9"
+    },
+    {
+      "path": "eval/eval_tasks/sadykov2013/gpt-5.6-sol/log_large_4.jsonl",
+      "bytes": 9332,
+      "sha256": "57b62e9d094bca4e8b5bec7c93a2f62a8c2c6cc8690fe8d95016d35ab990e952"
+    },
+    {
+      "path": "eval/eval_tasks/sadykov2013/gpt-5.6-sol/log_large_5.jsonl",
+      "bytes": 15107,
+      "sha256": "8eed56002d4e21610a6611dd3e812ce7d1861a4c77892bf53a521d67fea19886"
+    },
+    {
+      "path": "eval/eval_tasks/segundo2019/gpt-5.6-sol/log_large_1.jsonl",
+      "bytes": 119,
+      "sha256": "8c28b7ae2ab61f61a567860c9c33645c7a6efad79c17c7678551c929fff0be83"
+    },
+    {
+      "path": "eval/eval_tasks/segundo2019/gpt-5.6-sol/log_large_2.jsonl",
+      "bytes": 121,
+      "sha256": "5a35ae2216eb44bdbd933b9584fd1aad398fd1d4a0be946277051c583b413f96"
+    },
+    {
+      "path": "eval/eval_tasks/segundo2019/gpt-5.6-sol/log_large_5.jsonl",
+      "bytes": 121,
+      "sha256": "1a467660372b0de4485a9b735b1468837c8c16c26c32a1e66a1cf8025ce68c37"
+    },
+    {
+      "path": "eval/eval_tasks/spliet2015/gpt-5.6-sol/log_large_1.jsonl",
+      "bytes": 134164,
+      "sha256": "aeed7b6ed1e732b206925ed9ed507ae59c7851a5a2784c26a2c4af23a20dab08"
+    },
+    {
+      "path": "eval/eval_tasks/spliet2015/gpt-5.6-sol/log_large_2.jsonl",
+      "bytes": 57873,
+      "sha256": "a4dff4255209d936b984b4fe625e9f903e321def69bdcfaa358343c4c150fd7f"
+    },
+    {
+      "path": "eval/eval_tasks/spliet2015/gpt-5.6-sol/log_large_3.jsonl",
+      "bytes": 129958,
+      "sha256": "865d8f9e1b57cda6c3ba1e59e3c188309fd460fbb19b1e19adcd83a4ba8ab364"
+    },
+    {
+      "path": "eval/eval_tasks/spliet2015/gpt-5.6-sol/log_large_4.jsonl",
+      "bytes": 177513,
+      "sha256": "b6adcb4ac4ca14627ec34fbc759fc4b0d7c4525b675b1da31ffd30aafa58ee4e"
+    },
+    {
+      "path": "eval/eval_tasks/spliet2015/gpt-5.6-sol/log_large_5.jsonl",
+      "bytes": 138852,
+      "sha256": "2898965386db6203255ae3bdc9e32783feeb33b057e52ad6cc7b8ad704763cf6"
+    },
+    {
+      "path": "eval/eval_tasks/wang2019/gpt-5.6-sol/log_large_1.jsonl",
+      "bytes": 289071596,
+      "sha256": "4aba535e6519df10496ba3025e06a133979e3a5badd74502c03f41ef8c3d11f0"
+    },
+    {
+      "path": "eval/eval_tasks/wang2019/gpt-5.6-sol/log_large_2.jsonl",
+      "bytes": 333059348,
+      "sha256": "2955d542885eda4328092ab852b2193fdf6110ebb4f9557338708209a91dc481"
+    },
+    {
+      "path": "eval/eval_tasks/wang2019/gpt-5.6-sol/log_large_3.jsonl",
+      "bytes": 339337999,
+      "sha256": "c0f86bec745f60c62b130a3fe2d6544cccba839cf8d8babb5ce512a6b5c8aadc"
+    },
+    {
+      "path": "eval/eval_tasks/wang2019/gpt-5.6-sol/log_large_4.jsonl",
+      "bytes": 383338164,
+      "sha256": "6df9581b46661fd3fb161299b76404fe93ee9c0dbe1cf9aaa874db03a469dda4"
+    },
+    {
+      "path": "eval/eval_tasks/wang2019/gpt-5.6-sol/log_large_5.jsonl",
+      "bytes": 383327193,
+      "sha256": "59fa3f996b950166100f4ed0cd29c35bfae07c9e41174f3750881ec1da3cd1cd"
+    },
+    {
+      "path": "eval/eval_tasks/watermeyer2020/gpt-5.6-sol/log_large_1.jsonl",
+      "bytes": 28587,
+      "sha256": "dd18dcbd2ee3c3fc98cf023bf15c25208566839548b142cf647851c569ca91a0"
+    },
+    {
+      "path": "eval/eval_tasks/watermeyer2020/gpt-5.6-sol/log_large_2.jsonl",
+      "bytes": 4921,
+      "sha256": "01dd52385a50dd85cf6ef8ae6b2d2ca848991cc15d9b069da478cfc31dfd72dc"
+    },
+    {
+      "path": "eval/eval_tasks/watermeyer2020/gpt-5.6-sol/log_large_3.jsonl",
+      "bytes": 2442,
+      "sha256": "a651c945b344dc64c53c8e2e97670a5e1e2934c736a3e55309d8d3c8ad31d4a0"
+    },
+    {
+      "path": "eval/eval_tasks/watermeyer2020/gpt-5.6-sol/log_large_4.jsonl",
+      "bytes": 65405,
+      "sha256": "d0b9dcb01907a8aa39d8e3c4a7de97e661630540cad76c27b1a2b0230ee7f4f5"
+    },
+    {
+      "path": "eval/eval_tasks/watermeyer2020/gpt-5.6-sol/log_large_5.jsonl",
+      "bytes": 9456,
+      "sha256": "cc493abcceac42891e0c4c1773c9b00f68f752119bf1778da2f808cb8b769437"
+    },
+    {
+      "path": "eval/eval_tasks/wei2020/gpt-5.6-sol/log_large_1.jsonl",
+      "bytes": 6336,
+      "sha256": "49d8a61f84f4f8a06b6a172e3532d9cf5fb5ffc2fd42b9d299ea29fdba33a3cc"
+    },
+    {
+      "path": "eval/eval_tasks/wei2020/gpt-5.6-sol/log_large_2.jsonl",
+      "bytes": 5842,
+      "sha256": "1cae6dcefcbb1f3d2f4b01fb0349443f5d89c3858ee922d0fa6bb9b4ef068d5a"
+    },
+    {
+      "path": "eval/eval_tasks/wei2020/gpt-5.6-sol/log_large_3.jsonl",
+      "bytes": 5492,
+      "sha256": "c860294d086f7cde993df4c71bf982cd12af5165b44744de8d580062631ebddc"
+    },
+    {
+      "path": "eval/eval_tasks/wei2020/gpt-5.6-sol/log_large_4.jsonl",
+      "bytes": 17243,
+      "sha256": "59fc79343a5922a837ba5ea39b0f7ec1cfc9cc6785ef4dee4b59893a9a28310c"
+    },
+    {
+      "path": "eval/eval_tasks/wei2020/gpt-5.6-sol/log_large_5.jsonl",
+      "bytes": 6004,
+      "sha256": "dacf524274959ececbaf8a4280bceecfe29f3c0b98f934dd544c7bb86ade7113"
+    },
+    {
+      "path": "eval/eval_tasks/wu2018/gpt-5.6-sol/log_large_1.jsonl",
+      "bytes": 37526676,
+      "sha256": "0113db2de88d257ba7544847e618c7a1ed9fb8f7a1b4d3bcf4e71f43ba983dee"
+    },
+    {
+      "path": "eval/eval_tasks/wu2018/gpt-5.6-sol/log_large_2.jsonl",
+      "bytes": 30287677,
+      "sha256": "8670b3b37251cf530dc528ac139f9fa6f44fddcfc1410f11f5243ccf7edcf6f9"
+    },
+    {
+      "path": "eval/eval_tasks/wu2018/gpt-5.6-sol/log_large_3.jsonl",
+      "bytes": 18451611,
+      "sha256": "0ef71c18804eb584fc390571e84fcde7e7ae12d5b688b5119494aabbbb478e17"
+    },
+    {
+      "path": "eval/eval_tasks/wu2018/gpt-5.6-sol/log_large_4.jsonl",
+      "bytes": 24475410,
+      "sha256": "0b87140ea3fd23bd46c53d41f3c70df545733e16e7d7b8916f96c89db6d8075b"
+    },
+    {
+      "path": "eval/eval_tasks/wu2018/gpt-5.6-sol/log_large_5.jsonl",
+      "bytes": 23550898,
+      "sha256": "ff29f092aeb2b930e6644e05d4847c4654e2bdb7fd30cc26a8b6d9dc15870d0f"
+    },
+    {
+      "path": "eval/eval_tasks/zetina2019/gpt-5.6-sol/log_large_1.jsonl",
+      "bytes": 151780,
+      "sha256": "cdb73a6671f81cb5de600da60571debedb181f7368d66106246e859d04d08df4"
+    },
+    {
+      "path": "eval/eval_tasks/zetina2019/gpt-5.6-sol/log_large_2.jsonl",
+      "bytes": 148348,
+      "sha256": "2a8465efdbf85100369225cf3c2409403126411d3efb6763d2f9622a1a7b8f95"
+    },
+    {
+      "path": "eval/eval_tasks/zetina2019/gpt-5.6-sol/log_large_3.jsonl",
+      "bytes": 48103,
+      "sha256": "740a09ae3fc200a53e388ecf1b442b218d546736be1f8db0c01f39c6d13158c4"
+    },
+    {
+      "path": "eval/eval_tasks/zetina2019/gpt-5.6-sol/log_large_4.jsonl",
+      "bytes": 138775,
+      "sha256": "b0af3657c237e4406bc826440da6cf598db283da93f87896ec2b4bf39f44360e"
+    },
+    {
+      "path": "eval/eval_tasks/zetina2019/gpt-5.6-sol/log_large_5.jsonl",
+      "bytes": 44861,
+      "sha256": "809befce2cb95c942b95a604e60ff5b350828af289f06984abb62278076c8eff"
+    },
+    {
+      "path": "eval/eval_tasks/zohali2022/gpt-5.6-sol/log_large_1.jsonl",
+      "bytes": 10030,
+      "sha256": "9ead6cf75132034a10cc7389e7eb449b8a00920bac8ef63b5b136dc4918925b2"
+    },
+    {
+      "path": "eval/eval_tasks/zohali2022/gpt-5.6-sol/log_large_2.jsonl",
+      "bytes": 10038,
+      "sha256": "f355be4d9ef1d278931c7880c00d5e9f62e2065734769d3c8155ed03073c4a19"
+    },
+    {
+      "path": "eval/eval_tasks/zohali2022/gpt-5.6-sol/log_large_3.jsonl",
+      "bytes": 11698,
+      "sha256": "69dbad74c6f53a5701c5aec38234fe9d479ba4c72e6369630c0ff6032183c445"
+    },
+    {
+      "path": "eval/eval_tasks/zohali2022/gpt-5.6-sol/log_large_4.jsonl",
+      "bytes": 10029,
+      "sha256": "381496354b05b10e9b9ce4c24168442d523e5e3ad14cf5c0785445b689d65a8d"
+    },
+    {
+      "path": "eval/eval_tasks/zohali2022/gpt-5.6-sol/log_large_5.jsonl",
+      "bytes": 13377,
+      "sha256": "b81ef344c1ec0736fd5cc8873c0235da919a4df54d87a5b2ec50fca28555afa8"
+    }
+  ]
+}

@@ -1,0 +1,295 @@
+{
+  "objective_value": 121892.0,
+  "selected_trips": [
+    74,
+    78,
+    82,
+    86,
+    90,
+    94,
+    98,
+    102,
+    106,
+    110,
+    114,
+    118,
+    122,
+    126,
+    130,
+    134,
+    138,
+    142,
+    146,
+    284,
+    288,
+    292,
+    296,
+    300,
+    304,
+    308,
+    312,
+    316,
+    320,
+    324,
+    328,
+    332,
+    336,
+    340,
+    344,
+    348,
+    352,
+    356
+  ],
+  "num_vehicles": 6,
+  "tt_arcs_used": {
+    "AB": [
+      [
+        "source_AB",
+        "74"
+      ],
+      [
+        "74",
+        "78"
+      ],
+      [
+        "78",
+        "82"
+      ],
+      [
+        "82",
+        "86"
+      ],
+      [
+        "86",
+        "90"
+      ],
+      [
+        "90",
+        "94"
+      ],
+      [
+        "94",
+        "98"
+      ],
+      [
+        "98",
+        "102"
+      ],
+      [
+        "102",
+        "106"
+      ],
+      [
+        "106",
+        "110"
+      ],
+      [
+        "110",
+        "114"
+      ],
+      [
+        "114",
+        "118"
+      ],
+      [
+        "118",
+        "122"
+      ],
+      [
+        "122",
+        "126"
+      ],
+      [
+        "126",
+        "130"
+      ],
+      [
+        "130",
+        "134"
+      ],
+      [
+        "134",
+        "138"
+      ],
+      [
+        "138",
+        "142"
+      ],
+      [
+        "142",
+        "146"
+      ],
+      [
+        "146",
+        "sink_AB"
+      ]
+    ],
+    "BA": [
+      [
+        "source_BA",
+        "284"
+      ],
+      [
+        "284",
+        "288"
+      ],
+      [
+        "288",
+        "292"
+      ],
+      [
+        "292",
+        "296"
+      ],
+      [
+        "296",
+        "300"
+      ],
+      [
+        "300",
+        "304"
+      ],
+      [
+        "304",
+        "308"
+      ],
+      [
+        "308",
+        "312"
+      ],
+      [
+        "312",
+        "316"
+      ],
+      [
+        "316",
+        "320"
+      ],
+      [
+        "320",
+        "324"
+      ],
+      [
+        "324",
+        "328"
+      ],
+      [
+        "328",
+        "332"
+      ],
+      [
+        "332",
+        "336"
+      ],
+      [
+        "336",
+        "340"
+      ],
+      [
+        "340",
+        "344"
+      ],
+      [
+        "344",
+        "348"
+      ],
+      [
+        "348",
+        "352"
+      ],
+      [
+        "352",
+        "356"
+      ],
+      [
+        "356",
+        "sink_BA"
+      ]
+    ]
+  },
+  "vs_flows": {
+    "trip_74_in-->trip_74_out": 1,
+    "depot_out-->trip_74_in": 1,
+    "trip_78_in-->trip_78_out": 1,
+    "depot_out-->trip_78_in": 1,
+    "trip_82_in-->trip_82_out": 1,
+    "trip_86_in-->trip_86_out": 1,
+    "depot_out-->trip_86_in": 1,
+    "trip_90_in-->trip_90_out": 1,
+    "trip_94_in-->trip_94_out": 1,
+    "trip_98_in-->trip_98_out": 1,
+    "trip_102_in-->trip_102_out": 1,
+    "trip_106_in-->trip_106_out": 1,
+    "trip_110_in-->trip_110_out": 1,
+    "trip_114_in-->trip_114_out": 1,
+    "trip_118_in-->trip_118_out": 1,
+    "trip_122_in-->trip_122_out": 1,
+    "trip_126_in-->trip_126_out": 1,
+    "trip_130_in-->trip_130_out": 1,
+    "trip_134_in-->trip_134_out": 1,
+    "trip_138_in-->trip_138_out": 1,
+    "trip_138_out-->depot_in": 1,
+    "trip_142_in-->trip_142_out": 1,
+    "trip_142_out-->depot_in": 1,
+    "trip_146_in-->trip_146_out": 1,
+    "trip_146_out-->depot_in": 1,
+    "trip_284_in-->trip_284_out": 1,
+    "depot_out-->trip_284_in": 1,
+    "trip_288_in-->trip_288_out": 1,
+    "depot_out-->trip_288_in": 1,
+    "trip_292_in-->trip_292_out": 1,
+    "trip_296_in-->trip_296_out": 1,
+    "depot_out-->trip_296_in": 1,
+    "trip_300_in-->trip_300_out": 1,
+    "trip_304_in-->trip_304_out": 1,
+    "trip_308_in-->trip_308_out": 1,
+    "trip_312_in-->trip_312_out": 1,
+    "trip_316_in-->trip_316_out": 1,
+    "trip_320_in-->trip_320_out": 1,
+    "trip_324_in-->trip_324_out": 1,
+    "trip_328_in-->trip_328_out": 1,
+    "trip_332_in-->trip_332_out": 1,
+    "trip_336_in-->trip_336_out": 1,
+    "trip_340_in-->trip_340_out": 1,
+    "trip_344_in-->trip_344_out": 1,
+    "trip_348_in-->trip_348_out": 1,
+    "trip_348_out-->depot_in": 1,
+    "trip_352_in-->trip_352_out": 1,
+    "trip_352_out-->depot_in": 1,
+    "trip_356_in-->trip_356_out": 1,
+    "trip_356_out-->depot_in": 1,
+    "trip_74_out-->trip_292_in": 1,
+    "trip_78_out-->trip_90_in": 1,
+    "trip_82_out-->trip_94_in": 1,
+    "trip_86_out-->trip_98_in": 1,
+    "trip_90_out-->trip_102_in": 1,
+    "trip_94_out-->trip_106_in": 1,
+    "trip_98_out-->trip_110_in": 1,
+    "trip_102_out-->trip_114_in": 1,
+    "trip_106_out-->trip_118_in": 1,
+    "trip_110_out-->trip_122_in": 1,
+    "trip_114_out-->trip_126_in": 1,
+    "trip_118_out-->trip_130_in": 1,
+    "trip_122_out-->trip_134_in": 1,
+    "trip_126_out-->trip_138_in": 1,
+    "trip_130_out-->trip_142_in": 1,
+    "trip_134_out-->trip_146_in": 1,
+    "trip_284_out-->trip_82_in": 1,
+    "trip_288_out-->trip_300_in": 1,
+    "trip_292_out-->trip_304_in": 1,
+    "trip_296_out-->trip_308_in": 1,
+    "trip_300_out-->trip_312_in": 1,
+    "trip_304_out-->trip_316_in": 1,
+    "trip_308_out-->trip_320_in": 1,
+    "trip_312_out-->trip_324_in": 1,
+    "trip_316_out-->trip_328_in": 1,
+    "trip_320_out-->trip_332_in": 1,
+    "trip_324_out-->trip_336_in": 1,
+    "trip_328_out-->trip_340_in": 1,
+    "trip_332_out-->trip_344_in": 1,
+    "trip_336_out-->trip_348_in": 1,
+    "trip_340_out-->trip_352_in": 1,
+    "trip_344_out-->trip_356_in": 1,
+    "depot_in-->depot_out": 6
+  }
+}

@@ -1,0 +1,1744 @@
+Results CSV: per-model auto-routing
+  gpt-5.6-sol               -> eval/eval_results_gpt56sol.csv
+Models: ['openai/gpt-5.6-sol']
+Papers: ['segundo2019', 'furini2016', 'guo2021', 'rothenbacher2018', 'nagy2015', 'ropke2009', 'armbruster2012', 'watermeyer2020', 'zohali2022', 'wei2020', 'legrain2020', 'roshanaei2017', 'adulyasak2015', 'desaulniers2010', 'borndorfer2007', 'zetina2019', 'reinhardt2016', 'kreter2018', 'hewitt2024', 'alfieri2020', 'wang2019', 'hosseinian2020', 'vidal2011', 'pecin2017', 'sadykov2013', 'desaulniers2016', 'eiselt2009', 'he2020', 'carvalho2022', 'letelier2022', 'carosi2019', 'bayani2024', 'ozturk2020', 'cunha2021', 'lai2021', 'desaulniers2014', 'reihaneh2019', 'fischetti1997', 'martin-iradi2024', 'boland2019', 'roberti2018', 'kobeaga2024', 'bierwirth2017', 'bard2002', 'fragkos2021', 'delage2022', 'wu2018', 'spliet2015', 'fragkos2016', 'amaldi2013']
+Instances: ['tiny']
+Data dir: /scratch/chonghej/LLM4OR/FrontierOR-run/frontier-or
+GRB_LICENSE_FILE: /home/chonghej/gurobi.lic
+Max correct retries: 0, Max debug retries: 5, Time limit: tiny=300s, Paper workers: 10, Model workers: 2, Instance workers: 20
+Exec: systemd (mem=640G), T_max: gurobi
+Mode: REUSE-CODE=incomplete (reuse code.py on disk; fresh init-gen where missing; skip (paper, instance) pairs already in eval_results.csv)
+
+[task-pool] dispatching 50 (paper, model) tasks across 20 worker(s) (paper_workers × model_workers = 10 × 2)
+
+================================================================================
+PAPER: segundo2019  |  MODEL: openai/gpt-5.6-sol (gpt-5.6-sol)
+================================================================================
+
+
+================================================================================
+  [reuse] no code.py for segundo2019/gpt-5.6-sol — falling back to fresh init-genPAPER: furini2016  |  MODEL: openai/gpt-5.6-sol (gpt-5.6-sol)
+================================================================================
+
+
+================================================================================
+
+  [init-gen 1/6] Calling LLM to generate code_v0...
+
+================================================================================PAPER: guo2021  |  MODEL: openai/gpt-5.6-sol (gpt-5.6-sol)
+PAPER: nagy2015  |  MODEL: openai/gpt-5.6-sol (gpt-5.6-sol)
+================================================================================
+
+
+
+================================================================================
+
+================================================================================
+
+PAPER: ropke2009  |  MODEL: openai/gpt-5.6-sol (gpt-5.6-sol)
+
+================================================================================
+PAPER: watermeyer2020  |  MODEL: openai/gpt-5.6-sol (gpt-5.6-sol)
+================================================================================
+================================================================================
+
+
+
+================================================================================
+PAPER: armbruster2012  |  MODEL: openai/gpt-5.6-sol (gpt-5.6-sol)
+================================================================================
+
+  [reuse] no code.py for nagy2015/gpt-5.6-sol — falling back to fresh init-gen
+
+================================================================================
+================================================================================
+PAPER: rothenbacher2018  |  MODEL: openai/gpt-5.6-sol (gpt-5.6-sol)
+  [init-gen 1/6] Calling LLM to generate code_v0...
+
+================================================================================
+PAPER: zohali2022  |  MODEL: openai/gpt-5.6-sol (gpt-5.6-sol)
+  [reuse] no code.py for guo2021/gpt-5.6-sol — falling back to fresh init-gen  [reuse] no code.py for furini2016/gpt-5.6-sol — falling back to fresh init-gen
+
+  [init-gen 1/6] Calling LLM to generate code_v0...
+
+================================================================================
+PAPER: legrain2020  |  MODEL: openai/gpt-5.6-sol (gpt-5.6-sol)
+
+================================================================================
+
+  [reuse] no code.py for armbruster2012/gpt-5.6-sol — falling back to fresh init-gen================================================================================
+
+================================================================================
+
+  [reuse] no code.py for watermeyer2020/gpt-5.6-sol — falling back to fresh init-gen
+
+  [init-gen 1/6] Calling LLM to generate code_v0...
+
+
+
+  [init-gen 1/6] Calling LLM to generate code_v0...
+
+================================================================================
+PAPER: roshanaei2017  |  MODEL: openai/gpt-5.6-sol (gpt-5.6-sol)
+
+  [init-gen 1/6] Calling LLM to generate code_v0...
+  [reuse] no code.py for ropke2009/gpt-5.6-sol — falling back to fresh init-gen
+  [reuse] no code.py for rothenbacher2018/gpt-5.6-sol — falling back to fresh init-gen
+
+  [init-gen 1/6] Calling LLM to generate code_v0...
+================================================================================  [reuse] no code.py for legrain2020/gpt-5.6-sol — falling back to fresh init-gen
+
+PAPER: wei2020  |  MODEL: openai/gpt-5.6-sol (gpt-5.6-sol)
+================================================================================
+================================================================================
+
+
+  [init-gen 1/6] Calling LLM to generate code_v0...
+
+
+
+  [init-gen 1/6] Calling LLM to generate code_v0...
+  [reuse] no code.py for zohali2022/gpt-5.6-sol — falling back to fresh init-gen
+
+================================================================================
+PAPER: desaulniers2010  |  MODEL: openai/gpt-5.6-sol (gpt-5.6-sol)
+================================================================================
+
+PAPER: adulyasak2015  |  MODEL: openai/gpt-5.6-sol (gpt-5.6-sol)
+================================================================================
+
+
+  [init-gen 1/6] Calling LLM to generate code_v0...
+
+
+================================================================================
+PAPER: borndorfer2007  |  MODEL: openai/gpt-5.6-sol (gpt-5.6-sol)
+================================================================================
+
+  [reuse] no code.py for roshanaei2017/gpt-5.6-sol — falling back to fresh init-gen
+
+  [init-gen 1/6] Calling LLM to generate code_v0...
+
+================================================================================
+================================================================================
+PAPER: zetina2019  |  MODEL: openai/gpt-5.6-sol (gpt-5.6-sol)
+  [reuse] no code.py for wei2020/gpt-5.6-sol — falling back to fresh init-gen
+
+  [init-gen 1/6] Calling LLM to generate code_v0...
+================================================================================
+
+
+PAPER: reinhardt2016  |  MODEL: openai/gpt-5.6-sol (gpt-5.6-sol)
+================================================================================
+  [reuse] no code.py for borndorfer2007/gpt-5.6-sol — falling back to fresh init-gen
+
+  [init-gen 1/6] Calling LLM to generate code_v0...
+
+  [reuse] no code.py for desaulniers2010/gpt-5.6-sol — falling back to fresh init-gen
+
+================================================================================  [reuse] no code.py for zetina2019/gpt-5.6-sol — falling back to fresh init-gen
+
+  [init-gen 1/6] Calling LLM to generate code_v0...
+  [reuse] no code.py for adulyasak2015/gpt-5.6-sol — falling back to fresh init-gen  [reuse] no code.py for reinhardt2016/gpt-5.6-sol — falling back to fresh init-gen
+
+  [init-gen 1/6] Calling LLM to generate code_v0...
+
+PAPER: kreter2018  |  MODEL: openai/gpt-5.6-sol (gpt-5.6-sol)
+
+  [init-gen 1/6] Calling LLM to generate code_v0...
+
+  [init-gen 1/6] Calling LLM to generate code_v0...
+
+================================================================================
+
+
+================================================================================
+PAPER: hewitt2024  |  MODEL: openai/gpt-5.6-sol (gpt-5.6-sol)
+================================================================================
+
+  [reuse] no code.py for hewitt2024/gpt-5.6-sol — falling back to fresh init-gen
+
+  [init-gen 1/6] Calling LLM to generate code_v0...
+================================================================================  [reuse] no code.py for kreter2018/gpt-5.6-sol — falling back to fresh init-gen
+
+  [init-gen 1/6] Calling LLM to generate code_v0...
+
+
+PAPER: alfieri2020  |  MODEL: openai/gpt-5.6-sol (gpt-5.6-sol)
+================================================================================
+
+  [reuse] no code.py for alfieri2020/gpt-5.6-sol — falling back to fresh init-gen
+
+  [init-gen 1/6] Calling LLM to generate code_v0...
+  [init-gen] code_v0 saved to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_tasks/zetina2019/gpt-5.6-sol/code.py
+
+  --- Running code_v0 on instances ['tiny'] for first_results ---
+  Instance tiny: PASS (LLM=10477.0, gap=0.00%, time=1.72s, feasible=True)
+
+  --- Phase 0: Self-debug for runtime_error (budget=5 remaining of 5, already used=0) ---
+
+  --- Phase 1: Tiny-instance gate (instance tiny, gap<=10%) ---
+
+  --- Phase 1: gate PASSED (tiny gap=0.0) ---
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+
+  All correction-triggering failures resolved.
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    API cost written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/one_shot_api_cost.csv
+
+================================================================================
+EVALUATION SUMMARY
+================================================================================
+Instance     Status   Retries   LLM Obj            Gurobi Obj         Error
+--------------------------------------------------------------------------------
+  tiny       pass     0         10477.0000         10477.0000         
+--------------------------------------------------------------------------------
+Total: 1  |  Pass: 1  |  Fail: 0  |  Skip: 0
+================================================================================
+
+================================================================================
+PAPER: wang2019  |  MODEL: openai/gpt-5.6-sol (gpt-5.6-sol)
+================================================================================
+
+  [reuse] no code.py for wang2019/gpt-5.6-sol — falling back to fresh init-gen
+
+  [init-gen 1/6] Calling LLM to generate code_v0...
+  [init-gen] code_v0 saved to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_tasks/hewitt2024/gpt-5.6-sol/code.py
+
+  --- Running code_v0 on instances ['tiny'] for first_results ---
+  Instance tiny: FAIL infeasible (LLM=3963357.250996695, gap=0.00%)
+
+  --- Phase 0: Self-debug for runtime_error (budget=5 remaining of 5, already used=0) ---
+
+  --- Phase 1: Tiny-instance gate (instance tiny, gap<=10%) ---
+
+  *** Tiny-instance gate FAILED for instance tiny after 0 LLM correction(s) (debug=0, phase1=0). Skipping instances []. ***
+
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    API cost written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/one_shot_api_cost.csv
+
+================================================================================
+EVALUATION SUMMARY
+================================================================================
+Instance     Status   Retries   LLM Obj            Gurobi Obj         Error
+--------------------------------------------------------------------------------
+  tiny       fail     0         3963357.2510       3963357.2510       Solution is INFEASIBLE Viol...
+--------------------------------------------------------------------------------
+Total: 1  |  Pass: 0  |  Fail: 1  |  Skip: 0
+================================================================================
+
+ERROR DETAILS
+--------------------------------------------------------------------------------
+  Instance tiny:
+Solution is INFEASIBLE Violations: Product 0, dist 1, scenario 0: z=0.000000 != sum(Y*x)=7480.666350; Product 0, dist 1, scenario 1: z=0.000000 != sum(Y*x)=6204.471300; Product 0, dist 1, scenario 2: z=0.000000 != sum(Y*x)=4118.433750;
+
+
+================================================================================
+PAPER: hosseinian2020  |  MODEL: openai/gpt-5.6-sol (gpt-5.6-sol)
+================================================================================
+
+  [reuse] no code.py for hosseinian2020/gpt-5.6-sol — falling back to fresh init-gen
+
+  [init-gen 1/6] Calling LLM to generate code_v0...
+  [init-gen] code_v0 saved to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_tasks/legrain2020/gpt-5.6-sol/code.py
+
+  --- Running code_v0 on instances ['tiny'] for first_results ---
+  [init-gen] code_v0 saved to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_tasks/ropke2009/gpt-5.6-sol/code.py
+
+  --- Running code_v0 on instances ['tiny'] for first_results ---
+  Instance tiny: PASS (LLM=990.0, gap=0.00%, time=2.37s, feasible=True)
+
+  --- Phase 0: Self-debug for runtime_error (budget=5 remaining of 5, already used=0) ---
+
+  --- Phase 1: Tiny-instance gate (instance tiny, gap<=10%) ---
+
+  --- Phase 1: gate PASSED (tiny gap=0.0) ---
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+
+  All correction-triggering failures resolved.
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    API cost written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/one_shot_api_cost.csv
+
+================================================================================
+EVALUATION SUMMARY
+================================================================================
+Instance     Status   Retries   LLM Obj            Gurobi Obj         Error
+--------------------------------------------------------------------------------
+  tiny       pass     0         990.0000           990.0000           
+--------------------------------------------------------------------------------
+Total: 1  |  Pass: 1  |  Fail: 0  |  Skip: 0
+================================================================================
+
+================================================================================
+PAPER: vidal2011  |  MODEL: openai/gpt-5.6-sol (gpt-5.6-sol)
+================================================================================
+
+  [reuse] no code.py for vidal2011/gpt-5.6-sol — falling back to fresh init-gen
+
+  [init-gen 1/6] Calling LLM to generate code_v0...
+  [init-gen] code_v0 saved to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_tasks/zohali2022/gpt-5.6-sol/code.py
+
+  --- Running code_v0 on instances ['tiny'] for first_results ---
+  [init-gen] code_v0 saved to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_tasks/guo2021/gpt-5.6-sol/code.py
+
+  --- Running code_v0 on instances ['tiny'] for first_results ---
+  Instance tiny: PASS (LLM=-38094.0, gap=0.00%, time=0.82s, feasible=True)
+
+  --- Phase 0: Self-debug for runtime_error (budget=5 remaining of 5, already used=0) ---
+
+  --- Phase 1: Tiny-instance gate (instance tiny, gap<=10%) ---
+
+  --- Phase 1: gate PASSED (tiny gap=0.0) ---
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+
+  All correction-triggering failures resolved.
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    API cost written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/one_shot_api_cost.csv
+
+================================================================================
+EVALUATION SUMMARY
+================================================================================
+Instance     Status   Retries   LLM Obj            Gurobi Obj         Error
+--------------------------------------------------------------------------------
+  tiny       pass     0         -38094.0000        -38094.0000        
+--------------------------------------------------------------------------------
+Total: 1  |  Pass: 1  |  Fail: 0  |  Skip: 0
+================================================================================
+
+================================================================================
+PAPER: pecin2017  |  MODEL: openai/gpt-5.6-sol (gpt-5.6-sol)
+================================================================================
+
+  [reuse] no code.py for pecin2017/gpt-5.6-sol — falling back to fresh init-gen
+
+  [init-gen 1/6] Calling LLM to generate code_v0...
+  [init-gen] code_v0 saved to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_tasks/armbruster2012/gpt-5.6-sol/code.py
+
+  --- Running code_v0 on instances ['tiny'] for first_results ---
+  Instance tiny: PASS (LLM=61.0, gap=0.00%, time=4.12s, feasible=True)
+
+  --- Phase 0: Self-debug for runtime_error (budget=5 remaining of 5, already used=0) ---
+
+  --- Phase 1: Tiny-instance gate (instance tiny, gap<=10%) ---
+
+  --- Phase 1: gate PASSED (tiny gap=0.0) ---
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+
+  All correction-triggering failures resolved.
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    API cost written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/one_shot_api_cost.csv
+
+================================================================================
+EVALUATION SUMMARY
+================================================================================
+Instance     Status   Retries   LLM Obj            Gurobi Obj         Error
+--------------------------------------------------------------------------------
+  tiny       pass     0         61.0000            61.0000            
+--------------------------------------------------------------------------------
+Total: 1  |  Pass: 1  |  Fail: 0  |  Skip: 0
+================================================================================
+
+================================================================================
+PAPER: sadykov2013  |  MODEL: openai/gpt-5.6-sol (gpt-5.6-sol)
+================================================================================
+
+  [reuse] no code.py for sadykov2013/gpt-5.6-sol — falling back to fresh init-gen
+
+  [init-gen 1/6] Calling LLM to generate code_v0...
+  [init-gen] code_v0 saved to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_tasks/reinhardt2016/gpt-5.6-sol/code.py
+
+  --- Running code_v0 on instances ['tiny'] for first_results ---
+  Instance tiny: PASS (LLM=369.3, gap=0.00%, time=0.22s, feasible=True)
+
+  --- Phase 0: Self-debug for runtime_error (budget=5 remaining of 5, already used=0) ---
+
+  --- Phase 1: Tiny-instance gate (instance tiny, gap<=10%) ---
+
+  --- Phase 1: gate PASSED (tiny gap=0.0) ---
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+
+  All correction-triggering failures resolved.
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    API cost written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/one_shot_api_cost.csv
+
+================================================================================
+EVALUATION SUMMARY
+================================================================================
+Instance     Status   Retries   LLM Obj            Gurobi Obj         Error
+--------------------------------------------------------------------------------
+  tiny       pass     0         369.3000           369.3000           
+--------------------------------------------------------------------------------
+Total: 1  |  Pass: 1  |  Fail: 0  |  Skip: 0
+================================================================================
+
+================================================================================
+PAPER: desaulniers2016  |  MODEL: openai/gpt-5.6-sol (gpt-5.6-sol)
+================================================================================
+
+  [reuse] no code.py for desaulniers2016/gpt-5.6-sol — falling back to fresh init-gen
+
+  [init-gen 1/6] Calling LLM to generate code_v0...
+  [init-gen] code_v0 saved to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_tasks/segundo2019/gpt-5.6-sol/code.py
+
+  --- Running code_v0 on instances ['tiny'] for first_results ---
+  [init-gen] code_v0 saved to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_tasks/wei2020/gpt-5.6-sol/code.py
+
+  --- Running code_v0 on instances ['tiny'] for first_results ---
+  Instance tiny: PASS (LLM=29.0, gap=0.00%, time=0.17s, feasible=True)
+
+  --- Phase 0: Self-debug for runtime_error (budget=5 remaining of 5, already used=0) ---
+
+  --- Phase 1: Tiny-instance gate (instance tiny, gap<=10%) ---
+
+  --- Phase 1: gate PASSED (tiny gap=0.0) ---
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+
+  All correction-triggering failures resolved.
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    API cost written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/one_shot_api_cost.csv
+
+================================================================================
+EVALUATION SUMMARY
+================================================================================
+Instance     Status   Retries   LLM Obj            Gurobi Obj         Error
+--------------------------------------------------------------------------------
+  tiny       pass     0         29.0000            29.0000            
+--------------------------------------------------------------------------------
+Total: 1  |  Pass: 1  |  Fail: 0  |  Skip: 0
+================================================================================
+
+================================================================================
+PAPER: eiselt2009  |  MODEL: openai/gpt-5.6-sol (gpt-5.6-sol)
+================================================================================
+
+  [reuse] no code.py for eiselt2009/gpt-5.6-sol — falling back to fresh init-gen
+
+  [init-gen 1/6] Calling LLM to generate code_v0...
+  [init-gen] code_v0 saved to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_tasks/nagy2015/gpt-5.6-sol/code.py
+
+  --- Running code_v0 on instances ['tiny'] for first_results ---
+  [init-gen] code_v0 saved to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_tasks/kreter2018/gpt-5.6-sol/code.py
+
+  --- Running code_v0 on instances ['tiny'] for first_results ---
+  Instance tiny: PASS (LLM=57.0, gap=0.00%, time=0.12s, feasible=True)
+
+  --- Phase 0: Self-debug for runtime_error (budget=5 remaining of 5, already used=0) ---
+
+  --- Phase 1: Tiny-instance gate (instance tiny, gap<=10%) ---
+
+  --- Phase 1: gate PASSED (tiny gap=0.0) ---
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+
+  All correction-triggering failures resolved.
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    API cost written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/one_shot_api_cost.csv
+
+================================================================================
+EVALUATION SUMMARY
+================================================================================
+Instance     Status   Retries   LLM Obj            Gurobi Obj         Error
+--------------------------------------------------------------------------------
+  tiny       pass     0         57.0000            57.0000            
+--------------------------------------------------------------------------------
+Total: 1  |  Pass: 1  |  Fail: 0  |  Skip: 0
+================================================================================
+
+================================================================================
+PAPER: he2020  |  MODEL: openai/gpt-5.6-sol (gpt-5.6-sol)
+================================================================================
+
+  [reuse] no code.py for he2020/gpt-5.6-sol — falling back to fresh init-gen
+
+  [init-gen 1/6] Calling LLM to generate code_v0...
+  [init-gen] code_v0 saved to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_tasks/alfieri2020/gpt-5.6-sol/code.py
+
+  --- Running code_v0 on instances ['tiny'] for first_results ---
+  Instance tiny: PASS (LLM=4.0, gap=0.00%, time=0.07s, feasible=True)
+
+  --- Phase 0: Self-debug for runtime_error (budget=5 remaining of 5, already used=0) ---
+
+  --- Phase 1: Tiny-instance gate (instance tiny, gap<=10%) ---
+
+  --- Phase 1: gate PASSED (tiny gap=0.0) ---
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+
+  All correction-triggering failures resolved.
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    API cost written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/one_shot_api_cost.csv
+
+================================================================================
+EVALUATION SUMMARY
+================================================================================
+Instance     Status   Retries   LLM Obj            Gurobi Obj         Error
+--------------------------------------------------------------------------------
+  tiny       pass     0         4.0000             4.0000             
+--------------------------------------------------------------------------------
+Total: 1  |  Pass: 1  |  Fail: 0  |  Skip: 0
+================================================================================
+
+================================================================================
+PAPER: carvalho2022  |  MODEL: openai/gpt-5.6-sol (gpt-5.6-sol)
+================================================================================
+
+  [reuse] no code.py for carvalho2022/gpt-5.6-sol — falling back to fresh init-gen
+
+  [init-gen 1/6] Calling LLM to generate code_v0...
+  [init-gen] code_v0 saved to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_tasks/borndorfer2007/gpt-5.6-sol/code.py
+
+  --- Running code_v0 on instances ['tiny'] for first_results ---
+  [init-gen] code_v0 saved to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_tasks/rothenbacher2018/gpt-5.6-sol/code.py
+
+  --- Running code_v0 on instances ['tiny'] for first_results ---
+  Instance tiny: FAIL infeasible (LLM=396.49199999999996, gap=14.64%)
+
+  --- Phase 0: Self-debug for runtime_error (budget=5 remaining of 5, already used=0) ---
+
+  --- Phase 1: Tiny-instance gate (instance tiny, gap<=10%) ---
+
+  *** Tiny-instance gate FAILED for instance tiny after 0 LLM correction(s) (debug=0, phase1=0). Skipping instances []. ***
+
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    API cost written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/one_shot_api_cost.csv
+
+================================================================================
+EVALUATION SUMMARY
+================================================================================
+Instance     Status   Retries   LLM Obj            Gurobi Obj         Error
+--------------------------------------------------------------------------------
+  tiny       fail     0         396.4920           345.8460           Solution is INFEASIBLE Viol...
+--------------------------------------------------------------------------------
+Total: 1  |  Pass: 0  |  Fail: 1  |  Skip: 0
+================================================================================
+
+ERROR DETAILS
+--------------------------------------------------------------------------------
+  Instance tiny:
+Solution is INFEASIBLE Violations: checker rejected malformed candidate: ValueError: expanded node id -1000001 is out of range
+
+
+================================================================================
+PAPER: letelier2022  |  MODEL: openai/gpt-5.6-sol (gpt-5.6-sol)
+================================================================================
+
+  [reuse] no code.py for letelier2022/gpt-5.6-sol — falling back to fresh init-gen
+
+  [init-gen 1/6] Calling LLM to generate code_v0...
+  Instance tiny: PASS (LLM=21166.220503999975, gap=0.00%, time=0.97s, feasible=True)
+
+  --- Phase 0: Self-debug for runtime_error (budget=5 remaining of 5, already used=0) ---
+
+  --- Phase 1: Tiny-instance gate (instance tiny, gap<=10%) ---
+
+  --- Phase 1: gate PASSED (tiny gap=0.0) ---
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+
+  All correction-triggering failures resolved.
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    API cost written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/one_shot_api_cost.csv
+
+================================================================================
+EVALUATION SUMMARY
+================================================================================
+Instance     Status   Retries   LLM Obj            Gurobi Obj         Error
+--------------------------------------------------------------------------------
+  tiny       pass     0         21166.2205         40885.8075         
+--------------------------------------------------------------------------------
+Total: 1  |  Pass: 1  |  Fail: 0  |  Skip: 0
+================================================================================
+
+================================================================================
+PAPER: carosi2019  |  MODEL: openai/gpt-5.6-sol (gpt-5.6-sol)
+================================================================================
+
+  [reuse] no code.py for carosi2019/gpt-5.6-sol — falling back to fresh init-gen
+
+  [init-gen 1/6] Calling LLM to generate code_v0...
+  Instance tiny: PASS (LLM=58.0, gap=0.00%, time=34.55s, feasible=True)
+
+  --- Phase 0: Self-debug for runtime_error (budget=5 remaining of 5, already used=0) ---
+
+  --- Phase 1: Tiny-instance gate (instance tiny, gap<=10%) ---
+
+  --- Phase 1: gate PASSED (tiny gap=0.0) ---
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+
+  All correction-triggering failures resolved.
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    API cost written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/one_shot_api_cost.csv
+
+================================================================================
+EVALUATION SUMMARY
+================================================================================
+Instance     Status   Retries   LLM Obj            Gurobi Obj         Error
+--------------------------------------------------------------------------------
+  tiny       pass     0         58.0000            58.0000            
+--------------------------------------------------------------------------------
+Total: 1  |  Pass: 1  |  Fail: 0  |  Skip: 0
+================================================================================
+
+================================================================================
+PAPER: bayani2024  |  MODEL: openai/gpt-5.6-sol (gpt-5.6-sol)
+================================================================================
+
+  [reuse] no code.py for bayani2024/gpt-5.6-sol — falling back to fresh init-gen
+
+  [init-gen 1/6] Calling LLM to generate code_v0...
+  [init-gen] code_v0 saved to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_tasks/adulyasak2015/gpt-5.6-sol/code.py
+
+  --- Running code_v0 on instances ['tiny'] for first_results ---
+  [init-gen] code_v0 saved to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_tasks/watermeyer2020/gpt-5.6-sol/code.py
+
+  --- Running code_v0 on instances ['tiny'] for first_results ---
+  Instance tiny: PASS (LLM=34.0, gap=0.00%, time=0.12s, feasible=True)
+
+  --- Phase 0: Self-debug for runtime_error (budget=5 remaining of 5, already used=0) ---
+
+  --- Phase 1: Tiny-instance gate (instance tiny, gap<=10%) ---
+
+  --- Phase 1: gate PASSED (tiny gap=0.0) ---
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+
+  All correction-triggering failures resolved.
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    API cost written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/one_shot_api_cost.csv
+
+================================================================================
+EVALUATION SUMMARY
+================================================================================
+Instance     Status   Retries   LLM Obj            Gurobi Obj         Error
+--------------------------------------------------------------------------------
+  tiny       pass     0         34.0000            34.0000            
+--------------------------------------------------------------------------------
+Total: 1  |  Pass: 1  |  Fail: 0  |  Skip: 0
+================================================================================
+
+================================================================================
+PAPER: ozturk2020  |  MODEL: openai/gpt-5.6-sol (gpt-5.6-sol)
+================================================================================
+
+  [reuse] no code.py for ozturk2020/gpt-5.6-sol — falling back to fresh init-gen
+
+  [init-gen 1/6] Calling LLM to generate code_v0...
+  Instance tiny: FAIL infeasible (LLM=1235.2540129162, gap=0.00%)
+
+  --- Phase 0: Self-debug for runtime_error (budget=5 remaining of 5, already used=0) ---
+
+  --- Phase 1: Tiny-instance gate (instance tiny, gap<=10%) ---
+
+  *** Tiny-instance gate FAILED for instance tiny after 0 LLM correction(s) (debug=0, phase1=0). Skipping instances []. ***
+
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    API cost written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/one_shot_api_cost.csv
+
+================================================================================
+EVALUATION SUMMARY
+================================================================================
+Instance     Status   Retries   LLM Obj            Gurobi Obj         Error
+--------------------------------------------------------------------------------
+  tiny       fail     0         1235.2540          1395.7594          Solution is INFEASIBLE Viol...
+--------------------------------------------------------------------------------
+Total: 1  |  Pass: 0  |  Fail: 1  |  Skip: 0
+================================================================================
+
+ERROR DETAILS
+--------------------------------------------------------------------------------
+  Instance tiny:
+Solution is INFEASIBLE Violations: Constraint 23 (exact objective consistency) could not certify the candidate: ValueError: unknown model variable(s): y[0], y[1], z[0,0,0], z[1,0,0], z[2,0,0]; constraint violated: cust_bal_1_1_0: 0 == 
+
+
+================================================================================
+PAPER: cunha2021  |  MODEL: openai/gpt-5.6-sol (gpt-5.6-sol)
+================================================================================
+
+  [reuse] no code.py for cunha2021/gpt-5.6-sol — falling back to fresh init-gen
+
+  [init-gen 1/6] Calling LLM to generate code_v0...
+  [init-gen] code_v0 saved to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_tasks/roshanaei2017/gpt-5.6-sol/code.py
+
+  --- Running code_v0 on instances ['tiny'] for first_results ---
+  Instance tiny: FAIL infeasible (LLM=0.0, gap=0.00%)
+
+  --- Phase 0: Self-debug for runtime_error (budget=5 remaining of 5, already used=0) ---
+
+  --- Phase 1: Tiny-instance gate (instance tiny, gap<=10%) ---
+
+  *** Tiny-instance gate FAILED for instance tiny after 0 LLM correction(s) (debug=0, phase1=0). Skipping instances []. ***
+
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    API cost written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/one_shot_api_cost.csv
+
+================================================================================
+EVALUATION SUMMARY
+================================================================================
+Instance     Status   Retries   LLM Obj            Gurobi Obj         Error
+--------------------------------------------------------------------------------
+  tiny       fail     0         0.0000             4435.4748          Solution is INFEASIBLE Viol...
+--------------------------------------------------------------------------------
+Total: 1  |  Pass: 0  |  Fail: 1  |  Skip: 0
+================================================================================
+
+ERROR DETAILS
+--------------------------------------------------------------------------------
+  Instance tiny:
+Solution is INFEASIBLE Violations: checker rejected malformed candidate: ValueError: not enough values to unpack (expected 9, got 4)
+
+
+================================================================================
+PAPER: lai2021  |  MODEL: openai/gpt-5.6-sol (gpt-5.6-sol)
+================================================================================
+
+  [reuse] no code.py for lai2021/gpt-5.6-sol — falling back to fresh init-gen
+
+  [init-gen 1/6] Calling LLM to generate code_v0...
+  [init-gen] code_v0 saved to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_tasks/furini2016/gpt-5.6-sol/code.py
+
+  --- Running code_v0 on instances ['tiny'] for first_results ---
+  [init-gen] code_v0 saved to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_tasks/desaulniers2010/gpt-5.6-sol/code.py
+
+  --- Running code_v0 on instances ['tiny'] for first_results ---
+  Instance tiny: PASS (LLM=1600.0, gap=0.00%, time=10.13s, feasible=True)
+
+  --- Phase 0: Self-debug for runtime_error (budget=5 remaining of 5, already used=0) ---
+
+  --- Phase 1: Tiny-instance gate (instance tiny, gap<=10%) ---
+
+  --- Phase 1: gate PASSED (tiny gap=0.0) ---
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+
+  All correction-triggering failures resolved.
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    API cost written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/one_shot_api_cost.csv
+
+================================================================================
+EVALUATION SUMMARY
+================================================================================
+Instance     Status   Retries   LLM Obj            Gurobi Obj         Error
+--------------------------------------------------------------------------------
+  tiny       pass     0         1600.0000          1592.0000          
+--------------------------------------------------------------------------------
+Total: 1  |  Pass: 1  |  Fail: 0  |  Skip: 0
+================================================================================
+
+================================================================================
+PAPER: desaulniers2014  |  MODEL: openai/gpt-5.6-sol (gpt-5.6-sol)
+================================================================================
+
+  [reuse] no code.py for desaulniers2014/gpt-5.6-sol — falling back to fresh init-gen
+
+  [init-gen 1/6] Calling LLM to generate code_v0...
+  Instance tiny: PASS (LLM=1100.3, gap=0.00%, time=10.85s, feasible=True)
+
+  --- Phase 0: Self-debug for runtime_error (budget=5 remaining of 5, already used=0) ---
+
+  --- Phase 1: Tiny-instance gate (instance tiny, gap<=10%) ---
+
+  --- Phase 1: gate PASSED (tiny gap=0.0) ---
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+
+  All correction-triggering failures resolved.
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    API cost written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/one_shot_api_cost.csv
+
+================================================================================
+EVALUATION SUMMARY
+================================================================================
+Instance     Status   Retries   LLM Obj            Gurobi Obj         Error
+--------------------------------------------------------------------------------
+  tiny       pass     0         1100.3000          1100.3000          
+--------------------------------------------------------------------------------
+Total: 1  |  Pass: 1  |  Fail: 0  |  Skip: 0
+================================================================================
+
+================================================================================
+PAPER: reihaneh2019  |  MODEL: openai/gpt-5.6-sol (gpt-5.6-sol)
+================================================================================
+
+  [reuse] no code.py for reihaneh2019/gpt-5.6-sol — falling back to fresh init-gen
+
+  [init-gen 1/6] Calling LLM to generate code_v0...
+  Instance tiny: PASS (LLM=1614.0, gap=0.00%, time=66.78s, feasible=True)
+
+  --- Phase 0: Self-debug for runtime_error (budget=5 remaining of 5, already used=0) ---
+
+  --- Phase 1: Tiny-instance gate (instance tiny, gap<=10%) ---
+
+  --- Phase 1: gate PASSED (tiny gap=0.0) ---
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+
+  All correction-triggering failures resolved.
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    API cost written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/one_shot_api_cost.csv
+
+================================================================================
+EVALUATION SUMMARY
+================================================================================
+Instance     Status   Retries   LLM Obj            Gurobi Obj         Error
+--------------------------------------------------------------------------------
+  tiny       pass     0         1614.0000          1614.0000          
+--------------------------------------------------------------------------------
+Total: 1  |  Pass: 1  |  Fail: 0  |  Skip: 0
+================================================================================
+
+================================================================================
+PAPER: fischetti1997  |  MODEL: openai/gpt-5.6-sol (gpt-5.6-sol)
+================================================================================
+
+  [reuse] no code.py for fischetti1997/gpt-5.6-sol — falling back to fresh init-gen
+
+  [init-gen 1/6] Calling LLM to generate code_v0...
+  [init-gen] code_v0 saved to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_tasks/hosseinian2020/gpt-5.6-sol/code.py
+
+  --- Running code_v0 on instances ['tiny'] for first_results ---
+  Instance tiny: PASS (LLM=939.0, gap=0.00%, time=0.12s, feasible=True)
+
+  --- Phase 0: Self-debug for runtime_error (budget=5 remaining of 5, already used=0) ---
+
+  --- Phase 1: Tiny-instance gate (instance tiny, gap<=10%) ---
+
+  --- Phase 1: gate PASSED (tiny gap=0.0) ---
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+
+  All correction-triggering failures resolved.
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    API cost written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/one_shot_api_cost.csv
+
+================================================================================
+EVALUATION SUMMARY
+================================================================================
+Instance     Status   Retries   LLM Obj            Gurobi Obj         Error
+--------------------------------------------------------------------------------
+  tiny       pass     0         939.0000           939.0000           
+--------------------------------------------------------------------------------
+Total: 1  |  Pass: 1  |  Fail: 0  |  Skip: 0
+================================================================================
+
+================================================================================
+PAPER: martin-iradi2024  |  MODEL: openai/gpt-5.6-sol (gpt-5.6-sol)
+================================================================================
+
+  [reuse] no code.py for martin-iradi2024/gpt-5.6-sol — falling back to fresh init-gen
+
+  [init-gen 1/6] Calling LLM to generate code_v0...
+  [init-gen] code_v0 saved to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_tasks/vidal2011/gpt-5.6-sol/code.py
+
+  --- Running code_v0 on instances ['tiny'] for first_results ---
+  [init-gen] code_v0 saved to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_tasks/sadykov2013/gpt-5.6-sol/code.py
+
+  --- Running code_v0 on instances ['tiny'] for first_results ---
+  Instance tiny: PASS (LLM=23.0, gap=0.00%, time=3.72s, feasible=True)
+
+  --- Phase 0: Self-debug for runtime_error (budget=5 remaining of 5, already used=0) ---
+
+  --- Phase 1: Tiny-instance gate (instance tiny, gap<=10%) ---
+
+  --- Phase 1: gate PASSED (tiny gap=0.0) ---
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+
+  All correction-triggering failures resolved.
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    API cost written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/one_shot_api_cost.csv
+
+================================================================================
+EVALUATION SUMMARY
+================================================================================
+Instance     Status   Retries   LLM Obj            Gurobi Obj         Error
+--------------------------------------------------------------------------------
+  tiny       pass     0         23.0000            23.0000            
+--------------------------------------------------------------------------------
+Total: 1  |  Pass: 1  |  Fail: 0  |  Skip: 0
+================================================================================
+
+================================================================================
+PAPER: boland2019  |  MODEL: openai/gpt-5.6-sol (gpt-5.6-sol)
+================================================================================
+
+  [reuse] no code.py for boland2019/gpt-5.6-sol — falling back to fresh init-gen
+
+  [init-gen 1/6] Calling LLM to generate code_v0...
+  [init-gen] code_v0 saved to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_tasks/wang2019/gpt-5.6-sol/code.py
+
+  --- Running code_v0 on instances ['tiny'] for first_results ---
+  Instance tiny: PASS (LLM=4113.0, gap=0.00%, time=0.32s, feasible=True)
+
+  --- Phase 0: Self-debug for runtime_error (budget=5 remaining of 5, already used=0) ---
+
+  --- Phase 1: Tiny-instance gate (instance tiny, gap<=10%) ---
+
+  --- Phase 1: gate PASSED (tiny gap=0.0) ---
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+
+  All correction-triggering failures resolved.
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    API cost written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/one_shot_api_cost.csv
+
+================================================================================
+EVALUATION SUMMARY
+================================================================================
+Instance     Status   Retries   LLM Obj            Gurobi Obj         Error
+--------------------------------------------------------------------------------
+  tiny       pass     0         4113.0000          4113.0000          
+--------------------------------------------------------------------------------
+Total: 1  |  Pass: 1  |  Fail: 0  |  Skip: 0
+================================================================================
+
+================================================================================
+PAPER: roberti2018  |  MODEL: openai/gpt-5.6-sol (gpt-5.6-sol)
+================================================================================
+
+  [reuse] no code.py for roberti2018/gpt-5.6-sol — falling back to fresh init-gen
+
+  [init-gen 1/6] Calling LLM to generate code_v0...
+  [init-gen] code_v0 saved to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_tasks/eiselt2009/gpt-5.6-sol/code.py
+
+  --- Running code_v0 on instances ['tiny'] for first_results ---
+  [init-gen] code_v0 saved to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_tasks/pecin2017/gpt-5.6-sol/code.py
+
+  --- Running code_v0 on instances ['tiny'] for first_results ---
+  [init-gen] code_v0 saved to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_tasks/carvalho2022/gpt-5.6-sol/code.py
+
+  --- Running code_v0 on instances ['tiny'] for first_results ---
+  [init-gen] code_v0 saved to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_tasks/ozturk2020/gpt-5.6-sol/code.py
+
+  --- Running code_v0 on instances ['tiny'] for first_results ---
+  Instance tiny: FAIL infeasible (LLM=297556.96236823476, gap=0.34%)
+
+  --- Phase 0: Self-debug for runtime_error (budget=5 remaining of 5, already used=0) ---
+
+  --- Phase 1: Tiny-instance gate (instance tiny, gap<=10%) ---
+
+  *** Tiny-instance gate FAILED for instance tiny after 0 LLM correction(s) (debug=0, phase1=0). Skipping instances []. ***
+
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    API cost written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/one_shot_api_cost.csv
+
+================================================================================
+EVALUATION SUMMARY
+================================================================================
+Instance     Status   Retries   LLM Obj            Gurobi Obj         Error
+--------------------------------------------------------------------------------
+  tiny       fail     0         297556.9624        298578.3661        Solution is INFEASIBLE Viol...
+--------------------------------------------------------------------------------
+Total: 1  |  Pass: 0  |  Fail: 1  |  Skip: 0
+================================================================================
+
+ERROR DETAILS
+--------------------------------------------------------------------------------
+  Instance tiny:
+Solution is INFEASIBLE Violations: Constraint 5 violated: reported objective_value=297556.96236823476 does not match any of the 2 discrete hub-pair completions for hub_locations=[1, 8]; nearest=298578.3661310977, difference=1021.4, tol
+
+
+================================================================================
+PAPER: kobeaga2024  |  MODEL: openai/gpt-5.6-sol (gpt-5.6-sol)
+================================================================================
+
+  [reuse] no code.py for kobeaga2024/gpt-5.6-sol — falling back to fresh init-gen
+
+  [init-gen 1/6] Calling LLM to generate code_v0...
+  [init-gen] code_v0 saved to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_tasks/carosi2019/gpt-5.6-sol/code.py
+
+  --- Running code_v0 on instances ['tiny'] for first_results ---
+  Instance tiny: FAIL infeasible (LLM=121892.0, gap=402.56%)
+
+  --- Phase 0: Self-debug for runtime_error (budget=5 remaining of 5, already used=0) ---
+
+  --- Phase 1: Tiny-instance gate (instance tiny, gap<=10%) ---
+
+  *** Tiny-instance gate FAILED for instance tiny after 0 LLM correction(s) (debug=0, phase1=0). Skipping instances []. ***
+
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    API cost written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/one_shot_api_cost.csv
+
+================================================================================
+EVALUATION SUMMARY
+================================================================================
+Instance     Status   Retries   LLM Obj            Gurobi Obj         Error
+--------------------------------------------------------------------------------
+  tiny       fail     0         121892.0000        24254.0000         Solution is INFEASIBLE Viol...
+--------------------------------------------------------------------------------
+Total: 1  |  Pass: 0  |  Fail: 1  |  Skip: 0
+================================================================================
+
+ERROR DETAILS
+--------------------------------------------------------------------------------
+  Instance tiny:
+Solution is INFEASIBLE Violations: cannot derive num_vehicles from decision witness field vs_flows
+
+
+================================================================================
+PAPER: bierwirth2017  |  MODEL: openai/gpt-5.6-sol (gpt-5.6-sol)
+================================================================================
+
+  [reuse] no code.py for bierwirth2017/gpt-5.6-sol — falling back to fresh init-gen
+
+  [init-gen 1/6] Calling LLM to generate code_v0...
+  Instance tiny: PASS (LLM=349.6749216011134, gap=0.00%, time=9.08s, feasible=True)
+
+  --- Phase 0: Self-debug for runtime_error (budget=5 remaining of 5, already used=0) ---
+
+  --- Phase 1: Tiny-instance gate (instance tiny, gap<=10%) ---
+
+  --- Phase 1: gate PASSED (tiny gap=0.0) ---
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+
+  All correction-triggering failures resolved.
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    API cost written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/one_shot_api_cost.csv
+
+================================================================================
+EVALUATION SUMMARY
+================================================================================
+Instance     Status   Retries   LLM Obj            Gurobi Obj         Error
+--------------------------------------------------------------------------------
+  tiny       pass     0         349.6749           349.6749           
+--------------------------------------------------------------------------------
+Total: 1  |  Pass: 1  |  Fail: 0  |  Skip: 0
+================================================================================
+
+================================================================================
+PAPER: bard2002  |  MODEL: openai/gpt-5.6-sol (gpt-5.6-sol)
+================================================================================
+
+  [reuse] no code.py for bard2002/gpt-5.6-sol — falling back to fresh init-gen
+
+  [init-gen 1/6] Calling LLM to generate code_v0...
+  [init-gen] code_v0 saved to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_tasks/desaulniers2016/gpt-5.6-sol/code.py
+
+  --- Running code_v0 on instances ['tiny'] for first_results ---
+  Instance tiny: FAIL infeasible (LLM=3018.5, gap=0.00%)
+
+  --- Phase 0: Self-debug for runtime_error (budget=5 remaining of 5, already used=0) ---
+
+  --- Phase 1: Tiny-instance gate (instance tiny, gap<=10%) ---
+
+  *** Tiny-instance gate FAILED for instance tiny after 0 LLM correction(s) (debug=0, phase1=0). Skipping instances []. ***
+
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    API cost written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/one_shot_api_cost.csv
+
+================================================================================
+EVALUATION SUMMARY
+================================================================================
+Instance     Status   Retries   LLM Obj            Gurobi Obj         Error
+--------------------------------------------------------------------------------
+  tiny       fail     0         3018.5000          3018.5000          Solution is INFEASIBLE Viol...
+--------------------------------------------------------------------------------
+Total: 1  |  Pass: 0  |  Fail: 1  |  Skip: 0
+================================================================================
+
+ERROR DETAILS
+--------------------------------------------------------------------------------
+  Instance tiny:
+Solution is INFEASIBLE Violations: Supplier inventory mismatch at period 1: computed=638.0000, solution=480.0000; Supplier inventory mismatch at period 2: computed=747.0000, solution=638.0000; Customer 1 inventory mismatch at period 1: computed=-8.0000, solution=109.0000; Customer 1 inventory mismatch at period 2: computed=-29.0000, solution=24.0000; Customer 2 inventory mismatch at period 1: computed=-63.0000, solution=99.0000
+
+
+================================================================================
+PAPER: fragkos2021  |  MODEL: openai/gpt-5.6-sol (gpt-5.6-sol)
+================================================================================
+
+  [reuse] no code.py for fragkos2021/gpt-5.6-sol — falling back to fresh init-gen
+
+  [init-gen 1/6] Calling LLM to generate code_v0...
+  [init-gen] code_v0 saved to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_tasks/he2020/gpt-5.6-sol/code.py
+
+  --- Running code_v0 on instances ['tiny'] for first_results ---
+  Instance tiny: PASS (LLM=1102.6980000012377, gap=0.00%, time=0.17s, feasible=True)
+
+  --- Phase 0: Self-debug for runtime_error (budget=5 remaining of 5, already used=0) ---
+
+  --- Phase 1: Tiny-instance gate (instance tiny, gap<=10%) ---
+
+  --- Phase 1: gate PASSED (tiny gap=0.0) ---
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+
+  All correction-triggering failures resolved.
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    API cost written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/one_shot_api_cost.csv
+
+================================================================================
+EVALUATION SUMMARY
+================================================================================
+Instance     Status   Retries   LLM Obj            Gurobi Obj         Error
+--------------------------------------------------------------------------------
+  tiny       pass     0         1102.6980          1102.6980          
+--------------------------------------------------------------------------------
+Total: 1  |  Pass: 1  |  Fail: 0  |  Skip: 0
+================================================================================
+
+================================================================================
+PAPER: delage2022  |  MODEL: openai/gpt-5.6-sol (gpt-5.6-sol)
+================================================================================
+
+  [reuse] no code.py for delage2022/gpt-5.6-sol — falling back to fresh init-gen
+
+  [init-gen 1/6] Calling LLM to generate code_v0...
+  [init-gen] code_v0 saved to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_tasks/reihaneh2019/gpt-5.6-sol/code.py
+
+  --- Running code_v0 on instances ['tiny'] for first_results ---
+  Instance tiny: FAIL infeasible (LLM=534.0064, gap=0.00%)
+
+  --- Phase 0: Self-debug for runtime_error (budget=5 remaining of 5, already used=0) ---
+
+  --- Phase 1: Tiny-instance gate (instance tiny, gap<=10%) ---
+
+  *** Tiny-instance gate FAILED for instance tiny after 0 LLM correction(s) (debug=0, phase1=0). Skipping instances []. ***
+
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    API cost written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/one_shot_api_cost.csv
+
+================================================================================
+EVALUATION SUMMARY
+================================================================================
+Instance     Status   Retries   LLM Obj            Gurobi Obj         Error
+--------------------------------------------------------------------------------
+  tiny       fail     0         534.0064           534.0064           Solution is INFEASIBLE Viol...
+--------------------------------------------------------------------------------
+Total: 1  |  Pass: 0  |  Fail: 1  |  Skip: 0
+================================================================================
+
+ERROR DETAILS
+--------------------------------------------------------------------------------
+  Instance tiny:
+Solution is INFEASIBLE Violations: checker rejected malformed candidate: KeyError: (0, 1, 1)
+
+
+================================================================================
+PAPER: wu2018  |  MODEL: openai/gpt-5.6-sol (gpt-5.6-sol)
+================================================================================
+
+  [reuse] no code.py for wu2018/gpt-5.6-sol — falling back to fresh init-gen
+
+  [init-gen 1/6] Calling LLM to generate code_v0...
+  [init-gen] code_v0 saved to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_tasks/bayani2024/gpt-5.6-sol/code.py
+
+  --- Running code_v0 on instances ['tiny'] for first_results ---
+  Instance tiny: PASS (LLM=8362.747785, gap=0.00%, time=3.87s, feasible=True)
+
+  --- Phase 0: Self-debug for runtime_error (budget=5 remaining of 5, already used=0) ---
+
+  --- Phase 1: Tiny-instance gate (instance tiny, gap<=10%) ---
+
+  --- Phase 1: gate PASSED (tiny gap=0.0) ---
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+
+  All correction-triggering failures resolved.
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    API cost written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/one_shot_api_cost.csv
+
+================================================================================
+EVALUATION SUMMARY
+================================================================================
+Instance     Status   Retries   LLM Obj            Gurobi Obj         Error
+--------------------------------------------------------------------------------
+  tiny       pass     0         8362.7478          8362.7478          
+--------------------------------------------------------------------------------
+Total: 1  |  Pass: 1  |  Fail: 0  |  Skip: 0
+================================================================================
+
+================================================================================
+PAPER: spliet2015  |  MODEL: openai/gpt-5.6-sol (gpt-5.6-sol)
+================================================================================
+
+  [reuse] no code.py for spliet2015/gpt-5.6-sol — falling back to fresh init-gen
+
+  [init-gen 1/6] Calling LLM to generate code_v0...
+  [init-gen] code_v0 saved to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_tasks/fischetti1997/gpt-5.6-sol/code.py
+
+  --- Running code_v0 on instances ['tiny'] for first_results ---
+  [init-gen] code_v0 saved to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_tasks/lai2021/gpt-5.6-sol/code.py
+
+  --- Running code_v0 on instances ['tiny'] for first_results ---
+  Instance tiny: PASS (LLM=1083.0, gap=0.00%, time=5.28s, feasible=True)
+
+  --- Phase 0: Self-debug for runtime_error (budget=5 remaining of 5, already used=0) ---
+
+  --- Phase 1: Tiny-instance gate (instance tiny, gap<=10%) ---
+
+  --- Phase 1: gate PASSED (tiny gap=0.0) ---
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+
+  All correction-triggering failures resolved.
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    API cost written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/one_shot_api_cost.csv
+
+================================================================================
+EVALUATION SUMMARY
+================================================================================
+Instance     Status   Retries   LLM Obj            Gurobi Obj         Error
+--------------------------------------------------------------------------------
+  tiny       pass     0         1083.0000          1083.0000          
+--------------------------------------------------------------------------------
+Total: 1  |  Pass: 1  |  Fail: 0  |  Skip: 0
+================================================================================
+
+================================================================================
+PAPER: fragkos2016  |  MODEL: openai/gpt-5.6-sol (gpt-5.6-sol)
+================================================================================
+
+  [reuse] no code.py for fragkos2016/gpt-5.6-sol — falling back to fresh init-gen
+
+  [init-gen 1/6] Calling LLM to generate code_v0...
+  [init-gen] code_v0 saved to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_tasks/letelier2022/gpt-5.6-sol/code.py
+
+  --- Running code_v0 on instances ['tiny'] for first_results ---
+  Instance tiny: PASS (LLM=8.0, gap=0.00%, time=2.12s, feasible=True)
+
+  --- Phase 0: Self-debug for runtime_error (budget=5 remaining of 5, already used=0) ---
+
+  --- Phase 1: Tiny-instance gate (instance tiny, gap<=10%) ---
+
+  --- Phase 1: gate PASSED (tiny gap=0.0) ---
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+
+  All correction-triggering failures resolved.
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    API cost written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/one_shot_api_cost.csv
+
+================================================================================
+EVALUATION SUMMARY
+================================================================================
+Instance     Status   Retries   LLM Obj            Gurobi Obj         Error
+--------------------------------------------------------------------------------
+  tiny       pass     0         8.0000             8.0000             
+--------------------------------------------------------------------------------
+Total: 1  |  Pass: 1  |  Fail: 0  |  Skip: 0
+================================================================================
+
+================================================================================
+PAPER: amaldi2013  |  MODEL: openai/gpt-5.6-sol (gpt-5.6-sol)
+================================================================================
+
+  [reuse] no code.py for amaldi2013/gpt-5.6-sol — falling back to fresh init-gen
+
+  [init-gen 1/6] Calling LLM to generate code_v0...
+  [init-gen] code_v0 saved to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_tasks/desaulniers2014/gpt-5.6-sol/code.py
+
+  --- Running code_v0 on instances ['tiny'] for first_results ---
+  Instance tiny: PASS (LLM=2669.1, gap=0.00%, time=0.32s, feasible=True)
+
+  --- Phase 0: Self-debug for runtime_error (budget=5 remaining of 5, already used=0) ---
+
+  --- Phase 1: Tiny-instance gate (instance tiny, gap<=10%) ---
+
+  --- Phase 1: gate PASSED (tiny gap=5.504755899105949e-08) ---
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+
+  All correction-triggering failures resolved.
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    API cost written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/one_shot_api_cost.csv
+
+================================================================================
+EVALUATION SUMMARY
+================================================================================
+Instance     Status   Retries   LLM Obj            Gurobi Obj         Error
+--------------------------------------------------------------------------------
+  tiny       pass     0         2669.1000          2669.0999          
+--------------------------------------------------------------------------------
+Total: 1  |  Pass: 1  |  Fail: 0  |  Skip: 0
+================================================================================
+  [init-gen] code_v0 saved to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_tasks/cunha2021/gpt-5.6-sol/code.py
+
+  --- Running code_v0 on instances ['tiny'] for first_results ---
+  Instance tiny: PASS (LLM=184504.41030000008, gap=0.00%, time=10.44s, feasible=True)
+
+  --- Phase 0: Self-debug for runtime_error (budget=5 remaining of 5, already used=0) ---
+
+  --- Phase 1: Tiny-instance gate (instance tiny, gap<=10%) ---
+
+  --- Phase 1: gate PASSED (tiny gap=0.0) ---
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+
+  All correction-triggering failures resolved.
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    API cost written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/one_shot_api_cost.csv
+
+================================================================================
+EVALUATION SUMMARY
+================================================================================
+Instance     Status   Retries   LLM Obj            Gurobi Obj         Error
+--------------------------------------------------------------------------------
+  tiny       pass     0         184504.4103        184504.4103        
+--------------------------------------------------------------------------------
+Total: 1  |  Pass: 1  |  Fail: 0  |  Skip: 0
+================================================================================
+  [init-gen] code_v0 saved to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_tasks/martin-iradi2024/gpt-5.6-sol/code.py
+
+  --- Running code_v0 on instances ['tiny'] for first_results ---
+  Instance tiny: PASS (LLM=181866.84099999964, gap=0.00%, time=0.12s, feasible=True)
+
+  --- Phase 0: Self-debug for runtime_error (budget=5 remaining of 5, already used=0) ---
+
+  --- Phase 1: Tiny-instance gate (instance tiny, gap<=10%) ---
+
+  --- Phase 1: gate PASSED (tiny gap=0.0) ---
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+
+  All correction-triggering failures resolved.
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    API cost written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/one_shot_api_cost.csv
+
+================================================================================
+EVALUATION SUMMARY
+================================================================================
+Instance     Status   Retries   LLM Obj            Gurobi Obj         Error
+--------------------------------------------------------------------------------
+  tiny       pass     0         181866.8410        181866.8410        
+--------------------------------------------------------------------------------
+Total: 1  |  Pass: 1  |  Fail: 0  |  Skip: 0
+================================================================================
+  Instance tiny: FAIL infeasible (LLM=8210.0, gap=0.00%)
+
+  --- Phase 0: Self-debug for runtime_error (budget=5 remaining of 5, already used=0) ---
+
+  --- Phase 1: Tiny-instance gate (instance tiny, gap<=10%) ---
+
+  *** Tiny-instance gate FAILED for instance tiny after 0 LLM correction(s) (debug=0, phase1=0). Skipping instances []. ***
+
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    API cost written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/one_shot_api_cost.csv
+
+================================================================================
+EVALUATION SUMMARY
+================================================================================
+Instance     Status   Retries   LLM Obj            Gurobi Obj         Error
+--------------------------------------------------------------------------------
+  tiny       fail     0         8210.0000          8210.0000          Solution is INFEASIBLE Viol...
+--------------------------------------------------------------------------------
+Total: 1  |  Pass: 0  |  Fail: 1  |  Skip: 0
+================================================================================
+
+ERROR DETAILS
+--------------------------------------------------------------------------------
+  Instance tiny:
+Solution is INFEASIBLE Violations: Setup state count: machine 0, period 5: sum_z=0, expected=1; Setup state count: machine 1, period 5: sum_z=0, expected=1; Flow conservation: item 3, machine 1, period 4: in=1, out=0; Flow conservation: item 4, machine 0, period 4: in=1, out=0
+
+  [init-gen] code_v0 saved to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_tasks/bierwirth2017/gpt-5.6-sol/code.py
+
+  --- Running code_v0 on instances ['tiny'] for first_results ---
+  Instance tiny: FAIL infeasible (LLM=2197.0, gap=0.00%)
+
+  --- Phase 0: Self-debug for runtime_error (budget=5 remaining of 5, already used=0) ---
+
+  --- Phase 1: Tiny-instance gate (instance tiny, gap<=10%) ---
+
+  *** Tiny-instance gate FAILED for instance tiny after 0 LLM correction(s) (debug=0, phase1=0). Skipping instances []. ***
+
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    API cost written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/one_shot_api_cost.csv
+
+================================================================================
+EVALUATION SUMMARY
+================================================================================
+Instance     Status   Retries   LLM Obj            Gurobi Obj         Error
+--------------------------------------------------------------------------------
+  tiny       fail     0         2197.0000          2197.0000          Solution is INFEASIBLE Viol...
+--------------------------------------------------------------------------------
+Total: 1  |  Pass: 0  |  Fail: 1  |  Skip: 0
+================================================================================
+
+ERROR DETAILS
+--------------------------------------------------------------------------------
+  Instance tiny:
+Solution is INFEASIBLE Violations: checker rejected malformed candidate: KeyError: 'processing_time'
+
+  [init-gen] code_v0 saved to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_tasks/delage2022/gpt-5.6-sol/code.py
+
+  --- Running code_v0 on instances ['tiny'] for first_results ---
+  [init-gen] code_v0 saved to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_tasks/boland2019/gpt-5.6-sol/code.py
+
+  --- Running code_v0 on instances ['tiny'] for first_results ---
+  Instance tiny: PASS (LLM=4910.0, gap=0.00%, time=2.17s, feasible=True)
+
+  --- Phase 0: Self-debug for runtime_error (budget=5 remaining of 5, already used=0) ---
+
+  --- Phase 1: Tiny-instance gate (instance tiny, gap<=10%) ---
+
+  --- Phase 1: gate PASSED (tiny gap=0.0) ---
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+
+  All correction-triggering failures resolved.
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    API cost written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/one_shot_api_cost.csv
+
+================================================================================
+EVALUATION SUMMARY
+================================================================================
+Instance     Status   Retries   LLM Obj            Gurobi Obj         Error
+--------------------------------------------------------------------------------
+  tiny       pass     0         4910.0000          4910.0000          
+--------------------------------------------------------------------------------
+Total: 1  |  Pass: 1  |  Fail: 0  |  Skip: 0
+================================================================================
+  [init-gen] code_v0 saved to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_tasks/wu2018/gpt-5.6-sol/code.py
+
+  --- Running code_v0 on instances ['tiny'] for first_results ---
+  Instance tiny: PASS (LLM=3363.0723408058693, gap=0.00%, time=0.17s, feasible=True)
+
+  --- Phase 0: Self-debug for runtime_error (budget=5 remaining of 5, already used=0) ---
+
+  --- Phase 1: Tiny-instance gate (instance tiny, gap<=10%) ---
+
+  --- Phase 1: gate PASSED (tiny gap=0.0) ---
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+
+  All correction-triggering failures resolved.
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    API cost written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/one_shot_api_cost.csv
+
+================================================================================
+EVALUATION SUMMARY
+================================================================================
+Instance     Status   Retries   LLM Obj            Gurobi Obj         Error
+--------------------------------------------------------------------------------
+  tiny       pass     0         3363.0723          3363.0723          
+--------------------------------------------------------------------------------
+Total: 1  |  Pass: 1  |  Fail: 0  |  Skip: 0
+================================================================================
+  [init-gen] code_v0 saved to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_tasks/bard2002/gpt-5.6-sol/code.py
+
+  --- Running code_v0 on instances ['tiny'] for first_results ---
+  Instance tiny: PASS (LLM=2.0, gap=0.00%, time=0.22s, feasible=True)
+
+  --- Phase 0: Self-debug for runtime_error (budget=5 remaining of 5, already used=0) ---
+
+  --- Phase 1: Tiny-instance gate (instance tiny, gap<=10%) ---
+
+  --- Phase 1: gate PASSED (tiny gap=0.0) ---
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+
+  All correction-triggering failures resolved.
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    API cost written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/one_shot_api_cost.csv
+
+================================================================================
+EVALUATION SUMMARY
+================================================================================
+Instance     Status   Retries   LLM Obj            Gurobi Obj         Error
+--------------------------------------------------------------------------------
+  tiny       pass     0         2.0000             2.0000             
+--------------------------------------------------------------------------------
+Total: 1  |  Pass: 1  |  Fail: 0  |  Skip: 0
+================================================================================
+  [init-gen] code_v0 saved to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_tasks/fragkos2021/gpt-5.6-sol/code.py
+
+  --- Running code_v0 on instances ['tiny'] for first_results ---
+  Instance tiny: PASS (LLM=774228.6679196148, gap=0.00%, time=0.12s, feasible=True)
+
+  --- Phase 0: Self-debug for runtime_error (budget=5 remaining of 5, already used=0) ---
+
+  --- Phase 1: Tiny-instance gate (instance tiny, gap<=10%) ---
+
+  --- Phase 1: gate PASSED (tiny gap=0.0) ---
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+
+  All correction-triggering failures resolved.
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    API cost written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/one_shot_api_cost.csv
+
+================================================================================
+EVALUATION SUMMARY
+================================================================================
+Instance     Status   Retries   LLM Obj            Gurobi Obj         Error
+--------------------------------------------------------------------------------
+  tiny       pass     0         774228.6679        774228.6679        
+--------------------------------------------------------------------------------
+Total: 1  |  Pass: 1  |  Fail: 0  |  Skip: 0
+================================================================================
+  [init-gen] code_v0 saved to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_tasks/kobeaga2024/gpt-5.6-sol/code.py
+
+  --- Running code_v0 on instances ['tiny'] for first_results ---
+  Instance tiny: PASS (LLM=5.0, gap=0.00%, time=0.16s, feasible=True)
+
+  --- Phase 0: Self-debug for runtime_error (budget=5 remaining of 5, already used=0) ---
+
+  --- Phase 1: Tiny-instance gate (instance tiny, gap<=10%) ---
+
+  --- Phase 1: gate PASSED (tiny gap=0.0) ---
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+
+  All correction-triggering failures resolved.
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    API cost written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/one_shot_api_cost.csv
+
+================================================================================
+EVALUATION SUMMARY
+================================================================================
+Instance     Status   Retries   LLM Obj            Gurobi Obj         Error
+--------------------------------------------------------------------------------
+  tiny       pass     0         5.0000             5.0000             
+--------------------------------------------------------------------------------
+Total: 1  |  Pass: 1  |  Fail: 0  |  Skip: 0
+================================================================================
+  Instance tiny: PASS (LLM=59.0, gap=0.00%, time=25.0s, feasible=True)
+
+  --- Phase 0: Self-debug for runtime_error (budget=5 remaining of 5, already used=0) ---
+
+  --- Phase 1: Tiny-instance gate (instance tiny, gap<=10%) ---
+
+  --- Phase 1: gate PASSED (tiny gap=0.0) ---
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+
+  All correction-triggering failures resolved.
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    API cost written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/one_shot_api_cost.csv
+
+================================================================================
+EVALUATION SUMMARY
+================================================================================
+Instance     Status   Retries   LLM Obj            Gurobi Obj         Error
+--------------------------------------------------------------------------------
+  tiny       pass     0         59.0000            59.0000            
+--------------------------------------------------------------------------------
+Total: 1  |  Pass: 1  |  Fail: 0  |  Skip: 0
+================================================================================
+  [init-gen] code_v0 saved to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_tasks/roberti2018/gpt-5.6-sol/code.py
+
+  --- Running code_v0 on instances ['tiny'] for first_results ---
+  Instance tiny: PASS (LLM=889.9422924874023, gap=5.95%, time=0.12s, feasible=True)
+
+  --- Phase 0: Self-debug for runtime_error (budget=5 remaining of 5, already used=0) ---
+
+  --- Phase 1: Tiny-instance gate (instance tiny, gap<=10%) ---
+
+  --- Phase 1: gate PASSED (tiny gap=0.059527899055934155) ---
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+
+  All correction-triggering failures resolved.
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    API cost written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/one_shot_api_cost.csv
+
+================================================================================
+EVALUATION SUMMARY
+================================================================================
+Instance     Status   Retries   LLM Obj            Gurobi Obj         Error
+--------------------------------------------------------------------------------
+  tiny       pass     0         889.9423           839.9423           
+--------------------------------------------------------------------------------
+Total: 1  |  Pass: 1  |  Fail: 0  |  Skip: 0
+================================================================================
+  Instance tiny: PASS (LLM=2242.763031, gap=0.00%, time=85.67s, feasible=True)
+
+  --- Phase 0: Self-debug for runtime_error (budget=5 remaining of 5, already used=0) ---
+
+  --- Phase 1: Tiny-instance gate (instance tiny, gap<=10%) ---
+
+  --- Phase 1: gate PASSED (tiny gap=0.0) ---
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+
+  All correction-triggering failures resolved.
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    API cost written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/one_shot_api_cost.csv
+
+================================================================================
+EVALUATION SUMMARY
+================================================================================
+Instance     Status   Retries   LLM Obj            Gurobi Obj         Error
+--------------------------------------------------------------------------------
+  tiny       pass     0         2242.7630          2242.7630          
+--------------------------------------------------------------------------------
+Total: 1  |  Pass: 1  |  Fail: 0  |  Skip: 0
+================================================================================
+  [init-gen] code_v0 saved to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_tasks/fragkos2016/gpt-5.6-sol/code.py
+
+  --- Running code_v0 on instances ['tiny'] for first_results ---
+  Instance tiny: FAIL runtime_error (0.12s)
+
+  --- Phase 0: Self-debug for runtime_error (budget=5 remaining of 5, already used=0) ---
+
+  [debug 1/5] 1 instance(s) with runtime_error, calling LLM...
+  Instance tiny: FAIL runtime_error (300.01s)
+
+  --- Phase 0: Self-debug for runtime_error (budget=5 remaining of 5, already used=0) ---
+
+  --- Phase 1: Tiny-instance gate (instance tiny, gap<=10%) ---
+
+  *** Tiny-instance gate FAILED for instance tiny after 0 LLM correction(s) (debug=0, phase1=0). Skipping instances []. ***
+
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    API cost written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/one_shot_api_cost.csv
+
+================================================================================
+EVALUATION SUMMARY
+================================================================================
+Instance     Status   Retries   LLM Obj            Gurobi Obj         Error
+--------------------------------------------------------------------------------
+  tiny       fail     0         N/A                485.5780           Execution timed out after 3...
+--------------------------------------------------------------------------------
+Total: 1  |  Pass: 0  |  Fail: 1  |  Skip: 0
+================================================================================
+
+ERROR DETAILS
+--------------------------------------------------------------------------------
+  Instance tiny:
+Execution timed out after 300 seconds
+
+  [init-gen] code_v0 saved to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_tasks/spliet2015/gpt-5.6-sol/code.py
+
+  --- Running code_v0 on instances ['tiny'] for first_results ---
+  Instance tiny: PASS (LLM=17.153333333333336, gap=0.00%, time=0.27s, feasible=True)
+
+  --- Phase 0: Self-debug for runtime_error (budget=5 remaining of 5, already used=0) ---
+
+  --- Phase 1: Tiny-instance gate (instance tiny, gap<=10%) ---
+
+  --- Phase 1: gate PASSED (tiny gap=0.0) ---
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+
+  All correction-triggering failures resolved.
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    API cost written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/one_shot_api_cost.csv
+
+================================================================================
+EVALUATION SUMMARY
+================================================================================
+Instance     Status   Retries   LLM Obj            Gurobi Obj         Error
+--------------------------------------------------------------------------------
+  tiny       pass     0         17.1533            17.1533            
+--------------------------------------------------------------------------------
+Total: 1  |  Pass: 1  |  Fail: 0  |  Skip: 0
+================================================================================
+  Instance tiny: FAIL infeasible (LLM=5113.6304286212735, gap=0.00%)
+
+  --- Phase 0: Self-debug for runtime_error (budget=5 remaining of 5, already used=0) ---
+
+  --- Phase 1: Tiny-instance gate (instance tiny, gap<=10%) ---
+
+  *** Tiny-instance gate FAILED for instance tiny after 0 LLM correction(s) (debug=0, phase1=0). Skipping instances []. ***
+
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    API cost written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/one_shot_api_cost.csv
+
+================================================================================
+EVALUATION SUMMARY
+================================================================================
+Instance     Status   Retries   LLM Obj            Gurobi Obj         Error
+--------------------------------------------------------------------------------
+  tiny       fail     0         5113.6304          5113.6304          Solution is INFEASIBLE Viol...
+--------------------------------------------------------------------------------
+Total: 1  |  Pass: 0  |  Fail: 1  |  Skip: 0
+================================================================================
+
+ERROR DETAILS
+--------------------------------------------------------------------------------
+  Instance tiny:
+Solution is INFEASIBLE Violations: Domain: routes[0] vehicle 0 not in [1, 2]; Domain: routes[1] vehicle 0 not in [1, 2]; Domain: routes[3] vehicle 0 not in [1, 2]; Domain: routes[5] vehicle 0 not in [1, 2]
+
+  Instance tiny: FAIL runtime_error (300.02s)
+
+  --- Phase 0: Self-debug for runtime_error (budget=5 remaining of 5, already used=0) ---
+
+  --- Phase 1: Tiny-instance gate (instance tiny, gap<=10%) ---
+
+  *** Tiny-instance gate FAILED for instance tiny after 0 LLM correction(s) (debug=0, phase1=0). Skipping instances []. ***
+
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    API cost written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/one_shot_api_cost.csv
+
+================================================================================
+EVALUATION SUMMARY
+================================================================================
+Instance     Status   Retries   LLM Obj            Gurobi Obj         Error
+--------------------------------------------------------------------------------
+  tiny       fail     0         N/A                948.0000           Execution timed out after 3...
+--------------------------------------------------------------------------------
+Total: 1  |  Pass: 0  |  Fail: 1  |  Skip: 0
+================================================================================
+
+ERROR DETAILS
+--------------------------------------------------------------------------------
+  Instance tiny:
+Execution timed out after 300 seconds
+
+  Instance tiny: FAIL runtime_error (0.11s)
+
+  [debug 2/5] 1 instance(s) with runtime_error, calling LLM...
+  [init-gen] code_v0 saved to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_tasks/amaldi2013/gpt-5.6-sol/code.py
+
+  --- Running code_v0 on instances ['tiny'] for first_results ---
+  Instance tiny: PASS (LLM=3.0, gap=0.00%, time=8.38s, feasible=True)
+
+  --- Phase 0: Self-debug for runtime_error (budget=5 remaining of 5, already used=0) ---
+
+  --- Phase 1: Tiny-instance gate (instance tiny, gap<=10%) ---
+
+  --- Phase 1: gate PASSED (tiny gap=0.0) ---
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+
+  All correction-triggering failures resolved.
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    API cost written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/one_shot_api_cost.csv
+
+================================================================================
+EVALUATION SUMMARY
+================================================================================
+Instance     Status   Retries   LLM Obj            Gurobi Obj         Error
+--------------------------------------------------------------------------------
+  tiny       pass     0         3.0000             3.0000             
+--------------------------------------------------------------------------------
+Total: 1  |  Pass: 1  |  Fail: 0  |  Skip: 0
+================================================================================
+  Instance tiny: FAIL runtime_error (0.11s)
+
+  [debug 3/5] 1 instance(s) with runtime_error, calling LLM...
+  Instance tiny: FAIL runtime_error (300.0s)
+
+  --- Phase 0: Self-debug for runtime_error (budget=5 remaining of 5, already used=0) ---
+
+  --- Phase 1: Tiny-instance gate (instance tiny, gap<=10%) ---
+
+  *** Tiny-instance gate FAILED for instance tiny after 0 LLM correction(s) (debug=0, phase1=0). Skipping instances []. ***
+
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    API cost written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/one_shot_api_cost.csv
+
+================================================================================
+EVALUATION SUMMARY
+================================================================================
+Instance     Status   Retries   LLM Obj            Gurobi Obj         Error
+--------------------------------------------------------------------------------
+  tiny       fail     0         N/A                27.0000            Execution timed out after 3...
+--------------------------------------------------------------------------------
+Total: 1  |  Pass: 0  |  Fail: 1  |  Skip: 0
+================================================================================
+
+ERROR DETAILS
+--------------------------------------------------------------------------------
+  Instance tiny:
+Execution timed out after 300 seconds
+
+  Instance tiny: FAIL runtime_error (0.11s)
+
+  [debug 4/5] 1 instance(s) with runtime_error, calling LLM...
+  Instance tiny: FAIL runtime_error (0.12s)
+
+  [debug 5/5] 1 instance(s) with runtime_error, calling LLM...
+  Instance tiny: FAIL runtime_error (0.27s)
+
+  --- Phase 1: Tiny-instance gate (instance tiny, gap<=10%) ---
+
+  *** Tiny-instance gate FAILED for instance tiny after 5 LLM correction(s) (debug=5, phase1=0). Skipping instances []. ***
+
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    API cost written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/one_shot_api_cost.csv
+
+================================================================================
+EVALUATION SUMMARY
+================================================================================
+Instance     Status   Retries   LLM Obj            Gurobi Obj         Error
+--------------------------------------------------------------------------------
+  tiny       fail     5         N/A                8504.6512          Process exited with code 1:...
+--------------------------------------------------------------------------------
+Total: 1  |  Pass: 0  |  Fail: 1  |  Skip: 0
+================================================================================
+
+ERROR DETAILS
+--------------------------------------------------------------------------------
+  Instance tiny:
+Process exited with code 1:
+Traceback (most recent call last):
+  File "/scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_tasks/fragkos2016/gpt-5.6-sol/code.py", line 351, in <module>
+    main()
+    ~~~~^^
+  File "/scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_tasks/fragkos2016/gpt-5.6-sol/code.py", line 336, in main
+    raise RuntimeError(f"No feasible solution found: {status_text}")
+RuntimeError: No feasible solution found: infeasible
+

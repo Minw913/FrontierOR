@@ -1,0 +1,389 @@
+{
+ "objective_value": 51,
+ "vehicle_schedule": {
+  "depot_1": [
+   [
+    0,
+    23,
+    42,
+    65
+   ],
+   [
+    2,
+    27,
+    46,
+    67
+   ],
+   [
+    4,
+    31,
+    54,
+    76
+   ],
+   [
+    5,
+    30,
+    53,
+    75
+   ],
+   [
+    8,
+    19,
+    38,
+    55,
+    77
+   ],
+   [
+    10,
+    33,
+    52,
+    74
+   ],
+   [
+    12,
+    37,
+    61
+   ],
+   [
+    14,
+    41,
+    64
+   ],
+   [
+    16,
+    39,
+    57,
+    79
+   ],
+   [
+    24,
+    51,
+    73
+   ]
+  ],
+  "depot_2": [
+   [
+    1,
+    20,
+    43,
+    62
+   ],
+   [
+    3,
+    21,
+    44,
+    68
+   ],
+   [
+    6,
+    29,
+    48,
+    70
+   ],
+   [
+    7,
+    26,
+    49,
+    71
+   ],
+   [
+    9,
+    28,
+    45,
+    66
+   ],
+   [
+    11,
+    34,
+    59
+   ],
+   [
+    13,
+    32,
+    56,
+    78
+   ],
+   [
+    15,
+    40,
+    63
+   ],
+   [
+    17,
+    36,
+    58
+   ],
+   [
+    18,
+    35,
+    60
+   ],
+   [
+    22,
+    47,
+    69
+   ],
+   [
+    25,
+    50,
+    72
+   ]
+  ]
+ },
+ "crew_schedule": [
+  {
+   "depot": "depot_1",
+   "type": "early",
+   "trips": [
+    0,
+    38,
+    55,
+    77
+   ]
+  },
+  {
+   "depot": "depot_2",
+   "type": "early",
+   "trips": [
+    1,
+    45,
+    66
+   ]
+  },
+  {
+   "depot": "depot_1",
+   "type": "early",
+   "trips": [
+    2,
+    54,
+    76
+   ]
+  },
+  {
+   "depot": "depot_2",
+   "type": "early",
+   "trips": [
+    3,
+    71
+   ]
+  },
+  {
+   "depot": "depot_1",
+   "type": "early",
+   "trips": [
+    4,
+    31,
+    74
+   ]
+  },
+  {
+   "depot": "depot_1",
+   "type": "early",
+   "trips": [
+    5,
+    30,
+    64
+   ]
+  },
+  {
+   "depot": "depot_1",
+   "type": "early",
+   "trips": [
+    8,
+    19,
+    53,
+    75
+   ]
+  },
+  {
+   "depot": "depot_2",
+   "type": "early",
+   "trips": [
+    9,
+    28,
+    70
+   ]
+  },
+  {
+   "depot": "depot_2",
+   "type": "early",
+   "trips": [
+    11,
+    34,
+    72
+   ]
+  },
+  {
+   "depot": "depot_1",
+   "type": "early",
+   "trips": [
+    12,
+    79
+   ]
+  },
+  {
+   "depot": "depot_1",
+   "type": "early",
+   "trips": [
+    14,
+    41,
+    73
+   ]
+  },
+  {
+   "depot": "depot_2",
+   "type": "early",
+   "trips": [
+    15,
+    59
+   ]
+  },
+  {
+   "depot": "depot_2",
+   "type": "early",
+   "trips": [
+    18,
+    69
+   ]
+  },
+  {
+   "depot": "depot_2",
+   "type": "early",
+   "trips": [
+    25,
+    50,
+    78
+   ]
+  },
+  {
+   "depot": "depot_1",
+   "type": "tripper",
+   "trips": [
+    23,
+    42,
+    65
+   ]
+  },
+  {
+   "depot": "depot_2",
+   "type": "tripper",
+   "trips": [
+    20,
+    43,
+    62
+   ]
+  },
+  {
+   "depot": "depot_1",
+   "type": "tripper",
+   "trips": [
+    27,
+    46,
+    67
+   ]
+  },
+  {
+   "depot": "depot_2",
+   "type": "tripper",
+   "trips": [
+    21,
+    44,
+    68
+   ]
+  },
+  {
+   "depot": "depot_2",
+   "type": "tripper",
+   "trips": [
+    6,
+    29,
+    48
+   ]
+  },
+  {
+   "depot": "depot_2",
+   "type": "tripper",
+   "trips": [
+    7,
+    26,
+    49
+   ]
+  },
+  {
+   "depot": "depot_1",
+   "type": "tripper",
+   "trips": [
+    10,
+    33,
+    52
+   ]
+  },
+  {
+   "depot": "depot_1",
+   "type": "tripper",
+   "trips": [
+    37,
+    61
+   ]
+  },
+  {
+   "depot": "depot_2",
+   "type": "tripper",
+   "trips": [
+    13,
+    32,
+    56
+   ]
+  },
+  {
+   "depot": "depot_2",
+   "type": "tripper",
+   "trips": [
+    40,
+    63
+   ]
+  },
+  {
+   "depot": "depot_1",
+   "type": "tripper",
+   "trips": [
+    16,
+    39,
+    57
+   ]
+  },
+  {
+   "depot": "depot_2",
+   "type": "tripper",
+   "trips": [
+    17,
+    36,
+    58
+   ]
+  },
+  {
+   "depot": "depot_2",
+   "type": "tripper",
+   "trips": [
+    35,
+    60
+   ]
+  },
+  {
+   "depot": "depot_2",
+   "type": "tripper",
+   "trips": [
+    22,
+    47
+   ]
+  },
+  {
+   "depot": "depot_1",
+   "type": "tripper",
+   "trips": [
+    24,
+    51
+   ]
+  }
+ ]
+}

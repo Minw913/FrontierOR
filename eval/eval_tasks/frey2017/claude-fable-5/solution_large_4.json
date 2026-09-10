@@ -1,0 +1,2713 @@
+{
+ "objective_value": 46656.0,
+ "assignments": [
+  {
+   "flight_id": 1,
+   "carousel_id": 18,
+   "carousel_type": 2,
+   "working_stations": 4,
+   "handling_start_period": 20,
+   "depletion_start_period": 20,
+   "end_period": 44
+  },
+  {
+   "flight_id": 2,
+   "carousel_id": 7,
+   "carousel_type": 1,
+   "working_stations": 4,
+   "handling_start_period": 22,
+   "depletion_start_period": 22,
+   "end_period": 46
+  },
+  {
+   "flight_id": 3,
+   "carousel_id": 22,
+   "carousel_type": 3,
+   "working_stations": 3,
+   "handling_start_period": 23,
+   "depletion_start_period": 23,
+   "end_period": 47
+  },
+  {
+   "flight_id": 4,
+   "carousel_id": 21,
+   "carousel_type": 2,
+   "working_stations": 4,
+   "handling_start_period": 24,
+   "depletion_start_period": 24,
+   "end_period": 48
+  },
+  {
+   "flight_id": 5,
+   "carousel_id": 17,
+   "carousel_type": 2,
+   "working_stations": 4,
+   "handling_start_period": 25,
+   "depletion_start_period": 25,
+   "end_period": 49
+  },
+  {
+   "flight_id": 6,
+   "carousel_id": 15,
+   "carousel_type": 2,
+   "working_stations": 4,
+   "handling_start_period": 26,
+   "depletion_start_period": 26,
+   "end_period": 50
+  },
+  {
+   "flight_id": 7,
+   "carousel_id": 22,
+   "carousel_type": 3,
+   "working_stations": 3,
+   "handling_start_period": 26,
+   "depletion_start_period": 26,
+   "end_period": 50
+  },
+  {
+   "flight_id": 8,
+   "carousel_id": 22,
+   "carousel_type": 3,
+   "working_stations": 3,
+   "handling_start_period": 27,
+   "depletion_start_period": 27,
+   "end_period": 51
+  },
+  {
+   "flight_id": 9,
+   "carousel_id": 19,
+   "carousel_type": 2,
+   "working_stations": 4,
+   "handling_start_period": 33,
+   "depletion_start_period": 33,
+   "end_period": 57
+  },
+  {
+   "flight_id": 10,
+   "carousel_id": 4,
+   "carousel_type": 1,
+   "working_stations": 4,
+   "handling_start_period": 34,
+   "depletion_start_period": 34,
+   "end_period": 46
+  },
+  {
+   "flight_id": 11,
+   "carousel_id": 16,
+   "carousel_type": 2,
+   "working_stations": 4,
+   "handling_start_period": 34,
+   "depletion_start_period": 34,
+   "end_period": 58
+  },
+  {
+   "flight_id": 12,
+   "carousel_id": 1,
+   "carousel_type": 1,
+   "working_stations": 4,
+   "handling_start_period": 34,
+   "depletion_start_period": 34,
+   "end_period": 58
+  },
+  {
+   "flight_id": 13,
+   "carousel_id": 13,
+   "carousel_type": 2,
+   "working_stations": 2,
+   "handling_start_period": 33,
+   "depletion_start_period": 33,
+   "end_period": 47
+  },
+  {
+   "flight_id": 14,
+   "carousel_id": 14,
+   "carousel_type": 2,
+   "working_stations": 2,
+   "handling_start_period": 30,
+   "depletion_start_period": 30,
+   "end_period": 47
+  },
+  {
+   "flight_id": 15,
+   "carousel_id": 22,
+   "carousel_type": 3,
+   "working_stations": 3,
+   "handling_start_period": 35,
+   "depletion_start_period": 53,
+   "end_period": 59
+  },
+  {
+   "flight_id": 16,
+   "carousel_id": 8,
+   "carousel_type": 2,
+   "working_stations": 4,
+   "handling_start_period": 35,
+   "depletion_start_period": 35,
+   "end_period": 59
+  },
+  {
+   "flight_id": 17,
+   "carousel_id": 2,
+   "carousel_type": 1,
+   "working_stations": 2,
+   "handling_start_period": 35,
+   "depletion_start_period": 35,
+   "end_period": 43
+  },
+  {
+   "flight_id": 18,
+   "carousel_id": 9,
+   "carousel_type": 2,
+   "working_stations": 2,
+   "handling_start_period": 32,
+   "depletion_start_period": 32,
+   "end_period": 51
+  },
+  {
+   "flight_id": 19,
+   "carousel_id": 6,
+   "carousel_type": 1,
+   "working_stations": 1,
+   "handling_start_period": 38,
+   "depletion_start_period": 38,
+   "end_period": 46
+  },
+  {
+   "flight_id": 20,
+   "carousel_id": 5,
+   "carousel_type": 1,
+   "working_stations": 4,
+   "handling_start_period": 40,
+   "depletion_start_period": 46,
+   "end_period": 52
+  },
+  {
+   "flight_id": 21,
+   "carousel_id": 14,
+   "carousel_type": 2,
+   "working_stations": 1,
+   "handling_start_period": 37,
+   "depletion_start_period": 37,
+   "end_period": 47
+  },
+  {
+   "flight_id": 22,
+   "carousel_id": 11,
+   "carousel_type": 2,
+   "working_stations": 4,
+   "handling_start_period": 41,
+   "depletion_start_period": 41,
+   "end_period": 65
+  },
+  {
+   "flight_id": 23,
+   "carousel_id": 10,
+   "carousel_type": 2,
+   "working_stations": 1,
+   "handling_start_period": 37,
+   "depletion_start_period": 42,
+   "end_period": 48
+  },
+  {
+   "flight_id": 24,
+   "carousel_id": 13,
+   "carousel_type": 2,
+   "working_stations": 1,
+   "handling_start_period": 41,
+   "depletion_start_period": 42,
+   "end_period": 48
+  },
+  {
+   "flight_id": 25,
+   "carousel_id": 6,
+   "carousel_type": 1,
+   "working_stations": 3,
+   "handling_start_period": 42,
+   "depletion_start_period": 48,
+   "end_period": 54
+  },
+  {
+   "flight_id": 26,
+   "carousel_id": 22,
+   "carousel_type": 3,
+   "working_stations": 3,
+   "handling_start_period": 42,
+   "depletion_start_period": 60,
+   "end_period": 66
+  },
+  {
+   "flight_id": 27,
+   "carousel_id": 3,
+   "carousel_type": 1,
+   "working_stations": 4,
+   "handling_start_period": 43,
+   "depletion_start_period": 43,
+   "end_period": 55
+  },
+  {
+   "flight_id": 28,
+   "carousel_id": 10,
+   "carousel_type": 2,
+   "working_stations": 1,
+   "handling_start_period": 33,
+   "depletion_start_period": 33,
+   "end_period": 55
+  },
+  {
+   "flight_id": 29,
+   "carousel_id": 12,
+   "carousel_type": 2,
+   "working_stations": 4,
+   "handling_start_period": 43,
+   "depletion_start_period": 43,
+   "end_period": 67
+  },
+  {
+   "flight_id": 30,
+   "carousel_id": 20,
+   "carousel_type": 2,
+   "working_stations": 4,
+   "handling_start_period": 43,
+   "depletion_start_period": 61,
+   "end_period": 67
+  },
+  {
+   "flight_id": 31,
+   "carousel_id": 18,
+   "carousel_type": 2,
+   "working_stations": 1,
+   "handling_start_period": 45,
+   "depletion_start_period": 45,
+   "end_period": 51
+  },
+  {
+   "flight_id": 32,
+   "carousel_id": 2,
+   "carousel_type": 1,
+   "working_stations": 2,
+   "handling_start_period": 45,
+   "depletion_start_period": 45,
+   "end_period": 52
+  },
+  {
+   "flight_id": 33,
+   "carousel_id": 7,
+   "carousel_type": 1,
+   "working_stations": 2,
+   "handling_start_period": 47,
+   "depletion_start_period": 47,
+   "end_period": 59
+  },
+  {
+   "flight_id": 34,
+   "carousel_id": 18,
+   "carousel_type": 2,
+   "working_stations": 2,
+   "handling_start_period": 48,
+   "depletion_start_period": 48,
+   "end_period": 60
+  },
+  {
+   "flight_id": 35,
+   "carousel_id": 4,
+   "carousel_type": 1,
+   "working_stations": 1,
+   "handling_start_period": 49,
+   "depletion_start_period": 49,
+   "end_period": 55
+  },
+  {
+   "flight_id": 36,
+   "carousel_id": 2,
+   "carousel_type": 1,
+   "working_stations": 2,
+   "handling_start_period": 49,
+   "depletion_start_period": 49,
+   "end_period": 55
+  },
+  {
+   "flight_id": 37,
+   "carousel_id": 14,
+   "carousel_type": 2,
+   "working_stations": 4,
+   "handling_start_period": 49,
+   "depletion_start_period": 49,
+   "end_period": 73
+  },
+  {
+   "flight_id": 38,
+   "carousel_id": 7,
+   "carousel_type": 1,
+   "working_stations": 2,
+   "handling_start_period": 50,
+   "depletion_start_period": 50,
+   "end_period": 56
+  },
+  {
+   "flight_id": 39,
+   "carousel_id": 10,
+   "carousel_type": 2,
+   "working_stations": 1,
+   "handling_start_period": 46,
+   "depletion_start_period": 50,
+   "end_period": 56
+  },
+  {
+   "flight_id": 40,
+   "carousel_id": 10,
+   "carousel_type": 2,
+   "working_stations": 2,
+   "handling_start_period": 49,
+   "depletion_start_period": 49,
+   "end_period": 56
+  },
+  {
+   "flight_id": 41,
+   "carousel_id": 4,
+   "carousel_type": 1,
+   "working_stations": 3,
+   "handling_start_period": 51,
+   "depletion_start_period": 51,
+   "end_period": 63
+  },
+  {
+   "flight_id": 42,
+   "carousel_id": 15,
+   "carousel_type": 2,
+   "working_stations": 4,
+   "handling_start_period": 51,
+   "depletion_start_period": 69,
+   "end_period": 75
+  },
+  {
+   "flight_id": 43,
+   "carousel_id": 21,
+   "carousel_type": 2,
+   "working_stations": 2,
+   "handling_start_period": 51,
+   "depletion_start_period": 69,
+   "end_period": 75
+  },
+  {
+   "flight_id": 44,
+   "carousel_id": 17,
+   "carousel_type": 2,
+   "working_stations": 2,
+   "handling_start_period": 52,
+   "depletion_start_period": 58,
+   "end_period": 64
+  },
+  {
+   "flight_id": 45,
+   "carousel_id": 2,
+   "carousel_type": 1,
+   "working_stations": 2,
+   "handling_start_period": 54,
+   "depletion_start_period": 54,
+   "end_period": 60
+  },
+  {
+   "flight_id": 46,
+   "carousel_id": 5,
+   "carousel_type": 1,
+   "working_stations": 3,
+   "handling_start_period": 55,
+   "depletion_start_period": 61,
+   "end_period": 67
+  },
+  {
+   "flight_id": 47,
+   "carousel_id": 9,
+   "carousel_type": 2,
+   "working_stations": 4,
+   "handling_start_period": 55,
+   "depletion_start_period": 55,
+   "end_period": 79
+  },
+  {
+   "flight_id": 48,
+   "carousel_id": 13,
+   "carousel_type": 2,
+   "working_stations": 4,
+   "handling_start_period": 55,
+   "depletion_start_period": 55,
+   "end_period": 79
+  },
+  {
+   "flight_id": 49,
+   "carousel_id": 6,
+   "carousel_type": 1,
+   "working_stations": 4,
+   "handling_start_period": 56,
+   "depletion_start_period": 56,
+   "end_period": 68
+  },
+  {
+   "flight_id": 50,
+   "carousel_id": 21,
+   "carousel_type": 2,
+   "working_stations": 1,
+   "handling_start_period": 52,
+   "depletion_start_period": 52,
+   "end_period": 63
+  },
+  {
+   "flight_id": 51,
+   "carousel_id": 10,
+   "carousel_type": 2,
+   "working_stations": 4,
+   "handling_start_period": 57,
+   "depletion_start_period": 57,
+   "end_period": 81
+  },
+  {
+   "flight_id": 52,
+   "carousel_id": 18,
+   "carousel_type": 2,
+   "working_stations": 1,
+   "handling_start_period": 56,
+   "depletion_start_period": 58,
+   "end_period": 64
+  },
+  {
+   "flight_id": 53,
+   "carousel_id": 17,
+   "carousel_type": 2,
+   "working_stations": 1,
+   "handling_start_period": 54,
+   "depletion_start_period": 58,
+   "end_period": 64
+  },
+  {
+   "flight_id": 54,
+   "carousel_id": 1,
+   "carousel_type": 1,
+   "working_stations": 2,
+   "handling_start_period": 59,
+   "depletion_start_period": 65,
+   "end_period": 71
+  },
+  {
+   "flight_id": 55,
+   "carousel_id": 22,
+   "carousel_type": 3,
+   "working_stations": 3,
+   "handling_start_period": 59,
+   "depletion_start_period": 77,
+   "end_period": 83
+  },
+  {
+   "flight_id": 56,
+   "carousel_id": 3,
+   "carousel_type": 1,
+   "working_stations": 4,
+   "handling_start_period": 59,
+   "depletion_start_period": 59,
+   "end_period": 83
+  },
+  {
+   "flight_id": 57,
+   "carousel_id": 1,
+   "carousel_type": 1,
+   "working_stations": 2,
+   "handling_start_period": 60,
+   "depletion_start_period": 60,
+   "end_period": 72
+  },
+  {
+   "flight_id": 58,
+   "carousel_id": 16,
+   "carousel_type": 2,
+   "working_stations": 2,
+   "handling_start_period": 60,
+   "depletion_start_period": 66,
+   "end_period": 72
+  },
+  {
+   "flight_id": 59,
+   "carousel_id": 17,
+   "carousel_type": 2,
+   "working_stations": 1,
+   "handling_start_period": 61,
+   "depletion_start_period": 61,
+   "end_period": 67
+  },
+  {
+   "flight_id": 60,
+   "carousel_id": 16,
+   "carousel_type": 2,
+   "working_stations": 1,
+   "handling_start_period": 61,
+   "depletion_start_period": 62,
+   "end_period": 68
+  },
+  {
+   "flight_id": 61,
+   "carousel_id": 2,
+   "carousel_type": 1,
+   "working_stations": 1,
+   "handling_start_period": 61,
+   "depletion_start_period": 61,
+   "end_period": 68
+  },
+  {
+   "flight_id": 62,
+   "carousel_id": 2,
+   "carousel_type": 1,
+   "working_stations": 2,
+   "handling_start_period": 62,
+   "depletion_start_period": 62,
+   "end_period": 68
+  },
+  {
+   "flight_id": 63,
+   "carousel_id": 16,
+   "carousel_type": 2,
+   "working_stations": 1,
+   "handling_start_period": 61,
+   "depletion_start_period": 61,
+   "end_period": 69
+  },
+  {
+   "flight_id": 64,
+   "carousel_id": 7,
+   "carousel_type": 1,
+   "working_stations": 3,
+   "handling_start_period": 63,
+   "depletion_start_period": 69,
+   "end_period": 75
+  },
+  {
+   "flight_id": 65,
+   "carousel_id": 19,
+   "carousel_type": 2,
+   "working_stations": 4,
+   "handling_start_period": 63,
+   "depletion_start_period": 63,
+   "end_period": 87
+  },
+  {
+   "flight_id": 66,
+   "carousel_id": 22,
+   "carousel_type": 3,
+   "working_stations": 3,
+   "handling_start_period": 63,
+   "depletion_start_period": 81,
+   "end_period": 87
+  },
+  {
+   "flight_id": 67,
+   "carousel_id": 21,
+   "carousel_type": 2,
+   "working_stations": 1,
+   "handling_start_period": 64,
+   "depletion_start_period": 64,
+   "end_period": 70
+  },
+  {
+   "flight_id": 68,
+   "carousel_id": 4,
+   "carousel_type": 1,
+   "working_stations": 4,
+   "handling_start_period": 64,
+   "depletion_start_period": 64,
+   "end_period": 76
+  },
+  {
+   "flight_id": 69,
+   "carousel_id": 8,
+   "carousel_type": 2,
+   "working_stations": 1,
+   "handling_start_period": 63,
+   "depletion_start_period": 63,
+   "end_period": 71
+  },
+  {
+   "flight_id": 70,
+   "carousel_id": 18,
+   "carousel_type": 2,
+   "working_stations": 4,
+   "handling_start_period": 65,
+   "depletion_start_period": 65,
+   "end_period": 89
+  },
+  {
+   "flight_id": 71,
+   "carousel_id": 7,
+   "carousel_type": 1,
+   "working_stations": 1,
+   "handling_start_period": 64,
+   "depletion_start_period": 66,
+   "end_period": 72
+  },
+  {
+   "flight_id": 72,
+   "carousel_id": 2,
+   "carousel_type": 1,
+   "working_stations": 1,
+   "handling_start_period": 62,
+   "depletion_start_period": 62,
+   "end_period": 72
+  },
+  {
+   "flight_id": 73,
+   "carousel_id": 17,
+   "carousel_type": 2,
+   "working_stations": 2,
+   "handling_start_period": 67,
+   "depletion_start_period": 73,
+   "end_period": 79
+  },
+  {
+   "flight_id": 74,
+   "carousel_id": 8,
+   "carousel_type": 2,
+   "working_stations": 2,
+   "handling_start_period": 67,
+   "depletion_start_period": 85,
+   "end_period": 91
+  },
+  {
+   "flight_id": 75,
+   "carousel_id": 11,
+   "carousel_type": 2,
+   "working_stations": 4,
+   "handling_start_period": 67,
+   "depletion_start_period": 67,
+   "end_period": 91
+  },
+  {
+   "flight_id": 76,
+   "carousel_id": 5,
+   "carousel_type": 1,
+   "working_stations": 4,
+   "handling_start_period": 68,
+   "depletion_start_period": 68,
+   "end_period": 80
+  },
+  {
+   "flight_id": 77,
+   "carousel_id": 17,
+   "carousel_type": 2,
+   "working_stations": 2,
+   "handling_start_period": 68,
+   "depletion_start_period": 74,
+   "end_period": 80
+  },
+  {
+   "flight_id": 78,
+   "carousel_id": 12,
+   "carousel_type": 2,
+   "working_stations": 1,
+   "handling_start_period": 70,
+   "depletion_start_period": 70,
+   "end_period": 76
+  },
+  {
+   "flight_id": 79,
+   "carousel_id": 20,
+   "carousel_type": 2,
+   "working_stations": 2,
+   "handling_start_period": 68,
+   "depletion_start_period": 68,
+   "end_period": 76
+  },
+  {
+   "flight_id": 80,
+   "carousel_id": 20,
+   "carousel_type": 2,
+   "working_stations": 1,
+   "handling_start_period": 68,
+   "depletion_start_period": 70,
+   "end_period": 76
+  },
+  {
+   "flight_id": 81,
+   "carousel_id": 6,
+   "carousel_type": 1,
+   "working_stations": 1,
+   "handling_start_period": 71,
+   "depletion_start_period": 71,
+   "end_period": 77
+  },
+  {
+   "flight_id": 82,
+   "carousel_id": 21,
+   "carousel_type": 2,
+   "working_stations": 2,
+   "handling_start_period": 71,
+   "depletion_start_period": 71,
+   "end_period": 83
+  },
+  {
+   "flight_id": 83,
+   "carousel_id": 16,
+   "carousel_type": 2,
+   "working_stations": 2,
+   "handling_start_period": 72,
+   "depletion_start_period": 78,
+   "end_period": 84
+  },
+  {
+   "flight_id": 84,
+   "carousel_id": 16,
+   "carousel_type": 2,
+   "working_stations": 2,
+   "handling_start_period": 73,
+   "depletion_start_period": 73,
+   "end_period": 79
+  },
+  {
+   "flight_id": 85,
+   "carousel_id": 12,
+   "carousel_type": 2,
+   "working_stations": 1,
+   "handling_start_period": 73,
+   "depletion_start_period": 73,
+   "end_period": 80
+  },
+  {
+   "flight_id": 86,
+   "carousel_id": 6,
+   "carousel_type": 1,
+   "working_stations": 2,
+   "handling_start_period": 74,
+   "depletion_start_period": 74,
+   "end_period": 80
+  },
+  {
+   "flight_id": 87,
+   "carousel_id": 6,
+   "carousel_type": 1,
+   "working_stations": 1,
+   "handling_start_period": 74,
+   "depletion_start_period": 74,
+   "end_period": 80
+  },
+  {
+   "flight_id": 88,
+   "carousel_id": 2,
+   "carousel_type": 1,
+   "working_stations": 3,
+   "handling_start_period": 75,
+   "depletion_start_period": 75,
+   "end_period": 87
+  },
+  {
+   "flight_id": 89,
+   "carousel_id": 21,
+   "carousel_type": 2,
+   "working_stations": 2,
+   "handling_start_period": 76,
+   "depletion_start_period": 82,
+   "end_period": 88
+  },
+  {
+   "flight_id": 90,
+   "carousel_id": 7,
+   "carousel_type": 1,
+   "working_stations": 3,
+   "handling_start_period": 76,
+   "depletion_start_period": 82,
+   "end_period": 88
+  },
+  {
+   "flight_id": 91,
+   "carousel_id": 12,
+   "carousel_type": 2,
+   "working_stations": 1,
+   "handling_start_period": 78,
+   "depletion_start_period": 78,
+   "end_period": 84
+  },
+  {
+   "flight_id": 92,
+   "carousel_id": 2,
+   "carousel_type": 1,
+   "working_stations": 1,
+   "handling_start_period": 78,
+   "depletion_start_period": 78,
+   "end_period": 84
+  },
+  {
+   "flight_id": 93,
+   "carousel_id": 20,
+   "carousel_type": 2,
+   "working_stations": 2,
+   "handling_start_period": 77,
+   "depletion_start_period": 77,
+   "end_period": 84
+  },
+  {
+   "flight_id": 94,
+   "carousel_id": 12,
+   "carousel_type": 2,
+   "working_stations": 2,
+   "handling_start_period": 77,
+   "depletion_start_period": 79,
+   "end_period": 85
+  },
+  {
+   "flight_id": 95,
+   "carousel_id": 15,
+   "carousel_type": 2,
+   "working_stations": 2,
+   "handling_start_period": 80,
+   "depletion_start_period": 86,
+   "end_period": 92
+  },
+  {
+   "flight_id": 96,
+   "carousel_id": 12,
+   "carousel_type": 2,
+   "working_stations": 1,
+   "handling_start_period": 81,
+   "depletion_start_period": 81,
+   "end_period": 87
+  },
+  {
+   "flight_id": 97,
+   "carousel_id": 6,
+   "carousel_type": 1,
+   "working_stations": 1,
+   "handling_start_period": 81,
+   "depletion_start_period": 82,
+   "end_period": 88
+  },
+  {
+   "flight_id": 98,
+   "carousel_id": 22,
+   "carousel_type": 3,
+   "working_stations": 1,
+   "handling_start_period": 86,
+   "depletion_start_period": 86,
+   "end_period": 92
+  },
+  {
+   "flight_id": 99,
+   "carousel_id": 9,
+   "carousel_type": 2,
+   "working_stations": 1,
+   "handling_start_period": 87,
+   "depletion_start_period": 87,
+   "end_period": 93
+  },
+  {
+   "flight_id": 100,
+   "carousel_id": 4,
+   "carousel_type": 1,
+   "working_stations": 4,
+   "handling_start_period": 90,
+   "depletion_start_period": 90,
+   "end_period": 102
+  },
+  {
+   "flight_id": 101,
+   "carousel_id": 12,
+   "carousel_type": 2,
+   "working_stations": 4,
+   "handling_start_period": 95,
+   "depletion_start_period": 95,
+   "end_period": 119
+  },
+  {
+   "flight_id": 102,
+   "carousel_id": 21,
+   "carousel_type": 2,
+   "working_stations": 4,
+   "handling_start_period": 96,
+   "depletion_start_period": 96,
+   "end_period": 120
+  },
+  {
+   "flight_id": 103,
+   "carousel_id": 16,
+   "carousel_type": 2,
+   "working_stations": 1,
+   "handling_start_period": 97,
+   "depletion_start_period": 97,
+   "end_period": 103
+  },
+  {
+   "flight_id": 104,
+   "carousel_id": 5,
+   "carousel_type": 1,
+   "working_stations": 4,
+   "handling_start_period": 98,
+   "depletion_start_period": 98,
+   "end_period": 122
+  },
+  {
+   "flight_id": 105,
+   "carousel_id": 13,
+   "carousel_type": 2,
+   "working_stations": 4,
+   "handling_start_period": 99,
+   "depletion_start_period": 99,
+   "end_period": 123
+  },
+  {
+   "flight_id": 106,
+   "carousel_id": 10,
+   "carousel_type": 2,
+   "working_stations": 4,
+   "handling_start_period": 99,
+   "depletion_start_period": 99,
+   "end_period": 123
+  },
+  {
+   "flight_id": 107,
+   "carousel_id": 22,
+   "carousel_type": 3,
+   "working_stations": 1,
+   "handling_start_period": 100,
+   "depletion_start_period": 100,
+   "end_period": 106
+  },
+  {
+   "flight_id": 108,
+   "carousel_id": 18,
+   "carousel_type": 2,
+   "working_stations": 4,
+   "handling_start_period": 102,
+   "depletion_start_period": 102,
+   "end_period": 126
+  },
+  {
+   "flight_id": 109,
+   "carousel_id": 7,
+   "carousel_type": 1,
+   "working_stations": 1,
+   "handling_start_period": 103,
+   "depletion_start_period": 103,
+   "end_period": 109
+  },
+  {
+   "flight_id": 110,
+   "carousel_id": 22,
+   "carousel_type": 3,
+   "working_stations": 3,
+   "handling_start_period": 103,
+   "depletion_start_period": 121,
+   "end_period": 127
+  },
+  {
+   "flight_id": 111,
+   "carousel_id": 14,
+   "carousel_type": 2,
+   "working_stations": 2,
+   "handling_start_period": 104,
+   "depletion_start_period": 104,
+   "end_period": 128
+  },
+  {
+   "flight_id": 112,
+   "carousel_id": 1,
+   "carousel_type": 1,
+   "working_stations": 3,
+   "handling_start_period": 106,
+   "depletion_start_period": 106,
+   "end_period": 118
+  },
+  {
+   "flight_id": 113,
+   "carousel_id": 3,
+   "carousel_type": 1,
+   "working_stations": 4,
+   "handling_start_period": 106,
+   "depletion_start_period": 106,
+   "end_period": 118
+  },
+  {
+   "flight_id": 114,
+   "carousel_id": 11,
+   "carousel_type": 2,
+   "working_stations": 4,
+   "handling_start_period": 106,
+   "depletion_start_period": 106,
+   "end_period": 130
+  },
+  {
+   "flight_id": 115,
+   "carousel_id": 6,
+   "carousel_type": 1,
+   "working_stations": 3,
+   "handling_start_period": 107,
+   "depletion_start_period": 107,
+   "end_period": 119
+  },
+  {
+   "flight_id": 116,
+   "carousel_id": 17,
+   "carousel_type": 2,
+   "working_stations": 4,
+   "handling_start_period": 108,
+   "depletion_start_period": 108,
+   "end_period": 132
+  },
+  {
+   "flight_id": 117,
+   "carousel_id": 2,
+   "carousel_type": 1,
+   "working_stations": 3,
+   "handling_start_period": 110,
+   "depletion_start_period": 116,
+   "end_period": 122
+  },
+  {
+   "flight_id": 118,
+   "carousel_id": 16,
+   "carousel_type": 2,
+   "working_stations": 4,
+   "handling_start_period": 110,
+   "depletion_start_period": 110,
+   "end_period": 134
+  },
+  {
+   "flight_id": 119,
+   "carousel_id": 4,
+   "carousel_type": 1,
+   "working_stations": 3,
+   "handling_start_period": 111,
+   "depletion_start_period": 111,
+   "end_period": 123
+  },
+  {
+   "flight_id": 120,
+   "carousel_id": 9,
+   "carousel_type": 2,
+   "working_stations": 4,
+   "handling_start_period": 111,
+   "depletion_start_period": 111,
+   "end_period": 135
+  },
+  {
+   "flight_id": 121,
+   "carousel_id": 22,
+   "carousel_type": 3,
+   "working_stations": 3,
+   "handling_start_period": 111,
+   "depletion_start_period": 129,
+   "end_period": 135
+  },
+  {
+   "flight_id": 122,
+   "carousel_id": 14,
+   "carousel_type": 2,
+   "working_stations": 1,
+   "handling_start_period": 108,
+   "depletion_start_period": 112,
+   "end_period": 118
+  },
+  {
+   "flight_id": 123,
+   "carousel_id": 15,
+   "carousel_type": 2,
+   "working_stations": 1,
+   "handling_start_period": 110,
+   "depletion_start_period": 112,
+   "end_period": 118
+  },
+  {
+   "flight_id": 124,
+   "carousel_id": 15,
+   "carousel_type": 2,
+   "working_stations": 1,
+   "handling_start_period": 109,
+   "depletion_start_period": 109,
+   "end_period": 119
+  },
+  {
+   "flight_id": 125,
+   "carousel_id": 19,
+   "carousel_type": 2,
+   "working_stations": 2,
+   "handling_start_period": 113,
+   "depletion_start_period": 113,
+   "end_period": 137
+  },
+  {
+   "flight_id": 126,
+   "carousel_id": 7,
+   "carousel_type": 1,
+   "working_stations": 3,
+   "handling_start_period": 114,
+   "depletion_start_period": 114,
+   "end_period": 126
+  },
+  {
+   "flight_id": 127,
+   "carousel_id": 20,
+   "carousel_type": 2,
+   "working_stations": 1,
+   "handling_start_period": 114,
+   "depletion_start_period": 115,
+   "end_period": 121
+  },
+  {
+   "flight_id": 128,
+   "carousel_id": 5,
+   "carousel_type": 1,
+   "working_stations": 3,
+   "handling_start_period": 115,
+   "depletion_start_period": 115,
+   "end_period": 127
+  },
+  {
+   "flight_id": 129,
+   "carousel_id": 19,
+   "carousel_type": 2,
+   "working_stations": 1,
+   "handling_start_period": 112,
+   "depletion_start_period": 112,
+   "end_period": 122
+  },
+  {
+   "flight_id": 130,
+   "carousel_id": 7,
+   "carousel_type": 1,
+   "working_stations": 1,
+   "handling_start_period": 116,
+   "depletion_start_period": 117,
+   "end_period": 123
+  },
+  {
+   "flight_id": 131,
+   "carousel_id": 3,
+   "carousel_type": 1,
+   "working_stations": 4,
+   "handling_start_period": 117,
+   "depletion_start_period": 117,
+   "end_period": 129
+  },
+  {
+   "flight_id": 132,
+   "carousel_id": 22,
+   "carousel_type": 3,
+   "working_stations": 3,
+   "handling_start_period": 117,
+   "depletion_start_period": 135,
+   "end_period": 141
+  },
+  {
+   "flight_id": 133,
+   "carousel_id": 15,
+   "carousel_type": 2,
+   "working_stations": 1,
+   "handling_start_period": 114,
+   "depletion_start_period": 118,
+   "end_period": 124
+  },
+  {
+   "flight_id": 134,
+   "carousel_id": 20,
+   "carousel_type": 2,
+   "working_stations": 1,
+   "handling_start_period": 111,
+   "depletion_start_period": 111,
+   "end_period": 130
+  },
+  {
+   "flight_id": 135,
+   "carousel_id": 8,
+   "carousel_type": 2,
+   "working_stations": 4,
+   "handling_start_period": 118,
+   "depletion_start_period": 136,
+   "end_period": 142
+  },
+  {
+   "flight_id": 136,
+   "carousel_id": 20,
+   "carousel_type": 2,
+   "working_stations": 1,
+   "handling_start_period": 114,
+   "depletion_start_period": 119,
+   "end_period": 125
+  },
+  {
+   "flight_id": 137,
+   "carousel_id": 15,
+   "carousel_type": 2,
+   "working_stations": 1,
+   "handling_start_period": 114,
+   "depletion_start_period": 119,
+   "end_period": 125
+  },
+  {
+   "flight_id": 138,
+   "carousel_id": 1,
+   "carousel_type": 1,
+   "working_stations": 4,
+   "handling_start_period": 119,
+   "depletion_start_period": 119,
+   "end_period": 131
+  },
+  {
+   "flight_id": 139,
+   "carousel_id": 22,
+   "carousel_type": 3,
+   "working_stations": 3,
+   "handling_start_period": 119,
+   "depletion_start_period": 137,
+   "end_period": 143
+  },
+  {
+   "flight_id": 140,
+   "carousel_id": 19,
+   "carousel_type": 2,
+   "working_stations": 1,
+   "handling_start_period": 120,
+   "depletion_start_period": 120,
+   "end_period": 126
+  },
+  {
+   "flight_id": 141,
+   "carousel_id": 15,
+   "carousel_type": 2,
+   "working_stations": 1,
+   "handling_start_period": 119,
+   "depletion_start_period": 119,
+   "end_period": 126
+  },
+  {
+   "flight_id": 142,
+   "carousel_id": 2,
+   "carousel_type": 1,
+   "working_stations": 4,
+   "handling_start_period": 121,
+   "depletion_start_period": 127,
+   "end_period": 133
+  },
+  {
+   "flight_id": 143,
+   "carousel_id": 4,
+   "carousel_type": 1,
+   "working_stations": 4,
+   "handling_start_period": 121,
+   "depletion_start_period": 121,
+   "end_period": 145
+  },
+  {
+   "flight_id": 144,
+   "carousel_id": 6,
+   "carousel_type": 1,
+   "working_stations": 3,
+   "handling_start_period": 122,
+   "depletion_start_period": 122,
+   "end_period": 134
+  },
+  {
+   "flight_id": 145,
+   "carousel_id": 15,
+   "carousel_type": 2,
+   "working_stations": 1,
+   "handling_start_period": 122,
+   "depletion_start_period": 122,
+   "end_period": 129
+  },
+  {
+   "flight_id": 146,
+   "carousel_id": 12,
+   "carousel_type": 2,
+   "working_stations": 1,
+   "handling_start_period": 124,
+   "depletion_start_period": 124,
+   "end_period": 130
+  },
+  {
+   "flight_id": 147,
+   "carousel_id": 19,
+   "carousel_type": 2,
+   "working_stations": 1,
+   "handling_start_period": 123,
+   "depletion_start_period": 123,
+   "end_period": 130
+  },
+  {
+   "flight_id": 148,
+   "carousel_id": 10,
+   "carousel_type": 2,
+   "working_stations": 4,
+   "handling_start_period": 124,
+   "depletion_start_period": 124,
+   "end_period": 148
+  },
+  {
+   "flight_id": 149,
+   "carousel_id": 12,
+   "carousel_type": 2,
+   "working_stations": 1,
+   "handling_start_period": 121,
+   "depletion_start_period": 121,
+   "end_period": 131
+  },
+  {
+   "flight_id": 150,
+   "carousel_id": 12,
+   "carousel_type": 2,
+   "working_stations": 1,
+   "handling_start_period": 120,
+   "depletion_start_period": 120,
+   "end_period": 137
+  },
+  {
+   "flight_id": 151,
+   "carousel_id": 21,
+   "carousel_type": 2,
+   "working_stations": 4,
+   "handling_start_period": 125,
+   "depletion_start_period": 125,
+   "end_period": 149
+  },
+  {
+   "flight_id": 152,
+   "carousel_id": 13,
+   "carousel_type": 2,
+   "working_stations": 1,
+   "handling_start_period": 124,
+   "depletion_start_period": 124,
+   "end_period": 132
+  },
+  {
+   "flight_id": 153,
+   "carousel_id": 13,
+   "carousel_type": 2,
+   "working_stations": 2,
+   "handling_start_period": 126,
+   "depletion_start_period": 126,
+   "end_period": 132
+  },
+  {
+   "flight_id": 154,
+   "carousel_id": 20,
+   "carousel_type": 2,
+   "working_stations": 2,
+   "handling_start_period": 124,
+   "depletion_start_period": 124,
+   "end_period": 138
+  },
+  {
+   "flight_id": 155,
+   "carousel_id": 7,
+   "carousel_type": 1,
+   "working_stations": 4,
+   "handling_start_period": 126,
+   "depletion_start_period": 126,
+   "end_period": 138
+  },
+  {
+   "flight_id": 156,
+   "carousel_id": 5,
+   "carousel_type": 1,
+   "working_stations": 3,
+   "handling_start_period": 126,
+   "depletion_start_period": 126,
+   "end_period": 138
+  },
+  {
+   "flight_id": 157,
+   "carousel_id": 22,
+   "carousel_type": 3,
+   "working_stations": 2,
+   "handling_start_period": 126,
+   "depletion_start_period": 144,
+   "end_period": 150
+  },
+  {
+   "flight_id": 158,
+   "carousel_id": 22,
+   "carousel_type": 3,
+   "working_stations": 3,
+   "handling_start_period": 126,
+   "depletion_start_period": 144,
+   "end_period": 150
+  },
+  {
+   "flight_id": 159,
+   "carousel_id": 20,
+   "carousel_type": 2,
+   "working_stations": 1,
+   "handling_start_period": 127,
+   "depletion_start_period": 127,
+   "end_period": 133
+  },
+  {
+   "flight_id": 160,
+   "carousel_id": 13,
+   "carousel_type": 2,
+   "working_stations": 1,
+   "handling_start_period": 125,
+   "depletion_start_period": 125,
+   "end_period": 133
+  },
+  {
+   "flight_id": 161,
+   "carousel_id": 14,
+   "carousel_type": 2,
+   "working_stations": 1,
+   "handling_start_period": 124,
+   "depletion_start_period": 128,
+   "end_period": 134
+  },
+  {
+   "flight_id": 162,
+   "carousel_id": 18,
+   "carousel_type": 2,
+   "working_stations": 4,
+   "handling_start_period": 128,
+   "depletion_start_period": 128,
+   "end_period": 152
+  },
+  {
+   "flight_id": 163,
+   "carousel_id": 15,
+   "carousel_type": 2,
+   "working_stations": 2,
+   "handling_start_period": 129,
+   "depletion_start_period": 135,
+   "end_period": 141
+  },
+  {
+   "flight_id": 164,
+   "carousel_id": 2,
+   "carousel_type": 1,
+   "working_stations": 4,
+   "handling_start_period": 129,
+   "depletion_start_period": 129,
+   "end_period": 141
+  },
+  {
+   "flight_id": 165,
+   "carousel_id": 14,
+   "carousel_type": 2,
+   "working_stations": 1,
+   "handling_start_period": 129,
+   "depletion_start_period": 129,
+   "end_period": 136
+  },
+  {
+   "flight_id": 166,
+   "carousel_id": 3,
+   "carousel_type": 1,
+   "working_stations": 3,
+   "handling_start_period": 130,
+   "depletion_start_period": 130,
+   "end_period": 142
+  },
+  {
+   "flight_id": 167,
+   "carousel_id": 11,
+   "carousel_type": 2,
+   "working_stations": 2,
+   "handling_start_period": 131,
+   "depletion_start_period": 131,
+   "end_period": 137
+  },
+  {
+   "flight_id": 168,
+   "carousel_id": 12,
+   "carousel_type": 2,
+   "working_stations": 1,
+   "handling_start_period": 126,
+   "depletion_start_period": 131,
+   "end_period": 137
+  },
+  {
+   "flight_id": 169,
+   "carousel_id": 14,
+   "carousel_type": 2,
+   "working_stations": 2,
+   "handling_start_period": 132,
+   "depletion_start_period": 132,
+   "end_period": 138
+  },
+  {
+   "flight_id": 170,
+   "carousel_id": 1,
+   "carousel_type": 1,
+   "working_stations": 3,
+   "handling_start_period": 132,
+   "depletion_start_period": 138,
+   "end_period": 144
+  },
+  {
+   "flight_id": 171,
+   "carousel_id": 15,
+   "carousel_type": 2,
+   "working_stations": 1,
+   "handling_start_period": 131,
+   "depletion_start_period": 133,
+   "end_period": 139
+  },
+  {
+   "flight_id": 172,
+   "carousel_id": 19,
+   "carousel_type": 2,
+   "working_stations": 2,
+   "handling_start_period": 133,
+   "depletion_start_period": 139,
+   "end_period": 145
+  },
+  {
+   "flight_id": 173,
+   "carousel_id": 20,
+   "carousel_type": 2,
+   "working_stations": 1,
+   "handling_start_period": 132,
+   "depletion_start_period": 134,
+   "end_period": 140
+  },
+  {
+   "flight_id": 174,
+   "carousel_id": 13,
+   "carousel_type": 2,
+   "working_stations": 1,
+   "handling_start_period": 134,
+   "depletion_start_period": 134,
+   "end_period": 140
+  },
+  {
+   "flight_id": 175,
+   "carousel_id": 3,
+   "carousel_type": 1,
+   "working_stations": 3,
+   "handling_start_period": 134,
+   "depletion_start_period": 140,
+   "end_period": 146
+  },
+  {
+   "flight_id": 176,
+   "carousel_id": 11,
+   "carousel_type": 2,
+   "working_stations": 2,
+   "handling_start_period": 135,
+   "depletion_start_period": 135,
+   "end_period": 141
+  },
+  {
+   "flight_id": 177,
+   "carousel_id": 13,
+   "carousel_type": 2,
+   "working_stations": 1,
+   "handling_start_period": 133,
+   "depletion_start_period": 135,
+   "end_period": 141
+  },
+  {
+   "flight_id": 178,
+   "carousel_id": 13,
+   "carousel_type": 2,
+   "working_stations": 2,
+   "handling_start_period": 135,
+   "depletion_start_period": 136,
+   "end_period": 142
+  },
+  {
+   "flight_id": 179,
+   "carousel_id": 6,
+   "carousel_type": 1,
+   "working_stations": 4,
+   "handling_start_period": 136,
+   "depletion_start_period": 142,
+   "end_period": 148
+  },
+  {
+   "flight_id": 180,
+   "carousel_id": 12,
+   "carousel_type": 2,
+   "working_stations": 2,
+   "handling_start_period": 137,
+   "depletion_start_period": 137,
+   "end_period": 149
+  },
+  {
+   "flight_id": 181,
+   "carousel_id": 14,
+   "carousel_type": 2,
+   "working_stations": 1,
+   "handling_start_period": 136,
+   "depletion_start_period": 138,
+   "end_period": 144
+  },
+  {
+   "flight_id": 182,
+   "carousel_id": 9,
+   "carousel_type": 2,
+   "working_stations": 2,
+   "handling_start_period": 139,
+   "depletion_start_period": 139,
+   "end_period": 145
+  },
+  {
+   "flight_id": 183,
+   "carousel_id": 20,
+   "carousel_type": 2,
+   "working_stations": 1,
+   "handling_start_period": 138,
+   "depletion_start_period": 139,
+   "end_period": 145
+  },
+  {
+   "flight_id": 184,
+   "carousel_id": 19,
+   "carousel_type": 2,
+   "working_stations": 1,
+   "handling_start_period": 138,
+   "depletion_start_period": 138,
+   "end_period": 145
+  },
+  {
+   "flight_id": 185,
+   "carousel_id": 5,
+   "carousel_type": 1,
+   "working_stations": 3,
+   "handling_start_period": 139,
+   "depletion_start_period": 139,
+   "end_period": 151
+  },
+  {
+   "flight_id": 186,
+   "carousel_id": 17,
+   "carousel_type": 2,
+   "working_stations": 1,
+   "handling_start_period": 136,
+   "depletion_start_period": 140,
+   "end_period": 146
+  },
+  {
+   "flight_id": 187,
+   "carousel_id": 2,
+   "carousel_type": 1,
+   "working_stations": 3,
+   "handling_start_period": 140,
+   "depletion_start_period": 140,
+   "end_period": 152
+  },
+  {
+   "flight_id": 188,
+   "carousel_id": 12,
+   "carousel_type": 2,
+   "working_stations": 1,
+   "handling_start_period": 139,
+   "depletion_start_period": 141,
+   "end_period": 147
+  },
+  {
+   "flight_id": 189,
+   "carousel_id": 16,
+   "carousel_type": 2,
+   "working_stations": 2,
+   "handling_start_period": 140,
+   "depletion_start_period": 140,
+   "end_period": 147
+  },
+  {
+   "flight_id": 190,
+   "carousel_id": 14,
+   "carousel_type": 2,
+   "working_stations": 2,
+   "handling_start_period": 141,
+   "depletion_start_period": 147,
+   "end_period": 153
+  },
+  {
+   "flight_id": 191,
+   "carousel_id": 7,
+   "carousel_type": 1,
+   "working_stations": 3,
+   "handling_start_period": 141,
+   "depletion_start_period": 141,
+   "end_period": 153
+  },
+  {
+   "flight_id": 192,
+   "carousel_id": 17,
+   "carousel_type": 2,
+   "working_stations": 1,
+   "handling_start_period": 137,
+   "depletion_start_period": 142,
+   "end_period": 148
+  },
+  {
+   "flight_id": 193,
+   "carousel_id": 19,
+   "carousel_type": 2,
+   "working_stations": 1,
+   "handling_start_period": 142,
+   "depletion_start_period": 142,
+   "end_period": 148
+  },
+  {
+   "flight_id": 194,
+   "carousel_id": 16,
+   "carousel_type": 2,
+   "working_stations": 2,
+   "handling_start_period": 142,
+   "depletion_start_period": 142,
+   "end_period": 148
+  },
+  {
+   "flight_id": 195,
+   "carousel_id": 15,
+   "carousel_type": 2,
+   "working_stations": 1,
+   "handling_start_period": 143,
+   "depletion_start_period": 143,
+   "end_period": 149
+  },
+  {
+   "flight_id": 196,
+   "carousel_id": 12,
+   "carousel_type": 2,
+   "working_stations": 1,
+   "handling_start_period": 145,
+   "depletion_start_period": 145,
+   "end_period": 151
+  },
+  {
+   "flight_id": 197,
+   "carousel_id": 11,
+   "carousel_type": 2,
+   "working_stations": 1,
+   "handling_start_period": 146,
+   "depletion_start_period": 146,
+   "end_period": 152
+  },
+  {
+   "flight_id": 198,
+   "carousel_id": 22,
+   "carousel_type": 3,
+   "working_stations": 1,
+   "handling_start_period": 146,
+   "depletion_start_period": 146,
+   "end_period": 152
+  },
+  {
+   "flight_id": 199,
+   "carousel_id": 13,
+   "carousel_type": 2,
+   "working_stations": 1,
+   "handling_start_period": 147,
+   "depletion_start_period": 147,
+   "end_period": 153
+  },
+  {
+   "flight_id": 200,
+   "carousel_id": 1,
+   "carousel_type": 1,
+   "working_stations": 4,
+   "handling_start_period": 147,
+   "depletion_start_period": 147,
+   "end_period": 171
+  },
+  {
+   "flight_id": 201,
+   "carousel_id": 11,
+   "carousel_type": 2,
+   "working_stations": 1,
+   "handling_start_period": 148,
+   "depletion_start_period": 148,
+   "end_period": 154
+  },
+  {
+   "flight_id": 202,
+   "carousel_id": 10,
+   "carousel_type": 2,
+   "working_stations": 4,
+   "handling_start_period": 150,
+   "depletion_start_period": 150,
+   "end_period": 174
+  },
+  {
+   "flight_id": 203,
+   "carousel_id": 6,
+   "carousel_type": 1,
+   "working_stations": 4,
+   "handling_start_period": 154,
+   "depletion_start_period": 154,
+   "end_period": 178
+  },
+  {
+   "flight_id": 204,
+   "carousel_id": 22,
+   "carousel_type": 3,
+   "working_stations": 3,
+   "handling_start_period": 157,
+   "depletion_start_period": 157,
+   "end_period": 181
+  },
+  {
+   "flight_id": 205,
+   "carousel_id": 20,
+   "carousel_type": 2,
+   "working_stations": 4,
+   "handling_start_period": 161,
+   "depletion_start_period": 161,
+   "end_period": 185
+  },
+  {
+   "flight_id": 206,
+   "carousel_id": 19,
+   "carousel_type": 2,
+   "working_stations": 4,
+   "handling_start_period": 161,
+   "depletion_start_period": 161,
+   "end_period": 185
+  },
+  {
+   "flight_id": 207,
+   "carousel_id": 3,
+   "carousel_type": 1,
+   "working_stations": 1,
+   "handling_start_period": 164,
+   "depletion_start_period": 164,
+   "end_period": 170
+  },
+  {
+   "flight_id": 208,
+   "carousel_id": 18,
+   "carousel_type": 2,
+   "working_stations": 2,
+   "handling_start_period": 162,
+   "depletion_start_period": 162,
+   "end_period": 188
+  },
+  {
+   "flight_id": 209,
+   "carousel_id": 5,
+   "carousel_type": 1,
+   "working_stations": 2,
+   "handling_start_period": 165,
+   "depletion_start_period": 165,
+   "end_period": 177
+  },
+  {
+   "flight_id": 210,
+   "carousel_id": 22,
+   "carousel_type": 3,
+   "working_stations": 3,
+   "handling_start_period": 167,
+   "depletion_start_period": 185,
+   "end_period": 191
+  },
+  {
+   "flight_id": 211,
+   "carousel_id": 7,
+   "carousel_type": 1,
+   "working_stations": 4,
+   "handling_start_period": 168,
+   "depletion_start_period": 168,
+   "end_period": 180
+  },
+  {
+   "flight_id": 212,
+   "carousel_id": 14,
+   "carousel_type": 2,
+   "working_stations": 1,
+   "handling_start_period": 166,
+   "depletion_start_period": 177,
+   "end_period": 183
+  },
+  {
+   "flight_id": 213,
+   "carousel_id": 4,
+   "carousel_type": 1,
+   "working_stations": 3,
+   "handling_start_period": 171,
+   "depletion_start_period": 171,
+   "end_period": 183
+  },
+  {
+   "flight_id": 214,
+   "carousel_id": 8,
+   "carousel_type": 2,
+   "working_stations": 4,
+   "handling_start_period": 171,
+   "depletion_start_period": 171,
+   "end_period": 195
+  },
+  {
+   "flight_id": 215,
+   "carousel_id": 21,
+   "carousel_type": 2,
+   "working_stations": 4,
+   "handling_start_period": 171,
+   "depletion_start_period": 189,
+   "end_period": 195
+  },
+  {
+   "flight_id": 216,
+   "carousel_id": 5,
+   "carousel_type": 1,
+   "working_stations": 1,
+   "handling_start_period": 170,
+   "depletion_start_period": 170,
+   "end_period": 178
+  },
+  {
+   "flight_id": 217,
+   "carousel_id": 13,
+   "carousel_type": 2,
+   "working_stations": 2,
+   "handling_start_period": 168,
+   "depletion_start_period": 168,
+   "end_period": 185
+  },
+  {
+   "flight_id": 218,
+   "carousel_id": 17,
+   "carousel_type": 2,
+   "working_stations": 2,
+   "handling_start_period": 163,
+   "depletion_start_period": 163,
+   "end_period": 185
+  },
+  {
+   "flight_id": 219,
+   "carousel_id": 2,
+   "carousel_type": 1,
+   "working_stations": 4,
+   "handling_start_period": 174,
+   "depletion_start_period": 174,
+   "end_period": 186
+  },
+  {
+   "flight_id": 220,
+   "carousel_id": 15,
+   "carousel_type": 2,
+   "working_stations": 4,
+   "handling_start_period": 174,
+   "depletion_start_period": 174,
+   "end_period": 198
+  },
+  {
+   "flight_id": 221,
+   "carousel_id": 3,
+   "carousel_type": 1,
+   "working_stations": 1,
+   "handling_start_period": 175,
+   "depletion_start_period": 175,
+   "end_period": 181
+  },
+  {
+   "flight_id": 222,
+   "carousel_id": 1,
+   "carousel_type": 1,
+   "working_stations": 4,
+   "handling_start_period": 176,
+   "depletion_start_period": 176,
+   "end_period": 188
+  },
+  {
+   "flight_id": 223,
+   "carousel_id": 12,
+   "carousel_type": 2,
+   "working_stations": 2,
+   "handling_start_period": 176,
+   "depletion_start_period": 182,
+   "end_period": 188
+  },
+  {
+   "flight_id": 224,
+   "carousel_id": 14,
+   "carousel_type": 2,
+   "working_stations": 1,
+   "handling_start_period": 176,
+   "depletion_start_period": 176,
+   "end_period": 183
+  },
+  {
+   "flight_id": 225,
+   "carousel_id": 9,
+   "carousel_type": 2,
+   "working_stations": 2,
+   "handling_start_period": 175,
+   "depletion_start_period": 175,
+   "end_period": 183
+  },
+  {
+   "flight_id": 226,
+   "carousel_id": 9,
+   "carousel_type": 2,
+   "working_stations": 1,
+   "handling_start_period": 172,
+   "depletion_start_period": 177,
+   "end_period": 183
+  },
+  {
+   "flight_id": 227,
+   "carousel_id": 18,
+   "carousel_type": 2,
+   "working_stations": 2,
+   "handling_start_period": 176,
+   "depletion_start_period": 176,
+   "end_period": 184
+  },
+  {
+   "flight_id": 228,
+   "carousel_id": 12,
+   "carousel_type": 2,
+   "working_stations": 1,
+   "handling_start_period": 179,
+   "depletion_start_period": 180,
+   "end_period": 186
+  },
+  {
+   "flight_id": 229,
+   "carousel_id": 4,
+   "carousel_type": 1,
+   "working_stations": 1,
+   "handling_start_period": 176,
+   "depletion_start_period": 180,
+   "end_period": 186
+  },
+  {
+   "flight_id": 230,
+   "carousel_id": 14,
+   "carousel_type": 2,
+   "working_stations": 2,
+   "handling_start_period": 179,
+   "depletion_start_period": 179,
+   "end_period": 186
+  },
+  {
+   "flight_id": 231,
+   "carousel_id": 3,
+   "carousel_type": 1,
+   "working_stations": 3,
+   "handling_start_period": 181,
+   "depletion_start_period": 181,
+   "end_period": 193
+  },
+  {
+   "flight_id": 232,
+   "carousel_id": 5,
+   "carousel_type": 1,
+   "working_stations": 4,
+   "handling_start_period": 181,
+   "depletion_start_period": 181,
+   "end_period": 193
+  },
+  {
+   "flight_id": 233,
+   "carousel_id": 6,
+   "carousel_type": 1,
+   "working_stations": 4,
+   "handling_start_period": 181,
+   "depletion_start_period": 181,
+   "end_period": 205
+  },
+  {
+   "flight_id": 234,
+   "carousel_id": 11,
+   "carousel_type": 2,
+   "working_stations": 4,
+   "handling_start_period": 181,
+   "depletion_start_period": 199,
+   "end_period": 205
+  },
+  {
+   "flight_id": 235,
+   "carousel_id": 17,
+   "carousel_type": 2,
+   "working_stations": 2,
+   "handling_start_period": 182,
+   "depletion_start_period": 182,
+   "end_period": 188
+  },
+  {
+   "flight_id": 236,
+   "carousel_id": 7,
+   "carousel_type": 1,
+   "working_stations": 4,
+   "handling_start_period": 183,
+   "depletion_start_period": 183,
+   "end_period": 195
+  },
+  {
+   "flight_id": 237,
+   "carousel_id": 4,
+   "carousel_type": 1,
+   "working_stations": 3,
+   "handling_start_period": 184,
+   "depletion_start_period": 184,
+   "end_period": 196
+  },
+  {
+   "flight_id": 238,
+   "carousel_id": 10,
+   "carousel_type": 2,
+   "working_stations": 4,
+   "handling_start_period": 184,
+   "depletion_start_period": 184,
+   "end_period": 208
+  },
+  {
+   "flight_id": 239,
+   "carousel_id": 16,
+   "carousel_type": 2,
+   "working_stations": 4,
+   "handling_start_period": 184,
+   "depletion_start_period": 184,
+   "end_period": 208
+  },
+  {
+   "flight_id": 240,
+   "carousel_id": 14,
+   "carousel_type": 2,
+   "working_stations": 2,
+   "handling_start_period": 186,
+   "depletion_start_period": 186,
+   "end_period": 198
+  },
+  {
+   "flight_id": 241,
+   "carousel_id": 9,
+   "carousel_type": 2,
+   "working_stations": 2,
+   "handling_start_period": 184,
+   "depletion_start_period": 184,
+   "end_period": 198
+  },
+  {
+   "flight_id": 242,
+   "carousel_id": 19,
+   "carousel_type": 2,
+   "working_stations": 4,
+   "handling_start_period": 186,
+   "depletion_start_period": 204,
+   "end_period": 210
+  },
+  {
+   "flight_id": 243,
+   "carousel_id": 9,
+   "carousel_type": 2,
+   "working_stations": 1,
+   "handling_start_period": 183,
+   "depletion_start_period": 187,
+   "end_period": 193
+  },
+  {
+   "flight_id": 244,
+   "carousel_id": 13,
+   "carousel_type": 2,
+   "working_stations": 1,
+   "handling_start_period": 183,
+   "depletion_start_period": 183,
+   "end_period": 193
+  },
+  {
+   "flight_id": 245,
+   "carousel_id": 20,
+   "carousel_type": 2,
+   "working_stations": 1,
+   "handling_start_period": 187,
+   "depletion_start_period": 189,
+   "end_period": 195
+  },
+  {
+   "flight_id": 246,
+   "carousel_id": 22,
+   "carousel_type": 3,
+   "working_stations": 3,
+   "handling_start_period": 189,
+   "depletion_start_period": 207,
+   "end_period": 213
+  },
+  {
+   "flight_id": 247,
+   "carousel_id": 18,
+   "carousel_type": 2,
+   "working_stations": 1,
+   "handling_start_period": 185,
+   "depletion_start_period": 190,
+   "end_period": 196
+  },
+  {
+   "flight_id": 248,
+   "carousel_id": 14,
+   "carousel_type": 2,
+   "working_stations": 1,
+   "handling_start_period": 188,
+   "depletion_start_period": 188,
+   "end_period": 196
+  },
+  {
+   "flight_id": 249,
+   "carousel_id": 3,
+   "carousel_type": 1,
+   "working_stations": 1,
+   "handling_start_period": 186,
+   "depletion_start_period": 186,
+   "end_period": 196
+  },
+  {
+   "flight_id": 250,
+   "carousel_id": 2,
+   "carousel_type": 1,
+   "working_stations": 3,
+   "handling_start_period": 191,
+   "depletion_start_period": 191,
+   "end_period": 203
+  },
+  {
+   "flight_id": 251,
+   "carousel_id": 12,
+   "carousel_type": 2,
+   "working_stations": 4,
+   "handling_start_period": 191,
+   "depletion_start_period": 209,
+   "end_period": 215
+  },
+  {
+   "flight_id": 252,
+   "carousel_id": 22,
+   "carousel_type": 3,
+   "working_stations": 3,
+   "handling_start_period": 191,
+   "depletion_start_period": 209,
+   "end_period": 215
+  },
+  {
+   "flight_id": 253,
+   "carousel_id": 20,
+   "carousel_type": 2,
+   "working_stations": 1,
+   "handling_start_period": 188,
+   "depletion_start_period": 188,
+   "end_period": 198
+  },
+  {
+   "flight_id": 254,
+   "carousel_id": 1,
+   "carousel_type": 1,
+   "working_stations": 4,
+   "handling_start_period": 193,
+   "depletion_start_period": 193,
+   "end_period": 205
+  },
+  {
+   "flight_id": 255,
+   "carousel_id": 5,
+   "carousel_type": 1,
+   "working_stations": 4,
+   "handling_start_period": 194,
+   "depletion_start_period": 200,
+   "end_period": 206
+  },
+  {
+   "flight_id": 256,
+   "carousel_id": 7,
+   "carousel_type": 1,
+   "working_stations": 4,
+   "handling_start_period": 194,
+   "depletion_start_period": 194,
+   "end_period": 218
+  },
+  {
+   "flight_id": 257,
+   "carousel_id": 13,
+   "carousel_type": 2,
+   "working_stations": 4,
+   "handling_start_period": 194,
+   "depletion_start_period": 194,
+   "end_period": 218
+  },
+  {
+   "flight_id": 258,
+   "carousel_id": 17,
+   "carousel_type": 2,
+   "working_stations": 2,
+   "handling_start_period": 196,
+   "depletion_start_period": 202,
+   "end_period": 208
+  },
+  {
+   "flight_id": 259,
+   "carousel_id": 8,
+   "carousel_type": 2,
+   "working_stations": 2,
+   "handling_start_period": 196,
+   "depletion_start_period": 202,
+   "end_period": 208
+  },
+  {
+   "flight_id": 260,
+   "carousel_id": 4,
+   "carousel_type": 1,
+   "working_stations": 1,
+   "handling_start_period": 197,
+   "depletion_start_period": 197,
+   "end_period": 203
+  },
+  {
+   "flight_id": 261,
+   "carousel_id": 4,
+   "carousel_type": 1,
+   "working_stations": 2,
+   "handling_start_period": 197,
+   "depletion_start_period": 197,
+   "end_period": 203
+  },
+  {
+   "flight_id": 262,
+   "carousel_id": 17,
+   "carousel_type": 2,
+   "working_stations": 1,
+   "handling_start_period": 192,
+   "depletion_start_period": 197,
+   "end_period": 203
+  },
+  {
+   "flight_id": 263,
+   "carousel_id": 8,
+   "carousel_type": 2,
+   "working_stations": 1,
+   "handling_start_period": 198,
+   "depletion_start_period": 199,
+   "end_period": 205
+  },
+  {
+   "flight_id": 264,
+   "carousel_id": 21,
+   "carousel_type": 2,
+   "working_stations": 1,
+   "handling_start_period": 198,
+   "depletion_start_period": 200,
+   "end_period": 206
+  },
+  {
+   "flight_id": 265,
+   "carousel_id": 20,
+   "carousel_type": 2,
+   "working_stations": 1,
+   "handling_start_period": 195,
+   "depletion_start_period": 200,
+   "end_period": 206
+  },
+  {
+   "flight_id": 266,
+   "carousel_id": 8,
+   "carousel_type": 2,
+   "working_stations": 1,
+   "handling_start_period": 196,
+   "depletion_start_period": 200,
+   "end_period": 206
+  },
+  {
+   "flight_id": 267,
+   "carousel_id": 3,
+   "carousel_type": 1,
+   "working_stations": 4,
+   "handling_start_period": 200,
+   "depletion_start_period": 218,
+   "end_period": 224
+  },
+  {
+   "flight_id": 268,
+   "carousel_id": 18,
+   "carousel_type": 2,
+   "working_stations": 4,
+   "handling_start_period": 201,
+   "depletion_start_period": 219,
+   "end_period": 225
+  },
+  {
+   "flight_id": 269,
+   "carousel_id": 21,
+   "carousel_type": 2,
+   "working_stations": 1,
+   "handling_start_period": 203,
+   "depletion_start_period": 203,
+   "end_period": 209
+  },
+  {
+   "flight_id": 270,
+   "carousel_id": 9,
+   "carousel_type": 2,
+   "working_stations": 2,
+   "handling_start_period": 201,
+   "depletion_start_period": 209,
+   "end_period": 215
+  },
+  {
+   "flight_id": 271,
+   "carousel_id": 4,
+   "carousel_type": 1,
+   "working_stations": 4,
+   "handling_start_period": 204,
+   "depletion_start_period": 204,
+   "end_period": 216
+  },
+  {
+   "flight_id": 272,
+   "carousel_id": 2,
+   "carousel_type": 1,
+   "working_stations": 4,
+   "handling_start_period": 204,
+   "depletion_start_period": 204,
+   "end_period": 216
+  },
+  {
+   "flight_id": 273,
+   "carousel_id": 21,
+   "carousel_type": 2,
+   "working_stations": 2,
+   "handling_start_period": 197,
+   "depletion_start_period": 197,
+   "end_period": 216
+  },
+  {
+   "flight_id": 274,
+   "carousel_id": 14,
+   "carousel_type": 2,
+   "working_stations": 4,
+   "handling_start_period": 204,
+   "depletion_start_period": 204,
+   "end_period": 228
+  },
+  {
+   "flight_id": 275,
+   "carousel_id": 22,
+   "carousel_type": 3,
+   "working_stations": 3,
+   "handling_start_period": 204,
+   "depletion_start_period": 222,
+   "end_period": 228
+  },
+  {
+   "flight_id": 276,
+   "carousel_id": 6,
+   "carousel_type": 1,
+   "working_stations": 4,
+   "handling_start_period": 205,
+   "depletion_start_period": 205,
+   "end_period": 217
+  },
+  {
+   "flight_id": 277,
+   "carousel_id": 1,
+   "carousel_type": 1,
+   "working_stations": 4,
+   "handling_start_period": 206,
+   "depletion_start_period": 206,
+   "end_period": 218
+  },
+  {
+   "flight_id": 278,
+   "carousel_id": 20,
+   "carousel_type": 2,
+   "working_stations": 2,
+   "handling_start_period": 201,
+   "depletion_start_period": 201,
+   "end_period": 218
+  },
+  {
+   "flight_id": 279,
+   "carousel_id": 9,
+   "carousel_type": 2,
+   "working_stations": 1,
+   "handling_start_period": 203,
+   "depletion_start_period": 207,
+   "end_period": 213
+  },
+  {
+   "flight_id": 280,
+   "carousel_id": 17,
+   "carousel_type": 2,
+   "working_stations": 1,
+   "handling_start_period": 207,
+   "depletion_start_period": 207,
+   "end_period": 213
+  },
+  {
+   "flight_id": 281,
+   "carousel_id": 5,
+   "carousel_type": 1,
+   "working_stations": 3,
+   "handling_start_period": 207,
+   "depletion_start_period": 207,
+   "end_period": 219
+  },
+  {
+   "flight_id": 282,
+   "carousel_id": 15,
+   "carousel_type": 2,
+   "working_stations": 1,
+   "handling_start_period": 206,
+   "depletion_start_period": 208,
+   "end_period": 214
+  },
+  {
+   "flight_id": 283,
+   "carousel_id": 8,
+   "carousel_type": 2,
+   "working_stations": 2,
+   "handling_start_period": 209,
+   "depletion_start_period": 209,
+   "end_period": 215
+  },
+  {
+   "flight_id": 284,
+   "carousel_id": 21,
+   "carousel_type": 2,
+   "working_stations": 1,
+   "handling_start_period": 208,
+   "depletion_start_period": 210,
+   "end_period": 216
+  },
+  {
+   "flight_id": 285,
+   "carousel_id": 15,
+   "carousel_type": 2,
+   "working_stations": 1,
+   "handling_start_period": 206,
+   "depletion_start_period": 210,
+   "end_period": 216
+  },
+  {
+   "flight_id": 286,
+   "carousel_id": 10,
+   "carousel_type": 2,
+   "working_stations": 1,
+   "handling_start_period": 210,
+   "depletion_start_period": 210,
+   "end_period": 216
+  },
+  {
+   "flight_id": 287,
+   "carousel_id": 10,
+   "carousel_type": 2,
+   "working_stations": 1,
+   "handling_start_period": 212,
+   "depletion_start_period": 213,
+   "end_period": 219
+  },
+  {
+   "flight_id": 288,
+   "carousel_id": 22,
+   "carousel_type": 3,
+   "working_stations": 1,
+   "handling_start_period": 213,
+   "depletion_start_period": 213,
+   "end_period": 225
+  },
+  {
+   "flight_id": 289,
+   "carousel_id": 22,
+   "carousel_type": 3,
+   "working_stations": 1,
+   "handling_start_period": 214,
+   "depletion_start_period": 220,
+   "end_period": 226
+  },
+  {
+   "flight_id": 290,
+   "carousel_id": 2,
+   "carousel_type": 1,
+   "working_stations": 3,
+   "handling_start_period": 214,
+   "depletion_start_period": 214,
+   "end_period": 226
+  },
+  {
+   "flight_id": 291,
+   "carousel_id": 1,
+   "carousel_type": 1,
+   "working_stations": 4,
+   "handling_start_period": 216,
+   "depletion_start_period": 222,
+   "end_period": 228
+  },
+  {
+   "flight_id": 292,
+   "carousel_id": 6,
+   "carousel_type": 1,
+   "working_stations": 4,
+   "handling_start_period": 216,
+   "depletion_start_period": 222,
+   "end_period": 228
+  },
+  {
+   "flight_id": 293,
+   "carousel_id": 8,
+   "carousel_type": 2,
+   "working_stations": 2,
+   "handling_start_period": 216,
+   "depletion_start_period": 216,
+   "end_period": 223
+  },
+  {
+   "flight_id": 294,
+   "carousel_id": 4,
+   "carousel_type": 1,
+   "working_stations": 4,
+   "handling_start_period": 217,
+   "depletion_start_period": 217,
+   "end_period": 229
+  },
+  {
+   "flight_id": 295,
+   "carousel_id": 17,
+   "carousel_type": 2,
+   "working_stations": 2,
+   "handling_start_period": 220,
+   "depletion_start_period": 220,
+   "end_period": 226
+  },
+  {
+   "flight_id": 296,
+   "carousel_id": 10,
+   "carousel_type": 2,
+   "working_stations": 1,
+   "handling_start_period": 216,
+   "depletion_start_period": 220,
+   "end_period": 226
+  },
+  {
+   "flight_id": 297,
+   "carousel_id": 9,
+   "carousel_type": 2,
+   "working_stations": 1,
+   "handling_start_period": 218,
+   "depletion_start_period": 218,
+   "end_period": 226
+  },
+  {
+   "flight_id": 298,
+   "carousel_id": 12,
+   "carousel_type": 2,
+   "working_stations": 1,
+   "handling_start_period": 219,
+   "depletion_start_period": 219,
+   "end_period": 229
+  },
+  {
+   "flight_id": 299,
+   "carousel_id": 21,
+   "carousel_type": 2,
+   "working_stations": 2,
+   "handling_start_period": 221,
+   "depletion_start_period": 221,
+   "end_period": 229
+  },
+  {
+   "flight_id": 300,
+   "carousel_id": 9,
+   "carousel_type": 2,
+   "working_stations": 2,
+   "handling_start_period": 223,
+   "depletion_start_period": 223,
+   "end_period": 229
+  }
+ ],
+ "utilization_violations": [
+  {
+   "carousel_id": 22,
+   "peak_interval": 3,
+   "threshold_level": 5,
+   "threshold_value": 0.6
+  }
+ ]
+}

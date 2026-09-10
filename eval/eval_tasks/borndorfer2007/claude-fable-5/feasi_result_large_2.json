@@ -1,0 +1,451 @@
+{
+  "feasible": false,
+  "violated_constraints": [
+    [
+      2,
+      "Arc 1103: total flow 250.000000 > capacity 55.200000"
+    ],
+    [
+      2,
+      "Arc 1506: total flow 477.000000 > capacity 233.000000"
+    ],
+    [
+      2,
+      "Arc 1102: total flow 250.000000 > capacity 55.200000"
+    ],
+    [
+      2,
+      "Arc 1090: total flow 58.000000 > capacity 55.200000"
+    ],
+    [
+      2,
+      "Arc 1096: total flow 67.000000 > capacity 55.200000"
+    ],
+    [
+      2,
+      "Arc 1272: total flow 138.000000 > capacity 55.200000"
+    ],
+    [
+      2,
+      "Arc 1935: total flow 212.000000 > capacity 159.400000"
+    ],
+    [
+      2,
+      "Arc 1273: total flow 138.000000 > capacity 55.200000"
+    ],
+    [
+      2,
+      "Arc 1097: total flow 67.000000 > capacity 55.200000"
+    ],
+    [
+      2,
+      "Arc 1091: total flow 58.000000 > capacity 55.200000"
+    ],
+    [
+      2,
+      "Arc 2213: total flow 399.000000 > capacity 338.000000"
+    ],
+    [
+      2,
+      "Arc 1507: total flow 477.000000 > capacity 233.000000"
+    ],
+    [
+      2,
+      "Arc 1764: total flow 9.000000 > capacity 3.600000"
+    ],
+    [
+      2,
+      "Arc 2212: total flow 399.000000 > capacity 338.000000"
+    ],
+    [
+      2,
+      "Arc 1940: total flow 165.000000 > capacity 33.000000"
+    ],
+    [
+      2,
+      "Arc 2350: total flow 58.000000 > capacity 55.400000"
+    ],
+    [
+      2,
+      "Arc 1796: total flow 76.000000 > capacity 33.400000"
+    ],
+    [
+      2,
+      "Arc 1942: total flow 139.000000 > capacity 126.000000"
+    ],
+    [
+      2,
+      "Arc 2106: total flow 149.000000 > capacity 63.600000"
+    ],
+    [
+      2,
+      "Arc 2046: total flow 110.000000 > capacity 67.000000"
+    ],
+    [
+      2,
+      "Arc 2050: total flow 110.000000 > capacity 44.000000"
+    ],
+    [
+      2,
+      "Arc 1934: total flow 212.000000 > capacity 159.400000"
+    ],
+    [
+      2,
+      "Arc 1765: total flow 9.000000 > capacity 3.600000"
+    ],
+    [
+      2,
+      "Arc 1943: total flow 139.000000 > capacity 126.000000"
+    ],
+    [
+      2,
+      "Arc 1797: total flow 76.000000 > capacity 33.400000"
+    ],
+    [
+      2,
+      "Arc 2107: total flow 149.000000 > capacity 63.600000"
+    ],
+    [
+      2,
+      "Arc 1941: total flow 165.000000 > capacity 33.000000"
+    ],
+    [
+      2,
+      "Arc 2051: total flow 110.000000 > capacity 44.000000"
+    ],
+    [
+      2,
+      "Arc 2047: total flow 110.000000 > capacity 67.000000"
+    ],
+    [
+      2,
+      "Arc 2232: total flow 50.000000 > capacity 33.400000"
+    ],
+    [
+      2,
+      "Arc 2238: total flow 93.000000 > capacity 33.400000"
+    ],
+    [
+      2,
+      "Arc 2239: total flow 93.000000 > capacity 33.400000"
+    ],
+    [
+      2,
+      "Arc 2233: total flow 50.000000 > capacity 33.400000"
+    ],
+    [
+      2,
+      "Arc 2351: total flow 58.000000 > capacity 55.400000"
+    ]
+  ],
+  "violations": [
+    "Arc 1103: total flow 250.000000 > capacity 55.200000",
+    "Arc 1506: total flow 477.000000 > capacity 233.000000",
+    "Arc 1102: total flow 250.000000 > capacity 55.200000",
+    "Arc 1090: total flow 58.000000 > capacity 55.200000",
+    "Arc 1096: total flow 67.000000 > capacity 55.200000",
+    "Arc 1272: total flow 138.000000 > capacity 55.200000",
+    "Arc 1935: total flow 212.000000 > capacity 159.400000",
+    "Arc 1273: total flow 138.000000 > capacity 55.200000",
+    "Arc 1097: total flow 67.000000 > capacity 55.200000",
+    "Arc 1091: total flow 58.000000 > capacity 55.200000",
+    "Arc 2213: total flow 399.000000 > capacity 338.000000",
+    "Arc 1507: total flow 477.000000 > capacity 233.000000",
+    "Arc 1764: total flow 9.000000 > capacity 3.600000",
+    "Arc 2212: total flow 399.000000 > capacity 338.000000",
+    "Arc 1940: total flow 165.000000 > capacity 33.000000",
+    "Arc 2350: total flow 58.000000 > capacity 55.400000",
+    "Arc 1796: total flow 76.000000 > capacity 33.400000",
+    "Arc 1942: total flow 139.000000 > capacity 126.000000",
+    "Arc 2106: total flow 149.000000 > capacity 63.600000",
+    "Arc 2046: total flow 110.000000 > capacity 67.000000",
+    "Arc 2050: total flow 110.000000 > capacity 44.000000",
+    "Arc 1934: total flow 212.000000 > capacity 159.400000",
+    "Arc 1765: total flow 9.000000 > capacity 3.600000",
+    "Arc 1943: total flow 139.000000 > capacity 126.000000",
+    "Arc 1797: total flow 76.000000 > capacity 33.400000",
+    "Arc 2107: total flow 149.000000 > capacity 63.600000",
+    "Arc 1941: total flow 165.000000 > capacity 33.000000",
+    "Arc 2051: total flow 110.000000 > capacity 44.000000",
+    "Arc 2047: total flow 110.000000 > capacity 67.000000",
+    "Arc 2232: total flow 50.000000 > capacity 33.400000",
+    "Arc 2238: total flow 93.000000 > capacity 33.400000",
+    "Arc 2239: total flow 93.000000 > capacity 33.400000",
+    "Arc 2233: total flow 50.000000 > capacity 33.400000",
+    "Arc 2351: total flow 58.000000 > capacity 55.400000"
+  ],
+  "violation_magnitudes": [
+    {
+      "constraint": 2,
+      "lhs": 250.0,
+      "rhs": 55.199999999999996,
+      "raw_excess": 194.8,
+      "normalizer": 55.199999999999996,
+      "ratio": 3.5289855072463774
+    },
+    {
+      "constraint": 2,
+      "lhs": 477.0,
+      "rhs": 233.0,
+      "raw_excess": 244.0,
+      "normalizer": 233.0,
+      "ratio": 1.0472103004291846
+    },
+    {
+      "constraint": 2,
+      "lhs": 250.0,
+      "rhs": 55.199999999999996,
+      "raw_excess": 194.8,
+      "normalizer": 55.199999999999996,
+      "ratio": 3.5289855072463774
+    },
+    {
+      "constraint": 2,
+      "lhs": 58.0,
+      "rhs": 55.199999999999996,
+      "raw_excess": 2.8000000000000043,
+      "normalizer": 55.199999999999996,
+      "ratio": 0.0507246376811595
+    },
+    {
+      "constraint": 2,
+      "lhs": 67.0,
+      "rhs": 55.199999999999996,
+      "raw_excess": 11.800000000000004,
+      "normalizer": 55.199999999999996,
+      "ratio": 0.21376811594202907
+    },
+    {
+      "constraint": 2,
+      "lhs": 138.0,
+      "rhs": 55.199999999999996,
+      "raw_excess": 82.80000000000001,
+      "normalizer": 55.199999999999996,
+      "ratio": 1.5000000000000002
+    },
+    {
+      "constraint": 2,
+      "lhs": 212.0,
+      "rhs": 159.4,
+      "raw_excess": 52.599999999999994,
+      "normalizer": 159.4,
+      "ratio": 0.329987452948557
+    },
+    {
+      "constraint": 2,
+      "lhs": 138.0,
+      "rhs": 55.199999999999996,
+      "raw_excess": 82.80000000000001,
+      "normalizer": 55.199999999999996,
+      "ratio": 1.5000000000000002
+    },
+    {
+      "constraint": 2,
+      "lhs": 67.0,
+      "rhs": 55.199999999999996,
+      "raw_excess": 11.800000000000004,
+      "normalizer": 55.199999999999996,
+      "ratio": 0.21376811594202907
+    },
+    {
+      "constraint": 2,
+      "lhs": 58.0,
+      "rhs": 55.199999999999996,
+      "raw_excess": 2.8000000000000043,
+      "normalizer": 55.199999999999996,
+      "ratio": 0.0507246376811595
+    },
+    {
+      "constraint": 2,
+      "lhs": 399.0,
+      "rhs": 338.0,
+      "raw_excess": 61.0,
+      "normalizer": 338.0,
+      "ratio": 0.1804733727810651
+    },
+    {
+      "constraint": 2,
+      "lhs": 477.0,
+      "rhs": 233.0,
+      "raw_excess": 244.0,
+      "normalizer": 233.0,
+      "ratio": 1.0472103004291846
+    },
+    {
+      "constraint": 2,
+      "lhs": 9.0,
+      "rhs": 3.5999999999999996,
+      "raw_excess": 5.4,
+      "normalizer": 3.5999999999999996,
+      "ratio": 1.5000000000000002
+    },
+    {
+      "constraint": 2,
+      "lhs": 399.0,
+      "rhs": 338.0,
+      "raw_excess": 61.0,
+      "normalizer": 338.0,
+      "ratio": 0.1804733727810651
+    },
+    {
+      "constraint": 2,
+      "lhs": 165.0,
+      "rhs": 33.0,
+      "raw_excess": 132.0,
+      "normalizer": 33.0,
+      "ratio": 4.0
+    },
+    {
+      "constraint": 2,
+      "lhs": 58.0,
+      "rhs": 55.4,
+      "raw_excess": 2.6000000000000014,
+      "normalizer": 55.4,
+      "ratio": 0.046931407942238296
+    },
+    {
+      "constraint": 2,
+      "lhs": 76.0,
+      "rhs": 33.4,
+      "raw_excess": 42.6,
+      "normalizer": 33.4,
+      "ratio": 1.2754491017964074
+    },
+    {
+      "constraint": 2,
+      "lhs": 139.0,
+      "rhs": 126.0,
+      "raw_excess": 13.0,
+      "normalizer": 126.0,
+      "ratio": 0.10317460317460317
+    },
+    {
+      "constraint": 2,
+      "lhs": 149.0,
+      "rhs": 63.6,
+      "raw_excess": 85.4,
+      "normalizer": 63.6,
+      "ratio": 1.3427672955974843
+    },
+    {
+      "constraint": 2,
+      "lhs": 110.0,
+      "rhs": 67.0,
+      "raw_excess": 43.0,
+      "normalizer": 67.0,
+      "ratio": 0.6417910447761194
+    },
+    {
+      "constraint": 2,
+      "lhs": 110.0,
+      "rhs": 44.0,
+      "raw_excess": 66.0,
+      "normalizer": 44.0,
+      "ratio": 1.5
+    },
+    {
+      "constraint": 2,
+      "lhs": 212.0,
+      "rhs": 159.4,
+      "raw_excess": 52.599999999999994,
+      "normalizer": 159.4,
+      "ratio": 0.329987452948557
+    },
+    {
+      "constraint": 2,
+      "lhs": 9.0,
+      "rhs": 3.5999999999999996,
+      "raw_excess": 5.4,
+      "normalizer": 3.5999999999999996,
+      "ratio": 1.5000000000000002
+    },
+    {
+      "constraint": 2,
+      "lhs": 139.0,
+      "rhs": 126.0,
+      "raw_excess": 13.0,
+      "normalizer": 126.0,
+      "ratio": 0.10317460317460317
+    },
+    {
+      "constraint": 2,
+      "lhs": 76.0,
+      "rhs": 33.4,
+      "raw_excess": 42.6,
+      "normalizer": 33.4,
+      "ratio": 1.2754491017964074
+    },
+    {
+      "constraint": 2,
+      "lhs": 149.0,
+      "rhs": 63.6,
+      "raw_excess": 85.4,
+      "normalizer": 63.6,
+      "ratio": 1.3427672955974843
+    },
+    {
+      "constraint": 2,
+      "lhs": 165.0,
+      "rhs": 33.0,
+      "raw_excess": 132.0,
+      "normalizer": 33.0,
+      "ratio": 4.0
+    },
+    {
+      "constraint": 2,
+      "lhs": 110.0,
+      "rhs": 44.0,
+      "raw_excess": 66.0,
+      "normalizer": 44.0,
+      "ratio": 1.5
+    },
+    {
+      "constraint": 2,
+      "lhs": 110.0,
+      "rhs": 67.0,
+      "raw_excess": 43.0,
+      "normalizer": 67.0,
+      "ratio": 0.6417910447761194
+    },
+    {
+      "constraint": 2,
+      "lhs": 50.0,
+      "rhs": 33.4,
+      "raw_excess": 16.6,
+      "normalizer": 33.4,
+      "ratio": 0.4970059880239522
+    },
+    {
+      "constraint": 2,
+      "lhs": 93.0,
+      "rhs": 33.4,
+      "raw_excess": 59.6,
+      "normalizer": 33.4,
+      "ratio": 1.784431137724551
+    },
+    {
+      "constraint": 2,
+      "lhs": 93.0,
+      "rhs": 33.4,
+      "raw_excess": 59.6,
+      "normalizer": 33.4,
+      "ratio": 1.784431137724551
+    },
+    {
+      "constraint": 2,
+      "lhs": 50.0,
+      "rhs": 33.4,
+      "raw_excess": 16.6,
+      "normalizer": 33.4,
+      "ratio": 0.4970059880239522
+    },
+    {
+      "constraint": 2,
+      "lhs": 58.0,
+      "rhs": 55.4,
+      "raw_excess": 2.6000000000000014,
+      "normalizer": 55.4,
+      "ratio": 0.046931407942238296
+    }
+  ]
+}

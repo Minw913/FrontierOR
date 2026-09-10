@@ -1,0 +1,19 @@
+{
+  "feasible": false,
+  "violated_constraints": [
+    13
+  ],
+  "violations": [
+    "Objective consistency violated: reported objective_value = 59.30326291859811 differs from recomputed f(S*) = 61.0 (|diff| = 1.69674, tol = 0.061)"
+  ],
+  "violation_magnitudes": [
+    {
+      "constraint": 13,
+      "lhs": 59.30326291859811,
+      "rhs": 61.0,
+      "raw_excess": 1.696737081401892,
+      "normalizer": 61.0,
+      "ratio": 0.02781536199019495
+    }
+  ]
+}

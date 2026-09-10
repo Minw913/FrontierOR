@@ -1,0 +1,10 @@
+{
+  "feasible": false,
+  "violated_constraints": [
+    "malformed_solution"
+  ],
+  "violations": [
+    "checker rejected malformed candidate: KeyError: 'processing_time'"
+  ],
+  "violation_magnitudes": []
+}

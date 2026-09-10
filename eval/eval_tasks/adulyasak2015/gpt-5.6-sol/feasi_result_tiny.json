@@ -1,0 +1,19 @@
+{
+  "feasible": false,
+  "violated_constraints": [
+    23
+  ],
+  "violations": [
+    "Constraint 23 (exact objective consistency) could not certify the candidate: ValueError: unknown model variable(s): y[0], y[1], z[0,0,0], z[1,0,0], z[2,0,0]; constraint violated: cust_bal_1_1_0: 0 == 23.414811 (excess 23.4148); constraint violated: cust_bal_1_1_1: 0 == 23.514908 (excess 23.5149); constraint violated: cust_bal_1_1_2: 0 == 21.712267 (excess 21.7123); constraint violated: cust_bal_1_1_3: 0 == 19.34632 (excess 19.3463); constraint violated: cust_bal_1_1_4: 0 == 20.351067 (excess 20.3511); constraint violated: cust_bal_1_1_5: 0 == 16.191731 (excess 16.1917); constraint violated: cust_bal_1_1_6: 0 == 19.409959 (excess 19.41); constraint violated: cust_bal_1_1_7: 0 == 20.817057 (excess 20.8171); constraint violated: cust_bal_1_1_8: 0 == 16.096172 (excess 16.0962); constraint violated: cust_bal_1_1_9: 0 == 17.269615 (excess 17.2696); public decision and model witness disagree for y_1: 1 versus 0.0"
+  ],
+  "violation_magnitudes": [
+    {
+      "constraint": 23,
+      "lhs": 1.0,
+      "rhs": 0.0,
+      "raw_excess": 1.0,
+      "normalizer": 1.0,
+      "ratio": 1.0
+    }
+  ]
+}

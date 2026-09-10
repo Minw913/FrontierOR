@@ -1,0 +1,1 @@
+{"time": 0.0, "objective_value": 65.775, "solution": {"objective_value": 65.775, "selected_turbines": [2, 4, 6, 9, 10], "selected_edges": [{"from": 0, "to": 1}, {"from": 0, "to": 2}, {"from": 0, "to": 9}, {"from": 0, "to": 10}, {"from": 1, "to": 6}, {"from": 4, "to": 6}]}}

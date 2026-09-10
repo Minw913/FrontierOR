@@ -1,0 +1,95 @@
+{
+  "objective_value": 1472.0,
+  "solution_arcs": [
+    {
+      "id": 0,
+      "from_node": 0,
+      "to_node": 1
+    },
+    {
+      "id": 91,
+      "from_node": 1,
+      "to_node": 11
+    },
+    {
+      "id": 101,
+      "from_node": 11,
+      "to_node": 21
+    },
+    {
+      "id": 111,
+      "from_node": 21,
+      "to_node": 31
+    },
+    {
+      "id": 121,
+      "from_node": 31,
+      "to_node": 41
+    },
+    {
+      "id": 131,
+      "from_node": 41,
+      "to_node": 51
+    },
+    {
+      "id": 46,
+      "from_node": 51,
+      "to_node": 52
+    },
+    {
+      "id": 47,
+      "from_node": 52,
+      "to_node": 53
+    },
+    {
+      "id": 48,
+      "from_node": 53,
+      "to_node": 54
+    },
+    {
+      "id": 49,
+      "from_node": 54,
+      "to_node": 55
+    },
+    {
+      "id": 145,
+      "from_node": 55,
+      "to_node": 65
+    },
+    {
+      "id": 59,
+      "from_node": 65,
+      "to_node": 66
+    },
+    {
+      "id": 60,
+      "from_node": 66,
+      "to_node": 67
+    },
+    {
+      "id": 61,
+      "from_node": 67,
+      "to_node": 68
+    },
+    {
+      "id": 158,
+      "from_node": 68,
+      "to_node": 78
+    },
+    {
+      "id": 168,
+      "from_node": 78,
+      "to_node": 88
+    },
+    {
+      "id": 178,
+      "from_node": 88,
+      "to_node": 98
+    },
+    {
+      "id": 89,
+      "from_node": 98,
+      "to_node": 99
+    }
+  ]
+}
