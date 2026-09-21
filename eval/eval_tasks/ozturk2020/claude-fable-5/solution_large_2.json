@@ -1,0 +1,491 @@
+{
+  "objective_value": 1070.0,
+  "batches": [
+    {
+      "batch_id": 1,
+      "machine": 1,
+      "start_time": 1,
+      "processing_time": 8,
+      "jobs": [
+        6
+      ]
+    },
+    {
+      "batch_id": 2,
+      "machine": 1,
+      "start_time": 9,
+      "processing_time": 1,
+      "jobs": [
+        36
+      ]
+    },
+    {
+      "batch_id": 3,
+      "machine": 1,
+      "start_time": 12,
+      "processing_time": 4,
+      "jobs": [
+        27,
+        50
+      ]
+    },
+    {
+      "batch_id": 4,
+      "machine": 1,
+      "start_time": 16,
+      "processing_time": 7,
+      "jobs": [
+        37,
+        22,
+        32
+      ]
+    },
+    {
+      "batch_id": 5,
+      "machine": 1,
+      "start_time": 23,
+      "processing_time": 2,
+      "jobs": [
+        44
+      ]
+    },
+    {
+      "batch_id": 6,
+      "machine": 1,
+      "start_time": 25,
+      "processing_time": 8,
+      "jobs": [
+        24,
+        42,
+        15
+      ]
+    },
+    {
+      "batch_id": 1,
+      "machine": 2,
+      "start_time": 4,
+      "processing_time": 1,
+      "jobs": [
+        13
+      ]
+    },
+    {
+      "batch_id": 2,
+      "machine": 2,
+      "start_time": 6,
+      "processing_time": 8,
+      "jobs": [
+        8,
+        29,
+        30,
+        33
+      ]
+    },
+    {
+      "batch_id": 3,
+      "machine": 2,
+      "start_time": 14,
+      "processing_time": 7,
+      "jobs": [
+        34,
+        31
+      ]
+    },
+    {
+      "batch_id": 4,
+      "machine": 2,
+      "start_time": 21,
+      "processing_time": 3,
+      "jobs": [
+        40,
+        20,
+        35
+      ]
+    },
+    {
+      "batch_id": 5,
+      "machine": 2,
+      "start_time": 24,
+      "processing_time": 5,
+      "jobs": [
+        3,
+        41,
+        38,
+        18
+      ]
+    },
+    {
+      "batch_id": 6,
+      "machine": 2,
+      "start_time": 29,
+      "processing_time": 10,
+      "jobs": [
+        46
+      ]
+    },
+    {
+      "batch_id": 1,
+      "machine": 3,
+      "start_time": 0,
+      "processing_time": 2,
+      "jobs": [
+        23
+      ]
+    },
+    {
+      "batch_id": 2,
+      "machine": 3,
+      "start_time": 5,
+      "processing_time": 1,
+      "jobs": [
+        7
+      ]
+    },
+    {
+      "batch_id": 3,
+      "machine": 3,
+      "start_time": 7,
+      "processing_time": 2,
+      "jobs": [
+        47
+      ]
+    },
+    {
+      "batch_id": 4,
+      "machine": 3,
+      "start_time": 12,
+      "processing_time": 9,
+      "jobs": [
+        45,
+        12,
+        11
+      ]
+    },
+    {
+      "batch_id": 5,
+      "machine": 3,
+      "start_time": 21,
+      "processing_time": 10,
+      "jobs": [
+        4,
+        43,
+        16,
+        39,
+        10
+      ]
+    },
+    {
+      "batch_id": 1,
+      "machine": 4,
+      "start_time": 0,
+      "processing_time": 4,
+      "jobs": [
+        49
+      ]
+    },
+    {
+      "batch_id": 2,
+      "machine": 4,
+      "start_time": 6,
+      "processing_time": 1,
+      "jobs": [
+        28
+      ]
+    },
+    {
+      "batch_id": 3,
+      "machine": 4,
+      "start_time": 8,
+      "processing_time": 6,
+      "jobs": [
+        2,
+        25
+      ]
+    },
+    {
+      "batch_id": 4,
+      "machine": 4,
+      "start_time": 14,
+      "processing_time": 2,
+      "jobs": [
+        21,
+        14
+      ]
+    },
+    {
+      "batch_id": 5,
+      "machine": 4,
+      "start_time": 16,
+      "processing_time": 6,
+      "jobs": [
+        5,
+        17,
+        9
+      ]
+    },
+    {
+      "batch_id": 6,
+      "machine": 4,
+      "start_time": 22,
+      "processing_time": 9,
+      "jobs": [
+        19,
+        48,
+        26,
+        1
+      ]
+    }
+  ],
+  "job_assignments": {
+    "6": {
+      "batch": 1,
+      "machine": 1,
+      "completion_time": 9
+    },
+    "36": {
+      "batch": 2,
+      "machine": 1,
+      "completion_time": 10
+    },
+    "27": {
+      "batch": 3,
+      "machine": 1,
+      "completion_time": 16
+    },
+    "50": {
+      "batch": 3,
+      "machine": 1,
+      "completion_time": 16
+    },
+    "37": {
+      "batch": 4,
+      "machine": 1,
+      "completion_time": 23
+    },
+    "22": {
+      "batch": 4,
+      "machine": 1,
+      "completion_time": 23
+    },
+    "32": {
+      "batch": 4,
+      "machine": 1,
+      "completion_time": 23
+    },
+    "44": {
+      "batch": 5,
+      "machine": 1,
+      "completion_time": 25
+    },
+    "24": {
+      "batch": 6,
+      "machine": 1,
+      "completion_time": 33
+    },
+    "42": {
+      "batch": 6,
+      "machine": 1,
+      "completion_time": 33
+    },
+    "15": {
+      "batch": 6,
+      "machine": 1,
+      "completion_time": 33
+    },
+    "13": {
+      "batch": 1,
+      "machine": 2,
+      "completion_time": 5
+    },
+    "8": {
+      "batch": 2,
+      "machine": 2,
+      "completion_time": 14
+    },
+    "29": {
+      "batch": 2,
+      "machine": 2,
+      "completion_time": 14
+    },
+    "30": {
+      "batch": 2,
+      "machine": 2,
+      "completion_time": 14
+    },
+    "33": {
+      "batch": 2,
+      "machine": 2,
+      "completion_time": 14
+    },
+    "34": {
+      "batch": 3,
+      "machine": 2,
+      "completion_time": 21
+    },
+    "31": {
+      "batch": 3,
+      "machine": 2,
+      "completion_time": 21
+    },
+    "40": {
+      "batch": 4,
+      "machine": 2,
+      "completion_time": 24
+    },
+    "20": {
+      "batch": 4,
+      "machine": 2,
+      "completion_time": 24
+    },
+    "35": {
+      "batch": 4,
+      "machine": 2,
+      "completion_time": 24
+    },
+    "3": {
+      "batch": 5,
+      "machine": 2,
+      "completion_time": 29
+    },
+    "41": {
+      "batch": 5,
+      "machine": 2,
+      "completion_time": 29
+    },
+    "38": {
+      "batch": 5,
+      "machine": 2,
+      "completion_time": 29
+    },
+    "18": {
+      "batch": 5,
+      "machine": 2,
+      "completion_time": 29
+    },
+    "46": {
+      "batch": 6,
+      "machine": 2,
+      "completion_time": 39
+    },
+    "23": {
+      "batch": 1,
+      "machine": 3,
+      "completion_time": 2
+    },
+    "7": {
+      "batch": 2,
+      "machine": 3,
+      "completion_time": 6
+    },
+    "47": {
+      "batch": 3,
+      "machine": 3,
+      "completion_time": 9
+    },
+    "45": {
+      "batch": 4,
+      "machine": 3,
+      "completion_time": 21
+    },
+    "12": {
+      "batch": 4,
+      "machine": 3,
+      "completion_time": 21
+    },
+    "11": {
+      "batch": 4,
+      "machine": 3,
+      "completion_time": 21
+    },
+    "4": {
+      "batch": 5,
+      "machine": 3,
+      "completion_time": 31
+    },
+    "43": {
+      "batch": 5,
+      "machine": 3,
+      "completion_time": 31
+    },
+    "16": {
+      "batch": 5,
+      "machine": 3,
+      "completion_time": 31
+    },
+    "39": {
+      "batch": 5,
+      "machine": 3,
+      "completion_time": 31
+    },
+    "10": {
+      "batch": 5,
+      "machine": 3,
+      "completion_time": 31
+    },
+    "49": {
+      "batch": 1,
+      "machine": 4,
+      "completion_time": 4
+    },
+    "28": {
+      "batch": 2,
+      "machine": 4,
+      "completion_time": 7
+    },
+    "2": {
+      "batch": 3,
+      "machine": 4,
+      "completion_time": 14
+    },
+    "25": {
+      "batch": 3,
+      "machine": 4,
+      "completion_time": 14
+    },
+    "21": {
+      "batch": 4,
+      "machine": 4,
+      "completion_time": 16
+    },
+    "14": {
+      "batch": 4,
+      "machine": 4,
+      "completion_time": 16
+    },
+    "5": {
+      "batch": 5,
+      "machine": 4,
+      "completion_time": 22
+    },
+    "17": {
+      "batch": 5,
+      "machine": 4,
+      "completion_time": 22
+    },
+    "9": {
+      "batch": 5,
+      "machine": 4,
+      "completion_time": 22
+    },
+    "19": {
+      "batch": 6,
+      "machine": 4,
+      "completion_time": 31
+    },
+    "48": {
+      "batch": 6,
+      "machine": 4,
+      "completion_time": 31
+    },
+    "26": {
+      "batch": 6,
+      "machine": 4,
+      "completion_time": 31
+    },
+    "1": {
+      "batch": 6,
+      "machine": 4,
+      "completion_time": 31
+    }
+  }
+}

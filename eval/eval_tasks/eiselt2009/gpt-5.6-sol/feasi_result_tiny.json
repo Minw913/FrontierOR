@@ -1,0 +1,19 @@
+{
+  "feasible": false,
+  "violated_constraints": [
+    5
+  ],
+  "violations": [
+    "Constraint 5 violated: reported objective_value=297556.96236823476 does not match any of the 2 discrete hub-pair completions for hub_locations=[1, 8]; nearest=298578.3661310977, difference=1021.4, tolerance=0.00298578"
+  ],
+  "violation_magnitudes": [
+    {
+      "constraint": 5,
+      "lhs": 297556.96236823476,
+      "rhs": 298578.3661310977,
+      "raw_excess": 1021.4037628629594,
+      "normalizer": 298578.3661310977,
+      "ratio": 0.00342089005341562
+    }
+  ]
+}

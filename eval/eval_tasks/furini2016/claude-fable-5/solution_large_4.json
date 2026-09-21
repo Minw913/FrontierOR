@@ -1,0 +1,21 @@
+{
+  "objective_value": 3830766.0,
+  "items_selected": [
+    {
+      "item_id": 3,
+      "plate_dims": [
+        6,
+        3
+      ],
+      "copies": 1666
+    },
+    {
+      "item_id": 13,
+      "plate_dims": [
+        5,
+        3
+      ],
+      "copies": 620
+    }
+  ]
+}

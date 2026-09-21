@@ -1,0 +1,49 @@
+{
+  "feasible": false,
+  "violated_constraints": [
+    3,
+    4,
+    5,
+    11
+  ],
+  "violations": [
+    "Constraint (3): sum x_{i,t} for i in N = 0, expected 1",
+    "Constraint (4): Flow imbalance at node 10: out=0, in=1",
+    "Constraint (5): Subtour detected \u2014 directed cycle among active truck arcs involving nodes [0, 1, 9, 10]",
+    "Constraint (11): Truck arc (10,0) not in arc set A"
+  ],
+  "violation_magnitudes": [
+    {
+      "constraint": 3,
+      "lhs": 0.0,
+      "rhs": 1.0,
+      "raw_excess": 1.0,
+      "normalizer": 1.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 4,
+      "lhs": 0.0,
+      "rhs": 1.0,
+      "raw_excess": 1.0,
+      "normalizer": 1.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 5,
+      "lhs": 1.0,
+      "rhs": 0.0,
+      "raw_excess": 1.0,
+      "normalizer": 1e-05,
+      "ratio": 99999.99999999999
+    },
+    {
+      "constraint": 11,
+      "lhs": 1.0,
+      "rhs": 0.0,
+      "raw_excess": 1.0,
+      "normalizer": 1e-05,
+      "ratio": 99999.99999999999
+    }
+  ]
+}

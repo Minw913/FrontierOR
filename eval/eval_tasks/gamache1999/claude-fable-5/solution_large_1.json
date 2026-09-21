@@ -1,0 +1,441 @@
+{
+  "objective_value": 0.0,
+  "rosters": {
+    "0": {
+      "roster_index": 0,
+      "pairings": [
+        11,
+        30
+      ],
+      "unproductive_time": 16791
+    },
+    "1": {
+      "roster_index": 0,
+      "pairings": [
+        5,
+        8
+      ],
+      "unproductive_time": 14880
+    },
+    "2": {
+      "roster_index": 0,
+      "pairings": [
+        4,
+        21,
+        27,
+        40
+      ],
+      "unproductive_time": 21552
+    },
+    "3": {
+      "roster_index": 0,
+      "pairings": [
+        19,
+        41
+      ],
+      "unproductive_time": 23618
+    },
+    "4": {
+      "roster_index": 0,
+      "pairings": [
+        7,
+        13,
+        29
+      ],
+      "unproductive_time": 16860
+    },
+    "5": {
+      "roster_index": 0,
+      "pairings": [
+        33
+      ],
+      "unproductive_time": 21261
+    },
+    "6": {
+      "roster_index": 0,
+      "pairings": [
+        10,
+        16,
+        30
+      ],
+      "unproductive_time": 18496
+    },
+    "7": {
+      "roster_index": 0,
+      "pairings": [
+        14,
+        15
+      ],
+      "unproductive_time": 16307
+    },
+    "8": {
+      "roster_index": 0,
+      "pairings": [
+        3,
+        10,
+        17,
+        27
+      ],
+      "unproductive_time": 19601
+    },
+    "9": {
+      "roster_index": 0,
+      "pairings": [
+        7,
+        30
+      ],
+      "unproductive_time": 21210
+    },
+    "10": {
+      "roster_index": 0,
+      "pairings": [
+        16,
+        48
+      ],
+      "unproductive_time": 21481
+    },
+    "11": {
+      "roster_index": 0,
+      "pairings": [
+        5,
+        21
+      ],
+      "unproductive_time": 24006
+    },
+    "12": {
+      "roster_index": 0,
+      "pairings": [
+        10,
+        27,
+        41
+      ],
+      "unproductive_time": 19302
+    },
+    "13": {
+      "roster_index": 0,
+      "pairings": [
+        6,
+        17,
+        41,
+        47
+      ],
+      "unproductive_time": 19918
+    },
+    "14": {
+      "roster_index": 0,
+      "pairings": [
+        8,
+        29,
+        47
+      ],
+      "unproductive_time": 13806
+    },
+    "15": {
+      "roster_index": 0,
+      "pairings": [
+        35
+      ],
+      "unproductive_time": 16673
+    },
+    "16": {
+      "roster_index": 0,
+      "pairings": [
+        13,
+        27
+      ],
+      "unproductive_time": 16700
+    },
+    "17": {
+      "roster_index": 0,
+      "pairings": [
+        11
+      ],
+      "unproductive_time": 18070
+    },
+    "18": {
+      "roster_index": 0,
+      "pairings": [
+        6,
+        14,
+        16
+      ],
+      "unproductive_time": 24268
+    },
+    "19": {
+      "roster_index": 0,
+      "pairings": [
+        11,
+        43
+      ],
+      "unproductive_time": 17035
+    },
+    "20": {
+      "roster_index": 0,
+      "pairings": [
+        42,
+        48
+      ],
+      "unproductive_time": 24068
+    },
+    "21": {
+      "roster_index": 0,
+      "pairings": [
+        36,
+        42
+      ],
+      "unproductive_time": 19310
+    },
+    "22": {
+      "roster_index": 0,
+      "pairings": [
+        6,
+        44,
+        48
+      ],
+      "unproductive_time": 24560
+    },
+    "23": {
+      "roster_index": 0,
+      "pairings": [
+        23,
+        40,
+        44
+      ],
+      "unproductive_time": 24217
+    },
+    "24": {
+      "roster_index": 0,
+      "pairings": [
+        12,
+        13,
+        17,
+        33
+      ],
+      "unproductive_time": 20414
+    },
+    "25": {
+      "roster_index": 0,
+      "pairings": [
+        24,
+        41
+      ],
+      "unproductive_time": 12943
+    },
+    "26": {
+      "roster_index": 0,
+      "pairings": [
+        4,
+        19
+      ],
+      "unproductive_time": 21155
+    },
+    "27": {
+      "roster_index": 0,
+      "pairings": [
+        30,
+        42
+      ],
+      "unproductive_time": 21363
+    },
+    "28": {
+      "roster_index": 0,
+      "pairings": [
+        23,
+        40,
+        44
+      ],
+      "unproductive_time": 24217
+    },
+    "29": {
+      "roster_index": 0,
+      "pairings": [
+        12,
+        16,
+        30
+      ],
+      "unproductive_time": 22165
+    },
+    "30": {
+      "roster_index": 0,
+      "pairings": [
+        15,
+        29,
+        33
+      ],
+      "unproductive_time": 21762
+    },
+    "31": {
+      "roster_index": 0,
+      "pairings": [
+        5,
+        35,
+        36
+      ],
+      "unproductive_time": 21334
+    },
+    "32": {
+      "roster_index": 0,
+      "pairings": [
+        12,
+        19
+      ],
+      "unproductive_time": 22541
+    },
+    "33": {
+      "roster_index": 0,
+      "pairings": [
+        35
+      ],
+      "unproductive_time": 22433
+    },
+    "34": {
+      "roster_index": 0,
+      "pairings": [
+        10,
+        27
+      ],
+      "unproductive_time": 17716
+    },
+    "35": {
+      "roster_index": 0,
+      "pairings": [
+        17,
+        19
+      ],
+      "unproductive_time": 19092
+    },
+    "36": {
+      "roster_index": 0,
+      "pairings": [
+        3,
+        23,
+        24
+      ],
+      "unproductive_time": 21585
+    },
+    "37": {
+      "roster_index": 0,
+      "pairings": [
+        22,
+        23,
+        47,
+        48
+      ],
+      "unproductive_time": 24485
+    },
+    "38": {
+      "roster_index": 0,
+      "pairings": [
+        7,
+        13,
+        22,
+        33
+      ],
+      "unproductive_time": 17178
+    },
+    "39": {
+      "roster_index": 0,
+      "pairings": [
+        10,
+        16,
+        29
+      ],
+      "unproductive_time": 12562
+    },
+    "40": {
+      "roster_index": 0,
+      "pairings": [
+        6,
+        8,
+        13,
+        17,
+        19
+      ],
+      "unproductive_time": 20303
+    },
+    "41": {
+      "roster_index": 0,
+      "pairings": [
+        12,
+        30
+      ],
+      "unproductive_time": 20830
+    },
+    "42": {
+      "roster_index": 0,
+      "pairings": [
+        4,
+        6,
+        22,
+        36,
+        43
+      ],
+      "unproductive_time": 19820
+    },
+    "43": {
+      "roster_index": 0,
+      "pairings": [
+        3,
+        4,
+        23,
+        33,
+        47
+      ],
+      "unproductive_time": 21704
+    },
+    "44": {
+      "roster_index": 0,
+      "pairings": [
+        12,
+        15,
+        19,
+        36
+      ],
+      "unproductive_time": 16843
+    },
+    "45": {
+      "roster_index": 0,
+      "pairings": [
+        21,
+        36,
+        42
+      ],
+      "unproductive_time": 18043
+    },
+    "46": {
+      "roster_index": 0,
+      "pairings": [
+        6,
+        21,
+        40
+      ],
+      "unproductive_time": 21653
+    },
+    "47": {
+      "roster_index": 0,
+      "pairings": [
+        33,
+        41
+      ],
+      "unproductive_time": 18527
+    },
+    "48": {
+      "roster_index": 0,
+      "pairings": [
+        23,
+        44
+      ],
+      "unproductive_time": 18517
+    },
+    "49": {
+      "roster_index": 0,
+      "pairings": [
+        8,
+        22,
+        43
+      ],
+      "unproductive_time": 20896
+    }
+  },
+  "uncovered_pairings": []
+}

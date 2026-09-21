@@ -1,0 +1,439 @@
+{
+  "objective_value": 2844.0,
+  "served_arcs": [
+    {
+      "from": 3,
+      "to": 8,
+      "profit": 331,
+      "cost": 86
+    },
+    {
+      "from": 3,
+      "to": 26,
+      "profit": 300,
+      "cost": 95
+    },
+    {
+      "from": 4,
+      "to": 11,
+      "profit": 281,
+      "cost": 75
+    },
+    {
+      "from": 4,
+      "to": 25,
+      "profit": 160,
+      "cost": 50
+    },
+    {
+      "from": 5,
+      "to": 28,
+      "profit": 93,
+      "cost": 30
+    },
+    {
+      "from": 6,
+      "to": 15,
+      "profit": 300,
+      "cost": 98
+    },
+    {
+      "from": 9,
+      "to": 10,
+      "profit": 216,
+      "cost": 59
+    },
+    {
+      "from": 9,
+      "to": 26,
+      "profit": 321,
+      "cost": 97
+    },
+    {
+      "from": 10,
+      "to": 6,
+      "profit": 296,
+      "cost": 94
+    },
+    {
+      "from": 10,
+      "to": 9,
+      "profit": 268,
+      "cost": 88
+    },
+    {
+      "from": 10,
+      "to": 12,
+      "profit": 74,
+      "cost": 19
+    },
+    {
+      "from": 12,
+      "to": 11,
+      "profit": 150,
+      "cost": 40
+    },
+    {
+      "from": 12,
+      "to": 17,
+      "profit": 157,
+      "cost": 49
+    },
+    {
+      "from": 14,
+      "to": 5,
+      "profit": 336,
+      "cost": 100
+    },
+    {
+      "from": 14,
+      "to": 26,
+      "profit": 182,
+      "cost": 47
+    },
+    {
+      "from": 16,
+      "to": 1,
+      "profit": 275,
+      "cost": 84
+    },
+    {
+      "from": 16,
+      "to": 14,
+      "profit": 60,
+      "cost": 17
+    },
+    {
+      "from": 17,
+      "to": 12,
+      "profit": 318,
+      "cost": 84
+    },
+    {
+      "from": 18,
+      "to": 7,
+      "profit": 113,
+      "cost": 31
+    },
+    {
+      "from": 19,
+      "to": 17,
+      "profit": 19,
+      "cost": 6
+    },
+    {
+      "from": 23,
+      "to": 25,
+      "profit": 283,
+      "cost": 71
+    },
+    {
+      "from": 23,
+      "to": 27,
+      "profit": 259,
+      "cost": 75
+    },
+    {
+      "from": 25,
+      "to": 10,
+      "profit": 10,
+      "cost": 3
+    },
+    {
+      "from": 26,
+      "to": 18,
+      "profit": 45,
+      "cost": 14
+    },
+    {
+      "from": 27,
+      "to": 8,
+      "profit": 324,
+      "cost": 92
+    },
+    {
+      "from": 27,
+      "to": 15,
+      "profit": 210,
+      "cost": 62
+    },
+    {
+      "from": 28,
+      "to": 7,
+      "profit": 246,
+      "cost": 78
+    },
+    {
+      "from": 29,
+      "to": 1,
+      "profit": 139,
+      "cost": 39
+    },
+    {
+      "from": 29,
+      "to": 27,
+      "profit": 158,
+      "cost": 47
+    }
+  ],
+  "tour_arcs": [
+    {
+      "from": 0,
+      "to": 29,
+      "count": 1,
+      "cost": 20
+    },
+    {
+      "from": 1,
+      "to": 9,
+      "count": 1,
+      "cost": 96
+    },
+    {
+      "from": 1,
+      "to": 29,
+      "count": 1,
+      "cost": 99
+    },
+    {
+      "from": 3,
+      "to": 8,
+      "count": 1,
+      "cost": 86
+    },
+    {
+      "from": 3,
+      "to": 26,
+      "count": 1,
+      "cost": 95
+    },
+    {
+      "from": 4,
+      "to": 11,
+      "count": 1,
+      "cost": 75
+    },
+    {
+      "from": 4,
+      "to": 25,
+      "count": 1,
+      "cost": 50
+    },
+    {
+      "from": 5,
+      "to": 23,
+      "count": 2,
+      "cost": 4
+    },
+    {
+      "from": 5,
+      "to": 28,
+      "count": 1,
+      "cost": 30
+    },
+    {
+      "from": 6,
+      "to": 15,
+      "count": 1,
+      "cost": 98
+    },
+    {
+      "from": 7,
+      "to": 17,
+      "count": 2,
+      "cost": 7
+    },
+    {
+      "from": 8,
+      "to": 20,
+      "count": 2,
+      "cost": 76
+    },
+    {
+      "from": 9,
+      "to": 10,
+      "count": 1,
+      "cost": 59
+    },
+    {
+      "from": 9,
+      "to": 26,
+      "count": 1,
+      "cost": 97
+    },
+    {
+      "from": 10,
+      "to": 6,
+      "count": 1,
+      "cost": 94
+    },
+    {
+      "from": 10,
+      "to": 9,
+      "count": 1,
+      "cost": 88
+    },
+    {
+      "from": 10,
+      "to": 12,
+      "count": 1,
+      "cost": 19
+    },
+    {
+      "from": 11,
+      "to": 14,
+      "count": 2,
+      "cost": 95
+    },
+    {
+      "from": 12,
+      "to": 11,
+      "count": 1,
+      "cost": 40
+    },
+    {
+      "from": 12,
+      "to": 16,
+      "count": 3,
+      "cost": 16
+    },
+    {
+      "from": 12,
+      "to": 17,
+      "count": 1,
+      "cost": 49
+    },
+    {
+      "from": 14,
+      "to": 4,
+      "count": 2,
+      "cost": 49
+    },
+    {
+      "from": 14,
+      "to": 5,
+      "count": 1,
+      "cost": 100
+    },
+    {
+      "from": 14,
+      "to": 26,
+      "count": 1,
+      "cost": 47
+    },
+    {
+      "from": 15,
+      "to": 19,
+      "count": 2,
+      "cost": 30
+    },
+    {
+      "from": 16,
+      "to": 1,
+      "count": 1,
+      "cost": 84
+    },
+    {
+      "from": 16,
+      "to": 14,
+      "count": 2,
+      "cost": 17
+    },
+    {
+      "from": 17,
+      "to": 12,
+      "count": 4,
+      "cost": 84
+    },
+    {
+      "from": 18,
+      "to": 7,
+      "count": 1,
+      "cost": 31
+    },
+    {
+      "from": 19,
+      "to": 17,
+      "count": 1,
+      "cost": 6
+    },
+    {
+      "from": 19,
+      "to": 26,
+      "count": 1,
+      "cost": 2
+    },
+    {
+      "from": 20,
+      "to": 5,
+      "count": 2,
+      "cost": 35
+    },
+    {
+      "from": 23,
+      "to": 25,
+      "count": 1,
+      "cost": 71
+    },
+    {
+      "from": 23,
+      "to": 27,
+      "count": 1,
+      "cost": 75
+    },
+    {
+      "from": 25,
+      "to": 10,
+      "count": 2,
+      "cost": 3
+    },
+    {
+      "from": 26,
+      "to": 0,
+      "count": 1,
+      "cost": 91
+    },
+    {
+      "from": 26,
+      "to": 3,
+      "count": 2,
+      "cost": 65
+    },
+    {
+      "from": 26,
+      "to": 18,
+      "count": 1,
+      "cost": 14
+    },
+    {
+      "from": 27,
+      "to": 8,
+      "count": 1,
+      "cost": 92
+    },
+    {
+      "from": 27,
+      "to": 15,
+      "count": 1,
+      "cost": 62
+    },
+    {
+      "from": 28,
+      "to": 7,
+      "count": 1,
+      "cost": 78
+    },
+    {
+      "from": 29,
+      "to": 1,
+      "count": 1,
+      "cost": 39
+    },
+    {
+      "from": 29,
+      "to": 27,
+      "count": 1,
+      "cost": 47
+    }
+  ]
+}

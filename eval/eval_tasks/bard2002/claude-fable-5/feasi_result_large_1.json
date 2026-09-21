@@ -1,0 +1,1046 @@
+{
+  "feasible": false,
+  "violated_constraints": [
+    5,
+    9
+  ],
+  "violations": [
+    "Constraint (5): Load linking violated for arc (4,15): y_15=50.00 < y_4 + q_15 - Q_15*(1-x) = 51.00",
+    "Constraint (5): Load linking violated for arc (10,15): y_15=50.00 < y_10 + q_15 - Q_15*(1-x) = 58.00",
+    "Constraint (5): Load linking violated for arc (10,71): y_71=48.00 < y_10 + q_71 - Q_71*(1-x) = 54.00",
+    "Constraint (5): Load linking violated for arc (10,74): y_74=43.00 < y_10 + q_74 - Q_74*(1-x) = 44.00",
+    "Constraint (5): Load linking violated for arc (10,85): y_85=46.00 < y_10 + q_85 - Q_85*(1-x) = 50.00",
+    "Constraint (5): Load linking violated for arc (11,8): y_8=37.00 < y_11 + q_8 - Q_8*(1-x) = 42.00",
+    "Constraint (5): Load linking violated for arc (11,15): y_15=50.00 < y_11 + q_15 - Q_15*(1-x) = 68.00",
+    "Constraint (5): Load linking violated for arc (11,27): y_27=54.00 < y_11 + q_27 - Q_27*(1-x) = 60.00",
+    "Constraint (5): Load linking violated for arc (11,60): y_60=39.00 < y_11 + q_60 - Q_60*(1-x) = 46.00",
+    "Constraint (5): Load linking violated for arc (11,71): y_71=48.00 < y_11 + q_71 - Q_71*(1-x) = 64.00",
+    "Constraint (5): Load linking violated for arc (11,72): y_72=33.00 < y_11 + q_72 - Q_72*(1-x) = 34.00",
+    "Constraint (5): Load linking violated for arc (11,73): y_73=62.00 < y_11 + q_73 - Q_73*(1-x) = 68.00",
+    "Constraint (5): Load linking violated for arc (11,74): y_74=43.00 < y_11 + q_74 - Q_74*(1-x) = 54.00",
+    "Constraint (5): Load linking violated for arc (11,85): y_85=46.00 < y_11 + q_85 - Q_85*(1-x) = 60.00",
+    "Constraint (5): Load linking violated for arc (13,2): y_2=17.00 < y_13 + q_2 - Q_2*(1-x) = 29.00",
+    "Constraint (5): Load linking violated for arc (13,3): y_3=46.00 < y_13 + q_3 - Q_3*(1-x) = 47.00",
+    "Constraint (5): Load linking violated for arc (13,8): y_8=37.00 < y_13 + q_8 - Q_8*(1-x) = 69.00",
+    "Constraint (5): Load linking violated for arc (13,12): y_12=15.00 < y_13 + q_12 - Q_12*(1-x) = 25.00",
+    "Constraint (5): Load linking violated for arc (13,15): y_15=50.00 < y_13 + q_15 - Q_15*(1-x) = 95.00",
+    "Constraint (5): Load linking violated for arc (13,16): y_16=17.00 < y_13 + q_16 - Q_16*(1-x) = 29.00",
+    "Constraint (5): Load linking violated for arc (13,27): y_27=54.00 < y_13 + q_27 - Q_27*(1-x) = 87.00",
+    "Constraint (5): Load linking violated for arc (13,30): y_30=76.00 < y_13 + q_30 - Q_30*(1-x) = 81.00",
+    "Constraint (5): Load linking violated for arc (13,33): y_33=20.00 < y_13 + q_33 - Q_33*(1-x) = 35.00",
+    "Constraint (5): Load linking violated for arc (13,35): y_35=8.00 < y_13 + q_35 - Q_35*(1-x) = 11.00",
+    "Constraint (5): Load linking violated for arc (13,40): y_40=48.00 < y_13 + q_40 - Q_40*(1-x) = 57.00",
+    "Constraint (5): Load linking violated for arc (13,41): y_41=18.00 < y_13 + q_41 - Q_41*(1-x) = 31.00",
+    "Constraint (5): Load linking violated for arc (13,42): y_42=58.00 < y_13 + q_42 - Q_42*(1-x) = 77.00",
+    "Constraint (5): Load linking violated for arc (13,49): y_49=53.00 < y_13 + q_49 - Q_49*(1-x) = 67.00",
+    "Constraint (5): Load linking violated for arc (13,54): y_54=42.00 < y_13 + q_54 - Q_54*(1-x) = 69.00",
+    "Constraint (5): Load linking violated for arc (13,59): y_59=12.00 < y_13 + q_59 - Q_59*(1-x) = 19.00",
+    "Constraint (5): Load linking violated for arc (13,60): y_60=39.00 < y_13 + q_60 - Q_60*(1-x) = 73.00",
+    "Constraint (5): Load linking violated for arc (13,66): y_66=11.00 < y_13 + q_66 - Q_66*(1-x) = 17.00",
+    "Constraint (5): Load linking violated for arc (13,71): y_71=48.00 < y_13 + q_71 - Q_71*(1-x) = 91.00",
+    "Constraint (5): Load linking violated for arc (13,72): y_72=33.00 < y_13 + q_72 - Q_72*(1-x) = 61.00",
+    "Constraint (5): Load linking violated for arc (13,73): y_73=62.00 < y_13 + q_73 - Q_73*(1-x) = 95.00",
+    "Constraint (5): Load linking violated for arc (13,74): y_74=43.00 < y_13 + q_74 - Q_74*(1-x) = 81.00",
+    "Constraint (5): Load linking violated for arc (13,79): y_79=32.00 < y_13 + q_79 - Q_79*(1-x) = 59.00",
+    "Constraint (5): Load linking violated for arc (13,83): y_83=8.00 < y_13 + q_83 - Q_83*(1-x) = 11.00",
+    "Constraint (5): Load linking violated for arc (13,85): y_85=46.00 < y_13 + q_85 - Q_85*(1-x) = 87.00",
+    "Constraint (5): Load linking violated for arc (13,88): y_88=43.00 < y_13 + q_88 - Q_88*(1-x) = 65.00",
+    "Constraint (5): Load linking violated for arc (13,91): y_91=72.00 < y_13 + q_91 - Q_91*(1-x) = 95.00",
+    "Constraint (5): Load linking violated for arc (17,8): y_8=37.00 < y_17 + q_8 - Q_8*(1-x) = 50.00",
+    "Constraint (5): Load linking violated for arc (17,15): y_15=50.00 < y_17 + q_15 - Q_15*(1-x) = 76.00",
+    "Constraint (5): Load linking violated for arc (17,27): y_27=54.00 < y_17 + q_27 - Q_27*(1-x) = 68.00",
+    "Constraint (5): Load linking violated for arc (17,54): y_54=42.00 < y_17 + q_54 - Q_54*(1-x) = 50.00",
+    "Constraint (5): Load linking violated for arc (17,60): y_60=39.00 < y_17 + q_60 - Q_60*(1-x) = 54.00",
+    "Constraint (5): Load linking violated for arc (17,71): y_71=48.00 < y_17 + q_71 - Q_71*(1-x) = 72.00",
+    "Constraint (5): Load linking violated for arc (17,72): y_72=33.00 < y_17 + q_72 - Q_72*(1-x) = 42.00",
+    "Constraint (5): Load linking violated for arc (17,73): y_73=62.00 < y_17 + q_73 - Q_73*(1-x) = 76.00",
+    "Constraint (5): Load linking violated for arc (17,74): y_74=43.00 < y_17 + q_74 - Q_74*(1-x) = 62.00",
+    "Constraint (5): Load linking violated for arc (17,79): y_79=32.00 < y_17 + q_79 - Q_79*(1-x) = 40.00",
+    "Constraint (5): Load linking violated for arc (17,85): y_85=46.00 < y_17 + q_85 - Q_85*(1-x) = 68.00",
+    "Constraint (5): Load linking violated for arc (17,88): y_88=43.00 < y_17 + q_88 - Q_88*(1-x) = 46.00",
+    "Constraint (5): Load linking violated for arc (17,91): y_91=72.00 < y_17 + q_91 - Q_91*(1-x) = 76.00",
+    "Constraint (5): Load linking violated for arc (21,15): y_15=50.00 < y_21 + q_15 - Q_15*(1-x) = 53.00",
+    "Constraint (5): Load linking violated for arc (21,71): y_71=48.00 < y_21 + q_71 - Q_71*(1-x) = 49.00",
+    "Constraint (5): Load linking violated for arc (22,8): y_8=37.00 < y_22 + q_8 - Q_8*(1-x) = 47.00",
+    "Constraint (5): Load linking violated for arc (22,15): y_15=50.00 < y_22 + q_15 - Q_15*(1-x) = 73.00",
+    "Constraint (5): Load linking violated for arc (22,27): y_27=54.00 < y_22 + q_27 - Q_27*(1-x) = 65.00",
+    "Constraint (5): Load linking violated for arc (22,54): y_54=42.00 < y_22 + q_54 - Q_54*(1-x) = 47.00",
+    "Constraint (5): Load linking violated for arc (22,60): y_60=39.00 < y_22 + q_60 - Q_60*(1-x) = 51.00",
+    "Constraint (5): Load linking violated for arc (22,71): y_71=48.00 < y_22 + q_71 - Q_71*(1-x) = 69.00",
+    "Constraint (5): Load linking violated for arc (22,72): y_72=33.00 < y_22 + q_72 - Q_72*(1-x) = 39.00",
+    "Constraint (5): Load linking violated for arc (22,73): y_73=62.00 < y_22 + q_73 - Q_73*(1-x) = 73.00",
+    "Constraint (5): Load linking violated for arc (22,74): y_74=43.00 < y_22 + q_74 - Q_74*(1-x) = 59.00",
+    "Constraint (5): Load linking violated for arc (22,79): y_79=32.00 < y_22 + q_79 - Q_79*(1-x) = 37.00",
+    "Constraint (5): Load linking violated for arc (22,85): y_85=46.00 < y_22 + q_85 - Q_85*(1-x) = 65.00",
+    "Constraint (5): Load linking violated for arc (22,91): y_91=72.00 < y_22 + q_91 - Q_91*(1-x) = 73.00",
+    "Constraint (5): Load linking violated for arc (38,15): y_15=50.00 < y_38 + q_15 - Q_15*(1-x) = 59.00",
+    "Constraint (5): Load linking violated for arc (38,71): y_71=48.00 < y_38 + q_71 - Q_71*(1-x) = 55.00",
+    "Constraint (5): Load linking violated for arc (38,74): y_74=43.00 < y_38 + q_74 - Q_74*(1-x) = 45.00",
+    "Constraint (5): Load linking violated for arc (38,85): y_85=46.00 < y_38 + q_85 - Q_85*(1-x) = 51.00",
+    "Constraint (5): Load linking violated for arc (53,8): y_8=37.00 < y_53 + q_8 - Q_8*(1-x) = 43.00",
+    "Constraint (5): Load linking violated for arc (53,15): y_15=50.00 < y_53 + q_15 - Q_15*(1-x) = 69.00",
+    "Constraint (5): Load linking violated for arc (53,27): y_27=54.00 < y_53 + q_27 - Q_27*(1-x) = 61.00",
+    "Constraint (5): Load linking violated for arc (53,54): y_54=42.00 < y_53 + q_54 - Q_54*(1-x) = 43.00",
+    "Constraint (5): Load linking violated for arc (53,60): y_60=39.00 < y_53 + q_60 - Q_60*(1-x) = 47.00",
+    "Constraint (5): Load linking violated for arc (53,71): y_71=48.00 < y_53 + q_71 - Q_71*(1-x) = 65.00",
+    "Constraint (5): Load linking violated for arc (53,72): y_72=33.00 < y_53 + q_72 - Q_72*(1-x) = 35.00",
+    "Constraint (5): Load linking violated for arc (53,73): y_73=62.00 < y_53 + q_73 - Q_73*(1-x) = 69.00",
+    "Constraint (5): Load linking violated for arc (53,74): y_74=43.00 < y_53 + q_74 - Q_74*(1-x) = 55.00",
+    "Constraint (5): Load linking violated for arc (53,79): y_79=32.00 < y_53 + q_79 - Q_79*(1-x) = 33.00",
+    "Constraint (5): Load linking violated for arc (53,85): y_85=46.00 < y_53 + q_85 - Q_85*(1-x) = 61.00",
+    "Constraint (5): Load linking violated for arc (65,8): y_8=37.00 < y_65 + q_8 - Q_8*(1-x) = 46.00",
+    "Constraint (5): Load linking violated for arc (65,15): y_15=50.00 < y_65 + q_15 - Q_15*(1-x) = 72.00",
+    "Constraint (5): Load linking violated for arc (65,27): y_27=54.00 < y_65 + q_27 - Q_27*(1-x) = 64.00",
+    "Constraint (5): Load linking violated for arc (65,54): y_54=42.00 < y_65 + q_54 - Q_54*(1-x) = 46.00",
+    "Constraint (5): Load linking violated for arc (65,60): y_60=39.00 < y_65 + q_60 - Q_60*(1-x) = 50.00",
+    "Constraint (5): Load linking violated for arc (65,71): y_71=48.00 < y_65 + q_71 - Q_71*(1-x) = 68.00",
+    "Constraint (5): Load linking violated for arc (65,72): y_72=33.00 < y_65 + q_72 - Q_72*(1-x) = 38.00",
+    "Constraint (5): Load linking violated for arc (65,73): y_73=62.00 < y_65 + q_73 - Q_73*(1-x) = 72.00",
+    "Constraint (5): Load linking violated for arc (65,74): y_74=43.00 < y_65 + q_74 - Q_74*(1-x) = 58.00",
+    "Constraint (5): Load linking violated for arc (65,79): y_79=32.00 < y_65 + q_79 - Q_79*(1-x) = 36.00",
+    "Constraint (5): Load linking violated for arc (65,85): y_85=46.00 < y_65 + q_85 - Q_85*(1-x) = 64.00",
+    "Constraint (5): Load linking violated for arc (86,15): y_15=50.00 < y_86 + q_15 - Q_15*(1-x) = 54.00",
+    "Constraint (5): Load linking violated for arc (86,71): y_71=48.00 < y_86 + q_71 - Q_71*(1-x) = 50.00",
+    "Constraint (5): Load linking violated for arc (89,15): y_15=50.00 < y_89 + q_15 - Q_15*(1-x) = 61.00",
+    "Constraint (5): Load linking violated for arc (89,71): y_71=48.00 < y_89 + q_71 - Q_71*(1-x) = 57.00",
+    "Constraint (5): Load linking violated for arc (89,74): y_74=43.00 < y_89 + q_74 - Q_74*(1-x) = 47.00",
+    "Constraint (5): Load linking violated for arc (89,85): y_85=46.00 < y_89 + q_85 - Q_85*(1-x) = 53.00",
+    "Constraint (5): Load linking violated for arc (100,8): y_8=37.00 < y_100 + q_8 - Q_8*(1-x) = 51.00",
+    "Constraint (5): Load linking violated for arc (100,15): y_15=50.00 < y_100 + q_15 - Q_15*(1-x) = 77.00",
+    "Constraint (5): Load linking violated for arc (100,27): y_27=54.00 < y_100 + q_27 - Q_27*(1-x) = 69.00",
+    "Constraint (5): Load linking violated for arc (100,42): y_42=58.00 < y_100 + q_42 - Q_42*(1-x) = 59.00",
+    "Constraint (5): Load linking violated for arc (100,54): y_54=42.00 < y_100 + q_54 - Q_54*(1-x) = 51.00",
+    "Constraint (5): Load linking violated for arc (100,60): y_60=39.00 < y_100 + q_60 - Q_60*(1-x) = 55.00",
+    "Constraint (5): Load linking violated for arc (100,71): y_71=48.00 < y_100 + q_71 - Q_71*(1-x) = 73.00",
+    "Constraint (5): Load linking violated for arc (100,72): y_72=33.00 < y_100 + q_72 - Q_72*(1-x) = 43.00",
+    "Constraint (5): Load linking violated for arc (100,73): y_73=62.00 < y_100 + q_73 - Q_73*(1-x) = 77.00",
+    "Constraint (5): Load linking violated for arc (100,74): y_74=43.00 < y_100 + q_74 - Q_74*(1-x) = 63.00",
+    "Constraint (5): Load linking violated for arc (100,79): y_79=32.00 < y_100 + q_79 - Q_79*(1-x) = 41.00",
+    "Constraint (5): Load linking violated for arc (100,85): y_85=46.00 < y_100 + q_85 - Q_85*(1-x) = 69.00",
+    "Constraint (5): Load linking violated for arc (100,88): y_88=43.00 < y_100 + q_88 - Q_88*(1-x) = 47.00",
+    "Constraint (5): Load linking violated for arc (100,91): y_91=72.00 < y_100 + q_91 - Q_91*(1-x) = 77.00",
+    "Constraint (9): total_distance=2260.193361 does not equal the route-derived distance=2254.4"
+  ],
+  "violation_magnitudes": [
+    {
+      "constraint": 5,
+      "lhs": 50,
+      "rhs": 51,
+      "raw_excess": 1,
+      "normalizer": 51,
+      "ratio": 0.0196078431372549
+    },
+    {
+      "constraint": 5,
+      "lhs": 50,
+      "rhs": 58,
+      "raw_excess": 8,
+      "normalizer": 58,
+      "ratio": 0.13793103448275862
+    },
+    {
+      "constraint": 5,
+      "lhs": 48,
+      "rhs": 54,
+      "raw_excess": 6,
+      "normalizer": 54,
+      "ratio": 0.1111111111111111
+    },
+    {
+      "constraint": 5,
+      "lhs": 43,
+      "rhs": 44,
+      "raw_excess": 1,
+      "normalizer": 44,
+      "ratio": 0.022727272727272728
+    },
+    {
+      "constraint": 5,
+      "lhs": 46,
+      "rhs": 50,
+      "raw_excess": 4,
+      "normalizer": 50,
+      "ratio": 0.08
+    },
+    {
+      "constraint": 5,
+      "lhs": 37,
+      "rhs": 42,
+      "raw_excess": 5,
+      "normalizer": 42,
+      "ratio": 0.11904761904761904
+    },
+    {
+      "constraint": 5,
+      "lhs": 50,
+      "rhs": 68,
+      "raw_excess": 18,
+      "normalizer": 68,
+      "ratio": 0.2647058823529412
+    },
+    {
+      "constraint": 5,
+      "lhs": 54,
+      "rhs": 60,
+      "raw_excess": 6,
+      "normalizer": 60,
+      "ratio": 0.1
+    },
+    {
+      "constraint": 5,
+      "lhs": 39,
+      "rhs": 46,
+      "raw_excess": 7,
+      "normalizer": 46,
+      "ratio": 0.15217391304347827
+    },
+    {
+      "constraint": 5,
+      "lhs": 48,
+      "rhs": 64,
+      "raw_excess": 16,
+      "normalizer": 64,
+      "ratio": 0.25
+    },
+    {
+      "constraint": 5,
+      "lhs": 33,
+      "rhs": 34,
+      "raw_excess": 1,
+      "normalizer": 34,
+      "ratio": 0.029411764705882353
+    },
+    {
+      "constraint": 5,
+      "lhs": 62,
+      "rhs": 68,
+      "raw_excess": 6,
+      "normalizer": 68,
+      "ratio": 0.08823529411764706
+    },
+    {
+      "constraint": 5,
+      "lhs": 43,
+      "rhs": 54,
+      "raw_excess": 11,
+      "normalizer": 54,
+      "ratio": 0.2037037037037037
+    },
+    {
+      "constraint": 5,
+      "lhs": 46,
+      "rhs": 60,
+      "raw_excess": 14,
+      "normalizer": 60,
+      "ratio": 0.23333333333333334
+    },
+    {
+      "constraint": 5,
+      "lhs": 17,
+      "rhs": 29,
+      "raw_excess": 12,
+      "normalizer": 29,
+      "ratio": 0.41379310344827586
+    },
+    {
+      "constraint": 5,
+      "lhs": 46,
+      "rhs": 47,
+      "raw_excess": 1,
+      "normalizer": 47,
+      "ratio": 0.02127659574468085
+    },
+    {
+      "constraint": 5,
+      "lhs": 37,
+      "rhs": 69,
+      "raw_excess": 32,
+      "normalizer": 69,
+      "ratio": 0.463768115942029
+    },
+    {
+      "constraint": 5,
+      "lhs": 15,
+      "rhs": 25,
+      "raw_excess": 10,
+      "normalizer": 25,
+      "ratio": 0.4
+    },
+    {
+      "constraint": 5,
+      "lhs": 50,
+      "rhs": 95,
+      "raw_excess": 45,
+      "normalizer": 95,
+      "ratio": 0.47368421052631576
+    },
+    {
+      "constraint": 5,
+      "lhs": 17,
+      "rhs": 29,
+      "raw_excess": 12,
+      "normalizer": 29,
+      "ratio": 0.41379310344827586
+    },
+    {
+      "constraint": 5,
+      "lhs": 54,
+      "rhs": 87,
+      "raw_excess": 33,
+      "normalizer": 87,
+      "ratio": 0.3793103448275862
+    },
+    {
+      "constraint": 5,
+      "lhs": 76,
+      "rhs": 81,
+      "raw_excess": 5,
+      "normalizer": 81,
+      "ratio": 0.06172839506172839
+    },
+    {
+      "constraint": 5,
+      "lhs": 20,
+      "rhs": 35,
+      "raw_excess": 15,
+      "normalizer": 35,
+      "ratio": 0.42857142857142855
+    },
+    {
+      "constraint": 5,
+      "lhs": 8,
+      "rhs": 11,
+      "raw_excess": 3,
+      "normalizer": 11,
+      "ratio": 0.2727272727272727
+    },
+    {
+      "constraint": 5,
+      "lhs": 48,
+      "rhs": 57,
+      "raw_excess": 9,
+      "normalizer": 57,
+      "ratio": 0.15789473684210525
+    },
+    {
+      "constraint": 5,
+      "lhs": 18,
+      "rhs": 31,
+      "raw_excess": 13,
+      "normalizer": 31,
+      "ratio": 0.41935483870967744
+    },
+    {
+      "constraint": 5,
+      "lhs": 58,
+      "rhs": 77,
+      "raw_excess": 19,
+      "normalizer": 77,
+      "ratio": 0.24675324675324675
+    },
+    {
+      "constraint": 5,
+      "lhs": 53,
+      "rhs": 67,
+      "raw_excess": 14,
+      "normalizer": 67,
+      "ratio": 0.208955223880597
+    },
+    {
+      "constraint": 5,
+      "lhs": 42,
+      "rhs": 69,
+      "raw_excess": 27,
+      "normalizer": 69,
+      "ratio": 0.391304347826087
+    },
+    {
+      "constraint": 5,
+      "lhs": 12,
+      "rhs": 19,
+      "raw_excess": 7,
+      "normalizer": 19,
+      "ratio": 0.3684210526315789
+    },
+    {
+      "constraint": 5,
+      "lhs": 39,
+      "rhs": 73,
+      "raw_excess": 34,
+      "normalizer": 73,
+      "ratio": 0.4657534246575342
+    },
+    {
+      "constraint": 5,
+      "lhs": 11,
+      "rhs": 17,
+      "raw_excess": 6,
+      "normalizer": 17,
+      "ratio": 0.35294117647058826
+    },
+    {
+      "constraint": 5,
+      "lhs": 48,
+      "rhs": 91,
+      "raw_excess": 43,
+      "normalizer": 91,
+      "ratio": 0.4725274725274725
+    },
+    {
+      "constraint": 5,
+      "lhs": 33,
+      "rhs": 61,
+      "raw_excess": 28,
+      "normalizer": 61,
+      "ratio": 0.45901639344262296
+    },
+    {
+      "constraint": 5,
+      "lhs": 62,
+      "rhs": 95,
+      "raw_excess": 33,
+      "normalizer": 95,
+      "ratio": 0.3473684210526316
+    },
+    {
+      "constraint": 5,
+      "lhs": 43,
+      "rhs": 81,
+      "raw_excess": 38,
+      "normalizer": 81,
+      "ratio": 0.4691358024691358
+    },
+    {
+      "constraint": 5,
+      "lhs": 32,
+      "rhs": 59,
+      "raw_excess": 27,
+      "normalizer": 59,
+      "ratio": 0.4576271186440678
+    },
+    {
+      "constraint": 5,
+      "lhs": 8,
+      "rhs": 11,
+      "raw_excess": 3,
+      "normalizer": 11,
+      "ratio": 0.2727272727272727
+    },
+    {
+      "constraint": 5,
+      "lhs": 46,
+      "rhs": 87,
+      "raw_excess": 41,
+      "normalizer": 87,
+      "ratio": 0.47126436781609193
+    },
+    {
+      "constraint": 5,
+      "lhs": 43,
+      "rhs": 65,
+      "raw_excess": 22,
+      "normalizer": 65,
+      "ratio": 0.3384615384615385
+    },
+    {
+      "constraint": 5,
+      "lhs": 72,
+      "rhs": 95,
+      "raw_excess": 23,
+      "normalizer": 95,
+      "ratio": 0.24210526315789474
+    },
+    {
+      "constraint": 5,
+      "lhs": 37,
+      "rhs": 50,
+      "raw_excess": 13,
+      "normalizer": 50,
+      "ratio": 0.26
+    },
+    {
+      "constraint": 5,
+      "lhs": 50,
+      "rhs": 76,
+      "raw_excess": 26,
+      "normalizer": 76,
+      "ratio": 0.34210526315789475
+    },
+    {
+      "constraint": 5,
+      "lhs": 54,
+      "rhs": 68,
+      "raw_excess": 14,
+      "normalizer": 68,
+      "ratio": 0.20588235294117646
+    },
+    {
+      "constraint": 5,
+      "lhs": 42,
+      "rhs": 50,
+      "raw_excess": 8,
+      "normalizer": 50,
+      "ratio": 0.16
+    },
+    {
+      "constraint": 5,
+      "lhs": 39,
+      "rhs": 54,
+      "raw_excess": 15,
+      "normalizer": 54,
+      "ratio": 0.2777777777777778
+    },
+    {
+      "constraint": 5,
+      "lhs": 48,
+      "rhs": 72,
+      "raw_excess": 24,
+      "normalizer": 72,
+      "ratio": 0.3333333333333333
+    },
+    {
+      "constraint": 5,
+      "lhs": 33,
+      "rhs": 42,
+      "raw_excess": 9,
+      "normalizer": 42,
+      "ratio": 0.21428571428571427
+    },
+    {
+      "constraint": 5,
+      "lhs": 62,
+      "rhs": 76,
+      "raw_excess": 14,
+      "normalizer": 76,
+      "ratio": 0.18421052631578946
+    },
+    {
+      "constraint": 5,
+      "lhs": 43,
+      "rhs": 62,
+      "raw_excess": 19,
+      "normalizer": 62,
+      "ratio": 0.3064516129032258
+    },
+    {
+      "constraint": 5,
+      "lhs": 32,
+      "rhs": 40,
+      "raw_excess": 8,
+      "normalizer": 40,
+      "ratio": 0.2
+    },
+    {
+      "constraint": 5,
+      "lhs": 46,
+      "rhs": 68,
+      "raw_excess": 22,
+      "normalizer": 68,
+      "ratio": 0.3235294117647059
+    },
+    {
+      "constraint": 5,
+      "lhs": 43,
+      "rhs": 46,
+      "raw_excess": 3,
+      "normalizer": 46,
+      "ratio": 0.06521739130434782
+    },
+    {
+      "constraint": 5,
+      "lhs": 72,
+      "rhs": 76,
+      "raw_excess": 4,
+      "normalizer": 76,
+      "ratio": 0.05263157894736842
+    },
+    {
+      "constraint": 5,
+      "lhs": 50,
+      "rhs": 53,
+      "raw_excess": 3,
+      "normalizer": 53,
+      "ratio": 0.05660377358490566
+    },
+    {
+      "constraint": 5,
+      "lhs": 48,
+      "rhs": 49,
+      "raw_excess": 1,
+      "normalizer": 49,
+      "ratio": 0.02040816326530612
+    },
+    {
+      "constraint": 5,
+      "lhs": 37,
+      "rhs": 47,
+      "raw_excess": 10,
+      "normalizer": 47,
+      "ratio": 0.2127659574468085
+    },
+    {
+      "constraint": 5,
+      "lhs": 50,
+      "rhs": 73,
+      "raw_excess": 23,
+      "normalizer": 73,
+      "ratio": 0.3150684931506849
+    },
+    {
+      "constraint": 5,
+      "lhs": 54,
+      "rhs": 65,
+      "raw_excess": 11,
+      "normalizer": 65,
+      "ratio": 0.16923076923076924
+    },
+    {
+      "constraint": 5,
+      "lhs": 42,
+      "rhs": 47,
+      "raw_excess": 5,
+      "normalizer": 47,
+      "ratio": 0.10638297872340426
+    },
+    {
+      "constraint": 5,
+      "lhs": 39,
+      "rhs": 51,
+      "raw_excess": 12,
+      "normalizer": 51,
+      "ratio": 0.23529411764705882
+    },
+    {
+      "constraint": 5,
+      "lhs": 48,
+      "rhs": 69,
+      "raw_excess": 21,
+      "normalizer": 69,
+      "ratio": 0.30434782608695654
+    },
+    {
+      "constraint": 5,
+      "lhs": 33,
+      "rhs": 39,
+      "raw_excess": 6,
+      "normalizer": 39,
+      "ratio": 0.15384615384615385
+    },
+    {
+      "constraint": 5,
+      "lhs": 62,
+      "rhs": 73,
+      "raw_excess": 11,
+      "normalizer": 73,
+      "ratio": 0.1506849315068493
+    },
+    {
+      "constraint": 5,
+      "lhs": 43,
+      "rhs": 59,
+      "raw_excess": 16,
+      "normalizer": 59,
+      "ratio": 0.2711864406779661
+    },
+    {
+      "constraint": 5,
+      "lhs": 32,
+      "rhs": 37,
+      "raw_excess": 5,
+      "normalizer": 37,
+      "ratio": 0.13513513513513514
+    },
+    {
+      "constraint": 5,
+      "lhs": 46,
+      "rhs": 65,
+      "raw_excess": 19,
+      "normalizer": 65,
+      "ratio": 0.2923076923076923
+    },
+    {
+      "constraint": 5,
+      "lhs": 72,
+      "rhs": 73,
+      "raw_excess": 1,
+      "normalizer": 73,
+      "ratio": 0.0136986301369863
+    },
+    {
+      "constraint": 5,
+      "lhs": 50,
+      "rhs": 59,
+      "raw_excess": 9,
+      "normalizer": 59,
+      "ratio": 0.15254237288135594
+    },
+    {
+      "constraint": 5,
+      "lhs": 48,
+      "rhs": 55,
+      "raw_excess": 7,
+      "normalizer": 55,
+      "ratio": 0.12727272727272726
+    },
+    {
+      "constraint": 5,
+      "lhs": 43,
+      "rhs": 45,
+      "raw_excess": 2,
+      "normalizer": 45,
+      "ratio": 0.044444444444444446
+    },
+    {
+      "constraint": 5,
+      "lhs": 46,
+      "rhs": 51,
+      "raw_excess": 5,
+      "normalizer": 51,
+      "ratio": 0.09803921568627451
+    },
+    {
+      "constraint": 5,
+      "lhs": 37,
+      "rhs": 43,
+      "raw_excess": 6,
+      "normalizer": 43,
+      "ratio": 0.13953488372093023
+    },
+    {
+      "constraint": 5,
+      "lhs": 50,
+      "rhs": 69,
+      "raw_excess": 19,
+      "normalizer": 69,
+      "ratio": 0.2753623188405797
+    },
+    {
+      "constraint": 5,
+      "lhs": 54,
+      "rhs": 61,
+      "raw_excess": 7,
+      "normalizer": 61,
+      "ratio": 0.11475409836065574
+    },
+    {
+      "constraint": 5,
+      "lhs": 42,
+      "rhs": 43,
+      "raw_excess": 1,
+      "normalizer": 43,
+      "ratio": 0.023255813953488372
+    },
+    {
+      "constraint": 5,
+      "lhs": 39,
+      "rhs": 47,
+      "raw_excess": 8,
+      "normalizer": 47,
+      "ratio": 0.1702127659574468
+    },
+    {
+      "constraint": 5,
+      "lhs": 48,
+      "rhs": 65,
+      "raw_excess": 17,
+      "normalizer": 65,
+      "ratio": 0.26153846153846155
+    },
+    {
+      "constraint": 5,
+      "lhs": 33,
+      "rhs": 35,
+      "raw_excess": 2,
+      "normalizer": 35,
+      "ratio": 0.05714285714285714
+    },
+    {
+      "constraint": 5,
+      "lhs": 62,
+      "rhs": 69,
+      "raw_excess": 7,
+      "normalizer": 69,
+      "ratio": 0.10144927536231885
+    },
+    {
+      "constraint": 5,
+      "lhs": 43,
+      "rhs": 55,
+      "raw_excess": 12,
+      "normalizer": 55,
+      "ratio": 0.21818181818181817
+    },
+    {
+      "constraint": 5,
+      "lhs": 32,
+      "rhs": 33,
+      "raw_excess": 1,
+      "normalizer": 33,
+      "ratio": 0.030303030303030304
+    },
+    {
+      "constraint": 5,
+      "lhs": 46,
+      "rhs": 61,
+      "raw_excess": 15,
+      "normalizer": 61,
+      "ratio": 0.2459016393442623
+    },
+    {
+      "constraint": 5,
+      "lhs": 37,
+      "rhs": 46,
+      "raw_excess": 9,
+      "normalizer": 46,
+      "ratio": 0.1956521739130435
+    },
+    {
+      "constraint": 5,
+      "lhs": 50,
+      "rhs": 72,
+      "raw_excess": 22,
+      "normalizer": 72,
+      "ratio": 0.3055555555555556
+    },
+    {
+      "constraint": 5,
+      "lhs": 54,
+      "rhs": 64,
+      "raw_excess": 10,
+      "normalizer": 64,
+      "ratio": 0.15625
+    },
+    {
+      "constraint": 5,
+      "lhs": 42,
+      "rhs": 46,
+      "raw_excess": 4,
+      "normalizer": 46,
+      "ratio": 0.08695652173913043
+    },
+    {
+      "constraint": 5,
+      "lhs": 39,
+      "rhs": 50,
+      "raw_excess": 11,
+      "normalizer": 50,
+      "ratio": 0.22
+    },
+    {
+      "constraint": 5,
+      "lhs": 48,
+      "rhs": 68,
+      "raw_excess": 20,
+      "normalizer": 68,
+      "ratio": 0.29411764705882354
+    },
+    {
+      "constraint": 5,
+      "lhs": 33,
+      "rhs": 38,
+      "raw_excess": 5,
+      "normalizer": 38,
+      "ratio": 0.13157894736842105
+    },
+    {
+      "constraint": 5,
+      "lhs": 62,
+      "rhs": 72,
+      "raw_excess": 10,
+      "normalizer": 72,
+      "ratio": 0.1388888888888889
+    },
+    {
+      "constraint": 5,
+      "lhs": 43,
+      "rhs": 58,
+      "raw_excess": 15,
+      "normalizer": 58,
+      "ratio": 0.25862068965517243
+    },
+    {
+      "constraint": 5,
+      "lhs": 32,
+      "rhs": 36,
+      "raw_excess": 4,
+      "normalizer": 36,
+      "ratio": 0.1111111111111111
+    },
+    {
+      "constraint": 5,
+      "lhs": 46,
+      "rhs": 64,
+      "raw_excess": 18,
+      "normalizer": 64,
+      "ratio": 0.28125
+    },
+    {
+      "constraint": 5,
+      "lhs": 50,
+      "rhs": 54,
+      "raw_excess": 4,
+      "normalizer": 54,
+      "ratio": 0.07407407407407407
+    },
+    {
+      "constraint": 5,
+      "lhs": 48,
+      "rhs": 50,
+      "raw_excess": 2,
+      "normalizer": 50,
+      "ratio": 0.04
+    },
+    {
+      "constraint": 5,
+      "lhs": 50,
+      "rhs": 61,
+      "raw_excess": 11,
+      "normalizer": 61,
+      "ratio": 0.18032786885245902
+    },
+    {
+      "constraint": 5,
+      "lhs": 48,
+      "rhs": 57,
+      "raw_excess": 9,
+      "normalizer": 57,
+      "ratio": 0.15789473684210525
+    },
+    {
+      "constraint": 5,
+      "lhs": 43,
+      "rhs": 47,
+      "raw_excess": 4,
+      "normalizer": 47,
+      "ratio": 0.0851063829787234
+    },
+    {
+      "constraint": 5,
+      "lhs": 46,
+      "rhs": 53,
+      "raw_excess": 7,
+      "normalizer": 53,
+      "ratio": 0.1320754716981132
+    },
+    {
+      "constraint": 5,
+      "lhs": 37,
+      "rhs": 51,
+      "raw_excess": 14,
+      "normalizer": 51,
+      "ratio": 0.27450980392156865
+    },
+    {
+      "constraint": 5,
+      "lhs": 50,
+      "rhs": 77,
+      "raw_excess": 27,
+      "normalizer": 77,
+      "ratio": 0.35064935064935066
+    },
+    {
+      "constraint": 5,
+      "lhs": 54,
+      "rhs": 69,
+      "raw_excess": 15,
+      "normalizer": 69,
+      "ratio": 0.21739130434782608
+    },
+    {
+      "constraint": 5,
+      "lhs": 58,
+      "rhs": 59,
+      "raw_excess": 1,
+      "normalizer": 59,
+      "ratio": 0.01694915254237288
+    },
+    {
+      "constraint": 5,
+      "lhs": 42,
+      "rhs": 51,
+      "raw_excess": 9,
+      "normalizer": 51,
+      "ratio": 0.17647058823529413
+    },
+    {
+      "constraint": 5,
+      "lhs": 39,
+      "rhs": 55,
+      "raw_excess": 16,
+      "normalizer": 55,
+      "ratio": 0.2909090909090909
+    },
+    {
+      "constraint": 5,
+      "lhs": 48,
+      "rhs": 73,
+      "raw_excess": 25,
+      "normalizer": 73,
+      "ratio": 0.3424657534246575
+    },
+    {
+      "constraint": 5,
+      "lhs": 33,
+      "rhs": 43,
+      "raw_excess": 10,
+      "normalizer": 43,
+      "ratio": 0.23255813953488372
+    },
+    {
+      "constraint": 5,
+      "lhs": 62,
+      "rhs": 77,
+      "raw_excess": 15,
+      "normalizer": 77,
+      "ratio": 0.19480519480519481
+    },
+    {
+      "constraint": 5,
+      "lhs": 43,
+      "rhs": 63,
+      "raw_excess": 20,
+      "normalizer": 63,
+      "ratio": 0.31746031746031744
+    },
+    {
+      "constraint": 5,
+      "lhs": 32,
+      "rhs": 41,
+      "raw_excess": 9,
+      "normalizer": 41,
+      "ratio": 0.21951219512195122
+    },
+    {
+      "constraint": 5,
+      "lhs": 46,
+      "rhs": 69,
+      "raw_excess": 23,
+      "normalizer": 69,
+      "ratio": 0.3333333333333333
+    },
+    {
+      "constraint": 5,
+      "lhs": 43,
+      "rhs": 47,
+      "raw_excess": 4,
+      "normalizer": 47,
+      "ratio": 0.0851063829787234
+    },
+    {
+      "constraint": 5,
+      "lhs": 72,
+      "rhs": 77,
+      "raw_excess": 5,
+      "normalizer": 77,
+      "ratio": 0.06493506493506493
+    },
+    {
+      "constraint": 9,
+      "lhs": 2260.193361,
+      "rhs": 2254.4,
+      "raw_excess": 5.793361000000004,
+      "normalizer": 2254.4,
+      "ratio": 0.0025698017210787814
+    }
+  ]
+}

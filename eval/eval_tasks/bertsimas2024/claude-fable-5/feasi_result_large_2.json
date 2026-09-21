@@ -1,0 +1,40 @@
+{
+  "feasible": false,
+  "violated_constraints": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "violations": [
+    "unknown model variable(s): z, x, y",
+    "constraint violated: flow_0_0_0: 0 == 9.54258288072 (excess 9.54258)",
+    "constraint violated: flow_0_0_1: 0 == 15.8901468061 (excess 15.8901)",
+    "constraint violated: flow_0_0_2: 0 == 7.48867532366 (excess 7.48868)",
+    "constraint violated: flow_0_0_3: 0 == 15.4865182707 (excess 15.4865)",
+    "constraint violated: flow_0_0_4: 0 == 11.536571032 (excess 11.5366)",
+    "constraint violated: flow_0_0_5: 0 == 17.2141847372 (excess 17.2142)",
+    "constraint violated: flow_0_0_6: 0 == 7.64978554247 (excess 7.64979)",
+    "constraint violated: flow_0_0_7: 0 == 9.86133609003 (excess 9.86134)",
+    "constraint violated: flow_0_0_8: 0 == 9.11687249291 (excess 9.11687)",
+    "constraint violated: flow_0_0_9: 0 == 6.65305106723 (excess 6.65305)",
+    "public decision and model witness disagree for z[0]: 1.0 versus 0.0",
+    "public decision and model witness disagree for z[1]: 1.0 versus 0.0",
+    "public decision and model witness disagree for z[2]: 1.0 versus 0.0",
+    "public decision and model witness disagree for z[3]: 1.0 versus 0.0",
+    "public decision and model witness disagree for z[4]: 1.0 versus 0.0",
+    "public decision and model witness disagree for z[5]: 1.0 versus 0.0",
+    "public decision and model witness disagree for z[7]: 1.0 versus 0.0",
+    "public decision and model witness disagree for z[8]: 1.0 versus 0.0",
+    "public decision and model witness disagree for z[9]: 1.0 versus 0.0",
+    "public decision and model witness disagree for z[10]: 1.0 versus 0.0",
+    "objective_value=571455.306127913 differs from complete-witness objective=0 by 571455 (tol=0.0571455)"
+  ],
+  "violation_magnitudes": [
+    {
+      "max_constraint_violation": 2039.674288850714,
+      "recomputed_objective": 0.0
+    }
+  ]
+}

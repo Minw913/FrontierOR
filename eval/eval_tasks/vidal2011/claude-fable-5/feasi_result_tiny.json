@@ -1,0 +1,46 @@
+{
+  "feasible": false,
+  "violated_constraints": [
+    0
+  ],
+  "violations": [
+    "Domain: routes[0] vehicle 0 not in [1, 2]",
+    "Domain: routes[1] vehicle 0 not in [1, 2]",
+    "Domain: routes[3] vehicle 0 not in [1, 2]",
+    "Domain: routes[5] vehicle 0 not in [1, 2]"
+  ],
+  "violation_magnitudes": [
+    {
+      "constraint": 0,
+      "lhs": 0.0,
+      "rhs": 0.0,
+      "raw_excess": 1.0,
+      "normalizer": 1.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 0,
+      "lhs": 0.0,
+      "rhs": 0.0,
+      "raw_excess": 1.0,
+      "normalizer": 1.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 0,
+      "lhs": 0.0,
+      "rhs": 0.0,
+      "raw_excess": 1.0,
+      "normalizer": 1.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 0,
+      "lhs": 0.0,
+      "rhs": 0.0,
+      "raw_excess": 1.0,
+      "normalizer": 1.0,
+      "ratio": 1.0
+    }
+  ]
+}

@@ -229,6 +229,7 @@ def test_eval_broker_rejects_symlink_code_in_commit(tmp_path):
 
 
 def test_secure_runtime_docker_command_has_outer_boundary(tmp_path, monkeypatch):
+    monkeypatch.setattr("trusted_eval_infra.execution.validate_image_sources", lambda *_args: None)
     from test_time_self_evolution.coral import secure_runtime
 
     run_dir = tmp_path / "run"
@@ -322,6 +323,7 @@ def test_secure_runtime_docker_command_has_outer_boundary(tmp_path, monkeypatch)
     assert "--ulimit" in outer
     assert "GIT_NO_REPLACE_OBJECTS=1" in outer
     assert "dst=" + str(attempts) + ",readonly" in outer_flat
+    assert "dst=" + str(attempts.parent / "request_status") + ",readonly" in outer_flat
     assert "dst=/frontieror/codex-auth.json,readonly" in outer_flat
     assert "dst=" + str(repo / ".git" / "config") + ",readonly" in outer_flat
     assert str(repo / ".git" / "hooks") + ":rw,nosuid,nodev,noexec" in outer_flat
@@ -445,6 +447,7 @@ def test_secure_runtime_proxy_mounts_no_host_auth_or_upstream_key(
     monkeypatch,
 ):
     from test_time_self_evolution.coral import secure_runtime
+    monkeypatch.setattr("trusted_eval_infra.execution.validate_image_sources", lambda *_args: None)
 
     run_dir = tmp_path / "run"
     worktree = run_dir / "agents" / "agent-1"

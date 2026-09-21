@@ -1,0 +1,139 @@
+{
+  "feasible": false,
+  "violated_constraints": [
+    2,
+    3,
+    4,
+    6
+  ],
+  "violations": [
+    "Constraint (2) violated for pairing 14: coverage=4, slack=-1, LHS=4, RHS(b_p)=3",
+    "Constraint (2) violated for pairing 16: coverage=10, slack=-7, LHS=10, RHS(b_p)=3",
+    "Constraint (2) violated for pairing 17: coverage=10, slack=-3, LHS=10, RHS(b_p)=7",
+    "Constraint (2) violated for pairing 20: coverage=10, slack=-6, LHS=10, RHS(b_p)=4",
+    "Constraint (2) violated for pairing 27: coverage=10, slack=-2, LHS=10, RHS(b_p)=8",
+    "Constraint (2) violated for pairing 38: coverage=9, slack=-4, LHS=9, RHS(b_p)=5",
+    "Constraint (3) violated for employee 39: no roster assigned (sum x_r = 0.0, expected 1.0)",
+    "Constraint (4) violated for pairing 14: e_p=-1.000000 < 0 (overcovered by 1 copies, coverage=4, b_p=3)",
+    "Constraint (4) violated for pairing 16: e_p=-7.000000 < 0 (overcovered by 7 copies, coverage=10, b_p=3)",
+    "Constraint (4) violated for pairing 17: e_p=-3.000000 < 0 (overcovered by 3 copies, coverage=10, b_p=7)",
+    "Constraint (4) violated for pairing 20: e_p=-6.000000 < 0 (overcovered by 6 copies, coverage=10, b_p=4)",
+    "Constraint (4) violated for pairing 27: e_p=-2.000000 < 0 (overcovered by 2 copies, coverage=10, b_p=8)",
+    "Constraint (4) violated for pairing 38: e_p=-4.000000 < 0 (overcovered by 4 copies, coverage=9, b_p=5)",
+    "Constraint (6) violated: reported objective_value=139277.0 differs from recomputed objective sum_p c_p*e_p=300376.0 (|diff|=161099, tol=0.5)"
+  ],
+  "violation_magnitudes": [
+    {
+      "constraint": 2,
+      "lhs": 4,
+      "rhs": 3,
+      "raw_excess": 1,
+      "normalizer": 3,
+      "ratio": 0.3333333333333333
+    },
+    {
+      "constraint": 2,
+      "lhs": 10,
+      "rhs": 3,
+      "raw_excess": 7,
+      "normalizer": 3,
+      "ratio": 2.3333333333333335
+    },
+    {
+      "constraint": 2,
+      "lhs": 10,
+      "rhs": 7,
+      "raw_excess": 3,
+      "normalizer": 7,
+      "ratio": 0.42857142857142855
+    },
+    {
+      "constraint": 2,
+      "lhs": 10,
+      "rhs": 4,
+      "raw_excess": 6,
+      "normalizer": 4,
+      "ratio": 1.5
+    },
+    {
+      "constraint": 2,
+      "lhs": 10,
+      "rhs": 8,
+      "raw_excess": 2,
+      "normalizer": 8,
+      "ratio": 0.25
+    },
+    {
+      "constraint": 2,
+      "lhs": 9,
+      "rhs": 5,
+      "raw_excess": 4,
+      "normalizer": 5,
+      "ratio": 0.8
+    },
+    {
+      "constraint": 3,
+      "lhs": 0.0,
+      "rhs": 1.0,
+      "raw_excess": 1.0,
+      "normalizer": 1.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 4,
+      "lhs": -1,
+      "rhs": 0.0,
+      "raw_excess": 1,
+      "normalizer": 1e-05,
+      "ratio": 99999.99999999999
+    },
+    {
+      "constraint": 4,
+      "lhs": -7,
+      "rhs": 0.0,
+      "raw_excess": 7,
+      "normalizer": 1e-05,
+      "ratio": 700000.0
+    },
+    {
+      "constraint": 4,
+      "lhs": -3,
+      "rhs": 0.0,
+      "raw_excess": 3,
+      "normalizer": 1e-05,
+      "ratio": 300000.0
+    },
+    {
+      "constraint": 4,
+      "lhs": -6,
+      "rhs": 0.0,
+      "raw_excess": 6,
+      "normalizer": 1e-05,
+      "ratio": 600000.0
+    },
+    {
+      "constraint": 4,
+      "lhs": -2,
+      "rhs": 0.0,
+      "raw_excess": 2,
+      "normalizer": 1e-05,
+      "ratio": 199999.99999999997
+    },
+    {
+      "constraint": 4,
+      "lhs": -4,
+      "rhs": 0.0,
+      "raw_excess": 4,
+      "normalizer": 1e-05,
+      "ratio": 399999.99999999994
+    },
+    {
+      "constraint": 6,
+      "lhs": 139277.0,
+      "rhs": 300376.0,
+      "raw_excess": 161099.0,
+      "normalizer": 300376.0,
+      "ratio": 0.5363244733267638
+    }
+  ]
+}

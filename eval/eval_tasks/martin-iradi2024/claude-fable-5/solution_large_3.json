@@ -1,0 +1,1319 @@
+{
+ "objective_value": 117998672.65449765,
+ "ships": [
+  {
+   "ship_id": 1,
+   "port_visits": [
+    {
+     "port_call_index": 1,
+     "port_id": "NLRTM",
+     "berthing_position": 799.2000000000002,
+     "start_time": 41.48721999999972,
+     "handling_time": 11.193519999999998,
+     "arrival_time": 41.48721999999972,
+     "delay": 1.180739999999723,
+     "lft_violation": 0.0,
+     "position_deviation": 76.29999999999984
+    },
+    {
+     "port_call_index": 2,
+     "port_id": "DEBRV",
+     "berthing_position": 404.6999999999989,
+     "start_time": 74.3,
+     "handling_time": 13.178109999999986,
+     "arrival_time": 68.26909999999972,
+     "delay": 1.078109999999981,
+     "lft_violation": 0.0,
+     "position_deviation": 89.09999999999889
+    }
+   ],
+   "speed_selections": [
+    {
+     "from_call": 1,
+     "to_call": 2,
+     "speed_knots": 17.0
+    }
+   ]
+  },
+  {
+   "ship_id": 2,
+   "port_visits": [
+    {
+     "port_call_index": 1,
+     "port_id": "NLRTM",
+     "berthing_position": 688.9999999999993,
+     "start_time": 88.38931999999946,
+     "handling_time": 31.59677999999998,
+     "arrival_time": 88.38931999999946,
+     "delay": 43.286099999999436,
+     "lft_violation": 26.186099999999442,
+     "position_deviation": 183.3999999999993
+    },
+    {
+     "port_call_index": 2,
+     "port_id": "DEHAM",
+     "berthing_position": 1460.0,
+     "start_time": 138.79560499999945,
+     "handling_time": 41.3239,
+     "arrival_time": 138.79560499999945,
+     "delay": 35.21950499999946,
+     "lft_violation": 0.0,
+     "position_deviation": 7.900000000000091
+    }
+   ],
+   "speed_selections": [
+    {
+     "from_call": 1,
+     "to_call": 2,
+     "speed_knots": 21.0
+    }
+   ]
+  },
+  {
+   "ship_id": 3,
+   "port_visits": [
+    {
+     "port_call_index": 1,
+     "port_id": "NLRTM",
+     "berthing_position": 779.1999999999998,
+     "start_time": 5.8,
+     "handling_time": 35.687219999999996,
+     "arrival_time": 5.8,
+     "delay": 8.987219999999994,
+     "lft_violation": 0.0,
+     "position_deviation": 336.5999999999998
+    },
+    {
+     "port_call_index": 2,
+     "port_id": "DEHAM",
+     "berthing_position": 354.30000000000024,
+     "start_time": 115.19999999999663,
+     "handling_time": 53.857599999999984,
+     "arrival_time": 64.72269999999999,
+     "delay": 54.45759999999663,
+     "lft_violation": 17.95759999999663,
+     "position_deviation": 313.59999999999974
+    }
+   ],
+   "speed_selections": [
+    {
+     "from_call": 1,
+     "to_call": 2,
+     "speed_knots": 17.0
+    }
+   ]
+  },
+  {
+   "ship_id": 4,
+   "port_visits": [
+    {
+     "port_call_index": 1,
+     "port_id": "NLRTM",
+     "berthing_position": 590.1,
+     "start_time": 194.15423000000015,
+     "handling_time": 41.53452,
+     "arrival_time": 194.15423000000015,
+     "delay": 136.48875000000015,
+     "lft_violation": 119.78875000000014,
+     "position_deviation": 555.6
+    },
+    {
+     "port_call_index": 2,
+     "port_id": "DEBRV",
+     "berthing_position": 574.4000000000001,
+     "start_time": 248.01443000000017,
+     "handling_time": 35.17606000000001,
+     "arrival_time": 248.01443000000015,
+     "delay": 115.29049000000018,
+     "lft_violation": 90.89049000000017,
+     "position_deviation": 43.799999999999955
+    },
+    {
+     "port_call_index": 3,
+     "port_id": "DEHAM",
+     "berthing_position": 288.1,
+     "start_time": 289.9132399999961,
+     "handling_time": 41.0,
+     "arrival_time": 289.8572100000002,
+     "delay": 108.6132399999961,
+     "lft_violation": 72.71323999999612,
+     "position_deviation": 0.0
+    }
+   ],
+   "speed_selections": [
+    {
+     "from_call": 1,
+     "to_call": 2,
+     "speed_knots": 21.5
+    },
+    {
+     "from_call": 2,
+     "to_call": 3,
+     "speed_knots": 18.0
+    }
+   ]
+  },
+  {
+   "ship_id": 5,
+   "port_visits": [
+    {
+     "port_call_index": 1,
+     "port_id": "NLRTM",
+     "berthing_position": 1327.2,
+     "start_time": 84.30000000000018,
+     "handling_time": 18.4,
+     "arrival_time": 84.30000000000018,
+     "delay": 25.800000000000182,
+     "lft_violation": 13.300000000000182,
+     "position_deviation": 0.0
+    },
+    {
+     "port_call_index": 2,
+     "port_id": "DEBRV",
+     "berthing_position": 633.0,
+     "start_time": 115.1087399999993,
+     "handling_time": 21.8,
+     "arrival_time": 115.0256800000002,
+     "delay": 16.608739999999315,
+     "lft_violation": 0.0,
+     "position_deviation": 0.0
+    },
+    {
+     "port_call_index": 3,
+     "port_id": "DEHAM",
+     "berthing_position": 1220.0000000000007,
+     "start_time": 144.9,
+     "handling_time": 24.44759999999999,
+     "arrival_time": 143.9676199999993,
+     "delay": 6.447599999999994,
+     "lft_violation": 0.0,
+     "position_deviation": 358.19999999999936
+    }
+   ],
+   "speed_selections": [
+    {
+     "from_call": 1,
+     "to_call": 2,
+     "speed_knots": 21.5
+    },
+    {
+     "from_call": 2,
+     "to_call": 3,
+     "speed_knots": 17.0
+    }
+   ]
+  },
+  {
+   "ship_id": 6,
+   "port_visits": [
+    {
+     "port_call_index": 1,
+     "port_id": "DEHAM",
+     "berthing_position": 418.2000000000003,
+     "start_time": 56.0,
+     "handling_time": 13.698630000000003,
+     "arrival_time": 56.0,
+     "delay": 3.598630000000014,
+     "lft_violation": 0.0,
+     "position_deviation": 356.3000000000003
+    },
+    {
+     "port_call_index": 2,
+     "port_id": "DEBRV",
+     "berthing_position": 1251.8,
+     "start_time": 75.28007000000001,
+     "handling_time": 15.70459,
+     "arrival_time": 75.28007000000001,
+     "delay": 6.384660000000011,
+     "lft_violation": 0.0,
+     "position_deviation": 297.9
+    }
+   ],
+   "speed_selections": [
+    {
+     "from_call": 1,
+     "to_call": 2,
+     "speed_knots": 21.5
+    }
+   ]
+  },
+  {
+   "ship_id": 7,
+   "port_visits": [
+    {
+     "port_call_index": 1,
+     "port_id": "NLRTM",
+     "berthing_position": 930.0,
+     "start_time": 164.6,
+     "handling_time": 29.55423,
+     "arrival_time": 164.6,
+     "delay": 106.95422999999998,
+     "lft_violation": 90.25422999999998,
+     "position_deviation": 106.90000000000009
+    },
+    {
+     "port_call_index": 2,
+     "port_id": "DEBRV",
+     "berthing_position": 4.3,
+     "start_time": 206.47991000000036,
+     "handling_time": 33.7,
+     "arrival_time": 206.47991,
+     "delay": 92.07991000000035,
+     "lft_violation": 67.67991000000035,
+     "position_deviation": 0.0
+    },
+    {
+     "port_call_index": 3,
+     "port_id": "DEHAM",
+     "berthing_position": 756.5,
+     "start_time": 247.1,
+     "handling_time": 52.2381,
+     "arrival_time": 247.03707000000034,
+     "delay": 92.03809999999999,
+     "lft_violation": 56.13810000000001,
+     "position_deviation": 274.1
+    }
+   ],
+   "speed_selections": [
+    {
+     "from_call": 1,
+     "to_call": 2,
+     "speed_knots": 21.5
+    },
+    {
+     "from_call": 2,
+     "to_call": 3,
+     "speed_knots": 17.5
+    }
+   ]
+  },
+  {
+   "ship_id": 8,
+   "port_visits": [
+    {
+     "port_call_index": 1,
+     "port_id": "DEHAM",
+     "berthing_position": 161.5,
+     "start_time": 22.4,
+     "handling_time": 10.1,
+     "arrival_time": 22.4,
+     "delay": 0.0,
+     "lft_violation": 0.0,
+     "position_deviation": 0.0
+    },
+    {
+     "port_call_index": 2,
+     "port_id": "DEBRV",
+     "berthing_position": 396.8999999999967,
+     "start_time": 54.6,
+     "handling_time": 12.87560999999996,
+     "arrival_time": 39.55888,
+     "delay": 0.7756099999999577,
+     "lft_violation": 0.0,
+     "position_deviation": 64.09999999999667
+    }
+   ],
+   "speed_selections": [
+    {
+     "from_call": 1,
+     "to_call": 2,
+     "speed_knots": 17.0
+    }
+   ]
+  },
+  {
+   "ship_id": 9,
+   "port_visits": [
+    {
+     "port_call_index": 1,
+     "port_id": "NLRTM",
+     "berthing_position": 1159.0,
+     "start_time": 92.3,
+     "handling_time": 10.532080000000002,
+     "arrival_time": 92.3,
+     "delay": 0.13208000000000197,
+     "lft_violation": 0.0,
+     "position_deviation": 12.700000000000045
+    },
+    {
+     "port_call_index": 2,
+     "port_id": "DEBRV",
+     "berthing_position": 483.0,
+     "start_time": 117.0,
+     "handling_time": 12.5719,
+     "arrival_time": 116.77956,
+     "delay": 0.4719000000000051,
+     "lft_violation": 0.0,
+     "position_deviation": 39.0
+    }
+   ],
+   "speed_selections": [
+    {
+     "from_call": 1,
+     "to_call": 2,
+     "speed_knots": 19.0
+    }
+   ]
+  },
+  {
+   "ship_id": 10,
+   "port_visits": [
+    {
+     "port_call_index": 1,
+     "port_id": "NLRTM",
+     "berthing_position": 449.0,
+     "start_time": 89.6517499999992,
+     "handling_time": 20.744159999999997,
+     "arrival_time": 89.6517499999992,
+     "delay": 6.295909999999196,
+     "lft_violation": 0.0,
+     "position_deviation": 127.39999999999998
+    },
+    {
+     "port_call_index": 2,
+     "port_id": "DEBRV",
+     "berthing_position": 974.5999999999999,
+     "start_time": 134.41499999999922,
+     "handling_time": 31.801840000000002,
+     "arrival_time": 125.98426999999919,
+     "delay": 10.016839999999235,
+     "lft_violation": 0.0,
+     "position_deviation": 458.8000000000002
+    },
+    {
+     "port_call_index": 3,
+     "port_id": "DEHAM",
+     "berthing_position": 1850.9,
+     "start_time": 176.8,
+     "handling_time": 18.0,
+     "arrival_time": 173.2757199999992,
+     "delay": 0.0,
+     "lft_violation": 0.0,
+     "position_deviation": 0.0
+    }
+   ],
+   "speed_selections": [
+    {
+     "from_call": 1,
+     "to_call": 2,
+     "speed_knots": 17.0
+    },
+    {
+     "from_call": 2,
+     "to_call": 3,
+     "speed_knots": 17.0
+    }
+   ]
+  },
+  {
+   "ship_id": 11,
+   "port_visits": [
+    {
+     "port_call_index": 1,
+     "port_id": "NLRTM",
+     "berthing_position": 949.2000000000002,
+     "start_time": 41.48721999999983,
+     "handling_time": 10.516480000000001,
+     "arrival_time": 41.48721999999983,
+     "delay": 13.90369999999983,
+     "lft_violation": 6.40369999999983,
+     "position_deviation": 11.20000000000016
+    },
+    {
+     "port_call_index": 2,
+     "port_id": "DEBRV",
+     "berthing_position": 254.69999999999965,
+     "start_time": 72.1,
+     "handling_time": 12.959099999999996,
+     "arrival_time": 67.59205999999983,
+     "delay": 0.8590999999999838,
+     "lft_violation": 0.0,
+     "position_deviation": 70.99999999999966
+    }
+   ],
+   "speed_selections": [
+    {
+     "from_call": 1,
+     "to_call": 2,
+     "speed_knots": 17.0
+    }
+   ]
+  },
+  {
+   "ship_id": 12,
+   "port_visits": [
+    {
+     "port_call_index": 1,
+     "port_id": "DEHAM",
+     "berthing_position": 1125.6,
+     "start_time": 51.4,
+     "handling_time": 10.1,
+     "arrival_time": 51.4,
+     "delay": 0.0,
+     "lft_violation": 0.0,
+     "position_deviation": 0.0
+    },
+    {
+     "port_call_index": 2,
+     "port_id": "DEBRV",
+     "berthing_position": 559.800000000005,
+     "start_time": 70.7,
+     "handling_time": 13.921049999999939,
+     "arrival_time": 68.55888,
+     "delay": 1.8210499999999428,
+     "lft_violation": 0.0,
+     "position_deviation": 150.499999999995
+    }
+   ],
+   "speed_selections": [
+    {
+     "from_call": 1,
+     "to_call": 2,
+     "speed_knots": 17.0
+    }
+   ]
+  },
+  {
+   "ship_id": 13,
+   "port_visits": [
+    {
+     "port_call_index": 1,
+     "port_id": "NLRTM",
+     "berthing_position": 459.2000000000037,
+     "start_time": 2.5,
+     "handling_time": 28.4488499999999,
+     "arrival_time": 2.5,
+     "delay": 1.7488499999999014,
+     "lft_violation": 0.0,
+     "position_deviation": 65.49999999999636
+    },
+    {
+     "port_call_index": 2,
+     "port_id": "DEHAM",
+     "berthing_position": 1457.2999999999977,
+     "start_time": 55.3,
+     "handling_time": 52.115099999999906,
+     "arrival_time": 54.1843299999999,
+     "delay": 11.115099999999913,
+     "lft_violation": 0.0,
+     "position_deviation": 271.09999999999764
+    }
+   ],
+   "speed_selections": [
+    {
+     "from_call": 1,
+     "to_call": 2,
+     "speed_knots": 17.0
+    }
+   ]
+  },
+  {
+   "ship_id": 14,
+   "port_visits": [
+    {
+     "port_call_index": 1,
+     "port_id": "NLRTM",
+     "berthing_position": 829.9000000000001,
+     "start_time": 52.68073999999979,
+     "handling_time": 35.70858,
+     "arrival_time": 52.68073999999979,
+     "delay": 55.78931999999978,
+     "lft_violation": 39.08931999999979,
+     "position_deviation": 337.39999999999986
+    },
+    {
+     "port_call_index": 2,
+     "port_id": "DEBRV",
+     "berthing_position": 1146.8999999999996,
+     "start_time": 100.71499999999979,
+     "handling_time": 33.70000000000002,
+     "arrival_time": 100.71499999999979,
+     "delay": 35.3149999999998,
+     "lft_violation": 10.914999999999793,
+     "position_deviation": 4.547473508864641e-13
+    },
+    {
+     "port_call_index": 3,
+     "port_id": "DEHAM",
+     "berthing_position": 870.0000000000014,
+     "start_time": 140.5688399999998,
+     "handling_time": 48.40459999999994,
+     "arrival_time": 140.5688399999998,
+     "delay": 24.273439999999738,
+     "lft_violation": 0.0,
+     "position_deviation": 180.59999999999854
+    }
+   ],
+   "speed_selections": [
+    {
+     "from_call": 1,
+     "to_call": 2,
+     "speed_knots": 21.5
+    },
+    {
+     "from_call": 2,
+     "to_call": 3,
+     "speed_knots": 19.5
+    }
+   ]
+  },
+  {
+   "ship_id": 15,
+   "port_visits": [
+    {
+     "port_call_index": 1,
+     "port_id": "NLRTM",
+     "berthing_position": 1413.2,
+     "start_time": 10.0,
+     "handling_time": 12.93552,
+     "arrival_time": 10.0,
+     "delay": 2.5355200000000018,
+     "lft_violation": 0.0,
+     "position_deviation": 243.79999999999995
+    },
+    {
+     "port_call_index": 2,
+     "port_id": "DEBRV",
+     "berthing_position": 1063.1,
+     "start_time": 35.2612,
+     "handling_time": 12.1,
+     "arrival_time": 35.2612,
+     "delay": 1.3612000000000037,
+     "lft_violation": 0.0,
+     "position_deviation": 0.0
+    }
+   ],
+   "speed_selections": [
+    {
+     "from_call": 1,
+     "to_call": 2,
+     "speed_knots": 21.5
+    }
+   ]
+  },
+  {
+   "ship_id": 16,
+   "port_visits": [
+    {
+     "port_call_index": 1,
+     "port_id": "NLRTM",
+     "berthing_position": 1009.0,
+     "start_time": 88.38931999999949,
+     "handling_time": 11.689600000000002,
+     "arrival_time": 88.38931999999949,
+     "delay": 5.778919999999488,
+     "lft_violation": 0.0,
+     "position_deviation": 124.0
+    },
+    {
+     "port_call_index": 2,
+     "port_id": "DEBRV",
+     "berthing_position": 974.6,
+     "start_time": 116.7,
+     "handling_time": 12.1,
+     "arrival_time": 115.66727999999948,
+     "delay": 0.0,
+     "lft_violation": 0.0,
+     "position_deviation": 0.0
+    }
+   ],
+   "speed_selections": [
+    {
+     "from_call": 1,
+     "to_call": 2,
+     "speed_knots": 17.0
+    }
+   ]
+  },
+  {
+   "ship_id": 17,
+   "port_visits": [
+    {
+     "port_call_index": 1,
+     "port_id": "NLRTM",
+     "berthing_position": 1413.2,
+     "start_time": 22.935519999995293,
+     "handling_time": 12.514320000000001,
+     "arrival_time": 22.935519999995293,
+     "delay": 14.64983999999529,
+     "lft_violation": 7.14983999999529,
+     "position_deviation": 203.29999999999995
+    },
+    {
+     "port_call_index": 2,
+     "port_id": "DEBRV",
+     "berthing_position": 246.9000000000001,
+     "start_time": 50.199999999998,
+     "handling_time": 12.36741,
+     "arrival_time": 50.17217999999529,
+     "delay": 1.2674099999980015,
+     "lft_violation": 0.0,
+     "position_deviation": 22.10000000000008
+    }
+   ],
+   "speed_selections": [
+    {
+     "from_call": 1,
+     "to_call": 2,
+     "speed_knots": 18.0
+    }
+   ]
+  },
+  {
+   "ship_id": 18,
+   "port_visits": [
+    {
+     "port_call_index": 1,
+     "port_id": "NLRTM",
+     "berthing_position": 1010.0,
+     "start_time": 135.29999999999978,
+     "handling_time": 28.37142,
+     "arrival_time": 135.29999999999978,
+     "delay": 50.47141999999978,
+     "lft_violation": 33.77141999999978,
+     "position_deviation": 62.59999999999991
+    },
+    {
+     "port_call_index": 2,
+     "port_id": "DEBRV",
+     "berthing_position": 396.6999999999998,
+     "start_time": 175.99709999999982,
+     "handling_time": 39.725560000000016,
+     "arrival_time": 175.9970999999998,
+     "delay": 41.82265999999984,
+     "lft_violation": 17.422659999999837,
+     "position_deviation": 178.80000000000018
+    },
+    {
+     "port_call_index": 3,
+     "port_id": "DEHAM",
+     "berthing_position": 1374.7,
+     "start_time": 221.30409999999983,
+     "handling_time": 45.2025,
+     "arrival_time": 221.30409999999983,
+     "delay": 37.106599999999816,
+     "lft_violation": 1.2065999999998098,
+     "position_deviation": 102.5
+    }
+   ],
+   "speed_selections": [
+    {
+     "from_call": 1,
+     "to_call": 2,
+     "speed_knots": 21.5
+    },
+    {
+     "from_call": 2,
+     "to_call": 3,
+     "speed_knots": 21.5
+    }
+   ]
+  },
+  {
+   "ship_id": 19,
+   "port_visits": [
+    {
+     "port_call_index": 1,
+     "port_id": "DEHAM",
+     "berthing_position": 80.5,
+     "start_time": 1.0,
+     "handling_time": 18.0,
+     "arrival_time": 1.0,
+     "delay": 0.0,
+     "lft_violation": 0.0,
+     "position_deviation": 0.0
+    },
+    {
+     "port_call_index": 2,
+     "port_id": "DEBRV",
+     "berthing_position": 576.8999999999967,
+     "start_time": 36.1,
+     "handling_time": 27.317579999999932,
+     "arrival_time": 26.058880000000002,
+     "delay": 5.517579999999931,
+     "lft_violation": 0.0,
+     "position_deviation": 253.09999999999667
+    },
+    {
+     "port_call_index": 3,
+     "port_id": "NLRTM",
+     "berthing_position": 419.0,
+     "start_time": 110.39590999999884,
+     "handling_time": 31.741839999999996,
+     "arrival_time": 79.00593999999992,
+     "delay": 33.93774999999884,
+     "lft_violation": 21.73774999999884,
+     "position_deviation": 725.0999999999999
+    }
+   ],
+   "speed_selections": [
+    {
+     "from_call": 1,
+     "to_call": 2,
+     "speed_knots": 17.0
+    },
+    {
+     "from_call": 2,
+     "to_call": 3,
+     "speed_knots": 17.0
+    }
+   ]
+  },
+  {
+   "ship_id": 20,
+   "port_visits": [
+    {
+     "port_call_index": 1,
+     "port_id": "NLRTM",
+     "berthing_position": 1280.0,
+     "start_time": 163.67141999999959,
+     "handling_time": 29.0763,
+     "arrival_time": 163.67141999999959,
+     "delay": 58.0477199999996,
+     "lft_violation": 40.94771999999958,
+     "position_deviation": 89.0
+    },
+    {
+     "port_call_index": 2,
+     "port_id": "DEHAM",
+     "berthing_position": 1724.7,
+     "start_time": 211.1199599999996,
+     "handling_time": 41.0,
+     "arrival_time": 211.1199599999996,
+     "delay": 46.31995999999958,
+     "lft_violation": 9.819959999999583,
+     "position_deviation": 0.0
+    }
+   ],
+   "speed_selections": [
+    {
+     "from_call": 1,
+     "to_call": 2,
+     "speed_knots": 21.5
+    }
+   ]
+  },
+  {
+   "ship_id": 21,
+   "port_visits": [
+    {
+     "port_call_index": 1,
+     "port_id": "DEHAM",
+     "berthing_position": 897.2999999999993,
+     "start_time": 108.1,
+     "handling_time": 12.727009999999991,
+     "arrival_time": 108.1,
+     "delay": 2.6270099999999843,
+     "lft_violation": 0.0,
+     "position_deviation": 260.0999999999992
+    },
+    {
+     "port_call_index": 2,
+     "port_id": "DEBRV",
+     "berthing_position": 1597.4,
+     "start_time": 127.31348999999999,
+     "handling_time": 12.1,
+     "arrival_time": 127.31348999999999,
+     "delay": 0.013489999999990232,
+     "lft_violation": 0.0,
+     "position_deviation": 0.0
+    }
+   ],
+   "speed_selections": [
+    {
+     "from_call": 1,
+     "to_call": 2,
+     "speed_knots": 18.5
+    }
+   ]
+  },
+  {
+   "ship_id": 22,
+   "port_visits": [
+    {
+     "port_call_index": 1,
+     "port_id": "NLRTM",
+     "berthing_position": 59.0,
+     "start_time": 80.70837999999881,
+     "handling_time": 20.5068,
+     "arrival_time": 80.70837999999881,
+     "delay": 4.315179999998804,
+     "lft_violation": 0.0,
+     "position_deviation": 114.5
+    },
+    {
+     "port_call_index": 2,
+     "port_id": "DEBRV",
+     "berthing_position": 734.5999999999999,
+     "start_time": 136.9087399999993,
+     "handling_time": 24.780060000000002,
+     "arrival_time": 116.8035399999988,
+     "delay": 7.988799999999316,
+     "lft_violation": 0.0,
+     "position_deviation": 136.70000000000005
+    },
+    {
+     "port_call_index": 3,
+     "port_id": "DEHAM",
+     "berthing_position": 1220.0000000000032,
+     "start_time": 169.34759999999955,
+     "handling_time": 18.126000000000058,
+     "arrival_time": 168.7476799999993,
+     "delay": 8.773599999999618,
+     "lft_violation": 0.0,
+     "position_deviation": 7.000000000003183
+    }
+   ],
+   "speed_selections": [
+    {
+     "from_call": 1,
+     "to_call": 2,
+     "speed_knots": 17.0
+    },
+    {
+     "from_call": 2,
+     "to_call": 3,
+     "speed_knots": 17.0
+    }
+   ]
+  },
+  {
+   "ship_id": 23,
+   "port_visits": [
+    {
+     "port_call_index": 1,
+     "port_id": "NLRTM",
+     "berthing_position": 459.1999999999998,
+     "start_time": 30.948849999999723,
+     "handling_time": 27.346139999999995,
+     "arrival_time": 30.948849999999723,
+     "delay": 22.194989999999713,
+     "lft_violation": 5.0949899999997115,
+     "position_deviation": 24.199999999999818
+    },
+    {
+     "port_call_index": 2,
+     "port_id": "DEHAM",
+     "berthing_position": 1137.299999999999,
+     "start_time": 77.10449499999972,
+     "handling_time": 56.54719999999996,
+     "arrival_time": 77.10449499999972,
+     "delay": 31.35169499999968,
+     "lft_violation": 0.0,
+     "position_deviation": 379.199999999999
+    }
+   ],
+   "speed_selections": [
+    {
+     "from_call": 1,
+     "to_call": 2,
+     "speed_knots": 21.0
+    }
+   ]
+  },
+  {
+   "ship_id": 24,
+   "port_visits": [
+    {
+     "port_call_index": 1,
+     "port_id": "NLRTM",
+     "berthing_position": 299.0,
+     "start_time": 89.6517499999992,
+     "handling_time": 13.310960000000001,
+     "arrival_time": 89.6517499999992,
+     "delay": 21.062709999999186,
+     "lft_violation": 13.562709999999186,
+     "position_deviation": 279.9
+    },
+    {
+     "port_call_index": 2,
+     "port_id": "DEBRV",
+     "berthing_position": 273.4,
+     "start_time": 115.2883899999992,
+     "handling_time": 12.1,
+     "arrival_time": 115.2883899999992,
+     "delay": 11.988389999999185,
+     "lft_violation": 1.9883899999991854,
+     "position_deviation": 0.0
+    }
+   ],
+   "speed_selections": [
+    {
+     "from_call": 1,
+     "to_call": 2,
+     "speed_knots": 21.5
+    }
+   ]
+  },
+  {
+   "ship_id": 25,
+   "port_visits": [
+    {
+     "port_call_index": 1,
+     "port_id": "NLRTM",
+     "berthing_position": 556.9000000000001,
+     "start_time": 164.60000000000036,
+     "handling_time": 28.41948,
+     "arrival_time": 164.60000000000036,
+     "delay": 75.81948000000035,
+     "lft_violation": 59.11948000000035,
+     "position_deviation": 64.40000000000009
+    },
+    {
+     "port_call_index": 2,
+     "port_id": "DEBRV",
+     "berthing_position": 746.6999999999998,
+     "start_time": 205.34516000000036,
+     "handling_time": 37.98664000000001,
+     "arrival_time": 205.34516000000036,
+     "delay": 70.6318000000004,
+     "lft_violation": 46.23180000000039,
+     "position_deviation": 127.20000000000016
+    },
+    {
+     "port_call_index": 3,
+     "port_id": "DEHAM",
+     "berthing_position": 406.49999999999756,
+     "start_time": 248.91324000000037,
+     "handling_time": 41.0000000000001,
+     "arrival_time": 248.91324000000037,
+     "delay": 67.41324000000048,
+     "lft_violation": 31.513240000000508,
+     "position_deviation": 2.4442670110147446e-12
+    }
+   ],
+   "speed_selections": [
+    {
+     "from_call": 1,
+     "to_call": 2,
+     "speed_knots": 21.5
+    },
+    {
+     "from_call": 2,
+     "to_call": 3,
+     "speed_knots": 21.5
+    }
+   ]
+  },
+  {
+   "ship_id": 26,
+   "port_visits": [
+    {
+     "port_call_index": 1,
+     "port_id": "NLRTM",
+     "berthing_position": 9.4,
+     "start_time": 36.63669999999978,
+     "handling_time": 10.4,
+     "arrival_time": 36.63669999999978,
+     "delay": 19.336699999999777,
+     "lft_violation": 11.836699999999773,
+     "position_deviation": 0.0
+    },
+    {
+     "port_call_index": 2,
+     "port_id": "DEBRV",
+     "berthing_position": 1546.2,
+     "start_time": 59.36237999999978,
+     "handling_time": 14.11707,
+     "arrival_time": 59.362379999999774,
+     "delay": 20.17944999999979,
+     "lft_violation": 10.17944999999979,
+     "position_deviation": 166.70000000000005
+    }
+   ],
+   "speed_selections": [
+    {
+     "from_call": 1,
+     "to_call": 2,
+     "speed_knots": 21.5
+    }
+   ]
+  },
+  {
+   "ship_id": 27,
+   "port_visits": [
+    {
+     "port_call_index": 1,
+     "port_id": "NLRTM",
+     "berthing_position": 679.9000000000001,
+     "start_time": 70.25914999999885,
+     "handling_time": 16.29992,
+     "arrival_time": 70.25914999999885,
+     "delay": 34.159069999998856,
+     "lft_violation": 26.659069999998856,
+     "position_deviation": 567.3
+    },
+    {
+     "port_call_index": 2,
+     "port_id": "DEBRV",
+     "berthing_position": 254.70000000000005,
+     "start_time": 98.88474999999886,
+     "handling_time": 13.97913,
+     "arrival_time": 98.88474999999886,
+     "delay": 18.363879999998858,
+     "lft_violation": 8.363879999998858,
+     "position_deviation": 155.29999999999995
+    }
+   ],
+   "speed_selections": [
+    {
+     "from_call": 1,
+     "to_call": 2,
+     "speed_knots": 21.5
+    }
+   ]
+  },
+  {
+   "ship_id": 28,
+   "port_visits": [
+    {
+     "port_call_index": 1,
+     "port_id": "NLRTM",
+     "berthing_position": 119.90000000000009,
+     "start_time": 58.75717999999918,
+     "handling_time": 21.951199999999996,
+     "arrival_time": 58.75717999999918,
+     "delay": 34.00837999999918,
+     "lft_violation": 21.50837999999918,
+     "position_deviation": 192.9999999999999
+    },
+    {
+     "port_call_index": 2,
+     "port_id": "DEBRV",
+     "berthing_position": 404.6999999999994,
+     "start_time": 93.03405999999924,
+     "handling_time": 22.07467999999999,
+     "arrival_time": 93.03405999999919,
+     "delay": 22.008739999999236,
+     "lft_violation": 5.008739999999236,
+     "position_deviation": 12.599999999999397
+    },
+    {
+     "port_call_index": 3,
+     "port_id": "DEHAM",
+     "berthing_position": 897.3,
+     "start_time": 120.82701000000026,
+     "handling_time": 18.8802,
+     "arrival_time": 120.82301999999923,
+     "delay": 21.20721000000026,
+     "lft_violation": 4.507210000000271,
+     "position_deviation": 48.89999999999998
+    }
+   ],
+   "speed_selections": [
+    {
+     "from_call": 1,
+     "to_call": 2,
+     "speed_knots": 21.5
+    },
+    {
+     "from_call": 2,
+     "to_call": 3,
+     "speed_knots": 21.0
+    }
+   ]
+  },
+  {
+   "ship_id": 29,
+   "port_visits": [
+    {
+     "port_call_index": 1,
+     "port_id": "NLRTM",
+     "berthing_position": 219.19999999999982,
+     "start_time": 36.63669999999978,
+     "handling_time": 22.12048,
+     "arrival_time": 36.63669999999978,
+     "delay": 23.35717999999978,
+     "lft_violation": 10.85717999999978,
+     "position_deviation": 202.20000000000016
+    },
+    {
+     "port_call_index": 2,
+     "port_id": "DEBRV",
+     "berthing_position": 739.8000000000019,
+     "start_time": 71.08285999999978,
+     "handling_time": 24.45523999999996,
+     "arrival_time": 71.08285999999978,
+     "delay": 13.43809999999975,
+     "lft_violation": 0.0,
+     "position_deviation": 121.79999999999814
+    },
+    {
+     "port_call_index": 3,
+     "port_id": "DEHAM",
+     "berthing_position": 114.30000000000067,
+     "start_time": 117.3793999999979,
+     "handling_time": 21.57659999999999,
+     "arrival_time": 102.59697999999975,
+     "delay": 15.155999999997888,
+     "lft_violation": 0.0,
+     "position_deviation": 198.69999999999933
+    }
+   ],
+   "speed_selections": [
+    {
+     "from_call": 1,
+     "to_call": 2,
+     "speed_knots": 21.5
+    },
+    {
+     "from_call": 2,
+     "to_call": 3,
+     "speed_knots": 17.0
+    }
+   ]
+  },
+  {
+   "ship_id": 30,
+   "port_visits": [
+    {
+     "port_call_index": 1,
+     "port_id": "NLRTM",
+     "berthing_position": 1360.0,
+     "start_time": 102.69999999999982,
+     "handling_time": 41.47727999999999,
+     "arrival_time": 102.69999999999982,
+     "delay": 34.677279999999826,
+     "lft_violation": 22.177279999999826,
+     "position_deviation": 1254.2
+    },
+    {
+     "port_call_index": 2,
+     "port_id": "DEBRV",
+     "berthing_position": 1552.6,
+     "start_time": 156.50295999999983,
+     "handling_time": 21.8,
+     "arrival_time": 156.50295999999983,
+     "delay": 31.802959999999842,
+     "lft_violation": 14.802959999999842,
+     "position_deviation": 0.0
+    },
+    {
+     "port_call_index": 3,
+     "port_id": "DEHAM",
+     "berthing_position": 488.0,
+     "start_time": 183.88439999999983,
+     "handling_time": 19.2024,
+     "arrival_time": 183.88439999999983,
+     "delay": 29.38679999999985,
+     "lft_violation": 12.686799999999835,
+     "position_deviation": 66.80000000000001
+    }
+   ],
+   "speed_selections": [
+    {
+     "from_call": 1,
+     "to_call": 2,
+     "speed_knots": 21.5
+    },
+    {
+     "from_call": 2,
+     "to_call": 3,
+     "speed_knots": 21.5
+    }
+   ]
+  },
+  {
+   "ship_id": 31,
+   "port_visits": [
+    {
+     "port_call_index": 1,
+     "port_id": "NLRTM",
+     "berthing_position": 359.9000000000001,
+     "start_time": 58.75717999999939,
+     "handling_time": 30.894569999999995,
+     "arrival_time": 58.75717999999939,
+     "delay": 23.251749999999376,
+     "lft_violation": 6.151749999999382,
+     "position_deviation": 157.0999999999999
+    },
+    {
+     "port_call_index": 2,
+     "port_id": "DEHAM",
+     "berthing_position": 1780.0,
+     "start_time": 108.46125499999938,
+     "handling_time": 57.891999999999996,
+     "arrival_time": 108.46125499999938,
+     "delay": 26.053254999999353,
+     "lft_violation": 0.0,
+     "position_deviation": 412.0
+    }
+   ],
+   "speed_selections": [
+    {
+     "from_call": 1,
+     "to_call": 2,
+     "speed_knots": 21.0
+    }
+   ]
+  },
+  {
+   "ship_id": 32,
+   "port_visits": [
+    {
+     "port_call_index": 1,
+     "port_id": "NLRTM",
+     "berthing_position": 139.20000000000164,
+     "start_time": 1.9,
+     "handling_time": 34.736699999999956,
+     "arrival_time": 1.9,
+     "delay": 8.036699999999954,
+     "lft_violation": 0.0,
+     "position_deviation": 300.99999999999835
+    },
+    {
+     "port_call_index": 2,
+     "port_id": "DEHAM",
+     "berthing_position": 34.300000000000644,
+     "start_time": 74.59999999999809,
+     "handling_time": 42.779399999999974,
+     "arrival_time": 59.87217999999996,
+     "delay": 14.979399999998066,
+     "lft_violation": 0.0,
+     "position_deviation": 43.39999999999936
+    }
+   ],
+   "speed_selections": [
+    {
+     "from_call": 1,
+     "to_call": 2,
+     "speed_knots": 17.0
+    }
+   ]
+  },
+  {
+   "ship_id": 33,
+   "port_visits": [
+    {
+     "port_call_index": 1,
+     "port_id": "NLRTM",
+     "berthing_position": 679.9000000000001,
+     "start_time": 58.2949899999994,
+     "handling_time": 11.96416,
+     "arrival_time": 58.2949899999994,
+     "delay": 16.159149999999407,
+     "lft_violation": 8.659149999999407,
+     "position_deviation": 150.39999999999986
+    },
+    {
+     "port_call_index": 2,
+     "port_id": "DEBRV",
+     "berthing_position": 254.70000000000005,
+     "start_time": 85.05910000000006,
+     "handling_time": 13.620969999999998,
+     "arrival_time": 84.98148999999941,
+     "delay": 4.780070000000052,
+     "lft_violation": 0.0,
+     "position_deviation": 125.69999999999993
+    }
+   ],
+   "speed_selections": [
+    {
+     "from_call": 1,
+     "to_call": 2,
+     "speed_knots": 18.0
+    }
+   ]
+  }
+ ]
+}

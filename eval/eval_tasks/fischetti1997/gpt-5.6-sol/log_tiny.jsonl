@@ -1,0 +1,3 @@
+{"time": 0.0, "objective_value": 2471.0, "solution": {"objective_value": 2471.0, "tour": [19, 4, 1, 26, 0, 14], "visited_nodes": [19, 4, 1, 26, 0, 14]}}
+{"time": 5.041, "objective_value": 1181.0, "solution": {"objective_value": 1181.0, "tour": [5, 6, 23, 29, 24, 12], "visited_nodes": [5, 6, 23, 29, 24, 12]}}
+{"time": 5.145, "objective_value": 1101.0, "solution": {"objective_value": 1101.0, "tour": [6, 12, 18, 22, 26, 23], "visited_nodes": [6, 12, 18, 22, 26, 23]}}

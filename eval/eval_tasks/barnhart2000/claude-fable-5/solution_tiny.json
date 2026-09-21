@@ -1,0 +1,330 @@
+{
+  "objective_value": 28.0,
+  "commodities": [
+    {
+      "commodity_id": 0,
+      "rejected": true,
+      "path_arcs": []
+    },
+    {
+      "commodity_id": 1,
+      "rejected": false,
+      "path_arcs": [
+        {
+          "from": 2,
+          "to": 1,
+          "arc_id": 3
+        },
+        {
+          "from": 1,
+          "to": 12,
+          "arc_id": 2
+        }
+      ]
+    },
+    {
+      "commodity_id": 2,
+      "rejected": true,
+      "path_arcs": []
+    },
+    {
+      "commodity_id": 3,
+      "rejected": false,
+      "path_arcs": [
+        {
+          "from": 8,
+          "to": 2,
+          "arc_id": 9
+        }
+      ]
+    },
+    {
+      "commodity_id": 4,
+      "rejected": false,
+      "path_arcs": [
+        {
+          "from": 5,
+          "to": 6,
+          "arc_id": 6
+        }
+      ]
+    },
+    {
+      "commodity_id": 5,
+      "rejected": true,
+      "path_arcs": []
+    },
+    {
+      "commodity_id": 6,
+      "rejected": false,
+      "path_arcs": [
+        {
+          "from": 12,
+          "to": 5,
+          "arc_id": 14
+        },
+        {
+          "from": 5,
+          "to": 6,
+          "arc_id": 6
+        },
+        {
+          "from": 6,
+          "to": 0,
+          "arc_id": 7
+        },
+        {
+          "from": 0,
+          "to": 4,
+          "arc_id": 0
+        },
+        {
+          "from": 4,
+          "to": 7,
+          "arc_id": 5
+        },
+        {
+          "from": 7,
+          "to": 10,
+          "arc_id": 8
+        },
+        {
+          "from": 10,
+          "to": 13,
+          "arc_id": 12
+        },
+        {
+          "from": 13,
+          "to": 9,
+          "arc_id": 15
+        },
+        {
+          "from": 9,
+          "to": 3,
+          "arc_id": 10
+        }
+      ]
+    },
+    {
+      "commodity_id": 7,
+      "rejected": false,
+      "path_arcs": [
+        {
+          "from": 6,
+          "to": 0,
+          "arc_id": 7
+        },
+        {
+          "from": 0,
+          "to": 4,
+          "arc_id": 0
+        },
+        {
+          "from": 4,
+          "to": 7,
+          "arc_id": 5
+        },
+        {
+          "from": 7,
+          "to": 10,
+          "arc_id": 8
+        }
+      ]
+    },
+    {
+      "commodity_id": 8,
+      "rejected": false,
+      "path_arcs": [
+        {
+          "from": 11,
+          "to": 8,
+          "arc_id": 13
+        },
+        {
+          "from": 8,
+          "to": 2,
+          "arc_id": 9
+        },
+        {
+          "from": 2,
+          "to": 1,
+          "arc_id": 3
+        }
+      ]
+    },
+    {
+      "commodity_id": 9,
+      "rejected": false,
+      "path_arcs": [
+        {
+          "from": 12,
+          "to": 5,
+          "arc_id": 14
+        },
+        {
+          "from": 5,
+          "to": 6,
+          "arc_id": 6
+        },
+        {
+          "from": 6,
+          "to": 0,
+          "arc_id": 7
+        },
+        {
+          "from": 0,
+          "to": 4,
+          "arc_id": 0
+        },
+        {
+          "from": 4,
+          "to": 7,
+          "arc_id": 5
+        },
+        {
+          "from": 7,
+          "to": 10,
+          "arc_id": 8
+        },
+        {
+          "from": 10,
+          "to": 13,
+          "arc_id": 12
+        }
+      ]
+    },
+    {
+      "commodity_id": 10,
+      "rejected": false,
+      "path_arcs": [
+        {
+          "from": 13,
+          "to": 9,
+          "arc_id": 15
+        },
+        {
+          "from": 9,
+          "to": 3,
+          "arc_id": 10
+        },
+        {
+          "from": 3,
+          "to": 11,
+          "arc_id": 4
+        },
+        {
+          "from": 11,
+          "to": 8,
+          "arc_id": 13
+        },
+        {
+          "from": 8,
+          "to": 2,
+          "arc_id": 9
+        },
+        {
+          "from": 2,
+          "to": 1,
+          "arc_id": 3
+        },
+        {
+          "from": 1,
+          "to": 12,
+          "arc_id": 2
+        }
+      ]
+    },
+    {
+      "commodity_id": 11,
+      "rejected": true,
+      "path_arcs": []
+    },
+    {
+      "commodity_id": 12,
+      "rejected": true,
+      "path_arcs": []
+    },
+    {
+      "commodity_id": 13,
+      "rejected": true,
+      "path_arcs": []
+    },
+    {
+      "commodity_id": 14,
+      "rejected": true,
+      "path_arcs": []
+    },
+    {
+      "commodity_id": 15,
+      "rejected": true,
+      "path_arcs": []
+    },
+    {
+      "commodity_id": 16,
+      "rejected": false,
+      "path_arcs": [
+        {
+          "from": 7,
+          "to": 10,
+          "arc_id": 8
+        },
+        {
+          "from": 10,
+          "to": 13,
+          "arc_id": 12
+        }
+      ]
+    },
+    {
+      "commodity_id": 17,
+      "rejected": true,
+      "path_arcs": []
+    },
+    {
+      "commodity_id": 18,
+      "rejected": false,
+      "path_arcs": [
+        {
+          "from": 8,
+          "to": 2,
+          "arc_id": 9
+        },
+        {
+          "from": 2,
+          "to": 1,
+          "arc_id": 3
+        },
+        {
+          "from": 1,
+          "to": 12,
+          "arc_id": 2
+        },
+        {
+          "from": 12,
+          "to": 5,
+          "arc_id": 14
+        }
+      ]
+    },
+    {
+      "commodity_id": 19,
+      "rejected": true,
+      "path_arcs": []
+    },
+    {
+      "commodity_id": 20,
+      "rejected": true,
+      "path_arcs": []
+    },
+    {
+      "commodity_id": 21,
+      "rejected": true,
+      "path_arcs": []
+    },
+    {
+      "commodity_id": 22,
+      "rejected": true,
+      "path_arcs": []
+    }
+  ]
+}

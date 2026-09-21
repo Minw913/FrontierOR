@@ -1,0 +1,2 @@
+{"time": 0.003, "objective_value": 709.0, "solution": {"objective_value": 709.0, "clique_vertices": [21, 48, 83, 149], "clique_edges": [[21, 48], [21, 83], [21, 149], [48, 83], [48, 149], [83, 149]]}}
+{"time": 11.974, "objective_value": 1614.0, "solution": {"objective_value": 1614.0, "clique_vertices": [43, 84, 85, 94, 95], "clique_edges": [[43, 84], [43, 85], [43, 94], [43, 95], [84, 85], [84, 94], [84, 95], [85, 94], [85, 95], [94, 95]]}}

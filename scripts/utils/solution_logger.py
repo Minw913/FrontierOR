@@ -18,6 +18,15 @@ import json
 import time
 
 
+def _json_default(value):
+    """Convert NumPy-style scalar/array values without importing NumPy."""
+    if hasattr(value, "item"):
+        return value.item()
+    if hasattr(value, "tolist"):
+        return value.tolist()
+    raise TypeError(f"Object of type {type(value).__name__} is not JSON serializable")
+
+
 class SolutionLogger:
     def __init__(self, log_path, sense="minimize"):
         self.log_path = log_path
@@ -54,7 +63,7 @@ class SolutionLogger:
         if extra:
             event.update(extra)
         with open(self.log_path, "a") as f:
-            f.write(json.dumps(event) + "\n")
+            f.write(json.dumps(event, default=_json_default) + "\n")
 
     def log(self, objective_value):
         """Record a new incumbent if it improves on the best known."""

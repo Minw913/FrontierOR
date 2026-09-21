@@ -8,6 +8,7 @@ COPY trusted_eval_infra/docker/requirements.txt /tmp/requirements.txt
 RUN pip install --no-cache-dir -r /tmp/requirements.txt
 
 COPY scripts/utils/solution_logger.py /opt/bench/solution_logger.py
+COPY trusted_eval_infra/candidate_export.py /opt/bench/candidate_export.py
 COPY trusted_eval_infra/wls_proxy.py /opt/bench/restricted_egress_proxy.py
 ENV PYTHONPATH=/opt/bench
 ENV GRB_LICENSE_FILE=/opt/gurobi/gurobi.lic

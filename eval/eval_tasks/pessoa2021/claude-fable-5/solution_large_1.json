@@ -1,0 +1,316 @@
+{
+  "objective_value": 1625.0,
+  "routes": [
+    {
+      "customers": [
+        58,
+        75,
+        76,
+        65,
+        91,
+        86,
+        105,
+        98
+      ],
+      "cost": 118,
+      "worst_case_demand": 271
+    },
+    {
+      "customers": [
+        35,
+        3,
+        111,
+        12,
+        2,
+        88,
+        7
+      ],
+      "cost": 93,
+      "worst_case_demand": 273
+    },
+    {
+      "customers": [
+        40,
+        66,
+        56,
+        79,
+        15,
+        43,
+        108,
+        4,
+        22,
+        44,
+        85
+      ],
+      "cost": 143,
+      "worst_case_demand": 276
+    },
+    {
+      "customers": [
+        37,
+        81,
+        14,
+        36,
+        24,
+        72,
+        34,
+        74,
+        73
+      ],
+      "cost": 121,
+      "worst_case_demand": 273
+    },
+    {
+      "customers": [
+        82,
+        101,
+        112,
+        28,
+        17,
+        54,
+        8,
+        53,
+        109
+      ],
+      "cost": 124,
+      "worst_case_demand": 274
+    },
+    {
+      "customers": [
+        84,
+        51,
+        46,
+        48,
+        106,
+        93,
+        39,
+        29,
+        97,
+        32,
+        47
+      ],
+      "cost": 188,
+      "worst_case_demand": 276
+    },
+    {
+      "customers": [
+        87,
+        31,
+        9,
+        78,
+        1
+      ],
+      "cost": 60,
+      "worst_case_demand": 257
+    },
+    {
+      "customers": [
+        100,
+        20,
+        38,
+        99,
+        96,
+        11,
+        21,
+        16,
+        71,
+        10
+      ],
+      "cost": 107,
+      "worst_case_demand": 274
+    },
+    {
+      "customers": [
+        68,
+        67,
+        41,
+        70,
+        23,
+        95
+      ],
+      "cost": 124,
+      "worst_case_demand": 276
+    },
+    {
+      "customers": [
+        83,
+        89,
+        45,
+        77,
+        42,
+        113,
+        90,
+        94,
+        64,
+        104
+      ],
+      "cost": 150,
+      "worst_case_demand": 274
+    },
+    {
+      "customers": [
+        80,
+        25,
+        5,
+        50,
+        110,
+        59,
+        27,
+        13
+      ],
+      "cost": 150,
+      "worst_case_demand": 267
+    },
+    {
+      "customers": [
+        57,
+        107,
+        18,
+        102,
+        60,
+        61,
+        6,
+        63,
+        19,
+        52,
+        62,
+        49
+      ],
+      "cost": 145,
+      "worst_case_demand": 266
+    },
+    {
+      "customers": [
+        55,
+        69,
+        33,
+        103,
+        26,
+        92,
+        30
+      ],
+      "cost": 102,
+      "worst_case_demand": 274
+    },
+    {
+      "customers": [],
+      "cost": 0,
+      "worst_case_demand": 0
+    },
+    {
+      "customers": [],
+      "cost": 0,
+      "worst_case_demand": 0
+    },
+    {
+      "customers": [],
+      "cost": 0,
+      "worst_case_demand": 0
+    },
+    {
+      "customers": [],
+      "cost": 0,
+      "worst_case_demand": 0
+    },
+    {
+      "customers": [],
+      "cost": 0,
+      "worst_case_demand": 0
+    },
+    {
+      "customers": [],
+      "cost": 0,
+      "worst_case_demand": 0
+    },
+    {
+      "customers": [],
+      "cost": 0,
+      "worst_case_demand": 0
+    },
+    {
+      "customers": [],
+      "cost": 0,
+      "worst_case_demand": 0
+    },
+    {
+      "customers": [],
+      "cost": 0,
+      "worst_case_demand": 0
+    },
+    {
+      "customers": [],
+      "cost": 0,
+      "worst_case_demand": 0
+    },
+    {
+      "customers": [],
+      "cost": 0,
+      "worst_case_demand": 0
+    },
+    {
+      "customers": [],
+      "cost": 0,
+      "worst_case_demand": 0
+    },
+    {
+      "customers": [],
+      "cost": 0,
+      "worst_case_demand": 0
+    },
+    {
+      "customers": [],
+      "cost": 0,
+      "worst_case_demand": 0
+    },
+    {
+      "customers": [],
+      "cost": 0,
+      "worst_case_demand": 0
+    },
+    {
+      "customers": [],
+      "cost": 0,
+      "worst_case_demand": 0
+    },
+    {
+      "customers": [],
+      "cost": 0,
+      "worst_case_demand": 0
+    },
+    {
+      "customers": [],
+      "cost": 0,
+      "worst_case_demand": 0
+    },
+    {
+      "customers": [],
+      "cost": 0,
+      "worst_case_demand": 0
+    },
+    {
+      "customers": [],
+      "cost": 0,
+      "worst_case_demand": 0
+    },
+    {
+      "customers": [],
+      "cost": 0,
+      "worst_case_demand": 0
+    },
+    {
+      "customers": [],
+      "cost": 0,
+      "worst_case_demand": 0
+    },
+    {
+      "customers": [],
+      "cost": 0,
+      "worst_case_demand": 0
+    },
+    {
+      "customers": [],
+      "cost": 0,
+      "worst_case_demand": 0
+    }
+  ]
+}

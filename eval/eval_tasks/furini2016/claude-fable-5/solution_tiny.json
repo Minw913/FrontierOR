@@ -1,0 +1,13 @@
+{
+  "objective_value": 1600.0,
+  "items_selected": [
+    {
+      "item_id": 1,
+      "plate_dims": [
+        1,
+        4
+      ],
+      "copies": 400
+    }
+  ]
+}

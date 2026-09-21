@@ -1,0 +1,2 @@
+{"time": 0.016, "objective_value": -55247180.797457725, "solution": {"objective_value": -55247180.797457725, "interdiction_pattern": {"S1_0": 0, "S1_1": 0, "S1_2": 0, "S1_3": 0, "S1_4": 0, "S1_5": 0, "S2_0": 0, "S2_1": 0, "S2_2": 0, "S2_3": 0}}}
+{"time": 0.166, "objective_value": 61248082.61615212, "solution": {"objective_value": 61248082.61615212, "interdiction_pattern": {"S1_0": 0, "S1_1": 0, "S1_2": 1, "S1_3": 1, "S1_4": 0, "S1_5": 1, "S2_0": 0, "S2_1": 0, "S2_2": 0, "S2_3": 0}}}

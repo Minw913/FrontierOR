@@ -1,0 +1,145 @@
+{
+  "objective_value": 1603.0,
+  "solution_arcs": [
+    {
+      "id": 210,
+      "from_node": 0,
+      "to_node": 15
+    },
+    {
+      "id": 225,
+      "from_node": 15,
+      "to_node": 30
+    },
+    {
+      "id": 28,
+      "from_node": 30,
+      "to_node": 31
+    },
+    {
+      "id": 29,
+      "from_node": 31,
+      "to_node": 32
+    },
+    {
+      "id": 30,
+      "from_node": 32,
+      "to_node": 33
+    },
+    {
+      "id": 31,
+      "from_node": 33,
+      "to_node": 34
+    },
+    {
+      "id": 244,
+      "from_node": 34,
+      "to_node": 49
+    },
+    {
+      "id": 259,
+      "from_node": 49,
+      "to_node": 64
+    },
+    {
+      "id": 274,
+      "from_node": 64,
+      "to_node": 79
+    },
+    {
+      "id": 289,
+      "from_node": 79,
+      "to_node": 94
+    },
+    {
+      "id": 88,
+      "from_node": 94,
+      "to_node": 95
+    },
+    {
+      "id": 89,
+      "from_node": 95,
+      "to_node": 96
+    },
+    {
+      "id": 306,
+      "from_node": 96,
+      "to_node": 111
+    },
+    {
+      "id": 104,
+      "from_node": 111,
+      "to_node": 112
+    },
+    {
+      "id": 322,
+      "from_node": 112,
+      "to_node": 127
+    },
+    {
+      "id": 119,
+      "from_node": 127,
+      "to_node": 128
+    },
+    {
+      "id": 338,
+      "from_node": 128,
+      "to_node": 143
+    },
+    {
+      "id": 134,
+      "from_node": 143,
+      "to_node": 144
+    },
+    {
+      "id": 354,
+      "from_node": 144,
+      "to_node": 159
+    },
+    {
+      "id": 369,
+      "from_node": 159,
+      "to_node": 174
+    },
+    {
+      "id": 163,
+      "from_node": 174,
+      "to_node": 175
+    },
+    {
+      "id": 385,
+      "from_node": 175,
+      "to_node": 190
+    },
+    {
+      "id": 178,
+      "from_node": 190,
+      "to_node": 191
+    },
+    {
+      "id": 179,
+      "from_node": 191,
+      "to_node": 192
+    },
+    {
+      "id": 180,
+      "from_node": 192,
+      "to_node": 193
+    },
+    {
+      "id": 403,
+      "from_node": 193,
+      "to_node": 208
+    },
+    {
+      "id": 195,
+      "from_node": 208,
+      "to_node": 209
+    },
+    {
+      "id": 419,
+      "from_node": 209,
+      "to_node": 224
+    }
+  ]
+}

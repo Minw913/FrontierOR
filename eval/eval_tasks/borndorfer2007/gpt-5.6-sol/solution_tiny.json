@@ -1,0 +1,172 @@
+{
+  "objective_value": 21166.220503999975,
+  "active_lines": [
+    {
+      "line_index": 141,
+      "mode": "bus",
+      "nodes": [
+        0,
+        10,
+        16,
+        17,
+        19
+      ],
+      "edges": [
+        4,
+        38,
+        56,
+        58
+      ],
+      "frequency": 1.2374999999999998
+    },
+    {
+      "line_index": 226,
+      "mode": "bus",
+      "nodes": [
+        4,
+        3,
+        8,
+        14,
+        19
+      ],
+      "edges": [
+        14,
+        16,
+        32,
+        53
+      ],
+      "frequency": 1.5624999999999354
+    }
+  ],
+  "active_passenger_paths": [
+    {
+      "origin": 10,
+      "destination": 0,
+      "arcs": [
+        9
+      ],
+      "flow": 19.0
+    },
+    {
+      "origin": 8,
+      "destination": 3,
+      "arcs": [
+        33
+      ],
+      "flow": 87.0
+    },
+    {
+      "origin": 17,
+      "destination": 3,
+      "arcs": [
+        116,
+        107,
+        65,
+        33
+      ],
+      "flow": 20.0
+    },
+    {
+      "origin": 3,
+      "destination": 8,
+      "arcs": [
+        32
+      ],
+      "flow": 87.0
+    },
+    {
+      "origin": 10,
+      "destination": 8,
+      "arcs": [
+        76,
+        112,
+        116,
+        107,
+        65
+      ],
+      "flow": 20.0
+    },
+    {
+      "origin": 17,
+      "destination": 8,
+      "arcs": [
+        116,
+        107,
+        65
+      ],
+      "flow": 31.0
+    },
+    {
+      "origin": 0,
+      "destination": 10,
+      "arcs": [
+        8
+      ],
+      "flow": 19.0
+    },
+    {
+      "origin": 3,
+      "destination": 10,
+      "arcs": [
+        32,
+        64,
+        106,
+        117,
+        113,
+        77
+      ],
+      "flow": 18.0
+    },
+    {
+      "origin": 8,
+      "destination": 10,
+      "arcs": [
+        64,
+        106,
+        117,
+        113,
+        77
+      ],
+      "flow": 20.0
+    },
+    {
+      "origin": 17,
+      "destination": 10,
+      "arcs": [
+        113,
+        77
+      ],
+      "flow": 61.0
+    },
+    {
+      "origin": 3,
+      "destination": 17,
+      "arcs": [
+        32,
+        64,
+        106,
+        117
+      ],
+      "flow": 20.0
+    },
+    {
+      "origin": 8,
+      "destination": 17,
+      "arcs": [
+        64,
+        106,
+        117
+      ],
+      "flow": 31.0
+    },
+    {
+      "origin": 10,
+      "destination": 17,
+      "arcs": [
+        76,
+        112
+      ],
+      "flow": 61.0
+    }
+  ]
+}

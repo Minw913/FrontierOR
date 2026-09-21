@@ -1,0 +1,2720 @@
+{
+  "feasible": false,
+  "violated_constraints": [
+    13,
+    20
+  ],
+  "violations": [
+    "Constraint 13 (flow balance eq 9) violated for item 0, period 0: LHS=0.000000, RHS=9.000000, diff=9.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 0, period 1: LHS=0.000000, RHS=6.000000, diff=6.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 0, period 2: LHS=0.000000, RHS=93.000000, diff=93.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 0, period 3: LHS=0.000000, RHS=4.000000, diff=4.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 0, period 4: LHS=0.000000, RHS=11.000000, diff=11.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 0, period 5: LHS=0.000000, RHS=12.000000, diff=12.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 0, period 6: LHS=0.000000, RHS=72.000000, diff=72.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 0, period 7: LHS=0.000000, RHS=12.000000, diff=12.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 0, period 8: LHS=0.000000, RHS=120.000000, diff=120.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 0, period 9: LHS=0.000000, RHS=8.000000, diff=8.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 0, period 10: LHS=0.000000, RHS=3.000000, diff=3.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 0, period 11: LHS=0.000000, RHS=8.000000, diff=8.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 0, period 12: LHS=0.000000, RHS=7.000000, diff=7.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 0, period 13: LHS=0.000000, RHS=12.000000, diff=12.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 0, period 14: LHS=0.000000, RHS=97.000000, diff=97.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 0, period 15: LHS=0.000000, RHS=6.000000, diff=6.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 0, period 16: LHS=0.000000, RHS=7.000000, diff=7.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 0, period 17: LHS=0.000000, RHS=66.000000, diff=66.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 0, period 18: LHS=0.000000, RHS=7.000000, diff=7.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 0, period 19: LHS=0.000000, RHS=6.000000, diff=6.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 0, period 20: LHS=0.000000, RHS=9.000000, diff=9.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 0, period 21: LHS=0.000000, RHS=95.000000, diff=95.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 0, period 22: LHS=0.000000, RHS=3.000000, diff=3.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 0, period 23: LHS=0.000000, RHS=63.000000, diff=63.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 0, period 24: LHS=0.000000, RHS=119.000000, diff=119.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 0, period 25: LHS=0.000000, RHS=12.000000, diff=12.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 0, period 26: LHS=0.000000, RHS=3.000000, diff=3.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 0, period 27: LHS=0.000000, RHS=4.000000, diff=4.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 0, period 28: LHS=0.000000, RHS=11.000000, diff=11.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 0, period 29: LHS=0.000000, RHS=4.000000, diff=4.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 1, period 0: LHS=0.000000, RHS=90.000000, diff=90.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 1, period 1: LHS=0.000000, RHS=6.000000, diff=6.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 1, period 2: LHS=0.000000, RHS=5.000000, diff=5.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 1, period 3: LHS=0.000000, RHS=4.000000, diff=4.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 1, period 4: LHS=0.000000, RHS=11.000000, diff=11.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 1, period 5: LHS=0.000000, RHS=73.000000, diff=73.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 1, period 6: LHS=0.000000, RHS=11.000000, diff=11.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 1, period 7: LHS=0.000000, RHS=10.000000, diff=10.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 1, period 8: LHS=0.000000, RHS=9.000000, diff=9.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 1, period 9: LHS=0.000000, RHS=10.000000, diff=10.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 1, period 10: LHS=0.000000, RHS=7.000000, diff=7.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 1, period 11: LHS=0.000000, RHS=4.000000, diff=4.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 1, period 12: LHS=0.000000, RHS=11.000000, diff=11.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 1, period 13: LHS=0.000000, RHS=12.000000, diff=12.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 1, period 14: LHS=0.000000, RHS=7.000000, diff=7.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 1, period 15: LHS=0.000000, RHS=12.000000, diff=12.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 1, period 16: LHS=0.000000, RHS=7.000000, diff=7.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 1, period 17: LHS=0.000000, RHS=6.000000, diff=6.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 1, period 18: LHS=0.000000, RHS=3.000000, diff=3.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 1, period 19: LHS=0.000000, RHS=12.000000, diff=12.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 1, period 20: LHS=0.000000, RHS=11.000000, diff=11.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 1, period 21: LHS=0.000000, RHS=100.000000, diff=100.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 1, period 22: LHS=0.000000, RHS=9.000000, diff=9.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 1, period 23: LHS=0.000000, RHS=8.000000, diff=8.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 1, period 24: LHS=0.000000, RHS=11.000000, diff=11.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 1, period 25: LHS=0.000000, RHS=8.000000, diff=8.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 1, period 26: LHS=0.000000, RHS=11.000000, diff=11.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 1, period 27: LHS=0.000000, RHS=10.000000, diff=10.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 1, period 28: LHS=0.000000, RHS=93.000000, diff=93.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 1, period 29: LHS=0.000000, RHS=6.000000, diff=6.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 2, period 0: LHS=0.000000, RHS=11.000000, diff=11.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 2, period 1: LHS=0.000000, RHS=4.000000, diff=4.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 2, period 2: LHS=0.000000, RHS=9.000000, diff=9.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 2, period 3: LHS=0.000000, RHS=12.000000, diff=12.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 2, period 4: LHS=0.000000, RHS=7.000000, diff=7.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 2, period 5: LHS=0.000000, RHS=10.000000, diff=10.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 2, period 6: LHS=0.000000, RHS=5.000000, diff=5.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 2, period 7: LHS=0.000000, RHS=8.000000, diff=8.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 2, period 8: LHS=0.000000, RHS=11.000000, diff=11.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 2, period 9: LHS=0.000000, RHS=6.000000, diff=6.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 2, period 10: LHS=0.000000, RHS=118.000000, diff=118.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 2, period 11: LHS=0.000000, RHS=10.000000, diff=10.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 2, period 12: LHS=0.000000, RHS=7.000000, diff=7.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 2, period 13: LHS=0.000000, RHS=12.000000, diff=12.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 2, period 14: LHS=0.000000, RHS=3.000000, diff=3.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 2, period 15: LHS=0.000000, RHS=6.000000, diff=6.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 2, period 16: LHS=0.000000, RHS=79.000000, diff=79.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 2, period 17: LHS=0.000000, RHS=98.000000, diff=98.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 2, period 18: LHS=0.000000, RHS=5.000000, diff=5.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 2, period 19: LHS=0.000000, RHS=4.000000, diff=4.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 2, period 20: LHS=0.000000, RHS=5.000000, diff=5.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 2, period 21: LHS=0.000000, RHS=85.000000, diff=85.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 2, period 22: LHS=0.000000, RHS=11.000000, diff=11.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 2, period 23: LHS=0.000000, RHS=10.000000, diff=10.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 2, period 24: LHS=0.000000, RHS=3.000000, diff=3.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 2, period 25: LHS=0.000000, RHS=6.000000, diff=6.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 2, period 26: LHS=0.000000, RHS=5.000000, diff=5.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 2, period 27: LHS=0.000000, RHS=82.000000, diff=82.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 2, period 28: LHS=0.000000, RHS=11.000000, diff=11.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 2, period 29: LHS=0.000000, RHS=8.000000, diff=8.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 3, period 0: LHS=0.000000, RHS=11.000000, diff=11.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 3, period 1: LHS=0.000000, RHS=10.000000, diff=10.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 3, period 2: LHS=0.000000, RHS=68.000000, diff=68.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 3, period 3: LHS=0.000000, RHS=6.000000, diff=6.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 3, period 4: LHS=0.000000, RHS=3.000000, diff=3.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 3, period 5: LHS=0.000000, RHS=12.000000, diff=12.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 3, period 6: LHS=0.000000, RHS=11.000000, diff=11.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 3, period 7: LHS=0.000000, RHS=12.000000, diff=12.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 3, period 8: LHS=0.000000, RHS=11.000000, diff=11.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 3, period 9: LHS=0.000000, RHS=6.000000, diff=6.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 3, period 10: LHS=0.000000, RHS=9.000000, diff=9.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 3, period 11: LHS=0.000000, RHS=110.000000, diff=110.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 3, period 12: LHS=0.000000, RHS=3.000000, diff=3.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 3, period 13: LHS=0.000000, RHS=6.000000, diff=6.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 3, period 14: LHS=0.000000, RHS=11.000000, diff=11.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 3, period 15: LHS=0.000000, RHS=4.000000, diff=4.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 3, period 16: LHS=0.000000, RHS=9.000000, diff=9.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 3, period 17: LHS=0.000000, RHS=12.000000, diff=12.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 3, period 18: LHS=0.000000, RHS=7.000000, diff=7.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 3, period 19: LHS=0.000000, RHS=4.000000, diff=4.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 3, period 20: LHS=0.000000, RHS=3.000000, diff=3.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 3, period 21: LHS=0.000000, RHS=10.000000, diff=10.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 3, period 22: LHS=0.000000, RHS=9.000000, diff=9.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 3, period 23: LHS=0.000000, RHS=10.000000, diff=10.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 3, period 24: LHS=0.000000, RHS=9.000000, diff=9.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 3, period 25: LHS=0.000000, RHS=4.000000, diff=4.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 3, period 26: LHS=0.000000, RHS=3.000000, diff=3.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 3, period 27: LHS=0.000000, RHS=6.000000, diff=6.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 3, period 28: LHS=0.000000, RHS=3.000000, diff=3.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 3, period 29: LHS=0.000000, RHS=6.000000, diff=6.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 4, period 0: LHS=0.000000, RHS=3.000000, diff=3.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 4, period 1: LHS=0.000000, RHS=101.000000, diff=101.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 4, period 2: LHS=0.000000, RHS=86.000000, diff=86.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 4, period 3: LHS=0.000000, RHS=4.000000, diff=4.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 4, period 4: LHS=0.000000, RHS=9.000000, diff=9.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 4, period 5: LHS=0.000000, RHS=6.000000, diff=6.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 4, period 6: LHS=0.000000, RHS=3.000000, diff=3.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 4, period 7: LHS=0.000000, RHS=10.000000, diff=10.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 4, period 8: LHS=0.000000, RHS=7.000000, diff=7.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 4, period 9: LHS=0.000000, RHS=4.000000, diff=4.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 4, period 10: LHS=0.000000, RHS=11.000000, diff=11.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 4, period 11: LHS=0.000000, RHS=12.000000, diff=12.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 4, period 12: LHS=0.000000, RHS=11.000000, diff=11.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 4, period 13: LHS=0.000000, RHS=93.000000, diff=93.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 4, period 14: LHS=0.000000, RHS=9.000000, diff=9.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 4, period 15: LHS=0.000000, RHS=8.000000, diff=8.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 4, period 16: LHS=0.000000, RHS=100.000000, diff=100.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 4, period 17: LHS=0.000000, RHS=65.000000, diff=65.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 4, period 18: LHS=0.000000, RHS=5.000000, diff=5.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 4, period 19: LHS=0.000000, RHS=62.000000, diff=62.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 4, period 20: LHS=0.000000, RHS=9.000000, diff=9.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 4, period 21: LHS=0.000000, RHS=12.000000, diff=12.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 4, period 22: LHS=0.000000, RHS=11.000000, diff=11.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 4, period 23: LHS=0.000000, RHS=8.000000, diff=8.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 4, period 24: LHS=0.000000, RHS=3.000000, diff=3.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 4, period 25: LHS=0.000000, RHS=10.000000, diff=10.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 4, period 26: LHS=0.000000, RHS=9.000000, diff=9.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 4, period 27: LHS=0.000000, RHS=12.000000, diff=12.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 4, period 28: LHS=0.000000, RHS=7.000000, diff=7.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 4, period 29: LHS=0.000000, RHS=10.000000, diff=10.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 5, period 0: LHS=0.000000, RHS=7.000000, diff=7.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 5, period 1: LHS=0.000000, RHS=6.000000, diff=6.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 5, period 2: LHS=0.000000, RHS=5.000000, diff=5.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 5, period 3: LHS=0.000000, RHS=4.000000, diff=4.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 5, period 4: LHS=0.000000, RHS=72.000000, diff=72.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 5, period 5: LHS=0.000000, RHS=8.000000, diff=8.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 5, period 6: LHS=0.000000, RHS=11.000000, diff=11.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 5, period 7: LHS=0.000000, RHS=12.000000, diff=12.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 5, period 8: LHS=0.000000, RHS=5.000000, diff=5.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 5, period 9: LHS=0.000000, RHS=10.000000, diff=10.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 5, period 10: LHS=0.000000, RHS=9.000000, diff=9.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 5, period 11: LHS=0.000000, RHS=6.000000, diff=6.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 5, period 12: LHS=0.000000, RHS=3.000000, diff=3.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 5, period 13: LHS=0.000000, RHS=10.000000, diff=10.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 5, period 14: LHS=0.000000, RHS=9.000000, diff=9.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 5, period 15: LHS=0.000000, RHS=12.000000, diff=12.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 5, period 16: LHS=0.000000, RHS=5.000000, diff=5.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 5, period 17: LHS=0.000000, RHS=6.000000, diff=6.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 5, period 18: LHS=0.000000, RHS=68.000000, diff=68.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 5, period 19: LHS=0.000000, RHS=8.000000, diff=8.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 5, period 20: LHS=0.000000, RHS=11.000000, diff=11.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 5, period 21: LHS=0.000000, RHS=12.000000, diff=12.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 5, period 22: LHS=0.000000, RHS=7.000000, diff=7.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 5, period 23: LHS=0.000000, RHS=12.000000, diff=12.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 5, period 24: LHS=0.000000, RHS=9.000000, diff=9.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 5, period 25: LHS=0.000000, RHS=8.000000, diff=8.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 5, period 26: LHS=0.000000, RHS=5.000000, diff=5.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 5, period 27: LHS=0.000000, RHS=6.000000, diff=6.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 5, period 28: LHS=0.000000, RHS=3.000000, diff=3.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 5, period 29: LHS=0.000000, RHS=6.000000, diff=6.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 6, period 0: LHS=0.000000, RHS=9.000000, diff=9.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 6, period 1: LHS=0.000000, RHS=4.000000, diff=4.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 6, period 2: LHS=0.000000, RHS=5.000000, diff=5.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 6, period 3: LHS=0.000000, RHS=12.000000, diff=12.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 6, period 4: LHS=0.000000, RHS=9.000000, diff=9.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 6, period 5: LHS=0.000000, RHS=10.000000, diff=10.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 6, period 6: LHS=0.000000, RHS=5.000000, diff=5.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 6, period 7: LHS=0.000000, RHS=10.000000, diff=10.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 6, period 8: LHS=0.000000, RHS=81.000000, diff=81.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 6, period 9: LHS=0.000000, RHS=8.000000, diff=8.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 6, period 10: LHS=0.000000, RHS=78.000000, diff=78.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 6, period 11: LHS=0.000000, RHS=4.000000, diff=4.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 6, period 12: LHS=0.000000, RHS=5.000000, diff=5.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 6, period 13: LHS=0.000000, RHS=12.000000, diff=12.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 6, period 14: LHS=0.000000, RHS=5.000000, diff=5.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 6, period 15: LHS=0.000000, RHS=108.000000, diff=108.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 6, period 16: LHS=0.000000, RHS=69.000000, diff=69.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 6, period 17: LHS=0.000000, RHS=110.000000, diff=110.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 6, period 18: LHS=0.000000, RHS=9.000000, diff=9.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 6, period 19: LHS=0.000000, RHS=6.000000, diff=6.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 6, period 20: LHS=0.000000, RHS=105.000000, diff=105.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 6, period 21: LHS=0.000000, RHS=6.000000, diff=6.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 6, period 22: LHS=0.000000, RHS=11.000000, diff=11.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 6, period 23: LHS=0.000000, RHS=10.000000, diff=10.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 6, period 24: LHS=0.000000, RHS=3.000000, diff=3.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 6, period 25: LHS=0.000000, RHS=10.000000, diff=10.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 6, period 26: LHS=0.000000, RHS=65.000000, diff=65.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 6, period 27: LHS=0.000000, RHS=12.000000, diff=12.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 6, period 28: LHS=0.000000, RHS=7.000000, diff=7.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 6, period 29: LHS=0.000000, RHS=85.000000, diff=85.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 7, period 0: LHS=0.000000, RHS=9.000000, diff=9.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 7, period 1: LHS=0.000000, RHS=6.000000, diff=6.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 7, period 2: LHS=0.000000, RHS=3.000000, diff=3.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 7, period 3: LHS=0.000000, RHS=69.000000, diff=69.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 7, period 4: LHS=0.000000, RHS=11.000000, diff=11.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 7, period 5: LHS=0.000000, RHS=4.000000, diff=4.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 7, period 6: LHS=0.000000, RHS=70.000000, diff=70.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 7, period 7: LHS=0.000000, RHS=10.000000, diff=10.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 7, period 8: LHS=0.000000, RHS=11.000000, diff=11.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 7, period 9: LHS=0.000000, RHS=4.000000, diff=4.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 7, period 10: LHS=0.000000, RHS=11.000000, diff=11.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 7, period 11: LHS=0.000000, RHS=112.000000, diff=112.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 7, period 12: LHS=0.000000, RHS=3.000000, diff=3.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 7, period 13: LHS=0.000000, RHS=4.000000, diff=4.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 7, period 14: LHS=0.000000, RHS=5.000000, diff=5.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 7, period 15: LHS=0.000000, RHS=6.000000, diff=6.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 7, period 16: LHS=0.000000, RHS=5.000000, diff=5.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 7, period 17: LHS=0.000000, RHS=8.000000, diff=8.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 7, period 18: LHS=0.000000, RHS=3.000000, diff=3.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 7, period 19: LHS=0.000000, RHS=10.000000, diff=10.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 7, period 20: LHS=0.000000, RHS=3.000000, diff=3.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 7, period 21: LHS=0.000000, RHS=12.000000, diff=12.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 7, period 22: LHS=0.000000, RHS=3.000000, diff=3.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 7, period 23: LHS=0.000000, RHS=12.000000, diff=12.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 7, period 24: LHS=0.000000, RHS=9.000000, diff=9.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 7, period 25: LHS=0.000000, RHS=6.000000, diff=6.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 7, period 26: LHS=0.000000, RHS=7.000000, diff=7.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 7, period 27: LHS=0.000000, RHS=115.000000, diff=115.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 7, period 28: LHS=0.000000, RHS=7.000000, diff=7.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 7, period 29: LHS=0.000000, RHS=6.000000, diff=6.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 8, period 0: LHS=0.000000, RHS=3.000000, diff=3.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 8, period 1: LHS=0.000000, RHS=8.000000, diff=8.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 8, period 2: LHS=0.000000, RHS=5.000000, diff=5.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 8, period 3: LHS=0.000000, RHS=8.000000, diff=8.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 8, period 4: LHS=0.000000, RHS=9.000000, diff=9.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 8, period 5: LHS=0.000000, RHS=4.000000, diff=4.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 8, period 6: LHS=0.000000, RHS=7.000000, diff=7.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 8, period 7: LHS=0.000000, RHS=4.000000, diff=4.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 8, period 8: LHS=0.000000, RHS=7.000000, diff=7.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 8, period 9: LHS=0.000000, RHS=10.000000, diff=10.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 8, period 10: LHS=0.000000, RHS=7.000000, diff=7.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 8, period 11: LHS=0.000000, RHS=12.000000, diff=12.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 8, period 12: LHS=0.000000, RHS=3.000000, diff=3.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 8, period 13: LHS=0.000000, RHS=4.000000, diff=4.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 8, period 14: LHS=0.000000, RHS=3.000000, diff=3.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 8, period 15: LHS=0.000000, RHS=12.000000, diff=12.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 8, period 16: LHS=0.000000, RHS=101.000000, diff=101.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 8, period 17: LHS=0.000000, RHS=6.000000, diff=6.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 8, period 18: LHS=0.000000, RHS=3.000000, diff=3.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 8, period 19: LHS=0.000000, RHS=69.000000, diff=69.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 8, period 20: LHS=0.000000, RHS=3.000000, diff=3.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 8, period 21: LHS=0.000000, RHS=94.000000, diff=94.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 8, period 22: LHS=0.000000, RHS=3.000000, diff=3.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 8, period 23: LHS=0.000000, RHS=10.000000, diff=10.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 8, period 24: LHS=0.000000, RHS=3.000000, diff=3.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 8, period 25: LHS=0.000000, RHS=12.000000, diff=12.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 8, period 26: LHS=0.000000, RHS=101.000000, diff=101.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 8, period 27: LHS=0.000000, RHS=8.000000, diff=8.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 8, period 28: LHS=0.000000, RHS=75.000000, diff=75.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 8, period 29: LHS=0.000000, RHS=4.000000, diff=4.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 9, period 0: LHS=0.000000, RHS=80.000000, diff=80.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 9, period 1: LHS=0.000000, RHS=10.000000, diff=10.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 9, period 2: LHS=0.000000, RHS=11.000000, diff=11.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 9, period 3: LHS=0.000000, RHS=68.000000, diff=68.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 9, period 4: LHS=0.000000, RHS=65.000000, diff=65.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 9, period 5: LHS=0.000000, RHS=6.000000, diff=6.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 9, period 6: LHS=0.000000, RHS=5.000000, diff=5.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 9, period 7: LHS=0.000000, RHS=10.000000, diff=10.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 9, period 8: LHS=0.000000, RHS=61.000000, diff=61.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 9, period 9: LHS=0.000000, RHS=8.000000, diff=8.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 9, period 10: LHS=0.000000, RHS=9.000000, diff=9.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 9, period 11: LHS=0.000000, RHS=8.000000, diff=8.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 9, period 12: LHS=0.000000, RHS=5.000000, diff=5.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 9, period 13: LHS=0.000000, RHS=8.000000, diff=8.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 9, period 14: LHS=0.000000, RHS=9.000000, diff=9.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 9, period 15: LHS=0.000000, RHS=6.000000, diff=6.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 9, period 16: LHS=0.000000, RHS=11.000000, diff=11.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 9, period 17: LHS=0.000000, RHS=6.000000, diff=6.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 9, period 18: LHS=0.000000, RHS=7.000000, diff=7.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 9, period 19: LHS=0.000000, RHS=118.000000, diff=118.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 9, period 20: LHS=0.000000, RHS=73.000000, diff=73.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 9, period 21: LHS=0.000000, RHS=79.000000, diff=79.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 9, period 22: LHS=0.000000, RHS=74.000000, diff=74.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 9, period 23: LHS=0.000000, RHS=10.000000, diff=10.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 9, period 24: LHS=0.000000, RHS=9.000000, diff=9.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 9, period 25: LHS=0.000000, RHS=6.000000, diff=6.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 9, period 26: LHS=0.000000, RHS=9.000000, diff=9.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 9, period 27: LHS=0.000000, RHS=104.000000, diff=104.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 9, period 28: LHS=0.000000, RHS=7.000000, diff=7.000000",
+    "Constraint 13 (flow balance eq 9) violated for item 9, period 29: LHS=0.000000, RHS=10.000000, diff=10.000000",
+    "Constraint 20 (objective consistency) violated: reported objective_value=42368.99992162217 differs from recomputed sum_(i,k,t)(f*y+g*z) + sum_(i,t)(h_i*s+e_i*r)=0.0 (|diff|=4.24e+04, tol=0.001)"
+  ],
+  "violation_magnitudes": [
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 9.0,
+      "raw_excess": 9.0,
+      "normalizer": 9.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 6.0,
+      "raw_excess": 6.0,
+      "normalizer": 6.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 93.0,
+      "raw_excess": 93.0,
+      "normalizer": 93.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 4.0,
+      "raw_excess": 4.0,
+      "normalizer": 4.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 11.0,
+      "raw_excess": 11.0,
+      "normalizer": 11.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 12.0,
+      "raw_excess": 12.0,
+      "normalizer": 12.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 72.0,
+      "raw_excess": 72.0,
+      "normalizer": 72.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 12.0,
+      "raw_excess": 12.0,
+      "normalizer": 12.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 120.0,
+      "raw_excess": 120.0,
+      "normalizer": 120.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 8.0,
+      "raw_excess": 8.0,
+      "normalizer": 8.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 3.0,
+      "raw_excess": 3.0,
+      "normalizer": 3.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 8.0,
+      "raw_excess": 8.0,
+      "normalizer": 8.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 7.0,
+      "raw_excess": 7.0,
+      "normalizer": 7.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 12.0,
+      "raw_excess": 12.0,
+      "normalizer": 12.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 97.0,
+      "raw_excess": 97.0,
+      "normalizer": 97.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 6.0,
+      "raw_excess": 6.0,
+      "normalizer": 6.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 7.0,
+      "raw_excess": 7.0,
+      "normalizer": 7.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 66.0,
+      "raw_excess": 66.0,
+      "normalizer": 66.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 7.0,
+      "raw_excess": 7.0,
+      "normalizer": 7.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 6.0,
+      "raw_excess": 6.0,
+      "normalizer": 6.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 9.0,
+      "raw_excess": 9.0,
+      "normalizer": 9.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 95.0,
+      "raw_excess": 95.0,
+      "normalizer": 95.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 3.0,
+      "raw_excess": 3.0,
+      "normalizer": 3.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 63.0,
+      "raw_excess": 63.0,
+      "normalizer": 63.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 119.0,
+      "raw_excess": 119.0,
+      "normalizer": 119.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 12.0,
+      "raw_excess": 12.0,
+      "normalizer": 12.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 3.0,
+      "raw_excess": 3.0,
+      "normalizer": 3.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 4.0,
+      "raw_excess": 4.0,
+      "normalizer": 4.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 11.0,
+      "raw_excess": 11.0,
+      "normalizer": 11.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 4.0,
+      "raw_excess": 4.0,
+      "normalizer": 4.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 90.0,
+      "raw_excess": 90.0,
+      "normalizer": 90.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 6.0,
+      "raw_excess": 6.0,
+      "normalizer": 6.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 5.0,
+      "raw_excess": 5.0,
+      "normalizer": 5.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 4.0,
+      "raw_excess": 4.0,
+      "normalizer": 4.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 11.0,
+      "raw_excess": 11.0,
+      "normalizer": 11.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 73.0,
+      "raw_excess": 73.0,
+      "normalizer": 73.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 11.0,
+      "raw_excess": 11.0,
+      "normalizer": 11.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 10.0,
+      "raw_excess": 10.0,
+      "normalizer": 10.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 9.0,
+      "raw_excess": 9.0,
+      "normalizer": 9.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 10.0,
+      "raw_excess": 10.0,
+      "normalizer": 10.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 7.0,
+      "raw_excess": 7.0,
+      "normalizer": 7.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 4.0,
+      "raw_excess": 4.0,
+      "normalizer": 4.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 11.0,
+      "raw_excess": 11.0,
+      "normalizer": 11.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 12.0,
+      "raw_excess": 12.0,
+      "normalizer": 12.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 7.0,
+      "raw_excess": 7.0,
+      "normalizer": 7.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 12.0,
+      "raw_excess": 12.0,
+      "normalizer": 12.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 7.0,
+      "raw_excess": 7.0,
+      "normalizer": 7.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 6.0,
+      "raw_excess": 6.0,
+      "normalizer": 6.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 3.0,
+      "raw_excess": 3.0,
+      "normalizer": 3.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 12.0,
+      "raw_excess": 12.0,
+      "normalizer": 12.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 11.0,
+      "raw_excess": 11.0,
+      "normalizer": 11.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 100.0,
+      "raw_excess": 100.0,
+      "normalizer": 100.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 9.0,
+      "raw_excess": 9.0,
+      "normalizer": 9.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 8.0,
+      "raw_excess": 8.0,
+      "normalizer": 8.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 11.0,
+      "raw_excess": 11.0,
+      "normalizer": 11.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 8.0,
+      "raw_excess": 8.0,
+      "normalizer": 8.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 11.0,
+      "raw_excess": 11.0,
+      "normalizer": 11.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 10.0,
+      "raw_excess": 10.0,
+      "normalizer": 10.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 93.0,
+      "raw_excess": 93.0,
+      "normalizer": 93.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 6.0,
+      "raw_excess": 6.0,
+      "normalizer": 6.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 11.0,
+      "raw_excess": 11.0,
+      "normalizer": 11.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 4.0,
+      "raw_excess": 4.0,
+      "normalizer": 4.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 9.0,
+      "raw_excess": 9.0,
+      "normalizer": 9.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 12.0,
+      "raw_excess": 12.0,
+      "normalizer": 12.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 7.0,
+      "raw_excess": 7.0,
+      "normalizer": 7.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 10.0,
+      "raw_excess": 10.0,
+      "normalizer": 10.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 5.0,
+      "raw_excess": 5.0,
+      "normalizer": 5.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 8.0,
+      "raw_excess": 8.0,
+      "normalizer": 8.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 11.0,
+      "raw_excess": 11.0,
+      "normalizer": 11.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 6.0,
+      "raw_excess": 6.0,
+      "normalizer": 6.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 118.0,
+      "raw_excess": 118.0,
+      "normalizer": 118.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 10.0,
+      "raw_excess": 10.0,
+      "normalizer": 10.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 7.0,
+      "raw_excess": 7.0,
+      "normalizer": 7.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 12.0,
+      "raw_excess": 12.0,
+      "normalizer": 12.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 3.0,
+      "raw_excess": 3.0,
+      "normalizer": 3.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 6.0,
+      "raw_excess": 6.0,
+      "normalizer": 6.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 79.0,
+      "raw_excess": 79.0,
+      "normalizer": 79.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 98.0,
+      "raw_excess": 98.0,
+      "normalizer": 98.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 5.0,
+      "raw_excess": 5.0,
+      "normalizer": 5.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 4.0,
+      "raw_excess": 4.0,
+      "normalizer": 4.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 5.0,
+      "raw_excess": 5.0,
+      "normalizer": 5.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 85.0,
+      "raw_excess": 85.0,
+      "normalizer": 85.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 11.0,
+      "raw_excess": 11.0,
+      "normalizer": 11.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 10.0,
+      "raw_excess": 10.0,
+      "normalizer": 10.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 3.0,
+      "raw_excess": 3.0,
+      "normalizer": 3.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 6.0,
+      "raw_excess": 6.0,
+      "normalizer": 6.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 5.0,
+      "raw_excess": 5.0,
+      "normalizer": 5.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 82.0,
+      "raw_excess": 82.0,
+      "normalizer": 82.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 11.0,
+      "raw_excess": 11.0,
+      "normalizer": 11.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 8.0,
+      "raw_excess": 8.0,
+      "normalizer": 8.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 11.0,
+      "raw_excess": 11.0,
+      "normalizer": 11.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 10.0,
+      "raw_excess": 10.0,
+      "normalizer": 10.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 68.0,
+      "raw_excess": 68.0,
+      "normalizer": 68.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 6.0,
+      "raw_excess": 6.0,
+      "normalizer": 6.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 3.0,
+      "raw_excess": 3.0,
+      "normalizer": 3.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 12.0,
+      "raw_excess": 12.0,
+      "normalizer": 12.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 11.0,
+      "raw_excess": 11.0,
+      "normalizer": 11.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 12.0,
+      "raw_excess": 12.0,
+      "normalizer": 12.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 11.0,
+      "raw_excess": 11.0,
+      "normalizer": 11.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 6.0,
+      "raw_excess": 6.0,
+      "normalizer": 6.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 9.0,
+      "raw_excess": 9.0,
+      "normalizer": 9.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 110.0,
+      "raw_excess": 110.0,
+      "normalizer": 110.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 3.0,
+      "raw_excess": 3.0,
+      "normalizer": 3.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 6.0,
+      "raw_excess": 6.0,
+      "normalizer": 6.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 11.0,
+      "raw_excess": 11.0,
+      "normalizer": 11.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 4.0,
+      "raw_excess": 4.0,
+      "normalizer": 4.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 9.0,
+      "raw_excess": 9.0,
+      "normalizer": 9.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 12.0,
+      "raw_excess": 12.0,
+      "normalizer": 12.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 7.0,
+      "raw_excess": 7.0,
+      "normalizer": 7.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 4.0,
+      "raw_excess": 4.0,
+      "normalizer": 4.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 3.0,
+      "raw_excess": 3.0,
+      "normalizer": 3.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 10.0,
+      "raw_excess": 10.0,
+      "normalizer": 10.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 9.0,
+      "raw_excess": 9.0,
+      "normalizer": 9.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 10.0,
+      "raw_excess": 10.0,
+      "normalizer": 10.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 9.0,
+      "raw_excess": 9.0,
+      "normalizer": 9.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 4.0,
+      "raw_excess": 4.0,
+      "normalizer": 4.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 3.0,
+      "raw_excess": 3.0,
+      "normalizer": 3.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 6.0,
+      "raw_excess": 6.0,
+      "normalizer": 6.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 3.0,
+      "raw_excess": 3.0,
+      "normalizer": 3.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 6.0,
+      "raw_excess": 6.0,
+      "normalizer": 6.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 3.0,
+      "raw_excess": 3.0,
+      "normalizer": 3.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 101.0,
+      "raw_excess": 101.0,
+      "normalizer": 101.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 86.0,
+      "raw_excess": 86.0,
+      "normalizer": 86.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 4.0,
+      "raw_excess": 4.0,
+      "normalizer": 4.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 9.0,
+      "raw_excess": 9.0,
+      "normalizer": 9.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 6.0,
+      "raw_excess": 6.0,
+      "normalizer": 6.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 3.0,
+      "raw_excess": 3.0,
+      "normalizer": 3.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 10.0,
+      "raw_excess": 10.0,
+      "normalizer": 10.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 7.0,
+      "raw_excess": 7.0,
+      "normalizer": 7.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 4.0,
+      "raw_excess": 4.0,
+      "normalizer": 4.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 11.0,
+      "raw_excess": 11.0,
+      "normalizer": 11.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 12.0,
+      "raw_excess": 12.0,
+      "normalizer": 12.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 11.0,
+      "raw_excess": 11.0,
+      "normalizer": 11.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 93.0,
+      "raw_excess": 93.0,
+      "normalizer": 93.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 9.0,
+      "raw_excess": 9.0,
+      "normalizer": 9.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 8.0,
+      "raw_excess": 8.0,
+      "normalizer": 8.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 100.0,
+      "raw_excess": 100.0,
+      "normalizer": 100.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 65.0,
+      "raw_excess": 65.0,
+      "normalizer": 65.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 5.0,
+      "raw_excess": 5.0,
+      "normalizer": 5.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 62.0,
+      "raw_excess": 62.0,
+      "normalizer": 62.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 9.0,
+      "raw_excess": 9.0,
+      "normalizer": 9.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 12.0,
+      "raw_excess": 12.0,
+      "normalizer": 12.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 11.0,
+      "raw_excess": 11.0,
+      "normalizer": 11.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 8.0,
+      "raw_excess": 8.0,
+      "normalizer": 8.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 3.0,
+      "raw_excess": 3.0,
+      "normalizer": 3.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 10.0,
+      "raw_excess": 10.0,
+      "normalizer": 10.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 9.0,
+      "raw_excess": 9.0,
+      "normalizer": 9.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 12.0,
+      "raw_excess": 12.0,
+      "normalizer": 12.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 7.0,
+      "raw_excess": 7.0,
+      "normalizer": 7.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 10.0,
+      "raw_excess": 10.0,
+      "normalizer": 10.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 7.0,
+      "raw_excess": 7.0,
+      "normalizer": 7.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 6.0,
+      "raw_excess": 6.0,
+      "normalizer": 6.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 5.0,
+      "raw_excess": 5.0,
+      "normalizer": 5.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 4.0,
+      "raw_excess": 4.0,
+      "normalizer": 4.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 72.0,
+      "raw_excess": 72.0,
+      "normalizer": 72.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 8.0,
+      "raw_excess": 8.0,
+      "normalizer": 8.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 11.0,
+      "raw_excess": 11.0,
+      "normalizer": 11.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 12.0,
+      "raw_excess": 12.0,
+      "normalizer": 12.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 5.0,
+      "raw_excess": 5.0,
+      "normalizer": 5.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 10.0,
+      "raw_excess": 10.0,
+      "normalizer": 10.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 9.0,
+      "raw_excess": 9.0,
+      "normalizer": 9.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 6.0,
+      "raw_excess": 6.0,
+      "normalizer": 6.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 3.0,
+      "raw_excess": 3.0,
+      "normalizer": 3.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 10.0,
+      "raw_excess": 10.0,
+      "normalizer": 10.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 9.0,
+      "raw_excess": 9.0,
+      "normalizer": 9.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 12.0,
+      "raw_excess": 12.0,
+      "normalizer": 12.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 5.0,
+      "raw_excess": 5.0,
+      "normalizer": 5.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 6.0,
+      "raw_excess": 6.0,
+      "normalizer": 6.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 68.0,
+      "raw_excess": 68.0,
+      "normalizer": 68.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 8.0,
+      "raw_excess": 8.0,
+      "normalizer": 8.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 11.0,
+      "raw_excess": 11.0,
+      "normalizer": 11.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 12.0,
+      "raw_excess": 12.0,
+      "normalizer": 12.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 7.0,
+      "raw_excess": 7.0,
+      "normalizer": 7.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 12.0,
+      "raw_excess": 12.0,
+      "normalizer": 12.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 9.0,
+      "raw_excess": 9.0,
+      "normalizer": 9.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 8.0,
+      "raw_excess": 8.0,
+      "normalizer": 8.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 5.0,
+      "raw_excess": 5.0,
+      "normalizer": 5.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 6.0,
+      "raw_excess": 6.0,
+      "normalizer": 6.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 3.0,
+      "raw_excess": 3.0,
+      "normalizer": 3.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 6.0,
+      "raw_excess": 6.0,
+      "normalizer": 6.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 9.0,
+      "raw_excess": 9.0,
+      "normalizer": 9.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 4.0,
+      "raw_excess": 4.0,
+      "normalizer": 4.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 5.0,
+      "raw_excess": 5.0,
+      "normalizer": 5.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 12.0,
+      "raw_excess": 12.0,
+      "normalizer": 12.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 9.0,
+      "raw_excess": 9.0,
+      "normalizer": 9.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 10.0,
+      "raw_excess": 10.0,
+      "normalizer": 10.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 5.0,
+      "raw_excess": 5.0,
+      "normalizer": 5.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 10.0,
+      "raw_excess": 10.0,
+      "normalizer": 10.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 81.0,
+      "raw_excess": 81.0,
+      "normalizer": 81.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 8.0,
+      "raw_excess": 8.0,
+      "normalizer": 8.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 78.0,
+      "raw_excess": 78.0,
+      "normalizer": 78.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 4.0,
+      "raw_excess": 4.0,
+      "normalizer": 4.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 5.0,
+      "raw_excess": 5.0,
+      "normalizer": 5.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 12.0,
+      "raw_excess": 12.0,
+      "normalizer": 12.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 5.0,
+      "raw_excess": 5.0,
+      "normalizer": 5.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 108.0,
+      "raw_excess": 108.0,
+      "normalizer": 108.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 69.0,
+      "raw_excess": 69.0,
+      "normalizer": 69.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 110.0,
+      "raw_excess": 110.0,
+      "normalizer": 110.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 9.0,
+      "raw_excess": 9.0,
+      "normalizer": 9.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 6.0,
+      "raw_excess": 6.0,
+      "normalizer": 6.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 105.0,
+      "raw_excess": 105.0,
+      "normalizer": 105.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 6.0,
+      "raw_excess": 6.0,
+      "normalizer": 6.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 11.0,
+      "raw_excess": 11.0,
+      "normalizer": 11.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 10.0,
+      "raw_excess": 10.0,
+      "normalizer": 10.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 3.0,
+      "raw_excess": 3.0,
+      "normalizer": 3.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 10.0,
+      "raw_excess": 10.0,
+      "normalizer": 10.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 65.0,
+      "raw_excess": 65.0,
+      "normalizer": 65.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 12.0,
+      "raw_excess": 12.0,
+      "normalizer": 12.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 7.0,
+      "raw_excess": 7.0,
+      "normalizer": 7.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 85.0,
+      "raw_excess": 85.0,
+      "normalizer": 85.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 9.0,
+      "raw_excess": 9.0,
+      "normalizer": 9.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 6.0,
+      "raw_excess": 6.0,
+      "normalizer": 6.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 3.0,
+      "raw_excess": 3.0,
+      "normalizer": 3.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 69.0,
+      "raw_excess": 69.0,
+      "normalizer": 69.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 11.0,
+      "raw_excess": 11.0,
+      "normalizer": 11.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 4.0,
+      "raw_excess": 4.0,
+      "normalizer": 4.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 70.0,
+      "raw_excess": 70.0,
+      "normalizer": 70.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 10.0,
+      "raw_excess": 10.0,
+      "normalizer": 10.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 11.0,
+      "raw_excess": 11.0,
+      "normalizer": 11.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 4.0,
+      "raw_excess": 4.0,
+      "normalizer": 4.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 11.0,
+      "raw_excess": 11.0,
+      "normalizer": 11.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 112.0,
+      "raw_excess": 112.0,
+      "normalizer": 112.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 3.0,
+      "raw_excess": 3.0,
+      "normalizer": 3.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 4.0,
+      "raw_excess": 4.0,
+      "normalizer": 4.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 5.0,
+      "raw_excess": 5.0,
+      "normalizer": 5.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 6.0,
+      "raw_excess": 6.0,
+      "normalizer": 6.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 5.0,
+      "raw_excess": 5.0,
+      "normalizer": 5.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 8.0,
+      "raw_excess": 8.0,
+      "normalizer": 8.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 3.0,
+      "raw_excess": 3.0,
+      "normalizer": 3.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 10.0,
+      "raw_excess": 10.0,
+      "normalizer": 10.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 3.0,
+      "raw_excess": 3.0,
+      "normalizer": 3.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 12.0,
+      "raw_excess": 12.0,
+      "normalizer": 12.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 3.0,
+      "raw_excess": 3.0,
+      "normalizer": 3.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 12.0,
+      "raw_excess": 12.0,
+      "normalizer": 12.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 9.0,
+      "raw_excess": 9.0,
+      "normalizer": 9.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 6.0,
+      "raw_excess": 6.0,
+      "normalizer": 6.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 7.0,
+      "raw_excess": 7.0,
+      "normalizer": 7.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 115.0,
+      "raw_excess": 115.0,
+      "normalizer": 115.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 7.0,
+      "raw_excess": 7.0,
+      "normalizer": 7.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 6.0,
+      "raw_excess": 6.0,
+      "normalizer": 6.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 3.0,
+      "raw_excess": 3.0,
+      "normalizer": 3.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 8.0,
+      "raw_excess": 8.0,
+      "normalizer": 8.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 5.0,
+      "raw_excess": 5.0,
+      "normalizer": 5.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 8.0,
+      "raw_excess": 8.0,
+      "normalizer": 8.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 9.0,
+      "raw_excess": 9.0,
+      "normalizer": 9.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 4.0,
+      "raw_excess": 4.0,
+      "normalizer": 4.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 7.0,
+      "raw_excess": 7.0,
+      "normalizer": 7.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 4.0,
+      "raw_excess": 4.0,
+      "normalizer": 4.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 7.0,
+      "raw_excess": 7.0,
+      "normalizer": 7.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 10.0,
+      "raw_excess": 10.0,
+      "normalizer": 10.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 7.0,
+      "raw_excess": 7.0,
+      "normalizer": 7.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 12.0,
+      "raw_excess": 12.0,
+      "normalizer": 12.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 3.0,
+      "raw_excess": 3.0,
+      "normalizer": 3.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 4.0,
+      "raw_excess": 4.0,
+      "normalizer": 4.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 3.0,
+      "raw_excess": 3.0,
+      "normalizer": 3.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 12.0,
+      "raw_excess": 12.0,
+      "normalizer": 12.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 101.0,
+      "raw_excess": 101.0,
+      "normalizer": 101.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 6.0,
+      "raw_excess": 6.0,
+      "normalizer": 6.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 3.0,
+      "raw_excess": 3.0,
+      "normalizer": 3.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 69.0,
+      "raw_excess": 69.0,
+      "normalizer": 69.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 3.0,
+      "raw_excess": 3.0,
+      "normalizer": 3.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 94.0,
+      "raw_excess": 94.0,
+      "normalizer": 94.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 3.0,
+      "raw_excess": 3.0,
+      "normalizer": 3.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 10.0,
+      "raw_excess": 10.0,
+      "normalizer": 10.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 3.0,
+      "raw_excess": 3.0,
+      "normalizer": 3.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 12.0,
+      "raw_excess": 12.0,
+      "normalizer": 12.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 101.0,
+      "raw_excess": 101.0,
+      "normalizer": 101.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 8.0,
+      "raw_excess": 8.0,
+      "normalizer": 8.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 75.0,
+      "raw_excess": 75.0,
+      "normalizer": 75.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 4.0,
+      "raw_excess": 4.0,
+      "normalizer": 4.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 80.0,
+      "raw_excess": 80.0,
+      "normalizer": 80.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 10.0,
+      "raw_excess": 10.0,
+      "normalizer": 10.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 11.0,
+      "raw_excess": 11.0,
+      "normalizer": 11.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 68.0,
+      "raw_excess": 68.0,
+      "normalizer": 68.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 65.0,
+      "raw_excess": 65.0,
+      "normalizer": 65.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 6.0,
+      "raw_excess": 6.0,
+      "normalizer": 6.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 5.0,
+      "raw_excess": 5.0,
+      "normalizer": 5.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 10.0,
+      "raw_excess": 10.0,
+      "normalizer": 10.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 61.0,
+      "raw_excess": 61.0,
+      "normalizer": 61.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 8.0,
+      "raw_excess": 8.0,
+      "normalizer": 8.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 9.0,
+      "raw_excess": 9.0,
+      "normalizer": 9.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 8.0,
+      "raw_excess": 8.0,
+      "normalizer": 8.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 5.0,
+      "raw_excess": 5.0,
+      "normalizer": 5.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 8.0,
+      "raw_excess": 8.0,
+      "normalizer": 8.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 9.0,
+      "raw_excess": 9.0,
+      "normalizer": 9.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 6.0,
+      "raw_excess": 6.0,
+      "normalizer": 6.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 11.0,
+      "raw_excess": 11.0,
+      "normalizer": 11.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 6.0,
+      "raw_excess": 6.0,
+      "normalizer": 6.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 7.0,
+      "raw_excess": 7.0,
+      "normalizer": 7.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 118.0,
+      "raw_excess": 118.0,
+      "normalizer": 118.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 73.0,
+      "raw_excess": 73.0,
+      "normalizer": 73.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 79.0,
+      "raw_excess": 79.0,
+      "normalizer": 79.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 74.0,
+      "raw_excess": 74.0,
+      "normalizer": 74.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 10.0,
+      "raw_excess": 10.0,
+      "normalizer": 10.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 9.0,
+      "raw_excess": 9.0,
+      "normalizer": 9.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 6.0,
+      "raw_excess": 6.0,
+      "normalizer": 6.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 9.0,
+      "raw_excess": 9.0,
+      "normalizer": 9.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 104.0,
+      "raw_excess": 104.0,
+      "normalizer": 104.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 7.0,
+      "raw_excess": 7.0,
+      "normalizer": 7.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 13,
+      "lhs": 0.0,
+      "rhs": 10.0,
+      "raw_excess": 10.0,
+      "normalizer": 10.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 20,
+      "lhs": 42368.99992162217,
+      "rhs": 0.0,
+      "raw_excess": 42368.99992162217,
+      "normalizer": 1e-05,
+      "ratio": 4236899992.1622167
+    }
+  ]
+}

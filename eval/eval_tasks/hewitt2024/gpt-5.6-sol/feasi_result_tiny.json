@@ -1,0 +1,611 @@
+{
+  "feasible": false,
+  "violated_constraints": [
+    6
+  ],
+  "violations": [
+    "Product 0, dist 1, scenario 0: z=0.000000 != sum(Y*x)=7480.666350; Product 0, dist 1, scenario 1: z=0.000000 != sum(Y*x)=6204.471300; Product 0, dist 1, scenario 2: z=0.000000 != sum(Y*x)=4118.433750; Product 0, dist 1, scenario 3: z=0.000000 != sum(Y*x)=8230.044900; Product 0, dist 1, scenario 4: z=0.000000 != sum(Y*x)=8987.740650; Product 0, dist 2, scenario 0: z=0.000000 != sum(Y*x)=8052.868800; Product 0, dist 2, scenario 1: z=0.000000 != sum(Y*x)=5409.104700; Product 0, dist 2, scenario 2: z=0.000000 != sum(Y*x)=5207.674950; Product 0, dist 2, scenario 3: z=0.000000 != sum(Y*x)=10515.765150; Product 0, dist 2, scenario 4: z=0.000000 != sum(Y*x)=14358.620400; Product 0, dist 3, scenario 0: z=0.000000 != sum(Y*x)=8862.484350; Product 0, dist 3, scenario 1: z=0.000000 != sum(Y*x)=6293.880600; Product 0, dist 3, scenario 2: z=0.000000 != sum(Y*x)=5990.413500; Product 0, dist 3, scenario 3: z=0.000000 != sum(Y*x)=7935.078150; Product 0, dist 3, scenario 4: z=0.000000 != sum(Y*x)=6431.951850; Product 1, dist 0, scenario 0: z=0.000000 != sum(Y*x)=31853.349382; Product 1, dist 0, scenario 1: z=0.000000 != sum(Y*x)=28824.081967; Product 1, dist 0, scenario 2: z=0.000000 != sum(Y*x)=21391.813016; Product 1, dist 0, scenario 3: z=0.000000 != sum(Y*x)=31028.908805; Product 1, dist 0, scenario 4: z=0.000000 != sum(Y*x)=28272.409321; Product 1, dist 2, scenario 0: z=0.000000 != sum(Y*x)=24523.160816; Product 1, dist 2, scenario 1: z=0.000000 != sum(Y*x)=25501.363811; Product 1, dist 2, scenario 2: z=0.000000 != sum(Y*x)=29188.864807; Product 1, dist 2, scenario 3: z=0.000000 != sum(Y*x)=24128.183835; Product 1, dist 2, scenario 4: z=0.000000 != sum(Y*x)=31671.078232; Product 1, dist 3, scenario 0: z=0.000000 != sum(Y*x)=27005.754646; Product 1, dist 3, scenario 1: z=0.000000 != sum(Y*x)=24568.570290; Product 1, dist 3, scenario 2: z=0.000000 != sum(Y*x)=29064.341335; Product 1, dist 3, scenario 3: z=0.000000 != sum(Y*x)=27104.918126; Product 1, dist 3, scenario 4: z=0.000000 != sum(Y*x)=23920.391486; Product 2, dist 1, scenario 0: z=0.000000 != sum(Y*x)=3087.179550; Product 2, dist 1, scenario 1: z=0.000000 != sum(Y*x)=3776.325702; Product 2, dist 1, scenario 2: z=0.000000 != sum(Y*x)=4353.149174; Product 2, dist 1, scenario 3: z=0.000000 != sum(Y*x)=3921.341336; Product 2, dist 1, scenario 4: z=0.000000 != sum(Y*x)=3570.574374; Product 2, dist 2, scenario 0: z=0.000000 != sum(Y*x)=4461.318647; Product 2, dist 2, scenario 1: z=0.000000 != sum(Y*x)=4441.486720; Product 2, dist 2, scenario 2: z=0.000000 != sum(Y*x)=3313.668043; Product 2, dist 2, scenario 3: z=0.000000 != sum(Y*x)=2172.021275; Product 2, dist 2, scenario 4: z=0.000000 != sum(Y*x)=2209.697409; Product 2, dist 3, scenario 0: z=0.000000 != sum(Y*x)=3698.018797; Product 2, dist 3, scenario 1: z=0.000000 != sum(Y*x)=2821.152864; Product 2, dist 3, scenario 2: z=0.000000 != sum(Y*x)=3091.237305; Product 2, dist 3, scenario 3: z=0.000000 != sum(Y*x)=2866.016931; Product 2, dist 3, scenario 4: z=0.000000 != sum(Y*x)=5164.801029; Product 3, dist 1, scenario 0: z=0.000000 != sum(Y*x)=12075.650601; Product 3, dist 1, scenario 1: z=0.000000 != sum(Y*x)=7485.698371; Product 3, dist 1, scenario 2: z=0.000000 != sum(Y*x)=9966.802552; Product 3, dist 1, scenario 3: z=0.000000 != sum(Y*x)=13183.734542; Product 3, dist 1, scenario 4: z=0.000000 != sum(Y*x)=11970.696549; Product 3, dist 2, scenario 0: z=0.000000 != sum(Y*x)=11213.618619; Product 3, dist 2, scenario 1: z=0.000000 != sum(Y*x)=10468.912479; Product 3, dist 2, scenario 2: z=0.000000 != sum(Y*x)=10631.201985; Product 3, dist 2, scenario 3: z=0.000000 != sum(Y*x)=15247.275272; Product 3, dist 2, scenario 4: z=0.000000 != sum(Y*x)=10373.038420; Product 3, dist 3, scenario 0: z=0.000000 != sum(Y*x)=10759.879719; Product 3, dist 3, scenario 1: z=0.000000 != sum(Y*x)=11974.962610; Product 3, dist 3, scenario 2: z=0.000000 != sum(Y*x)=9613.750364; Product 3, dist 3, scenario 3: z=0.000000 != sum(Y*x)=8144.054515; Product 3, dist 3, scenario 4: z=0.000000 != sum(Y*x)=12607.652893; Product 4, dist 0, scenario 0: z=0.000000 != sum(Y*x)=18590.213519; Product 4, dist 0, scenario 1: z=0.000000 != sum(Y*x)=21207.558695; Product 4, dist 0, scenario 2: z=0.000000 != sum(Y*x)=21459.729285; Product 4, dist 0, scenario 3: z=0.000000 != sum(Y*x)=21453.810369; Product 4, dist 0, scenario 4: z=0.000000 != sum(Y*x)=20735.945956; Product 4, dist 1, scenario 0: z=0.000000 != sum(Y*x)=19833.603632; Product 4, dist 1, scenario 1: z=0.000000 != sum(Y*x)=21713.678970; Product 4, dist 1, scenario 2: z=0.000000 != sum(Y*x)=20762.415243; Product 4, dist 1, scenario 3: z=0.000000 != sum(Y*x)=20275.108230; Product 4, dist 1, scenario 4: z=0.000000 != sum(Y*x)=21303.990722; Product 4, dist 3, scenario 0: z=0.000000 != sum(Y*x)=20267.221943; Product 4, dist 3, scenario 1: z=0.000000 != sum(Y*x)=20781.342764; Product 4, dist 3, scenario 2: z=0.000000 != sum(Y*x)=20544.291931; Product 4, dist 3, scenario 3: z=0.000000 != sum(Y*x)=20755.242302; Product 4, dist 3, scenario 4: z=0.000000 != sum(Y*x)=21110.390698"
+  ],
+  "violation_magnitudes": [
+    {
+      "constraint": 6,
+      "lhs": 0.0,
+      "rhs": 7480.66635,
+      "raw_excess": 7480.66635,
+      "normalizer": 7480.66635,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 6,
+      "lhs": 0.0,
+      "rhs": 6204.4713,
+      "raw_excess": 6204.4713,
+      "normalizer": 6204.4713,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 6,
+      "lhs": 0.0,
+      "rhs": 4118.43375,
+      "raw_excess": 4118.43375,
+      "normalizer": 4118.43375,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 6,
+      "lhs": 0.0,
+      "rhs": 8230.044899999999,
+      "raw_excess": 8230.044899999999,
+      "normalizer": 8230.044899999999,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 6,
+      "lhs": 0.0,
+      "rhs": 8987.74065,
+      "raw_excess": 8987.74065,
+      "normalizer": 8987.74065,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 6,
+      "lhs": 0.0,
+      "rhs": 8052.8688,
+      "raw_excess": 8052.8688,
+      "normalizer": 8052.8688,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 6,
+      "lhs": 0.0,
+      "rhs": 5409.1047,
+      "raw_excess": 5409.1047,
+      "normalizer": 5409.1047,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 6,
+      "lhs": 0.0,
+      "rhs": 5207.67495,
+      "raw_excess": 5207.67495,
+      "normalizer": 5207.67495,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 6,
+      "lhs": 0.0,
+      "rhs": 10515.765150000001,
+      "raw_excess": 10515.765150000001,
+      "normalizer": 10515.765150000001,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 6,
+      "lhs": 0.0,
+      "rhs": 14358.6204,
+      "raw_excess": 14358.6204,
+      "normalizer": 14358.6204,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 6,
+      "lhs": 0.0,
+      "rhs": 8862.48435,
+      "raw_excess": 8862.48435,
+      "normalizer": 8862.48435,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 6,
+      "lhs": 0.0,
+      "rhs": 6293.8806,
+      "raw_excess": 6293.8806,
+      "normalizer": 6293.8806,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 6,
+      "lhs": 0.0,
+      "rhs": 5990.413500000001,
+      "raw_excess": 5990.413500000001,
+      "normalizer": 5990.413500000001,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 6,
+      "lhs": 0.0,
+      "rhs": 7935.07815,
+      "raw_excess": 7935.07815,
+      "normalizer": 7935.07815,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 6,
+      "lhs": 0.0,
+      "rhs": 6431.9518499999995,
+      "raw_excess": 6431.9518499999995,
+      "normalizer": 6431.9518499999995,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 6,
+      "lhs": 0.0,
+      "rhs": 31853.34938220089,
+      "raw_excess": 31853.34938220089,
+      "normalizer": 31853.34938220089,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 6,
+      "lhs": 0.0,
+      "rhs": 28824.08196652341,
+      "raw_excess": 28824.08196652341,
+      "normalizer": 28824.08196652341,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 6,
+      "lhs": 0.0,
+      "rhs": 21391.81301569195,
+      "raw_excess": 21391.81301569195,
+      "normalizer": 21391.81301569195,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 6,
+      "lhs": 0.0,
+      "rhs": 31028.90880518117,
+      "raw_excess": 31028.90880518117,
+      "normalizer": 31028.90880518117,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 6,
+      "lhs": 0.0,
+      "rhs": 28272.40932056657,
+      "raw_excess": 28272.40932056657,
+      "normalizer": 28272.40932056657,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 6,
+      "lhs": 0.0,
+      "rhs": 24523.16081596419,
+      "raw_excess": 24523.16081596419,
+      "normalizer": 24523.16081596419,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 6,
+      "lhs": 0.0,
+      "rhs": 25501.363811411764,
+      "raw_excess": 25501.363811411764,
+      "normalizer": 25501.363811411764,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 6,
+      "lhs": 0.0,
+      "rhs": 29188.86480710066,
+      "raw_excess": 29188.86480710066,
+      "normalizer": 29188.86480710066,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 6,
+      "lhs": 0.0,
+      "rhs": 24128.18383535916,
+      "raw_excess": 24128.18383535916,
+      "normalizer": 24128.18383535916,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 6,
+      "lhs": 0.0,
+      "rhs": 31671.078232365107,
+      "raw_excess": 31671.078232365107,
+      "normalizer": 31671.078232365107,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 6,
+      "lhs": 0.0,
+      "rhs": 27005.754645686262,
+      "raw_excess": 27005.754645686262,
+      "normalizer": 27005.754645686262,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 6,
+      "lhs": 0.0,
+      "rhs": 24568.57029048066,
+      "raw_excess": 24568.57029048066,
+      "normalizer": 24568.57029048066,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 6,
+      "lhs": 0.0,
+      "rhs": 29064.341334660956,
+      "raw_excess": 29064.341334660956,
+      "normalizer": 29064.341334660956,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 6,
+      "lhs": 0.0,
+      "rhs": 27104.91812582196,
+      "raw_excess": 27104.91812582196,
+      "normalizer": 27104.91812582196,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 6,
+      "lhs": 0.0,
+      "rhs": 23920.391485621658,
+      "raw_excess": 23920.391485621658,
+      "normalizer": 23920.391485621658,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 6,
+      "lhs": 0.0,
+      "rhs": 3087.1795501394477,
+      "raw_excess": 3087.1795501394477,
+      "normalizer": 3087.1795501394477,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 6,
+      "lhs": 0.0,
+      "rhs": 3776.3257024594723,
+      "raw_excess": 3776.3257024594723,
+      "normalizer": 3776.3257024594723,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 6,
+      "lhs": 0.0,
+      "rhs": 4353.149174256804,
+      "raw_excess": 4353.149174256804,
+      "normalizer": 4353.149174256804,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 6,
+      "lhs": 0.0,
+      "rhs": 3921.341336378514,
+      "raw_excess": 3921.341336378514,
+      "normalizer": 3921.341336378514,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 6,
+      "lhs": 0.0,
+      "rhs": 3570.5743735095266,
+      "raw_excess": 3570.5743735095266,
+      "normalizer": 3570.5743735095266,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 6,
+      "lhs": 0.0,
+      "rhs": 4461.318647342568,
+      "raw_excess": 4461.318647342568,
+      "normalizer": 4461.318647342568,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 6,
+      "lhs": 0.0,
+      "rhs": 4441.486719988919,
+      "raw_excess": 4441.486719988919,
+      "normalizer": 4441.486719988919,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 6,
+      "lhs": 0.0,
+      "rhs": 3313.668043113595,
+      "raw_excess": 3313.668043113595,
+      "normalizer": 3313.668043113595,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 6,
+      "lhs": 0.0,
+      "rhs": 2172.0212748806634,
+      "raw_excess": 2172.0212748806634,
+      "normalizer": 2172.0212748806634,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 6,
+      "lhs": 0.0,
+      "rhs": 2209.6974091847633,
+      "raw_excess": 2209.6974091847633,
+      "normalizer": 2209.6974091847633,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 6,
+      "lhs": 0.0,
+      "rhs": 3698.018796581291,
+      "raw_excess": 3698.018796581291,
+      "normalizer": 3698.018796581291,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 6,
+      "lhs": 0.0,
+      "rhs": 2821.152863796411,
+      "raw_excess": 2821.152863796411,
+      "normalizer": 2821.152863796411,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 6,
+      "lhs": 0.0,
+      "rhs": 3091.237305431549,
+      "raw_excess": 3091.237305431549,
+      "normalizer": 3091.237305431549,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 6,
+      "lhs": 0.0,
+      "rhs": 2866.016930571242,
+      "raw_excess": 2866.016930571242,
+      "normalizer": 2866.016930571242,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 6,
+      "lhs": 0.0,
+      "rhs": 5164.801028954492,
+      "raw_excess": 5164.801028954492,
+      "normalizer": 5164.801028954492,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 6,
+      "lhs": 0.0,
+      "rhs": 12075.65060084118,
+      "raw_excess": 12075.65060084118,
+      "normalizer": 12075.65060084118,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 6,
+      "lhs": 0.0,
+      "rhs": 7485.698370578158,
+      "raw_excess": 7485.698370578158,
+      "normalizer": 7485.698370578158,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 6,
+      "lhs": 0.0,
+      "rhs": 9966.802551870824,
+      "raw_excess": 9966.802551870824,
+      "normalizer": 9966.802551870824,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 6,
+      "lhs": 0.0,
+      "rhs": 13183.734541919772,
+      "raw_excess": 13183.734541919772,
+      "normalizer": 13183.734541919772,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 6,
+      "lhs": 0.0,
+      "rhs": 11970.696548708458,
+      "raw_excess": 11970.696548708458,
+      "normalizer": 11970.696548708458,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 6,
+      "lhs": 0.0,
+      "rhs": 11213.618618749073,
+      "raw_excess": 11213.618618749073,
+      "normalizer": 11213.618618749073,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 6,
+      "lhs": 0.0,
+      "rhs": 10468.912479332179,
+      "raw_excess": 10468.912479332179,
+      "normalizer": 10468.912479332179,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 6,
+      "lhs": 0.0,
+      "rhs": 10631.20198470994,
+      "raw_excess": 10631.20198470994,
+      "normalizer": 10631.20198470994,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 6,
+      "lhs": 0.0,
+      "rhs": 15247.275272183404,
+      "raw_excess": 15247.275272183404,
+      "normalizer": 15247.275272183404,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 6,
+      "lhs": 0.0,
+      "rhs": 10373.038420453257,
+      "raw_excess": 10373.038420453257,
+      "normalizer": 10373.038420453257,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 6,
+      "lhs": 0.0,
+      "rhs": 10759.879718570748,
+      "raw_excess": 10759.879718570748,
+      "normalizer": 10759.879718570748,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 6,
+      "lhs": 0.0,
+      "rhs": 11974.962609928698,
+      "raw_excess": 11974.962609928698,
+      "normalizer": 11974.962609928698,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 6,
+      "lhs": 0.0,
+      "rhs": 9613.75036362606,
+      "raw_excess": 9613.75036362606,
+      "normalizer": 9613.75036362606,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 6,
+      "lhs": 0.0,
+      "rhs": 8144.054515390077,
+      "raw_excess": 8144.054515390077,
+      "normalizer": 8144.054515390077,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 6,
+      "lhs": 0.0,
+      "rhs": 12607.652893054226,
+      "raw_excess": 12607.652893054226,
+      "normalizer": 12607.652893054226,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 6,
+      "lhs": 0.0,
+      "rhs": 18590.213518901786,
+      "raw_excess": 18590.213518901786,
+      "normalizer": 18590.213518901786,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 6,
+      "lhs": 0.0,
+      "rhs": 21207.558694733965,
+      "raw_excess": 21207.558694733965,
+      "normalizer": 21207.558694733965,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 6,
+      "lhs": 0.0,
+      "rhs": 21459.729285116453,
+      "raw_excess": 21459.729285116453,
+      "normalizer": 21459.729285116453,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 6,
+      "lhs": 0.0,
+      "rhs": 21453.810368904356,
+      "raw_excess": 21453.810368904356,
+      "normalizer": 21453.810368904356,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 6,
+      "lhs": 0.0,
+      "rhs": 20735.945956248488,
+      "raw_excess": 20735.945956248488,
+      "normalizer": 20735.945956248488,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 6,
+      "lhs": 0.0,
+      "rhs": 19833.603631928163,
+      "raw_excess": 19833.603631928163,
+      "normalizer": 19833.603631928163,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 6,
+      "lhs": 0.0,
+      "rhs": 21713.678970042536,
+      "raw_excess": 21713.678970042536,
+      "normalizer": 21713.678970042536,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 6,
+      "lhs": 0.0,
+      "rhs": 20762.4152433118,
+      "raw_excess": 20762.4152433118,
+      "normalizer": 20762.4152433118,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 6,
+      "lhs": 0.0,
+      "rhs": 20275.108230431917,
+      "raw_excess": 20275.108230431917,
+      "normalizer": 20275.108230431917,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 6,
+      "lhs": 0.0,
+      "rhs": 21303.990721500268,
+      "raw_excess": 21303.990721500268,
+      "normalizer": 21303.990721500268,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 6,
+      "lhs": 0.0,
+      "rhs": 20267.221942513872,
+      "raw_excess": 20267.221942513872,
+      "normalizer": 20267.221942513872,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 6,
+      "lhs": 0.0,
+      "rhs": 20781.342764377558,
+      "raw_excess": 20781.342764377558,
+      "normalizer": 20781.342764377558,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 6,
+      "lhs": 0.0,
+      "rhs": 20544.291930728697,
+      "raw_excess": 20544.291930728697,
+      "normalizer": 20544.291930728697,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 6,
+      "lhs": 0.0,
+      "rhs": 20755.24230243055,
+      "raw_excess": 20755.24230243055,
+      "normalizer": 20755.24230243055,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 6,
+      "lhs": 0.0,
+      "rhs": 21110.390698313044,
+      "raw_excess": 21110.390698313044,
+      "normalizer": 21110.390698313044,
+      "ratio": 1.0
+    }
+  ]
+}

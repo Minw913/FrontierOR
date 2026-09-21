@@ -1,0 +1,330 @@
+{
+  "objective_value": 43,
+  "bins": {
+    "0": {
+      "items": [
+        0,
+        106
+      ],
+      "total_weight": 150
+    },
+    "1": {
+      "items": [
+        1,
+        17
+      ],
+      "total_weight": 150
+    },
+    "2": {
+      "items": [
+        2,
+        78
+      ],
+      "total_weight": 147
+    },
+    "3": {
+      "items": [
+        3,
+        104
+      ],
+      "total_weight": 150
+    },
+    "4": {
+      "items": [
+        4,
+        11
+      ],
+      "total_weight": 147
+    },
+    "5": {
+      "items": [
+        5,
+        13,
+        16
+      ],
+      "total_weight": 140
+    },
+    "6": {
+      "items": [
+        6,
+        89
+      ],
+      "total_weight": 150
+    },
+    "7": {
+      "items": [
+        7,
+        9,
+        23,
+        27
+      ],
+      "total_weight": 146
+    },
+    "8": {
+      "items": [
+        8,
+        49
+      ],
+      "total_weight": 150
+    },
+    "9": {
+      "items": [
+        10,
+        84,
+        86
+      ],
+      "total_weight": 150
+    },
+    "10": {
+      "items": [
+        12,
+        41,
+        82
+      ],
+      "total_weight": 150
+    },
+    "11": {
+      "items": [
+        14,
+        107
+      ],
+      "total_weight": 150
+    },
+    "12": {
+      "items": [
+        15,
+        58
+      ],
+      "total_weight": 150
+    },
+    "13": {
+      "items": [
+        18,
+        19,
+        39,
+        69
+      ],
+      "total_weight": 150
+    },
+    "14": {
+      "items": [
+        20,
+        50
+      ],
+      "total_weight": 148
+    },
+    "15": {
+      "items": [
+        21,
+        51,
+        54,
+        87
+      ],
+      "total_weight": 150
+    },
+    "16": {
+      "items": [
+        22,
+        38
+      ],
+      "total_weight": 148
+    },
+    "17": {
+      "items": [
+        24,
+        48
+      ],
+      "total_weight": 149
+    },
+    "18": {
+      "items": [
+        25,
+        30,
+        44,
+        85
+      ],
+      "total_weight": 147
+    },
+    "19": {
+      "items": [
+        26,
+        76,
+        97
+      ],
+      "total_weight": 150
+    },
+    "20": {
+      "items": [
+        28,
+        37,
+        71
+      ],
+      "total_weight": 146
+    },
+    "21": {
+      "items": [
+        29,
+        63,
+        103
+      ],
+      "total_weight": 148
+    },
+    "22": {
+      "items": [
+        31,
+        90
+      ],
+      "total_weight": 150
+    },
+    "23": {
+      "items": [
+        32,
+        57
+      ],
+      "total_weight": 150
+    },
+    "24": {
+      "items": [
+        33,
+        74
+      ],
+      "total_weight": 149
+    },
+    "25": {
+      "items": [
+        34,
+        81,
+        109
+      ],
+      "total_weight": 150
+    },
+    "26": {
+      "items": [
+        35,
+        43,
+        105,
+        108
+      ],
+      "total_weight": 150
+    },
+    "27": {
+      "items": [
+        36,
+        46
+      ],
+      "total_weight": 147
+    },
+    "28": {
+      "items": [
+        40,
+        45,
+        65,
+        98
+      ],
+      "total_weight": 150
+    },
+    "29": {
+      "items": [
+        42,
+        59,
+        102
+      ],
+      "total_weight": 150
+    },
+    "30": {
+      "items": [
+        47,
+        83
+      ],
+      "total_weight": 147
+    },
+    "31": {
+      "items": [
+        52,
+        70
+      ],
+      "total_weight": 150
+    },
+    "32": {
+      "items": [
+        53,
+        80
+      ],
+      "total_weight": 148
+    },
+    "33": {
+      "items": [
+        55,
+        64,
+        92
+      ],
+      "total_weight": 144
+    },
+    "34": {
+      "items": [
+        56,
+        75
+      ],
+      "total_weight": 147
+    },
+    "35": {
+      "items": [
+        60,
+        72,
+        73
+      ],
+      "total_weight": 142
+    },
+    "36": {
+      "items": [
+        61,
+        101
+      ],
+      "total_weight": 150
+    },
+    "37": {
+      "items": [
+        62,
+        66
+      ],
+      "total_weight": 149
+    },
+    "38": {
+      "items": [
+        67,
+        77,
+        99
+      ],
+      "total_weight": 150
+    },
+    "39": {
+      "items": [
+        68,
+        79
+      ],
+      "total_weight": 149
+    },
+    "40": {
+      "items": [
+        88,
+        100
+      ],
+      "total_weight": 150
+    },
+    "41": {
+      "items": [
+        91,
+        94,
+        96
+      ],
+      "total_weight": 150
+    },
+    "42": {
+      "items": [
+        93,
+        95
+      ],
+      "total_weight": 150
+    }
+  }
+}

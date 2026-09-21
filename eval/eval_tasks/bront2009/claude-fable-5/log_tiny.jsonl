@@ -1,0 +1,1 @@
+{"time": 0.01, "objective_value": 6590.413995679646, "solution": {"objective_value": 6590.413995679646, "active_columns": [{"offer_set": [1, 2], "time_allocated": 2.7719751788791105}, {"offer_set": [3, 7], "time_allocated": 16.96614283613284}, {"offer_set": [4, 8], "time_allocated": 2.1312648166413224}, {"offer_set": [1, 2, 3, 4, 5, 6], "time_allocated": 8.13061716834673}]}}

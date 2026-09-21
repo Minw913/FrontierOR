@@ -40,6 +40,7 @@ import requests
 import yaml
 
 ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
+DEFAULT_CHECKER_TIMEOUT = 300
 
 # Directory containing the per-(paper, model) ``code.py`` files to READ from.
 # Defaults to ``<repo>/eval/eval_tasks``; overridden via ``--code-root`` (e.g.
@@ -59,6 +60,7 @@ CODE_ROOT = None
 _DEFAULT_RESULTS_CSV = os.path.join(ROOT_DIR, "eval", "eval_results.csv")
 _RESULTS_CSV_OVERRIDE = None
 _results_csv_local = threading.local()
+_API_COST_CSV = os.path.join(ROOT_DIR, "eval", "one_shot_api_cost.csv")
 
 
 def get_results_csv_path():
@@ -68,6 +70,13 @@ def get_results_csv_path():
     if p:
         return p
     return _DEFAULT_RESULTS_CSV
+
+
+def set_api_cost_csv_path(path):
+    """Set a run-specific API cost CSV, for example on a large data volume."""
+    global _API_COST_CSV
+    _API_COST_CSV = os.path.abspath(os.path.expanduser(path))
+    os.makedirs(os.path.dirname(_API_COST_CSV), exist_ok=True)
 
 
 # Per-paper instance fan-out — overridable via --instance_workers. Set from
@@ -156,10 +165,12 @@ _MODEL_RESULTS_CSV = {
     "gemini-3.1-pro-preview":  "eval/eval_results_gemini31pro.csv",
     "gpt-5.3-codex":           "eval/eval_results_codex53.csv",
     "grok-4.20":               "eval/eval_results_grok420.csv",
+    "grok-4.20-beta":          "eval/eval_results_grok42beta.csv",
     "deepseek-r1":             "eval/eval_results_deepseekr1.csv",
     "qwen3-coder-plus":        "eval/eval_results_qwen3coder.csv",
     "llama-4-maverick":        "eval/eval_results_llama4maverick.csv",
     "gpt-5.6-sol":             "eval/eval_results_gpt56sol.csv",
+    "glm-5.2":                 "eval/eval_results_glm52.csv",
     "glm-5.3":                 "eval/eval_results_glm53.csv",
     "claude-fable-5":          "eval/eval_results_fable5.csv",
     "qwen3.8-max":             "eval/eval_results_qwen38max.csv",
@@ -504,6 +515,45 @@ def extract_python_code(text):
     return None
 
 
+def _add_token_usage(total, extra):
+    for k in ("prompt_tokens", "completion_tokens", "cached_tokens"):
+        total[k] += extra.get(k, 0)
+
+
+def _repair_missing_code_block(raw_reply, config, model):
+    """Ask the same model to reformat a no-code-block reply into exactly one
+    Python fenced block. This is intended for reasoning models that place the
+    program in reasoning/prose but fail the output format."""
+    token_usage = {"prompt_tokens": 0, "completion_tokens": 0, "cached_tokens": 0}
+    if not raw_reply:
+        return None, token_usage
+    repair_prompt = (
+        "Your previous response did not contain a valid fenced Python code "
+        "block. Extract the complete Python program from that response and "
+        "return exactly one fenced python code block. Do not explain, do not "
+        "summarize, and do not change the algorithm.\n\n"
+        "Previous response:\n"
+        f"{raw_reply}"
+    )
+    try:
+        repaired_reply, usage = call_openrouter(
+            [{"role": "user", "content": repair_prompt}],
+            config,
+            model,
+            temperature=0,
+        )
+        _add_token_usage(token_usage, usage)
+    except Exception as e:
+        print(f"  [format-repair] LLM API error: {e}")
+        return None, token_usage
+    code = extract_python_code(repaired_reply)
+    if code is None:
+        print("  [format-repair] no code block in repair response")
+        return None, token_usage
+    print("  [format-repair] recovered code block from no-code response")
+    return code, token_usage
+
+
 def load_model_pricing():
     """Load model pricing from configs/model_pricing.json."""
     pricing_path = os.path.join(ROOT_DIR, "configs", "model_pricing.json")
@@ -591,6 +641,9 @@ def run_feasibility_check(
         return None, "checker_unavailable", "Feasibility checker not found"
     if not os.path.exists(solution_path):
         return None, "checker_error", "Solution file not found for feasibility check"
+    checker_timeout = (exec_cfg or {}).get(
+        "checker_timeout", DEFAULT_CHECKER_TIMEOUT
+    )
     try:
         if bool((exec_cfg or {}).get("anti_hack")):
             success, checker_output, _ = run_checker_isolated(
@@ -600,7 +653,7 @@ def run_feasibility_check(
                 solution_file=solution_path,
                 result_file=result_path,
                 cfg=exec_cfg or {},
-                timeout=60,
+                timeout=checker_timeout,
             )
         else:
             success, checker_output, _ = run_bounded_process(
@@ -608,7 +661,7 @@ def run_feasibility_check(
                  "--instance_path", instance_path,
                  "--solution_path", solution_path,
                  "--result_path", result_path],
-                60,
+                checker_timeout,
             )
         if not success:
             print(f"    Feasibility check failed: {checker_output[:200]}")
@@ -1268,8 +1321,25 @@ def run_and_evaluate_instance(paper_id, model_name, idx, code_path,
     # Model-output files are keyed by name: solution_tiny.json, log_large_1.jsonl, etc.
     solution_path = os.path.join(model_dir, f"solution_{idx}.json")
     log_path = os.path.join(model_dir, f"log_{idx}.jsonl")
+    feasi_result_path = os.path.join(model_dir, f"feasi_result_{idx}.json")
     instance_path = _instance_path(paper_dir, idx)
     gurobi_solution_path = _gurobi_solution_path(paper_dir, idx)
+
+    # A previous successful attempt must never supply the checker artifact for
+    # this run.  Early evaluator failures still run the checker below whenever
+    # the candidate left a solution file, but keep their original fail_reason.
+    _reset_output_path(feasi_result_path)
+
+    def check_candidate_solution():
+        if not os.path.exists(solution_path):
+            return None, None, None
+        return run_feasibility_check(
+            paper_id,
+            instance_path,
+            solution_path,
+            feasi_result_path,
+            exec_cfg=exec_cfg,
+        )
 
     if not os.path.exists(instance_path):
         print(f"  Instance {idx}: SKIP — {instance_path} not found")
@@ -1354,24 +1424,26 @@ def run_and_evaluate_instance(paper_id, model_name, idx, code_path,
             shutil.rmtree(candidate_dir, ignore_errors=True)
 
     if output_error is not None:
+        checker_feasible, _, _ = check_candidate_solution()
         error = f"Invalid candidate output: {output_error}"
         print(f"  Instance {idx}: FAIL invalid_solution ({error[:120]})")
         res = {
             "status": "fail", "fail_reason": "invalid_solution", "retries": 0,
             "llm_obj": None,
             "gurobi_obj": read_gurobi_obj(gurobi_solution_path),
-            "solve_time": elapsed, "feasible": None, "gap": None,
+            "solve_time": elapsed, "feasible": checker_feasible, "gap": None,
             "aocc": 1.0, "error": error,
         }
         return res, f"Instance {idx}: invalid solution output:\n{error[:300]}"
 
     if not success:
+        checker_feasible, _, _ = check_candidate_solution()
         print(f"  Instance {idx}: FAIL runtime_error ({elapsed}s)")
         res = {
             "status": "fail", "fail_reason": "runtime_error", "retries": 0,
             "llm_obj": None,
             "gurobi_obj": read_gurobi_obj(gurobi_solution_path),
-            "solve_time": elapsed, "feasible": None, "gap": None,
+            "solve_time": elapsed, "feasible": checker_feasible, "gap": None,
             "aocc": 1.0, "error": output,
         }
         return res, f"Instance {idx}: execution failed:\n{output[:300]}"
@@ -1387,11 +1459,12 @@ def run_and_evaluate_instance(paper_id, model_name, idx, code_path,
         "LLM solution has non-numeric",
     )
     if err_msg and err_msg.startswith(invalid_prefixes):
+        checker_feasible, _, _ = check_candidate_solution()
         print(f"  Instance {idx}: FAIL invalid_solution ({err_msg[:120]})")
         res = {
             "status": "fail", "fail_reason": "invalid_solution", "retries": 0,
             "llm_obj": llm_obj, "gurobi_obj": gurobi_obj,
-            "solve_time": elapsed, "feasible": None, "gap": gap,
+            "solve_time": elapsed, "feasible": checker_feasible, "gap": gap,
             "aocc": 1.0, "error": err_msg,
         }
         return res, f"Instance {idx}: invalid solution output:\n{err_msg[:300]}"
@@ -1402,26 +1475,18 @@ def run_and_evaluate_instance(paper_id, model_name, idx, code_path,
     # (the constraints are satisfied) and produces a gigantic synthetic "beat"
     # in the staged_qte signed_gap. Treat as invalid -- no score credit.
     if not obj_is_sane(llm_obj, gurobi_obj):
+        checker_feasible, _, _ = check_candidate_solution()
         err = f"Implausible objective reported by program: llm_obj={llm_obj!r}, gurobi_obj={gurobi_obj!r}"
         print(f"  Instance {idx}: FAIL invalid_obj ({err[:140]})")
         res = {
             "status": "fail", "fail_reason": "invalid_obj", "retries": 0,
             "llm_obj": llm_obj, "gurobi_obj": gurobi_obj,
-            "solve_time": elapsed, "feasible": False, "gap": None,
+            "solve_time": elapsed, "feasible": checker_feasible, "gap": None,
             "aocc": 1.0, "error": err,
         }
         return res, f"Instance {idx}: {err}"
 
-    feasi_result_path = os.path.join(model_dir, f"feasi_result_{idx}.json")
-    if anti_hack:
-        _reset_output_path(feasi_result_path)
-    feasible, checker_reason, checker_error = run_feasibility_check(
-        paper_id,
-        instance_path,
-        solution_path,
-        feasi_result_path,
-        exec_cfg=exec_cfg,
-    )
+    feasible, checker_reason, checker_error = check_candidate_solution()
     feasi_str = str(feasible) if feasible is not None else "N/A"
 
     aocc_t_max = _resolve_t_max(t_max, paper_id, idx)
@@ -1596,13 +1661,17 @@ def _generate_initial_code(prompt, config, model, code_path, attempt0_path,
         transient_err = None
         try:
             assistant_reply, usage = call_openrouter(messages, config, model)
-            token_usage["prompt_tokens"] += usage["prompt_tokens"]
-            token_usage["completion_tokens"] += usage["completion_tokens"]
-            token_usage["cached_tokens"] += usage.get("cached_tokens", 0)
+            _add_token_usage(token_usage, usage)
         except Exception as e:
             transient_err = f"LLM API error: {e}"
         else:
             code = extract_python_code(assistant_reply)
+            if code is None:
+                print(f"  [init-gen {init_attempt + 1}] No code block in response; trying format repair...")
+                code, repair_usage = _repair_missing_code_block(
+                    assistant_reply, config, model
+                )
+                _add_token_usage(token_usage, repair_usage)
             if code is None:
                 transient_err = "No code block in response"
             else:
@@ -1638,15 +1707,20 @@ def generate_candidate_code(prompt, config, model, output_dir, candidate_id,
             assistant_reply, usage = call_openrouter(
                 messages, config, model, temperature=temperature
             )
-            token_usage["prompt_tokens"] += usage["prompt_tokens"]
-            token_usage["completion_tokens"] += usage["completion_tokens"]
-            token_usage["cached_tokens"] += usage.get("cached_tokens", 0)
+            _add_token_usage(token_usage, usage)
         except Exception as e:
             last_error = f"LLM API error: {e}"
             print(f"  [candidate {candidate_id} gen {attempt + 1}/{init_gen_max}] {last_error}")
             continue
 
         code = extract_python_code(assistant_reply)
+        if code is None:
+            print(f"  [candidate {candidate_id} gen {attempt + 1}/{init_gen_max}] "
+                  "No Python code block in response; trying format repair...")
+            code, repair_usage = _repair_missing_code_block(
+                assistant_reply, config, model
+            )
+            _add_token_usage(token_usage, repair_usage)
         if code is None:
             last_error = "No Python code block in response"
             print(f"  [candidate {candidate_id} gen {attempt + 1}/{init_gen_max}] {last_error}")
@@ -1693,9 +1767,7 @@ def _self_correct_once(prompt, cur_code, errors_str, config, model,
     ]
     try:
         assistant_reply, usage = call_openrouter(messages, config, model)
-        token_usage["prompt_tokens"] += usage["prompt_tokens"]
-        token_usage["completion_tokens"] += usage["completion_tokens"]
-        token_usage["cached_tokens"] += usage.get("cached_tokens", 0)
+        _add_token_usage(token_usage, usage)
     except Exception as e:
         print(f"  self-correction LLM API error: {e}")
         return None, token_usage
@@ -1806,14 +1878,19 @@ def _get_csv_done_instances(paper_id, model_name):
     done = set()
     if not os.path.exists(csv_path):
         return done
-    with open(csv_path, "r", newline="") as f:
-        reader = csv.DictReader(f)
-        for row in reader:
-            if row.get("paper_id") != paper_id or row.get("model") != model_name:
-                continue
-            inst = (row.get("instance") or "").strip()
-            if inst:
-                done.add(inst)
+    # Writers replace the full CSV in place.  Readers must share the same
+    # lock or a high-concurrency resume can observe the file after truncation
+    # but before all rows have been rewritten, incorrectly treating a frozen
+    # tiny result as missing.
+    with _csv_file_lock(csv_path):
+        with open(csv_path, "r", newline="") as f:
+            reader = csv.DictReader(f)
+            for row in reader:
+                if row.get("paper_id") != paper_id or row.get("model") != model_name:
+                    continue
+                inst = (row.get("instance") or "").strip()
+                if inst:
+                    done.add(inst)
     return done
 
 
@@ -1851,30 +1928,31 @@ def _read_prev_result_rows(paper_id, model_name):
         except (ValueError, TypeError):
             return 0
 
-    with open(csv_path, "r", newline="") as f:
-        reader = csv.DictReader(f)
-        for row in reader:
-            if row.get("paper_id") != paper_id or row.get("model") != model_name:
-                continue
-            inst = (row.get("instance") or "").strip()
-            if not inst:
-                continue
-            debug_r = _to_int(row.get("debug_retries"))
-            corr_r = _to_int(row.get("correction_retries"))
-            out[inst] = {
-                "status": row.get("status") or None,
-                "fail_reason": row.get("fail_reason") or None,
-                "error": row.get("error") or None,
-                "llm_obj": _to_float(row.get("obj")),
-                "gurobi_obj": None,
-                "solve_time": _to_float(row.get("time")),
-                "feasible": _to_bool(row.get("feasible")),
-                "gap": _to_float(row.get("gap")),
-                "aocc": _to_float(row.get("aocc")),
-                "retries": debug_r + corr_r,
-                "debug_retries": debug_r,
-                "correction_retries": corr_r,
-            }
+    with _csv_file_lock(csv_path):
+        with open(csv_path, "r", newline="") as f:
+            reader = csv.DictReader(f)
+            for row in reader:
+                if row.get("paper_id") != paper_id or row.get("model") != model_name:
+                    continue
+                inst = (row.get("instance") or "").strip()
+                if not inst:
+                    continue
+                debug_r = _to_int(row.get("debug_retries"))
+                corr_r = _to_int(row.get("correction_retries"))
+                out[inst] = {
+                    "status": row.get("status") or None,
+                    "fail_reason": row.get("fail_reason") or None,
+                    "error": row.get("error") or None,
+                    "llm_obj": _to_float(row.get("obj")),
+                    "gurobi_obj": None,
+                    "solve_time": _to_float(row.get("time")),
+                    "feasible": _to_bool(row.get("feasible")),
+                    "gap": _to_float(row.get("gap")),
+                    "aocc": _to_float(row.get("aocc")),
+                    "retries": debug_r + corr_r,
+                    "debug_retries": debug_r,
+                    "correction_retries": corr_r,
+                }
     return out
 
 
@@ -1908,21 +1986,22 @@ def _read_prev_first_results(paper_id, model_name):
             return False
         return None
 
-    with open(csv_path, "r", newline="") as f:
-        reader = csv.DictReader(f)
-        for row in reader:
-            if row.get("paper_id") != paper_id or row.get("model") != model_name:
-                continue
-            inst = (row.get("instance") or "").strip()
-            if not inst:
-                continue
-            out[inst] = {
-                "status": row.get("first_status") or None,
-                "fail_reason": row.get("first_fail_reason") or None,
-                "feasible": _to_bool(row.get("first_feasible")),
-                "solve_time": _to_float(row.get("first_time")),
-                "llm_obj": _to_float(row.get("first_obj")),
-            }
+    with _csv_file_lock(csv_path):
+        with open(csv_path, "r", newline="") as f:
+            reader = csv.DictReader(f)
+            for row in reader:
+                if row.get("paper_id") != paper_id or row.get("model") != model_name:
+                    continue
+                inst = (row.get("instance") or "").strip()
+                if not inst:
+                    continue
+                out[inst] = {
+                    "status": row.get("first_status") or None,
+                    "fail_reason": row.get("first_fail_reason") or None,
+                    "feasible": _to_bool(row.get("first_feasible")),
+                    "solve_time": _to_float(row.get("first_time")),
+                    "llm_obj": _to_float(row.get("first_obj")),
+                }
     return out
 
 
@@ -2147,7 +2226,7 @@ def write_api_cost_row(paper_id, model_name, model_id, token_usage):
     for the same (paper_id, model), so the row reflects total spend across
     all invocations. Thread-safe + cross-process safe via fcntl.flock.
     """
-    csv_path = os.path.join(ROOT_DIR, "eval", "one_shot_api_cost.csv")
+    csv_path = _API_COST_CSV
 
     prompt_tokens = int(token_usage.get("prompt_tokens", 0) or 0)
     completion_tokens = int(token_usage.get("completion_tokens", 0) or 0)
@@ -2481,13 +2560,21 @@ def _process_paper_model_inner(paper_id, config, model, instance_indices,
         print_summary(results)
         return
 
-    # --- Run code on runnable instances to populate first_results ---
-    print(f"\n  --- Running code_v0 on instances {runnable_indices} "
-          f"for first_results ---")
-    v0_results, _ = _run_all_instances(
-        paper_id, model_name, runnable_indices, code_path,
-        time_limit, exec_mode, exec_cfg, t_max
-    )
+    # Strict tiny gate: before Phase 1 resolves, run only the tiny instance.
+    # Large instances must not execute speculatively; otherwise a failing
+    # tiny gate can still burn multi-hour large runs and the evaluation no
+    # longer represents "tiny gate first, then large".
+    tiny_runnable = [tiny_idx] if tiny_idx not in csv_done else []
+    if tiny_runnable:
+        print(f"\n  --- Running code_v0 on tiny instance {tiny_runnable} "
+              f"for first_results ---")
+        v0_results, _ = _run_all_instances(
+            paper_id, model_name, tiny_runnable, code_path,
+            time_limit, exec_mode, exec_cfg, t_max
+        )
+    else:
+        v0_results = {}
+
     # Under --reuse-code the code on disk is NOT the historical v0 (it has
     # been overwritten by prior self-corrections), so v0_results reflects
     # the current post-correction state. Preserve the true historical
@@ -2501,10 +2588,10 @@ def _process_paper_model_inner(paper_id, config, model, instance_indices,
             # Frozen: use CSV as both first_* (historical) and current.
             results[idx] = dict(prev_rows.get(idx, {}))
             first_results[idx] = dict(historical_first.get(idx, prev_rows.get(idx, {})))
-        elif reuse_code and idx in historical_first:
+        elif idx in v0_results and reuse_code and idx in historical_first:
             first_results[idx] = dict(historical_first[idx])
             results[idx] = dict(v0_results.get(idx, {}))
-        else:
+        elif idx in v0_results:
             first_results[idx] = dict(v0_results.get(idx, {}))
             results[idx] = dict(v0_results.get(idx, {}))
 
@@ -2530,10 +2617,12 @@ def _process_paper_model_inner(paper_id, config, model, instance_indices,
         res["correction_retries"] = retries_used
         return res
 
-    def _rt_indices():
+    def _rt_indices(scope_indices=None):
         """Instances currently in non-timeout runtime_error state. Excludes
         CSV-frozen (incomplete-mode) instances."""
-        return [idx for idx in runnable_indices
+        scope = runnable_indices if scope_indices is None else scope_indices
+        return [idx for idx in scope
+                if idx in results
                 if results[idx].get("fail_reason") == "runtime_error"
                 and not _is_timeout_error(results[idx])]
 
@@ -2544,7 +2633,7 @@ def _process_paper_model_inner(paper_id, config, model, instance_indices,
           f"(budget={debug_budget} remaining of {max_debug_retries}, "
           f"already used={debug_used}) ---")
     while debug_budget > 0:
-        err_rt = _collect_debug_errors(results, runnable_indices)
+        err_rt = _collect_debug_errors(results, tiny_runnable)
         if not err_rt:
             break
         debug_budget -= 1
@@ -2562,7 +2651,7 @@ def _process_paper_model_inner(paper_id, config, model, instance_indices,
         if new_code is None:
             continue
         code_changed_since_v0 = True
-        rerun_subset = _rt_indices()
+        rerun_subset = _rt_indices(tiny_runnable)
         subset_results, _ = _run_all_instances(
             paper_id, model_name, rerun_subset, code_path,
             time_limit, exec_mode, exec_cfg, t_max
@@ -2654,14 +2743,12 @@ def _process_paper_model_inner(paper_id, config, model, instance_indices,
     flush_results([tiny_idx], results, first_results)
 
     # --- Phase 2: remaining instances, relaxed correction trigger ---
-    # If Phase 0/1 made corrections, cached v0 results for remaining instances
-    # are stale — re-run remaining with current code. Otherwise v0 results are
-    # still valid for `results` (they equal first_results). CSV-frozen
-    # instances are never re-run.
+    # Only now, after the tiny gate has passed, run large instances for the
+    # first time. CSV-frozen instances are never re-run.
     runnable_remaining = [i for i in remaining_indices if i not in csv_done]
-    if runnable_remaining and code_changed_since_v0:
-        print(f"\n  --- Phase 2: re-running remaining instances {runnable_remaining} "
-              f"with current code ---")
+    if runnable_remaining:
+        print(f"\n  --- Phase 2: running remaining instances {runnable_remaining} "
+              f"after tiny gate passed ---")
         rem_results, _ = _run_all_instances(
             paper_id, model_name, runnable_remaining, code_path,
             time_limit, exec_mode, exec_cfg, t_max
@@ -2669,10 +2756,10 @@ def _process_paper_model_inner(paper_id, config, model, instance_indices,
         for idx, r in rem_results.items():
             _apply_retries(r)
             results[idx] = r
-    elif runnable_remaining:
-        print(f"\n  --- Phase 2: v0 code passed gate; reusing v0 results for "
-              f"instances {runnable_remaining} ---")
-        # results already == first_results for those; nothing to rerun.
+            if reuse_code and idx in historical_first:
+                first_results[idx] = dict(historical_first[idx])
+            else:
+                first_results[idx] = dict(r)
 
     # Phase 2 dispatch loop:
     #   non-timeout runtime_error  -> debug_budget, re-run only failing instances
@@ -2866,8 +2953,27 @@ def main():
     )
     parser.add_argument("--cpus", type=int, default=1,
                         help="CPU cores for systemd/docker execution (default: 1).")
-    parser.add_argument("--memory", type=str, default="640G",
-                        help="Memory limit for systemd/docker execution (default: 640G).")
+    parser.add_argument("--memory", type=str, default="100G",
+                        help="Per-candidate memory limit for systemd/docker execution "
+                             "(default: 100G).")
+    parser.add_argument(
+        "--checker-timeout",
+        type=int,
+        default=DEFAULT_CHECKER_TIMEOUT,
+        help=(
+            "Maximum feasibility-checker runtime in seconds "
+            f"(default: {DEFAULT_CHECKER_TIMEOUT})."
+        ),
+    )
+    parser.add_argument(
+        "--temp-dir",
+        type=str,
+        default=None,
+        help=(
+            "Directory for evaluator and candidate temporary files. Use a "
+            "scratch filesystem when the system /tmp quota is small."
+        ),
+    )
     parser.add_argument(
         "--max_snapshot_checks",
         type=int,
@@ -2886,6 +2992,17 @@ def main():
     parser.add_argument("--instances", nargs="+", default=None,
                         help="Categorical instance names to run (e.g., --instances tiny large_1). "
                              f"Default: {' '.join(DEFAULT_INSTANCES)}.")
+    parser.add_argument(
+        "--task-plan-json",
+        type=str,
+        default=None,
+        help=(
+            "JSON plan with groups [{paper_id, model, instances}] to run exact "
+            "(paper, model, instance) subsets. model is the short model name. "
+            "When set, --paper_id/--models/--instances are used only for "
+            "fallback/default display; scheduling follows this plan."
+        ),
+    )
     parser.add_argument("--skip-existing", action="store_true",
                         help="Skip (paper, model) pairs that already have generated code.")
     parser.add_argument("--reuse-code", nargs="?", const="all",
@@ -2909,7 +3026,35 @@ def main():
                         help="Path to the results CSV (default: "
                              "eval/eval_results.csv). Use a per-run file to "
                              "isolate outputs from parallel one_shot_eval.py runs.")
+    parser.add_argument(
+        "--api-cost-csv",
+        type=str,
+        default=None,
+        help=(
+            "Path to the API usage/cost CSV (default: "
+            "eval/one_shot_api_cost.csv)."
+        ),
+    )
     args = parser.parse_args()
+    if args.checker_timeout <= 0:
+        parser.error("--checker-timeout must be a positive integer")
+    if args.temp_dir:
+        evaluator_temp_dir = os.path.abspath(os.path.expanduser(args.temp_dir))
+        try:
+            os.makedirs(evaluator_temp_dir, exist_ok=True)
+        except OSError as exc:
+            parser.error(f"cannot create --temp-dir {evaluator_temp_dir!r}: {exc}")
+        if not os.path.isdir(evaluator_temp_dir) or not os.access(
+            evaluator_temp_dir, os.W_OK | os.X_OK
+        ):
+            parser.error(
+                f"--temp-dir must be a writable directory: {evaluator_temp_dir!r}"
+            )
+        # tempfile caches its selected directory, so set both the process
+        # environment (for candidates) and the module override (for this
+        # already-imported evaluator).
+        os.environ["TMPDIR"] = evaluator_temp_dir
+        tempfile.tempdir = evaluator_temp_dir
     try:
         validate_anti_hack_runtime(
             enabled=args.anti_hack,
@@ -2930,6 +3075,31 @@ def main():
     # "--models all" is an alias for "every configured model" (== omitted).
     if args.models and [m.lower() for m in args.models] == ["all"]:
         args.models = None
+    task_plan = None
+    if args.task_plan_json:
+        try:
+            with open(args.task_plan_json, "r", encoding="utf-8") as f:
+                task_plan_data = json.load(f)
+        except (OSError, json.JSONDecodeError) as e:
+            print(f"ERROR: cannot read --task-plan-json {args.task_plan_json!r}: {e}", file=sys.stderr)
+            sys.exit(1)
+        task_plan = task_plan_data.get("groups", task_plan_data)
+        if not isinstance(task_plan, list):
+            print("ERROR: --task-plan-json must be a list or an object with a 'groups' list", file=sys.stderr)
+            sys.exit(1)
+        for i, row in enumerate(task_plan):
+            if not isinstance(row, dict):
+                print(f"ERROR: task plan row {i} is not an object", file=sys.stderr)
+                sys.exit(1)
+            if not row.get("paper_id") or not row.get("model") or not row.get("instances"):
+                print(f"ERROR: task plan row {i} must contain paper_id, model, instances", file=sys.stderr)
+                sys.exit(1)
+        args.paper_id = sorted({row["paper_id"] for row in task_plan})
+        if args.instances is None:
+            order = {name: i for i, name in enumerate(DEFAULT_INSTANCES)}
+            names = {name for row in task_plan for name in row["instances"]}
+            args.instances = sorted(names, key=lambda name: (order.get(name, 10_000), name))
+
     if not args.paper_id:
         if args.paper_tag:
             args.paper_id = _load_paper_ids_by_tag(args.paper_tag)
@@ -2971,6 +3141,9 @@ def main():
                 print(f"  {m:25s} -> {target}")
         else:
             print(f"Results CSV: per-model auto-routing for all configured models")
+    if args.api_cost_csv:
+        set_api_cost_csv_path(args.api_cost_csv)
+    print(f"API cost CSV: {_API_COST_CSV}")
     gurobi_license = configure_gurobi_license()
 
     # Parse instance names (categorical: "tiny", "large_1", ...)
@@ -3006,7 +3179,15 @@ def main():
     config = load_config(require_api_key=args.reuse_code != "all")
     all_models = config["models"]
 
-    if args.models:
+    if task_plan is not None:
+        requested_model_names = sorted({row["model"] for row in task_plan})
+        models = [m for m in all_models if get_model_short_name(m) in requested_model_names]
+        unknown = set(requested_model_names) - {get_model_short_name(m) for m in all_models}
+        if unknown:
+            print(f"ERROR: task plan references unknown model(s) {sorted(unknown)}, "
+                  f"available: {[get_model_short_name(m) for m in all_models]}", file=sys.stderr)
+            sys.exit(1)
+    elif args.models:
         models = [m for m in all_models if get_model_short_name(m) in args.models]
         unknown = set(args.models) - {get_model_short_name(m) for m in all_models}
         if unknown:
@@ -3019,6 +3200,8 @@ def main():
     print(f"Models: {models}")
     print(f"Papers: {args.paper_id}")
     print(f"Instances: {instance_indices}")
+    if task_plan is not None:
+        print(f"Task plan: {args.task_plan_json} ({len(task_plan)} paper/model group(s))")
     print(f"Data dir: {get_data_dir()}")
     print(f"GRB_LICENSE_FILE: {gurobi_license or os.environ.get('GRB_LICENSE_FILE') or '<not set>'}")
     exec_mode = args.exec_mode
@@ -3026,6 +3209,7 @@ def main():
         {
             "cpus": args.cpus,
             "memory": args.memory,
+            "checker_timeout": args.checker_timeout,
             "wls_egress": args.wls_egress,
             "max_snapshot_checks": args.max_snapshot_checks,
         },
@@ -3051,6 +3235,10 @@ def main():
           f"Paper workers: {args.paper_workers}, Model workers: {args.model_workers}, "
           f"Instance workers: {args.instance_workers}")
     print(f"Exec: {exec_mode} (mem={args.memory}), T_max: {t_max or 'time_limit'}")
+    print(
+        f"Checker timeout: {args.checker_timeout}s, "
+        f"Temp dir: {tempfile.gettempdir()}"
+    )
     if reuse_code == "all":
         print("Mode: REUSE-CODE=all (reuse code.py on disk; "
               "fresh init-gen where missing; run all --instances)")
@@ -3082,15 +3270,30 @@ def main():
         print(f"[WARN] {len(skipped_papers)} paper(s) skipped due to missing schema: "
               f"{skipped_papers[:5]}{'...' if len(skipped_papers)>5 else ''}")
 
-    tasks = [(p, m) for p in paper_contexts for m in models]
+    if task_plan is None:
+        tasks = [(p, m, instance_indices) for p in paper_contexts for m in models]
+    else:
+        model_by_short_name = {get_model_short_name(m): m for m in models}
+        tasks = []
+        for row in task_plan:
+            paper_id = row["paper_id"]
+            if paper_id not in paper_contexts:
+                continue
+            model = model_by_short_name[row["model"]]
+            try:
+                row_instances = parse_instances_arg(row["instances"])
+            except ValueError as e:
+                print(f"ERROR: invalid instances for task plan row {row}: {e}", file=sys.stderr)
+                sys.exit(1)
+            tasks.append((paper_id, model, row_instances))
     print(f"[task-pool] dispatching {len(tasks)} (paper, model) tasks "
           f"across {total_workers} worker(s) "
           f"(paper_workers × model_workers = {args.paper_workers} × {args.model_workers})")
 
-    def _run_one(paper_id, model):
+    def _run_one(paper_id, model, task_instance_indices):
         prompt, gurobi_csv_data = paper_contexts[paper_id]
         process_paper_model(
-            paper_id, config, model, instance_indices,
+            paper_id, config, model, task_instance_indices,
             args.max_correct_retries, eval_time_limit, prompt, gurobi_csv_data,
             exec_mode=exec_mode, exec_cfg=exec_cfg, t_max=t_max,
             skip_existing=args.skip_existing, reuse_code=reuse_code,
@@ -3098,14 +3301,14 @@ def main():
         )
 
     if total_workers <= 1:
-        for p, m in tasks:
+        for p, m, task_instances in tasks:
             try:
-                _run_one(p, m)
+                _run_one(p, m, task_instances)
             except Exception as e:
                 print(f"[ERROR] paper={p} model={m}: {e}", file=sys.stderr)
     else:
         with ThreadPoolExecutor(max_workers=total_workers) as pool:
-            futures = {pool.submit(_run_one, p, m): (p, m) for p, m in tasks}
+            futures = {pool.submit(_run_one, p, m, task_instances): (p, m) for p, m, task_instances in tasks}
             for future in as_completed(futures):
                 p, m = futures[future]
                 try:

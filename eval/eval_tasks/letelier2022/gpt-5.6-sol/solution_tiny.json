@@ -1,0 +1,141 @@
+{
+  "objective_value": 8.0,
+  "assignments": [
+    {
+      "item_id": 0,
+      "bin": 1,
+      "period": 7,
+      "weight": 46
+    },
+    {
+      "item_id": 1,
+      "bin": 1,
+      "period": 15,
+      "weight": 31
+    },
+    {
+      "item_id": 2,
+      "bin": 1,
+      "period": 20,
+      "weight": 30
+    },
+    {
+      "item_id": 3,
+      "bin": 1,
+      "period": 3,
+      "weight": 13
+    },
+    {
+      "item_id": 4,
+      "bin": 1,
+      "period": 12,
+      "weight": 25
+    },
+    {
+      "item_id": 5,
+      "bin": 2,
+      "period": 19,
+      "weight": 36
+    },
+    {
+      "item_id": 6,
+      "bin": 1,
+      "period": 3,
+      "weight": 40
+    },
+    {
+      "item_id": 7,
+      "bin": 1,
+      "period": 8,
+      "weight": 47
+    },
+    {
+      "item_id": 8,
+      "bin": 1,
+      "period": 12,
+      "weight": 28
+    },
+    {
+      "item_id": 9,
+      "bin": 1,
+      "period": 15,
+      "weight": 13
+    },
+    {
+      "item_id": 10,
+      "bin": 1,
+      "period": 19,
+      "weight": 42
+    }
+  ],
+  "active_bin_periods": [
+    {
+      "bin": 1,
+      "period": 3,
+      "items": [
+        3,
+        6
+      ],
+      "total_weight": 53
+    },
+    {
+      "bin": 1,
+      "period": 7,
+      "items": [
+        0
+      ],
+      "total_weight": 46
+    },
+    {
+      "bin": 1,
+      "period": 8,
+      "items": [
+        7
+      ],
+      "total_weight": 47
+    },
+    {
+      "bin": 1,
+      "period": 12,
+      "items": [
+        4,
+        8
+      ],
+      "total_weight": 53
+    },
+    {
+      "bin": 1,
+      "period": 15,
+      "items": [
+        1,
+        9
+      ],
+      "total_weight": 44
+    },
+    {
+      "bin": 1,
+      "period": 19,
+      "items": [
+        10
+      ],
+      "total_weight": 42
+    },
+    {
+      "bin": 2,
+      "period": 19,
+      "items": [
+        5
+      ],
+      "total_weight": 36
+    },
+    {
+      "bin": 1,
+      "period": 20,
+      "items": [
+        2
+      ],
+      "total_weight": 30
+    }
+  ],
+  "num_active_bin_periods": 8
+}

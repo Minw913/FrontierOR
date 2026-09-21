@@ -1,0 +1,21 @@
+{
+  "feasible": false,
+  "violated_constraints": [
+    2,
+    4,
+    5,
+    "completion_feasibility"
+  ],
+  "violations": [
+    "unknown/non-reschedulable canceled tasks: ['T00001', 'T00003', 'T00006', 'T00008', 'T00010']",
+    "D0000: return_station=S003 does not match derived S002",
+    "D0000: return_time_minutes does not match derived return time",
+    "D0000: cost=0.0 does not match derived 400",
+    "D0001: no timely connection to task T00002",
+    "D0004: return_time_minutes does not match derived return time",
+    "D0004: cost=0.0 does not match derived 400",
+    "tasks neither covered nor canceled: ['T00002', 'T00014', 'T00022']",
+    "objective_value=687102.0 does not match exact completion plus cancellation cost 586500.0"
+  ],
+  "violation_magnitudes": []
+}

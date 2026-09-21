@@ -1,0 +1,99 @@
+{
+  "schema_version": 1,
+  "model": "openai/gpt-5.6-sol",
+  "paper_ids": "artifact/hardset_id.json",
+  "paper_count": 50,
+  "results_csv": "eval/eval_results_gpt56sol.csv",
+  "execution": {
+    "backend": "systemd",
+    "anti_hack": false,
+    "tiny_time_limit_seconds": 300,
+    "large_time_limit_seconds": 3600,
+    "t_max": "gurobi",
+    "max_debug_retries": 5,
+    "max_correct_retries": 0,
+    "large_workers": {
+      "paper": 10,
+      "model": 1,
+      "instance": 50
+    }
+  },
+  "results": {
+    "total_rows": 300,
+    "unique_paper_instance_pairs": 300,
+    "missing": 0,
+    "extra": 0,
+    "duplicate_rows": 0,
+    "tiny": {
+      "pass": 35,
+      "fail": 15,
+      "gate_fail": 0
+    },
+    "large": {
+      "pass": 28,
+      "fail": 147,
+      "gate_fail": 75
+    },
+    "large_failures": {
+      "timeout": 137,
+      "infeasible": 6,
+      "missing_instance": 2,
+      "gap_exceeds": 2
+    }
+  },
+  "validation": {
+    "tiny_rows_unchanged": true,
+    "all_63_pass_rows_have_feasible_checker_result": true,
+    "no_gate_fail_rows_for_tiny_passing_papers": true,
+    "cost_rows_unchanged_except_order": true
+  },
+  "cost": {
+    "api_cost_usd": 4.09966,
+    "prompt_tokens": 118076,
+    "completion_tokens": 387825,
+    "additional_large_api_cost_usd": 0
+  },
+  "large_outputs": {
+    "solution_files": 36,
+    "checker_result_files": 36,
+    "raw_log_files": 173,
+    "raw_log_bytes": 2074372951,
+    "log_manifest": "artifact/oneshot_gpt56sol_large_log_manifest_20260907.json"
+  },
+  "reruns": [
+    {
+      "paper": "fragkos2021",
+      "reason": "Initial sandbox copy failed with system disk quota exceeded.",
+      "action": "Reran all five large instances with TMPDIR on /scratch.",
+      "outcome": "Five execution timeouts; all rows recorded."
+    },
+    {
+      "paper": "wei2020",
+      "reason": "Tiny pass was read as missing during concurrent CSV rewrite; large rows were incorrectly gated.",
+      "action": "Reran five large instances with reused code and frozen tiny pass.",
+      "outcome": "Four pass, one gap_exceeds."
+    },
+    {
+      "paper": "legrain2020",
+      "reason": "Tiny pass was read as missing during concurrent CSV rewrite; large rows were incorrectly gated.",
+      "action": "Reran five large instances with reused code and frozen tiny pass.",
+      "outcome": "Five execution timeouts."
+    },
+    {
+      "paper": "sadykov2013",
+      "reason": "Tiny auto-injection was missed; large_1 was used as the gate.",
+      "action": "Reran five large instances with reused code and frozen tiny pass.",
+      "outcome": "Two pass, three execution timeouts."
+    }
+  ],
+  "notes": [
+    "These are systemd results without anti-hack; they are not hardened evaluation results.",
+    "Rows marked gate_fail represent skipped large evaluations for the 15 tiny-failing papers.",
+    "segundo2019 large_3 and large_4 instance and reference files are missing from the local data snapshot.",
+    "Use current status/obj/time/gap fields for final metrics. first_* preserves initial attempt history and can differ after a rerun.",
+    "The original interleaved large run log precedes the supplemental reruns; the final CSV is authoritative.",
+    "The CSV reader race was worked around with targeted reruns; evaluator source code is unchanged in this results PR.",
+    "Timeouts can retain incumbent snapshots without a final solution/checker result.",
+    "CORAL self-evolution is a separate active run and is excluded from this PR."
+  ]
+}

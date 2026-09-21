@@ -1,0 +1,365 @@
+{
+  "objective_value": 50,
+  "bins": {
+    "0": {
+      "items": [
+        46,
+        19
+      ],
+      "total_weight": 136
+    },
+    "1": {
+      "items": [
+        100,
+        88
+      ],
+      "total_weight": 143
+    },
+    "2": {
+      "items": [
+        10,
+        22
+      ],
+      "total_weight": 119
+    },
+    "3": {
+      "items": [
+        38,
+        66
+      ],
+      "total_weight": 143
+    },
+    "4": {
+      "items": [
+        77,
+        18
+      ],
+      "total_weight": 141
+    },
+    "5": {
+      "items": [
+        97,
+        69
+      ],
+      "total_weight": 144
+    },
+    "6": {
+      "items": [
+        106,
+        55
+      ],
+      "total_weight": 145
+    },
+    "7": {
+      "items": [
+        50,
+        59
+      ],
+      "total_weight": 145
+    },
+    "8": {
+      "items": [
+        7,
+        12
+      ],
+      "total_weight": 150
+    },
+    "9": {
+      "items": [
+        43,
+        102
+      ],
+      "total_weight": 126
+    },
+    "10": {
+      "items": [
+        34,
+        80,
+        93
+      ],
+      "total_weight": 150
+    },
+    "11": {
+      "items": [
+        30,
+        49
+      ],
+      "total_weight": 145
+    },
+    "12": {
+      "items": [
+        92,
+        5,
+        4
+      ],
+      "total_weight": 141
+    },
+    "13": {
+      "items": [
+        29,
+        9
+      ],
+      "total_weight": 145
+    },
+    "14": {
+      "items": [
+        72,
+        25
+      ],
+      "total_weight": 135
+    },
+    "15": {
+      "items": [
+        87,
+        91,
+        41
+      ],
+      "total_weight": 134
+    },
+    "16": {
+      "items": [
+        104,
+        16
+      ],
+      "total_weight": 131
+    },
+    "17": {
+      "items": [
+        105,
+        86
+      ],
+      "total_weight": 149
+    },
+    "18": {
+      "items": [
+        21,
+        3
+      ],
+      "total_weight": 113
+    },
+    "19": {
+      "items": [
+        96,
+        70
+      ],
+      "total_weight": 120
+    },
+    "20": {
+      "items": [
+        103,
+        53
+      ],
+      "total_weight": 148
+    },
+    "21": {
+      "items": [
+        54,
+        47
+      ],
+      "total_weight": 137
+    },
+    "22": {
+      "items": [
+        62,
+        8
+      ],
+      "total_weight": 111
+    },
+    "23": {
+      "items": [
+        31,
+        44
+      ],
+      "total_weight": 115
+    },
+    "24": {
+      "items": [
+        82,
+        68
+      ],
+      "total_weight": 144
+    },
+    "25": {
+      "items": [
+        101,
+        28
+      ],
+      "total_weight": 140
+    },
+    "26": {
+      "items": [
+        40,
+        45
+      ],
+      "total_weight": 145
+    },
+    "27": {
+      "items": [
+        57,
+        107
+      ],
+      "total_weight": 104
+    },
+    "28": {
+      "items": [
+        63,
+        83
+      ],
+      "total_weight": 129
+    },
+    "29": {
+      "items": [
+        37,
+        15
+      ],
+      "total_weight": 150
+    },
+    "30": {
+      "items": [
+        61,
+        89
+      ],
+      "total_weight": 138
+    },
+    "31": {
+      "items": [
+        94,
+        90
+      ],
+      "total_weight": 139
+    },
+    "32": {
+      "items": [
+        84,
+        36
+      ],
+      "total_weight": 115
+    },
+    "33": {
+      "items": [
+        108,
+        13
+      ],
+      "total_weight": 132
+    },
+    "34": {
+      "items": [
+        27,
+        74
+      ],
+      "total_weight": 91
+    },
+    "35": {
+      "items": [
+        99,
+        67
+      ],
+      "total_weight": 138
+    },
+    "36": {
+      "items": [
+        64,
+        2
+      ],
+      "total_weight": 123
+    },
+    "37": {
+      "items": [
+        39,
+        79
+      ],
+      "total_weight": 120
+    },
+    "38": {
+      "items": [
+        58,
+        33
+      ],
+      "total_weight": 96
+    },
+    "39": {
+      "items": [
+        65,
+        48,
+        98
+      ],
+      "total_weight": 130
+    },
+    "40": {
+      "items": [
+        52,
+        42
+      ],
+      "total_weight": 117
+    },
+    "41": {
+      "items": [
+        24,
+        0,
+        95
+      ],
+      "total_weight": 121
+    },
+    "42": {
+      "items": [
+        14,
+        1,
+        85
+      ],
+      "total_weight": 150
+    },
+    "43": {
+      "items": [
+        56,
+        109,
+        35
+      ],
+      "total_weight": 141
+    },
+    "44": {
+      "items": [
+        73,
+        71,
+        11
+      ],
+      "total_weight": 140
+    },
+    "45": {
+      "items": [
+        75,
+        23
+      ],
+      "total_weight": 117
+    },
+    "46": {
+      "items": [
+        32,
+        6
+      ],
+      "total_weight": 77
+    },
+    "47": {
+      "items": [
+        51,
+        81,
+        26
+      ],
+      "total_weight": 124
+    },
+    "48": {
+      "items": [
+        78,
+        20
+      ],
+      "total_weight": 76
+    },
+    "49": {
+      "items": [
+        17,
+        60,
+        76
+      ],
+      "total_weight": 108
+    }
+  }
+}

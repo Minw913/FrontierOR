@@ -1,0 +1,1295 @@
+{
+  "objective_value": 5800.299999999999,
+  "num_vehicles_used": 71,
+  "routes": [
+    {
+      "vehicle": 1,
+      "route": [
+        0,
+        74,
+        72,
+        33,
+        101
+      ],
+      "deliveries": {
+        "74": 9,
+        "72": 5,
+        "33": 8
+      }
+    },
+    {
+      "vehicle": 2,
+      "route": [
+        0,
+        1,
+        95,
+        30,
+        101
+      ],
+      "deliveries": {
+        "1": 12,
+        "95": 8,
+        "30": 5
+      }
+    },
+    {
+      "vehicle": 3,
+      "route": [
+        0,
+        78,
+        25,
+        10,
+        6,
+        101
+      ],
+      "deliveries": {
+        "78": 15,
+        "25": 8,
+        "10": 5,
+        "6": 2
+      }
+    },
+    {
+      "vehicle": 4,
+      "route": [
+        0,
+        65,
+        4,
+        101
+      ],
+      "deliveries": {
+        "65": 19,
+        "4": 10
+      }
+    },
+    {
+      "vehicle": 5,
+      "route": [
+        0,
+        61,
+        55,
+        15,
+        101
+      ],
+      "deliveries": {
+        "61": 7,
+        "55": 18,
+        "15": 4
+      }
+    },
+    {
+      "vehicle": 6,
+      "route": [
+        0,
+        51,
+        73,
+        24,
+        101
+      ],
+      "deliveries": {
+        "51": 16,
+        "73": 7,
+        "24": 7
+      }
+    },
+    {
+      "vehicle": 7,
+      "route": [
+        0,
+        80,
+        64,
+        101
+      ],
+      "deliveries": {
+        "80": 5,
+        "64": 25
+      }
+    },
+    {
+      "vehicle": 8,
+      "route": [
+        0,
+        62,
+        44,
+        68,
+        88,
+        101
+      ],
+      "deliveries": {
+        "62": 5,
+        "44": 1,
+        "68": 5,
+        "88": 19
+      }
+    },
+    {
+      "vehicle": 9,
+      "route": [
+        0,
+        67,
+        84,
+        101
+      ],
+      "deliveries": {
+        "67": 1,
+        "84": 28
+      }
+    },
+    {
+      "vehicle": 10,
+      "route": [
+        0,
+        53,
+        97,
+        43,
+        101
+      ],
+      "deliveries": {
+        "53": 14,
+        "97": 8,
+        "43": 8
+      }
+    },
+    {
+      "vehicle": 11,
+      "route": [
+        0,
+        3,
+        45,
+        21,
+        101
+      ],
+      "deliveries": {
+        "3": 7,
+        "45": 3,
+        "21": 20
+      }
+    },
+    {
+      "vehicle": 12,
+      "route": [
+        0,
+        36,
+        94,
+        101
+      ],
+      "deliveries": {
+        "36": 26,
+        "94": 4
+      }
+    },
+    {
+      "vehicle": 13,
+      "route": [
+        0,
+        60,
+        75,
+        18,
+        101
+      ],
+      "deliveries": {
+        "60": 1,
+        "75": 25,
+        "18": 1
+      }
+    },
+    {
+      "vehicle": 14,
+      "route": [
+        0,
+        32,
+        28,
+        100,
+        101
+      ],
+      "deliveries": {
+        "32": 8,
+        "28": 13,
+        "100": 8
+      }
+    },
+    {
+      "vehicle": 15,
+      "route": [
+        0,
+        34,
+        8,
+        101
+      ],
+      "deliveries": {
+        "34": 18,
+        "8": 10
+      }
+    },
+    {
+      "vehicle": 16,
+      "route": [
+        0,
+        7,
+        2,
+        101
+      ],
+      "deliveries": {
+        "7": 14,
+        "2": 16
+      }
+    },
+    {
+      "vehicle": 17,
+      "route": [
+        0,
+        87,
+        14,
+        101
+      ],
+      "deliveries": {
+        "87": 3,
+        "14": 27
+      }
+    },
+    {
+      "vehicle": 18,
+      "route": [
+        0,
+        77,
+        35,
+        101
+      ],
+      "deliveries": {
+        "77": 20,
+        "35": 9
+      }
+    },
+    {
+      "vehicle": 19,
+      "route": [
+        0,
+        54,
+        98,
+        101
+      ],
+      "deliveries": {
+        "54": 27,
+        "98": 2
+      }
+    },
+    {
+      "vehicle": 20,
+      "route": [
+        0,
+        23,
+        79,
+        101
+      ],
+      "deliveries": {
+        "23": 20,
+        "79": 7
+      }
+    },
+    {
+      "vehicle": 21,
+      "route": [
+        0,
+        13,
+        48,
+        81,
+        101
+      ],
+      "deliveries": {
+        "13": 12,
+        "48": 13,
+        "81": 5
+      }
+    },
+    {
+      "vehicle": 22,
+      "route": [
+        0,
+        76,
+        91,
+        101
+      ],
+      "deliveries": {
+        "76": 15,
+        "91": 12
+      }
+    },
+    {
+      "vehicle": 23,
+      "route": [
+        0,
+        89,
+        92,
+        101
+      ],
+      "deliveries": {
+        "89": 1,
+        "92": 29
+      }
+    },
+    {
+      "vehicle": 24,
+      "route": [
+        0,
+        38,
+        93,
+        46,
+        101
+      ],
+      "deliveries": {
+        "38": 26,
+        "93": 1,
+        "46": 1
+      }
+    },
+    {
+      "vehicle": 25,
+      "route": [
+        0,
+        59,
+        57,
+        101
+      ],
+      "deliveries": {
+        "59": 3,
+        "57": 26
+      }
+    },
+    {
+      "vehicle": 26,
+      "route": [
+        0,
+        85,
+        31,
+        101
+      ],
+      "deliveries": {
+        "85": 24,
+        "31": 5
+      }
+    },
+    {
+      "vehicle": 27,
+      "route": [
+        0,
+        63,
+        56,
+        101
+      ],
+      "deliveries": {
+        "63": 13,
+        "56": 16
+      }
+    },
+    {
+      "vehicle": 28,
+      "route": [
+        0,
+        31,
+        101
+      ],
+      "deliveries": {
+        "31": 30
+      }
+    },
+    {
+      "vehicle": 29,
+      "route": [
+        0,
+        59,
+        101
+      ],
+      "deliveries": {
+        "59": 30
+      }
+    },
+    {
+      "vehicle": 30,
+      "route": [
+        0,
+        70,
+        101
+      ],
+      "deliveries": {
+        "70": 30
+      }
+    },
+    {
+      "vehicle": 31,
+      "route": [
+        0,
+        29,
+        22,
+        101
+      ],
+      "deliveries": {
+        "29": 6,
+        "22": 19
+      }
+    },
+    {
+      "vehicle": 32,
+      "route": [
+        0,
+        95,
+        101
+      ],
+      "deliveries": {
+        "95": 30
+      }
+    },
+    {
+      "vehicle": 33,
+      "route": [
+        0,
+        27,
+        19,
+        101
+      ],
+      "deliveries": {
+        "27": 23,
+        "19": 7
+      }
+    },
+    {
+      "vehicle": 34,
+      "route": [
+        0,
+        6,
+        101
+      ],
+      "deliveries": {
+        "6": 30
+      }
+    },
+    {
+      "vehicle": 35,
+      "route": [
+        0,
+        90,
+        82,
+        101
+      ],
+      "deliveries": {
+        "90": 23,
+        "82": 4
+      }
+    },
+    {
+      "vehicle": 36,
+      "route": [
+        0,
+        58,
+        12,
+        47,
+        101
+      ],
+      "deliveries": {
+        "58": 16,
+        "12": 9,
+        "47": 4
+      }
+    },
+    {
+      "vehicle": 37,
+      "route": [
+        0,
+        66,
+        101
+      ],
+      "deliveries": {
+        "66": 28
+      }
+    },
+    {
+      "vehicle": 38,
+      "route": [
+        0,
+        71,
+        86,
+        101
+      ],
+      "deliveries": {
+        "71": 10,
+        "86": 19
+      }
+    },
+    {
+      "vehicle": 39,
+      "route": [
+        0,
+        15,
+        101
+      ],
+      "deliveries": {
+        "15": 30
+      }
+    },
+    {
+      "vehicle": 40,
+      "route": [
+        0,
+        99,
+        101
+      ],
+      "deliveries": {
+        "99": 24
+      }
+    },
+    {
+      "vehicle": 41,
+      "route": [
+        0,
+        20,
+        41,
+        101
+      ],
+      "deliveries": {
+        "20": 9,
+        "41": 20
+      }
+    },
+    {
+      "vehicle": 42,
+      "route": [
+        0,
+        49,
+        52,
+        101
+      ],
+      "deliveries": {
+        "49": 22,
+        "52": 6
+      }
+    },
+    {
+      "vehicle": 43,
+      "route": [
+        0,
+        50,
+        101
+      ],
+      "deliveries": {
+        "50": 30
+      }
+    },
+    {
+      "vehicle": 44,
+      "route": [
+        0,
+        50,
+        11,
+        5,
+        101
+      ],
+      "deliveries": {
+        "50": 9,
+        "11": 1,
+        "5": 20
+      }
+    },
+    {
+      "vehicle": 45,
+      "route": [
+        0,
+        9,
+        96,
+        101
+      ],
+      "deliveries": {
+        "9": 16,
+        "96": 13
+      }
+    },
+    {
+      "vehicle": 46,
+      "route": [
+        0,
+        3,
+        101
+      ],
+      "deliveries": {
+        "3": 30
+      }
+    },
+    {
+      "vehicle": 47,
+      "route": [
+        0,
+        26,
+        101
+      ],
+      "deliveries": {
+        "26": 28
+      }
+    },
+    {
+      "vehicle": 48,
+      "route": [
+        0,
+        44,
+        101
+      ],
+      "deliveries": {
+        "44": 30
+      }
+    },
+    {
+      "vehicle": 49,
+      "route": [
+        0,
+        82,
+        101
+      ],
+      "deliveries": {
+        "82": 30
+      }
+    },
+    {
+      "vehicle": 50,
+      "route": [
+        0,
+        29,
+        101
+      ],
+      "deliveries": {
+        "29": 30
+      }
+    },
+    {
+      "vehicle": 51,
+      "route": [
+        0,
+        20,
+        101
+      ],
+      "deliveries": {
+        "20": 30
+      }
+    },
+    {
+      "vehicle": 52,
+      "route": [
+        0,
+        17,
+        101
+      ],
+      "deliveries": {
+        "17": 24
+      }
+    },
+    {
+      "vehicle": 53,
+      "route": [
+        0,
+        11,
+        101
+      ],
+      "deliveries": {
+        "11": 30
+      }
+    },
+    {
+      "vehicle": 54,
+      "route": [
+        0,
+        80,
+        101
+      ],
+      "deliveries": {
+        "80": 30
+      }
+    },
+    {
+      "vehicle": 55,
+      "route": [
+        0,
+        37,
+        101
+      ],
+      "deliveries": {
+        "37": 28
+      }
+    },
+    {
+      "vehicle": 56,
+      "route": [
+        0,
+        73,
+        101
+      ],
+      "deliveries": {
+        "73": 30
+      }
+    },
+    {
+      "vehicle": 57,
+      "route": [
+        0,
+        74,
+        101
+      ],
+      "deliveries": {
+        "74": 30
+      }
+    },
+    {
+      "vehicle": 58,
+      "route": [
+        0,
+        16,
+        101
+      ],
+      "deliveries": {
+        "16": 20
+      }
+    },
+    {
+      "vehicle": 59,
+      "route": [
+        0,
+        71,
+        101
+      ],
+      "deliveries": {
+        "71": 30
+      }
+    },
+    {
+      "vehicle": 60,
+      "route": [
+        0,
+        18,
+        101
+      ],
+      "deliveries": {
+        "18": 30
+      }
+    },
+    {
+      "vehicle": 61,
+      "route": [
+        0,
+        42,
+        39,
+        101
+      ],
+      "deliveries": {
+        "42": 14,
+        "39": 16
+      }
+    },
+    {
+      "vehicle": 62,
+      "route": [
+        0,
+        32,
+        101
+      ],
+      "deliveries": {
+        "32": 30
+      }
+    },
+    {
+      "vehicle": 63,
+      "route": [
+        0,
+        69,
+        101
+      ],
+      "deliveries": {
+        "69": 30
+      }
+    },
+    {
+      "vehicle": 64,
+      "route": [
+        0,
+        97,
+        101
+      ],
+      "deliveries": {
+        "97": 30
+      }
+    },
+    {
+      "vehicle": 65,
+      "route": [
+        0,
+        67,
+        101
+      ],
+      "deliveries": {
+        "67": 30
+      }
+    },
+    {
+      "vehicle": 66,
+      "route": [
+        0,
+        81,
+        101
+      ],
+      "deliveries": {
+        "81": 30
+      }
+    },
+    {
+      "vehicle": 67,
+      "route": [
+        0,
+        60,
+        101
+      ],
+      "deliveries": {
+        "60": 30
+      }
+    },
+    {
+      "vehicle": 68,
+      "route": [
+        0,
+        98,
+        101
+      ],
+      "deliveries": {
+        "98": 30
+      }
+    },
+    {
+      "vehicle": 69,
+      "route": [
+        0,
+        35,
+        101
+      ],
+      "deliveries": {
+        "35": 30
+      }
+    },
+    {
+      "vehicle": 70,
+      "route": [
+        0,
+        83,
+        101
+      ],
+      "deliveries": {
+        "83": 28
+      }
+    },
+    {
+      "vehicle": 71,
+      "route": [
+        0,
+        40,
+        101
+      ],
+      "deliveries": {
+        "40": 30
+      }
+    }
+  ],
+  "deliveries": {
+    "1": {
+      "demand": 12,
+      "total_delivered": 12.0
+    },
+    "2": {
+      "demand": 16,
+      "total_delivered": 16.0
+    },
+    "3": {
+      "demand": 37,
+      "total_delivered": 37.0
+    },
+    "4": {
+      "demand": 10,
+      "total_delivered": 10.0
+    },
+    "5": {
+      "demand": 20,
+      "total_delivered": 20.0
+    },
+    "6": {
+      "demand": 32,
+      "total_delivered": 32.0
+    },
+    "7": {
+      "demand": 14,
+      "total_delivered": 14.0
+    },
+    "8": {
+      "demand": 10,
+      "total_delivered": 10.0
+    },
+    "9": {
+      "demand": 16,
+      "total_delivered": 16.0
+    },
+    "10": {
+      "demand": 5,
+      "total_delivered": 5.0
+    },
+    "11": {
+      "demand": 31,
+      "total_delivered": 31.0
+    },
+    "12": {
+      "demand": 9,
+      "total_delivered": 9.0
+    },
+    "13": {
+      "demand": 12,
+      "total_delivered": 12.0
+    },
+    "14": {
+      "demand": 27,
+      "total_delivered": 27.0
+    },
+    "15": {
+      "demand": 34,
+      "total_delivered": 34.0
+    },
+    "16": {
+      "demand": 20,
+      "total_delivered": 20.0
+    },
+    "17": {
+      "demand": 24,
+      "total_delivered": 24.0
+    },
+    "18": {
+      "demand": 31,
+      "total_delivered": 31.0
+    },
+    "19": {
+      "demand": 7,
+      "total_delivered": 7.0
+    },
+    "20": {
+      "demand": 39,
+      "total_delivered": 39.0
+    },
+    "21": {
+      "demand": 20,
+      "total_delivered": 20.0
+    },
+    "22": {
+      "demand": 19,
+      "total_delivered": 19.0
+    },
+    "23": {
+      "demand": 20,
+      "total_delivered": 20.0
+    },
+    "24": {
+      "demand": 7,
+      "total_delivered": 7.0
+    },
+    "25": {
+      "demand": 8,
+      "total_delivered": 8.0
+    },
+    "26": {
+      "demand": 28,
+      "total_delivered": 28.0
+    },
+    "27": {
+      "demand": 23,
+      "total_delivered": 23.0
+    },
+    "28": {
+      "demand": 13,
+      "total_delivered": 13.0
+    },
+    "29": {
+      "demand": 36,
+      "total_delivered": 36.0
+    },
+    "30": {
+      "demand": 5,
+      "total_delivered": 5.0
+    },
+    "31": {
+      "demand": 35,
+      "total_delivered": 35.0
+    },
+    "32": {
+      "demand": 38,
+      "total_delivered": 38.0
+    },
+    "33": {
+      "demand": 8,
+      "total_delivered": 8.0
+    },
+    "34": {
+      "demand": 18,
+      "total_delivered": 18.0
+    },
+    "35": {
+      "demand": 39,
+      "total_delivered": 39.0
+    },
+    "36": {
+      "demand": 26,
+      "total_delivered": 26.0
+    },
+    "37": {
+      "demand": 28,
+      "total_delivered": 28.0
+    },
+    "38": {
+      "demand": 26,
+      "total_delivered": 26.0
+    },
+    "39": {
+      "demand": 16,
+      "total_delivered": 16.0
+    },
+    "40": {
+      "demand": 30,
+      "total_delivered": 30.0
+    },
+    "41": {
+      "demand": 20,
+      "total_delivered": 20.0
+    },
+    "42": {
+      "demand": 14,
+      "total_delivered": 14.0
+    },
+    "43": {
+      "demand": 8,
+      "total_delivered": 8.0
+    },
+    "44": {
+      "demand": 31,
+      "total_delivered": 31.0
+    },
+    "45": {
+      "demand": 3,
+      "total_delivered": 3.0
+    },
+    "46": {
+      "demand": 1,
+      "total_delivered": 1.0
+    },
+    "47": {
+      "demand": 4,
+      "total_delivered": 4.0
+    },
+    "48": {
+      "demand": 13,
+      "total_delivered": 13.0
+    },
+    "49": {
+      "demand": 22,
+      "total_delivered": 22.0
+    },
+    "50": {
+      "demand": 39,
+      "total_delivered": 39.0
+    },
+    "51": {
+      "demand": 16,
+      "total_delivered": 16.0
+    },
+    "52": {
+      "demand": 6,
+      "total_delivered": 6.0
+    },
+    "53": {
+      "demand": 14,
+      "total_delivered": 14.0
+    },
+    "54": {
+      "demand": 27,
+      "total_delivered": 27.0
+    },
+    "55": {
+      "demand": 18,
+      "total_delivered": 18.0
+    },
+    "56": {
+      "demand": 16,
+      "total_delivered": 16.0
+    },
+    "57": {
+      "demand": 26,
+      "total_delivered": 26.0
+    },
+    "58": {
+      "demand": 16,
+      "total_delivered": 16.0
+    },
+    "59": {
+      "demand": 33,
+      "total_delivered": 33.0
+    },
+    "60": {
+      "demand": 31,
+      "total_delivered": 31.0
+    },
+    "61": {
+      "demand": 7,
+      "total_delivered": 7.0
+    },
+    "62": {
+      "demand": 5,
+      "total_delivered": 5.0
+    },
+    "63": {
+      "demand": 13,
+      "total_delivered": 13.0
+    },
+    "64": {
+      "demand": 25,
+      "total_delivered": 25.0
+    },
+    "65": {
+      "demand": 19,
+      "total_delivered": 19.0
+    },
+    "66": {
+      "demand": 28,
+      "total_delivered": 28.0
+    },
+    "67": {
+      "demand": 31,
+      "total_delivered": 31.0
+    },
+    "68": {
+      "demand": 5,
+      "total_delivered": 5.0
+    },
+    "69": {
+      "demand": 30,
+      "total_delivered": 30.0
+    },
+    "70": {
+      "demand": 30,
+      "total_delivered": 30.0
+    },
+    "71": {
+      "demand": 40,
+      "total_delivered": 40.0
+    },
+    "72": {
+      "demand": 5,
+      "total_delivered": 5.0
+    },
+    "73": {
+      "demand": 37,
+      "total_delivered": 37.0
+    },
+    "74": {
+      "demand": 39,
+      "total_delivered": 39.0
+    },
+    "75": {
+      "demand": 25,
+      "total_delivered": 25.0
+    },
+    "76": {
+      "demand": 15,
+      "total_delivered": 15.0
+    },
+    "77": {
+      "demand": 20,
+      "total_delivered": 20.0
+    },
+    "78": {
+      "demand": 15,
+      "total_delivered": 15.0
+    },
+    "79": {
+      "demand": 7,
+      "total_delivered": 7.0
+    },
+    "80": {
+      "demand": 35,
+      "total_delivered": 35.0
+    },
+    "81": {
+      "demand": 35,
+      "total_delivered": 35.0
+    },
+    "82": {
+      "demand": 34,
+      "total_delivered": 34.0
+    },
+    "83": {
+      "demand": 28,
+      "total_delivered": 28.0
+    },
+    "84": {
+      "demand": 28,
+      "total_delivered": 28.0
+    },
+    "85": {
+      "demand": 24,
+      "total_delivered": 24.0
+    },
+    "86": {
+      "demand": 19,
+      "total_delivered": 19.0
+    },
+    "87": {
+      "demand": 3,
+      "total_delivered": 3.0
+    },
+    "88": {
+      "demand": 19,
+      "total_delivered": 19.0
+    },
+    "89": {
+      "demand": 1,
+      "total_delivered": 1.0
+    },
+    "90": {
+      "demand": 23,
+      "total_delivered": 23.0
+    },
+    "91": {
+      "demand": 12,
+      "total_delivered": 12.0
+    },
+    "92": {
+      "demand": 29,
+      "total_delivered": 29.0
+    },
+    "93": {
+      "demand": 1,
+      "total_delivered": 1.0
+    },
+    "94": {
+      "demand": 4,
+      "total_delivered": 4.0
+    },
+    "95": {
+      "demand": 38,
+      "total_delivered": 38.0
+    },
+    "96": {
+      "demand": 13,
+      "total_delivered": 13.0
+    },
+    "97": {
+      "demand": 38,
+      "total_delivered": 38.0
+    },
+    "98": {
+      "demand": 32,
+      "total_delivered": 32.0
+    },
+    "99": {
+      "demand": 24,
+      "total_delivered": 24.0
+    },
+    "100": {
+      "demand": 8,
+      "total_delivered": 8.0
+    }
+  }
+}

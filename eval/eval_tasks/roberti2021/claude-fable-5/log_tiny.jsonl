@@ -1,0 +1,1 @@
+{"time": 0.0, "objective_value": 117.0, "solution": {"objective_value": 117.0, "truck_route": [0, 1, 2, 3, 5, 0], "drone_route": [0, 3, 4, 5, 0], "customer_types": {"1": "truck", "2": "truck", "3": "combined", "4": "drone", "5": "combined"}, "arrival_times": {"0": 0.0, "1": 13.0, "2": 30.0, "3": 46.0, "4": 72.0, "5": 91.0, "6": 117.0}}}

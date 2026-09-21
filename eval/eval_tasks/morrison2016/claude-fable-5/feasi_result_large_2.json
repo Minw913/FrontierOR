@@ -1,0 +1,37 @@
+{
+  "feasible": false,
+  "violated_constraints": [
+    2
+  ],
+  "violations": [
+    "Selected set 41 is not maximal: vertex(es) 113 could be added",
+    "Selected set 68 is not maximal: vertex(es) 117 could be added",
+    "Selected set 76 is not maximal: vertex(es) 195 could be added"
+  ],
+  "violation_magnitudes": [
+    {
+      "constraint": 2,
+      "lhs": 1.0,
+      "rhs": 0.0,
+      "raw_excess": 1.0,
+      "normalizer": 1e-05,
+      "ratio": 99999.99999999999
+    },
+    {
+      "constraint": 2,
+      "lhs": 1.0,
+      "rhs": 0.0,
+      "raw_excess": 1.0,
+      "normalizer": 1e-05,
+      "ratio": 99999.99999999999
+    },
+    {
+      "constraint": 2,
+      "lhs": 1.0,
+      "rhs": 0.0,
+      "raw_excess": 1.0,
+      "normalizer": 1e-05,
+      "ratio": 99999.99999999999
+    }
+  ]
+}

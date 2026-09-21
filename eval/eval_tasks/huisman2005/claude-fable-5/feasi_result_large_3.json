@@ -1,0 +1,66 @@
+{
+  "feasible": false,
+  "violated_constraints": [
+    6,
+    7,
+    8
+  ],
+  "violations": [
+    "Constraint (6): Short-arc dh-task mismatch at (39,50), depot depot_1 (duties=0, y=1)",
+    "Constraint (6): Short-arc dh-task mismatch at (16,42), depot depot_1 (duties=0, y=1)",
+    "Constraint (7): End-to-depot dh-task mismatch at trip 16, depot depot_1 (duties_end=1, y_sink=0, y_long_out=0)",
+    "Constraint (7): End-to-depot dh-task mismatch at trip 39, depot depot_1 (duties_end=1, y_sink=0, y_long_out=0)",
+    "Constraint (8): Depot-to-start dh-task mismatch at trip 42, depot depot_1 (duties_start=1, y_source=0, y_long_in=0)",
+    "Constraint (8): Depot-to-start dh-task mismatch at trip 50, depot depot_1 (duties_start=1, y_source=0, y_long_in=0)"
+  ],
+  "violation_magnitudes": [
+    {
+      "constraint": 6,
+      "lhs": -1.0,
+      "rhs": 0.0,
+      "raw_excess": 1.0,
+      "normalizer": 1e-05,
+      "ratio": 99999.99999999999
+    },
+    {
+      "constraint": 6,
+      "lhs": -1.0,
+      "rhs": 0.0,
+      "raw_excess": 1.0,
+      "normalizer": 1e-05,
+      "ratio": 99999.99999999999
+    },
+    {
+      "constraint": 7,
+      "lhs": 1.0,
+      "rhs": 0.0,
+      "raw_excess": 1.0,
+      "normalizer": 1e-05,
+      "ratio": 99999.99999999999
+    },
+    {
+      "constraint": 7,
+      "lhs": 1.0,
+      "rhs": 0.0,
+      "raw_excess": 1.0,
+      "normalizer": 1e-05,
+      "ratio": 99999.99999999999
+    },
+    {
+      "constraint": 8,
+      "lhs": 1.0,
+      "rhs": 0.0,
+      "raw_excess": 1.0,
+      "normalizer": 1e-05,
+      "ratio": 99999.99999999999
+    },
+    {
+      "constraint": 8,
+      "lhs": 1.0,
+      "rhs": 0.0,
+      "raw_excess": 1.0,
+      "normalizer": 1e-05,
+      "ratio": 99999.99999999999
+    }
+  ]
+}

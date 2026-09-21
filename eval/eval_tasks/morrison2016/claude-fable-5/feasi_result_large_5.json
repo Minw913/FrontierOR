@@ -1,0 +1,1099 @@
+{
+  "feasible": false,
+  "violated_constraints": [
+    2
+  ],
+  "violations": [
+    "Selected set 6 is not maximal: vertex(es) 254 could be added",
+    "Selected set 13 is not maximal: vertex(es) 215, 294 could be added",
+    "Selected set 14 is not maximal: vertex(es) 190, 282 could be added",
+    "Selected set 15 is not maximal: vertex(es) 258 could be added",
+    "Selected set 16 is not maximal: vertex(es) 239 could be added",
+    "Selected set 17 is not maximal: vertex(es) 283 could be added",
+    "Selected set 18 is not maximal: vertex(es) 187, 240 could be added",
+    "Selected set 19 is not maximal: vertex(es) 222, 227, 259, 262 could be added",
+    "Selected set 20 is not maximal: vertex(es) 231 could be added",
+    "Selected set 21 is not maximal: vertex(es) 248, 268, 278, 279, 294 could be added",
+    "Selected set 23 is not maximal: vertex(es) 150, 251, 255, 271 could be added",
+    "Selected set 24 is not maximal: vertex(es) 269, 282, 296 could be added",
+    "Selected set 25 is not maximal: vertex(es) 189, 239, 244, 261, 284, 290, 295, 296, 297 could be added",
+    "Selected set 26 is not maximal: vertex(es) 284 could be added",
+    "Selected set 27 is not maximal: vertex(es) 201 could be added",
+    "Selected set 28 is not maximal: vertex(es) 248, 258, 259, 278, 279, 280, 289, 299 could be added",
+    "Selected set 29 is not maximal: vertex(es) 176, 278 could be added",
+    "Selected set 30 is not maximal: vertex(es) 155, 211, 241, 249, 251, 269, 277, 293, 296, 297 could be added",
+    "Selected set 31 is not maximal: vertex(es) 199, 246, 277, 292, 298 could be added",
+    "Selected set 32 is not maximal: vertex(es) 185, 192, 220, 223, 239, 261, 263, 288 could be added",
+    "Selected set 33 is not maximal: vertex(es) 162, 205, 216, 241, 252, 257, 262, 271, 274 could be added",
+    "Selected set 34 is not maximal: vertex(es) 201, 292, 293 could be added",
+    "Selected set 35 is not maximal: vertex(es) 196, 213, 242, 249, 252, 264, 282, 290, 295 could be added",
+    "Selected set 36 is not maximal: vertex(es) 170, 176, 181, 188, 192, 197, 203, 204, 205, 212 ... (32 total) could be added",
+    "Selected set 37 is not maximal: vertex(es) 228, 250, 275, 277, 280, 292, 297 could be added",
+    "Selected set 38 is not maximal: vertex(es) 161, 198, 208, 217, 227, 230, 235, 247, 249, 255 ... (20 total) could be added",
+    "Selected set 39 is not maximal: vertex(es) 177, 182, 188, 199, 200, 203, 206, 213, 234, 235 ... (22 total) could be added",
+    "Selected set 40 is not maximal: vertex(es) 170, 193, 202, 203, 228, 235, 238, 241, 242, 255 ... (25 total) could be added",
+    "Selected set 41 is not maximal: vertex(es) 157, 170, 172, 173, 174, 186, 191, 199, 200, 202 ... (30 total) could be added",
+    "Selected set 42 is not maximal: vertex(es) 166, 171, 173, 174, 175, 178, 179, 182, 185, 189 ... (50 total) could be added",
+    "Selected set 43 is not maximal: vertex(es) 151, 153, 169, 179, 183, 184, 195, 203, 205, 207 ... (50 total) could be added",
+    "Selected set 44 is not maximal: vertex(es) 149, 188, 193, 195, 201, 203, 205, 207, 209, 216 ... (29 total) could be added",
+    "Selected set 45 is not maximal: vertex(es) 184, 191, 215, 222, 225, 234, 238, 242, 252, 254 ... (20 total) could be added",
+    "Selected set 46 is not maximal: vertex(es) 161, 164, 180, 183, 188, 189, 227, 236, 244, 247 ... (16 total) could be added",
+    "Selected set 47 is not maximal: vertex(es) 148, 156, 167, 176, 192, 193, 194, 202, 206, 220 ... (28 total) could be added",
+    "Selected set 48 is not maximal: vertex(es) 145, 146, 159, 161, 164, 166, 171, 174, 180, 186 ... (50 total) could be added",
+    "Selected set 49 is not maximal: vertex(es) 172, 195, 207, 210, 223, 226, 227, 232, 233, 245 ... (20 total) could be added",
+    "Selected set 50 is not maximal: vertex(es) 148, 152, 171, 173, 175, 181, 182, 185, 186, 188 ... (52 total) could be added",
+    "Selected set 51 is not maximal: vertex(es) 160, 179, 184, 186, 188, 191, 192, 200, 206, 209 ... (52 total) could be added",
+    "Selected set 52 is not maximal: vertex(es) 153, 157, 167, 168, 169, 173, 179, 180, 187, 196 ... (52 total) could be added",
+    "Selected set 53 is not maximal: vertex(es) 145, 147, 151, 155, 156, 162, 169, 173, 174, 182 ... (52 total) could be added",
+    "Selected set 54 is not maximal: vertex(es) 148, 161, 169, 171, 177, 179, 190, 194, 198, 201 ... (52 total) could be added",
+    "Selected set 55 is not maximal: vertex(es) 145, 146, 152, 153, 161, 166, 167, 168, 173, 183 ... (53 total) could be added",
+    "Selected set 56 is not maximal: vertex(es) 139, 168, 175, 180, 183, 184, 185, 193, 194, 195 ... (53 total) could be added",
+    "Selected set 57 is not maximal: vertex(es) 158, 187, 202, 205, 206, 236, 251, 257, 262, 265 ... (19 total) could be added",
+    "Selected set 58 is not maximal: vertex(es) 150, 154, 157, 159, 160, 174, 176, 179, 181, 186 ... (53 total) could be added",
+    "Selected set 59 is not maximal: vertex(es) 140, 159, 160, 162, 164, 169, 171, 176, 177, 178 ... (53 total) could be added",
+    "Selected set 60 is not maximal: vertex(es) 140, 145, 156, 162, 166, 168, 178, 190, 196, 199 ... (53 total) could be added",
+    "Selected set 61 is not maximal: vertex(es) 139, 142, 152, 153, 158, 161, 163, 166, 170, 175 ... (53 total) could be added",
+    "Selected set 62 is not maximal: vertex(es) 144, 150, 161, 162, 171, 180, 182, 184, 185, 187 ... (53 total) could be added",
+    "Selected set 63 is not maximal: vertex(es) 154, 162, 163, 166, 168, 169, 170, 180, 186, 190 ... (53 total) could be added",
+    "Selected set 64 is not maximal: vertex(es) 157, 163, 176, 185, 189, 191, 194, 198, 199, 200 ... (53 total) could be added",
+    "Selected set 65 is not maximal: vertex(es) 145, 148, 149, 164, 166, 167, 192, 193, 198, 199 ... (54 total) could be added",
+    "Selected set 66 is not maximal: vertex(es) 146, 168, 169, 173, 182, 183, 188, 189, 190, 194 ... (54 total) could be added",
+    "Selected set 67 is not maximal: vertex(es) 151, 155, 157, 158, 176, 183, 189, 191, 193, 199 ... (54 total) could be added",
+    "Selected set 68 is not maximal: vertex(es) 141, 142, 143, 149, 151, 156, 169, 177, 185, 187 ... (54 total) could be added",
+    "Selected set 69 is not maximal: vertex(es) 141, 163, 164, 168, 174, 186, 187, 191, 192, 194 ... (54 total) could be added",
+    "Selected set 70 is not maximal: vertex(es) 150, 158, 162, 167, 180, 182, 186, 192, 193, 194 ... (54 total) could be added",
+    "Selected set 71 is not maximal: vertex(es) 142, 166, 167, 168, 170, 176, 179, 186, 188, 190 ... (54 total) could be added",
+    "Selected set 72 is not maximal: vertex(es) 140, 149, 152, 156, 163, 165, 170, 176, 178, 191 ... (54 total) could be added",
+    "Selected set 73 is not maximal: vertex(es) 171, 175, 179, 185, 210, 219, 222, 224, 227, 228 ... (20 total) could be added",
+    "Selected set 74 is not maximal: vertex(es) 152, 160, 169, 171, 173, 183, 184, 185, 186, 188 ... (55 total) could be added",
+    "Selected set 75 is not maximal: vertex(es) 137, 140, 147, 152, 159, 162, 177, 179, 180, 183 ... (55 total) could be added",
+    "Selected set 76 is not maximal: vertex(es) 147, 172, 173, 174, 187, 188, 192, 195, 199, 204 ... (55 total) could be added",
+    "Selected set 77 is not maximal: vertex(es) 144, 165, 168, 173, 178, 179, 188, 193, 198, 199 ... (55 total) could be added",
+    "Selected set 78 is not maximal: vertex(es) 147, 151, 161, 168, 170, 171, 178, 186, 191, 192 ... (55 total) could be added",
+    "Selected set 79 is not maximal: vertex(es) 143, 158, 159, 168, 169, 171, 177, 181, 194, 197 ... (56 total) could be added",
+    "Selected set 80 is not maximal: vertex(es) 137, 142, 150, 155, 161, 162, 163, 165, 167, 171 ... (56 total) could be added",
+    "Selected set 81 is not maximal: vertex(es) 136, 143, 149, 152, 165, 167, 169, 173, 174, 177 ... (56 total) could be added",
+    "Selected set 82 is not maximal: vertex(es) 155, 164, 174, 183, 186, 190, 194, 196, 202, 203 ... (56 total) could be added",
+    "Selected set 83 is not maximal: vertex(es) 149, 172, 173, 174, 175, 177, 180, 187, 196, 200 ... (56 total) could be added",
+    "Selected set 84 is not maximal: vertex(es) 148, 160, 163, 165, 168, 170, 181, 182, 183, 188 ... (56 total) could be added",
+    "Selected set 85 is not maximal: vertex(es) 147, 158, 160, 169, 170, 176, 178, 186, 189, 192 ... (56 total) could be added",
+    "Selected set 86 is not maximal: vertex(es) 144, 161, 168, 172, 173, 177, 178, 182, 185, 186 ... (56 total) could be added",
+    "Selected set 87 is not maximal: vertex(es) 147, 161, 169, 170, 176, 179, 181, 182, 191, 205 ... (57 total) could be added",
+    "Selected set 88 is not maximal: vertex(es) 145, 154, 157, 165, 168, 171, 174, 178, 182, 183 ... (57 total) could be added",
+    "Selected set 89 is not maximal: vertex(es) 143, 153, 154, 174, 177, 180, 182, 187, 189, 197 ... (57 total) could be added",
+    "Selected set 90 is not maximal: vertex(es) 157, 160, 161, 165, 167, 168, 171, 173, 174, 189 ... (57 total) could be added",
+    "Selected set 91 is not maximal: vertex(es) 146, 159, 173, 174, 176, 177, 184, 186, 187, 189 ... (57 total) could be added",
+    "Selected set 92 is not maximal: vertex(es) 148, 152, 165, 168, 171, 176, 183, 184, 185, 189 ... (57 total) could be added",
+    "Selected set 93 is not maximal: vertex(es) 158, 173, 174, 176, 177, 178, 181, 188, 190, 193 ... (57 total) could be added",
+    "Selected set 94 is not maximal: vertex(es) 138, 152, 156, 162, 174, 177, 182, 184, 185, 186 ... (57 total) could be added",
+    "Selected set 95 is not maximal: vertex(es) 142, 148, 154, 170, 172, 182, 184, 188, 189, 191 ... (58 total) could be added",
+    "Selected set 96 is not maximal: vertex(es) 155, 166, 167, 176, 177, 183, 190, 193, 194, 197 ... (58 total) could be added",
+    "Selected set 97 is not maximal: vertex(es) 158, 159, 166, 168, 170, 172, 175, 180, 182, 185 ... (58 total) could be added",
+    "Selected set 98 is not maximal: vertex(es) 144, 155, 158, 163, 164, 172, 179, 182, 183, 185 ... (58 total) could be added",
+    "Selected set 99 is not maximal: vertex(es) 154, 157, 171, 174, 176, 184, 192, 194, 197, 201 ... (58 total) could be added",
+    "Selected set 100 is not maximal: vertex(es) 149, 153, 156, 164, 166, 167, 170, 172, 179, 181 ... (59 total) could be added",
+    "Selected set 101 is not maximal: vertex(es) 160, 164, 166, 170, 176, 181, 182, 184, 187, 192 ... (59 total) could be added",
+    "Selected set 102 is not maximal: vertex(es) 135, 146, 152, 159, 160, 178, 182, 184, 188, 194 ... (59 total) could be added",
+    "Selected set 103 is not maximal: vertex(es) 158, 164, 171, 173, 175, 179, 184, 186, 191, 194 ... (59 total) could be added",
+    "Selected set 104 is not maximal: vertex(es) 143, 151, 152, 159, 166, 168, 169, 175, 176, 177 ... (59 total) could be added",
+    "Selected set 105 is not maximal: vertex(es) 144, 151, 154, 155, 161, 166, 171, 177, 186, 187 ... (60 total) could be added",
+    "Selected set 106 is not maximal: vertex(es) 167, 169, 172, 175, 176, 177, 178, 180, 184, 186 ... (60 total) could be added",
+    "Selected set 107 is not maximal: vertex(es) 148, 156, 159, 165, 167, 171, 172, 173, 176, 177 ... (60 total) could be added",
+    "Selected set 108 is not maximal: vertex(es) 143, 163, 165, 166, 171, 176, 179, 180, 187, 188 ... (60 total) could be added",
+    "Selected set 109 is not maximal: vertex(es) 147, 165, 167, 172, 173, 179, 180, 182, 183, 185 ... (60 total) could be added",
+    "Selected set 110 is not maximal: vertex(es) 138, 150, 152, 153, 157, 161, 164, 167, 175, 176 ... (61 total) could be added",
+    "Selected set 111 is not maximal: vertex(es) 147, 149, 155, 158, 161, 162, 175, 176, 179, 180 ... (61 total) could be added",
+    "Selected set 112 is not maximal: vertex(es) 145, 150, 165, 167, 178, 183, 184, 188, 190, 191 ... (61 total) could be added",
+    "Selected set 113 is not maximal: vertex(es) 150, 159, 160, 165, 168, 174, 177, 185, 190, 197 ... (61 total) could be added",
+    "Selected set 114 is not maximal: vertex(es) 155, 158, 160, 165, 172, 176, 179, 181, 185, 197 ... (62 total) could be added",
+    "Selected set 115 is not maximal: vertex(es) 151, 154, 163, 166, 169, 171, 173, 177, 178, 181 ... (62 total) could be added",
+    "Selected set 116 is not maximal: vertex(es) 145, 156, 160, 161, 165, 167, 182, 184, 185, 196 ... (62 total) could be added",
+    "Selected set 117 is not maximal: vertex(es) 141, 145, 154, 165, 167, 168, 169, 173, 178, 187 ... (62 total) could be added",
+    "Selected set 118 is not maximal: vertex(es) 139, 153, 155, 157, 162, 166, 167, 168, 170, 172 ... (62 total) could be added",
+    "Selected set 119 is not maximal: vertex(es) 142, 145, 146, 160, 165, 168, 173, 177, 179, 184 ... (63 total) could be added",
+    "Selected set 120 is not maximal: vertex(es) 140, 146, 148, 151, 161, 167, 168, 170, 172, 173 ... (63 total) could be added",
+    "Selected set 121 is not maximal: vertex(es) 154, 156, 157, 160, 163, 164, 166, 172, 173, 174 ... (63 total) could be added",
+    "Selected set 122 is not maximal: vertex(es) 142, 143, 146, 155, 158, 160, 163, 165, 166, 171 ... (63 total) could be added",
+    "Selected set 123 is not maximal: vertex(es) 139, 141, 151, 153, 163, 164, 165, 166, 169, 172 ... (64 total) could be added",
+    "Selected set 124 is not maximal: vertex(es) 141, 148, 153, 156, 157, 166, 167, 174, 176, 179 ... (64 total) could be added",
+    "Selected set 125 is not maximal: vertex(es) 143, 147, 151, 156, 161, 162, 169, 170, 176, 178 ... (64 total) could be added",
+    "Selected set 126 is not maximal: vertex(es) 138, 144, 150, 154, 164, 171, 173, 177, 198, 203 ... (64 total) could be added",
+    "Selected set 127 is not maximal: vertex(es) 139, 149, 153, 159, 164, 166, 172, 175, 179, 180 ... (65 total) could be added",
+    "Selected set 128 is not maximal: vertex(es) 137, 150, 155, 156, 163, 164, 165, 179, 180, 181 ... (65 total) could be added",
+    "Selected set 129 is not maximal: vertex(es) 156, 175, 178, 180, 182, 184, 191, 192, 193, 195 ... (66 total) could be added",
+    "Selected set 130 is not maximal: vertex(es) 141, 146, 157, 169, 171, 172, 174, 178, 179, 184 ... (66 total) could be added",
+    "Selected set 131 is not maximal: vertex(es) 138, 160, 161, 164, 166, 170, 173, 174, 183, 185 ... (69 total) could be added",
+    "Selected set 132 is not maximal: vertex(es) 136, 142, 149, 152, 156, 161, 162, 172, 174, 175 ... (70 total) could be added",
+    "Selected set 133 is not maximal: vertex(es) 144, 156, 159, 164, 166, 169, 172, 173, 175, 176 ... (73 total) could be added"
+  ],
+  "violation_magnitudes": [
+    {
+      "constraint": 2,
+      "lhs": 1.0,
+      "rhs": 0.0,
+      "raw_excess": 1.0,
+      "normalizer": 1e-05,
+      "ratio": 99999.99999999999
+    },
+    {
+      "constraint": 2,
+      "lhs": 2.0,
+      "rhs": 0.0,
+      "raw_excess": 2.0,
+      "normalizer": 1e-05,
+      "ratio": 199999.99999999997
+    },
+    {
+      "constraint": 2,
+      "lhs": 2.0,
+      "rhs": 0.0,
+      "raw_excess": 2.0,
+      "normalizer": 1e-05,
+      "ratio": 199999.99999999997
+    },
+    {
+      "constraint": 2,
+      "lhs": 1.0,
+      "rhs": 0.0,
+      "raw_excess": 1.0,
+      "normalizer": 1e-05,
+      "ratio": 99999.99999999999
+    },
+    {
+      "constraint": 2,
+      "lhs": 1.0,
+      "rhs": 0.0,
+      "raw_excess": 1.0,
+      "normalizer": 1e-05,
+      "ratio": 99999.99999999999
+    },
+    {
+      "constraint": 2,
+      "lhs": 1.0,
+      "rhs": 0.0,
+      "raw_excess": 1.0,
+      "normalizer": 1e-05,
+      "ratio": 99999.99999999999
+    },
+    {
+      "constraint": 2,
+      "lhs": 2.0,
+      "rhs": 0.0,
+      "raw_excess": 2.0,
+      "normalizer": 1e-05,
+      "ratio": 199999.99999999997
+    },
+    {
+      "constraint": 2,
+      "lhs": 4.0,
+      "rhs": 0.0,
+      "raw_excess": 4.0,
+      "normalizer": 1e-05,
+      "ratio": 399999.99999999994
+    },
+    {
+      "constraint": 2,
+      "lhs": 1.0,
+      "rhs": 0.0,
+      "raw_excess": 1.0,
+      "normalizer": 1e-05,
+      "ratio": 99999.99999999999
+    },
+    {
+      "constraint": 2,
+      "lhs": 5.0,
+      "rhs": 0.0,
+      "raw_excess": 5.0,
+      "normalizer": 1e-05,
+      "ratio": 499999.99999999994
+    },
+    {
+      "constraint": 2,
+      "lhs": 4.0,
+      "rhs": 0.0,
+      "raw_excess": 4.0,
+      "normalizer": 1e-05,
+      "ratio": 399999.99999999994
+    },
+    {
+      "constraint": 2,
+      "lhs": 3.0,
+      "rhs": 0.0,
+      "raw_excess": 3.0,
+      "normalizer": 1e-05,
+      "ratio": 300000.0
+    },
+    {
+      "constraint": 2,
+      "lhs": 9.0,
+      "rhs": 0.0,
+      "raw_excess": 9.0,
+      "normalizer": 1e-05,
+      "ratio": 899999.9999999999
+    },
+    {
+      "constraint": 2,
+      "lhs": 1.0,
+      "rhs": 0.0,
+      "raw_excess": 1.0,
+      "normalizer": 1e-05,
+      "ratio": 99999.99999999999
+    },
+    {
+      "constraint": 2,
+      "lhs": 1.0,
+      "rhs": 0.0,
+      "raw_excess": 1.0,
+      "normalizer": 1e-05,
+      "ratio": 99999.99999999999
+    },
+    {
+      "constraint": 2,
+      "lhs": 8.0,
+      "rhs": 0.0,
+      "raw_excess": 8.0,
+      "normalizer": 1e-05,
+      "ratio": 799999.9999999999
+    },
+    {
+      "constraint": 2,
+      "lhs": 2.0,
+      "rhs": 0.0,
+      "raw_excess": 2.0,
+      "normalizer": 1e-05,
+      "ratio": 199999.99999999997
+    },
+    {
+      "constraint": 2,
+      "lhs": 10.0,
+      "rhs": 0.0,
+      "raw_excess": 10.0,
+      "normalizer": 1e-05,
+      "ratio": 999999.9999999999
+    },
+    {
+      "constraint": 2,
+      "lhs": 5.0,
+      "rhs": 0.0,
+      "raw_excess": 5.0,
+      "normalizer": 1e-05,
+      "ratio": 499999.99999999994
+    },
+    {
+      "constraint": 2,
+      "lhs": 8.0,
+      "rhs": 0.0,
+      "raw_excess": 8.0,
+      "normalizer": 1e-05,
+      "ratio": 799999.9999999999
+    },
+    {
+      "constraint": 2,
+      "lhs": 9.0,
+      "rhs": 0.0,
+      "raw_excess": 9.0,
+      "normalizer": 1e-05,
+      "ratio": 899999.9999999999
+    },
+    {
+      "constraint": 2,
+      "lhs": 3.0,
+      "rhs": 0.0,
+      "raw_excess": 3.0,
+      "normalizer": 1e-05,
+      "ratio": 300000.0
+    },
+    {
+      "constraint": 2,
+      "lhs": 9.0,
+      "rhs": 0.0,
+      "raw_excess": 9.0,
+      "normalizer": 1e-05,
+      "ratio": 899999.9999999999
+    },
+    {
+      "constraint": 2,
+      "lhs": 32.0,
+      "rhs": 0.0,
+      "raw_excess": 32.0,
+      "normalizer": 1e-05,
+      "ratio": 3199999.9999999995
+    },
+    {
+      "constraint": 2,
+      "lhs": 7.0,
+      "rhs": 0.0,
+      "raw_excess": 7.0,
+      "normalizer": 1e-05,
+      "ratio": 700000.0
+    },
+    {
+      "constraint": 2,
+      "lhs": 20.0,
+      "rhs": 0.0,
+      "raw_excess": 20.0,
+      "normalizer": 1e-05,
+      "ratio": 1999999.9999999998
+    },
+    {
+      "constraint": 2,
+      "lhs": 22.0,
+      "rhs": 0.0,
+      "raw_excess": 22.0,
+      "normalizer": 1e-05,
+      "ratio": 2200000.0
+    },
+    {
+      "constraint": 2,
+      "lhs": 25.0,
+      "rhs": 0.0,
+      "raw_excess": 25.0,
+      "normalizer": 1e-05,
+      "ratio": 2500000.0
+    },
+    {
+      "constraint": 2,
+      "lhs": 30.0,
+      "rhs": 0.0,
+      "raw_excess": 30.0,
+      "normalizer": 1e-05,
+      "ratio": 2999999.9999999995
+    },
+    {
+      "constraint": 2,
+      "lhs": 50.0,
+      "rhs": 0.0,
+      "raw_excess": 50.0,
+      "normalizer": 1e-05,
+      "ratio": 5000000.0
+    },
+    {
+      "constraint": 2,
+      "lhs": 50.0,
+      "rhs": 0.0,
+      "raw_excess": 50.0,
+      "normalizer": 1e-05,
+      "ratio": 5000000.0
+    },
+    {
+      "constraint": 2,
+      "lhs": 29.0,
+      "rhs": 0.0,
+      "raw_excess": 29.0,
+      "normalizer": 1e-05,
+      "ratio": 2899999.9999999995
+    },
+    {
+      "constraint": 2,
+      "lhs": 20.0,
+      "rhs": 0.0,
+      "raw_excess": 20.0,
+      "normalizer": 1e-05,
+      "ratio": 1999999.9999999998
+    },
+    {
+      "constraint": 2,
+      "lhs": 16.0,
+      "rhs": 0.0,
+      "raw_excess": 16.0,
+      "normalizer": 1e-05,
+      "ratio": 1599999.9999999998
+    },
+    {
+      "constraint": 2,
+      "lhs": 28.0,
+      "rhs": 0.0,
+      "raw_excess": 28.0,
+      "normalizer": 1e-05,
+      "ratio": 2800000.0
+    },
+    {
+      "constraint": 2,
+      "lhs": 50.0,
+      "rhs": 0.0,
+      "raw_excess": 50.0,
+      "normalizer": 1e-05,
+      "ratio": 5000000.0
+    },
+    {
+      "constraint": 2,
+      "lhs": 20.0,
+      "rhs": 0.0,
+      "raw_excess": 20.0,
+      "normalizer": 1e-05,
+      "ratio": 1999999.9999999998
+    },
+    {
+      "constraint": 2,
+      "lhs": 52.0,
+      "rhs": 0.0,
+      "raw_excess": 52.0,
+      "normalizer": 1e-05,
+      "ratio": 5200000.0
+    },
+    {
+      "constraint": 2,
+      "lhs": 52.0,
+      "rhs": 0.0,
+      "raw_excess": 52.0,
+      "normalizer": 1e-05,
+      "ratio": 5200000.0
+    },
+    {
+      "constraint": 2,
+      "lhs": 52.0,
+      "rhs": 0.0,
+      "raw_excess": 52.0,
+      "normalizer": 1e-05,
+      "ratio": 5200000.0
+    },
+    {
+      "constraint": 2,
+      "lhs": 52.0,
+      "rhs": 0.0,
+      "raw_excess": 52.0,
+      "normalizer": 1e-05,
+      "ratio": 5200000.0
+    },
+    {
+      "constraint": 2,
+      "lhs": 52.0,
+      "rhs": 0.0,
+      "raw_excess": 52.0,
+      "normalizer": 1e-05,
+      "ratio": 5200000.0
+    },
+    {
+      "constraint": 2,
+      "lhs": 53.0,
+      "rhs": 0.0,
+      "raw_excess": 53.0,
+      "normalizer": 1e-05,
+      "ratio": 5300000.0
+    },
+    {
+      "constraint": 2,
+      "lhs": 53.0,
+      "rhs": 0.0,
+      "raw_excess": 53.0,
+      "normalizer": 1e-05,
+      "ratio": 5300000.0
+    },
+    {
+      "constraint": 2,
+      "lhs": 19.0,
+      "rhs": 0.0,
+      "raw_excess": 19.0,
+      "normalizer": 1e-05,
+      "ratio": 1899999.9999999998
+    },
+    {
+      "constraint": 2,
+      "lhs": 53.0,
+      "rhs": 0.0,
+      "raw_excess": 53.0,
+      "normalizer": 1e-05,
+      "ratio": 5300000.0
+    },
+    {
+      "constraint": 2,
+      "lhs": 53.0,
+      "rhs": 0.0,
+      "raw_excess": 53.0,
+      "normalizer": 1e-05,
+      "ratio": 5300000.0
+    },
+    {
+      "constraint": 2,
+      "lhs": 53.0,
+      "rhs": 0.0,
+      "raw_excess": 53.0,
+      "normalizer": 1e-05,
+      "ratio": 5300000.0
+    },
+    {
+      "constraint": 2,
+      "lhs": 53.0,
+      "rhs": 0.0,
+      "raw_excess": 53.0,
+      "normalizer": 1e-05,
+      "ratio": 5300000.0
+    },
+    {
+      "constraint": 2,
+      "lhs": 53.0,
+      "rhs": 0.0,
+      "raw_excess": 53.0,
+      "normalizer": 1e-05,
+      "ratio": 5300000.0
+    },
+    {
+      "constraint": 2,
+      "lhs": 53.0,
+      "rhs": 0.0,
+      "raw_excess": 53.0,
+      "normalizer": 1e-05,
+      "ratio": 5300000.0
+    },
+    {
+      "constraint": 2,
+      "lhs": 53.0,
+      "rhs": 0.0,
+      "raw_excess": 53.0,
+      "normalizer": 1e-05,
+      "ratio": 5300000.0
+    },
+    {
+      "constraint": 2,
+      "lhs": 54.0,
+      "rhs": 0.0,
+      "raw_excess": 54.0,
+      "normalizer": 1e-05,
+      "ratio": 5400000.0
+    },
+    {
+      "constraint": 2,
+      "lhs": 54.0,
+      "rhs": 0.0,
+      "raw_excess": 54.0,
+      "normalizer": 1e-05,
+      "ratio": 5400000.0
+    },
+    {
+      "constraint": 2,
+      "lhs": 54.0,
+      "rhs": 0.0,
+      "raw_excess": 54.0,
+      "normalizer": 1e-05,
+      "ratio": 5400000.0
+    },
+    {
+      "constraint": 2,
+      "lhs": 54.0,
+      "rhs": 0.0,
+      "raw_excess": 54.0,
+      "normalizer": 1e-05,
+      "ratio": 5400000.0
+    },
+    {
+      "constraint": 2,
+      "lhs": 54.0,
+      "rhs": 0.0,
+      "raw_excess": 54.0,
+      "normalizer": 1e-05,
+      "ratio": 5400000.0
+    },
+    {
+      "constraint": 2,
+      "lhs": 54.0,
+      "rhs": 0.0,
+      "raw_excess": 54.0,
+      "normalizer": 1e-05,
+      "ratio": 5400000.0
+    },
+    {
+      "constraint": 2,
+      "lhs": 54.0,
+      "rhs": 0.0,
+      "raw_excess": 54.0,
+      "normalizer": 1e-05,
+      "ratio": 5400000.0
+    },
+    {
+      "constraint": 2,
+      "lhs": 54.0,
+      "rhs": 0.0,
+      "raw_excess": 54.0,
+      "normalizer": 1e-05,
+      "ratio": 5400000.0
+    },
+    {
+      "constraint": 2,
+      "lhs": 20.0,
+      "rhs": 0.0,
+      "raw_excess": 20.0,
+      "normalizer": 1e-05,
+      "ratio": 1999999.9999999998
+    },
+    {
+      "constraint": 2,
+      "lhs": 55.0,
+      "rhs": 0.0,
+      "raw_excess": 55.0,
+      "normalizer": 1e-05,
+      "ratio": 5500000.0
+    },
+    {
+      "constraint": 2,
+      "lhs": 55.0,
+      "rhs": 0.0,
+      "raw_excess": 55.0,
+      "normalizer": 1e-05,
+      "ratio": 5500000.0
+    },
+    {
+      "constraint": 2,
+      "lhs": 55.0,
+      "rhs": 0.0,
+      "raw_excess": 55.0,
+      "normalizer": 1e-05,
+      "ratio": 5500000.0
+    },
+    {
+      "constraint": 2,
+      "lhs": 55.0,
+      "rhs": 0.0,
+      "raw_excess": 55.0,
+      "normalizer": 1e-05,
+      "ratio": 5500000.0
+    },
+    {
+      "constraint": 2,
+      "lhs": 55.0,
+      "rhs": 0.0,
+      "raw_excess": 55.0,
+      "normalizer": 1e-05,
+      "ratio": 5500000.0
+    },
+    {
+      "constraint": 2,
+      "lhs": 56.0,
+      "rhs": 0.0,
+      "raw_excess": 56.0,
+      "normalizer": 1e-05,
+      "ratio": 5600000.0
+    },
+    {
+      "constraint": 2,
+      "lhs": 56.0,
+      "rhs": 0.0,
+      "raw_excess": 56.0,
+      "normalizer": 1e-05,
+      "ratio": 5600000.0
+    },
+    {
+      "constraint": 2,
+      "lhs": 56.0,
+      "rhs": 0.0,
+      "raw_excess": 56.0,
+      "normalizer": 1e-05,
+      "ratio": 5600000.0
+    },
+    {
+      "constraint": 2,
+      "lhs": 56.0,
+      "rhs": 0.0,
+      "raw_excess": 56.0,
+      "normalizer": 1e-05,
+      "ratio": 5600000.0
+    },
+    {
+      "constraint": 2,
+      "lhs": 56.0,
+      "rhs": 0.0,
+      "raw_excess": 56.0,
+      "normalizer": 1e-05,
+      "ratio": 5600000.0
+    },
+    {
+      "constraint": 2,
+      "lhs": 56.0,
+      "rhs": 0.0,
+      "raw_excess": 56.0,
+      "normalizer": 1e-05,
+      "ratio": 5600000.0
+    },
+    {
+      "constraint": 2,
+      "lhs": 56.0,
+      "rhs": 0.0,
+      "raw_excess": 56.0,
+      "normalizer": 1e-05,
+      "ratio": 5600000.0
+    },
+    {
+      "constraint": 2,
+      "lhs": 56.0,
+      "rhs": 0.0,
+      "raw_excess": 56.0,
+      "normalizer": 1e-05,
+      "ratio": 5600000.0
+    },
+    {
+      "constraint": 2,
+      "lhs": 57.0,
+      "rhs": 0.0,
+      "raw_excess": 57.0,
+      "normalizer": 1e-05,
+      "ratio": 5699999.999999999
+    },
+    {
+      "constraint": 2,
+      "lhs": 57.0,
+      "rhs": 0.0,
+      "raw_excess": 57.0,
+      "normalizer": 1e-05,
+      "ratio": 5699999.999999999
+    },
+    {
+      "constraint": 2,
+      "lhs": 57.0,
+      "rhs": 0.0,
+      "raw_excess": 57.0,
+      "normalizer": 1e-05,
+      "ratio": 5699999.999999999
+    },
+    {
+      "constraint": 2,
+      "lhs": 57.0,
+      "rhs": 0.0,
+      "raw_excess": 57.0,
+      "normalizer": 1e-05,
+      "ratio": 5699999.999999999
+    },
+    {
+      "constraint": 2,
+      "lhs": 57.0,
+      "rhs": 0.0,
+      "raw_excess": 57.0,
+      "normalizer": 1e-05,
+      "ratio": 5699999.999999999
+    },
+    {
+      "constraint": 2,
+      "lhs": 57.0,
+      "rhs": 0.0,
+      "raw_excess": 57.0,
+      "normalizer": 1e-05,
+      "ratio": 5699999.999999999
+    },
+    {
+      "constraint": 2,
+      "lhs": 57.0,
+      "rhs": 0.0,
+      "raw_excess": 57.0,
+      "normalizer": 1e-05,
+      "ratio": 5699999.999999999
+    },
+    {
+      "constraint": 2,
+      "lhs": 57.0,
+      "rhs": 0.0,
+      "raw_excess": 57.0,
+      "normalizer": 1e-05,
+      "ratio": 5699999.999999999
+    },
+    {
+      "constraint": 2,
+      "lhs": 58.0,
+      "rhs": 0.0,
+      "raw_excess": 58.0,
+      "normalizer": 1e-05,
+      "ratio": 5799999.999999999
+    },
+    {
+      "constraint": 2,
+      "lhs": 58.0,
+      "rhs": 0.0,
+      "raw_excess": 58.0,
+      "normalizer": 1e-05,
+      "ratio": 5799999.999999999
+    },
+    {
+      "constraint": 2,
+      "lhs": 58.0,
+      "rhs": 0.0,
+      "raw_excess": 58.0,
+      "normalizer": 1e-05,
+      "ratio": 5799999.999999999
+    },
+    {
+      "constraint": 2,
+      "lhs": 58.0,
+      "rhs": 0.0,
+      "raw_excess": 58.0,
+      "normalizer": 1e-05,
+      "ratio": 5799999.999999999
+    },
+    {
+      "constraint": 2,
+      "lhs": 58.0,
+      "rhs": 0.0,
+      "raw_excess": 58.0,
+      "normalizer": 1e-05,
+      "ratio": 5799999.999999999
+    },
+    {
+      "constraint": 2,
+      "lhs": 59.0,
+      "rhs": 0.0,
+      "raw_excess": 59.0,
+      "normalizer": 1e-05,
+      "ratio": 5899999.999999999
+    },
+    {
+      "constraint": 2,
+      "lhs": 59.0,
+      "rhs": 0.0,
+      "raw_excess": 59.0,
+      "normalizer": 1e-05,
+      "ratio": 5899999.999999999
+    },
+    {
+      "constraint": 2,
+      "lhs": 59.0,
+      "rhs": 0.0,
+      "raw_excess": 59.0,
+      "normalizer": 1e-05,
+      "ratio": 5899999.999999999
+    },
+    {
+      "constraint": 2,
+      "lhs": 59.0,
+      "rhs": 0.0,
+      "raw_excess": 59.0,
+      "normalizer": 1e-05,
+      "ratio": 5899999.999999999
+    },
+    {
+      "constraint": 2,
+      "lhs": 59.0,
+      "rhs": 0.0,
+      "raw_excess": 59.0,
+      "normalizer": 1e-05,
+      "ratio": 5899999.999999999
+    },
+    {
+      "constraint": 2,
+      "lhs": 60.0,
+      "rhs": 0.0,
+      "raw_excess": 60.0,
+      "normalizer": 1e-05,
+      "ratio": 5999999.999999999
+    },
+    {
+      "constraint": 2,
+      "lhs": 60.0,
+      "rhs": 0.0,
+      "raw_excess": 60.0,
+      "normalizer": 1e-05,
+      "ratio": 5999999.999999999
+    },
+    {
+      "constraint": 2,
+      "lhs": 60.0,
+      "rhs": 0.0,
+      "raw_excess": 60.0,
+      "normalizer": 1e-05,
+      "ratio": 5999999.999999999
+    },
+    {
+      "constraint": 2,
+      "lhs": 60.0,
+      "rhs": 0.0,
+      "raw_excess": 60.0,
+      "normalizer": 1e-05,
+      "ratio": 5999999.999999999
+    },
+    {
+      "constraint": 2,
+      "lhs": 60.0,
+      "rhs": 0.0,
+      "raw_excess": 60.0,
+      "normalizer": 1e-05,
+      "ratio": 5999999.999999999
+    },
+    {
+      "constraint": 2,
+      "lhs": 61.0,
+      "rhs": 0.0,
+      "raw_excess": 61.0,
+      "normalizer": 1e-05,
+      "ratio": 6099999.999999999
+    },
+    {
+      "constraint": 2,
+      "lhs": 61.0,
+      "rhs": 0.0,
+      "raw_excess": 61.0,
+      "normalizer": 1e-05,
+      "ratio": 6099999.999999999
+    },
+    {
+      "constraint": 2,
+      "lhs": 61.0,
+      "rhs": 0.0,
+      "raw_excess": 61.0,
+      "normalizer": 1e-05,
+      "ratio": 6099999.999999999
+    },
+    {
+      "constraint": 2,
+      "lhs": 61.0,
+      "rhs": 0.0,
+      "raw_excess": 61.0,
+      "normalizer": 1e-05,
+      "ratio": 6099999.999999999
+    },
+    {
+      "constraint": 2,
+      "lhs": 62.0,
+      "rhs": 0.0,
+      "raw_excess": 62.0,
+      "normalizer": 1e-05,
+      "ratio": 6199999.999999999
+    },
+    {
+      "constraint": 2,
+      "lhs": 62.0,
+      "rhs": 0.0,
+      "raw_excess": 62.0,
+      "normalizer": 1e-05,
+      "ratio": 6199999.999999999
+    },
+    {
+      "constraint": 2,
+      "lhs": 62.0,
+      "rhs": 0.0,
+      "raw_excess": 62.0,
+      "normalizer": 1e-05,
+      "ratio": 6199999.999999999
+    },
+    {
+      "constraint": 2,
+      "lhs": 62.0,
+      "rhs": 0.0,
+      "raw_excess": 62.0,
+      "normalizer": 1e-05,
+      "ratio": 6199999.999999999
+    },
+    {
+      "constraint": 2,
+      "lhs": 62.0,
+      "rhs": 0.0,
+      "raw_excess": 62.0,
+      "normalizer": 1e-05,
+      "ratio": 6199999.999999999
+    },
+    {
+      "constraint": 2,
+      "lhs": 63.0,
+      "rhs": 0.0,
+      "raw_excess": 63.0,
+      "normalizer": 1e-05,
+      "ratio": 6299999.999999999
+    },
+    {
+      "constraint": 2,
+      "lhs": 63.0,
+      "rhs": 0.0,
+      "raw_excess": 63.0,
+      "normalizer": 1e-05,
+      "ratio": 6299999.999999999
+    },
+    {
+      "constraint": 2,
+      "lhs": 63.0,
+      "rhs": 0.0,
+      "raw_excess": 63.0,
+      "normalizer": 1e-05,
+      "ratio": 6299999.999999999
+    },
+    {
+      "constraint": 2,
+      "lhs": 63.0,
+      "rhs": 0.0,
+      "raw_excess": 63.0,
+      "normalizer": 1e-05,
+      "ratio": 6299999.999999999
+    },
+    {
+      "constraint": 2,
+      "lhs": 64.0,
+      "rhs": 0.0,
+      "raw_excess": 64.0,
+      "normalizer": 1e-05,
+      "ratio": 6399999.999999999
+    },
+    {
+      "constraint": 2,
+      "lhs": 64.0,
+      "rhs": 0.0,
+      "raw_excess": 64.0,
+      "normalizer": 1e-05,
+      "ratio": 6399999.999999999
+    },
+    {
+      "constraint": 2,
+      "lhs": 64.0,
+      "rhs": 0.0,
+      "raw_excess": 64.0,
+      "normalizer": 1e-05,
+      "ratio": 6399999.999999999
+    },
+    {
+      "constraint": 2,
+      "lhs": 64.0,
+      "rhs": 0.0,
+      "raw_excess": 64.0,
+      "normalizer": 1e-05,
+      "ratio": 6399999.999999999
+    },
+    {
+      "constraint": 2,
+      "lhs": 65.0,
+      "rhs": 0.0,
+      "raw_excess": 65.0,
+      "normalizer": 1e-05,
+      "ratio": 6499999.999999999
+    },
+    {
+      "constraint": 2,
+      "lhs": 65.0,
+      "rhs": 0.0,
+      "raw_excess": 65.0,
+      "normalizer": 1e-05,
+      "ratio": 6499999.999999999
+    },
+    {
+      "constraint": 2,
+      "lhs": 66.0,
+      "rhs": 0.0,
+      "raw_excess": 66.0,
+      "normalizer": 1e-05,
+      "ratio": 6599999.999999999
+    },
+    {
+      "constraint": 2,
+      "lhs": 66.0,
+      "rhs": 0.0,
+      "raw_excess": 66.0,
+      "normalizer": 1e-05,
+      "ratio": 6599999.999999999
+    },
+    {
+      "constraint": 2,
+      "lhs": 69.0,
+      "rhs": 0.0,
+      "raw_excess": 69.0,
+      "normalizer": 1e-05,
+      "ratio": 6899999.999999999
+    },
+    {
+      "constraint": 2,
+      "lhs": 70.0,
+      "rhs": 0.0,
+      "raw_excess": 70.0,
+      "normalizer": 1e-05,
+      "ratio": 6999999.999999999
+    },
+    {
+      "constraint": 2,
+      "lhs": 73.0,
+      "rhs": 0.0,
+      "raw_excess": 73.0,
+      "normalizer": 1e-05,
+      "ratio": 7299999.999999999
+    }
+  ]
+}

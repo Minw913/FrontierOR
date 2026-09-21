@@ -1,0 +1,3746 @@
+{
+  "policy": "Raw large logs, files at least 5 MiB, and empty solution placeholders remain on the originating host and are not committed to Git.",
+  "count": 745,
+  "total_bytes": 41790031912,
+  "by_reason": {
+    "file_at_least_5_MiB": {
+      "count": 47,
+      "bytes": 14709923341
+    },
+    "raw_large_log": {
+      "count": 693,
+      "bytes": 27080108571
+    },
+    "empty_solution_file": {
+      "count": 5,
+      "bytes": 0
+    }
+  },
+  "files": [
+    {
+      "path": "eval/eval_tasks/alfieri2020/claude-fable-5/log_large_1.jsonl",
+      "bytes": 42457,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/alfieri2020/claude-fable-5/log_large_2.jsonl",
+      "bytes": 42415,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/alfieri2020/claude-fable-5/log_large_3.jsonl",
+      "bytes": 43410,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/alfieri2020/claude-fable-5/log_large_4.jsonl",
+      "bytes": 21879,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/alfieri2020/claude-fable-5/log_large_5.jsonl",
+      "bytes": 42488,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/amaldi2013/claude-fable-5/log_large_1.jsonl",
+      "bytes": 6590,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/amaldi2013/claude-fable-5/log_large_2.jsonl",
+      "bytes": 3827,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/amaldi2013/claude-fable-5/log_large_3.jsonl",
+      "bytes": 4862,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/amaldi2013/claude-fable-5/log_large_4.jsonl",
+      "bytes": 3815,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/amaldi2013/claude-fable-5/log_large_5.jsonl",
+      "bytes": 7995,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/araujo2015/claude-fable-5/log_large_1.jsonl",
+      "bytes": 1014042,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/araujo2015/claude-fable-5/log_large_2.jsonl",
+      "bytes": 2458455,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/araujo2015/claude-fable-5/log_large_3.jsonl",
+      "bytes": 1581272,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/araujo2015/claude-fable-5/log_large_4.jsonl",
+      "bytes": 72127,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/araujo2015/claude-fable-5/log_large_5.jsonl",
+      "bytes": 714728,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/araujo2020/claude-fable-5/log_large_1.jsonl",
+      "bytes": 28268,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/araujo2020/claude-fable-5/log_large_2.jsonl",
+      "bytes": 40466,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/araujo2020/claude-fable-5/log_large_3.jsonl",
+      "bytes": 12090,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/araujo2020/claude-fable-5/log_large_4.jsonl",
+      "bytes": 40457,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/araujo2020/claude-fable-5/log_large_5.jsonl",
+      "bytes": 20167,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/archetti2007/claude-fable-5/log_large_1.jsonl",
+      "bytes": 359498,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/archetti2007/claude-fable-5/log_large_2.jsonl",
+      "bytes": 289193,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/archetti2007/claude-fable-5/log_large_3.jsonl",
+      "bytes": 117719,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/archetti2007/claude-fable-5/log_large_4.jsonl",
+      "bytes": 196558,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/archetti2007/claude-fable-5/log_large_5.jsonl",
+      "bytes": 386633,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/armbruster2012/claude-fable-5/log_large_1.jsonl",
+      "bytes": 864170,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/armbruster2012/claude-fable-5/log_large_2.jsonl",
+      "bytes": 12854516,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/armbruster2012/claude-fable-5/log_large_3.jsonl",
+      "bytes": 11234115,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/armbruster2012/claude-fable-5/log_large_4.jsonl",
+      "bytes": 13286494,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/armbruster2012/claude-fable-5/log_large_5.jsonl",
+      "bytes": 10153930,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/arslan2021/claude-fable-5/log_large_1.jsonl",
+      "bytes": 5374,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/arslan2021/claude-fable-5/log_large_2.jsonl",
+      "bytes": 16217,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/arslan2021/claude-fable-5/log_large_3.jsonl",
+      "bytes": 13501,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/arslan2021/claude-fable-5/log_large_4.jsonl",
+      "bytes": 8089,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/arslan2021/claude-fable-5/log_large_5.jsonl",
+      "bytes": 5380,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/bard2002/claude-fable-5/log_large_1.jsonl",
+      "bytes": 12006,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/bard2002/claude-fable-5/log_large_2.jsonl",
+      "bytes": 9045,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/bard2002/claude-fable-5/log_large_3.jsonl",
+      "bytes": 3531,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/bard2002/claude-fable-5/log_large_4.jsonl",
+      "bytes": 5950,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/bard2002/claude-fable-5/log_large_5.jsonl",
+      "bytes": 5935,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/bayani2024/claude-fable-5/log_large_1.jsonl",
+      "bytes": 579,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/bayani2024/claude-fable-5/log_large_2.jsonl",
+      "bytes": 24514,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/bayani2024/claude-fable-5/log_large_3.jsonl",
+      "bytes": 3452,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/bayani2024/claude-fable-5/log_large_4.jsonl",
+      "bytes": 1139,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/bayani2024/claude-fable-5/log_large_5.jsonl",
+      "bytes": 562,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/belhoul2014/claude-fable-5/log_large_1.jsonl",
+      "bytes": 7609829,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/belhoul2014/claude-fable-5/log_large_2.jsonl",
+      "bytes": 15219663,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/belhoul2014/claude-fable-5/log_large_3.jsonl",
+      "bytes": 30439340,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/belhoul2014/claude-fable-5/log_large_4.jsonl",
+      "bytes": 7609829,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/belhoul2014/claude-fable-5/log_large_5.jsonl",
+      "bytes": 7609831,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/belhoul2014/claude-fable-5/solution_large_1.json",
+      "bytes": 11414360,
+      "reason": "file_at_least_5_MiB"
+    },
+    {
+      "path": "eval/eval_tasks/belhoul2014/claude-fable-5/solution_large_2.json",
+      "bytes": 11414361,
+      "reason": "file_at_least_5_MiB"
+    },
+    {
+      "path": "eval/eval_tasks/belhoul2014/claude-fable-5/solution_large_3.json",
+      "bytes": 11414362,
+      "reason": "file_at_least_5_MiB"
+    },
+    {
+      "path": "eval/eval_tasks/belhoul2014/claude-fable-5/solution_large_4.json",
+      "bytes": 11414360,
+      "reason": "file_at_least_5_MiB"
+    },
+    {
+      "path": "eval/eval_tasks/belvaux2000/claude-fable-5/log_large_1.jsonl",
+      "bytes": 5613430,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/belvaux2000/claude-fable-5/log_large_2.jsonl",
+      "bytes": 2541275,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/belvaux2000/claude-fable-5/log_large_3.jsonl",
+      "bytes": 1747898,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/belvaux2000/claude-fable-5/log_large_4.jsonl",
+      "bytes": 1917206,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/belvaux2000/claude-fable-5/log_large_5.jsonl",
+      "bytes": 2898352,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/bentert2022/claude-fable-5/log_large_1.jsonl",
+      "bytes": 2355,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/bentert2022/claude-fable-5/log_large_2.jsonl",
+      "bytes": 2390,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/bentert2022/claude-fable-5/log_large_3.jsonl",
+      "bytes": 16573,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/bentert2022/claude-fable-5/log_large_4.jsonl",
+      "bytes": 22580,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/bentert2022/claude-fable-5/log_large_5.jsonl",
+      "bytes": 16599,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/bergman2019/claude-fable-5/log_large_1.jsonl",
+      "bytes": 711,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/bergman2019/claude-fable-5/log_large_2.jsonl",
+      "bytes": 1049,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/bergman2019/claude-fable-5/log_large_3.jsonl",
+      "bytes": 1382,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/bergman2019/claude-fable-5/log_large_4.jsonl",
+      "bytes": 352,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/bergman2019/claude-fable-5/log_large_5.jsonl",
+      "bytes": 1750,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/bertsimas2022/claude-fable-5/log_large_1.jsonl",
+      "bytes": 58036,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/bertsimas2022/claude-fable-5/log_large_2.jsonl",
+      "bytes": 84458,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/bertsimas2022/claude-fable-5/log_large_3.jsonl",
+      "bytes": 158322,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/bertsimas2022/claude-fable-5/log_large_4.jsonl",
+      "bytes": 52738,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/bertsimas2022/claude-fable-5/log_large_5.jsonl",
+      "bytes": 126610,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/bertsimas2024/claude-fable-5/log_large_1.jsonl",
+      "bytes": 13525510,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/bertsimas2024/claude-fable-5/log_large_2.jsonl",
+      "bytes": 13835556,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/bertsimas2024/claude-fable-5/log_large_3.jsonl",
+      "bytes": 13715219,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/bertsimas2024/claude-fable-5/log_large_4.jsonl",
+      "bytes": 1467126,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/bertsimas2024/claude-fable-5/log_large_5.jsonl",
+      "bytes": 13929897,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/bertsimas2024/claude-fable-5/solution_large_1.json",
+      "bytes": 6762541,
+      "reason": "file_at_least_5_MiB"
+    },
+    {
+      "path": "eval/eval_tasks/bertsimas2024/claude-fable-5/solution_large_2.json",
+      "bytes": 6917699,
+      "reason": "file_at_least_5_MiB"
+    },
+    {
+      "path": "eval/eval_tasks/bertsimas2024/claude-fable-5/solution_large_3.json",
+      "bytes": 6857536,
+      "reason": "file_at_least_5_MiB"
+    },
+    {
+      "path": "eval/eval_tasks/bertsimas2024/claude-fable-5/solution_large_5.json",
+      "bytes": 5353081,
+      "reason": "file_at_least_5_MiB"
+    },
+    {
+      "path": "eval/eval_tasks/bettinelli2017/claude-fable-5/log_large_1.jsonl",
+      "bytes": 1218,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/bettinelli2017/claude-fable-5/log_large_2.jsonl",
+      "bytes": 2361,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/bettinelli2017/claude-fable-5/log_large_3.jsonl",
+      "bytes": 1861,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/bettinelli2017/claude-fable-5/log_large_4.jsonl",
+      "bytes": 802,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/bettinelli2017/claude-fable-5/log_large_5.jsonl",
+      "bytes": 852,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/bode2012/claude-fable-5/log_large_1.jsonl",
+      "bytes": 1147,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/bode2012/claude-fable-5/log_large_2.jsonl",
+      "bytes": 719,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/bode2012/claude-fable-5/log_large_3.jsonl",
+      "bytes": 676,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/bode2012/claude-fable-5/log_large_4.jsonl",
+      "bytes": 1527,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/bode2012/claude-fable-5/log_large_5.jsonl",
+      "bytes": 587,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/bodur2017/claude-fable-5/log_large_1.jsonl",
+      "bytes": 256498343,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/bodur2017/claude-fable-5/log_large_2.jsonl",
+      "bytes": 257929503,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/bodur2017/claude-fable-5/log_large_3.jsonl",
+      "bytes": 171658076,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/bodur2017/claude-fable-5/log_large_4.jsonl",
+      "bytes": 297381494,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/bodur2017/claude-fable-5/log_large_5.jsonl",
+      "bytes": 212211372,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/bodur2017/claude-fable-5/log_tiny.jsonl",
+      "bytes": 10988512,
+      "reason": "file_at_least_5_MiB"
+    },
+    {
+      "path": "eval/eval_tasks/bodur2017/claude-fable-5/solution_large_1.json",
+      "bytes": 42746977,
+      "reason": "file_at_least_5_MiB"
+    },
+    {
+      "path": "eval/eval_tasks/bodur2017/claude-fable-5/solution_large_2.json",
+      "bytes": 43004699,
+      "reason": "file_at_least_5_MiB"
+    },
+    {
+      "path": "eval/eval_tasks/bodur2017/claude-fable-5/solution_large_3.json",
+      "bytes": 42918377,
+      "reason": "file_at_least_5_MiB"
+    },
+    {
+      "path": "eval/eval_tasks/bodur2017/claude-fable-5/solution_large_4.json",
+      "bytes": 42474278,
+      "reason": "file_at_least_5_MiB"
+    },
+    {
+      "path": "eval/eval_tasks/bodur2017/claude-fable-5/solution_large_5.json",
+      "bytes": 42425417,
+      "reason": "file_at_least_5_MiB"
+    },
+    {
+      "path": "eval/eval_tasks/boland2019/claude-fable-5/log_large_1.jsonl",
+      "bytes": 12235,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/boland2019/claude-fable-5/log_large_2.jsonl",
+      "bytes": 23242,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/boland2019/claude-fable-5/log_large_3.jsonl",
+      "bytes": 57916,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/boland2019/claude-fable-5/log_large_4.jsonl",
+      "bytes": 49554,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/boland2019/claude-fable-5/log_large_5.jsonl",
+      "bytes": 4344,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/borndorfer2007/claude-fable-5/log_large_1.jsonl",
+      "bytes": 724094,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/borndorfer2007/claude-fable-5/log_large_2.jsonl",
+      "bytes": 723708,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/borndorfer2007/claude-fable-5/log_large_3.jsonl",
+      "bytes": 400,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/borndorfer2007/claude-fable-5/log_large_4.jsonl",
+      "bytes": 790353,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/borndorfer2007/claude-fable-5/log_large_5.jsonl",
+      "bytes": 115,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/bragin2022/claude-fable-5/log_large_1.jsonl",
+      "bytes": 251972,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/bragin2022/claude-fable-5/log_large_2.jsonl",
+      "bytes": 557923,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/bragin2022/claude-fable-5/log_large_3.jsonl",
+      "bytes": 35970,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/bragin2022/claude-fable-5/log_large_4.jsonl",
+      "bytes": 35953,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/bragin2022/claude-fable-5/log_large_5.jsonl",
+      "bytes": 35804,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/brandao2016/claude-fable-5/log_large_1.jsonl",
+      "bytes": 842,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/brandao2016/claude-fable-5/log_large_2.jsonl",
+      "bytes": 1531,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/brandao2016/claude-fable-5/log_large_3.jsonl",
+      "bytes": 3007,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/brandao2016/claude-fable-5/log_large_4.jsonl",
+      "bytes": 757,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/brandao2016/claude-fable-5/log_large_5.jsonl",
+      "bytes": 373,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/bront2009/claude-fable-5/log_large_1.jsonl",
+      "bytes": 40101,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/bront2009/claude-fable-5/log_large_2.jsonl",
+      "bytes": 92286,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/bront2009/claude-fable-5/log_large_3.jsonl",
+      "bytes": 43171,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/bront2009/claude-fable-5/log_large_4.jsonl",
+      "bytes": 17856,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/bront2009/claude-fable-5/log_large_5.jsonl",
+      "bytes": 2760,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/buchheim2018/claude-fable-5/log_large_1.jsonl",
+      "bytes": 11008,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/buchheim2018/claude-fable-5/log_large_2.jsonl",
+      "bytes": 13817,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/buchheim2018/claude-fable-5/log_large_3.jsonl",
+      "bytes": 12336,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/buchheim2018/claude-fable-5/log_large_4.jsonl",
+      "bytes": 9616,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/buchheim2018/claude-fable-5/log_large_5.jsonl",
+      "bytes": 4099,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/byeon2022/claude-fable-5/log_large_1.jsonl",
+      "bytes": 40,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/byeon2022/claude-fable-5/log_large_2.jsonl",
+      "bytes": 64475,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/byeon2022/claude-fable-5/log_large_3.jsonl",
+      "bytes": 61618,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/byeon2022/claude-fable-5/log_large_4.jsonl",
+      "bytes": 122518,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/byeon2022/claude-fable-5/log_large_5.jsonl",
+      "bytes": 63863,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/caprara1999/claude-fable-5/log_large_1.jsonl",
+      "bytes": 1008,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/caprara1999/claude-fable-5/log_large_2.jsonl",
+      "bytes": 3024,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/caprara1999/claude-fable-5/log_large_3.jsonl",
+      "bytes": 1010,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/caprara1999/claude-fable-5/log_large_4.jsonl",
+      "bytes": 2016,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/caprara1999/claude-fable-5/log_large_5.jsonl",
+      "bytes": 2018,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/carvalho1999/claude-fable-5/log_large_1.jsonl",
+      "bytes": 435882,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/carvalho1999/claude-fable-5/log_large_2.jsonl",
+      "bytes": 456767,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/carvalho1999/claude-fable-5/log_large_3.jsonl",
+      "bytes": 525164,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/carvalho1999/claude-fable-5/log_large_4.jsonl",
+      "bytes": 442799,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/carvalho1999/claude-fable-5/log_large_5.jsonl",
+      "bytes": 202505,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/castro2021/claude-fable-5/log_large_1.jsonl",
+      "bytes": 3862856813,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/castro2021/claude-fable-5/log_large_2.jsonl",
+      "bytes": 0,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/castro2021/claude-fable-5/log_large_3.jsonl",
+      "bytes": 0,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/castro2021/claude-fable-5/log_large_4.jsonl",
+      "bytes": 3832613460,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/castro2021/claude-fable-5/log_large_5.jsonl",
+      "bytes": 3793036798,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/castro2021/claude-fable-5/solution_large_1.json",
+      "bytes": 3862856741,
+      "reason": "file_at_least_5_MiB"
+    },
+    {
+      "path": "eval/eval_tasks/castro2021/claude-fable-5/solution_large_4.json",
+      "bytes": 3832613388,
+      "reason": "file_at_least_5_MiB"
+    },
+    {
+      "path": "eval/eval_tasks/castro2021/claude-fable-5/solution_large_5.json",
+      "bytes": 3793036727,
+      "reason": "file_at_least_5_MiB"
+    },
+    {
+      "path": "eval/eval_tasks/chebil2015/claude-fable-5/log_large_1.jsonl",
+      "bytes": 1728124,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/chebil2015/claude-fable-5/log_large_2.jsonl",
+      "bytes": 1728122,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/chebil2015/claude-fable-5/log_large_3.jsonl",
+      "bytes": 576034,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/chebil2015/claude-fable-5/log_large_4.jsonl",
+      "bytes": 1440100,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/chebil2015/claude-fable-5/log_large_5.jsonl",
+      "bytes": 2016144,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/chebil2019/claude-fable-5/log_large_1.jsonl",
+      "bytes": 12948256,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/chebil2019/claude-fable-5/log_large_2.jsonl",
+      "bytes": 2034230,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/chebil2019/claude-fable-5/log_large_3.jsonl",
+      "bytes": 17825718,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/chebil2019/claude-fable-5/log_large_4.jsonl",
+      "bytes": 10821184,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/chebil2019/claude-fable-5/log_large_5.jsonl",
+      "bytes": 9609572,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/chen1999/claude-fable-5/log_large_1.jsonl",
+      "bytes": 18497,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/chen1999/claude-fable-5/log_large_2.jsonl",
+      "bytes": 43436,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/chen1999/claude-fable-5/log_large_3.jsonl",
+      "bytes": 6311,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/chen1999/claude-fable-5/log_large_4.jsonl",
+      "bytes": 2276,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/chen1999/claude-fable-5/log_large_5.jsonl",
+      "bytes": 4546,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/cherkesly2015/claude-fable-5/log_large_1.jsonl",
+      "bytes": 788133,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/cherkesly2015/claude-fable-5/log_large_2.jsonl",
+      "bytes": 466176,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/cherkesly2015/claude-fable-5/log_large_3.jsonl",
+      "bytes": 537292,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/cherkesly2015/claude-fable-5/log_large_4.jsonl",
+      "bytes": 548252,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/cherkesly2015/claude-fable-5/log_large_5.jsonl",
+      "bytes": 321961,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/colombi2017/claude-fable-5/log_large_1.jsonl",
+      "bytes": 4856428,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/colombi2017/claude-fable-5/log_large_2.jsonl",
+      "bytes": 2470594,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/colombi2017/claude-fable-5/log_large_3.jsonl",
+      "bytes": 1862660,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/colombi2017/claude-fable-5/log_large_4.jsonl",
+      "bytes": 2937226,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/colombi2017/claude-fable-5/log_large_5.jsonl",
+      "bytes": 103893,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/contreras2011/claude-fable-5/log_large_1.jsonl",
+      "bytes": 914,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/contreras2011/claude-fable-5/log_large_2.jsonl",
+      "bytes": 601,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/contreras2011/claude-fable-5/log_large_3.jsonl",
+      "bytes": 298,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/contreras2011/claude-fable-5/log_large_4.jsonl",
+      "bytes": 1811,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/contreras2011/claude-fable-5/log_large_5.jsonl",
+      "bytes": 302,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/contreras2011/claude-fable-5/solution_large_2.json",
+      "bytes": 0,
+      "reason": "empty_solution_file"
+    },
+    {
+      "path": "eval/eval_tasks/contreras2011/claude-fable-5/solution_large_3.json",
+      "bytes": 0,
+      "reason": "empty_solution_file"
+    },
+    {
+      "path": "eval/eval_tasks/cordeau2006/claude-fable-5/log_large_1.jsonl",
+      "bytes": 12929,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/cordeau2006/claude-fable-5/log_large_2.jsonl",
+      "bytes": 25378,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/cordeau2006/claude-fable-5/log_large_3.jsonl",
+      "bytes": 9425,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/cordeau2006/claude-fable-5/log_large_4.jsonl",
+      "bytes": 38654,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/cordeau2006/claude-fable-5/log_large_5.jsonl",
+      "bytes": 1732,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/cordeau2014/claude-fable-5/log_large_1.jsonl",
+      "bytes": 10320,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/cordeau2014/claude-fable-5/log_large_2.jsonl",
+      "bytes": 13411,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/cordeau2014/claude-fable-5/log_large_3.jsonl",
+      "bytes": 12380,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/cordeau2014/claude-fable-5/log_large_4.jsonl",
+      "bytes": 7217,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/cordeau2014/claude-fable-5/log_large_5.jsonl",
+      "bytes": 9279,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/cote2019/claude-fable-5/log_large_1.jsonl",
+      "bytes": 131,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/cote2019/claude-fable-5/log_large_2.jsonl",
+      "bytes": 131,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/cote2019/claude-fable-5/log_large_3.jsonl",
+      "bytes": 131,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/cote2019/claude-fable-5/log_large_4.jsonl",
+      "bytes": 131,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/cote2019/claude-fable-5/log_large_5.jsonl",
+      "bytes": 258,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/cunha2021/claude-fable-5/log_large_1.jsonl",
+      "bytes": 3075121,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/cunha2021/claude-fable-5/log_large_2.jsonl",
+      "bytes": 2185235,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/cunha2021/claude-fable-5/log_large_3.jsonl",
+      "bytes": 982992,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/cunha2021/claude-fable-5/log_large_4.jsonl",
+      "bytes": 192379,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/cunha2021/claude-fable-5/log_large_5.jsonl",
+      "bytes": 192311,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/damcikurt2016/claude-fable-5/log_large_1.jsonl",
+      "bytes": 469720964,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/damcikurt2016/claude-fable-5/log_large_2.jsonl",
+      "bytes": 134068485,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/damcikurt2016/claude-fable-5/log_large_3.jsonl",
+      "bytes": 1112657,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/damcikurt2016/claude-fable-5/log_large_4.jsonl",
+      "bytes": 629300041,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/damcikurt2016/claude-fable-5/log_large_5.jsonl",
+      "bytes": 27382644,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/damcikurt2016/claude-fable-5/solution_large_2.json",
+      "bytes": 26805736,
+      "reason": "file_at_least_5_MiB"
+    },
+    {
+      "path": "eval/eval_tasks/degraeve2007/claude-fable-5/log_large_1.jsonl",
+      "bytes": 2031454,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/degraeve2007/claude-fable-5/log_large_2.jsonl",
+      "bytes": 205592,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/degraeve2007/claude-fable-5/log_large_3.jsonl",
+      "bytes": 469638,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/degraeve2007/claude-fable-5/log_large_4.jsonl",
+      "bytes": 916167,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/degraeve2007/claude-fable-5/log_large_5.jsonl",
+      "bytes": 182225,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/delage2022/claude-fable-5/log_large_1.jsonl",
+      "bytes": 1137563,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/delage2022/claude-fable-5/log_large_2.jsonl",
+      "bytes": 1103091,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/delage2022/claude-fable-5/log_large_3.jsonl",
+      "bytes": 1103095,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/delage2022/claude-fable-5/log_large_4.jsonl",
+      "bytes": 1137440,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/delage2022/claude-fable-5/log_large_5.jsonl",
+      "bytes": 930970,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/delorme2020/claude-fable-5/log_large_1.jsonl",
+      "bytes": 3371,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/delorme2020/claude-fable-5/log_large_2.jsonl",
+      "bytes": 21091,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/delorme2020/claude-fable-5/log_large_3.jsonl",
+      "bytes": 13640,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/delorme2020/claude-fable-5/log_large_4.jsonl",
+      "bytes": 3429,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/delorme2020/claude-fable-5/log_large_5.jsonl",
+      "bytes": 3032,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/desaulniers2010/claude-fable-5/log_large_1.jsonl",
+      "bytes": 74822,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/desaulniers2010/claude-fable-5/log_large_2.jsonl",
+      "bytes": 5243,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/desaulniers2010/claude-fable-5/log_large_3.jsonl",
+      "bytes": 17249,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/desaulniers2010/claude-fable-5/log_large_4.jsonl",
+      "bytes": 26143,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/desaulniers2010/claude-fable-5/log_large_5.jsonl",
+      "bytes": 173693,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/desaulniers2014/claude-fable-5/log_large_1.jsonl",
+      "bytes": 60818,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/desaulniers2014/claude-fable-5/log_large_2.jsonl",
+      "bytes": 25033,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/desaulniers2014/claude-fable-5/log_large_3.jsonl",
+      "bytes": 69640,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/desaulniers2014/claude-fable-5/log_large_4.jsonl",
+      "bytes": 21014,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/desaulniers2014/claude-fable-5/log_large_5.jsonl",
+      "bytes": 31604,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/dienstknecht2024/claude-fable-5/log_large_1.jsonl",
+      "bytes": 4544,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/dienstknecht2024/claude-fable-5/log_large_2.jsonl",
+      "bytes": 3885,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/dienstknecht2024/claude-fable-5/log_large_3.jsonl",
+      "bytes": 4202,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/dienstknecht2024/claude-fable-5/log_large_4.jsonl",
+      "bytes": 2173,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/dienstknecht2024/claude-fable-5/log_large_5.jsonl",
+      "bytes": 2204,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/elci2022/claude-fable-5/log_large_1.jsonl",
+      "bytes": 22657,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/elci2022/claude-fable-5/log_large_2.jsonl",
+      "bytes": 45260,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/elci2022/claude-fable-5/log_large_3.jsonl",
+      "bytes": 67941,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/elci2022/claude-fable-5/log_large_4.jsonl",
+      "bytes": 22565,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/elci2022/claude-fable-5/log_large_5.jsonl",
+      "bytes": 22557,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/fischetti1997/claude-fable-5/log_large_1.jsonl",
+      "bytes": 16411,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/fischetti1997/claude-fable-5/log_large_2.jsonl",
+      "bytes": 18279,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/fischetti1997/claude-fable-5/log_large_3.jsonl",
+      "bytes": 33473,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/fischetti1997/claude-fable-5/log_large_4.jsonl",
+      "bytes": 32734,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/fischetti1997/claude-fable-5/log_large_5.jsonl",
+      "bytes": 16796,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/fischetti1998/claude-fable-5/log_large_1.jsonl",
+      "bytes": 76033,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/fischetti1998/claude-fable-5/log_large_2.jsonl",
+      "bytes": 123247,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/fischetti1998/claude-fable-5/log_large_3.jsonl",
+      "bytes": 140511,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/fischetti1998/claude-fable-5/log_large_4.jsonl",
+      "bytes": 139252,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/fischetti1998/claude-fable-5/log_large_5.jsonl",
+      "bytes": 168548,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/fischetti2017/claude-fable-5/log_large_1.jsonl",
+      "bytes": 51051832,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/fischetti2017/claude-fable-5/log_large_2.jsonl",
+      "bytes": 344052361,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/fischetti2017/claude-fable-5/log_large_3.jsonl",
+      "bytes": 5035968,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/fischetti2017/claude-fable-5/log_large_4.jsonl",
+      "bytes": 125396,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/fischetti2017/claude-fable-5/log_large_5.jsonl",
+      "bytes": 125396,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/fischetti2017/claude-fable-5/solution_large_2.json",
+      "bytes": 7632711,
+      "reason": "file_at_least_5_MiB"
+    },
+    {
+      "path": "eval/eval_tasks/fleszar2022b/claude-fable-5/log_large_1.jsonl",
+      "bytes": 2758,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/fleszar2022b/claude-fable-5/log_large_2.jsonl",
+      "bytes": 3844,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/fleszar2022b/claude-fable-5/log_large_3.jsonl",
+      "bytes": 6671,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/fleszar2022b/claude-fable-5/log_large_4.jsonl",
+      "bytes": 5018,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/fleszar2022b/claude-fable-5/log_large_5.jsonl",
+      "bytes": 6162,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/forrest2006/claude-fable-5/log_large_1.jsonl",
+      "bytes": 115,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/forrest2006/claude-fable-5/log_large_2.jsonl",
+      "bytes": 115,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/forrest2006/claude-fable-5/log_large_3.jsonl",
+      "bytes": 115,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/forrest2006/claude-fable-5/log_large_4.jsonl",
+      "bytes": 115,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/forrest2006/claude-fable-5/log_large_5.jsonl",
+      "bytes": 115,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/fragkos2021/claude-fable-5/log_large_1.jsonl",
+      "bytes": 30134,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/fragkos2021/claude-fable-5/log_large_2.jsonl",
+      "bytes": 30131,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/fragkos2021/claude-fable-5/log_large_3.jsonl",
+      "bytes": 30132,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/fragkos2021/claude-fable-5/log_large_4.jsonl",
+      "bytes": 30134,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/fragkos2021/claude-fable-5/log_large_5.jsonl",
+      "bytes": 30134,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/freling2003/claude-fable-5/log_large_1.jsonl",
+      "bytes": 20040,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/freling2003/claude-fable-5/log_large_2.jsonl",
+      "bytes": 34903,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/freling2003/claude-fable-5/log_large_3.jsonl",
+      "bytes": 30095,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/freling2003/claude-fable-5/log_large_4.jsonl",
+      "bytes": 73057,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/freling2003/claude-fable-5/log_large_5.jsonl",
+      "bytes": 80828,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/frey2017/claude-fable-5/log_large_1.jsonl",
+      "bytes": 48268,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/frey2017/claude-fable-5/log_large_2.jsonl",
+      "bytes": 48090,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/frey2017/claude-fable-5/log_large_3.jsonl",
+      "bytes": 48240,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/frey2017/claude-fable-5/log_large_4.jsonl",
+      "bytes": 243187,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/frey2017/claude-fable-5/log_large_5.jsonl",
+      "bytes": 48428,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/furini2016/claude-fable-5/log_large_1.jsonl",
+      "bytes": 430,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/furini2016/claude-fable-5/log_large_2.jsonl",
+      "bytes": 156,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/furini2016/claude-fable-5/log_large_3.jsonl",
+      "bytes": 157,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/furini2016/claude-fable-5/log_large_4.jsonl",
+      "bytes": 161,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/furini2016/claude-fable-5/log_large_5.jsonl",
+      "bytes": 158,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/furini2017/claude-fable-5/log_large_1.jsonl",
+      "bytes": 9966,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/furini2017/claude-fable-5/log_large_2.jsonl",
+      "bytes": 2132,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/furini2017/claude-fable-5/log_large_3.jsonl",
+      "bytes": 2080,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/furini2017/claude-fable-5/log_large_4.jsonl",
+      "bytes": 2188,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/furini2017/claude-fable-5/log_large_5.jsonl",
+      "bytes": 4129,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/furini2019/claude-fable-5/log_large_1.jsonl",
+      "bytes": 245,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/furini2019/claude-fable-5/log_large_2.jsonl",
+      "bytes": 222,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/furini2019/claude-fable-5/log_large_3.jsonl",
+      "bytes": 98,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/furini2019/claude-fable-5/log_large_4.jsonl",
+      "bytes": 98,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/furini2019/claude-fable-5/log_large_5.jsonl",
+      "bytes": 385,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/furini2021/claude-fable-5/log_large_1.jsonl",
+      "bytes": 504,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/furini2021/claude-fable-5/log_large_2.jsonl",
+      "bytes": 1510,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/furini2021/claude-fable-5/log_large_3.jsonl",
+      "bytes": 619,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/furini2021/claude-fable-5/log_large_4.jsonl",
+      "bytes": 615,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/furini2021/claude-fable-5/log_large_5.jsonl",
+      "bytes": 1862,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/gamache1999/claude-fable-5/log_large_1.jsonl",
+      "bytes": 14102,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/gamache1999/claude-fable-5/log_large_2.jsonl",
+      "bytes": 11722,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/gamache1999/claude-fable-5/log_large_3.jsonl",
+      "bytes": 195190,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/gamache1999/claude-fable-5/log_large_4.jsonl",
+      "bytes": 10353,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/gamache1999/claude-fable-5/log_large_5.jsonl",
+      "bytes": 9769,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/garcia2011/claude-fable-5/log_large_1.jsonl",
+      "bytes": 73733,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/garcia2011/claude-fable-5/log_large_2.jsonl",
+      "bytes": 116651,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/garcia2011/claude-fable-5/log_large_3.jsonl",
+      "bytes": 73475,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/garcia2011/claude-fable-5/log_large_4.jsonl",
+      "bytes": 73540,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/garcia2011/claude-fable-5/log_large_5.jsonl",
+      "bytes": 44035,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/gruson2021/claude-fable-5/log_large_1.jsonl",
+      "bytes": 13294996,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/gruson2021/claude-fable-5/log_large_2.jsonl",
+      "bytes": 18405401,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/gruson2021/claude-fable-5/log_large_3.jsonl",
+      "bytes": 18351930,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/gruson2021/claude-fable-5/log_large_4.jsonl",
+      "bytes": 18385383,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/gruson2021/claude-fable-5/log_large_5.jsonl",
+      "bytes": 1958886,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/gruson2021/claude-fable-5/solution_large_2.json",
+      "bytes": 6125996,
+      "reason": "file_at_least_5_MiB"
+    },
+    {
+      "path": "eval/eval_tasks/gruson2021/claude-fable-5/solution_large_3.json",
+      "bytes": 6105167,
+      "reason": "file_at_least_5_MiB"
+    },
+    {
+      "path": "eval/eval_tasks/gruson2021/claude-fable-5/solution_large_4.json",
+      "bytes": 6116731,
+      "reason": "file_at_least_5_MiB"
+    },
+    {
+      "path": "eval/eval_tasks/gschwind2021/claude-fable-5/log_large_1.jsonl",
+      "bytes": 19273,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/gschwind2021/claude-fable-5/log_large_2.jsonl",
+      "bytes": 4505,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/gschwind2021/claude-fable-5/log_large_3.jsonl",
+      "bytes": 16653,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/gschwind2021/claude-fable-5/log_large_4.jsonl",
+      "bytes": 9778,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/gschwind2021/claude-fable-5/log_large_5.jsonl",
+      "bytes": 12590,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/gualandi2012/claude-fable-5/log_large_1.jsonl",
+      "bytes": 16168,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/gualandi2012/claude-fable-5/log_large_2.jsonl",
+      "bytes": 16162,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/gualandi2012/claude-fable-5/log_large_3.jsonl",
+      "bytes": 4215,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/gualandi2012/claude-fable-5/log_large_4.jsonl",
+      "bytes": 4357,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/gualandi2012/claude-fable-5/log_large_5.jsonl",
+      "bytes": 16556,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/guo2021/claude-fable-5/log_large_1.jsonl",
+      "bytes": 2750,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/guo2021/claude-fable-5/log_large_2.jsonl",
+      "bytes": 2714,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/guo2021/claude-fable-5/log_large_3.jsonl",
+      "bytes": 5701,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/guo2021/claude-fable-5/log_large_4.jsonl",
+      "bytes": 26037,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/guo2021/claude-fable-5/log_large_5.jsonl",
+      "bytes": 11449,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/hadjar2006/claude-fable-5/log_large_1.jsonl",
+      "bytes": 59257,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/hadjar2006/claude-fable-5/log_large_2.jsonl",
+      "bytes": 57100,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/hadjar2006/claude-fable-5/log_large_3.jsonl",
+      "bytes": 41259,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/hadjar2006/claude-fable-5/log_large_4.jsonl",
+      "bytes": 125357,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/hadjar2006/claude-fable-5/log_large_5.jsonl",
+      "bytes": 39006,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/he2020/claude-fable-5/log_large_1.jsonl",
+      "bytes": 2703,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/he2020/claude-fable-5/log_large_2.jsonl",
+      "bytes": 20233,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/he2020/claude-fable-5/log_large_3.jsonl",
+      "bytes": 36438,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/he2020/claude-fable-5/log_large_4.jsonl",
+      "bytes": 9974,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/he2020/claude-fable-5/log_large_5.jsonl",
+      "bytes": 69167,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/hoffman1993/claude-fable-5/log_large_1.jsonl",
+      "bytes": 199041,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/hoffman1993/claude-fable-5/log_large_2.jsonl",
+      "bytes": 199475,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/hoffman1993/claude-fable-5/log_large_3.jsonl",
+      "bytes": 1593397,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/hoffman1993/claude-fable-5/log_large_4.jsonl",
+      "bytes": 199032,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/hoffman1993/claude-fable-5/log_large_5.jsonl",
+      "bytes": 199025,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/hosseinian2020/claude-fable-5/log_large_1.jsonl",
+      "bytes": 93,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/hosseinian2020/claude-fable-5/log_large_2.jsonl",
+      "bytes": 93,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/hosseinian2020/claude-fable-5/log_large_3.jsonl",
+      "bytes": 93,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/hosseinian2020/claude-fable-5/log_large_4.jsonl",
+      "bytes": 2481,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/hosseinian2020/claude-fable-5/log_large_5.jsonl",
+      "bytes": 93,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/huisman2005/claude-fable-5/log_large_1.jsonl",
+      "bytes": 2619,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/huisman2005/claude-fable-5/log_large_2.jsonl",
+      "bytes": 2939,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/huisman2005/claude-fable-5/log_large_3.jsonl",
+      "bytes": 2145,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/huisman2005/claude-fable-5/log_large_4.jsonl",
+      "bytes": 3043,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/huisman2005/claude-fable-5/log_large_5.jsonl",
+      "bytes": 2567,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/klose2005/claude-fable-5/log_large_1.jsonl",
+      "bytes": 474752,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/klose2005/claude-fable-5/log_large_2.jsonl",
+      "bytes": 1461210,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/klose2005/claude-fable-5/log_large_3.jsonl",
+      "bytes": 343359,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/klose2005/claude-fable-5/log_large_4.jsonl",
+      "bytes": 516952,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/klose2005/claude-fable-5/log_large_5.jsonl",
+      "bytes": 669665,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/knueven2020/claude-fable-5/log_large_1.jsonl",
+      "bytes": 26429344,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/knueven2020/claude-fable-5/log_large_2.jsonl",
+      "bytes": 25107393,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/knueven2020/claude-fable-5/log_large_3.jsonl",
+      "bytes": 12953479,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/knueven2020/claude-fable-5/log_large_4.jsonl",
+      "bytes": 29368744,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/knueven2020/claude-fable-5/log_large_5.jsonl",
+      "bytes": 0,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/kobayashi2021/claude-fable-5/log_large_1.jsonl",
+      "bytes": 8447,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/kobayashi2021/claude-fable-5/log_large_2.jsonl",
+      "bytes": 8078,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/kobayashi2021/claude-fable-5/log_large_3.jsonl",
+      "bytes": 14835,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/kobayashi2021/claude-fable-5/log_large_4.jsonl",
+      "bytes": 12506,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/kobayashi2021/claude-fable-5/log_large_5.jsonl",
+      "bytes": 9959,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/kobeaga2024/claude-fable-5/log_large_1.jsonl",
+      "bytes": 37404,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/kobeaga2024/claude-fable-5/log_large_2.jsonl",
+      "bytes": 9902,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/kobeaga2024/claude-fable-5/log_large_3.jsonl",
+      "bytes": 5917,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/kobeaga2024/claude-fable-5/log_large_4.jsonl",
+      "bytes": 21843,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/kobeaga2024/claude-fable-5/log_large_5.jsonl",
+      "bytes": 732,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/kowalczyk2018/claude-fable-5/log_large_1.jsonl",
+      "bytes": 3515,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/kowalczyk2018/claude-fable-5/log_large_2.jsonl",
+      "bytes": 3399,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/kowalczyk2018/claude-fable-5/log_large_3.jsonl",
+      "bytes": 5222,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/kowalczyk2018/claude-fable-5/log_large_4.jsonl",
+      "bytes": 1794,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/kowalczyk2018/claude-fable-5/log_large_5.jsonl",
+      "bytes": 3625,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/kowalczyk2024/claude-fable-5/log_large_1.jsonl",
+      "bytes": 13614,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/kowalczyk2024/claude-fable-5/log_large_2.jsonl",
+      "bytes": 623,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/kowalczyk2024/claude-fable-5/log_large_3.jsonl",
+      "bytes": 1270,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/kowalczyk2024/claude-fable-5/log_large_4.jsonl",
+      "bytes": 9591,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/kowalczyk2024/claude-fable-5/log_large_5.jsonl",
+      "bytes": 12005,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/kreter2018/claude-fable-5/log_large_1.jsonl",
+      "bytes": 5710,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/kreter2018/claude-fable-5/log_large_2.jsonl",
+      "bytes": 5825,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/kreter2018/claude-fable-5/log_large_3.jsonl",
+      "bytes": 5775,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/kreter2018/claude-fable-5/log_large_4.jsonl",
+      "bytes": 5700,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/kreter2018/claude-fable-5/log_large_5.jsonl",
+      "bytes": 5832,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/lai2021/claude-fable-5/log_large_1.jsonl",
+      "bytes": 33038,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/lai2021/claude-fable-5/log_large_2.jsonl",
+      "bytes": 65978,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/lai2021/claude-fable-5/log_large_3.jsonl",
+      "bytes": 59579,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/lai2021/claude-fable-5/log_large_4.jsonl",
+      "bytes": 33016,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/lai2021/claude-fable-5/log_large_5.jsonl",
+      "bytes": 59655,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/lee1996/claude-fable-5/log_large_1.jsonl",
+      "bytes": 3452,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/lee1996/claude-fable-5/log_large_2.jsonl",
+      "bytes": 3603,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/lee1996/claude-fable-5/log_large_3.jsonl",
+      "bytes": 3589,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/lee1996/claude-fable-5/log_large_4.jsonl",
+      "bytes": 1721,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/lee1996/claude-fable-5/log_large_5.jsonl",
+      "bytes": 21720,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/legrain2020/claude-fable-5/log_large_1.jsonl",
+      "bytes": 0,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/legrain2020/claude-fable-5/log_large_2.jsonl",
+      "bytes": 9505136,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/legrain2020/claude-fable-5/log_large_3.jsonl",
+      "bytes": 4516532,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/legrain2020/claude-fable-5/log_large_4.jsonl",
+      "bytes": 14244344,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/legrain2020/claude-fable-5/log_large_5.jsonl",
+      "bytes": 18376092,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/legrain2024/claude-fable-5/log_large_1.jsonl",
+      "bytes": 3002797,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/legrain2024/claude-fable-5/log_large_2.jsonl",
+      "bytes": 2796989,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/legrain2024/claude-fable-5/log_large_3.jsonl",
+      "bytes": 642078,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/legrain2024/claude-fable-5/log_large_4.jsonl",
+      "bytes": 4293652,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/legrain2024/claude-fable-5/log_large_5.jsonl",
+      "bytes": 15553831,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/letelier2022/claude-fable-5/log_large_1.jsonl",
+      "bytes": 123507,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/letelier2022/claude-fable-5/log_large_2.jsonl",
+      "bytes": 36071,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/letelier2022/claude-fable-5/log_large_3.jsonl",
+      "bytes": 91379,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/letelier2022/claude-fable-5/log_large_4.jsonl",
+      "bytes": 47574,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/letelier2022/claude-fable-5/log_large_5.jsonl",
+      "bytes": 11205,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/li2020/claude-fable-5/log_large_1.jsonl",
+      "bytes": 19208,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/li2020/claude-fable-5/log_large_2.jsonl",
+      "bytes": 9048,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/li2020/claude-fable-5/log_large_3.jsonl",
+      "bytes": 10691,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/li2020/claude-fable-5/log_large_4.jsonl",
+      "bytes": 7986,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/li2020/claude-fable-5/log_large_5.jsonl",
+      "bytes": 2658,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/lozano2017/claude-fable-5/log_large_1.jsonl",
+      "bytes": 47307,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/lozano2017/claude-fable-5/log_large_2.jsonl",
+      "bytes": 47614,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/lozano2017/claude-fable-5/log_large_3.jsonl",
+      "bytes": 47468,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/lozano2017/claude-fable-5/log_large_4.jsonl",
+      "bytes": 47425,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/lozano2017/claude-fable-5/log_large_5.jsonl",
+      "bytes": 46835,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/mansini2020/claude-fable-5/log_large_1.jsonl",
+      "bytes": 6311817,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/mansini2020/claude-fable-5/log_large_2.jsonl",
+      "bytes": 6288598,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/mansini2020/claude-fable-5/log_large_3.jsonl",
+      "bytes": 6312053,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/mansini2020/claude-fable-5/log_large_4.jsonl",
+      "bytes": 6250358,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/mansini2020/claude-fable-5/log_large_5.jsonl",
+      "bytes": 6310533,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/mansini2020/claude-fable-5/solution_large_1.json",
+      "bytes": 8569478,
+      "reason": "file_at_least_5_MiB"
+    },
+    {
+      "path": "eval/eval_tasks/mansini2020/claude-fable-5/solution_large_2.json",
+      "bytes": 8547733,
+      "reason": "file_at_least_5_MiB"
+    },
+    {
+      "path": "eval/eval_tasks/mansini2020/claude-fable-5/solution_large_3.json",
+      "bytes": 8569974,
+      "reason": "file_at_least_5_MiB"
+    },
+    {
+      "path": "eval/eval_tasks/mansini2020/claude-fable-5/solution_large_4.json",
+      "bytes": 8508184,
+      "reason": "file_at_least_5_MiB"
+    },
+    {
+      "path": "eval/eval_tasks/mansini2020/claude-fable-5/solution_large_5.json",
+      "bytes": 8568704,
+      "reason": "file_at_least_5_MiB"
+    },
+    {
+      "path": "eval/eval_tasks/martello1999/claude-fable-5/log_large_1.jsonl",
+      "bytes": 44004764,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/martello1999/claude-fable-5/log_large_2.jsonl",
+      "bytes": 55227857,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/martello1999/claude-fable-5/log_large_3.jsonl",
+      "bytes": 45745263,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/martello1999/claude-fable-5/log_large_4.jsonl",
+      "bytes": 62540318,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/martello1999/claude-fable-5/log_large_5.jsonl",
+      "bytes": 43437248,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/martello1999/claude-fable-5/solution_large_1.json",
+      "bytes": 44004702,
+      "reason": "file_at_least_5_MiB"
+    },
+    {
+      "path": "eval/eval_tasks/martello1999/claude-fable-5/solution_large_2.json",
+      "bytes": 55227793,
+      "reason": "file_at_least_5_MiB"
+    },
+    {
+      "path": "eval/eval_tasks/martello1999/claude-fable-5/solution_large_3.json",
+      "bytes": 45745199,
+      "reason": "file_at_least_5_MiB"
+    },
+    {
+      "path": "eval/eval_tasks/martello1999/claude-fable-5/solution_large_4.json",
+      "bytes": 62540254,
+      "reason": "file_at_least_5_MiB"
+    },
+    {
+      "path": "eval/eval_tasks/martello1999/claude-fable-5/solution_large_5.json",
+      "bytes": 43437185,
+      "reason": "file_at_least_5_MiB"
+    },
+    {
+      "path": "eval/eval_tasks/martin-iradi2024/claude-fable-5/log_large_1.jsonl",
+      "bytes": 3179412,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/martin-iradi2024/claude-fable-5/log_large_2.jsonl",
+      "bytes": 2618822,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/martin-iradi2024/claude-fable-5/log_large_3.jsonl",
+      "bytes": 3265080,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/martin-iradi2024/claude-fable-5/log_large_4.jsonl",
+      "bytes": 2293957,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/martin-iradi2024/claude-fable-5/log_large_5.jsonl",
+      "bytes": 4537934,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/mehrotra1996/claude-fable-5/log_large_1.jsonl",
+      "bytes": 28281,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/mehrotra1996/claude-fable-5/log_large_2.jsonl",
+      "bytes": 8739,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/mehrotra1996/claude-fable-5/log_large_3.jsonl",
+      "bytes": 7796,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/mehrotra1996/claude-fable-5/log_large_4.jsonl",
+      "bytes": 4146,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/mehrotra1996/claude-fable-5/log_large_5.jsonl",
+      "bytes": 20168,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/mingozzi1999/claude-fable-5/log_large_1.jsonl",
+      "bytes": 171,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/mingozzi1999/claude-fable-5/log_large_2.jsonl",
+      "bytes": 171,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/mingozzi1999/claude-fable-5/log_large_3.jsonl",
+      "bytes": 171,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/mingozzi1999/claude-fable-5/log_large_4.jsonl",
+      "bytes": 344,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/mingozzi1999/claude-fable-5/log_large_5.jsonl",
+      "bytes": 171,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/morrison2016/claude-fable-5/log_large_1.jsonl",
+      "bytes": 23383,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/morrison2016/claude-fable-5/log_large_2.jsonl",
+      "bytes": 38681,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/morrison2016/claude-fable-5/log_large_3.jsonl",
+      "bytes": 4784,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/morrison2016/claude-fable-5/log_large_4.jsonl",
+      "bytes": 4800,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/morrison2016/claude-fable-5/log_large_5.jsonl",
+      "bytes": 4933,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/morrison2016/claude-fable-5/solution_large_1.json",
+      "bytes": 0,
+      "reason": "empty_solution_file"
+    },
+    {
+      "path": "eval/eval_tasks/muter2010/claude-fable-5/log_large_1.jsonl",
+      "bytes": 1452,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/muter2010/claude-fable-5/log_large_2.jsonl",
+      "bytes": 1486,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/muter2010/claude-fable-5/log_large_3.jsonl",
+      "bytes": 1848,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/muter2010/claude-fable-5/log_large_4.jsonl",
+      "bytes": 941,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/muter2010/claude-fable-5/log_large_5.jsonl",
+      "bytes": 866,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/ozturk2020/claude-fable-5/log_large_1.jsonl",
+      "bytes": 44826,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/ozturk2020/claude-fable-5/log_large_2.jsonl",
+      "bytes": 65497,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/ozturk2020/claude-fable-5/log_large_3.jsonl",
+      "bytes": 4513,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/ozturk2020/claude-fable-5/log_large_4.jsonl",
+      "bytes": 44713,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/ozturk2020/claude-fable-5/log_large_5.jsonl",
+      "bytes": 46335,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/pecin2017/claude-fable-5/log_large_1.jsonl",
+      "bytes": 49193,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/pecin2017/claude-fable-5/log_large_2.jsonl",
+      "bytes": 208459,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/pecin2017/claude-fable-5/log_large_3.jsonl",
+      "bytes": 124403,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/pecin2017/claude-fable-5/log_large_4.jsonl",
+      "bytes": 50746,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/pecin2017/claude-fable-5/log_large_5.jsonl",
+      "bytes": 40448,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/pecin2017/claude-fable-5/solution_large_5.json",
+      "bytes": 0,
+      "reason": "empty_solution_file"
+    },
+    {
+      "path": "eval/eval_tasks/pedersen2024/claude-fable-5/log_large_1.jsonl",
+      "bytes": 521469,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/pedersen2024/claude-fable-5/log_large_2.jsonl",
+      "bytes": 427406,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/pedersen2024/claude-fable-5/log_large_3.jsonl",
+      "bytes": 610884,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/pedersen2024/claude-fable-5/log_large_4.jsonl",
+      "bytes": 532232,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/pedersen2024/claude-fable-5/log_large_5.jsonl",
+      "bytes": 100663,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/pessoa2021/claude-fable-5/log_large_1.jsonl",
+      "bytes": 56635,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/pessoa2021/claude-fable-5/log_large_2.jsonl",
+      "bytes": 22867,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/pessoa2021/claude-fable-5/log_large_3.jsonl",
+      "bytes": 38612,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/pessoa2021/claude-fable-5/log_large_4.jsonl",
+      "bytes": 27011,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/pessoa2021/claude-fable-5/log_large_5.jsonl",
+      "bytes": 82384,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/pettersson2020/claude-fable-5/log_large_1.jsonl",
+      "bytes": 30000139,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/pettersson2020/claude-fable-5/log_large_2.jsonl",
+      "bytes": 30000139,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/pettersson2020/claude-fable-5/log_large_3.jsonl",
+      "bytes": 30000139,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/pettersson2020/claude-fable-5/log_large_4.jsonl",
+      "bytes": 30000139,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/pettersson2020/claude-fable-5/log_large_5.jsonl",
+      "bytes": 30000139,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/pettersson2020/claude-fable-5/solution_large_1.json",
+      "bytes": 30000087,
+      "reason": "file_at_least_5_MiB"
+    },
+    {
+      "path": "eval/eval_tasks/pettersson2020/claude-fable-5/solution_large_2.json",
+      "bytes": 30000087,
+      "reason": "file_at_least_5_MiB"
+    },
+    {
+      "path": "eval/eval_tasks/pettersson2020/claude-fable-5/solution_large_3.json",
+      "bytes": 30000087,
+      "reason": "file_at_least_5_MiB"
+    },
+    {
+      "path": "eval/eval_tasks/pettersson2020/claude-fable-5/solution_large_4.json",
+      "bytes": 30000087,
+      "reason": "file_at_least_5_MiB"
+    },
+    {
+      "path": "eval/eval_tasks/pettersson2020/claude-fable-5/solution_large_5.json",
+      "bytes": 30000087,
+      "reason": "file_at_least_5_MiB"
+    },
+    {
+      "path": "eval/eval_tasks/pinnoi1997/claude-fable-5/log_large_1.jsonl",
+      "bytes": 661,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/pinnoi1997/claude-fable-5/log_large_2.jsonl",
+      "bytes": 1965,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/pinnoi1997/claude-fable-5/log_large_3.jsonl",
+      "bytes": 3325,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/pinnoi1997/claude-fable-5/log_large_4.jsonl",
+      "bytes": 1982,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/pinnoi1997/claude-fable-5/log_large_5.jsonl",
+      "bytes": 1983,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/rahmaniani2020/claude-fable-5/log_large_1.jsonl",
+      "bytes": 2116,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/rahmaniani2020/claude-fable-5/log_large_2.jsonl",
+      "bytes": 1588,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/rahmaniani2020/claude-fable-5/log_large_3.jsonl",
+      "bytes": 1321,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/rahmaniani2020/claude-fable-5/log_large_4.jsonl",
+      "bytes": 2656,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/rahmaniani2020/claude-fable-5/log_large_5.jsonl",
+      "bytes": 3181,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/reinhardt2016/claude-fable-5/log_large_1.jsonl",
+      "bytes": 16826,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/reinhardt2016/claude-fable-5/log_large_2.jsonl",
+      "bytes": 25577,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/reinhardt2016/claude-fable-5/log_large_3.jsonl",
+      "bytes": 33549,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/reinhardt2016/claude-fable-5/log_large_4.jsonl",
+      "bytes": 27546,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/reinhardt2016/claude-fable-5/log_large_5.jsonl",
+      "bytes": 12732,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/ribeiro1994/claude-fable-5/log_large_1.jsonl",
+      "bytes": 27954,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/ribeiro1994/claude-fable-5/log_large_2.jsonl",
+      "bytes": 64988,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/ribeiro1994/claude-fable-5/log_large_3.jsonl",
+      "bytes": 31595,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/ribeiro1994/claude-fable-5/log_large_4.jsonl",
+      "bytes": 27702,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/ribeiro1994/claude-fable-5/log_large_5.jsonl",
+      "bytes": 72673,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/roberti2015/claude-fable-5/log_large_1.jsonl",
+      "bytes": 1232883,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/roberti2015/claude-fable-5/log_large_2.jsonl",
+      "bytes": 1151879,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/roberti2015/claude-fable-5/log_large_3.jsonl",
+      "bytes": 1391483,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/roberti2015/claude-fable-5/log_large_4.jsonl",
+      "bytes": 1555196,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/roberti2015/claude-fable-5/log_large_5.jsonl",
+      "bytes": 1315907,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/roberti2018/claude-fable-5/log_large_1.jsonl",
+      "bytes": 1541,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/roberti2018/claude-fable-5/log_large_2.jsonl",
+      "bytes": 1639,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/roberti2018/claude-fable-5/log_large_3.jsonl",
+      "bytes": 1434,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/roberti2018/claude-fable-5/log_large_4.jsonl",
+      "bytes": 1468,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/roberti2018/claude-fable-5/log_large_5.jsonl",
+      "bytes": 1303,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/roberti2021/claude-fable-5/log_large_1.jsonl",
+      "bytes": 7569,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/roberti2021/claude-fable-5/log_large_2.jsonl",
+      "bytes": 7432,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/roberti2021/claude-fable-5/log_large_3.jsonl",
+      "bytes": 11902,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/roberti2021/claude-fable-5/log_large_4.jsonl",
+      "bytes": 10692,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/roberti2021/claude-fable-5/log_large_5.jsonl",
+      "bytes": 9324,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/ropke2009/claude-fable-5/log_large_1.jsonl",
+      "bytes": 44858,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/ropke2009/claude-fable-5/log_large_2.jsonl",
+      "bytes": 21450,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/ropke2009/claude-fable-5/log_large_3.jsonl",
+      "bytes": 14833,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/ropke2009/claude-fable-5/log_large_4.jsonl",
+      "bytes": 48747,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/ropke2009/claude-fable-5/log_large_5.jsonl",
+      "bytes": 37066,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/roshanaei2017/claude-fable-5/log_large_1.jsonl",
+      "bytes": 122616,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/roshanaei2017/claude-fable-5/log_large_2.jsonl",
+      "bytes": 155830,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/roshanaei2017/claude-fable-5/log_large_3.jsonl",
+      "bytes": 209916,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/roshanaei2017/claude-fable-5/log_large_4.jsonl",
+      "bytes": 216103,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/roshanaei2017/claude-fable-5/log_large_5.jsonl",
+      "bytes": 0,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/rostami2021/claude-fable-5/log_large_1.jsonl",
+      "bytes": 549471,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/rostami2021/claude-fable-5/log_large_2.jsonl",
+      "bytes": 549485,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/rostami2021/claude-fable-5/log_large_3.jsonl",
+      "bytes": 549493,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/rostami2021/claude-fable-5/log_large_4.jsonl",
+      "bytes": 549493,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/rostami2021/claude-fable-5/log_large_5.jsonl",
+      "bytes": 549493,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/rothenbacher2019/claude-fable-5/log_large_1.jsonl",
+      "bytes": 172645,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/rothenbacher2019/claude-fable-5/log_large_2.jsonl",
+      "bytes": 159660,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/rothenbacher2019/claude-fable-5/log_large_3.jsonl",
+      "bytes": 151877,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/rothenbacher2019/claude-fable-5/log_large_4.jsonl",
+      "bytes": 185169,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/rothenbacher2019/claude-fable-5/log_large_5.jsonl",
+      "bytes": 216547,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/ruiz2007/claude-fable-5/log_large_1.jsonl",
+      "bytes": 200824,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/ruiz2007/claude-fable-5/log_large_2.jsonl",
+      "bytes": 126740,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/ruiz2007/claude-fable-5/log_large_3.jsonl",
+      "bytes": 30060,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/ruiz2007/claude-fable-5/log_large_4.jsonl",
+      "bytes": 73576,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/ruiz2007/claude-fable-5/log_large_5.jsonl",
+      "bytes": 48091,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/ruiz2007/claude-fable-5/solution_large_2.json",
+      "bytes": 0,
+      "reason": "empty_solution_file"
+    },
+    {
+      "path": "eval/eval_tasks/sadykov2013/claude-fable-5/log_large_1.jsonl",
+      "bytes": 9375,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/sadykov2013/claude-fable-5/log_large_2.jsonl",
+      "bytes": 4550,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/sadykov2013/claude-fable-5/log_large_3.jsonl",
+      "bytes": 7147,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/sadykov2013/claude-fable-5/log_large_4.jsonl",
+      "bytes": 6865,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/sadykov2013/claude-fable-5/log_large_5.jsonl",
+      "bytes": 10660,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/salemi2022/claude-fable-5/log_large_1.jsonl",
+      "bytes": 31394308,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/salemi2022/claude-fable-5/log_large_2.jsonl",
+      "bytes": 17291261,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/salemi2022/claude-fable-5/log_large_3.jsonl",
+      "bytes": 26247674,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/salemi2022/claude-fable-5/log_large_4.jsonl",
+      "bytes": 56765706,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/salemi2022/claude-fable-5/log_large_5.jsonl",
+      "bytes": 58555191,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/samarghandi2017/claude-fable-5/log_large_1.jsonl",
+      "bytes": 2032,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/samarghandi2017/claude-fable-5/log_large_2.jsonl",
+      "bytes": 4756,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/samarghandi2017/claude-fable-5/log_large_3.jsonl",
+      "bytes": 676,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/samarghandi2017/claude-fable-5/log_large_4.jsonl",
+      "bytes": 1524,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/samarghandi2017/claude-fable-5/log_large_5.jsonl",
+      "bytes": 507,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/sansegundo2016/claude-fable-5/log_large_1.jsonl",
+      "bytes": 99,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/sansegundo2016/claude-fable-5/log_large_2.jsonl",
+      "bytes": 98,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/sansegundo2016/claude-fable-5/log_large_3.jsonl",
+      "bytes": 101,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/sansegundo2016/claude-fable-5/log_large_4.jsonl",
+      "bytes": 100,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/sansegundo2016/claude-fable-5/log_large_5.jsonl",
+      "bytes": 99,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/sansegundo2023/claude-fable-5/log_large_1.jsonl",
+      "bytes": 134,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/sansegundo2023/claude-fable-5/log_large_2.jsonl",
+      "bytes": 123,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/sansegundo2023/claude-fable-5/log_large_3.jsonl",
+      "bytes": 314,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/sansegundo2023/claude-fable-5/log_large_4.jsonl",
+      "bytes": 532,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/sansegundo2023/claude-fable-5/log_large_5.jsonl",
+      "bytes": 1014,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/savelsbergh1997/claude-fable-5/log_large_1.jsonl",
+      "bytes": 0,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/savelsbergh1997/claude-fable-5/log_large_2.jsonl",
+      "bytes": 0,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/savelsbergh1997/claude-fable-5/log_large_3.jsonl",
+      "bytes": 0,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/savelsbergh1997/claude-fable-5/log_large_4.jsonl",
+      "bytes": 0,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/savelsbergh1997/claude-fable-5/log_large_5.jsonl",
+      "bytes": 0,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/schwerdfeger2016/claude-fable-5/log_large_1.jsonl",
+      "bytes": 1706,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/schwerdfeger2016/claude-fable-5/log_large_2.jsonl",
+      "bytes": 1708,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/schwerdfeger2016/claude-fable-5/log_large_3.jsonl",
+      "bytes": 1710,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/schwerdfeger2016/claude-fable-5/log_large_4.jsonl",
+      "bytes": 1708,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/schwerdfeger2016/claude-fable-5/log_large_5.jsonl",
+      "bytes": 1708,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/segundo2019/claude-fable-5/log_large_1.jsonl",
+      "bytes": 369,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/segundo2019/claude-fable-5/log_large_2.jsonl",
+      "bytes": 499,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/segundo2019/claude-fable-5/log_large_5.jsonl",
+      "bytes": 350,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/segundo2019b/claude-fable-5/log_large_1.jsonl",
+      "bytes": 142,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/segundo2019b/claude-fable-5/log_large_2.jsonl",
+      "bytes": 1173,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/segundo2019b/claude-fable-5/log_large_3.jsonl",
+      "bytes": 2131,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/segundo2019b/claude-fable-5/log_large_4.jsonl",
+      "bytes": 3713,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/segundo2019b/claude-fable-5/log_large_5.jsonl",
+      "bytes": 442,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/seker2021/claude-fable-5/log_large_1.jsonl",
+      "bytes": 4512,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/seker2021/claude-fable-5/log_large_2.jsonl",
+      "bytes": 1503,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/seker2021/claude-fable-5/log_large_3.jsonl",
+      "bytes": 4166,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/seker2021/claude-fable-5/log_large_4.jsonl",
+      "bytes": 1504,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/seker2021/claude-fable-5/log_large_5.jsonl",
+      "bytes": 5854,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/song2021/claude-fable-5/log_large_1.jsonl",
+      "bytes": 133830,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/song2021/claude-fable-5/log_large_2.jsonl",
+      "bytes": 141144,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/song2021/claude-fable-5/log_large_3.jsonl",
+      "bytes": 249934,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/song2021/claude-fable-5/log_large_4.jsonl",
+      "bytes": 1016531,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/song2021/claude-fable-5/log_large_5.jsonl",
+      "bytes": 175788,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/spliet2015/claude-fable-5/log_large_1.jsonl",
+      "bytes": 14961,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/spliet2015/claude-fable-5/log_large_2.jsonl",
+      "bytes": 14658,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/spliet2015/claude-fable-5/log_large_3.jsonl",
+      "bytes": 15950,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/spliet2015/claude-fable-5/log_large_4.jsonl",
+      "bytes": 11730,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/spliet2015/claude-fable-5/log_large_5.jsonl",
+      "bytes": 12121,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/tran2018/claude-fable-5/log_large_1.jsonl",
+      "bytes": 30537,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/tran2018/claude-fable-5/log_large_2.jsonl",
+      "bytes": 4372,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/tran2018/claude-fable-5/log_large_3.jsonl",
+      "bytes": 5464,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/tran2018/claude-fable-5/log_large_4.jsonl",
+      "bytes": 37127,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/tran2018/claude-fable-5/log_large_5.jsonl",
+      "bytes": 107107,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/walteros2020/claude-fable-5/log_large_1.jsonl",
+      "bytes": 227,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/walteros2020/claude-fable-5/log_large_2.jsonl",
+      "bytes": 104,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/walteros2020/claude-fable-5/log_large_3.jsonl",
+      "bytes": 107,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/walteros2020/claude-fable-5/log_large_4.jsonl",
+      "bytes": 115,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/walteros2020/claude-fable-5/log_large_5.jsonl",
+      "bytes": 104,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/wang2019/claude-fable-5/log_large_1.jsonl",
+      "bytes": 402625831,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/wang2019/claude-fable-5/log_large_2.jsonl",
+      "bytes": 320762280,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/wang2019/claude-fable-5/log_large_3.jsonl",
+      "bytes": 352216803,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/wang2019/claude-fable-5/log_large_4.jsonl",
+      "bytes": 270460439,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/wang2019/claude-fable-5/log_large_5.jsonl",
+      "bytes": 339676901,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/wang2019/claude-fable-5/solution_large_1.json",
+      "bytes": 6288617,
+      "reason": "file_at_least_5_MiB"
+    },
+    {
+      "path": "eval/eval_tasks/wang2019/claude-fable-5/solution_large_2.json",
+      "bytes": 6283601,
+      "reason": "file_at_least_5_MiB"
+    },
+    {
+      "path": "eval/eval_tasks/wang2019/claude-fable-5/solution_large_3.json",
+      "bytes": 6283575,
+      "reason": "file_at_least_5_MiB"
+    },
+    {
+      "path": "eval/eval_tasks/wang2019/claude-fable-5/solution_large_4.json",
+      "bytes": 6289057,
+      "reason": "file_at_least_5_MiB"
+    },
+    {
+      "path": "eval/eval_tasks/wang2019/claude-fable-5/solution_large_5.json",
+      "bytes": 6291863,
+      "reason": "file_at_least_5_MiB"
+    },
+    {
+      "path": "eval/eval_tasks/wang2025/claude-fable-5/log_large_1.jsonl",
+      "bytes": 159,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/wang2025/claude-fable-5/log_large_2.jsonl",
+      "bytes": 802,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/wang2025/claude-fable-5/log_large_3.jsonl",
+      "bytes": 319,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/wang2025/claude-fable-5/log_large_4.jsonl",
+      "bytes": 158,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/wang2025/claude-fable-5/log_large_5.jsonl",
+      "bytes": 158,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/wangk2020/claude-fable-5/log_large_1.jsonl",
+      "bytes": 1917894205,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/wangk2020/claude-fable-5/log_large_2.jsonl",
+      "bytes": 1917894205,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/wangk2020/claude-fable-5/log_large_3.jsonl",
+      "bytes": 1917894203,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/wangk2020/claude-fable-5/log_large_4.jsonl",
+      "bytes": 1917894204,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/wangk2020/claude-fable-5/log_large_5.jsonl",
+      "bytes": 1917894203,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/wangk2020/claude-fable-5/solution_large_1.json",
+      "bytes": 479473446,
+      "reason": "file_at_least_5_MiB"
+    },
+    {
+      "path": "eval/eval_tasks/wangk2020/claude-fable-5/solution_large_2.json",
+      "bytes": 479473446,
+      "reason": "file_at_least_5_MiB"
+    },
+    {
+      "path": "eval/eval_tasks/wangk2020/claude-fable-5/solution_large_3.json",
+      "bytes": 479473446,
+      "reason": "file_at_least_5_MiB"
+    },
+    {
+      "path": "eval/eval_tasks/wangk2020/claude-fable-5/solution_large_4.json",
+      "bytes": 479473446,
+      "reason": "file_at_least_5_MiB"
+    },
+    {
+      "path": "eval/eval_tasks/wangk2020/claude-fable-5/solution_large_5.json",
+      "bytes": 479473446,
+      "reason": "file_at_least_5_MiB"
+    },
+    {
+      "path": "eval/eval_tasks/wangy2020/claude-fable-5/log_large_1.jsonl",
+      "bytes": 165016,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/wangy2020/claude-fable-5/log_large_2.jsonl",
+      "bytes": 209022,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/wangy2020/claude-fable-5/log_large_3.jsonl",
+      "bytes": 143018,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/wangy2020/claude-fable-5/log_large_4.jsonl",
+      "bytes": 374093,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/wangy2020/claude-fable-5/log_large_5.jsonl",
+      "bytes": 92433,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/watermeyer2020/claude-fable-5/log_large_1.jsonl",
+      "bytes": 4901,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/watermeyer2020/claude-fable-5/log_large_2.jsonl",
+      "bytes": 0,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/watermeyer2020/claude-fable-5/log_large_3.jsonl",
+      "bytes": 7065,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/watermeyer2020/claude-fable-5/log_large_4.jsonl",
+      "bytes": 2458,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/watermeyer2020/claude-fable-5/log_large_5.jsonl",
+      "bytes": 16386,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/watermeyer2022/claude-fable-5/log_large_1.jsonl",
+      "bytes": 7418,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/watermeyer2022/claude-fable-5/log_large_2.jsonl",
+      "bytes": 7416,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/watermeyer2022/claude-fable-5/log_large_3.jsonl",
+      "bytes": 11136,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/watermeyer2022/claude-fable-5/log_large_4.jsonl",
+      "bytes": 7430,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/watermeyer2022/claude-fable-5/log_large_5.jsonl",
+      "bytes": 3713,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/watermeyer2023/claude-fable-5/log_large_1.jsonl",
+      "bytes": 3272,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/watermeyer2023/claude-fable-5/log_large_2.jsonl",
+      "bytes": 3291,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/watermeyer2023/claude-fable-5/log_large_3.jsonl",
+      "bytes": 6672,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/watermeyer2023/claude-fable-5/log_large_4.jsonl",
+      "bytes": 2896,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/watermeyer2023/claude-fable-5/log_large_5.jsonl",
+      "bytes": 3180,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/wei2020/claude-fable-5/log_large_1.jsonl",
+      "bytes": 6336,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/wei2020/claude-fable-5/log_large_2.jsonl",
+      "bytes": 5842,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/wei2020/claude-fable-5/log_large_3.jsonl",
+      "bytes": 5492,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/wei2020/claude-fable-5/log_large_4.jsonl",
+      "bytes": 142866,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/wei2020/claude-fable-5/log_large_5.jsonl",
+      "bytes": 6004,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/wei2020b/claude-fable-5/log_large_1.jsonl",
+      "bytes": 1458,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/wei2020b/claude-fable-5/log_large_2.jsonl",
+      "bytes": 1314,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/wei2020b/claude-fable-5/log_large_3.jsonl",
+      "bytes": 632,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/wei2020b/claude-fable-5/log_large_4.jsonl",
+      "bytes": 2336,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/wei2020b/claude-fable-5/log_large_5.jsonl",
+      "bytes": 2167,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/wu2018/claude-fable-5/log_large_1.jsonl",
+      "bytes": 39445802,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/wu2018/claude-fable-5/log_large_2.jsonl",
+      "bytes": 30497192,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/wu2018/claude-fable-5/log_large_3.jsonl",
+      "bytes": 19151436,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/wu2018/claude-fable-5/log_large_4.jsonl",
+      "bytes": 26624554,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/wu2018/claude-fable-5/log_large_5.jsonl",
+      "bytes": 25426750,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/wu2022/claude-fable-5/log_large_1.jsonl",
+      "bytes": 11282628,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/wu2022/claude-fable-5/log_large_2.jsonl",
+      "bytes": 80027100,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/wu2022/claude-fable-5/log_large_3.jsonl",
+      "bytes": 2886256,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/wu2022/claude-fable-5/log_large_4.jsonl",
+      "bytes": 16268014,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/wu2022/claude-fable-5/log_large_5.jsonl",
+      "bytes": 6559641,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/wu2023/claude-fable-5/log_large_1.jsonl",
+      "bytes": 302254,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/wu2023/claude-fable-5/log_large_2.jsonl",
+      "bytes": 289130,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/wu2023/claude-fable-5/log_large_3.jsonl",
+      "bytes": 196844,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/wu2023/claude-fable-5/log_large_4.jsonl",
+      "bytes": 98823,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/wu2023/claude-fable-5/log_large_5.jsonl",
+      "bytes": 150740,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/xu2024/claude-fable-5/log_large_1.jsonl",
+      "bytes": 4682,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/xu2024/claude-fable-5/log_large_2.jsonl",
+      "bytes": 3132,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/xu2024/claude-fable-5/log_large_3.jsonl",
+      "bytes": 17222,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/xu2024/claude-fable-5/log_large_4.jsonl",
+      "bytes": 2332,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/xu2024/claude-fable-5/log_large_5.jsonl",
+      "bytes": 2349,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/yang2013/claude-fable-5/log_large_1.jsonl",
+      "bytes": 6091,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/yang2013/claude-fable-5/log_large_2.jsonl",
+      "bytes": 36615,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/yang2013/claude-fable-5/log_large_3.jsonl",
+      "bytes": 24415,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/yang2013/claude-fable-5/log_large_4.jsonl",
+      "bytes": 24413,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/yang2013/claude-fable-5/log_large_5.jsonl",
+      "bytes": 30501,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/zetina2019/claude-fable-5/log_large_1.jsonl",
+      "bytes": 45672,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/zetina2019/claude-fable-5/log_large_2.jsonl",
+      "bytes": 44752,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/zetina2019/claude-fable-5/log_large_3.jsonl",
+      "bytes": 45562,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/zetina2019/claude-fable-5/log_large_4.jsonl",
+      "bytes": 43241,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/zetina2019/claude-fable-5/log_large_5.jsonl",
+      "bytes": 45623,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/zetina2020/claude-fable-5/log_large_1.jsonl",
+      "bytes": 17058,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/zetina2020/claude-fable-5/log_large_2.jsonl",
+      "bytes": 4262,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/zetina2020/claude-fable-5/log_large_3.jsonl",
+      "bytes": 2131,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/zetina2020/claude-fable-5/log_large_4.jsonl",
+      "bytes": 8522,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/zetina2020/claude-fable-5/log_large_5.jsonl",
+      "bytes": 10660,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/zhang2025/claude-fable-5/log_large_1.jsonl",
+      "bytes": 4570,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/zhang2025/claude-fable-5/log_large_2.jsonl",
+      "bytes": 7735,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/zhang2025/claude-fable-5/log_large_3.jsonl",
+      "bytes": 1295,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/zhang2025/claude-fable-5/log_large_4.jsonl",
+      "bytes": 9512,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/zhang2025/claude-fable-5/log_large_5.jsonl",
+      "bytes": 17789,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/zohali2022/claude-fable-5/log_large_1.jsonl",
+      "bytes": 26771,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/zohali2022/claude-fable-5/log_large_2.jsonl",
+      "bytes": 25073,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/zohali2022/claude-fable-5/log_large_3.jsonl",
+      "bytes": 31763,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/zohali2022/claude-fable-5/log_large_4.jsonl",
+      "bytes": 35112,
+      "reason": "raw_large_log"
+    },
+    {
+      "path": "eval/eval_tasks/zohali2022/claude-fable-5/log_large_5.jsonl",
+      "bytes": 41821,
+      "reason": "raw_large_log"
+    }
+  ]
+}

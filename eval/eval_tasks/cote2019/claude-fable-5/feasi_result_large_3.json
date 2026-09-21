@@ -1,0 +1,19 @@
+{
+  "feasible": false,
+  "violated_constraints": [
+    6
+  ],
+  "violations": [
+    "Constraint 6 (objective): reported objective_value=444.765625 does not match routing + recourse = 448.359375 (routing=435.0, recourse=13.359375, |diff|=3.59, tol=4.48e-06)"
+  ],
+  "violation_magnitudes": [
+    {
+      "constraint": 6,
+      "lhs": 444.765625,
+      "rhs": 448.359375,
+      "raw_excess": 3.59375,
+      "normalizer": 448.359375,
+      "ratio": 0.008015333681826102
+    }
+  ]
+}

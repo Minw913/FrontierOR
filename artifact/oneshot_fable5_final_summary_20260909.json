@@ -1,0 +1,92 @@
+{
+  "model": "claude-fable-5",
+  "execution": {
+    "mode": "systemd",
+    "tiny_time_limit_seconds": 300,
+    "large_time_limit_seconds": 3600,
+    "t_max": "gurobi",
+    "max_debug_retries": 5,
+    "anti_hack": false
+  },
+  "coverage": {
+    "papers": 179,
+    "instances_per_paper": 6,
+    "rows": 1074,
+    "unique_rows": 1074
+  },
+  "status_counts": {
+    "pass": 670,
+    "fail": 184,
+    "gate_fail": 220
+  },
+  "status_by_instance": {
+    "tiny": {
+      "total": 179,
+      "pass": 135,
+      "fail": 44
+    },
+    "large_1": {
+      "total": 179,
+      "gate_fail": 44,
+      "pass": 109,
+      "fail": 26
+    },
+    "large_2": {
+      "total": 179,
+      "gate_fail": 44,
+      "pass": 104,
+      "fail": 31
+    },
+    "large_3": {
+      "total": 179,
+      "gate_fail": 44,
+      "pass": 110,
+      "fail": 25
+    },
+    "large_4": {
+      "total": 179,
+      "gate_fail": 44,
+      "pass": 109,
+      "fail": 26
+    },
+    "large_5": {
+      "total": 179,
+      "gate_fail": 44,
+      "pass": 103,
+      "fail": 32
+    }
+  },
+  "failure_reasons_for_fail_rows": {
+    "infeasible": 74,
+    "invalid_obj": 1,
+    "gap_exceeds": 25,
+    "runtime_error": 82,
+    "missing_instance": 2
+  },
+  "known_data_blocks": [
+    [
+      "segundo2019",
+      "large_3"
+    ],
+    [
+      "segundo2019",
+      "large_4"
+    ]
+  ],
+  "post_run_rechecks": {
+    "cote2019/large_5": "checker completed in 144.33 seconds; solution is infeasible",
+    "castro2021/large_5": "checker completed standalone in 193.09 seconds with 29657640 KiB peak RSS; solution is feasible"
+  },
+  "audit_pass": true,
+  "api_usage": {
+    "rows": 179,
+    "prompt_tokens": 629404,
+    "completion_tokens": 3185386,
+    "cached_tokens": 0,
+    "api_cost": 165.56334
+  },
+  "artifact_policy": {
+    "included_model_artifacts": "All non-large-log model files smaller than 5 MiB",
+    "omitted_model_artifacts": "All raw large JSONL logs and model files at least 5 MiB; see omitted manifest"
+  }
+}

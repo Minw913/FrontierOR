@@ -1,0 +1,19 @@
+{
+  "feasible": false,
+  "violated_constraints": [
+    6
+  ],
+  "violations": [
+    "Constraint 6: Attacker 0 state-machine k=7: a[k]=1, gamma=0, delta_comb=0 -> expected a[k+1]=1, got 0"
+  ],
+  "violation_magnitudes": [
+    {
+      "constraint": 6,
+      "lhs": 0.0,
+      "rhs": 1.0,
+      "raw_excess": 1.0,
+      "normalizer": 1.0,
+      "ratio": 1.0
+    }
+  ]
+}

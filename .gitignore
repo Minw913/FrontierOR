@@ -33,8 +33,7 @@ configs/api_keys.yaml
 gurobi.lic
 *.gurobi.lic
 
-# Runtime output (one_shot_eval.py writes per-paper code + CSV here)
-eval/
+# Runtime output
 results/
 
 # Local planning / draft documents
@@ -42,6 +41,7 @@ local_docs/
 private/
 scripts/private/
 /FrontierOR_variants/
+frontieror_train_test_split_artifact/
 
 # Draft community submission templates
 community/model_submissions/TEMPLATE/

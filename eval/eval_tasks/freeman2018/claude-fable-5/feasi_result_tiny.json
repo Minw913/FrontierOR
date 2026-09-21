@@ -1,0 +1,10 @@
+{
+  "feasible": false,
+  "violated_constraints": [
+    "solution_schema"
+  ],
+  "violations": [
+    "empty required decision witness field(s): event_sites"
+  ],
+  "violation_magnitudes": []
+}

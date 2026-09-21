@@ -1,0 +1,149 @@
+{
+  "objective_value": 149.0,
+  "schedule": [
+    {
+      "machine_id": 3,
+      "prev_job": 2,
+      "job": 1,
+      "start_time": 102,
+      "completion_time": 142,
+      "weighted_tardiness": 0
+    },
+    {
+      "machine_id": 3,
+      "prev_job": 13,
+      "job": 2,
+      "start_time": 75,
+      "completion_time": 102,
+      "weighted_tardiness": 0
+    },
+    {
+      "machine_id": 2,
+      "prev_job": 7,
+      "job": 3,
+      "start_time": 90,
+      "completion_time": 122,
+      "weighted_tardiness": 0
+    },
+    {
+      "machine_id": 1,
+      "prev_job": 0,
+      "job": 4,
+      "start_time": 0,
+      "completion_time": 11,
+      "weighted_tardiness": 0
+    },
+    {
+      "machine_id": 0,
+      "prev_job": 0,
+      "job": 5,
+      "start_time": 0,
+      "completion_time": 9,
+      "weighted_tardiness": 0
+    },
+    {
+      "machine_id": 0,
+      "prev_job": 5,
+      "job": 6,
+      "start_time": 9,
+      "completion_time": 94,
+      "weighted_tardiness": 0
+    },
+    {
+      "machine_id": 2,
+      "prev_job": 0,
+      "job": 7,
+      "start_time": 0,
+      "completion_time": 90,
+      "weighted_tardiness": 0
+    },
+    {
+      "machine_id": 1,
+      "prev_job": 14,
+      "job": 8,
+      "start_time": 40,
+      "completion_time": 133,
+      "weighted_tardiness": 0
+    },
+    {
+      "machine_id": 3,
+      "prev_job": 1,
+      "job": 9,
+      "start_time": 142,
+      "completion_time": 222,
+      "weighted_tardiness": 9
+    },
+    {
+      "machine_id": 1,
+      "prev_job": 15,
+      "job": 10,
+      "start_time": 214,
+      "completion_time": 240,
+      "weighted_tardiness": 82
+    },
+    {
+      "machine_id": 1,
+      "prev_job": 8,
+      "job": 11,
+      "start_time": 133,
+      "completion_time": 161,
+      "weighted_tardiness": 0
+    },
+    {
+      "machine_id": 2,
+      "prev_job": 3,
+      "job": 12,
+      "start_time": 122,
+      "completion_time": 212,
+      "weighted_tardiness": 58
+    },
+    {
+      "machine_id": 3,
+      "prev_job": 0,
+      "job": 13,
+      "start_time": 0,
+      "completion_time": 75,
+      "weighted_tardiness": 0
+    },
+    {
+      "machine_id": 1,
+      "prev_job": 4,
+      "job": 14,
+      "start_time": 11,
+      "completion_time": 40,
+      "weighted_tardiness": 0
+    },
+    {
+      "machine_id": 1,
+      "prev_job": 17,
+      "job": 15,
+      "start_time": 172,
+      "completion_time": 214,
+      "weighted_tardiness": 0
+    },
+    {
+      "machine_id": 0,
+      "prev_job": 18,
+      "job": 16,
+      "start_time": 192,
+      "completion_time": 215,
+      "weighted_tardiness": 0
+    },
+    {
+      "machine_id": 1,
+      "prev_job": 11,
+      "job": 17,
+      "start_time": 161,
+      "completion_time": 172,
+      "weighted_tardiness": 0
+    },
+    {
+      "machine_id": 0,
+      "prev_job": 6,
+      "job": 18,
+      "start_time": 94,
+      "completion_time": 192,
+      "weighted_tardiness": 0
+    }
+  ]
+}

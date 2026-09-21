@@ -1,0 +1,2947 @@
+Results CSV: per-model auto-routing
+  gpt-5.6-sol               -> eval/eval_results_gpt56sol.csv
+Models: ['openai/gpt-5.6-sol']
+Papers: ['segundo2019', 'furini2016', 'guo2021', 'rothenbacher2018', 'nagy2015', 'ropke2009', 'armbruster2012', 'watermeyer2020', 'zohali2022', 'wei2020', 'legrain2020', 'roshanaei2017', 'adulyasak2015', 'desaulniers2010', 'borndorfer2007', 'zetina2019', 'reinhardt2016', 'kreter2018', 'hewitt2024', 'alfieri2020', 'wang2019', 'hosseinian2020', 'vidal2011', 'pecin2017', 'sadykov2013', 'desaulniers2016', 'eiselt2009', 'he2020', 'carvalho2022', 'letelier2022', 'carosi2019', 'bayani2024', 'ozturk2020', 'cunha2021', 'lai2021', 'desaulniers2014', 'reihaneh2019', 'fischetti1997', 'martin-iradi2024', 'boland2019', 'roberti2018', 'kobeaga2024', 'bierwirth2017', 'bard2002', 'fragkos2021', 'delage2022', 'wu2018', 'spliet2015', 'fragkos2016', 'amaldi2013']
+Instances: ['large_1', 'large_2', 'large_3', 'large_4', 'large_5']
+Data dir: /scratch/chonghej/LLM4OR/FrontierOR-run/frontier-or
+GRB_LICENSE_FILE: /home/chonghej/gurobi.lic
+Max correct retries: 0, Max debug retries: 5, Time limit: large_1=3600s, large_2=3600s, large_3=3600s, large_4=3600s, large_5=3600s, Paper workers: 10, Model workers: 1, Instance workers: 50
+Exec: systemd (mem=640G), T_max: gurobi
+Mode: REUSE-CODE=incomplete (reuse code.py on disk; fresh init-gen where missing; skip (paper, instance) pairs already in eval_results.csv)
+
+[task-pool] dispatching 50 (paper, model) tasks across 10 worker(s) (paper_workers × model_workers = 10 × 1)
+  [gate] tiny row present in CSV; auto-injecting at position 0 of --instances so Phase 1 gates on tiny instead of 'large_1'. Tiny is frozen (not re-run / not re-flushed).
+
+  [reuse=incomplete] segundo2019/gpt-5.6-sol: frozen from CSV ['tiny'], running ['large_1', 'large_2', 'large_3', 'large_4', 'large_5']
+
+================================================================================
+  [gate] tiny row present in CSV; auto-injecting at position 0 of --instances so Phase 1 gates on tiny instead of 'large_1'. Tiny is frozen (not re-run / not re-flushed).
+PAPER: segundo2019  |  MODEL: openai/gpt-5.6-sol (gpt-5.6-sol)
+================================================================================
+  [gate] tiny row present in CSV; auto-injecting at position 0 of --instances so Phase 1 gates on tiny instead of 'large_1'. Tiny is frozen (not re-run / not re-flushed).
+
+  [gate] tiny row present in CSV; auto-injecting at position 0 of --instances so Phase 1 gates on tiny instead of 'large_1'. Tiny is frozen (not re-run / not re-flushed).
+
+  [reuse=incomplete] furini2016/gpt-5.6-sol: frozen from CSV ['tiny'], running ['large_1', 'large_2', 'large_3', 'large_4', 'large_5']
+
+  [reuse=incomplete] guo2021/gpt-5.6-sol: frozen from CSV ['tiny'], running ['large_1', 'large_2', 'large_3', 'large_4', 'large_5']
+
+================================================================================
+================================================================================
+PAPER: furini2016  |  MODEL: openai/gpt-5.6-sol (gpt-5.6-sol)
+
+
+  [reuse=incomplete] rothenbacher2018/gpt-5.6-sol: frozen from CSV ['tiny'], running ['large_1', 'large_2', 'large_3', 'large_4', 'large_5']
+
+================================================================================
+PAPER: rothenbacher2018  |  MODEL: openai/gpt-5.6-sol (gpt-5.6-sol)================================================================================
+
+================================================================================
+
+  [gate] tiny row present in CSV; auto-injecting at position 0 of --instances so Phase 1 gates on tiny instead of 'large_1'. Tiny is frozen (not re-run / not re-flushed).PAPER: guo2021  |  MODEL: openai/gpt-5.6-sol (gpt-5.6-sol)  [reuse] no prior code_attempt files — starting counters at 0.
+
+  --- Running code_v0 on instances ['large_1', 'large_2', 'large_3', 'large_4', 'large_5'] for first_results ---
+
+================================================================================
+
+
+
+  [reuse=incomplete] armbruster2012/gpt-5.6-sol: frozen from CSV ['tiny'], running ['large_1', 'large_2', 'large_3', 'large_4', 'large_5']
+
+================================================================================
+PAPER: armbruster2012  |  MODEL: openai/gpt-5.6-sol (gpt-5.6-sol)
+
+================================================================================
+
+  [gate] tiny row present in CSV; auto-injecting at position 0 of --instances so Phase 1 gates on tiny instead of 'large_1'. Tiny is frozen (not re-run / not re-flushed).
+  [gate] tiny row present in CSV; auto-injecting at position 0 of --instances so Phase 1 gates on tiny instead of 'large_1'. Tiny is frozen (not re-run / not re-flushed).
+  [reuse] no prior code_attempt files — starting counters at 0.
+  [gate] tiny row present in CSV; auto-injecting at position 0 of --instances so Phase 1 gates on tiny instead of 'large_1'. Tiny is frozen (not re-run / not re-flushed).
+  --- Running code_v0 on instances ['large_1', 'large_2', 'large_3', 'large_4', 'large_5'] for first_results ---
+
+
+  [reuse=incomplete] ropke2009/gpt-5.6-sol: frozen from CSV ['tiny'], running ['large_1', 'large_2', 'large_3', 'large_4', 'large_5']  [reuse] no prior code_attempt files — starting counters at 0.
+
+  --- Running code_v0 on instances ['large_1', 'large_2', 'large_3', 'large_4', 'large_5'] for first_results ---
+
+  [reuse=incomplete] watermeyer2020/gpt-5.6-sol: frozen from CSV ['tiny'], running ['large_1', 'large_2', 'large_3', 'large_4', 'large_5']
+
+
+================================================================================
+PAPER: ropke2009  |  MODEL: openai/gpt-5.6-sol (gpt-5.6-sol)
+================================================================================
+
+
+  [reuse=incomplete] nagy2015/gpt-5.6-sol: frozen from CSV ['tiny'], running ['large_1', 'large_2', 'large_3', 'large_4', 'large_5']
+  [reuse] no prior code_attempt files — starting counters at 0.
+
+  *** Pre-judge: tiny 'tiny' frozen from CSV (status=fail, gap=0.146441, feasible=False) fails Phase 1 gate. Skipping v0 run; cascading gate_fail to ['large_1', 'large_2', 'large_3', 'large_4', 'large_5']. ***
+
+  [gate] tiny row present in CSV; auto-injecting at position 0 of --instances so Phase 1 gates on tiny instead of 'large_1'. Tiny is frozen (not re-run / not re-flushed).
+
+================================================================================  [reuse] no prior code_attempt files — starting counters at 0.
+
+  --- Running code_v0 on instances ['large_1', 'large_2', 'large_3', 'large_4', 'large_5'] for first_results ---
+
+
+================================================================================
+PAPER: nagy2015  |  MODEL: openai/gpt-5.6-sol (gpt-5.6-sol)
+  [reuse=incomplete] zohali2022/gpt-5.6-sol: frozen from CSV ['tiny'], running ['large_1', 'large_2', 'large_3', 'large_4', 'large_5']  [reuse] no prior code_attempt files — starting counters at 0.
+
+  *** Pre-judge: tiny 'tiny' frozen from CSV (status=fail, gap=None, feasible=None) fails Phase 1 gate. Skipping v0 run; cascading gate_fail to ['large_1', 'large_2', 'large_3', 'large_4', 'large_5']. ***
+
+  [gate] tiny row present in CSV; auto-injecting at position 0 of --instances so Phase 1 gates on tiny instead of 'large_1'. Tiny is frozen (not re-run / not re-flushed).PAPER: watermeyer2020  |  MODEL: openai/gpt-5.6-sol (gpt-5.6-sol)
+
+
+
+================================================================================
+
+================================================================================
+
+PAPER: zohali2022  |  MODEL: openai/gpt-5.6-sol (gpt-5.6-sol)
+================================================================================
+
+================================================================================
+
+  Instance large_3: SKIP — /scratch/chonghej/LLM4OR/FrontierOR-run/frontier-or/tasks/segundo2019/instance/large_instance_3.json not found
+
+  [reuse=incomplete] wei2020/gpt-5.6-sol: frozen from CSV ['tiny'], running ['large_1', 'large_2', 'large_3', 'large_4', 'large_5']
+
+================================================================================
+  [reuse] no prior code_attempt files — starting counters at 0.  [reuse] no prior code_attempt files — starting counters at 0.
+
+  *** Pre-judge: tiny 'tiny' frozen from CSV (status=fail, gap=None, feasible=None) fails Phase 1 gate. Skipping v0 run; cascading gate_fail to ['large_1', 'large_2', 'large_3', 'large_4', 'large_5']. ***
+
+
+
+  --- Running code_v0 on instances ['large_1', 'large_2', 'large_3', 'large_4', 'large_5'] for first_results ---
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+PAPER: wei2020  |  MODEL: openai/gpt-5.6-sol (gpt-5.6-sol)  [reuse] no prior code_attempt files — starting counters at 0.
+================================================================================
+
+
+  Instance large_4: SKIP — /scratch/chonghej/LLM4OR/FrontierOR-run/frontier-or/tasks/segundo2019/instance/large_instance_4.json not found
+  --- Running code_v0 on instances ['large_1', 'large_2', 'large_3', 'large_4', 'large_5'] for first_results ---
+
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+  [reuse] no prior code_attempt files — starting counters at 0.    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+
+
+  --- Running code_v0 on instances ['large_1', 'large_2', 'large_3', 'large_4', 'large_5'] for first_results ---
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    API cost written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/one_shot_api_cost.csv
+
+================================================================================
+EVALUATION SUMMARY
+================================================================================
+Instance     Status   Retries   LLM Obj            Gurobi Obj         Error
+--------------------------------------------------------------------------------
+  large_1    gate_fail 0         N/A                N/A                Skipped: tiny-instance gate...
+  large_2    gate_fail 0         N/A                N/A                Skipped: tiny-instance gate...
+  large_3    gate_fail 0         N/A                N/A                Skipped: tiny-instance gate...
+  large_4    gate_fail 0         N/A                N/A                Skipped: tiny-instance gate...
+  large_5    gate_fail 0         N/A                N/A                Skipped: tiny-instance gate...
+  tiny       fail     0         N/A                N/A                Execution timed out after 3...
+--------------------------------------------------------------------------------
+Total: 6  |  Pass: 0  |  Fail: 1  |  Skip: 5
+================================================================================
+
+ERROR DETAILS
+--------------------------------------------------------------------------------
+  Instance large_1:
+Skipped: tiny-instance gate failed on instance tiny
+
+  Instance large_2:
+Skipped: tiny-instance gate failed on instance tiny
+
+  Instance large_3:
+Skipped: tiny-instance gate failed on instance tiny
+
+  Instance large_4:
+Skipped: tiny-instance gate failed on instance tiny
+
+  Instance large_5:
+Skipped: tiny-instance gate failed on instance tiny
+
+  Instance tiny:
+Execution timed out after 300 seconds
+
+  [gate] tiny row present in CSV; auto-injecting at position 0 of --instances so Phase 1 gates on tiny instead of 'large_1'. Tiny is frozen (not re-run / not re-flushed).
+
+  [reuse=incomplete] legrain2020/gpt-5.6-sol: frozen from CSV ['tiny'], running ['large_1', 'large_2', 'large_3', 'large_4', 'large_5']
+
+================================================================================
+PAPER: legrain2020  |  MODEL: openai/gpt-5.6-sol (gpt-5.6-sol)
+================================================================================
+
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+  [reuse] no prior code_attempt files — starting counters at 0.
+
+  --- Running code_v0 on instances ['large_1', 'large_2', 'large_3', 'large_4', 'large_5'] for first_results ---
+    API cost written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/one_shot_api_cost.csv
+
+================================================================================
+EVALUATION SUMMARY
+================================================================================
+Instance     Status   Retries   LLM Obj            Gurobi Obj         Error
+--------------------------------------------------------------------------------
+  large_1    gate_fail 0         N/A                N/A                Skipped: tiny-instance gate...
+  large_2    gate_fail 0         N/A                N/A                Skipped: tiny-instance gate...
+  large_3    gate_fail 0         N/A                N/A                Skipped: tiny-instance gate...
+  large_4    gate_fail 0         N/A                N/A                Skipped: tiny-instance gate...
+  large_5    gate_fail 0         N/A                N/A                Skipped: tiny-instance gate...
+  tiny       fail     0         396.4920           N/A                Solution is INFEASIBLE Viol...
+--------------------------------------------------------------------------------
+Total: 6  |  Pass: 0  |  Fail: 1  |  Skip: 5
+================================================================================
+    API cost written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/one_shot_api_cost.csv
+
+================================================================================
+EVALUATION SUMMARY
+================================================================================
+Instance     Status   Retries   LLM Obj            Gurobi Obj         Error
+ERROR DETAILS
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+  Instance large_1:
+Skipped: tiny-instance gate failed on instance tiny
+
+  Instance large_2:
+Skipped: tiny-instance gate failed on instance tiny
+
+  large_1    gate_fail 0         N/A                N/A                Skipped: tiny-instance gate...
+  large_2    gate_fail 0         N/A                N/A                Skipped: tiny-instance gate...
+  Instance large_3:
+Skipped: tiny-instance gate failed on instance tiny
+
+  Instance large_4:
+Skipped: tiny-instance gate failed on instance tiny
+
+  Instance large_5:
+Skipped: tiny-instance gate failed on instance tiny
+  large_3    gate_fail 0         N/A                N/A                Skipped: tiny-instance gate...
+  large_4    gate_fail 0         N/A                N/A                Skipped: tiny-instance gate...
+
+  Instance tiny:
+Solution is INFEASIBLE Violations: checker rejected malformed candidate: ValueError: expanded node id -1000001 is out of range
+
+  large_5    gate_fail 0         N/A                N/A                Skipped: tiny-instance gate...
+  tiny       fail     0         N/A                N/A                Execution timed out after 3...
+--------------------------------------------------------------------------------
+  [gate] tiny row present in CSV; auto-injecting at position 0 of --instances so Phase 1 gates on tiny instead of 'large_1'. Tiny is frozen (not re-run / not re-flushed).
+Total: 6  |  Pass: 0  |  Fail: 1  |  Skip: 5
+  [reuse=incomplete] roshanaei2017/gpt-5.6-sol: frozen from CSV ['tiny'], running ['large_1', 'large_2', 'large_3', 'large_4', 'large_5']
+
+================================================================================
+PAPER: roshanaei2017  |  MODEL: openai/gpt-5.6-sol (gpt-5.6-sol)
+================================================================================
+
+
+================================================================================
+
+ERROR DETAILS
+--------------------------------------------------------------------------------
+  Instance large_1:
+Skipped: tiny-instance gate failed on instance tiny
+
+  Instance large_2:
+Skipped: tiny-instance gate failed on instance tiny
+
+  Instance large_3:
+Skipped: tiny-instance gate failed on instance tiny
+
+  Instance large_4:
+Skipped: tiny-instance gate failed on instance tiny
+
+  Instance large_5:
+Skipped: tiny-instance gate failed on instance tiny
+
+  Instance tiny:
+Execution timed out after 300 seconds
+
+  [gate] tiny row present in CSV; auto-injecting at position 0 of --instances so Phase 1 gates on tiny instead of 'large_1'. Tiny is frozen (not re-run / not re-flushed).
+  [reuse] no prior code_attempt files — starting counters at 0.
+
+  *** Pre-judge: tiny 'tiny' frozen from CSV (status=fail, gap=-1.0, feasible=False) fails Phase 1 gate. Skipping v0 run; cascading gate_fail to ['large_1', 'large_2', 'large_3', 'large_4', 'large_5']. ***
+
+
+  [reuse=incomplete] adulyasak2015/gpt-5.6-sol: frozen from CSV ['tiny'], running ['large_1', 'large_2', 'large_3', 'large_4', 'large_5']
+
+================================================================================
+PAPER: adulyasak2015  |  MODEL: openai/gpt-5.6-sol (gpt-5.6-sol)
+================================================================================
+
+  [reuse] no prior code_attempt files — starting counters at 0.
+
+  *** Pre-judge: tiny 'tiny' frozen from CSV (status=fail, gap=-0.114995, feasible=False) fails Phase 1 gate. Skipping v0 run; cascading gate_fail to ['large_1', 'large_2', 'large_3', 'large_4', 'large_5']. ***
+
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    API cost written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/one_shot_api_cost.csv
+
+================================================================================
+EVALUATION SUMMARY
+================================================================================
+Instance     Status   Retries   LLM Obj            Gurobi Obj         Error
+--------------------------------------------------------------------------------
+  large_1    gate_fail 0         N/A                N/A                Skipped: tiny-instance gate...
+  large_2    gate_fail 0         N/A                N/A                Skipped: tiny-instance gate...
+  large_3    gate_fail 0         N/A                N/A                Skipped: tiny-instance gate...
+  large_4    gate_fail 0         N/A                N/A                Skipped: tiny-instance gate...
+  large_5    gate_fail 0         N/A                N/A                Skipped: tiny-instance gate...
+  tiny       fail     0         0.0000             N/A                Solution is INFEASIBLE Viol...
+--------------------------------------------------------------------------------
+Total: 6  |  Pass: 0  |  Fail: 1  |  Skip: 5
+================================================================================
+
+ERROR DETAILS
+--------------------------------------------------------------------------------
+  Instance large_1:
+Skipped: tiny-instance gate failed on instance tiny
+
+  Instance large_2:
+Skipped: tiny-instance gate failed on instance tiny
+
+  Instance large_3:
+Skipped: tiny-instance gate failed on instance tiny
+
+  Instance large_4:
+Skipped: tiny-instance gate failed on instance tiny
+
+  Instance large_5:
+Skipped: tiny-instance gate failed on instance tiny
+
+  Instance tiny:
+Solution is INFEASIBLE Violations: checker rejected malformed candidate: ValueError: not enough values to unpack (expected 9, got 4)
+
+  [gate] tiny row present in CSV; auto-injecting at position 0 of --instances so Phase 1 gates on tiny instead of 'large_1'. Tiny is frozen (not re-run / not re-flushed).
+
+  [reuse=incomplete] desaulniers2010/gpt-5.6-sol: frozen from CSV ['tiny'], running ['large_1', 'large_2', 'large_3', 'large_4', 'large_5']
+    API cost written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/one_shot_api_cost.csv
+
+================================================================================
+EVALUATION SUMMARY
+================================================================================
+Instance     Status   Retries   LLM Obj            Gurobi Obj         Error
+--------------------------------------------------------------------------------
+================================================================================
+PAPER: desaulniers2010  |  MODEL: openai/gpt-5.6-sol (gpt-5.6-sol)
+
+  large_1    gate_fail 0         N/A                N/A                Skipped: tiny-instance gate...
+  large_2    gate_fail 0         N/A                N/A                Skipped: tiny-instance gate...
+  large_3    gate_fail 0         N/A                N/A                Skipped: tiny-instance gate...================================================================================
+
+
+  large_4    gate_fail 0         N/A                N/A                Skipped: tiny-instance gate...
+  large_5    gate_fail 0         N/A                N/A                Skipped: tiny-instance gate...
+  tiny       fail     0         1235.2540          N/A                Solution is INFEASIBLE Viol...
+--------------------------------------------------------------------------------
+Total: 6  |  Pass: 0  |  Fail: 1  |  Skip: 5
+================================================================================
+
+ERROR DETAILS
+--------------------------------------------------------------------------------
+  Instance large_1:
+Skipped: tiny-instance gate failed on instance tiny
+
+  Instance large_2:
+Skipped: tiny-instance gate failed on instance tiny
+
+  Instance large_3:
+Skipped: tiny-instance gate failed on instance tiny
+  [reuse] no prior code_attempt files — starting counters at 0.
+
+  --- Running code_v0 on instances ['large_1', 'large_2', 'large_3', 'large_4', 'large_5'] for first_results ---
+
+  Instance large_4:
+Skipped: tiny-instance gate failed on instance tiny
+
+  Instance large_5:
+Skipped: tiny-instance gate failed on instance tiny
+
+  Instance tiny:
+Solution is INFEASIBLE Violations: Constraint 23 (exact objective consistency) could not certify the candidate: ValueError: unknown model variable(s): y[0], y[1], z[0,0,0], z[1,0,0], z[2,0,0]; constraint violated: cust_bal_1_1_0: 0 == 
+
+  [gate] tiny row present in CSV; auto-injecting at position 0 of --instances so Phase 1 gates on tiny instead of 'large_1'. Tiny is frozen (not re-run / not re-flushed).
+
+  [reuse=incomplete] borndorfer2007/gpt-5.6-sol: frozen from CSV ['tiny'], running ['large_1', 'large_2', 'large_3', 'large_4', 'large_5']
+
+================================================================================
+PAPER: borndorfer2007  |  MODEL: openai/gpt-5.6-sol (gpt-5.6-sol)
+================================================================================
+
+  [reuse] no prior code_attempt files — starting counters at 0.
+
+  --- Running code_v0 on instances ['large_1', 'large_2', 'large_3', 'large_4', 'large_5'] for first_results ---
+  Instance large_3: PASS (LLM=246.0, gap=0.00%, time=2.09s, feasible=True)  Instance large_4: PASS (LLM=372.0, gap=9.73%, time=2.07s, feasible=True)
+
+  Instance large_5: PASS (LLM=502.0, gap=0.00%, time=2.14s, feasible=True)
+  Instance large_1: PASS (LLM=668.0, gap=0.00%, time=2.12s, feasible=True)
+  Instance large_2: PASS (LLM=420.0, gap=2.44%, time=2.12s, feasible=True)
+
+  --- Phase 0: Self-debug for runtime_error (budget=5 remaining of 5, already used=0) ---
+
+  --- Phase 1: Tiny-instance gate (instance tiny, gap<=10%) ---
+  [reuse=incomplete] tiny 'tiny' frozen from CSV (status=None, gap=None). Skipping correction loop.
+
+  *** Tiny-instance gate FAILED for instance tiny after 0 LLM correction(s) (debug=0, phase1=0). Skipping instances ['large_1', 'large_2', 'large_3', 'large_4', 'large_5']. ***
+
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    API cost written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/one_shot_api_cost.csv
+
+================================================================================
+EVALUATION SUMMARY
+================================================================================
+Instance     Status   Retries   LLM Obj            Gurobi Obj         Error
+--------------------------------------------------------------------------------
+  large_1    gate_fail 0         N/A                N/A                Skipped: tiny-instance gate...
+  large_2    gate_fail 0         N/A                N/A                Skipped: tiny-instance gate...
+  large_3    gate_fail 0         N/A                N/A                Skipped: tiny-instance gate...
+  large_4    gate_fail 0         N/A                N/A                Skipped: tiny-instance gate...
+  large_5    gate_fail 0         N/A                N/A                Skipped: tiny-instance gate...
+[ERROR] paper=wei2020 model=openai/gpt-5.6-sol: 'status'
+  [gate] tiny row present in CSV; auto-injecting at position 0 of --instances so Phase 1 gates on tiny instead of 'large_1'. Tiny is frozen (not re-run / not re-flushed).
+
+  [reuse=incomplete] zetina2019/gpt-5.6-sol: frozen from CSV ['tiny'], running ['large_1', 'large_2', 'large_3', 'large_4', 'large_5']
+
+================================================================================
+PAPER: zetina2019  |  MODEL: openai/gpt-5.6-sol (gpt-5.6-sol)
+================================================================================
+
+  [reuse] no prior code_attempt files — starting counters at 0.
+
+  --- Running code_v0 on instances ['large_1', 'large_2', 'large_3', 'large_4', 'large_5'] for first_results ---
+  Instance large_1: FAIL infeasible (LLM=0.0, gap=0.00%)
+  Instance large_3: FAIL infeasible (LLM=0.0, gap=0.00%)
+  Instance large_4: FAIL infeasible (LLM=0.0, gap=0.00%)
+  Instance large_5: FAIL infeasible (LLM=0.0, gap=0.00%)
+  Instance large_2: FAIL infeasible (LLM=0.0, gap=0.00%)
+
+  --- Phase 0: Self-debug for runtime_error (budget=5 remaining of 5, already used=0) ---
+
+  --- Phase 1: Tiny-instance gate (instance tiny, gap<=10%) ---
+  [reuse=incomplete] tiny 'tiny' frozen from CSV (status=pass, gap=-0.482309). Skipping correction loop.
+
+  --- Phase 1: gate PASSED (tiny gap=-0.482309) ---
+
+  --- Phase 2: v0 code passed gate; reusing v0 results for instances ['large_1', 'large_2', 'large_3', 'large_4', 'large_5'] ---
+
+  5 instance(s) still failing (infeasible/invalid_solution/timeout) after retry budget exhausted.
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    API cost written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/one_shot_api_cost.csv
+
+================================================================================
+EVALUATION SUMMARY
+================================================================================
+Instance     Status   Retries   LLM Obj            Gurobi Obj         Error
+--------------------------------------------------------------------------------
+  large_1    fail     0         0.0000             8763583.1616       Solution is INFEASIBLE Viol...
+  large_2    fail     0         0.0000             3653905.3567       Solution is INFEASIBLE Viol...
+  large_3    fail     0         0.0000             2458723.1142       Solution is INFEASIBLE Viol...
+  large_4    fail     0         0.0000             5595107.7873       Solution is INFEASIBLE Viol...
+  large_5    fail     0         0.0000             2277173.9187       Solution is INFEASIBLE Viol...
+  tiny       pass     0         21166.2205         N/A                
+--------------------------------------------------------------------------------
+Total: 6  |  Pass: 1  |  Fail: 5  |  Skip: 0
+================================================================================
+
+ERROR DETAILS
+--------------------------------------------------------------------------------
+  Instance large_1:
+Solution is INFEASIBLE Violations: empty required decision witness field(s): active_lines, active_passenger_paths
+
+  Instance large_2:
+Solution is INFEASIBLE Violations: empty required decision witness field(s): active_lines, active_passenger_paths
+
+  Instance large_3:
+Solution is INFEASIBLE Violations: empty required decision witness field(s): active_lines, active_passenger_paths
+
+  Instance large_4:
+Solution is INFEASIBLE Violations: empty required decision witness field(s): active_lines, active_passenger_paths
+
+  Instance large_5:
+Solution is INFEASIBLE Violations: empty required decision witness field(s): active_lines, active_passenger_paths
+
+  [gate] tiny row present in CSV; auto-injecting at position 0 of --instances so Phase 1 gates on tiny instead of 'large_1'. Tiny is frozen (not re-run / not re-flushed).
+
+  [reuse=incomplete] reinhardt2016/gpt-5.6-sol: frozen from CSV ['tiny'], running ['large_1', 'large_2', 'large_3', 'large_4', 'large_5']
+
+================================================================================
+PAPER: reinhardt2016  |  MODEL: openai/gpt-5.6-sol (gpt-5.6-sol)
+================================================================================
+
+  [reuse] no prior code_attempt files — starting counters at 0.
+
+  --- Running code_v0 on instances ['large_1', 'large_2', 'large_3', 'large_4', 'large_5'] for first_results ---
+  Instance large_5: PASS (LLM=1017.9, gap=0.00%, time=1.42s, feasible=True)
+  Instance large_1: PASS (LLM=1004.0, gap=0.00%, time=4.38s, feasible=True)
+  Instance large_2: PASS (LLM=827.4000000000002, gap=0.00%, time=195.89s, feasible=True)
+  Instance large_3: PASS (LLM=253.0, gap=0.00%, time=3599.94s, feasible=True)
+  Instance large_2: PASS (LLM=236.0, gap=3.06%, time=3599.95s, feasible=True)
+  Instance large_1: FAIL runtime_error (3600.07s)
+  Instance large_5: PASS (LLM=274.0, gap=0.00%, time=3599.96s, feasible=True)
+  Instance large_4: PASS (LLM=268.0, gap=3.88%, time=3599.99s, feasible=True)
+
+  --- Phase 0: Self-debug for runtime_error (budget=5 remaining of 5, already used=0) ---
+
+  --- Phase 1: Tiny-instance gate (instance tiny, gap<=10%) ---
+  [reuse=incomplete] tiny 'tiny' frozen from CSV (status=pass, gap=0.0). Skipping correction loop.
+
+  --- Phase 1: gate PASSED (tiny gap=0.0) ---
+
+  --- Phase 2: v0 code passed gate; reusing v0 results for instances ['large_1', 'large_2', 'large_3', 'large_4', 'large_5'] ---
+
+  1 instance(s) still failing (infeasible/invalid_solution/timeout) after retry budget exhausted.
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    API cost written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/one_shot_api_cost.csv
+
+================================================================================
+EVALUATION SUMMARY
+================================================================================
+Instance     Status   Retries   LLM Obj            Gurobi Obj         Error
+--------------------------------------------------------------------------------
+  large_1    fail     0         N/A                231.0000           Execution timed out after 3...
+  large_2    pass     0         236.0000           229.0000           
+  large_3    pass     0         253.0000           265.0000           
+  large_4    pass     0         268.0000           258.0000           
+  large_5    pass     0         274.0000           387.0000           
+  tiny       pass     0         61.0000            N/A                
+--------------------------------------------------------------------------------
+Total: 6  |  Pass: 5  |  Fail: 1  |  Skip: 0
+================================================================================
+
+ERROR DETAILS
+--------------------------------------------------------------------------------
+  Instance large_1:
+Execution timed out after 3600 seconds
+
+  [gate] tiny row present in CSV; auto-injecting at position 0 of --instances so Phase 1 gates on tiny instead of 'large_1'. Tiny is frozen (not re-run / not re-flushed).
+
+  [reuse=incomplete] kreter2018/gpt-5.6-sol: frozen from CSV ['tiny'], running ['large_1', 'large_2', 'large_3', 'large_4', 'large_5']
+
+================================================================================
+PAPER: kreter2018  |  MODEL: openai/gpt-5.6-sol (gpt-5.6-sol)
+================================================================================
+
+  [reuse] no prior code_attempt files — starting counters at 0.
+
+  --- Running code_v0 on instances ['large_1', 'large_2', 'large_3', 'large_4', 'large_5'] for first_results ---
+  Instance large_4: FAIL runtime_error (3600.17s)
+  Instance large_5: FAIL runtime_error (3600.23s)
+  Instance large_1: FAIL runtime_error (3600.19s)
+  Instance large_3: FAIL runtime_error (3600.19s)
+  Instance large_2: FAIL runtime_error (3600.24s)
+  Instance large_2: FAIL runtime_error (3600.26s)  Instance large_3: FAIL runtime_error (3600.24s)
+
+  Instance large_4: FAIL runtime_error (3600.26s)
+  Instance large_3: FAIL runtime_error (3600.31s)
+  Instance large_5: FAIL runtime_error (3600.26s)
+
+  --- Phase 0: Self-debug for runtime_error (budget=5 remaining of 5, already used=0) ---
+
+  --- Phase 1: Tiny-instance gate (instance tiny, gap<=10%) ---
+  [reuse=incomplete] tiny 'tiny' frozen from CSV (status=None, gap=None). Skipping correction loop.
+
+  *** Tiny-instance gate FAILED for instance tiny after 0 LLM correction(s) (debug=0, phase1=0). Skipping instances ['large_1', 'large_2', 'large_3', 'large_4', 'large_5']. ***
+
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    API cost written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/one_shot_api_cost.csv
+
+================================================================================
+EVALUATION SUMMARY
+================================================================================
+Instance     Status   Retries   LLM Obj            Gurobi Obj         Error
+--------------------------------------------------------------------------------
+  large_1    gate_fail 0         N/A                N/A                Skipped: tiny-instance gate...
+  large_2    gate_fail 0         N/A                N/A                Skipped: tiny-instance gate...
+  large_3    gate_fail 0         N/A                N/A                Skipped: tiny-instance gate...
+  large_4    gate_fail 0         N/A                N/A                Skipped: tiny-instance gate...
+  large_5    gate_fail 0         N/A                N/A                Skipped: tiny-instance gate...
+[ERROR] paper=legrain2020 model=openai/gpt-5.6-sol: 'status'
+  [gate] tiny row present in CSV; auto-injecting at position 0 of --instances so Phase 1 gates on tiny instead of 'large_1'. Tiny is frozen (not re-run / not re-flushed).
+
+  [reuse=incomplete] hewitt2024/gpt-5.6-sol: frozen from CSV ['tiny'], running ['large_1', 'large_2', 'large_3', 'large_4', 'large_5']
+
+================================================================================
+PAPER: hewitt2024  |  MODEL: openai/gpt-5.6-sol (gpt-5.6-sol)
+================================================================================
+
+  [reuse] no prior code_attempt files — starting counters at 0.
+
+  *** Pre-judge: tiny 'tiny' frozen from CSV (status=fail, gap=0.0, feasible=False) fails Phase 1 gate. Skipping v0 run; cascading gate_fail to ['large_1', 'large_2', 'large_3', 'large_4', 'large_5']. ***
+
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    API cost written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/one_shot_api_cost.csv
+
+================================================================================
+EVALUATION SUMMARY
+================================================================================
+Instance     Status   Retries   LLM Obj            Gurobi Obj         Error
+--------------------------------------------------------------------------------
+  large_1    gate_fail 0         N/A                N/A                Skipped: tiny-instance gate...
+  large_2    gate_fail 0         N/A                N/A                Skipped: tiny-instance gate...
+  large_3    gate_fail 0         N/A                N/A                Skipped: tiny-instance gate...
+  large_4    gate_fail 0         N/A                N/A                Skipped: tiny-instance gate...
+  large_5    gate_fail 0         N/A                N/A                Skipped: tiny-instance gate...
+  tiny       fail     0         3963357.2510       N/A                Solution is INFEASIBLE Viol...
+--------------------------------------------------------------------------------
+Total: 6  |  Pass: 0  |  Fail: 1  |  Skip: 5
+================================================================================
+
+ERROR DETAILS
+--------------------------------------------------------------------------------
+  Instance large_1:
+Skipped: tiny-instance gate failed on instance tiny
+
+  Instance large_2:
+Skipped: tiny-instance gate failed on instance tiny
+
+  Instance large_3:
+Skipped: tiny-instance gate failed on instance tiny
+
+  Instance large_4:
+Skipped: tiny-instance gate failed on instance tiny
+
+  Instance large_5:
+Skipped: tiny-instance gate failed on instance tiny
+
+  Instance tiny:
+Solution is INFEASIBLE Violations: Product 0, dist 1, scenario 0: z=0.000000 != sum(Y*x)=7480.666350; Product 0, dist 1, scenario 1: z=0.000000 != sum(Y*x)=6204.471300; Product 0, dist 1, scenario 2: z=0.000000 != sum(Y*x)=4118.433750;
+
+  [gate] tiny row present in CSV; auto-injecting at position 0 of --instances so Phase 1 gates on tiny instead of 'large_1'. Tiny is frozen (not re-run / not re-flushed).
+
+  [reuse=incomplete] alfieri2020/gpt-5.6-sol: frozen from CSV ['tiny'], running ['large_1', 'large_2', 'large_3', 'large_4', 'large_5']
+
+================================================================================
+PAPER: alfieri2020  |  MODEL: openai/gpt-5.6-sol (gpt-5.6-sol)
+================================================================================
+
+  [reuse] no prior code_attempt files — starting counters at 0.
+
+  --- Running code_v0 on instances ['large_1', 'large_2', 'large_3', 'large_4', 'large_5'] for first_results ---
+  Instance large_4: FAIL runtime_error (3600.29s)
+  Instance large_4: FAIL runtime_error (3600.35s)
+  Instance large_1: FAIL runtime_error (3600.3s)
+  Instance large_3: FAIL runtime_error (3600.39s)
+  Instance large_5: FAIL runtime_error (3600.4s)  Instance large_4: FAIL runtime_error (3600.39s)
+
+  Instance large_5: FAIL runtime_error (3600.44s)
+  Instance large_5: FAIL runtime_error (3600.45s)  Instance large_3: FAIL runtime_error (3600.46s)
+
+  Instance large_2: FAIL runtime_error (3600.48s)
+  Instance large_1: FAIL runtime_error (3600.48s)
+  Instance large_5: FAIL runtime_error (3600.39s)
+
+  --- Phase 0: Self-debug for runtime_error (budget=5 remaining of 5, already used=0) ---
+
+  --- Phase 1: Tiny-instance gate (instance tiny, gap<=10%) ---
+  [reuse=incomplete] tiny 'tiny' frozen from CSV (status=pass, gap=-0.005025). Skipping correction loop.
+
+  --- Phase 1: gate PASSED (tiny gap=-0.005025) ---
+
+  --- Phase 2: v0 code passed gate; reusing v0 results for instances ['large_1', 'large_2', 'large_3', 'large_4', 'large_5'] ---
+
+  5 instance(s) still failing (infeasible/invalid_solution/timeout) after retry budget exhausted.
+
+  --- Phase 0: Self-debug for runtime_error (budget=5 remaining of 5, already used=0) ---
+
+  --- Phase 1: Tiny-instance gate (instance tiny, gap<=10%) ---
+  [reuse=incomplete] tiny 'tiny' frozen from CSV (status=pass, gap=0.0). Skipping correction loop.
+
+  --- Phase 1: gate PASSED (tiny gap=0.0) ---
+
+  --- Phase 2: v0 code passed gate; reusing v0 results for instances ['large_1', 'large_2', 'large_3', 'large_4', 'large_5'] ---
+
+  5 instance(s) still failing (infeasible/invalid_solution/timeout) after retry budget exhausted.
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    API cost written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/one_shot_api_cost.csv
+
+================================================================================
+EVALUATION SUMMARY
+================================================================================
+Instance     Status   Retries   LLM Obj            Gurobi Obj         Error
+--------------------------------------------------------------------------------
+  large_1    fail     0         N/A                -0.0000            Execution timed out after 3...
+  large_2    fail     0         N/A                -0.0000            Execution timed out after 3...
+  large_3    fail     0         N/A                -0.0000            Execution timed out after 3...
+  large_4    fail     0         N/A                -0.0000            Execution timed out after 3...
+  large_5    fail     0         N/A                -0.0000            Execution timed out after 3...
+  tiny       pass     0         1600.0000          N/A                
+--------------------------------------------------------------------------------
+Total: 6  |  Pass: 1  |  Fail: 5  |  Skip: 0
+================================================================================
+
+ERROR DETAILS
+--------------------------------------------------------------------------------
+  Instance large_1:
+Execution timed out after 3600 seconds
+
+  Instance large_2:
+Execution timed out after 3600 seconds
+
+  Instance large_3:
+Execution timed out after 3600 seconds
+
+  Instance large_4:
+Execution timed out after 3600 seconds
+
+  Instance large_5:
+Execution timed out after 3600 seconds
+
+  [gate] tiny row present in CSV; auto-injecting at position 0 of --instances so Phase 1 gates on tiny instead of 'large_1'. Tiny is frozen (not re-run / not re-flushed).
+    API cost written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/one_shot_api_cost.csv
+
+================================================================================
+EVALUATION SUMMARY
+================================================================================
+
+  [reuse=incomplete] wang2019/gpt-5.6-sol: frozen from CSV ['tiny'], running ['large_1', 'large_2', 'large_3', 'large_4', 'large_5']
+
+================================================================================Instance     Status   Retries   LLM Obj            Gurobi Obj         Error
+--------------------------------------------------------------------------------
+
+PAPER: wang2019  |  MODEL: openai/gpt-5.6-sol (gpt-5.6-sol)
+  large_1    fail     0         N/A                3274.5000          Execution timed out after 3...
+  large_2    fail     0         N/A                3482.9000          Execution timed out after 3...
+  large_3    fail     0         N/A                3212.5000          Execution timed out after 3...
+================================================================================
+
+  large_4    fail     0         N/A                4013.0000          Execution timed out after 3...
+  large_5    fail     0         N/A                6200.9000          Execution timed out after 3...
+  tiny       pass     0         1100.3000          N/A                
+--------------------------------------------------------------------------------
+Total: 6  |  Pass: 1  |  Fail: 5  |  Skip: 0
+================================================================================
+
+ERROR DETAILS
+--------------------------------------------------------------------------------
+  Instance large_1:
+Execution timed out after 3600 seconds
+
+  Instance large_2:
+Execution timed out after 3600 seconds
+
+  Instance large_3:
+Execution timed out after 3600 seconds
+
+  Instance large_4:
+Execution timed out after 3600 seconds
+
+  Instance large_5:
+Execution timed out after 3600 seconds
+
+  [gate] tiny row present in CSV; auto-injecting at position 0 of --instances so Phase 1 gates on tiny instead of 'large_1'. Tiny is frozen (not re-run / not re-flushed).  [reuse] no prior code_attempt files — starting counters at 0.
+
+  --- Running code_v0 on instances ['large_1', 'large_2', 'large_3', 'large_4', 'large_5'] for first_results ---
+
+
+  [reuse=incomplete] hosseinian2020/gpt-5.6-sol: frozen from CSV ['tiny'], running ['large_1', 'large_2', 'large_3', 'large_4', 'large_5']
+
+================================================================================
+PAPER: hosseinian2020  |  MODEL: openai/gpt-5.6-sol (gpt-5.6-sol)
+================================================================================
+
+  [reuse] no prior code_attempt files — starting counters at 0.
+
+  --- Running code_v0 on instances ['large_1', 'large_2', 'large_3', 'large_4', 'large_5'] for first_results ---
+  Instance large_2: FAIL runtime_error (3600.76s)
+  Instance large_1: FAIL runtime_error (3600.73s)
+  Instance large_2: FAIL runtime_error (3600.74s)
+  Instance large_5: FAIL runtime_error (3600.78s)
+
+  --- Phase 0: Self-debug for runtime_error (budget=5 remaining of 5, already used=0) ---
+
+  --- Phase 1: Tiny-instance gate (instance tiny, gap<=10%) ---
+  [reuse=incomplete] tiny 'tiny' frozen from CSV (status=pass, gap=0.0). Skipping correction loop.
+
+  --- Phase 1: gate PASSED (tiny gap=0.0) ---
+
+  --- Phase 2: v0 code passed gate; reusing v0 results for instances ['large_1', 'large_2', 'large_3', 'large_4', 'large_5'] ---
+
+  3 instance(s) still failing (infeasible/invalid_solution/timeout) after retry budget exhausted.
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    API cost written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/one_shot_api_cost.csv
+
+================================================================================
+EVALUATION SUMMARY
+================================================================================
+Instance     Status   Retries   LLM Obj            Gurobi Obj         Error
+--------------------------------------------------------------------------------
+  large_1    fail     0         N/A                -0.0000            Execution timed out after 3...
+  large_2    fail     0         N/A                -0.0000            Execution timed out after 3...
+  large_3    fail     0         N/A                N/A                Instance file not found
+  large_4    fail     0         N/A                N/A                Instance file not found
+  large_5    fail     0         N/A                -0.0000            Execution timed out after 3...
+  tiny       pass     0         1614.0000          N/A                
+--------------------------------------------------------------------------------
+Total: 6  |  Pass: 1  |  Fail: 5  |  Skip: 0
+================================================================================
+
+ERROR DETAILS
+--------------------------------------------------------------------------------
+  Instance large_1:
+Execution timed out after 3600 seconds
+
+  Instance large_2:
+Execution timed out after 3600 seconds
+
+  Instance large_5:
+Execution timed out after 3600 seconds
+
+  [gate] tiny row present in CSV; auto-injecting at position 0 of --instances so Phase 1 gates on tiny instead of 'large_1'. Tiny is frozen (not re-run / not re-flushed).
+
+  [reuse=incomplete] vidal2011/gpt-5.6-sol: frozen from CSV ['tiny'], running ['large_1', 'large_2', 'large_3', 'large_4', 'large_5']  Instance large_2: FAIL runtime_error (3600.87s)
+
+
+================================================================================
+PAPER: vidal2011  |  MODEL: openai/gpt-5.6-sol (gpt-5.6-sol)
+================================================================================
+
+  [reuse] no prior code_attempt files — starting counters at 0.
+
+  *** Pre-judge: tiny 'tiny' frozen from CSV (status=fail, gap=0.0, feasible=False) fails Phase 1 gate. Skipping v0 run; cascading gate_fail to ['large_1', 'large_2', 'large_3', 'large_4', 'large_5']. ***
+
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    API cost written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/one_shot_api_cost.csv
+
+================================================================================
+EVALUATION SUMMARY
+================================================================================
+Instance     Status   Retries   LLM Obj            Gurobi Obj         Error
+--------------------------------------------------------------------------------
+  large_1    gate_fail 0         N/A                N/A                Skipped: tiny-instance gate...
+  large_2    gate_fail 0         N/A                N/A                Skipped: tiny-instance gate...
+  large_3    gate_fail 0         N/A                N/A                Skipped: tiny-instance gate...
+  large_4    gate_fail 0         N/A                N/A                Skipped: tiny-instance gate...
+  large_5    gate_fail 0         N/A                N/A                Skipped: tiny-instance gate...
+  tiny       fail     0         5113.6304          N/A                Solution is INFEASIBLE Viol...
+--------------------------------------------------------------------------------
+Total: 6  |  Pass: 0  |  Fail: 1  |  Skip: 5
+================================================================================
+
+ERROR DETAILS
+--------------------------------------------------------------------------------
+  Instance large_1:
+Skipped: tiny-instance gate failed on instance tiny
+
+  Instance large_2:
+Skipped: tiny-instance gate failed on instance tiny
+
+  Instance large_3:
+Skipped: tiny-instance gate failed on instance tiny
+
+  Instance large_4:
+Skipped: tiny-instance gate failed on instance tiny
+
+  Instance large_5:
+Skipped: tiny-instance gate failed on instance tiny
+
+  Instance tiny:
+Solution is INFEASIBLE Violations: Domain: routes[0] vehicle 0 not in [1, 2]; Domain: routes[1] vehicle 0 not in [1, 2]; Domain: routes[3] vehicle 0 not in [1, 2]; Domain: routes[5] vehicle 0 not in [1, 2]
+
+  [gate] tiny row present in CSV; auto-injecting at position 0 of --instances so Phase 1 gates on tiny instead of 'large_1'. Tiny is frozen (not re-run / not re-flushed).
+
+  [reuse=incomplete] pecin2017/gpt-5.6-sol: frozen from CSV ['tiny'], running ['large_1', 'large_2', 'large_3', 'large_4', 'large_5']
+
+================================================================================
+PAPER: pecin2017  |  MODEL: openai/gpt-5.6-sol (gpt-5.6-sol)
+================================================================================
+
+  [reuse] no prior code_attempt files — starting counters at 0.
+
+  --- Running code_v0 on instances ['large_1', 'large_2', 'large_3', 'large_4', 'large_5'] for first_results ---
+  Instance large_1: FAIL runtime_error (3600.92s)
+
+  --- Phase 0: Self-debug for runtime_error (budget=5 remaining of 5, already used=0) ---
+
+  --- Phase 1: Tiny-instance gate (instance tiny, gap<=10%) ---
+  [reuse=incomplete] tiny 'tiny' frozen from CSV (status=pass, gap=0.0). Skipping correction loop.
+
+  --- Phase 1: gate PASSED (tiny gap=0.0) ---
+
+  --- Phase 2: v0 code passed gate; reusing v0 results for instances ['large_1', 'large_2', 'large_3', 'large_4', 'large_5'] ---
+
+  5 instance(s) still failing (infeasible/invalid_solution/timeout) after retry budget exhausted.
+  Instance large_1: FAIL runtime_error (3600.93s)
+
+  --- Phase 0: Self-debug for runtime_error (budget=5 remaining of 5, already used=0) ---
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+
+  --- Phase 1: Tiny-instance gate (instance tiny, gap<=10%) ---
+  [reuse=incomplete] tiny 'tiny' frozen from CSV (status=pass, gap=0.0). Skipping correction loop.
+
+  --- Phase 1: gate PASSED (tiny gap=0.0) ---
+
+  --- Phase 2: v0 code passed gate; reusing v0 results for instances ['large_1', 'large_2', 'large_3', 'large_4', 'large_5'] ---
+
+  5 instance(s) still failing (infeasible/invalid_solution/timeout) after retry budget exhausted.
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    API cost written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/one_shot_api_cost.csv
+
+================================================================================
+EVALUATION SUMMARY
+================================================================================
+Instance     Status   Retries   LLM Obj            Gurobi Obj         Error
+--------------------------------------------------------------------------------
+  large_1    fail     0         N/A                51158.0000         Execution timed out after 3...
+  large_2    fail     0         N/A                42273.0000         Execution timed out after 3...
+  large_3    fail     0         N/A                9245.0000          Execution timed out after 3...
+  large_4    fail     0         N/A                11770.0000         Execution timed out after 3...
+  large_5    fail     0         N/A                918.0000           Execution timed out after 3...
+  tiny       pass     0         58.0000            N/A                
+--------------------------------------------------------------------------------
+Total: 6  |  Pass: 1  |  Fail: 5  |  Skip: 0
+================================================================================
+
+ERROR DETAILS
+--------------------------------------------------------------------------------
+  Instance large_1:
+Execution timed out after 3600 seconds
+
+  Instance large_2:
+Execution timed out after 3600 seconds
+
+  Instance large_3:
+Execution timed out after 3600 seconds
+
+  Instance large_4:
+Execution timed out after 3600 seconds
+
+  Instance large_5:
+Execution timed out after 3600 seconds
+
+
+================================================================================
+PAPER: sadykov2013  |  MODEL: openai/gpt-5.6-sol (gpt-5.6-sol)
+================================================================================
+
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+  [reuse] no prior code_attempt files — starting counters at 0.
+
+  --- Running code_v0 on instances ['large_1', 'large_2', 'large_3', 'large_4', 'large_5'] for first_results ---
+    API cost written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/one_shot_api_cost.csv
+
+================================================================================
+EVALUATION SUMMARY
+================================================================================
+Instance     Status   Retries   LLM Obj            Gurobi Obj         Error
+--------------------------------------------------------------------------------
+  large_1    fail     0         N/A                1106.0000          Execution timed out after 3...
+  large_2    fail     0         N/A                1060.0000          Execution timed out after 3...
+  large_3    fail     0         N/A                1057.0000          Execution timed out after 3...
+  large_4    fail     0         N/A                1190.0000          Execution timed out after 3...
+  large_5    fail     0         N/A                1071.0000          Execution timed out after 3...
+  tiny       pass     0         34.0000            N/A                
+--------------------------------------------------------------------------------
+Total: 6  |  Pass: 1  |  Fail: 5  |  Skip: 0
+================================================================================
+
+ERROR DETAILS
+--------------------------------------------------------------------------------
+  Instance large_1:
+Execution timed out after 3600 seconds
+
+  Instance large_2:
+Execution timed out after 3600 seconds
+
+  Instance large_3:
+Execution timed out after 3600 seconds
+
+  Instance large_4:
+Execution timed out after 3600 seconds
+
+  Instance large_5:
+Execution timed out after 3600 seconds
+
+  [gate] tiny row present in CSV; auto-injecting at position 0 of --instances so Phase 1 gates on tiny instead of 'large_1'. Tiny is frozen (not re-run / not re-flushed).
+
+  [reuse=incomplete] desaulniers2016/gpt-5.6-sol: frozen from CSV ['tiny'], running ['large_1', 'large_2', 'large_3', 'large_4', 'large_5']
+
+================================================================================
+PAPER: desaulniers2016  |  MODEL: openai/gpt-5.6-sol (gpt-5.6-sol)
+================================================================================
+
+  [reuse] no prior code_attempt files — starting counters at 0.
+
+  *** Pre-judge: tiny 'tiny' frozen from CSV (status=fail, gap=0.0, feasible=False) fails Phase 1 gate. Skipping v0 run; cascading gate_fail to ['large_1', 'large_2', 'large_3', 'large_4', 'large_5']. ***
+
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    API cost written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/one_shot_api_cost.csv
+
+================================================================================
+EVALUATION SUMMARY
+================================================================================
+Instance     Status   Retries   LLM Obj            Gurobi Obj         Error
+--------------------------------------------------------------------------------
+  large_1    gate_fail 0         N/A                N/A                Skipped: tiny-instance gate...
+  large_2    gate_fail 0         N/A                N/A                Skipped: tiny-instance gate...
+  large_3    gate_fail 0         N/A                N/A                Skipped: tiny-instance gate...
+  large_4    gate_fail 0         N/A                N/A                Skipped: tiny-instance gate...
+  large_5    gate_fail 0         N/A                N/A                Skipped: tiny-instance gate...
+  tiny       fail     0         3018.5000          N/A                Solution is INFEASIBLE Viol...
+--------------------------------------------------------------------------------
+Total: 6  |  Pass: 0  |  Fail: 1  |  Skip: 5
+================================================================================
+
+ERROR DETAILS
+--------------------------------------------------------------------------------
+  Instance large_1:
+Skipped: tiny-instance gate failed on instance tiny
+
+  Instance large_2:
+Skipped: tiny-instance gate failed on instance tiny
+
+  Instance large_3:
+Skipped: tiny-instance gate failed on instance tiny
+
+  Instance large_4:
+Skipped: tiny-instance gate failed on instance tiny
+
+  Instance large_5:
+Skipped: tiny-instance gate failed on instance tiny
+
+  Instance tiny:
+Solution is INFEASIBLE Violations: Supplier inventory mismatch at period 1: computed=638.0000, solution=480.0000; Supplier inventory mismatch at period 2: computed=747.0000, solution=638.0000; Customer 1 inventory mismatch at period 1: computed=-8.0000, solution=109.0000; Customer 1 inventory mismatch at period 2: computed=-29.0000, solution=24.0000; Customer 2 inventory mismatch at period 1: computed=-63.0000, solution=99.0000
+
+  [gate] tiny row present in CSV; auto-injecting at position 0 of --instances so Phase 1 gates on tiny instead of 'large_1'. Tiny is frozen (not re-run / not re-flushed).
+
+  [reuse=incomplete] eiselt2009/gpt-5.6-sol: frozen from CSV ['tiny'], running ['large_1', 'large_2', 'large_3', 'large_4', 'large_5']
+
+================================================================================
+PAPER: eiselt2009  |  MODEL: openai/gpt-5.6-sol (gpt-5.6-sol)
+================================================================================
+
+  [reuse] no prior code_attempt files — starting counters at 0.
+
+  *** Pre-judge: tiny 'tiny' frozen from CSV (status=fail, gap=0.003421, feasible=False) fails Phase 1 gate. Skipping v0 run; cascading gate_fail to ['large_1', 'large_2', 'large_3', 'large_4', 'large_5']. ***
+
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    API cost written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/one_shot_api_cost.csv
+
+================================================================================
+EVALUATION SUMMARY
+================================================================================
+Instance     Status   Retries   LLM Obj            Gurobi Obj         Error
+--------------------------------------------------------------------------------
+  large_1    gate_fail 0         N/A                N/A                Skipped: tiny-instance gate...
+  large_2    gate_fail 0         N/A                N/A                Skipped: tiny-instance gate...
+  large_3    gate_fail 0         N/A                N/A                Skipped: tiny-instance gate...
+  large_4    gate_fail 0         N/A                N/A                Skipped: tiny-instance gate...
+  large_5    gate_fail 0         N/A                N/A                Skipped: tiny-instance gate...
+  tiny       fail     0         297556.9624        N/A                Solution is INFEASIBLE Viol...
+--------------------------------------------------------------------------------
+Total: 6  |  Pass: 0  |  Fail: 1  |  Skip: 5
+================================================================================
+
+ERROR DETAILS
+--------------------------------------------------------------------------------
+  Instance large_1:
+Skipped: tiny-instance gate failed on instance tiny
+
+  Instance large_2:
+Skipped: tiny-instance gate failed on instance tiny
+
+  Instance large_3:
+Skipped: tiny-instance gate failed on instance tiny
+
+  Instance large_4:
+Skipped: tiny-instance gate failed on instance tiny
+
+  Instance large_5:
+Skipped: tiny-instance gate failed on instance tiny
+
+  Instance tiny:
+Solution is INFEASIBLE Violations: Constraint 5 violated: reported objective_value=297556.96236823476 does not match any of the 2 discrete hub-pair completions for hub_locations=[1, 8]; nearest=298578.3661310977, difference=1021.4, tol
+
+  [gate] tiny row present in CSV; auto-injecting at position 0 of --instances so Phase 1 gates on tiny instead of 'large_1'. Tiny is frozen (not re-run / not re-flushed).
+
+  [reuse=incomplete] he2020/gpt-5.6-sol: frozen from CSV ['tiny'], running ['large_1', 'large_2', 'large_3', 'large_4', 'large_5']
+
+================================================================================
+PAPER: he2020  |  MODEL: openai/gpt-5.6-sol (gpt-5.6-sol)
+================================================================================
+
+  [reuse] no prior code_attempt files — starting counters at 0.
+
+  --- Running code_v0 on instances ['large_1', 'large_2', 'large_3', 'large_4', 'large_5'] for first_results ---
+  Instance large_2: PASS (LLM=12.0, gap=0.00%, time=0.61s, feasible=True)
+  Instance large_1: FAIL runtime_error (3601.08s)
+  Instance large_2: FAIL runtime_error (3601.08s)
+  Instance large_3: FAIL runtime_error (3601.12s)
+  Instance large_4: FAIL runtime_error (3601.11s)
+
+  --- Phase 0: Self-debug for runtime_error (budget=5 remaining of 5, already used=0) ---
+
+  --- Phase 1: Tiny-instance gate (instance tiny, gap<=10%) ---
+  [reuse=incomplete] tiny 'tiny' frozen from CSV (status=pass, gap=-0.0). Skipping correction loop.
+
+  --- Phase 1: gate PASSED (tiny gap=-0.0) ---
+
+  --- Phase 2: v0 code passed gate; reusing v0 results for instances ['large_1', 'large_2', 'large_3', 'large_4', 'large_5'] ---
+
+  5 instance(s) still failing (infeasible/invalid_solution/timeout) after retry budget exhausted.
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    API cost written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/one_shot_api_cost.csv
+
+================================================================================
+EVALUATION SUMMARY
+================================================================================
+Instance     Status   Retries   LLM Obj            Gurobi Obj         Error
+--------------------------------------------------------------------------------
+  large_1    fail     0         N/A                -732149.2000       Execution timed out after 3...
+  large_2    fail     0         N/A                32031.0000         Execution timed out after 3...
+  large_3    fail     0         N/A                -811118.6000       Execution timed out after 3...
+  large_4    fail     0         N/A                -742197.8000       Execution timed out after 3...
+  large_5    fail     0         N/A                -19170.0000        Execution timed out after 3...
+  tiny       pass     0         -38094.0000        N/A                
+--------------------------------------------------------------------------------
+Total: 6  |  Pass: 1  |  Fail: 5  |  Skip: 0
+================================================================================
+
+ERROR DETAILS
+--------------------------------------------------------------------------------
+  Instance large_1:
+Execution timed out after 3600 seconds
+
+  Instance large_2:
+Execution timed out after 3600 seconds
+
+  Instance large_3:
+Execution timed out after 3600 seconds
+
+  Instance large_4:
+Execution timed out after 3600 seconds
+
+  Instance large_5:
+Execution timed out after 3600 seconds
+
+  [gate] tiny row present in CSV; auto-injecting at position 0 of --instances so Phase 1 gates on tiny instead of 'large_1'. Tiny is frozen (not re-run / not re-flushed).
+
+  [reuse=incomplete] carvalho2022/gpt-5.6-sol: frozen from CSV ['tiny'], running ['large_1', 'large_2', 'large_3', 'large_4', 'large_5']
+
+================================================================================
+PAPER: carvalho2022  |  MODEL: openai/gpt-5.6-sol (gpt-5.6-sol)
+================================================================================
+
+  [reuse] no prior code_attempt files — starting counters at 0.
+
+  *** Pre-judge: tiny 'tiny' frozen from CSV (status=fail, gap=0.0, feasible=False) fails Phase 1 gate. Skipping v0 run; cascading gate_fail to ['large_1', 'large_2', 'large_3', 'large_4', 'large_5']. ***
+
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    API cost written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/one_shot_api_cost.csv
+
+================================================================================
+EVALUATION SUMMARY
+================================================================================
+Instance     Status   Retries   LLM Obj            Gurobi Obj         Error
+--------------------------------------------------------------------------------
+  large_1    gate_fail 0         N/A                N/A                Skipped: tiny-instance gate...
+  large_2    gate_fail 0         N/A                N/A                Skipped: tiny-instance gate...
+  large_3    gate_fail 0         N/A                N/A                Skipped: tiny-instance gate...
+  large_4    gate_fail 0         N/A                N/A                Skipped: tiny-instance gate...
+  large_5    gate_fail 0         N/A                N/A                Skipped: tiny-instance gate...
+  tiny       fail     0         8210.0000          N/A                Solution is INFEASIBLE Viol...
+--------------------------------------------------------------------------------
+Total: 6  |  Pass: 0  |  Fail: 1  |  Skip: 5
+================================================================================
+
+ERROR DETAILS
+--------------------------------------------------------------------------------
+  Instance large_1:
+Skipped: tiny-instance gate failed on instance tiny
+
+  Instance large_2:
+Skipped: tiny-instance gate failed on instance tiny
+
+  Instance large_3:
+Skipped: tiny-instance gate failed on instance tiny
+
+  Instance large_4:
+Skipped: tiny-instance gate failed on instance tiny
+
+  Instance large_5:
+Skipped: tiny-instance gate failed on instance tiny
+
+  Instance tiny:
+Solution is INFEASIBLE Violations: Setup state count: machine 0, period 5: sum_z=0, expected=1; Setup state count: machine 1, period 5: sum_z=0, expected=1; Flow conservation: item 3, machine 1, period 4: in=1, out=0; Flow conservation: item 4, machine 0, period 4: in=1, out=0
+
+  [gate] tiny row present in CSV; auto-injecting at position 0 of --instances so Phase 1 gates on tiny instead of 'large_1'. Tiny is frozen (not re-run / not re-flushed).
+
+  [reuse=incomplete] letelier2022/gpt-5.6-sol: frozen from CSV ['tiny'], running ['large_1', 'large_2', 'large_3', 'large_4', 'large_5']
+
+================================================================================
+PAPER: letelier2022  |  MODEL: openai/gpt-5.6-sol (gpt-5.6-sol)
+================================================================================
+
+  [reuse] no prior code_attempt files — starting counters at 0.
+
+  --- Running code_v0 on instances ['large_1', 'large_2', 'large_3', 'large_4', 'large_5'] for first_results ---
+  Instance large_4: FAIL runtime_error (3600.31s)
+  Instance large_1: PASS (LLM=980.0219999999999, gap=0.00%, time=1.57s, feasible=True)
+  Instance large_3: FAIL runtime_error (3600.37s)
+  Instance large_2: FAIL runtime_error (3600.36s)
+  Instance large_1: FAIL runtime_error (3600.36s)
+  Instance large_5: FAIL runtime_error (3600.37s)
+
+  --- Phase 0: Self-debug for runtime_error (budget=5 remaining of 5, already used=0) ---
+
+  --- Phase 1: Tiny-instance gate (instance tiny, gap<=10%) ---
+  [reuse=incomplete] tiny 'tiny' frozen from CSV (status=pass, gap=0.0). Skipping correction loop.
+
+  --- Phase 1: gate PASSED (tiny gap=0.0) ---
+
+  --- Phase 2: v0 code passed gate; reusing v0 results for instances ['large_1', 'large_2', 'large_3', 'large_4', 'large_5'] ---
+
+  5 instance(s) still failing (infeasible/invalid_solution/timeout) after retry budget exhausted.
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    API cost written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/one_shot_api_cost.csv
+
+================================================================================
+EVALUATION SUMMARY
+================================================================================
+Instance     Status   Retries   LLM Obj            Gurobi Obj         Error
+--------------------------------------------------------------------------------
+  large_1    fail     0         N/A                639036.0000        Execution timed out after 3...
+  large_2    fail     0         N/A                650284.0000        Execution timed out after 3...
+  large_3    fail     0         N/A                599984.0000        Execution timed out after 3...
+  large_4    fail     0         N/A                525296.0000        Execution timed out after 3...
+  large_5    fail     0         N/A                533781.0000        Execution timed out after 3...
+  tiny       pass     0         10477.0000         N/A                
+--------------------------------------------------------------------------------
+Total: 6  |  Pass: 1  |  Fail: 5  |  Skip: 0
+================================================================================
+
+ERROR DETAILS
+--------------------------------------------------------------------------------
+  Instance large_1:
+Execution timed out after 3600 seconds
+
+  Instance large_2:
+Execution timed out after 3600 seconds
+
+  Instance large_3:
+Execution timed out after 3600 seconds
+
+  Instance large_4:
+Execution timed out after 3600 seconds
+
+  Instance large_5:
+Execution timed out after 3600 seconds
+
+  [gate] tiny row present in CSV; auto-injecting at position 0 of --instances so Phase 1 gates on tiny instead of 'large_1'. Tiny is frozen (not re-run / not re-flushed).
+
+  [reuse=incomplete] carosi2019/gpt-5.6-sol: frozen from CSV ['tiny'], running ['large_1', 'large_2', 'large_3', 'large_4', 'large_5']
+
+================================================================================
+PAPER: carosi2019  |  MODEL: openai/gpt-5.6-sol (gpt-5.6-sol)
+================================================================================
+
+  [reuse] no prior code_attempt files — starting counters at 0.
+
+  *** Pre-judge: tiny 'tiny' frozen from CSV (status=fail, gap=4.025645, feasible=False) fails Phase 1 gate. Skipping v0 run; cascading gate_fail to ['large_1', 'large_2', 'large_3', 'large_4', 'large_5']. ***
+
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    API cost written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/one_shot_api_cost.csv
+
+================================================================================
+EVALUATION SUMMARY
+================================================================================
+Instance     Status   Retries   LLM Obj            Gurobi Obj         Error
+--------------------------------------------------------------------------------
+  large_1    gate_fail 0         N/A                N/A                Skipped: tiny-instance gate...
+  large_2    gate_fail 0         N/A                N/A                Skipped: tiny-instance gate...
+  large_3    gate_fail 0         N/A                N/A                Skipped: tiny-instance gate...
+  large_4    gate_fail 0         N/A                N/A                Skipped: tiny-instance gate...
+  large_5    gate_fail 0         N/A                N/A                Skipped: tiny-instance gate...
+  tiny       fail     0         121892.0000        N/A                Solution is INFEASIBLE Viol...
+--------------------------------------------------------------------------------
+Total: 6  |  Pass: 0  |  Fail: 1  |  Skip: 5
+================================================================================
+
+ERROR DETAILS
+--------------------------------------------------------------------------------
+  Instance large_1:
+Skipped: tiny-instance gate failed on instance tiny
+
+  Instance large_2:
+Skipped: tiny-instance gate failed on instance tiny
+
+  Instance large_3:
+Skipped: tiny-instance gate failed on instance tiny
+
+  Instance large_4:
+Skipped: tiny-instance gate failed on instance tiny
+
+  Instance large_5:
+Skipped: tiny-instance gate failed on instance tiny
+
+  Instance tiny:
+Solution is INFEASIBLE Violations: cannot derive num_vehicles from decision witness field vs_flows
+
+  [gate] tiny row present in CSV; auto-injecting at position 0 of --instances so Phase 1 gates on tiny instead of 'large_1'. Tiny is frozen (not re-run / not re-flushed).
+
+  [reuse=incomplete] bayani2024/gpt-5.6-sol: frozen from CSV ['tiny'], running ['large_1', 'large_2', 'large_3', 'large_4', 'large_5']
+
+================================================================================
+PAPER: bayani2024  |  MODEL: openai/gpt-5.6-sol (gpt-5.6-sol)
+================================================================================
+
+  [reuse] no prior code_attempt files — starting counters at 0.
+
+  --- Running code_v0 on instances ['large_1', 'large_2', 'large_3', 'large_4', 'large_5'] for first_results ---
+  Instance large_4: FAIL runtime_error (3600.11s)
+  Instance large_3: FAIL runtime_error (3600.11s)
+
+  --- Phase 0: Self-debug for runtime_error (budget=5 remaining of 5, already used=0) ---
+
+  --- Phase 1: Tiny-instance gate (instance tiny, gap<=10%) ---
+  [reuse=incomplete] tiny 'tiny' frozen from CSV (status=pass, gap=0.0). Skipping correction loop.
+
+  --- Phase 1: gate PASSED (tiny gap=0.0) ---
+
+  --- Phase 2: v0 code passed gate; reusing v0 results for instances ['large_1', 'large_2', 'large_3', 'large_4', 'large_5'] ---
+
+  2 instance(s) still failing (infeasible/invalid_solution/timeout) after retry budget exhausted.
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    API cost written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/one_shot_api_cost.csv
+
+================================================================================
+EVALUATION SUMMARY
+================================================================================
+Instance     Status   Retries   LLM Obj            Gurobi Obj         Error
+--------------------------------------------------------------------------------
+  large_1    pass     0         1004.0000          1053.4000          
+  large_2    pass     0         827.4000           855.7000           
+  large_3    fail     0         N/A                1021.6000          Execution timed out after 3...
+  large_4    fail     0         N/A                766.0000           Execution timed out after 3...
+  large_5    pass     0         1017.9000          1017.9000          
+  tiny       pass     0         369.3000           N/A                
+--------------------------------------------------------------------------------
+Total: 6  |  Pass: 4  |  Fail: 2  |  Skip: 0
+================================================================================
+
+ERROR DETAILS
+--------------------------------------------------------------------------------
+  Instance large_3:
+Execution timed out after 3600 seconds
+
+  Instance large_4:
+Execution timed out after 3600 seconds
+
+  [gate] tiny row present in CSV; auto-injecting at position 0 of --instances so Phase 1 gates on tiny instead of 'large_1'. Tiny is frozen (not re-run / not re-flushed).
+
+  [reuse=incomplete] ozturk2020/gpt-5.6-sol: frozen from CSV ['tiny'], running ['large_1', 'large_2', 'large_3', 'large_4', 'large_5']
+
+================================================================================
+PAPER: ozturk2020  |  MODEL: openai/gpt-5.6-sol (gpt-5.6-sol)
+================================================================================
+
+  [reuse] no prior code_attempt files — starting counters at 0.
+
+  *** Pre-judge: tiny 'tiny' frozen from CSV (status=fail, gap=None, feasible=None) fails Phase 1 gate. Skipping v0 run; cascading gate_fail to ['large_1', 'large_2', 'large_3', 'large_4', 'large_5']. ***
+
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    API cost written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/one_shot_api_cost.csv
+
+================================================================================
+EVALUATION SUMMARY
+================================================================================
+Instance     Status   Retries   LLM Obj            Gurobi Obj         Error
+--------------------------------------------------------------------------------
+  large_1    gate_fail 0         N/A                N/A                Skipped: tiny-instance gate...
+  large_2    gate_fail 0         N/A                N/A                Skipped: tiny-instance gate...
+  large_3    gate_fail 0         N/A                N/A                Skipped: tiny-instance gate...
+  large_4    gate_fail 0         N/A                N/A                Skipped: tiny-instance gate...
+  large_5    gate_fail 0         N/A                N/A                Skipped: tiny-instance gate...
+  tiny       fail     0         N/A                N/A                Execution timed out after 3...
+--------------------------------------------------------------------------------
+Total: 6  |  Pass: 0  |  Fail: 1  |  Skip: 5
+================================================================================
+
+ERROR DETAILS
+--------------------------------------------------------------------------------
+  Instance large_1:
+Skipped: tiny-instance gate failed on instance tiny
+
+  Instance large_2:
+Skipped: tiny-instance gate failed on instance tiny
+
+  Instance large_3:
+Skipped: tiny-instance gate failed on instance tiny
+
+  Instance large_4:
+Skipped: tiny-instance gate failed on instance tiny
+
+  Instance large_5:
+Skipped: tiny-instance gate failed on instance tiny
+
+  Instance tiny:
+Execution timed out after 300 seconds
+
+  [gate] tiny row present in CSV; auto-injecting at position 0 of --instances so Phase 1 gates on tiny instead of 'large_1'. Tiny is frozen (not re-run / not re-flushed).
+
+  [reuse=incomplete] cunha2021/gpt-5.6-sol: frozen from CSV ['tiny'], running ['large_1', 'large_2', 'large_3', 'large_4', 'large_5']
+
+================================================================================
+PAPER: cunha2021  |  MODEL: openai/gpt-5.6-sol (gpt-5.6-sol)
+================================================================================
+
+  [reuse] no prior code_attempt files — starting counters at 0.
+
+  --- Running code_v0 on instances ['large_1', 'large_2', 'large_3', 'large_4', 'large_5'] for first_results ---
+  Instance large_4: PASS (LLM=43.0, gap=0.00%, time=36.43s, feasible=True)
+  Instance large_2: PASS (LLM=43.0, gap=0.00%, time=132.52s, feasible=True)
+  Instance large_4: PASS (LLM=573481.0, gap=0.00%, time=3438.16s, feasible=True)
+  Instance large_4: FAIL runtime_error (3600.06s)
+  Instance large_1: FAIL runtime_error (3600.11s)
+  Instance large_3: FAIL runtime_error (3600.16s)
+  Instance large_5: FAIL runtime_error (3600.0s)
+  Instance large_4: FAIL runtime_error (3600.0s)
+  Instance large_3: FAIL runtime_error (3600.01s)
+  Instance large_1: FAIL runtime_error (3600.01s)
+
+  --- Phase 0: Self-debug for runtime_error (budget=5 remaining of 5, already used=0) ---
+
+  --- Phase 1: Tiny-instance gate (instance tiny, gap<=10%) ---
+  [reuse=incomplete] tiny 'tiny' frozen from CSV (status=pass, gap=0.0). Skipping correction loop.
+
+  --- Phase 1: gate PASSED (tiny gap=0.0) ---
+
+  --- Phase 2: v0 code passed gate; reusing v0 results for instances ['large_1', 'large_2', 'large_3', 'large_4', 'large_5'] ---
+
+  4 instance(s) still failing (infeasible/invalid_solution/timeout) after retry budget exhausted.
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+  Instance large_5: FAIL runtime_error (3600.22s)  Instance large_2: FAIL runtime_error (3600.21s)
+
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+
+  --- Phase 0: Self-debug for runtime_error (budget=5 remaining of 5, already used=0) ---    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+
+
+  --- Phase 1: Tiny-instance gate (instance tiny, gap<=10%) ---
+  [reuse=incomplete] tiny 'tiny' frozen from CSV (status=pass, gap=0.0). Skipping correction loop.
+
+  --- Phase 1: gate PASSED (tiny gap=0.0) ---
+
+  --- Phase 2: v0 code passed gate; reusing v0 results for instances ['large_1', 'large_2', 'large_3', 'large_4', 'large_5'] ---
+
+  5 instance(s) still failing (infeasible/invalid_solution/timeout) after retry budget exhausted.
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    API cost written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/one_shot_api_cost.csv
+
+================================================================================
+EVALUATION SUMMARY
+================================================================================
+Instance     Status   Retries   LLM Obj            Gurobi Obj         Error
+--------------------------------------------------------------------------------
+  large_1    fail     0         N/A                16.0000            Execution timed out after 3...
+  large_2    pass     0         12.0000            14.0000            
+  large_3    fail     0         N/A                20.0000            Execution timed out after 3...
+  large_4    fail     0         N/A                31.0000            Execution timed out after 3...
+  large_5    fail     0         N/A                16.0000            Execution timed out after 3...
+  tiny       pass     0         4.0000             N/A                
+--------------------------------------------------------------------------------
+Total: 6  |  Pass: 2  |  Fail: 4  |  Skip: 0
+================================================================================
+
+ERROR DETAILS
+--------------------------------------------------------------------------------
+  Instance large_1:
+Execution timed out after 3600 seconds
+
+  Instance large_3:
+Execution timed out after 3600 seconds
+
+  Instance large_4:
+Execution timed out after 3600 seconds
+
+  Instance large_5:
+Execution timed out after 3600 seconds
+
+  [gate] tiny row present in CSV; auto-injecting at position 0 of --instances so Phase 1 gates on tiny instead of 'large_1'. Tiny is frozen (not re-run / not re-flushed).
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+  [reuse=incomplete] lai2021/gpt-5.6-sol: frozen from CSV ['tiny'], running ['large_1', 'large_2', 'large_3', 'large_4', 'large_5']
+
+================================================================================
+
+PAPER: lai2021  |  MODEL: openai/gpt-5.6-sol (gpt-5.6-sol)
+================================================================================
+
+  [reuse] no prior code_attempt files — starting counters at 0.
+
+  --- Running code_v0 on instances ['large_1', 'large_2', 'large_3', 'large_4', 'large_5'] for first_results ---
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    API cost written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/one_shot_api_cost.csv
+
+================================================================================
+EVALUATION SUMMARY
+================================================================================
+Instance     Status   Retries   LLM Obj            Gurobi Obj         Error
+--------------------------------------------------------------------------------
+  large_1    fail     0         N/A                1527.0000          Execution timed out after 3...
+  large_2    fail     0         N/A                1265.0000          Execution timed out after 3...
+  large_3    fail     0         N/A                870.0000           Execution timed out after 3...
+  large_4    fail     0         N/A                2101.0000          Execution timed out after 3...
+  large_5    fail     0         N/A                1296.0000          Execution timed out after 3...
+  tiny       pass     0         57.0000            N/A                
+--------------------------------------------------------------------------------
+Total: 6  |  Pass: 1  |  Fail: 5  |  Skip: 0
+================================================================================
+
+ERROR DETAILS
+--------------------------------------------------------------------------------
+  Instance large_1:
+Execution timed out after 3600 seconds
+
+  Instance large_2:
+Execution timed out after 3600 seconds
+
+  Instance large_3:
+Execution timed out after 3600 seconds
+
+  Instance large_4:
+Execution timed out after 3600 seconds
+
+  Instance large_5:
+Execution timed out after 3600 seconds
+
+  [gate] tiny row present in CSV; auto-injecting at position 0 of --instances so Phase 1 gates on tiny instead of 'large_1'. Tiny is frozen (not re-run / not re-flushed).
+
+  [reuse=incomplete] desaulniers2014/gpt-5.6-sol: frozen from CSV ['tiny'], running ['large_1', 'large_2', 'large_3', 'large_4', 'large_5']
+
+================================================================================
+PAPER: desaulniers2014  |  MODEL: openai/gpt-5.6-sol (gpt-5.6-sol)
+================================================================================
+
+  [reuse] no prior code_attempt files — starting counters at 0.
+
+  --- Running code_v0 on instances ['large_1', 'large_2', 'large_3', 'large_4', 'large_5'] for first_results ---
+  Instance large_3: FAIL runtime_error (3600.17s)
+  Instance large_5: FAIL runtime_error (3600.17s)
+  Instance large_2: FAIL runtime_error (3600.17s)  Instance large_1: FAIL runtime_error (3600.17s)
+
+  Instance large_2: FAIL runtime_error (3600.16s)
+  Instance large_1: FAIL runtime_error (3600.16s)
+  Instance large_5: FAIL runtime_error (3600.16s)
+  Instance large_4: FAIL runtime_error (3600.22s)
+
+  --- Phase 0: Self-debug for runtime_error (budget=5 remaining of 5, already used=0) ---
+
+  --- Phase 1: Tiny-instance gate (instance tiny, gap<=10%) ---
+  [reuse=incomplete] tiny 'tiny' frozen from CSV (status=pass, gap=0.0). Skipping correction loop.
+
+  --- Phase 1: gate PASSED (tiny gap=0.0) ---
+
+  --- Phase 2: v0 code passed gate; reusing v0 results for instances ['large_1', 'large_2', 'large_3', 'large_4', 'large_5'] ---
+
+  5 instance(s) still failing (infeasible/invalid_solution/timeout) after retry budget exhausted.
+  Instance large_3: FAIL runtime_error (3600.22s)
+
+  --- Phase 0: Self-debug for runtime_error (budget=5 remaining of 5, already used=0) ---
+
+  --- Phase 1: Tiny-instance gate (instance tiny, gap<=10%) ---
+  [reuse=incomplete] tiny 'tiny' frozen from CSV (status=pass, gap=0.0). Skipping correction loop.
+
+  --- Phase 1: gate PASSED (tiny gap=0.0) ---
+
+  --- Phase 2: v0 code passed gate; reusing v0 results for instances ['large_1', 'large_2', 'large_3', 'large_4', 'large_5'] ---
+
+  4 instance(s) still failing (infeasible/invalid_solution/timeout) after retry budget exhausted.
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    API cost written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/one_shot_api_cost.csv
+
+================================================================================
+EVALUATION SUMMARY
+================================================================================
+Instance     Status   Retries   LLM Obj            Gurobi Obj         Error
+--------------------------------------------------------------------------------
+  large_1    fail     0         N/A                49600.5781         Execution timed out after 3...
+  large_2    fail     0         N/A                44719.0000         Execution timed out after 3...
+  large_3    fail     0         N/A                46243.8571         Execution timed out after 3...
+  large_4    fail     0         N/A                47035.6250         Execution timed out after 3...
+  large_5    fail     0         N/A                45185.9000         Execution timed out after 3...
+  tiny       pass     0         4113.0000          N/A                
+--------------------------------------------------------------------------------
+Total: 6  |  Pass: 1  |  Fail: 5  |  Skip: 0
+================================================================================
+
+ERROR DETAILS
+--------------------------------------------------------------------------------
+  Instance large_1:
+Execution timed out after 3600 seconds
+
+  Instance large_2:
+Execution timed out after 3600 seconds
+
+  Instance large_3:
+Execution timed out after 3600 seconds
+    API cost written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/one_shot_api_cost.csv
+  Instance large_4:
+Execution timed out after 3600 seconds
+
+  Instance large_5:
+Execution timed out after 3600 seconds
+
+
+
+================================================================================
+EVALUATION SUMMARY
+================================================================================
+Instance     Status   Retries   LLM Obj            Gurobi Obj         Error
+--------------------------------------------------------------------------------
+  large_1    fail     0         N/A                5718.0000          Execution timed out after 3...
+  large_2    fail     0         N/A                44980.0000         Execution timed out after 3...
+  large_3    fail     0         N/A                62845.0000         Execution timed out after 3...
+  large_4    pass     0         573481.0000        529306.0000        
+  large_5    fail     0         N/A                5052.0000          Execution timed out after 3...
+  tiny       pass     0         939.0000           N/A                
+--------------------------------------------------------------------------------
+Total: 6  |  Pass: 2  |  Fail: 4  |  Skip: 0
+================================================================================
+
+ERROR DETAILS
+--------------------------------------------------------------------------------  [gate] tiny row present in CSV; auto-injecting at position 0 of --instances so Phase 1 gates on tiny instead of 'large_1'. Tiny is frozen (not re-run / not re-flushed).
+  Instance large_1:
+Execution timed out after 3600 seconds
+
+  Instance large_2:
+Execution timed out after 3600 seconds
+
+
+  Instance large_3:
+Execution timed out after 3600 seconds
+
+
+  [reuse=incomplete] reihaneh2019/gpt-5.6-sol: frozen from CSV ['tiny'], running ['large_1', 'large_2', 'large_3', 'large_4', 'large_5']
+  Instance large_5:
+Execution timed out after 3600 seconds
+
+================================================================================
+PAPER: reihaneh2019  |  MODEL: openai/gpt-5.6-sol (gpt-5.6-sol)
+================================================================================
+
+
+  [reuse] no prior code_attempt files — starting counters at 0.
+
+  *** Pre-judge: tiny 'tiny' frozen from CSV (status=fail, gap=0.0, feasible=False) fails Phase 1 gate. Skipping v0 run; cascading gate_fail to ['large_1', 'large_2', 'large_3', 'large_4', 'large_5']. ***
+
+  [gate] tiny row present in CSV; auto-injecting at position 0 of --instances so Phase 1 gates on tiny instead of 'large_1'. Tiny is frozen (not re-run / not re-flushed).
+
+  [reuse=incomplete] fischetti1997/gpt-5.6-sol: frozen from CSV ['tiny'], running ['large_1', 'large_2', 'large_3', 'large_4', 'large_5']
+
+================================================================================
+PAPER: fischetti1997  |  MODEL: openai/gpt-5.6-sol (gpt-5.6-sol)
+================================================================================
+
+  [reuse] no prior code_attempt files — starting counters at 0.
+
+  --- Running code_v0 on instances ['large_1', 'large_2', 'large_3', 'large_4', 'large_5'] for first_results ---
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+  Instance large_5: FAIL runtime_error (3600.07s)
+  Instance large_1: FAIL runtime_error (3600.07s)
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    API cost written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/one_shot_api_cost.csv
+
+================================================================================
+EVALUATION SUMMARY
+================================================================================
+Instance     Status   Retries   LLM Obj            Gurobi Obj         Error
+--------------------------------------------------------------------------------
+  large_1    gate_fail 0         N/A                N/A                Skipped: tiny-instance gate...
+  large_2    gate_fail 0         N/A                N/A                Skipped: tiny-instance gate...
+  large_3    gate_fail 0         N/A                N/A                Skipped: tiny-instance gate...
+  large_4    gate_fail 0         N/A                N/A                Skipped: tiny-instance gate...
+  large_5    gate_fail 0         N/A                N/A                Skipped: tiny-instance gate...
+  tiny       fail     0         534.0064           N/A                Solution is INFEASIBLE Viol...
+--------------------------------------------------------------------------------
+Total: 6  |  Pass: 0  |  Fail: 1  |  Skip: 5
+================================================================================
+
+ERROR DETAILS
+--------------------------------------------------------------------------------
+  Instance large_1:
+Skipped: tiny-instance gate failed on instance tiny
+
+  Instance large_2:
+Skipped: tiny-instance gate failed on instance tiny
+
+  Instance large_3:
+Skipped: tiny-instance gate failed on instance tiny
+
+  Instance large_4:
+Skipped: tiny-instance gate failed on instance tiny
+
+  Instance large_5:
+Skipped: tiny-instance gate failed on instance tiny
+
+  Instance tiny:
+Solution is INFEASIBLE Violations: checker rejected malformed candidate: KeyError: (0, 1, 1)
+
+  [gate] tiny row present in CSV; auto-injecting at position 0 of --instances so Phase 1 gates on tiny instead of 'large_1'. Tiny is frozen (not re-run / not re-flushed).
+
+  [reuse=incomplete] martin-iradi2024/gpt-5.6-sol: frozen from CSV ['tiny'], running ['large_1', 'large_2', 'large_3', 'large_4', 'large_5']
+
+================================================================================
+PAPER: martin-iradi2024  |  MODEL: openai/gpt-5.6-sol (gpt-5.6-sol)
+================================================================================
+
+  [reuse] no prior code_attempt files — starting counters at 0.
+
+  --- Running code_v0 on instances ['large_1', 'large_2', 'large_3', 'large_4', 'large_5'] for first_results ---
+  Instance large_2: FAIL runtime_error (3600.11s)  Instance large_3: FAIL runtime_error (3600.11s)
+
+  Instance large_5: FAIL runtime_error (3600.17s)
+  Instance large_1: FAIL runtime_error (3600.16s)
+  Instance large_2: FAIL runtime_error (3600.12s)
+  Instance large_5: FAIL runtime_error (3600.12s)
+  Instance large_4: FAIL runtime_error (3600.12s)
+  Instance large_3: FAIL runtime_error (3600.17s)
+
+  --- Phase 0: Self-debug for runtime_error (budget=5 remaining of 5, already used=0) ---
+
+  --- Phase 1: Tiny-instance gate (instance large_1, gap<=10%) ---
+
+  *** Tiny-instance gate FAILED for instance large_1 after 0 LLM correction(s) (debug=0, phase1=0). Skipping instances ['large_2', 'large_3', 'large_4', 'large_5']. ***
+
+  Instance large_4: FAIL runtime_error (3600.21s)
+
+  --- Phase 0: Self-debug for runtime_error (budget=5 remaining of 5, already used=0) ---
+
+  --- Phase 1: Tiny-instance gate (instance tiny, gap<=10%) ---
+  [reuse=incomplete] tiny 'tiny' frozen from CSV (status=pass, gap=0.0). Skipping correction loop.
+
+  --- Phase 1: gate PASSED (tiny gap=0.0) ---
+
+  --- Phase 2: v0 code passed gate; reusing v0 results for instances ['large_1', 'large_2', 'large_3', 'large_4', 'large_5'] ---
+
+  5 instance(s) still failing (infeasible/invalid_solution/timeout) after retry budget exhausted.
+  Instance large_3: FAIL runtime_error (3600.17s)
+
+  --- Phase 0: Self-debug for runtime_error (budget=5 remaining of 5, already used=0) ---
+
+  --- Phase 1: Tiny-instance gate (instance tiny, gap<=10%) ---
+  [reuse=incomplete] tiny 'tiny' frozen from CSV (status=pass, gap=0.0). Skipping correction loop.
+
+  --- Phase 1: gate PASSED (tiny gap=0.0) ---
+
+  --- Phase 2: v0 code passed gate; reusing v0 results for instances ['large_1', 'large_2', 'large_3', 'large_4', 'large_5'] ---
+
+  4 instance(s) still failing (infeasible/invalid_solution/timeout) after retry budget exhausted.
+  Instance large_2: FAIL runtime_error (3600.06s)
+  Instance large_3: FAIL runtime_error (3600.06s)
+  Instance large_1: FAIL runtime_error (3600.06s)
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+  Instance large_4: FAIL runtime_error (3600.11s)
+  Instance large_5: FAIL runtime_error (3600.11s)
+
+  --- Phase 0: Self-debug for runtime_error (budget=5 remaining of 5, already used=0) ---
+
+  --- Phase 1: Tiny-instance gate (instance tiny, gap<=10%) ---
+  [reuse=incomplete] tiny 'tiny' frozen from CSV (status=pass, gap=0.0). Skipping correction loop.
+
+  --- Phase 1: gate PASSED (tiny gap=0.0) ---
+
+  --- Phase 2: v0 code passed gate; reusing v0 results for instances ['large_1', 'large_2', 'large_3', 'large_4', 'large_5'] ---
+
+  5 instance(s) still failing (infeasible/invalid_solution/timeout) after retry budget exhausted.
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    API cost written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/one_shot_api_cost.csv
+
+================================================================================
+EVALUATION SUMMARY
+================================================================================
+Instance     Status   Retries   LLM Obj            Gurobi Obj         Error
+--------------------------------------------------------------------------------
+  large_1    fail     0         N/A                47.0000            Execution timed out after 3...
+  large_2    gate_fail 0         N/A                N/A                Skipped: tiny-instance gate...
+  large_3    gate_fail 0         N/A                N/A                Skipped: tiny-instance gate...
+  large_4    gate_fail 0         N/A                N/A                Skipped: tiny-instance gate...
+  large_5    gate_fail 0         N/A                N/A                Skipped: tiny-instance gate...
+--------------------------------------------------------------------------------
+Total: 5  |  Pass: 0  |  Fail: 1  |  Skip: 4
+================================================================================
+
+ERROR DETAILS
+--------------------------------------------------------------------------------
+  Instance large_1:
+Execution timed out after 3600 seconds
+
+  Instance large_2:
+Skipped: tiny-instance gate failed on instance large_1
+
+  Instance large_3:
+Skipped: tiny-instance gate failed on instance large_1
+
+  Instance large_4:
+Skipped: tiny-instance gate failed on instance large_1
+
+  Instance large_5:
+Skipped: tiny-instance gate failed on instance large_1
+
+  [gate] tiny row present in CSV; auto-injecting at position 0 of --instances so Phase 1 gates on tiny instead of 'large_1'. Tiny is frozen (not re-run / not re-flushed).
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+
+  [reuse=incomplete] boland2019/gpt-5.6-sol: frozen from CSV ['tiny'], running ['large_1', 'large_2', 'large_3', 'large_4', 'large_5']
+
+================================================================================
+PAPER: boland2019  |  MODEL: openai/gpt-5.6-sol (gpt-5.6-sol)
+================================================================================
+
+  [reuse] no prior code_attempt files — starting counters at 0.
+    API cost written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/one_shot_api_cost.csv
+
+================================================================================
+EVALUATION SUMMARY
+
+  --- Running code_v0 on instances ['large_1', 'large_2', 'large_3', 'large_4', 'large_5'] for first_results ---
+================================================================================
+Instance     Status   Retries   LLM Obj            Gurobi Obj         Error
+--------------------------------------------------------------------------------
+  large_1    fail     0         N/A                1658.6375          Execution timed out after 3...
+  large_2    fail     0         N/A                2516.1981          Execution timed out after 3...
+  large_3    fail     0         N/A                3683.1026          Execution timed out after 3...
+  large_4    fail     0         N/A                887.2786           Execution timed out after 3...
+  large_5    fail     0         N/A                1651.0192          Execution timed out after 3...
+  tiny       pass     0         349.6749           N/A                
+--------------------------------------------------------------------------------
+Total: 6  |  Pass: 1  |  Fail: 5  |  Skip: 0
+================================================================================
+
+ERROR DETAILS
+--------------------------------------------------------------------------------
+  Instance large_1:
+Execution timed out after 3600 seconds
+
+  Instance large_2:
+Execution timed out after 3600 seconds
+
+  Instance large_3:
+Execution timed out after 3600 seconds
+
+  Instance large_4:
+Execution timed out after 3600 seconds
+
+  Instance large_5:
+Execution timed out after 3600 seconds
+
+    API cost written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/one_shot_api_cost.csv
+
+================================================================================
+EVALUATION SUMMARY
+================================================================================
+Instance     Status   Retries   LLM Obj            Gurobi Obj         Error
+  [gate] tiny row present in CSV; auto-injecting at position 0 of --instances so Phase 1 gates on tiny instead of 'large_1'. Tiny is frozen (not re-run / not re-flushed).
+--------------------------------------------------------------------------------
+  large_1    pass     0         980.0220           980.0220           
+  large_2    fail     0         N/A                1208.6100          Execution timed out after 3...
+
+  [reuse=incomplete] roberti2018/gpt-5.6-sol: frozen from CSV ['tiny'], running ['large_1', 'large_2', 'large_3', 'large_4', 'large_5']  large_3    fail     0         N/A                1254.4485          Execution timed out after 3...
+  large_4    fail     0         N/A                822.1127           Execution timed out after 3...
+
+
+================================================================================  large_5    fail     0         N/A                2898.0686          Execution timed out after 3...
+  tiny       pass     0         1102.6980          N/A                
+
+PAPER: roberti2018  |  MODEL: openai/gpt-5.6-sol (gpt-5.6-sol)
+================================================================================
+--------------------------------------------------------------------------------
+
+Total: 6  |  Pass: 2  |  Fail: 4  |  Skip: 0
+================================================================================
+
+ERROR DETAILS
+--------------------------------------------------------------------------------
+  Instance large_2:
+Execution timed out after 3600 seconds
+
+  Instance large_3:
+Execution timed out after 3600 seconds
+
+    API cost written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/one_shot_api_cost.csv
+
+================================================================================  Instance large_4:
+Execution timed out after 3600 seconds
+
+  Instance large_5:
+Execution timed out after 3600 seconds
+
+
+EVALUATION SUMMARY
+================================================================================
+Instance     Status   Retries   LLM Obj            Gurobi Obj         Error
+--------------------------------------------------------------------------------
+  large_1    fail     0         N/A                28.0000            Execution timed out after 3...
+  large_2    fail     0         N/A                48.0000            Execution timed out after 3...
+  large_3    fail     0         N/A                35.0000            Execution timed out after 3...
+  large_4    fail     0         N/A                24.0000            Execution timed out after 3...
+  large_5    fail     0         N/A                96.0000            Execution timed out after 3...  [gate] tiny row present in CSV; auto-injecting at position 0 of --instances so Phase 1 gates on tiny instead of 'large_1'. Tiny is frozen (not re-run / not re-flushed).
+
+  tiny       pass     0         8.0000             N/A                
+  [reuse] no prior code_attempt files — starting counters at 0.
+
+  --- Running code_v0 on instances ['large_1', 'large_2', 'large_3', 'large_4', 'large_5'] for first_results ---
+
+  [reuse=incomplete] kobeaga2024/gpt-5.6-sol: frozen from CSV ['tiny'], running ['large_1', 'large_2', 'large_3', 'large_4', 'large_5']
+
+================================================================================
+PAPER: kobeaga2024  |  MODEL: openai/gpt-5.6-sol (gpt-5.6-sol)
+--------------------------------------------------------------------------------
+Total: 6  |  Pass: 1  |  Fail: 5  |  Skip: 0
+================================================================================
+
+ERROR DETAILS
+--------------------------------------------------------------------------------
+  Instance large_1:
+Execution timed out after 3600 seconds
+
+  Instance large_2:
+Execution timed out after 3600 seconds
+
+  Instance large_3:
+Execution timed out after 3600 seconds
+
+  Instance large_4:
+Execution timed out after 3600 seconds
+
+  Instance large_5:
+Execution timed out after 3600 seconds
+
+================================================================================
+
+  [gate] tiny row present in CSV; auto-injecting at position 0 of --instances so Phase 1 gates on tiny instead of 'large_1'. Tiny is frozen (not re-run / not re-flushed).
+  [reuse] no prior code_attempt files — starting counters at 0.
+
+  --- Running code_v0 on instances ['large_1', 'large_2', 'large_3', 'large_4', 'large_5'] for first_results ---
+
+  [reuse=incomplete] bierwirth2017/gpt-5.6-sol: frozen from CSV ['tiny'], running ['large_1', 'large_2', 'large_3', 'large_4', 'large_5']
+
+================================================================================
+PAPER: bierwirth2017  |  MODEL: openai/gpt-5.6-sol (gpt-5.6-sol)
+================================================================================
+
+  [reuse] no prior code_attempt files — starting counters at 0.
+
+  *** Pre-judge: tiny 'tiny' frozen from CSV (status=fail, gap=0.0, feasible=False) fails Phase 1 gate. Skipping v0 run; cascading gate_fail to ['large_1', 'large_2', 'large_3', 'large_4', 'large_5']. ***
+
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    API cost written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/one_shot_api_cost.csv
+
+================================================================================
+EVALUATION SUMMARY
+================================================================================
+Instance     Status   Retries   LLM Obj            Gurobi Obj         Error
+--------------------------------------------------------------------------------
+  large_1    gate_fail 0         N/A                N/A                Skipped: tiny-instance gate...
+  large_2    gate_fail 0         N/A                N/A                Skipped: tiny-instance gate...
+  large_3    gate_fail 0         N/A                N/A                Skipped: tiny-instance gate...
+  large_4    gate_fail 0         N/A                N/A                Skipped: tiny-instance gate...
+  large_5    gate_fail 0         N/A                N/A                Skipped: tiny-instance gate...
+  tiny       fail     0         2197.0000          N/A                Solution is INFEASIBLE Viol...
+--------------------------------------------------------------------------------
+Total: 6  |  Pass: 0  |  Fail: 1  |  Skip: 5
+================================================================================
+
+ERROR DETAILS
+--------------------------------------------------------------------------------
+  Instance large_1:
+Skipped: tiny-instance gate failed on instance tiny
+
+  Instance large_2:
+Skipped: tiny-instance gate failed on instance tiny
+
+  Instance large_3:
+Skipped: tiny-instance gate failed on instance tiny
+
+  Instance large_4:
+Skipped: tiny-instance gate failed on instance tiny
+
+  Instance large_5:
+Skipped: tiny-instance gate failed on instance tiny
+
+  Instance tiny:
+Solution is INFEASIBLE Violations: checker rejected malformed candidate: KeyError: 'processing_time'
+
+  [gate] tiny row present in CSV; auto-injecting at position 0 of --instances so Phase 1 gates on tiny instead of 'large_1'. Tiny is frozen (not re-run / not re-flushed).
+
+  [reuse=incomplete] bard2002/gpt-5.6-sol: frozen from CSV ['tiny'], running ['large_1', 'large_2', 'large_3', 'large_4', 'large_5']
+
+================================================================================
+PAPER: bard2002  |  MODEL: openai/gpt-5.6-sol (gpt-5.6-sol)
+================================================================================
+
+  [reuse] no prior code_attempt files — starting counters at 0.
+
+  --- Running code_v0 on instances ['large_1', 'large_2', 'large_3', 'large_4', 'large_5'] for first_results ---
+  Instance large_3: PASS (LLM=97.0, gap=0.00%, time=0.17s, feasible=True)
+  Instance large_5: FAIL runtime_error (3600.21s)
+  Instance large_3: FAIL runtime_error (3600.26s)
+  Instance large_1: FAIL runtime_error (3600.26s)
+  Instance large_4: FAIL runtime_error (3600.31s)
+  Instance large_1: PASS (LLM=1713.1842125339, gap=2.20%, time=1.14s, feasible=True)
+  Instance large_5: PASS (LLM=1498.4657200091106, gap=3.47%, time=1.19s, feasible=True)
+  Instance large_2: FAIL runtime_error (3600.51s)
+
+  --- Phase 0: Self-debug for runtime_error (budget=5 remaining of 5, already used=0) ---
+
+  --- Phase 1: Tiny-instance gate (instance tiny, gap<=10%) ---
+  [reuse=incomplete] tiny 'tiny' frozen from CSV (status=pass, gap=0.0). Skipping correction loop.
+
+  --- Phase 1: gate PASSED (tiny gap=0.0) ---
+
+  --- Phase 2: v0 code passed gate; reusing v0 results for instances ['large_1', 'large_2', 'large_3', 'large_4', 'large_5'] ---
+
+  5 instance(s) still failing (infeasible/invalid_solution/timeout) after retry budget exhausted.
+  Instance large_2: PASS (LLM=2115.7314270247534, gap=4.51%, time=1.29s, feasible=True)
+  Instance large_3: PASS (LLM=1828.8797205090418, gap=4.10%, time=1.29s, feasible=True)
+  Instance large_4: PASS (LLM=1815.4775547426682, gap=2.83%, time=1.33s, feasible=True)
+
+  --- Phase 0: Self-debug for runtime_error (budget=5 remaining of 5, already used=0) ---
+
+  --- Phase 1: Tiny-instance gate (instance tiny, gap<=10%) ---
+  [reuse=incomplete] tiny 'tiny' frozen from CSV (status=pass, gap=0.059528). Skipping correction loop.
+
+  --- Phase 1: gate PASSED (tiny gap=0.059528) ---
+
+  --- Phase 2: v0 code passed gate; reusing v0 results for instances ['large_1', 'large_2', 'large_3', 'large_4', 'large_5'] ---
+
+  All correction-triggering failures resolved.
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    API cost written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/one_shot_api_cost.csv
+
+================================================================================
+EVALUATION SUMMARY
+================================================================================
+Instance     Status   Retries   LLM Obj            Gurobi Obj         Error
+--------------------------------------------------------------------------------
+  large_1    fail     0         N/A                36689.5073         Execution timed out after 3...
+  large_2    fail     0         N/A                20619.3707         Execution timed out after 3...
+  large_3    fail     0         N/A                24950.2475         Execution timed out after 3...
+  large_4    fail     0         N/A                53664.4134         Execution timed out after 3...
+  large_5    fail     0         N/A                26013.3583         Execution timed out after 3...
+  tiny       pass     0         8362.7478          N/A                
+--------------------------------------------------------------------------------
+Total: 6  |  Pass: 1  |  Fail: 5  |  Skip: 0
+================================================================================
+
+ERROR DETAILS
+--------------------------------------------------------------------------------
+  Instance large_1:
+Execution timed out after 3600 seconds
+
+  Instance large_2:
+Execution timed out after 3600 seconds
+
+  Instance large_3:
+Execution timed out after 3600 seconds
+
+  Instance large_4:
+Execution timed out after 3600 seconds
+
+  Instance large_5:
+Execution timed out after 3600 seconds
+
+  [gate] tiny row present in CSV; auto-injecting at position 0 of --instances so Phase 1 gates on tiny instead of 'large_1'. Tiny is frozen (not re-run / not re-flushed).
+
+  [reuse=incomplete] fragkos2021/gpt-5.6-sol: frozen from CSV ['tiny'], running ['large_1', 'large_2', 'large_3', 'large_4', 'large_5']
+
+================================================================================
+    API cost written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/one_shot_api_cost.csv
+
+================================================================================
+EVALUATION SUMMARY
+================================================================================
+Instance     Status   Retries   LLM Obj            Gurobi Obj         Error
+--------------------------------------------------------------------------------
+  large_1    pass     0         1713.1842          1676.3171          
+  large_2    pass     0         2115.7314          2024.4809          
+  large_3    pass     0         1828.8797          1756.7855          
+  large_4    pass     0         1815.4776          1765.4775          
+  large_5    pass     0         1498.4657          1448.2215          
+  tiny       pass     0         889.9423           N/A                
+--------------------------------------------------------------------------------
+Total: 6  |  Pass: 6  |  Fail: 0  |  Skip: 0
+================================================================================
+PAPER: fragkos2021  |  MODEL: openai/gpt-5.6-sol (gpt-5.6-sol)  [gate] tiny row present in CSV; auto-injecting at position 0 of --instances so Phase 1 gates on tiny instead of 'large_1'. Tiny is frozen (not re-run / not re-flushed).
+
+
+  [reuse=incomplete] delage2022/gpt-5.6-sol: frozen from CSV ['tiny'], running ['large_1', 'large_2', 'large_3', 'large_4', 'large_5']================================================================================
+
+
+
+================================================================================
+PAPER: delage2022  |  MODEL: openai/gpt-5.6-sol (gpt-5.6-sol)
+================================================================================
+
+  [reuse] no prior code_attempt files — starting counters at 0.
+
+  --- Running code_v0 on instances ['large_1', 'large_2', 'large_3', 'large_4', 'large_5'] for first_results ---
+  [reuse] no prior code_attempt files — starting counters at 0.
+
+  --- Running code_v0 on instances ['large_1', 'large_2', 'large_3', 'large_4', 'large_5'] for first_results ---
+[ERROR] paper=fragkos2021 model=openai/gpt-5.6-sol: [Errno 122] Disk quota exceeded: '/scratch/chonghej/LLM4OR/FrontierOR-run/frontier-or/tasks/fragkos2021/instance/large_instance_4.json' -> '/tmp/eob_sbx_tf35luif/instance/large_instance_4.json'
+  [gate] tiny row present in CSV; auto-injecting at position 0 of --instances so Phase 1 gates on tiny instead of 'large_1'. Tiny is frozen (not re-run / not re-flushed).
+
+  [reuse=incomplete] wu2018/gpt-5.6-sol: frozen from CSV ['tiny'], running ['large_1', 'large_2', 'large_3', 'large_4', 'large_5']
+
+================================================================================
+PAPER: wu2018  |  MODEL: openai/gpt-5.6-sol (gpt-5.6-sol)
+================================================================================
+
+  [reuse] no prior code_attempt files — starting counters at 0.
+
+  --- Running code_v0 on instances ['large_1', 'large_2', 'large_3', 'large_4', 'large_5'] for first_results ---
+  Instance large_1: FAIL runtime_error (3600.06s)
+  Instance large_2: FAIL runtime_error (3600.06s)
+  Instance large_4: FAIL runtime_error (3600.06s)  Instance large_3: FAIL runtime_error (3600.06s)
+
+  Instance large_5: FAIL runtime_error (3600.07s)
+
+  --- Phase 0: Self-debug for runtime_error (budget=5 remaining of 5, already used=0) ---
+
+  --- Phase 1: Tiny-instance gate (instance tiny, gap<=10%) ---
+  [reuse=incomplete] tiny 'tiny' frozen from CSV (status=pass, gap=0.0). Skipping correction loop.
+
+  --- Phase 1: gate PASSED (tiny gap=0.0) ---
+
+  --- Phase 2: v0 code passed gate; reusing v0 results for instances ['large_1', 'large_2', 'large_3', 'large_4', 'large_5'] ---
+
+  5 instance(s) still failing (infeasible/invalid_solution/timeout) after retry budget exhausted.
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    API cost written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/one_shot_api_cost.csv
+
+================================================================================
+EVALUATION SUMMARY
+================================================================================
+Instance     Status   Retries   LLM Obj            Gurobi Obj         Error
+--------------------------------------------------------------------------------
+  large_1    fail     0         N/A                1017031.2652       Execution timed out after 3...
+  large_2    fail     0         N/A                994115.9168        Execution timed out after 3...
+  large_3    fail     0         N/A                942573.1415        Execution timed out after 3...
+  large_4    fail     0         N/A                1188010.1406       Execution timed out after 3...
+  large_5    fail     0         N/A                1032596.4226       Execution timed out after 3...
+  tiny       pass     0         184504.4103        N/A                
+--------------------------------------------------------------------------------
+Total: 6  |  Pass: 1  |  Fail: 5  |  Skip: 0
+================================================================================
+
+ERROR DETAILS
+--------------------------------------------------------------------------------
+  Instance large_1:
+Execution timed out after 3600 seconds
+
+  Instance large_2:
+Execution timed out after 3600 seconds
+
+  Instance large_3:
+Execution timed out after 3600 seconds
+
+  Instance large_4:
+Execution timed out after 3600 seconds
+
+  Instance large_5:
+Execution timed out after 3600 seconds
+
+  [gate] tiny row present in CSV; auto-injecting at position 0 of --instances so Phase 1 gates on tiny instead of 'large_1'. Tiny is frozen (not re-run / not re-flushed).
+
+  [reuse=incomplete] spliet2015/gpt-5.6-sol: frozen from CSV ['tiny'], running ['large_1', 'large_2', 'large_3', 'large_4', 'large_5']
+
+================================================================================
+PAPER: spliet2015  |  MODEL: openai/gpt-5.6-sol (gpt-5.6-sol)
+================================================================================
+
+  [reuse] no prior code_attempt files — starting counters at 0.
+
+  --- Running code_v0 on instances ['large_1', 'large_2', 'large_3', 'large_4', 'large_5'] for first_results ---
+  Instance large_3: PASS (LLM=96.0, gap=0.00%, time=40.11s, feasible=True)
+  Instance large_2: FAIL infeasible (LLM=20.0, gap=0.00%)
+  Instance large_4: PASS (LLM=150.0, gap=0.00%, time=1396.71s, feasible=True)
+  Instance large_1: FAIL runtime_error (3600.0s)  Instance large_5: FAIL runtime_error (3600.0s)
+  Instance large_3: FAIL runtime_error (3600.01s)
+
+  Instance large_4: FAIL runtime_error (3600.01s)
+  Instance large_2: FAIL runtime_error (3600.0s)
+
+  --- Phase 0: Self-debug for runtime_error (budget=5 remaining of 5, already used=0) ---
+
+  --- Phase 1: Tiny-instance gate (instance tiny, gap<=10%) ---
+  [reuse=incomplete] tiny 'tiny' frozen from CSV (status=pass, gap=0.0). Skipping correction loop.
+
+  --- Phase 1: gate PASSED (tiny gap=0.0) ---
+
+  --- Phase 2: v0 code passed gate; reusing v0 results for instances ['large_1', 'large_2', 'large_3', 'large_4', 'large_5'] ---
+
+  5 instance(s) still failing (infeasible/invalid_solution/timeout) after retry budget exhausted.
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    API cost written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/one_shot_api_cost.csv
+
+================================================================================
+EVALUATION SUMMARY
+================================================================================
+Instance     Status   Retries   LLM Obj            Gurobi Obj         Error
+--------------------------------------------------------------------------------
+  large_1    fail     0         N/A                692969.0000        Execution timed out after 3...
+  large_2    fail     0         N/A                736374.0000        Execution timed out after 3...
+  large_3    fail     0         N/A                76844.1347         Execution timed out after 3...
+  large_4    fail     0         N/A                73786.0000         Execution timed out after 3...
+  large_5    fail     0         N/A                19005.0848         Execution timed out after 3...
+  tiny       pass     0         2242.7630          N/A                
+--------------------------------------------------------------------------------
+Total: 6  |  Pass: 1  |  Fail: 5  |  Skip: 0
+================================================================================
+
+ERROR DETAILS
+--------------------------------------------------------------------------------
+  Instance large_1:
+Execution timed out after 3600 seconds
+
+  Instance large_2:
+Execution timed out after 3600 seconds
+
+  Instance large_3:
+Execution timed out after 3600 seconds
+
+  Instance large_4:
+Execution timed out after 3600 seconds
+
+  Instance large_5:
+Execution timed out after 3600 seconds
+
+  [gate] tiny row present in CSV; auto-injecting at position 0 of --instances so Phase 1 gates on tiny instead of 'large_1'. Tiny is frozen (not re-run / not re-flushed).
+
+  [reuse=incomplete] fragkos2016/gpt-5.6-sol: frozen from CSV ['tiny'], running ['large_1', 'large_2', 'large_3', 'large_4', 'large_5']
+
+================================================================================
+PAPER: fragkos2016  |  MODEL: openai/gpt-5.6-sol (gpt-5.6-sol)
+================================================================================
+
+  [reuse] counted 5 prior attempt(s) on disk → debug_retries=5, correction_retries=0
+
+  *** Pre-judge: tiny 'tiny' frozen from CSV (status=fail, gap=None, feasible=None) fails Phase 1 gate. Skipping v0 run; cascading gate_fail to ['large_1', 'large_2', 'large_3', 'large_4', 'large_5']. ***
+
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    API cost written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/one_shot_api_cost.csv
+
+================================================================================
+EVALUATION SUMMARY
+================================================================================
+Instance     Status   Retries   LLM Obj            Gurobi Obj         Error
+--------------------------------------------------------------------------------
+  large_1    gate_fail 0         N/A                N/A                Skipped: tiny-instance gate...
+  large_2    gate_fail 0         N/A                N/A                Skipped: tiny-instance gate...
+  large_3    gate_fail 0         N/A                N/A                Skipped: tiny-instance gate...
+  large_4    gate_fail 0         N/A                N/A                Skipped: tiny-instance gate...
+  large_5    gate_fail 0         N/A                N/A                Skipped: tiny-instance gate...
+  tiny       fail     5         N/A                N/A                Process exited with code 1:...
+--------------------------------------------------------------------------------
+Total: 6  |  Pass: 0  |  Fail: 1  |  Skip: 5
+================================================================================
+
+ERROR DETAILS
+--------------------------------------------------------------------------------
+  Instance large_1:
+Skipped: tiny-instance gate failed on instance tiny
+
+  Instance large_2:
+Skipped: tiny-instance gate failed on instance tiny
+
+  Instance large_3:
+Skipped: tiny-instance gate failed on instance tiny
+
+  Instance large_4:
+Skipped: tiny-instance gate failed on instance tiny
+
+  Instance large_5:
+Skipped: tiny-instance gate failed on instance tiny
+
+  Instance tiny:
+Process exited with code 1: | Traceback (most recent call last): |   File "/scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_tasks/fragkos2016/gpt-5.6-sol/code.py", line 351, in <module> |     main() |     ~~~~^^ |   File "/scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_tasks/fragkos2016/gpt-5.6-sol/code.py", line 336, in main |     raise RuntimeError(f"No feasible solution found: {status_text}") | RuntimeError: No feasible solution found: infeasible
+
+  [gate] tiny row present in CSV; auto-injecting at position 0 of --instances so Phase 1 gates on tiny instead of 'large_1'. Tiny is frozen (not re-run / not re-flushed).
+
+  [reuse=incomplete] amaldi2013/gpt-5.6-sol: frozen from CSV ['tiny'], running ['large_1', 'large_2', 'large_3', 'large_4', 'large_5']
+
+================================================================================
+PAPER: amaldi2013  |  MODEL: openai/gpt-5.6-sol (gpt-5.6-sol)
+================================================================================
+
+  [reuse] no prior code_attempt files — starting counters at 0.
+
+  --- Running code_v0 on instances ['large_1', 'large_2', 'large_3', 'large_4', 'large_5'] for first_results ---
+  Instance large_1: FAIL runtime_error (3600.12s)
+  Instance large_5: FAIL runtime_error (3600.12s)
+  Instance large_3: FAIL runtime_error (3600.12s)
+  Instance large_4: FAIL runtime_error (3600.12s)
+  Instance large_2: FAIL runtime_error (3600.12s)
+
+  --- Phase 0: Self-debug for runtime_error (budget=5 remaining of 5, already used=0) ---
+
+  --- Phase 1: Tiny-instance gate (instance tiny, gap<=10%) ---
+  [reuse=incomplete] tiny 'tiny' frozen from CSV (status=pass, gap=0.0). Skipping correction loop.
+
+  --- Phase 1: gate PASSED (tiny gap=0.0) ---
+
+  --- Phase 2: v0 code passed gate; reusing v0 results for instances ['large_1', 'large_2', 'large_3', 'large_4', 'large_5'] ---
+
+  5 instance(s) still failing (infeasible/invalid_solution/timeout) after retry budget exhausted.
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    API cost written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/one_shot_api_cost.csv
+
+================================================================================
+EVALUATION SUMMARY
+================================================================================
+Instance     Status   Retries   LLM Obj            Gurobi Obj         Error
+--------------------------------------------------------------------------------
+  large_1    fail     0         N/A                5355.1100          Execution timed out after 3...
+  large_2    fail     0         N/A                6002.5399          Execution timed out after 3...
+  large_3    fail     0         N/A                4909.8800          Execution timed out after 3...
+  large_4    fail     0         N/A                5162.2900          Execution timed out after 3...
+  large_5    fail     0         N/A                5728.4700          Execution timed out after 3...
+  tiny       pass     0         2669.1000          N/A                
+--------------------------------------------------------------------------------
+Total: 6  |  Pass: 1  |  Fail: 5  |  Skip: 0
+================================================================================
+
+ERROR DETAILS
+--------------------------------------------------------------------------------
+  Instance large_1:
+Execution timed out after 3600 seconds
+
+  Instance large_2:
+Execution timed out after 3600 seconds
+
+  Instance large_3:
+Execution timed out after 3600 seconds
+
+  Instance large_4:
+Execution timed out after 3600 seconds
+
+  Instance large_5:
+Execution timed out after 3600 seconds
+
+  Instance large_5: FAIL runtime_error (3600.0s)
+  Instance large_3: FAIL runtime_error (3600.0s)
+  Instance large_1: FAIL runtime_error (3600.0s)
+  Instance large_4: FAIL runtime_error (3600.0s)
+  Instance large_2: FAIL runtime_error (3600.0s)
+
+  --- Phase 0: Self-debug for runtime_error (budget=5 remaining of 5, already used=0) ---
+
+  --- Phase 1: Tiny-instance gate (instance tiny, gap<=10%) ---
+  [reuse=incomplete] tiny 'tiny' frozen from CSV (status=pass, gap=0.0). Skipping correction loop.
+
+  --- Phase 1: gate PASSED (tiny gap=0.0) ---
+
+  --- Phase 2: v0 code passed gate; reusing v0 results for instances ['large_1', 'large_2', 'large_3', 'large_4', 'large_5'] ---
+
+  5 instance(s) still failing (infeasible/invalid_solution/timeout) after retry budget exhausted.
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    API cost written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/one_shot_api_cost.csv
+
+================================================================================
+EVALUATION SUMMARY
+================================================================================
+Instance     Status   Retries   LLM Obj            Gurobi Obj         Error
+--------------------------------------------------------------------------------
+  large_1    fail     0         N/A                51215.0000         Execution timed out after 3...
+  large_2    fail     0         N/A                52705.0000         Execution timed out after 3...
+  large_3    fail     0         N/A                52197.0000         Execution timed out after 3...
+  large_4    fail     0         N/A                49867.0000         Execution timed out after 3...
+  large_5    fail     0         N/A                57540.9998         Execution timed out after 3...
+  tiny       pass     0         1083.0000          N/A                
+--------------------------------------------------------------------------------
+Total: 6  |  Pass: 1  |  Fail: 5  |  Skip: 0
+================================================================================
+
+ERROR DETAILS
+--------------------------------------------------------------------------------
+  Instance large_1:
+Execution timed out after 3600 seconds
+
+  Instance large_2:
+Execution timed out after 3600 seconds
+
+  Instance large_3:
+Execution timed out after 3600 seconds
+
+  Instance large_4:
+Execution timed out after 3600 seconds
+
+  Instance large_5:
+Execution timed out after 3600 seconds
+
+  Instance large_5: FAIL runtime_error (3600.11s)
+  Instance large_4: FAIL runtime_error (3600.12s)  Instance large_2: FAIL runtime_error (3600.12s)
+  Instance large_1: FAIL runtime_error (3600.12s)
+
+  Instance large_3: FAIL runtime_error (3600.16s)
+
+  --- Phase 0: Self-debug for runtime_error (budget=5 remaining of 5, already used=0) ---
+
+  --- Phase 1: Tiny-instance gate (instance tiny, gap<=10%) ---
+  [reuse=incomplete] tiny 'tiny' frozen from CSV (status=pass, gap=-0.0). Skipping correction loop.
+
+  --- Phase 1: gate PASSED (tiny gap=-0.0) ---
+
+  --- Phase 2: v0 code passed gate; reusing v0 results for instances ['large_1', 'large_2', 'large_3', 'large_4', 'large_5'] ---
+
+  5 instance(s) still failing (infeasible/invalid_solution/timeout) after retry budget exhausted.
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    API cost written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/one_shot_api_cost.csv
+
+================================================================================
+EVALUATION SUMMARY
+================================================================================
+Instance     Status   Retries   LLM Obj            Gurobi Obj         Error
+--------------------------------------------------------------------------------
+  large_1    fail     0         N/A                83628895.9283      Execution timed out after 3...
+  large_2    fail     0         N/A                51226499.5800      Execution timed out after 3...
+  large_3    fail     0         N/A                107788174.9194     Execution timed out after 3...
+  large_4    fail     0         N/A                84507554.9907      Execution timed out after 3...
+  large_5    fail     0         N/A                69741095.6070      Execution timed out after 3...
+  tiny       pass     0         181866.8410        N/A                
+--------------------------------------------------------------------------------
+Total: 6  |  Pass: 1  |  Fail: 5  |  Skip: 0
+================================================================================
+
+ERROR DETAILS
+--------------------------------------------------------------------------------
+  Instance large_1:
+Execution timed out after 3600 seconds
+
+  Instance large_2:
+Execution timed out after 3600 seconds
+
+  Instance large_3:
+Execution timed out after 3600 seconds
+
+  Instance large_4:
+Execution timed out after 3600 seconds
+
+  Instance large_5:
+Execution timed out after 3600 seconds
+
+  Instance large_1: FAIL runtime_error (3600.03s)
+  Instance large_4: FAIL runtime_error (3600.08s)
+  Instance large_5: FAIL runtime_error (3600.08s)
+  Instance large_2: FAIL runtime_error (3600.08s)
+  Instance large_1: FAIL runtime_error (3600.08s)
+  Instance large_3: FAIL runtime_error (3600.18s)
+
+  --- Phase 0: Self-debug for runtime_error (budget=5 remaining of 5, already used=0) ---
+
+  --- Phase 1: Tiny-instance gate (instance tiny, gap<=10%) ---
+  [reuse=incomplete] tiny 'tiny' frozen from CSV (status=pass, gap=0.0). Skipping correction loop.
+
+  --- Phase 1: gate PASSED (tiny gap=0.0) ---
+
+  --- Phase 2: v0 code passed gate; reusing v0 results for instances ['large_1', 'large_2', 'large_3', 'large_4', 'large_5'] ---
+
+  5 instance(s) still failing (infeasible/invalid_solution/timeout) after retry budget exhausted.
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    API cost written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/one_shot_api_cost.csv
+
+================================================================================
+EVALUATION SUMMARY
+================================================================================
+Instance     Status   Retries   LLM Obj            Gurobi Obj         Error
+--------------------------------------------------------------------------------
+  large_1    fail     0         N/A                30525.0000         Execution timed out after 3...
+  large_2    fail     0         N/A                4807.0000          Execution timed out after 3...
+  large_3    fail     0         N/A                37236.5000         Execution timed out after 3...
+  large_4    fail     0         N/A                20981.5000         Execution timed out after 3...
+  large_5    fail     0         N/A                18586.0000         Execution timed out after 3...
+  tiny       pass     0         4910.0000          N/A                
+--------------------------------------------------------------------------------
+Total: 6  |  Pass: 1  |  Fail: 5  |  Skip: 0
+================================================================================
+
+ERROR DETAILS
+--------------------------------------------------------------------------------
+  Instance large_1:
+Execution timed out after 3600 seconds
+
+  Instance large_2:
+Execution timed out after 3600 seconds
+
+  Instance large_3:
+Execution timed out after 3600 seconds
+
+  Instance large_4:
+Execution timed out after 3600 seconds
+
+  Instance large_5:
+Execution timed out after 3600 seconds
+
+  Instance large_5: FAIL runtime_error (3600.13s)
+  Instance large_4: FAIL runtime_error (3600.13s)
+
+  --- Phase 0: Self-debug for runtime_error (budget=5 remaining of 5, already used=0) ---
+
+  --- Phase 1: Tiny-instance gate (instance tiny, gap<=10%) ---
+  [reuse=incomplete] tiny 'tiny' frozen from CSV (status=pass, gap=0.0). Skipping correction loop.
+
+  --- Phase 1: gate PASSED (tiny gap=0.0) ---
+
+  --- Phase 2: v0 code passed gate; reusing v0 results for instances ['large_1', 'large_2', 'large_3', 'large_4', 'large_5'] ---
+
+  4 instance(s) still failing (infeasible/invalid_solution/timeout) after retry budget exhausted.
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    API cost written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/one_shot_api_cost.csv
+
+================================================================================
+EVALUATION SUMMARY
+================================================================================
+Instance     Status   Retries   LLM Obj            Gurobi Obj         Error
+--------------------------------------------------------------------------------
+  large_1    fail     0         N/A                20.0000            Execution timed out after 3...
+  large_2    fail     0         20.0000            21.0000            Solution is INFEASIBLE Viol...
+  large_3    pass     0         97.0000            97.0000            
+  large_4    fail     0         N/A                7.0000             Execution timed out after 3...
+  large_5    fail     0         N/A                7.0000             Execution timed out after 3...
+  tiny       pass     0         2.0000             N/A                
+--------------------------------------------------------------------------------
+Total: 6  |  Pass: 2  |  Fail: 4  |  Skip: 0
+================================================================================
+
+ERROR DETAILS
+--------------------------------------------------------------------------------
+  Instance large_1:
+Execution timed out after 3600 seconds
+
+  Instance large_2:
+Solution is INFEASIBLE Violations: Constraint (5): Load linking violated for arc (13,2): y_2=31.00 < y_13 + q_2 - Q_2*(1-x) = 56.00; Constraint (5): Load linking violated for arc (13,4): y_4=47.00 < y_13 + q_4 - Q_4*(1-x) = 88.00; Constraint (5): Load linking violated for arc (13,9): y_9=84.00 < y_13 + q_9 - Q_9*(1-x) = 94.00; Constraint (5): Load linking violated for arc (13,14): y_14=33.00 < y_13 + q_14 - Q_14*(1-x) = 60.00; Constraint (5): Load linking violated for arc (13,17): y_17=34.00 < y_13 + q_17 - Q_17*(1-x) = 62.00
+
+  Instance large_4:
+Execution timed out after 3600 seconds
+
+  Instance large_5:
+Execution timed out after 3600 seconds
+
+  Instance large_1: FAIL runtime_error (3600.21s)
+  Instance large_2: FAIL runtime_error (3600.24s)
+  Instance large_5: FAIL runtime_error (3600.36s)
+
+  --- Phase 0: Self-debug for runtime_error (budget=5 remaining of 5, already used=0) ---
+
+  --- Phase 1: Tiny-instance gate (instance tiny, gap<=10%) ---
+  [reuse=incomplete] tiny 'tiny' frozen from CSV (status=pass, gap=0.0). Skipping correction loop.
+
+  --- Phase 1: gate PASSED (tiny gap=0.0) ---
+
+  --- Phase 2: v0 code passed gate; reusing v0 results for instances ['large_1', 'large_2', 'large_3', 'large_4', 'large_5'] ---
+
+  3 instance(s) still failing (infeasible/invalid_solution/timeout) after retry budget exhausted.
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    API cost written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/one_shot_api_cost.csv
+
+================================================================================
+EVALUATION SUMMARY
+================================================================================
+Instance     Status   Retries   LLM Obj            Gurobi Obj         Error
+--------------------------------------------------------------------------------
+  large_1    fail     0         N/A                16.0000            Execution timed out after 3...
+  large_2    fail     0         N/A                15.0000            Execution timed out after 3...
+  large_3    pass     0         96.0000            96.0000            
+  large_4    pass     0         150.0000           33.0000            
+  large_5    fail     0         N/A                10.0000            Execution timed out after 3...
+  tiny       pass     0         5.0000             N/A                
+--------------------------------------------------------------------------------
+Total: 6  |  Pass: 3  |  Fail: 3  |  Skip: 0
+================================================================================
+
+ERROR DETAILS
+--------------------------------------------------------------------------------
+  Instance large_1:
+Execution timed out after 3600 seconds
+
+  Instance large_2:
+Execution timed out after 3600 seconds
+
+  Instance large_5:
+Execution timed out after 3600 seconds
+
+  Instance large_4: FAIL runtime_error (3600.06s)
+  Instance large_1: FAIL runtime_error (3600.06s)
+  Instance large_5: FAIL runtime_error (3600.06s)
+  Instance large_2: FAIL runtime_error (3600.06s)
+  Instance large_3: FAIL runtime_error (3600.06s)
+
+  --- Phase 0: Self-debug for runtime_error (budget=5 remaining of 5, already used=0) ---
+
+  --- Phase 1: Tiny-instance gate (instance tiny, gap<=10%) ---
+  [reuse=incomplete] tiny 'tiny' frozen from CSV (status=pass, gap=0.0). Skipping correction loop.
+
+  --- Phase 1: gate PASSED (tiny gap=0.0) ---
+
+  --- Phase 2: v0 code passed gate; reusing v0 results for instances ['large_1', 'large_2', 'large_3', 'large_4', 'large_5'] ---
+
+  5 instance(s) still failing (infeasible/invalid_solution/timeout) after retry budget exhausted.
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    API cost written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/one_shot_api_cost.csv
+
+================================================================================
+EVALUATION SUMMARY
+================================================================================
+Instance     Status   Retries   LLM Obj            Gurobi Obj         Error
+--------------------------------------------------------------------------------
+  large_1    fail     0         N/A                304.0000           Execution timed out after 3...
+  large_2    fail     0         N/A                304.0000           Execution timed out after 3...
+  large_3    fail     0         N/A                304.0000           Execution timed out after 3...
+  large_4    fail     0         N/A                374.0000           Execution timed out after 3...
+  large_5    fail     0         N/A                347.0000           Execution timed out after 3...
+  tiny       pass     0         59.0000            N/A                
+--------------------------------------------------------------------------------
+Total: 6  |  Pass: 1  |  Fail: 5  |  Skip: 0
+================================================================================
+
+ERROR DETAILS
+--------------------------------------------------------------------------------
+  Instance large_1:
+Execution timed out after 3600 seconds
+
+  Instance large_2:
+Execution timed out after 3600 seconds
+
+  Instance large_3:
+Execution timed out after 3600 seconds
+
+  Instance large_4:
+Execution timed out after 3600 seconds
+
+  Instance large_5:
+Execution timed out after 3600 seconds
+
+  Instance large_2: PASS (LLM=3.0, gap=0.00%, time=3.08s, feasible=True)
+  Instance large_3: PASS (LLM=3.0, gap=0.00%, time=3.38s, feasible=True)
+  Instance large_1: FAIL runtime_error (3600.03s)
+  Instance large_2: FAIL runtime_error (3600.03s)
+  Instance large_3: FAIL runtime_error (3600.03s)
+  Instance large_4: FAIL runtime_error (3600.03s)
+  Instance large_5: FAIL runtime_error (3600.03s)
+
+  --- Phase 0: Self-debug for runtime_error (budget=5 remaining of 5, already used=0) ---
+
+  --- Phase 1: Tiny-instance gate (instance tiny, gap<=10%) ---
+  [reuse=incomplete] tiny 'tiny' frozen from CSV (status=pass, gap=-0.0). Skipping correction loop.
+
+  --- Phase 1: gate PASSED (tiny gap=-0.0) ---
+
+  --- Phase 2: v0 code passed gate; reusing v0 results for instances ['large_1', 'large_2', 'large_3', 'large_4', 'large_5'] ---
+
+  5 instance(s) still failing (infeasible/invalid_solution/timeout) after retry budget exhausted.
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    API cost written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/one_shot_api_cost.csv
+
+================================================================================
+EVALUATION SUMMARY
+================================================================================
+Instance     Status   Retries   LLM Obj            Gurobi Obj         Error
+--------------------------------------------------------------------------------
+  large_1    fail     0         N/A                258115355.2221     Execution timed out after 3...
+  large_2    fail     0         N/A                11220098.8650      Execution timed out after 3...
+  large_3    fail     0         N/A                25279406.8771      Execution timed out after 3...
+  large_4    fail     0         N/A                89032475.7041      Execution timed out after 3...
+  large_5    fail     0         N/A                200995501.7321     Execution timed out after 3...
+  tiny       pass     0         3363.0723          N/A                
+--------------------------------------------------------------------------------
+Total: 6  |  Pass: 1  |  Fail: 5  |  Skip: 0
+================================================================================
+
+ERROR DETAILS
+--------------------------------------------------------------------------------
+  Instance large_1:
+Execution timed out after 3600 seconds
+
+  Instance large_2:
+Execution timed out after 3600 seconds
+
+  Instance large_3:
+Execution timed out after 3600 seconds
+
+  Instance large_4:
+Execution timed out after 3600 seconds
+
+  Instance large_5:
+Execution timed out after 3600 seconds
+
+  Instance large_1: FAIL gap_exceeds (LLM=3.0, gap=50.00%)
+  Instance large_4: PASS (LLM=4.0, gap=0.00%, time=10.4s, feasible=True)
+  Instance large_2: FAIL runtime_error (3600.16s)
+  Instance large_5: FAIL runtime_error (3600.21s)  Instance large_4: FAIL runtime_error (3600.21s)
+
+  Instance large_1: FAIL runtime_error (3600.21s)
+  Instance large_3: FAIL runtime_error (3600.26s)
+
+  --- Phase 0: Self-debug for runtime_error (budget=5 remaining of 5, already used=0) ---
+
+  --- Phase 1: Tiny-instance gate (instance tiny, gap<=10%) ---
+  [reuse=incomplete] tiny 'tiny' frozen from CSV (status=pass, gap=0.0). Skipping correction loop.
+
+  --- Phase 1: gate PASSED (tiny gap=0.0) ---
+
+  --- Phase 2: v0 code passed gate; reusing v0 results for instances ['large_1', 'large_2', 'large_3', 'large_4', 'large_5'] ---
+
+  5 instance(s) still failing (infeasible/invalid_solution/timeout) after retry budget exhausted.
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    API cost written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/one_shot_api_cost.csv
+
+================================================================================
+EVALUATION SUMMARY
+================================================================================
+Instance     Status   Retries   LLM Obj            Gurobi Obj         Error
+--------------------------------------------------------------------------------
+  large_1    fail     0         N/A                33.9700            Execution timed out after 3...
+  large_2    fail     0         N/A                37.9400            Execution timed out after 3...
+  large_3    fail     0         N/A                38.2567            Execution timed out after 3...
+  large_4    fail     0         N/A                35.9633            Execution timed out after 3...
+  large_5    fail     0         N/A                30.0633            Execution timed out after 3...
+  tiny       pass     0         17.1533            N/A                
+--------------------------------------------------------------------------------
+Total: 6  |  Pass: 1  |  Fail: 5  |  Skip: 0
+================================================================================
+
+ERROR DETAILS
+--------------------------------------------------------------------------------
+  Instance large_1:
+Execution timed out after 3600 seconds
+
+  Instance large_2:
+Execution timed out after 3600 seconds
+
+  Instance large_3:
+Execution timed out after 3600 seconds
+
+  Instance large_4:
+Execution timed out after 3600 seconds
+
+  Instance large_5:
+Execution timed out after 3600 seconds
+
+  Instance large_5: PASS (LLM=5.0, gap=0.00%, time=454.46s, feasible=True)
+
+  --- Phase 0: Self-debug for runtime_error (budget=5 remaining of 5, already used=0) ---
+
+  --- Phase 1: Tiny-instance gate (instance tiny, gap<=10%) ---
+  [reuse=incomplete] tiny 'tiny' frozen from CSV (status=pass, gap=0.0). Skipping correction loop.
+
+  --- Phase 1: gate PASSED (tiny gap=0.0) ---
+
+  --- Phase 2: v0 code passed gate; reusing v0 results for instances ['large_1', 'large_2', 'large_3', 'large_4', 'large_5'] ---
+
+  All correction-triggering failures resolved.
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    Result written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/eval_results_gpt56sol.csv
+    API cost written to /scratch/chonghej/LLM4OR/FrontierOR-run/eval/one_shot_api_cost.csv
+
+================================================================================
+EVALUATION SUMMARY
+================================================================================
+Instance     Status   Retries   LLM Obj            Gurobi Obj         Error
+--------------------------------------------------------------------------------
+  large_1    fail     0         3.0000             2.0000             Gap 50.00% exceeds 10% thre...
+  large_2    pass     0         3.0000             3.0000             
+  large_3    pass     0         3.0000             6.0000             
+  large_4    pass     0         4.0000             5.0000             
+  large_5    pass     0         5.0000             7.0000             
+  tiny       pass     0         3.0000             N/A                
+--------------------------------------------------------------------------------
+Total: 6  |  Pass: 5  |  Fail: 1  |  Skip: 0
+================================================================================
+
+ERROR DETAILS
+--------------------------------------------------------------------------------
+  Instance large_1:
+Gap 50.00% exceeds 10% threshold (obj=3.0, gurobi=2.0)
+

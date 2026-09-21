@@ -1,0 +1,1741 @@
+{
+  "feasible": false,
+  "violated_constraints": [
+    1,
+    2
+  ],
+  "violations": [
+    "Constraint 1 (Eq.34) violated: link (J_0_0,J_0_1), dest A, t=5: N_U(t+1)=0.666667 != 0 (and 107 more violations of constraint 1)",
+    "Constraint 2 (Eq.35) violated: link (J_0_0,J_0_1), dest A, t=5: N_D(t+1)=0 != 0.666667 (and 107 more violations of constraint 2)"
+  ],
+  "violation_magnitudes": [
+    {
+      "constraint": 1,
+      "lhs": 0.6666667,
+      "rhs": 0.0,
+      "raw_excess": 0.6666667,
+      "normalizer": 1e-05,
+      "ratio": 66666.66999999998
+    },
+    {
+      "constraint": 1,
+      "lhs": 1.3333333,
+      "rhs": 0.6666667,
+      "raw_excess": 0.6666666000000001,
+      "normalizer": 0.6666667,
+      "ratio": 0.9999998500000078
+    },
+    {
+      "constraint": 1,
+      "lhs": 2.5,
+      "rhs": 2.0,
+      "raw_excess": 0.5,
+      "normalizer": 2.0,
+      "ratio": 0.25
+    },
+    {
+      "constraint": 1,
+      "lhs": 5.6666667,
+      "rhs": 6.1666667,
+      "raw_excess": 0.5,
+      "normalizer": 6.1666667,
+      "ratio": 0.08108108064280496
+    },
+    {
+      "constraint": 1,
+      "lhs": 6.8333333,
+      "rhs": 6.333333400000001,
+      "raw_excess": 0.49999989999999883,
+      "normalizer": 6.333333400000001,
+      "ratio": 0.078947351800554
+    },
+    {
+      "constraint": 1,
+      "lhs": 8.1666667,
+      "rhs": 8.6666667,
+      "raw_excess": 0.5,
+      "normalizer": 8.6666667,
+      "ratio": 0.0576923074704142
+    },
+    {
+      "constraint": 1,
+      "lhs": 9.3333333,
+      "rhs": 8.8333334,
+      "raw_excess": 0.49999989999999883,
+      "normalizer": 8.8333334,
+      "ratio": 0.05660376183695261
+    },
+    {
+      "constraint": 1,
+      "lhs": 10.6666667,
+      "rhs": 11.1666667,
+      "raw_excess": 0.5,
+      "normalizer": 11.1666667,
+      "ratio": 0.04477611926932502
+    },
+    {
+      "constraint": 1,
+      "lhs": 11.8333333,
+      "rhs": 11.3333334,
+      "raw_excess": 0.49999989999999883,
+      "normalizer": 11.3333334,
+      "ratio": 0.044117637975778494
+    },
+    {
+      "constraint": 1,
+      "lhs": 14.2405091,
+      "rhs": 14.3333334,
+      "raw_excess": 0.09282430000000019,
+      "normalizer": 14.3333334,
+      "ratio": 0.006476113923366925
+    },
+    {
+      "constraint": 1,
+      "lhs": 14.2405091,
+      "rhs": 15.407175800000001,
+      "raw_excess": 1.1666667000000004,
+      "normalizer": 15.407175800000001,
+      "ratio": 0.07572229428316125
+    },
+    {
+      "constraint": 1,
+      "lhs": 14.2405091,
+      "rhs": 14.8143515,
+      "raw_excess": 0.5738424000000002,
+      "normalizer": 14.8143515,
+      "ratio": 0.038735573406638836
+    },
+    {
+      "constraint": 1,
+      "lhs": 0.6666667,
+      "rhs": 0.0,
+      "raw_excess": 0.6666667,
+      "normalizer": 1e-05,
+      "ratio": 66666.66999999998
+    },
+    {
+      "constraint": 1,
+      "lhs": 1.3333333,
+      "rhs": 0.6666667,
+      "raw_excess": 0.6666666000000001,
+      "normalizer": 0.6666667,
+      "ratio": 0.9999998500000078
+    },
+    {
+      "constraint": 1,
+      "lhs": 2.5,
+      "rhs": 2.0,
+      "raw_excess": 0.5,
+      "normalizer": 2.0,
+      "ratio": 0.25
+    },
+    {
+      "constraint": 1,
+      "lhs": 5.6666667,
+      "rhs": 6.1666667,
+      "raw_excess": 0.5,
+      "normalizer": 6.1666667,
+      "ratio": 0.08108108064280496
+    },
+    {
+      "constraint": 1,
+      "lhs": 6.8333333,
+      "rhs": 6.333333400000001,
+      "raw_excess": 0.49999989999999883,
+      "normalizer": 6.333333400000001,
+      "ratio": 0.078947351800554
+    },
+    {
+      "constraint": 1,
+      "lhs": 8.1666667,
+      "rhs": 8.6666667,
+      "raw_excess": 0.5,
+      "normalizer": 8.6666667,
+      "ratio": 0.0576923074704142
+    },
+    {
+      "constraint": 1,
+      "lhs": 9.3333333,
+      "rhs": 8.8333334,
+      "raw_excess": 0.49999989999999883,
+      "normalizer": 8.8333334,
+      "ratio": 0.05660376183695261
+    },
+    {
+      "constraint": 1,
+      "lhs": 10.6666667,
+      "rhs": 11.1666667,
+      "raw_excess": 0.5,
+      "normalizer": 11.1666667,
+      "ratio": 0.04477611926932502
+    },
+    {
+      "constraint": 1,
+      "lhs": 11.8333333,
+      "rhs": 11.3333334,
+      "raw_excess": 0.49999989999999883,
+      "normalizer": 11.3333334,
+      "ratio": 0.044117637975778494
+    },
+    {
+      "constraint": 1,
+      "lhs": 14.229713,
+      "rhs": 14.3333334,
+      "raw_excess": 0.1036204000000005,
+      "normalizer": 14.3333334,
+      "ratio": 0.007229330198933383
+    },
+    {
+      "constraint": 1,
+      "lhs": 14.229713,
+      "rhs": 15.3963797,
+      "raw_excess": 1.1666667000000004,
+      "normalizer": 15.3963797,
+      "ratio": 0.07577539153571279
+    },
+    {
+      "constraint": 1,
+      "lhs": 14.229713,
+      "rhs": 14.7927593,
+      "raw_excess": 0.5630462999999999,
+      "normalizer": 14.7927593,
+      "ratio": 0.03806229038013211
+    },
+    {
+      "constraint": 1,
+      "lhs": 0.6666667,
+      "rhs": 0.0,
+      "raw_excess": 0.6666667,
+      "normalizer": 1e-05,
+      "ratio": 66666.66999999998
+    },
+    {
+      "constraint": 1,
+      "lhs": 1.3333333,
+      "rhs": 0.6666667,
+      "raw_excess": 0.6666666000000001,
+      "normalizer": 0.6666667,
+      "ratio": 0.9999998500000078
+    },
+    {
+      "constraint": 1,
+      "lhs": 2.5,
+      "rhs": 2.0,
+      "raw_excess": 0.5,
+      "normalizer": 2.0,
+      "ratio": 0.25
+    },
+    {
+      "constraint": 1,
+      "lhs": 5.6666667,
+      "rhs": 6.1666667,
+      "raw_excess": 0.5,
+      "normalizer": 6.1666667,
+      "ratio": 0.08108108064280496
+    },
+    {
+      "constraint": 1,
+      "lhs": 6.8333333,
+      "rhs": 6.333333400000001,
+      "raw_excess": 0.49999989999999883,
+      "normalizer": 6.333333400000001,
+      "ratio": 0.078947351800554
+    },
+    {
+      "constraint": 1,
+      "lhs": 8.1666667,
+      "rhs": 8.6666667,
+      "raw_excess": 0.5,
+      "normalizer": 8.6666667,
+      "ratio": 0.0576923074704142
+    },
+    {
+      "constraint": 1,
+      "lhs": 9.3333333,
+      "rhs": 8.8333334,
+      "raw_excess": 0.49999989999999883,
+      "normalizer": 8.8333334,
+      "ratio": 0.05660376183695261
+    },
+    {
+      "constraint": 1,
+      "lhs": 10.6666667,
+      "rhs": 11.1666667,
+      "raw_excess": 0.5,
+      "normalizer": 11.1666667,
+      "ratio": 0.04477611926932502
+    },
+    {
+      "constraint": 1,
+      "lhs": 11.8333333,
+      "rhs": 11.3333334,
+      "raw_excess": 0.49999989999999883,
+      "normalizer": 11.3333334,
+      "ratio": 0.044117637975778494
+    },
+    {
+      "constraint": 1,
+      "lhs": 14.229713,
+      "rhs": 14.3333334,
+      "raw_excess": 0.1036204000000005,
+      "normalizer": 14.3333334,
+      "ratio": 0.007229330198933383
+    },
+    {
+      "constraint": 1,
+      "lhs": 14.229713,
+      "rhs": 15.3963797,
+      "raw_excess": 1.1666667000000004,
+      "normalizer": 15.3963797,
+      "ratio": 0.07577539153571279
+    },
+    {
+      "constraint": 1,
+      "lhs": 14.229713,
+      "rhs": 14.7927593,
+      "raw_excess": 0.5630462999999999,
+      "normalizer": 14.7927593,
+      "ratio": 0.03806229038013211
+    },
+    {
+      "constraint": 1,
+      "lhs": 0.6666667,
+      "rhs": 0.0,
+      "raw_excess": 0.6666667,
+      "normalizer": 1e-05,
+      "ratio": 66666.66999999998
+    },
+    {
+      "constraint": 1,
+      "lhs": 1.3333333,
+      "rhs": 0.6666667,
+      "raw_excess": 0.6666666000000001,
+      "normalizer": 0.6666667,
+      "ratio": 0.9999998500000078
+    },
+    {
+      "constraint": 1,
+      "lhs": 2.5,
+      "rhs": 2.0,
+      "raw_excess": 0.5,
+      "normalizer": 2.0,
+      "ratio": 0.25
+    },
+    {
+      "constraint": 1,
+      "lhs": 5.6666667,
+      "rhs": 6.1666667,
+      "raw_excess": 0.5,
+      "normalizer": 6.1666667,
+      "ratio": 0.08108108064280496
+    },
+    {
+      "constraint": 1,
+      "lhs": 6.8333333,
+      "rhs": 6.333333400000001,
+      "raw_excess": 0.49999989999999883,
+      "normalizer": 6.333333400000001,
+      "ratio": 0.078947351800554
+    },
+    {
+      "constraint": 1,
+      "lhs": 8.1666667,
+      "rhs": 8.6666667,
+      "raw_excess": 0.5,
+      "normalizer": 8.6666667,
+      "ratio": 0.0576923074704142
+    },
+    {
+      "constraint": 1,
+      "lhs": 9.3333333,
+      "rhs": 8.8333334,
+      "raw_excess": 0.49999989999999883,
+      "normalizer": 8.8333334,
+      "ratio": 0.05660376183695261
+    },
+    {
+      "constraint": 1,
+      "lhs": 10.6666667,
+      "rhs": 11.1666667,
+      "raw_excess": 0.5,
+      "normalizer": 11.1666667,
+      "ratio": 0.04477611926932502
+    },
+    {
+      "constraint": 1,
+      "lhs": 11.8333333,
+      "rhs": 11.3333334,
+      "raw_excess": 0.49999989999999883,
+      "normalizer": 11.3333334,
+      "ratio": 0.044117637975778494
+    },
+    {
+      "constraint": 1,
+      "lhs": 14.2405091,
+      "rhs": 14.3333334,
+      "raw_excess": 0.09282430000000019,
+      "normalizer": 14.3333334,
+      "ratio": 0.006476113923366925
+    },
+    {
+      "constraint": 1,
+      "lhs": 14.2405091,
+      "rhs": 15.407175800000001,
+      "raw_excess": 1.1666667000000004,
+      "normalizer": 15.407175800000001,
+      "ratio": 0.07572229428316125
+    },
+    {
+      "constraint": 1,
+      "lhs": 14.2405091,
+      "rhs": 14.8143515,
+      "raw_excess": 0.5738424000000002,
+      "normalizer": 14.8143515,
+      "ratio": 0.038735573406638836
+    },
+    {
+      "constraint": 1,
+      "lhs": 0.6666667,
+      "rhs": 0.0,
+      "raw_excess": 0.6666667,
+      "normalizer": 1e-05,
+      "ratio": 66666.66999999998
+    },
+    {
+      "constraint": 1,
+      "lhs": 1.3333333,
+      "rhs": 0.6666667,
+      "raw_excess": 0.6666666000000001,
+      "normalizer": 0.6666667,
+      "ratio": 0.9999998500000078
+    },
+    {
+      "constraint": 1,
+      "lhs": 2.5,
+      "rhs": 2.0,
+      "raw_excess": 0.5,
+      "normalizer": 2.0,
+      "ratio": 0.25
+    },
+    {
+      "constraint": 1,
+      "lhs": 5.6666667,
+      "rhs": 6.1666667,
+      "raw_excess": 0.5,
+      "normalizer": 6.1666667,
+      "ratio": 0.08108108064280496
+    },
+    {
+      "constraint": 1,
+      "lhs": 6.8333333,
+      "rhs": 6.333333400000001,
+      "raw_excess": 0.49999989999999883,
+      "normalizer": 6.333333400000001,
+      "ratio": 0.078947351800554
+    },
+    {
+      "constraint": 1,
+      "lhs": 8.1666667,
+      "rhs": 8.6666667,
+      "raw_excess": 0.5,
+      "normalizer": 8.6666667,
+      "ratio": 0.0576923074704142
+    },
+    {
+      "constraint": 1,
+      "lhs": 9.3333333,
+      "rhs": 8.8333334,
+      "raw_excess": 0.49999989999999883,
+      "normalizer": 8.8333334,
+      "ratio": 0.05660376183695261
+    },
+    {
+      "constraint": 1,
+      "lhs": 10.6666667,
+      "rhs": 11.1666667,
+      "raw_excess": 0.5,
+      "normalizer": 11.1666667,
+      "ratio": 0.04477611926932502
+    },
+    {
+      "constraint": 1,
+      "lhs": 11.8333333,
+      "rhs": 11.3333334,
+      "raw_excess": 0.49999989999999883,
+      "normalizer": 11.3333334,
+      "ratio": 0.044117637975778494
+    },
+    {
+      "constraint": 1,
+      "lhs": 14.229713,
+      "rhs": 14.3333334,
+      "raw_excess": 0.1036204000000005,
+      "normalizer": 14.3333334,
+      "ratio": 0.007229330198933383
+    },
+    {
+      "constraint": 1,
+      "lhs": 14.229713,
+      "rhs": 15.3963797,
+      "raw_excess": 1.1666667000000004,
+      "normalizer": 15.3963797,
+      "ratio": 0.07577539153571279
+    },
+    {
+      "constraint": 1,
+      "lhs": 14.229713,
+      "rhs": 14.7927593,
+      "raw_excess": 0.5630462999999999,
+      "normalizer": 14.7927593,
+      "ratio": 0.03806229038013211
+    },
+    {
+      "constraint": 1,
+      "lhs": 0.6666667,
+      "rhs": 0.0,
+      "raw_excess": 0.6666667,
+      "normalizer": 1e-05,
+      "ratio": 66666.66999999998
+    },
+    {
+      "constraint": 1,
+      "lhs": 1.3333333,
+      "rhs": 0.6666667,
+      "raw_excess": 0.6666666000000001,
+      "normalizer": 0.6666667,
+      "ratio": 0.9999998500000078
+    },
+    {
+      "constraint": 1,
+      "lhs": 2.5,
+      "rhs": 2.0,
+      "raw_excess": 0.5,
+      "normalizer": 2.0,
+      "ratio": 0.25
+    },
+    {
+      "constraint": 1,
+      "lhs": 5.6666667,
+      "rhs": 6.1666667,
+      "raw_excess": 0.5,
+      "normalizer": 6.1666667,
+      "ratio": 0.08108108064280496
+    },
+    {
+      "constraint": 1,
+      "lhs": 6.8333333,
+      "rhs": 6.333333400000001,
+      "raw_excess": 0.49999989999999883,
+      "normalizer": 6.333333400000001,
+      "ratio": 0.078947351800554
+    },
+    {
+      "constraint": 1,
+      "lhs": 8.1666667,
+      "rhs": 8.6666667,
+      "raw_excess": 0.5,
+      "normalizer": 8.6666667,
+      "ratio": 0.0576923074704142
+    },
+    {
+      "constraint": 1,
+      "lhs": 9.3333333,
+      "rhs": 8.8333334,
+      "raw_excess": 0.49999989999999883,
+      "normalizer": 8.8333334,
+      "ratio": 0.05660376183695261
+    },
+    {
+      "constraint": 1,
+      "lhs": 10.6666667,
+      "rhs": 11.1666667,
+      "raw_excess": 0.5,
+      "normalizer": 11.1666667,
+      "ratio": 0.04477611926932502
+    },
+    {
+      "constraint": 1,
+      "lhs": 11.8333333,
+      "rhs": 11.3333334,
+      "raw_excess": 0.49999989999999883,
+      "normalizer": 11.3333334,
+      "ratio": 0.044117637975778494
+    },
+    {
+      "constraint": 1,
+      "lhs": 14.2405091,
+      "rhs": 14.3333334,
+      "raw_excess": 0.09282430000000019,
+      "normalizer": 14.3333334,
+      "ratio": 0.006476113923366925
+    },
+    {
+      "constraint": 1,
+      "lhs": 14.2405091,
+      "rhs": 15.407175800000001,
+      "raw_excess": 1.1666667000000004,
+      "normalizer": 15.407175800000001,
+      "ratio": 0.07572229428316125
+    },
+    {
+      "constraint": 1,
+      "lhs": 14.2405091,
+      "rhs": 14.8143515,
+      "raw_excess": 0.5738424000000002,
+      "normalizer": 14.8143515,
+      "ratio": 0.038735573406638836
+    },
+    {
+      "constraint": 1,
+      "lhs": 5.0,
+      "rhs": 0.0,
+      "raw_excess": 5.0,
+      "normalizer": 1e-05,
+      "ratio": 499999.99999999994
+    },
+    {
+      "constraint": 1,
+      "lhs": 11.6666667,
+      "rhs": 5.0,
+      "raw_excess": 6.6666667,
+      "normalizer": 5.0,
+      "ratio": 1.33333334
+    },
+    {
+      "constraint": 1,
+      "lhs": 18.3333333,
+      "rhs": 16.6666667,
+      "raw_excess": 1.6666665999999992,
+      "normalizer": 16.6666667,
+      "ratio": 0.09999999579999996
+    },
+    {
+      "constraint": 1,
+      "lhs": 131.540574,
+      "rhs": 131.6666667,
+      "raw_excess": 0.12609270000001516,
+      "normalizer": 131.6666667,
+      "ratio": 0.0009576660757070351
+    },
+    {
+      "constraint": 1,
+      "lhs": 131.540574,
+      "rhs": 138.2072407,
+      "raw_excess": 6.6666667000000075,
+      "normalizer": 138.2072407,
+      "ratio": 0.04823673974123418
+    },
+    {
+      "constraint": 1,
+      "lhs": 131.540574,
+      "rhs": 138.08114799999998,
+      "raw_excess": 6.540573999999992,
+      "normalizer": 138.08114799999998,
+      "ratio": 0.04736761024032037
+    },
+    {
+      "constraint": 1,
+      "lhs": 5.0,
+      "rhs": 0.0,
+      "raw_excess": 5.0,
+      "normalizer": 1e-05,
+      "ratio": 499999.99999999994
+    },
+    {
+      "constraint": 1,
+      "lhs": 11.6666667,
+      "rhs": 5.0,
+      "raw_excess": 6.6666667,
+      "normalizer": 5.0,
+      "ratio": 1.33333334
+    },
+    {
+      "constraint": 1,
+      "lhs": 18.3333333,
+      "rhs": 16.6666667,
+      "raw_excess": 1.6666665999999992,
+      "normalizer": 16.6666667,
+      "ratio": 0.09999999579999996
+    },
+    {
+      "constraint": 1,
+      "lhs": 131.5189819,
+      "rhs": 131.6666667,
+      "raw_excess": 0.1476848000000075,
+      "normalizer": 131.6666667,
+      "ratio": 0.0011216567085768527
+    },
+    {
+      "constraint": 1,
+      "lhs": 131.5189819,
+      "rhs": 138.1856486,
+      "raw_excess": 6.6666667000000075,
+      "normalizer": 138.1856486,
+      "ratio": 0.04824427693861117
+    },
+    {
+      "constraint": 1,
+      "lhs": 131.5189819,
+      "rhs": 138.0379638,
+      "raw_excess": 6.5189819,
+      "normalizer": 138.0379638,
+      "ratio": 0.047226007400726376
+    },
+    {
+      "constraint": 1,
+      "lhs": 0.6666667,
+      "rhs": 0.0,
+      "raw_excess": 0.6666667,
+      "normalizer": 1e-05,
+      "ratio": 66666.66999999998
+    },
+    {
+      "constraint": 1,
+      "lhs": 1.3333333,
+      "rhs": 0.6666667,
+      "raw_excess": 0.6666666000000001,
+      "normalizer": 0.6666667,
+      "ratio": 0.9999998500000078
+    },
+    {
+      "constraint": 1,
+      "lhs": 2.5,
+      "rhs": 2.0,
+      "raw_excess": 0.5,
+      "normalizer": 2.0,
+      "ratio": 0.25
+    },
+    {
+      "constraint": 1,
+      "lhs": 5.6666667,
+      "rhs": 6.1666667,
+      "raw_excess": 0.5,
+      "normalizer": 6.1666667,
+      "ratio": 0.08108108064280496
+    },
+    {
+      "constraint": 1,
+      "lhs": 6.8333333,
+      "rhs": 6.333333400000001,
+      "raw_excess": 0.49999989999999883,
+      "normalizer": 6.333333400000001,
+      "ratio": 0.078947351800554
+    },
+    {
+      "constraint": 1,
+      "lhs": 8.1666667,
+      "rhs": 8.6666667,
+      "raw_excess": 0.5,
+      "normalizer": 8.6666667,
+      "ratio": 0.0576923074704142
+    },
+    {
+      "constraint": 1,
+      "lhs": 9.3333333,
+      "rhs": 8.8333334,
+      "raw_excess": 0.49999989999999883,
+      "normalizer": 8.8333334,
+      "ratio": 0.05660376183695261
+    },
+    {
+      "constraint": 1,
+      "lhs": 10.6666667,
+      "rhs": 11.1666667,
+      "raw_excess": 0.5,
+      "normalizer": 11.1666667,
+      "ratio": 0.04477611926932502
+    },
+    {
+      "constraint": 1,
+      "lhs": 11.8333333,
+      "rhs": 11.3333334,
+      "raw_excess": 0.49999989999999883,
+      "normalizer": 11.3333334,
+      "ratio": 0.044117637975778494
+    },
+    {
+      "constraint": 1,
+      "lhs": 14.2405091,
+      "rhs": 14.3333334,
+      "raw_excess": 0.09282430000000019,
+      "normalizer": 14.3333334,
+      "ratio": 0.006476113923366925
+    },
+    {
+      "constraint": 1,
+      "lhs": 14.2405091,
+      "rhs": 15.407175800000001,
+      "raw_excess": 1.1666667000000004,
+      "normalizer": 15.407175800000001,
+      "ratio": 0.07572229428316125
+    },
+    {
+      "constraint": 1,
+      "lhs": 14.2405091,
+      "rhs": 14.8143515,
+      "raw_excess": 0.5738424000000002,
+      "normalizer": 14.8143515,
+      "ratio": 0.038735573406638836
+    },
+    {
+      "constraint": 1,
+      "lhs": 0.6666667,
+      "rhs": 0.0,
+      "raw_excess": 0.6666667,
+      "normalizer": 1e-05,
+      "ratio": 66666.66999999998
+    },
+    {
+      "constraint": 1,
+      "lhs": 1.3333333,
+      "rhs": 0.6666667,
+      "raw_excess": 0.6666666000000001,
+      "normalizer": 0.6666667,
+      "ratio": 0.9999998500000078
+    },
+    {
+      "constraint": 1,
+      "lhs": 2.5,
+      "rhs": 2.0,
+      "raw_excess": 0.5,
+      "normalizer": 2.0,
+      "ratio": 0.25
+    },
+    {
+      "constraint": 1,
+      "lhs": 5.6666667,
+      "rhs": 6.1666667,
+      "raw_excess": 0.5,
+      "normalizer": 6.1666667,
+      "ratio": 0.08108108064280496
+    },
+    {
+      "constraint": 1,
+      "lhs": 6.8333333,
+      "rhs": 6.333333400000001,
+      "raw_excess": 0.49999989999999883,
+      "normalizer": 6.333333400000001,
+      "ratio": 0.078947351800554
+    },
+    {
+      "constraint": 1,
+      "lhs": 8.1666667,
+      "rhs": 8.6666667,
+      "raw_excess": 0.5,
+      "normalizer": 8.6666667,
+      "ratio": 0.0576923074704142
+    },
+    {
+      "constraint": 1,
+      "lhs": 9.3333333,
+      "rhs": 8.8333334,
+      "raw_excess": 0.49999989999999883,
+      "normalizer": 8.8333334,
+      "ratio": 0.05660376183695261
+    },
+    {
+      "constraint": 1,
+      "lhs": 10.6666667,
+      "rhs": 11.1666667,
+      "raw_excess": 0.5,
+      "normalizer": 11.1666667,
+      "ratio": 0.04477611926932502
+    },
+    {
+      "constraint": 1,
+      "lhs": 11.8333333,
+      "rhs": 11.3333334,
+      "raw_excess": 0.49999989999999883,
+      "normalizer": 11.3333334,
+      "ratio": 0.044117637975778494
+    },
+    {
+      "constraint": 1,
+      "lhs": 14.229713,
+      "rhs": 14.3333334,
+      "raw_excess": 0.1036204000000005,
+      "normalizer": 14.3333334,
+      "ratio": 0.007229330198933383
+    },
+    {
+      "constraint": 1,
+      "lhs": 14.229713,
+      "rhs": 15.3963797,
+      "raw_excess": 1.1666667000000004,
+      "normalizer": 15.3963797,
+      "ratio": 0.07577539153571279
+    },
+    {
+      "constraint": 1,
+      "lhs": 14.229713,
+      "rhs": 14.7927593,
+      "raw_excess": 0.5630462999999999,
+      "normalizer": 14.7927593,
+      "ratio": 0.03806229038013211
+    },
+    {
+      "constraint": 2,
+      "lhs": 0.0,
+      "rhs": 0.6666667,
+      "raw_excess": 0.6666667,
+      "normalizer": 0.6666667,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 2,
+      "lhs": 0.0,
+      "rhs": 0.6666667,
+      "raw_excess": 0.6666667,
+      "normalizer": 0.6666667,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 2,
+      "lhs": 0.6666667,
+      "rhs": 1.1666667,
+      "raw_excess": 0.5,
+      "normalizer": 1.1666667,
+      "ratio": 0.428571416326531
+    },
+    {
+      "constraint": 2,
+      "lhs": 4.3333333,
+      "rhs": 3.8333334,
+      "raw_excess": 0.4999998999999997,
+      "normalizer": 3.8333334,
+      "ratio": 0.13043475425330855
+    },
+    {
+      "constraint": 2,
+      "lhs": 5.0,
+      "rhs": 5.5,
+      "raw_excess": 0.5,
+      "normalizer": 5.5,
+      "ratio": 0.09090909090909091
+    },
+    {
+      "constraint": 2,
+      "lhs": 6.8333333,
+      "rhs": 6.333333400000001,
+      "raw_excess": 0.49999989999999883,
+      "normalizer": 6.333333400000001,
+      "ratio": 0.078947351800554
+    },
+    {
+      "constraint": 2,
+      "lhs": 7.5,
+      "rhs": 8.0,
+      "raw_excess": 0.5,
+      "normalizer": 8.0,
+      "ratio": 0.0625
+    },
+    {
+      "constraint": 2,
+      "lhs": 9.3333333,
+      "rhs": 8.8333334,
+      "raw_excess": 0.49999989999999883,
+      "normalizer": 8.8333334,
+      "ratio": 0.05660376183695261
+    },
+    {
+      "constraint": 2,
+      "lhs": 10.0,
+      "rhs": 10.5,
+      "raw_excess": 0.5,
+      "normalizer": 10.5,
+      "ratio": 0.047619047619047616
+    },
+    {
+      "constraint": 2,
+      "lhs": 12.5,
+      "rhs": 12.4071757,
+      "raw_excess": 0.09282430000000019,
+      "normalizer": 12.4071757,
+      "ratio": 0.007481501209014086
+    },
+    {
+      "constraint": 2,
+      "lhs": 13.6666667,
+      "rhs": 12.5,
+      "raw_excess": 1.1666667000000004,
+      "normalizer": 12.5,
+      "ratio": 0.09333333600000003
+    },
+    {
+      "constraint": 2,
+      "lhs": 14.2405091,
+      "rhs": 13.6666667,
+      "raw_excess": 0.5738424000000002,
+      "normalizer": 13.6666667,
+      "ratio": 0.04198846819027204
+    },
+    {
+      "constraint": 2,
+      "lhs": 0.0,
+      "rhs": 0.6666667,
+      "raw_excess": 0.6666667,
+      "normalizer": 0.6666667,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 2,
+      "lhs": 0.0,
+      "rhs": 0.6666667,
+      "raw_excess": 0.6666667,
+      "normalizer": 0.6666667,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 2,
+      "lhs": 0.6666667,
+      "rhs": 1.1666667,
+      "raw_excess": 0.5,
+      "normalizer": 1.1666667,
+      "ratio": 0.428571416326531
+    },
+    {
+      "constraint": 2,
+      "lhs": 4.3333333,
+      "rhs": 3.8333334,
+      "raw_excess": 0.4999998999999997,
+      "normalizer": 3.8333334,
+      "ratio": 0.13043475425330855
+    },
+    {
+      "constraint": 2,
+      "lhs": 5.0,
+      "rhs": 5.5,
+      "raw_excess": 0.5,
+      "normalizer": 5.5,
+      "ratio": 0.09090909090909091
+    },
+    {
+      "constraint": 2,
+      "lhs": 6.8333333,
+      "rhs": 6.333333400000001,
+      "raw_excess": 0.49999989999999883,
+      "normalizer": 6.333333400000001,
+      "ratio": 0.078947351800554
+    },
+    {
+      "constraint": 2,
+      "lhs": 7.5,
+      "rhs": 8.0,
+      "raw_excess": 0.5,
+      "normalizer": 8.0,
+      "ratio": 0.0625
+    },
+    {
+      "constraint": 2,
+      "lhs": 9.3333333,
+      "rhs": 8.8333334,
+      "raw_excess": 0.49999989999999883,
+      "normalizer": 8.8333334,
+      "ratio": 0.05660376183695261
+    },
+    {
+      "constraint": 2,
+      "lhs": 10.0,
+      "rhs": 10.5,
+      "raw_excess": 0.5,
+      "normalizer": 10.5,
+      "ratio": 0.047619047619047616
+    },
+    {
+      "constraint": 2,
+      "lhs": 12.5,
+      "rhs": 12.3963796,
+      "raw_excess": 0.1036204000000005,
+      "normalizer": 12.3963796,
+      "ratio": 0.008358924407251977
+    },
+    {
+      "constraint": 2,
+      "lhs": 13.6666667,
+      "rhs": 12.5,
+      "raw_excess": 1.1666667000000004,
+      "normalizer": 12.5,
+      "ratio": 0.09333333600000003
+    },
+    {
+      "constraint": 2,
+      "lhs": 14.229713,
+      "rhs": 13.6666667,
+      "raw_excess": 0.5630462999999999,
+      "normalizer": 13.6666667,
+      "ratio": 0.041198509655613384
+    },
+    {
+      "constraint": 2,
+      "lhs": 0.0,
+      "rhs": 0.6666667,
+      "raw_excess": 0.6666667,
+      "normalizer": 0.6666667,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 2,
+      "lhs": 0.0,
+      "rhs": 0.6666667,
+      "raw_excess": 0.6666667,
+      "normalizer": 0.6666667,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 2,
+      "lhs": 0.6666667,
+      "rhs": 1.1666667,
+      "raw_excess": 0.5,
+      "normalizer": 1.1666667,
+      "ratio": 0.428571416326531
+    },
+    {
+      "constraint": 2,
+      "lhs": 4.3333333,
+      "rhs": 3.8333334,
+      "raw_excess": 0.4999998999999997,
+      "normalizer": 3.8333334,
+      "ratio": 0.13043475425330855
+    },
+    {
+      "constraint": 2,
+      "lhs": 5.0,
+      "rhs": 5.5,
+      "raw_excess": 0.5,
+      "normalizer": 5.5,
+      "ratio": 0.09090909090909091
+    },
+    {
+      "constraint": 2,
+      "lhs": 6.8333333,
+      "rhs": 6.333333400000001,
+      "raw_excess": 0.49999989999999883,
+      "normalizer": 6.333333400000001,
+      "ratio": 0.078947351800554
+    },
+    {
+      "constraint": 2,
+      "lhs": 7.5,
+      "rhs": 8.0,
+      "raw_excess": 0.5,
+      "normalizer": 8.0,
+      "ratio": 0.0625
+    },
+    {
+      "constraint": 2,
+      "lhs": 9.3333333,
+      "rhs": 8.8333334,
+      "raw_excess": 0.49999989999999883,
+      "normalizer": 8.8333334,
+      "ratio": 0.05660376183695261
+    },
+    {
+      "constraint": 2,
+      "lhs": 10.0,
+      "rhs": 10.5,
+      "raw_excess": 0.5,
+      "normalizer": 10.5,
+      "ratio": 0.047619047619047616
+    },
+    {
+      "constraint": 2,
+      "lhs": 12.5,
+      "rhs": 12.3963796,
+      "raw_excess": 0.1036204000000005,
+      "normalizer": 12.3963796,
+      "ratio": 0.008358924407251977
+    },
+    {
+      "constraint": 2,
+      "lhs": 13.6666667,
+      "rhs": 12.5,
+      "raw_excess": 1.1666667000000004,
+      "normalizer": 12.5,
+      "ratio": 0.09333333600000003
+    },
+    {
+      "constraint": 2,
+      "lhs": 14.229713,
+      "rhs": 13.6666667,
+      "raw_excess": 0.5630462999999999,
+      "normalizer": 13.6666667,
+      "ratio": 0.041198509655613384
+    },
+    {
+      "constraint": 2,
+      "lhs": 0.0,
+      "rhs": 0.6666667,
+      "raw_excess": 0.6666667,
+      "normalizer": 0.6666667,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 2,
+      "lhs": 0.0,
+      "rhs": 0.6666667,
+      "raw_excess": 0.6666667,
+      "normalizer": 0.6666667,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 2,
+      "lhs": 0.6666667,
+      "rhs": 1.1666667,
+      "raw_excess": 0.5,
+      "normalizer": 1.1666667,
+      "ratio": 0.428571416326531
+    },
+    {
+      "constraint": 2,
+      "lhs": 4.3333333,
+      "rhs": 3.8333334,
+      "raw_excess": 0.4999998999999997,
+      "normalizer": 3.8333334,
+      "ratio": 0.13043475425330855
+    },
+    {
+      "constraint": 2,
+      "lhs": 5.0,
+      "rhs": 5.5,
+      "raw_excess": 0.5,
+      "normalizer": 5.5,
+      "ratio": 0.09090909090909091
+    },
+    {
+      "constraint": 2,
+      "lhs": 6.8333333,
+      "rhs": 6.333333400000001,
+      "raw_excess": 0.49999989999999883,
+      "normalizer": 6.333333400000001,
+      "ratio": 0.078947351800554
+    },
+    {
+      "constraint": 2,
+      "lhs": 7.5,
+      "rhs": 8.0,
+      "raw_excess": 0.5,
+      "normalizer": 8.0,
+      "ratio": 0.0625
+    },
+    {
+      "constraint": 2,
+      "lhs": 9.3333333,
+      "rhs": 8.8333334,
+      "raw_excess": 0.49999989999999883,
+      "normalizer": 8.8333334,
+      "ratio": 0.05660376183695261
+    },
+    {
+      "constraint": 2,
+      "lhs": 10.0,
+      "rhs": 10.5,
+      "raw_excess": 0.5,
+      "normalizer": 10.5,
+      "ratio": 0.047619047619047616
+    },
+    {
+      "constraint": 2,
+      "lhs": 12.5,
+      "rhs": 12.4071757,
+      "raw_excess": 0.09282430000000019,
+      "normalizer": 12.4071757,
+      "ratio": 0.007481501209014086
+    },
+    {
+      "constraint": 2,
+      "lhs": 13.6666667,
+      "rhs": 12.5,
+      "raw_excess": 1.1666667000000004,
+      "normalizer": 12.5,
+      "ratio": 0.09333333600000003
+    },
+    {
+      "constraint": 2,
+      "lhs": 14.2405091,
+      "rhs": 13.6666667,
+      "raw_excess": 0.5738424000000002,
+      "normalizer": 13.6666667,
+      "ratio": 0.04198846819027204
+    },
+    {
+      "constraint": 2,
+      "lhs": 0.0,
+      "rhs": 0.6666667,
+      "raw_excess": 0.6666667,
+      "normalizer": 0.6666667,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 2,
+      "lhs": 0.0,
+      "rhs": 0.6666667,
+      "raw_excess": 0.6666667,
+      "normalizer": 0.6666667,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 2,
+      "lhs": 0.6666667,
+      "rhs": 1.1666667,
+      "raw_excess": 0.5,
+      "normalizer": 1.1666667,
+      "ratio": 0.428571416326531
+    },
+    {
+      "constraint": 2,
+      "lhs": 4.3333333,
+      "rhs": 3.8333334,
+      "raw_excess": 0.4999998999999997,
+      "normalizer": 3.8333334,
+      "ratio": 0.13043475425330855
+    },
+    {
+      "constraint": 2,
+      "lhs": 5.0,
+      "rhs": 5.5,
+      "raw_excess": 0.5,
+      "normalizer": 5.5,
+      "ratio": 0.09090909090909091
+    },
+    {
+      "constraint": 2,
+      "lhs": 6.8333333,
+      "rhs": 6.333333400000001,
+      "raw_excess": 0.49999989999999883,
+      "normalizer": 6.333333400000001,
+      "ratio": 0.078947351800554
+    },
+    {
+      "constraint": 2,
+      "lhs": 7.5,
+      "rhs": 8.0,
+      "raw_excess": 0.5,
+      "normalizer": 8.0,
+      "ratio": 0.0625
+    },
+    {
+      "constraint": 2,
+      "lhs": 9.3333333,
+      "rhs": 8.8333334,
+      "raw_excess": 0.49999989999999883,
+      "normalizer": 8.8333334,
+      "ratio": 0.05660376183695261
+    },
+    {
+      "constraint": 2,
+      "lhs": 10.0,
+      "rhs": 10.5,
+      "raw_excess": 0.5,
+      "normalizer": 10.5,
+      "ratio": 0.047619047619047616
+    },
+    {
+      "constraint": 2,
+      "lhs": 12.5,
+      "rhs": 12.3963796,
+      "raw_excess": 0.1036204000000005,
+      "normalizer": 12.3963796,
+      "ratio": 0.008358924407251977
+    },
+    {
+      "constraint": 2,
+      "lhs": 13.6666667,
+      "rhs": 12.5,
+      "raw_excess": 1.1666667000000004,
+      "normalizer": 12.5,
+      "ratio": 0.09333333600000003
+    },
+    {
+      "constraint": 2,
+      "lhs": 14.229713,
+      "rhs": 13.6666667,
+      "raw_excess": 0.5630462999999999,
+      "normalizer": 13.6666667,
+      "ratio": 0.041198509655613384
+    },
+    {
+      "constraint": 2,
+      "lhs": 0.0,
+      "rhs": 0.6666667,
+      "raw_excess": 0.6666667,
+      "normalizer": 0.6666667,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 2,
+      "lhs": 0.0,
+      "rhs": 0.6666667,
+      "raw_excess": 0.6666667,
+      "normalizer": 0.6666667,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 2,
+      "lhs": 0.6666667,
+      "rhs": 1.1666667,
+      "raw_excess": 0.5,
+      "normalizer": 1.1666667,
+      "ratio": 0.428571416326531
+    },
+    {
+      "constraint": 2,
+      "lhs": 4.3333333,
+      "rhs": 3.8333334,
+      "raw_excess": 0.4999998999999997,
+      "normalizer": 3.8333334,
+      "ratio": 0.13043475425330855
+    },
+    {
+      "constraint": 2,
+      "lhs": 5.0,
+      "rhs": 5.5,
+      "raw_excess": 0.5,
+      "normalizer": 5.5,
+      "ratio": 0.09090909090909091
+    },
+    {
+      "constraint": 2,
+      "lhs": 6.8333333,
+      "rhs": 6.333333400000001,
+      "raw_excess": 0.49999989999999883,
+      "normalizer": 6.333333400000001,
+      "ratio": 0.078947351800554
+    },
+    {
+      "constraint": 2,
+      "lhs": 7.5,
+      "rhs": 8.0,
+      "raw_excess": 0.5,
+      "normalizer": 8.0,
+      "ratio": 0.0625
+    },
+    {
+      "constraint": 2,
+      "lhs": 9.3333333,
+      "rhs": 8.8333334,
+      "raw_excess": 0.49999989999999883,
+      "normalizer": 8.8333334,
+      "ratio": 0.05660376183695261
+    },
+    {
+      "constraint": 2,
+      "lhs": 10.0,
+      "rhs": 10.5,
+      "raw_excess": 0.5,
+      "normalizer": 10.5,
+      "ratio": 0.047619047619047616
+    },
+    {
+      "constraint": 2,
+      "lhs": 12.5,
+      "rhs": 12.4071757,
+      "raw_excess": 0.09282430000000019,
+      "normalizer": 12.4071757,
+      "ratio": 0.007481501209014086
+    },
+    {
+      "constraint": 2,
+      "lhs": 13.6666667,
+      "rhs": 12.5,
+      "raw_excess": 1.1666667000000004,
+      "normalizer": 12.5,
+      "ratio": 0.09333333600000003
+    },
+    {
+      "constraint": 2,
+      "lhs": 14.2405091,
+      "rhs": 13.6666667,
+      "raw_excess": 0.5738424000000002,
+      "normalizer": 13.6666667,
+      "ratio": 0.04198846819027204
+    },
+    {
+      "constraint": 2,
+      "lhs": 0.0,
+      "rhs": 5.0,
+      "raw_excess": 5.0,
+      "normalizer": 5.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 2,
+      "lhs": 0.0,
+      "rhs": 6.6666667,
+      "raw_excess": 6.6666667,
+      "normalizer": 6.6666667,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 2,
+      "lhs": 5.0,
+      "rhs": 6.6666667,
+      "raw_excess": 1.6666667000000004,
+      "normalizer": 6.6666667,
+      "ratio": 0.25000000375000003
+    },
+    {
+      "constraint": 2,
+      "lhs": 118.3333333,
+      "rhs": 118.2072407,
+      "raw_excess": 0.12609260000000688,
+      "normalizer": 118.2072407,
+      "ratio": 0.0010667079212179503
+    },
+    {
+      "constraint": 2,
+      "lhs": 125.0,
+      "rhs": 118.3333333,
+      "raw_excess": 6.666666699999993,
+      "normalizer": 118.3333333,
+      "ratio": 0.056338028466574035
+    },
+    {
+      "constraint": 2,
+      "lhs": 131.540574,
+      "rhs": 125.0,
+      "raw_excess": 6.540573999999992,
+      "normalizer": 125.0,
+      "ratio": 0.05232459199999994
+    },
+    {
+      "constraint": 2,
+      "lhs": 0.0,
+      "rhs": 5.0,
+      "raw_excess": 5.0,
+      "normalizer": 5.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 2,
+      "lhs": 0.0,
+      "rhs": 6.6666667,
+      "raw_excess": 6.6666667,
+      "normalizer": 6.6666667,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 2,
+      "lhs": 5.0,
+      "rhs": 6.6666667,
+      "raw_excess": 1.6666667000000004,
+      "normalizer": 6.6666667,
+      "ratio": 0.25000000375000003
+    },
+    {
+      "constraint": 2,
+      "lhs": 118.3333333,
+      "rhs": 118.1856486,
+      "raw_excess": 0.14768470000001344,
+      "normalizer": 118.1856486,
+      "ratio": 0.001249599268180633
+    },
+    {
+      "constraint": 2,
+      "lhs": 125.0,
+      "rhs": 118.3333333,
+      "raw_excess": 6.666666699999993,
+      "normalizer": 118.3333333,
+      "ratio": 0.056338028466574035
+    },
+    {
+      "constraint": 2,
+      "lhs": 131.5189819,
+      "rhs": 125.0,
+      "raw_excess": 6.5189819,
+      "normalizer": 125.0,
+      "ratio": 0.0521518552
+    },
+    {
+      "constraint": 2,
+      "lhs": 0.0,
+      "rhs": 0.6666667,
+      "raw_excess": 0.6666667,
+      "normalizer": 0.6666667,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 2,
+      "lhs": 0.0,
+      "rhs": 0.6666667,
+      "raw_excess": 0.6666667,
+      "normalizer": 0.6666667,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 2,
+      "lhs": 0.6666667,
+      "rhs": 1.1666667,
+      "raw_excess": 0.5,
+      "normalizer": 1.1666667,
+      "ratio": 0.428571416326531
+    },
+    {
+      "constraint": 2,
+      "lhs": 4.3333333,
+      "rhs": 3.8333334,
+      "raw_excess": 0.4999998999999997,
+      "normalizer": 3.8333334,
+      "ratio": 0.13043475425330855
+    },
+    {
+      "constraint": 2,
+      "lhs": 5.0,
+      "rhs": 5.5,
+      "raw_excess": 0.5,
+      "normalizer": 5.5,
+      "ratio": 0.09090909090909091
+    },
+    {
+      "constraint": 2,
+      "lhs": 6.8333333,
+      "rhs": 6.333333400000001,
+      "raw_excess": 0.49999989999999883,
+      "normalizer": 6.333333400000001,
+      "ratio": 0.078947351800554
+    },
+    {
+      "constraint": 2,
+      "lhs": 7.5,
+      "rhs": 8.0,
+      "raw_excess": 0.5,
+      "normalizer": 8.0,
+      "ratio": 0.0625
+    },
+    {
+      "constraint": 2,
+      "lhs": 9.3333333,
+      "rhs": 8.8333334,
+      "raw_excess": 0.49999989999999883,
+      "normalizer": 8.8333334,
+      "ratio": 0.05660376183695261
+    },
+    {
+      "constraint": 2,
+      "lhs": 10.0,
+      "rhs": 10.5,
+      "raw_excess": 0.5,
+      "normalizer": 10.5,
+      "ratio": 0.047619047619047616
+    },
+    {
+      "constraint": 2,
+      "lhs": 12.5,
+      "rhs": 12.4071757,
+      "raw_excess": 0.09282430000000019,
+      "normalizer": 12.4071757,
+      "ratio": 0.007481501209014086
+    },
+    {
+      "constraint": 2,
+      "lhs": 13.6666667,
+      "rhs": 12.5,
+      "raw_excess": 1.1666667000000004,
+      "normalizer": 12.5,
+      "ratio": 0.09333333600000003
+    },
+    {
+      "constraint": 2,
+      "lhs": 14.2405091,
+      "rhs": 13.6666667,
+      "raw_excess": 0.5738424000000002,
+      "normalizer": 13.6666667,
+      "ratio": 0.04198846819027204
+    },
+    {
+      "constraint": 2,
+      "lhs": 0.0,
+      "rhs": 0.6666667,
+      "raw_excess": 0.6666667,
+      "normalizer": 0.6666667,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 2,
+      "lhs": 0.0,
+      "rhs": 0.6666667,
+      "raw_excess": 0.6666667,
+      "normalizer": 0.6666667,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 2,
+      "lhs": 0.6666667,
+      "rhs": 1.1666667,
+      "raw_excess": 0.5,
+      "normalizer": 1.1666667,
+      "ratio": 0.428571416326531
+    },
+    {
+      "constraint": 2,
+      "lhs": 4.3333333,
+      "rhs": 3.8333334,
+      "raw_excess": 0.4999998999999997,
+      "normalizer": 3.8333334,
+      "ratio": 0.13043475425330855
+    },
+    {
+      "constraint": 2,
+      "lhs": 5.0,
+      "rhs": 5.5,
+      "raw_excess": 0.5,
+      "normalizer": 5.5,
+      "ratio": 0.09090909090909091
+    },
+    {
+      "constraint": 2,
+      "lhs": 6.8333333,
+      "rhs": 6.333333400000001,
+      "raw_excess": 0.49999989999999883,
+      "normalizer": 6.333333400000001,
+      "ratio": 0.078947351800554
+    },
+    {
+      "constraint": 2,
+      "lhs": 7.5,
+      "rhs": 8.0,
+      "raw_excess": 0.5,
+      "normalizer": 8.0,
+      "ratio": 0.0625
+    },
+    {
+      "constraint": 2,
+      "lhs": 9.3333333,
+      "rhs": 8.8333334,
+      "raw_excess": 0.49999989999999883,
+      "normalizer": 8.8333334,
+      "ratio": 0.05660376183695261
+    },
+    {
+      "constraint": 2,
+      "lhs": 10.0,
+      "rhs": 10.5,
+      "raw_excess": 0.5,
+      "normalizer": 10.5,
+      "ratio": 0.047619047619047616
+    },
+    {
+      "constraint": 2,
+      "lhs": 12.5,
+      "rhs": 12.3963796,
+      "raw_excess": 0.1036204000000005,
+      "normalizer": 12.3963796,
+      "ratio": 0.008358924407251977
+    },
+    {
+      "constraint": 2,
+      "lhs": 13.6666667,
+      "rhs": 12.5,
+      "raw_excess": 1.1666667000000004,
+      "normalizer": 12.5,
+      "ratio": 0.09333333600000003
+    },
+    {
+      "constraint": 2,
+      "lhs": 14.229713,
+      "rhs": 13.6666667,
+      "raw_excess": 0.5630462999999999,
+      "normalizer": 13.6666667,
+      "ratio": 0.041198509655613384
+    }
+  ]
+}

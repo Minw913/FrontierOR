@@ -1,0 +1,19 @@
+{
+  "feasible": false,
+  "violated_constraints": [
+    3
+  ],
+  "violations": [
+    "Setup forcing violated for product 10 in period 7: x=0.00017391044769965447, UB*y=0, excess=0.00017391044769965447"
+  ],
+  "violation_magnitudes": [
+    {
+      "constraint": 3,
+      "lhs": 0.00017391044769965447,
+      "rhs": 0,
+      "raw_excess": 0.00017391044769965447,
+      "normalizer": 1e-05,
+      "ratio": 17.391044769965447
+    }
+  ]
+}

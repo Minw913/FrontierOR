@@ -1,0 +1,1 @@
+{"time": 0.046, "objective_value": 5.0, "solution": {"objective_value": 5.0, "primary_problem_type": "PSCLP", "results": {"PSCLP": {"objective_value": 5.0, "open_facilities": [11, 27, 71, 74, 83], "covered_demand": 273018.0}, "MCLP": {"objective_value": 433544.0, "open_facilities": [11, 18, 24, 25, 27, 52, 69, 71, 74, 83], "covered_demand": 433544.0}}}}

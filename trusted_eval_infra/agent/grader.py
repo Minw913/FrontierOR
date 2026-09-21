@@ -32,6 +32,33 @@ if ROOT_DIR not in sys.path:
     sys.path.insert(0, ROOT_DIR)
 
 
+def public_stage1_feedback(metrics):
+    messages = {
+        "failure_infeasible": "The solution violates one or more constraints; check the public description and schema.",
+        "failure_gap_exceeds": "The solution is feasible but misses the objective-quality threshold.",
+        "failure_runtime_crash": "The candidate program crashed before evaluation completed.",
+        "failure_runtime_timeout": "The candidate exceeded the tiny execution deadline.",
+        "failure_malformed": "The output could not be evaluated; check the JSON format and public solution schema.",
+        "runtime_logger_interface": "The runtime logger lacks log_solution; this is an image/interface mismatch.",
+        "runtime_atomic_output": "The runtime rejected an atomic output replacement.",
+        "runtime_import": "Python reported a missing module; check the available dependencies.",
+        "runtime_syntax": "Python reported a syntax error.",
+        "runtime_memory": "Python reported a memory allocation failure.",
+        "runtime_type": "Python reported a TypeError; check function arguments and value types.",
+        "runtime_key": "Python reported a KeyError; check required keys against the public schemas.",
+        "runtime_index": "Python reported an IndexError; check array dimensions and indices.",
+    }
+    return " ".join(text for key, text in messages.items() if metrics.get(f"stage1_{key}", 0) > 0)
+
+
+def public_stage2_feedback(metrics):
+    total = float(metrics.get("stage2_total", 0))
+    feasible = float(metrics.get("stage2_feasible_count", 0))
+    if total > 0 and feasible < total:
+        return "One or more Stage2 solutions were infeasible or could not be evaluated. Check the public constraints and solution schema before optimizing objective quality."
+    return ""
+
+
 class Grader(TaskGrader):
     def evaluate(self):
         args = self.args
@@ -101,7 +128,8 @@ class Grader(TaskGrader):
                     "Stage1 gate failed",
                     feedback=(
                         f"Stage1 failed: combined_score={stage1.get('combined_score', 0):.3f}, "
-                        f"worst_gap={stage1.get('stage1_worst_gap', 'N/A')}"
+                        f"worst_gap={stage1.get('stage1_worst_gap', 'N/A')}. "
+                        + public_stage1_feedback(stage1)
                     ),
                 )
 
@@ -113,7 +141,7 @@ class Grader(TaskGrader):
             return self.bundle(
                 score,
                 f"Stage2 score {score:.6f}",
-                feedback=f"Stage2 score {score:.6f}",
+                feedback=f"Stage2 score {score:.6f}. " + public_stage2_feedback(stage2),
             )
         finally:
             for key, value in old_env.items():

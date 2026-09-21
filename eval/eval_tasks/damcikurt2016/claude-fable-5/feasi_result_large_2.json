@@ -1,0 +1,19 @@
+{
+  "feasible": false,
+  "violated_constraints": [
+    10
+  ],
+  "violations": [
+    "Objective consistency violated: reported objective_value=68298.96313377285 differs from recomputed expected profit=68398.96313377275 (|diff|=100, tol=68.399)"
+  ],
+  "violation_magnitudes": [
+    {
+      "constraint": 10,
+      "lhs": 68298.96313377285,
+      "rhs": 68398.96313377275,
+      "raw_excess": 99.99999999989814,
+      "normalizer": 68398.96313377275,
+      "ratio": 0.0014620104665084028
+    }
+  ]
+}

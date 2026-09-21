@@ -1,0 +1,19 @@
+{
+  "feasible": false,
+  "violated_constraints": [
+    54
+  ],
+  "violations": [
+    "Constraint 54 (objective consistency): reported objective_value=1918.3000000000002 differs from recomputed T1+T2+penalty=5759.3 (T1=1546.3, T2=4154.0, penalty=59, |diff|=3841, tol=5.76)"
+  ],
+  "violation_magnitudes": [
+    {
+      "constraint": 54,
+      "lhs": 1918.3000000000002,
+      "rhs": 5759.3,
+      "raw_excess": 3841.0,
+      "normalizer": 5759.3,
+      "ratio": 0.6669213272446304
+    }
+  ]
+}

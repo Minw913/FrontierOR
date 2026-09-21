@@ -40,6 +40,11 @@
       "output": 0.00001,
       "cache_read": 0.0000002
     },
+    "z-ai/glm-5.2": {
+      "input": 0.0000014,
+      "output": 0.0000044,
+      "cache_read": 0.00000014
+    },
     "z-ai/glm-5.3": {
       "input": 0.0000014,
       "output": 0.0000044,

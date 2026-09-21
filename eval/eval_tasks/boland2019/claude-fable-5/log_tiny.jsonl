@@ -1,0 +1,1 @@
+{"time": 0.0, "objective_value": 5589.5, "solution": {"objective_value": 5589.5, "pareto_front": [[7324, 3855]], "solutions": [{"z1": 7324, "z2": 3855, "open_facilities": [0, 3, 4], "assignments": {"0": 0, "1": 0, "2": 4, "3": 3, "4": 4, "5": 0, "6": 3, "7": 3, "8": 3, "9": 4}}]}}

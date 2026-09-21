@@ -1,0 +1,1035 @@
+{
+  "objective_value": 105053.0,
+  "routes": [
+    {
+      "vehicle_id": 0,
+      "route_sequence": [
+        0,
+        51,
+        121,
+        15,
+        85,
+        29,
+        99,
+        48,
+        118,
+        12,
+        82,
+        3,
+        73,
+        1,
+        71,
+        141
+      ],
+      "route_details": [
+        {
+          "node_id": 0,
+          "arrival_time": 0.0,
+          "load_after": 0.0
+        },
+        {
+          "node_id": 51,
+          "arrival_time": 114.0,
+          "load_after": 4.0
+        },
+        {
+          "node_id": 121,
+          "arrival_time": 174.0,
+          "load_after": 0.0
+        },
+        {
+          "node_id": 15,
+          "arrival_time": 211.0,
+          "load_after": 4.0
+        },
+        {
+          "node_id": 85,
+          "arrival_time": 301.0,
+          "load_after": 0.0
+        },
+        {
+          "node_id": 29,
+          "arrival_time": 323.0,
+          "load_after": 2.0
+        },
+        {
+          "node_id": 99,
+          "arrival_time": 412.8,
+          "load_after": 0.0
+        },
+        {
+          "node_id": 48,
+          "arrival_time": 445.6,
+          "load_after": 6.0
+        },
+        {
+          "node_id": 118,
+          "arrival_time": 517.0,
+          "load_after": 0.0
+        },
+        {
+          "node_id": 12,
+          "arrival_time": 560.0,
+          "load_after": 2.0
+        },
+        {
+          "node_id": 82,
+          "arrival_time": 616.0,
+          "load_after": 0.0
+        },
+        {
+          "node_id": 3,
+          "arrival_time": 644.1,
+          "load_after": 6.0
+        },
+        {
+          "node_id": 73,
+          "arrival_time": 748.7,
+          "load_after": 0.0
+        },
+        {
+          "node_id": 1,
+          "arrival_time": 776.2,
+          "load_after": 4.0
+        },
+        {
+          "node_id": 71,
+          "arrival_time": 853.9000000000001,
+          "load_after": 0.0
+        },
+        {
+          "node_id": 141,
+          "arrival_time": 924.1000000000001,
+          "load_after": 0.0
+        }
+      ]
+    },
+    {
+      "vehicle_id": 1,
+      "route_sequence": [
+        0,
+        30,
+        100,
+        5,
+        75,
+        9,
+        79,
+        44,
+        114,
+        65,
+        56,
+        126,
+        135,
+        24,
+        94,
+        141
+      ],
+      "route_details": [
+        {
+          "node_id": 0,
+          "arrival_time": 0.0,
+          "load_after": 0.0
+        },
+        {
+          "node_id": 30,
+          "arrival_time": 54.0,
+          "load_after": 2.0
+        },
+        {
+          "node_id": 100,
+          "arrival_time": 71.0,
+          "load_after": 0.0
+        },
+        {
+          "node_id": 5,
+          "arrival_time": 137.0,
+          "load_after": 2.0
+        },
+        {
+          "node_id": 75,
+          "arrival_time": 189.0,
+          "load_after": 0.0
+        },
+        {
+          "node_id": 9,
+          "arrival_time": 214.0,
+          "load_after": 6.0
+        },
+        {
+          "node_id": 79,
+          "arrival_time": 260.4,
+          "load_after": 0.0
+        },
+        {
+          "node_id": 44,
+          "arrival_time": 379.0,
+          "load_after": 6.0
+        },
+        {
+          "node_id": 114,
+          "arrival_time": 435.0,
+          "load_after": 0.0
+        },
+        {
+          "node_id": 65,
+          "arrival_time": 495.0,
+          "load_after": 2.0
+        },
+        {
+          "node_id": 56,
+          "arrival_time": 544.1,
+          "load_after": 8.0
+        },
+        {
+          "node_id": 126,
+          "arrival_time": 578.2,
+          "load_after": 2.0
+        },
+        {
+          "node_id": 135,
+          "arrival_time": 608.3000000000001,
+          "load_after": 0.0
+        },
+        {
+          "node_id": 24,
+          "arrival_time": 643.9000000000001,
+          "load_after": 2.0
+        },
+        {
+          "node_id": 94,
+          "arrival_time": 715.9000000000001,
+          "load_after": 0.0
+        },
+        {
+          "node_id": 141,
+          "arrival_time": 736.7,
+          "load_after": 0.0
+        }
+      ]
+    },
+    {
+      "vehicle_id": 2,
+      "route_sequence": [
+        0,
+        27,
+        11,
+        81,
+        97,
+        14,
+        35,
+        105,
+        84,
+        17,
+        67,
+        137,
+        87,
+        20,
+        90,
+        37,
+        107,
+        141
+      ],
+      "route_details": [
+        {
+          "node_id": 0,
+          "arrival_time": 0.0,
+          "load_after": 0.0
+        },
+        {
+          "node_id": 27,
+          "arrival_time": 186.0,
+          "load_after": 6.0
+        },
+        {
+          "node_id": 11,
+          "arrival_time": 212.0,
+          "load_after": 12.0
+        },
+        {
+          "node_id": 81,
+          "arrival_time": 256.0,
+          "load_after": 6.0
+        },
+        {
+          "node_id": 97,
+          "arrival_time": 303.0,
+          "load_after": 0.0
+        },
+        {
+          "node_id": 14,
+          "arrival_time": 348.0,
+          "load_after": 2.0
+        },
+        {
+          "node_id": 35,
+          "arrival_time": 394.4,
+          "load_after": 8.0
+        },
+        {
+          "node_id": 105,
+          "arrival_time": 448.2,
+          "load_after": 2.0
+        },
+        {
+          "node_id": 84,
+          "arrival_time": 480.8,
+          "load_after": 0.0
+        },
+        {
+          "node_id": 17,
+          "arrival_time": 500.8,
+          "load_after": 2.0
+        },
+        {
+          "node_id": 67,
+          "arrival_time": 524.8,
+          "load_after": 8.0
+        },
+        {
+          "node_id": 137,
+          "arrival_time": 580.5999999999999,
+          "load_after": 2.0
+        },
+        {
+          "node_id": 87,
+          "arrival_time": 613.3999999999999,
+          "load_after": 0.0
+        },
+        {
+          "node_id": 20,
+          "arrival_time": 670.8999999999999,
+          "load_after": 2.0
+        },
+        {
+          "node_id": 90,
+          "arrival_time": 708.9999999999999,
+          "load_after": 0.0
+        },
+        {
+          "node_id": 37,
+          "arrival_time": 744.2999999999998,
+          "load_after": 4.0
+        },
+        {
+          "node_id": 107,
+          "arrival_time": 802.2999999999998,
+          "load_after": 0.0
+        },
+        {
+          "node_id": 141,
+          "arrival_time": 851.9999999999999,
+          "load_after": 0.0
+        }
+      ]
+    },
+    {
+      "vehicle_id": 3,
+      "route_sequence": [
+        0,
+        40,
+        32,
+        102,
+        110,
+        62,
+        132,
+        69,
+        139,
+        52,
+        122,
+        18,
+        88,
+        8,
+        78,
+        141
+      ],
+      "route_details": [
+        {
+          "node_id": 0,
+          "arrival_time": 0.0,
+          "load_after": 0.0
+        },
+        {
+          "node_id": 40,
+          "arrival_time": 95.0,
+          "load_after": 4.0
+        },
+        {
+          "node_id": 32,
+          "arrival_time": 147.0,
+          "load_after": 6.0
+        },
+        {
+          "node_id": 102,
+          "arrival_time": 183.3,
+          "load_after": 4.0
+        },
+        {
+          "node_id": 110,
+          "arrival_time": 228.9,
+          "load_after": 0.0
+        },
+        {
+          "node_id": 62,
+          "arrival_time": 273.0,
+          "load_after": 6.0
+        },
+        {
+          "node_id": 132,
+          "arrival_time": 359.0,
+          "load_after": 0.0
+        },
+        {
+          "node_id": 69,
+          "arrival_time": 386.1,
+          "load_after": 4.0
+        },
+        {
+          "node_id": 139,
+          "arrival_time": 417.3,
+          "load_after": 0.0
+        },
+        {
+          "node_id": 52,
+          "arrival_time": 437.5,
+          "load_after": 2.0
+        },
+        {
+          "node_id": 122,
+          "arrival_time": 478.1,
+          "load_after": 0.0
+        },
+        {
+          "node_id": 18,
+          "arrival_time": 493.5,
+          "load_after": 6.0
+        },
+        {
+          "node_id": 88,
+          "arrival_time": 610.6,
+          "load_after": 0.0
+        },
+        {
+          "node_id": 8,
+          "arrival_time": 675.0,
+          "load_after": 6.0
+        },
+        {
+          "node_id": 78,
+          "arrival_time": 716.0,
+          "load_after": 0.0
+        },
+        {
+          "node_id": 141,
+          "arrival_time": 736.6,
+          "load_after": 0.0
+        }
+      ]
+    },
+    {
+      "vehicle_id": 4,
+      "route_sequence": [
+        0,
+        42,
+        112,
+        23,
+        93,
+        25,
+        95,
+        57,
+        127,
+        141
+      ],
+      "route_details": [
+        {
+          "node_id": 0,
+          "arrival_time": 0.0,
+          "load_after": 0.0
+        },
+        {
+          "node_id": 42,
+          "arrival_time": 200.0,
+          "load_after": 2.0
+        },
+        {
+          "node_id": 112,
+          "arrival_time": 326.0,
+          "load_after": 0.0
+        },
+        {
+          "node_id": 23,
+          "arrival_time": 438.0,
+          "load_after": 2.0
+        },
+        {
+          "node_id": 93,
+          "arrival_time": 479.0,
+          "load_after": 0.0
+        },
+        {
+          "node_id": 25,
+          "arrival_time": 511.6,
+          "load_after": 4.0
+        },
+        {
+          "node_id": 95,
+          "arrival_time": 631.7,
+          "load_after": 0.0
+        },
+        {
+          "node_id": 57,
+          "arrival_time": 647.8000000000001,
+          "load_after": 4.0
+        },
+        {
+          "node_id": 127,
+          "arrival_time": 735.0000000000001,
+          "load_after": 0.0
+        },
+        {
+          "node_id": 141,
+          "arrival_time": 761.6000000000001,
+          "load_after": 0.0
+        }
+      ]
+    },
+    {
+      "vehicle_id": 5,
+      "route_sequence": [
+        0,
+        63,
+        133,
+        60,
+        64,
+        134,
+        130,
+        58,
+        128,
+        36,
+        106,
+        61,
+        131,
+        141
+      ],
+      "route_details": [
+        {
+          "node_id": 0,
+          "arrival_time": 0.0,
+          "load_after": 0.0
+        },
+        {
+          "node_id": 63,
+          "arrival_time": 128.0,
+          "load_after": 4.0
+        },
+        {
+          "node_id": 133,
+          "arrival_time": 188.0,
+          "load_after": 0.0
+        },
+        {
+          "node_id": 60,
+          "arrival_time": 234.0,
+          "load_after": 4.0
+        },
+        {
+          "node_id": 64,
+          "arrival_time": 252.1,
+          "load_after": 8.0
+        },
+        {
+          "node_id": 134,
+          "arrival_time": 282.70000000000005,
+          "load_after": 4.0
+        },
+        {
+          "node_id": 130,
+          "arrival_time": 347.1,
+          "load_after": 0.0
+        },
+        {
+          "node_id": 58,
+          "arrival_time": 377.0,
+          "load_after": 2.0
+        },
+        {
+          "node_id": 128,
+          "arrival_time": 463.0,
+          "load_after": 0.0
+        },
+        {
+          "node_id": 36,
+          "arrival_time": 544.0,
+          "load_after": 6.0
+        },
+        {
+          "node_id": 106,
+          "arrival_time": 581.0,
+          "load_after": 0.0
+        },
+        {
+          "node_id": 61,
+          "arrival_time": 656.0,
+          "load_after": 6.0
+        },
+        {
+          "node_id": 131,
+          "arrival_time": 757.0,
+          "load_after": 0.0
+        },
+        {
+          "node_id": 141,
+          "arrival_time": 808.6,
+          "load_after": 0.0
+        }
+      ]
+    },
+    {
+      "vehicle_id": 6,
+      "route_sequence": [
+        0,
+        21,
+        46,
+        116,
+        91,
+        70,
+        13,
+        83,
+        140,
+        10,
+        80,
+        53,
+        123,
+        28,
+        66,
+        136,
+        98,
+        22,
+        92,
+        141
+      ],
+      "route_details": [
+        {
+          "node_id": 0,
+          "arrival_time": 0.0,
+          "load_after": 0.0
+        },
+        {
+          "node_id": 21,
+          "arrival_time": 65.0,
+          "load_after": 6.0
+        },
+        {
+          "node_id": 46,
+          "arrival_time": 102.3,
+          "load_after": 12.0
+        },
+        {
+          "node_id": 116,
+          "arrival_time": 155.9,
+          "load_after": 6.0
+        },
+        {
+          "node_id": 91,
+          "arrival_time": 183.20000000000002,
+          "load_after": 0.0
+        },
+        {
+          "node_id": 70,
+          "arrival_time": 257.0,
+          "load_after": 6.0
+        },
+        {
+          "node_id": 13,
+          "arrival_time": 272.1,
+          "load_after": 10.0
+        },
+        {
+          "node_id": 83,
+          "arrival_time": 320.3,
+          "load_after": 6.0
+        },
+        {
+          "node_id": 140,
+          "arrival_time": 365.40000000000003,
+          "load_after": 0.0
+        },
+        {
+          "node_id": 10,
+          "arrival_time": 482.0,
+          "load_after": 4.0
+        },
+        {
+          "node_id": 80,
+          "arrival_time": 539.0,
+          "load_after": 0.0
+        },
+        {
+          "node_id": 53,
+          "arrival_time": 551.0,
+          "load_after": 2.0
+        },
+        {
+          "node_id": 123,
+          "arrival_time": 586.6,
+          "load_after": 0.0
+        },
+        {
+          "node_id": 28,
+          "arrival_time": 640.0,
+          "load_after": 2.0
+        },
+        {
+          "node_id": 66,
+          "arrival_time": 687.0,
+          "load_after": 4.0
+        },
+        {
+          "node_id": 136,
+          "arrival_time": 709.8,
+          "load_after": 2.0
+        },
+        {
+          "node_id": 98,
+          "arrival_time": 760.4,
+          "load_after": 0.0
+        },
+        {
+          "node_id": 22,
+          "arrival_time": 808.5,
+          "load_after": 4.0
+        },
+        {
+          "node_id": 92,
+          "arrival_time": 825.6,
+          "load_after": 0.0
+        },
+        {
+          "node_id": 141,
+          "arrival_time": 859.8000000000001,
+          "load_after": 0.0
+        }
+      ]
+    },
+    {
+      "vehicle_id": 7,
+      "route_sequence": [
+        0,
+        31,
+        68,
+        138,
+        101,
+        34,
+        104,
+        19,
+        4,
+        74,
+        89,
+        54,
+        59,
+        129,
+        124,
+        7,
+        77,
+        141
+      ],
+      "route_details": [
+        {
+          "node_id": 0,
+          "arrival_time": 0.0,
+          "load_after": 0.0
+        },
+        {
+          "node_id": 31,
+          "arrival_time": 153.0,
+          "load_after": 6.0
+        },
+        {
+          "node_id": 68,
+          "arrival_time": 183.2,
+          "load_after": 12.0
+        },
+        {
+          "node_id": 138,
+          "arrival_time": 231.7,
+          "load_after": 6.0
+        },
+        {
+          "node_id": 101,
+          "arrival_time": 278.09999999999997,
+          "load_after": 0.0
+        },
+        {
+          "node_id": 34,
+          "arrival_time": 307.49999999999994,
+          "load_after": 4.0
+        },
+        {
+          "node_id": 104,
+          "arrival_time": 362.59999999999997,
+          "load_after": 0.0
+        },
+        {
+          "node_id": 19,
+          "arrival_time": 390.79999999999995,
+          "load_after": 2.0
+        },
+        {
+          "node_id": 4,
+          "arrival_time": 433.09999999999997,
+          "load_after": 6.0
+        },
+        {
+          "node_id": 74,
+          "arrival_time": 455.09999999999997,
+          "load_after": 2.0
+        },
+        {
+          "node_id": 89,
+          "arrival_time": 504.59999999999997,
+          "load_after": 0.0
+        },
+        {
+          "node_id": 54,
+          "arrival_time": 566.0,
+          "load_after": 2.0
+        },
+        {
+          "node_id": 59,
+          "arrival_time": 607.3,
+          "load_after": 8.0
+        },
+        {
+          "node_id": 129,
+          "arrival_time": 655.6999999999999,
+          "load_after": 2.0
+        },
+        {
+          "node_id": 124,
+          "arrival_time": 674.8,
+          "load_after": 0.0
+        },
+        {
+          "node_id": 7,
+          "arrival_time": 732.0,
+          "load_after": 2.0
+        },
+        {
+          "node_id": 77,
+          "arrival_time": 795.0,
+          "load_after": 0.0
+        },
+        {
+          "node_id": 141,
+          "arrival_time": 826.6,
+          "load_after": 0.0
+        }
+      ]
+    },
+    {
+      "vehicle_id": 8,
+      "route_sequence": [
+        0,
+        33,
+        6,
+        76,
+        103,
+        39,
+        2,
+        72,
+        109,
+        47,
+        117,
+        43,
+        113,
+        49,
+        119,
+        141
+      ],
+      "route_details": [
+        {
+          "node_id": 0,
+          "arrival_time": 0.0,
+          "load_after": 0.0
+        },
+        {
+          "node_id": 33,
+          "arrival_time": 127.0,
+          "load_after": 2.0
+        },
+        {
+          "node_id": 6,
+          "arrival_time": 167.0,
+          "load_after": 8.0
+        },
+        {
+          "node_id": 76,
+          "arrival_time": 208.0,
+          "load_after": 2.0
+        },
+        {
+          "node_id": 103,
+          "arrival_time": 240.1,
+          "load_after": 0.0
+        },
+        {
+          "node_id": 39,
+          "arrival_time": 321.0,
+          "load_after": 6.0
+        },
+        {
+          "node_id": 2,
+          "arrival_time": 354.3,
+          "load_after": 10.0
+        },
+        {
+          "node_id": 72,
+          "arrival_time": 383.40000000000003,
+          "load_after": 6.0
+        },
+        {
+          "node_id": 109,
+          "arrival_time": 412.8,
+          "load_after": 0.0
+        },
+        {
+          "node_id": 47,
+          "arrival_time": 543.0,
+          "load_after": 2.0
+        },
+        {
+          "node_id": 117,
+          "arrival_time": 647.0,
+          "load_after": 0.0
+        },
+        {
+          "node_id": 43,
+          "arrival_time": 697.3,
+          "load_after": 4.0
+        },
+        {
+          "node_id": 113,
+          "arrival_time": 718.3,
+          "load_after": 0.0
+        },
+        {
+          "node_id": 49,
+          "arrival_time": 756.5,
+          "load_after": 2.0
+        },
+        {
+          "node_id": 119,
+          "arrival_time": 843.1,
+          "load_after": 0.0
+        },
+        {
+          "node_id": 141,
+          "arrival_time": 899.5,
+          "load_after": 0.0
+        }
+      ]
+    },
+    {
+      "vehicle_id": 9,
+      "route_sequence": [
+        0,
+        55,
+        125,
+        38,
+        108,
+        41,
+        50,
+        120,
+        111,
+        45,
+        16,
+        86,
+        115,
+        26,
+        96,
+        141
+      ],
+      "route_details": [
+        {
+          "node_id": 0,
+          "arrival_time": 0.0,
+          "load_after": 0.0
+        },
+        {
+          "node_id": 55,
+          "arrival_time": 207.0,
+          "load_after": 6.0
+        },
+        {
+          "node_id": 125,
+          "arrival_time": 295.0,
+          "load_after": 0.0
+        },
+        {
+          "node_id": 38,
+          "arrival_time": 344.1,
+          "load_after": 6.0
+        },
+        {
+          "node_id": 108,
+          "arrival_time": 406.5,
+          "load_after": 0.0
+        },
+        {
+          "node_id": 41,
+          "arrival_time": 508.0,
+          "load_after": 4.0
+        },
+        {
+          "node_id": 50,
+          "arrival_time": 524.3,
+          "load_after": 10.0
+        },
+        {
+          "node_id": 120,
+          "arrival_time": 584.4,
+          "load_after": 4.0
+        },
+        {
+          "node_id": 111,
+          "arrival_time": 618.4,
+          "load_after": 0.0
+        },
+        {
+          "node_id": 45,
+          "arrival_time": 657.6,
+          "load_after": 4.0
+        },
+        {
+          "node_id": 16,
+          "arrival_time": 697.0,
+          "load_after": 10.0
+        },
+        {
+          "node_id": 86,
+          "arrival_time": 747.0,
+          "load_after": 4.0
+        },
+        {
+          "node_id": 115,
+          "arrival_time": 762.0,
+          "load_after": 0.0
+        },
+        {
+          "node_id": 26,
+          "arrival_time": 810.9,
+          "load_after": 6.0
+        },
+        {
+          "node_id": 96,
+          "arrival_time": 826.3,
+          "load_after": 0.0
+        },
+        {
+          "node_id": 141,
+          "arrival_time": 864.9,
+          "load_after": 0.0
+        }
+      ]
+    }
+  ]
+}

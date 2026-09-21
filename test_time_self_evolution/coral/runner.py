@@ -10,6 +10,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import math
 import os
 import signal
 import shutil
@@ -324,6 +325,16 @@ def validate_openrouter_model(
     )
 
 
+def coral_evaluation_timeout(stage1_instances, stage2_instances, stage1_time_limit, stage2_time_limit, exec_cfg):
+    """Cover each candidate queue, execution, checker and sandbox setup."""
+    from trusted_eval_infra.execution import wls_queue_timeout_seconds
+    count = len(stage1_instances) + len(stage2_instances)
+    execution = len(stage1_instances) * stage1_time_limit + len(stage2_instances) * stage2_time_limit
+    concurrency = int(exec_cfg.get("wls_concurrency", os.environ.get("FRONTIER_OR_WLS_CONCURRENCY", "0")))
+    queue = wls_queue_timeout_seconds(exec_cfg) if concurrency > 0 and exec_cfg.get("wls_egress") != "off" else 0
+    return math.ceil(execution + count * (queue + 180) + 120)
+
+
 def write_coral_task(
     *,
     base_dir: str,
@@ -470,7 +481,9 @@ def write_coral_task(
             "tips": tips,
         },
         "grader": {
-            "timeout": int(stage1_time_limit + stage2_time_limit + 120),
+            "timeout": coral_evaluation_timeout(
+                stage1_instances, stage2_instances, stage1_time_limit, stage2_time_limit, exec_cfg
+            ),
             "direction": "maximize",
             "args": {
                 "paper_id": paper_id,
@@ -580,7 +593,7 @@ def _stop_coral(task: CoralTask, env: Dict[str, str]):
     )
 
 
-def _workspace_usage(path: str) -> tuple[int, int]:
+def _workspace_usage(path: str, max_bytes: int = AGENT_WORKSPACE_MAX_BYTES) -> tuple[int, int]:
     """Return no-follow byte/file counts for the untrusted per-run workspace."""
     total_bytes = 0
     entries = 0
@@ -603,7 +616,7 @@ def _workspace_usage(path: str) -> tuple[int, int]:
                     continue
                 if (
                     entries > AGENT_WORKSPACE_MAX_FILES
-                    or total_bytes > AGENT_WORKSPACE_MAX_BYTES
+                    or total_bytes > max_bytes
                 ):
                     return total_bytes, entries
     return total_bytes, entries
@@ -612,6 +625,14 @@ def _workspace_usage(path: str) -> tuple[int, int]:
 def run_coral_until_done(task: CoralTask, env: Dict[str, str], attempts: int, max_seconds: int,
                          resume: bool = False):
     os.makedirs(os.path.dirname(task.log_path), exist_ok=True)
+    # Account for the immutable input in the repo, registered worktrees and Git
+    # object store. Keep the original allowance for agent-generated work.
+    seed_bytes = sum(p.stat().st_size for p in Path(task.seed_dir).rglob("*")
+                     if p.is_file() and not p.is_symlink())
+    workspace_limit = AGENT_WORKSPACE_MAX_BYTES + seed_bytes * (len(task.agent_ids) + 2)
+    if env.get("FRONTIER_OR_ANTI_HACK") == "1":
+        from trusted_eval_infra.agent.broker import trusted_seed_blobs
+        trusted_seed_blobs(task.seed_dir)
     if resume:
         # CORAL's native resume CLI continues a prior run by --task / --run
         # path. Requires the previous coral_dir / attempts to still exist.
@@ -651,9 +672,9 @@ def run_coral_until_done(task: CoralTask, env: Dict[str, str], attempts: int, ma
                     max_attempts=attempts,
                     allowed_agent_ids=task.agent_ids,
                 )
-                workspace_bytes, workspace_files = _workspace_usage(task.run_dir)
+                workspace_bytes, workspace_files = _workspace_usage(task.run_dir, workspace_limit)
                 if (
-                    workspace_bytes > AGENT_WORKSPACE_MAX_BYTES
+                    workspace_bytes > workspace_limit
                     or workspace_files > AGENT_WORKSPACE_MAX_FILES
                 ):
                     stop_reason = "workspace_quota_exhausted"
@@ -1014,7 +1035,8 @@ def run_self_evolve(
         env["FRONTIER_OR_CORAL_AGENT_IMAGE"] = agent_image
         env["FRONTIER_OR_CORAL_AGENT_COUNT"] = str(agent_count)
         env["FRONTIER_OR_CORAL_EVAL_WAIT_SECONDS"] = str(
-            stage1_time_limit + stage2_time_limit + 300
+            coral_evaluation_timeout(stage1_instances, stage2_instances,
+                                     stage1_time_limit, stage2_time_limit, exec_cfg) + 60
         )
         # Agent-written repository config/hooks must never execute in the host
         # manager or grader during `git worktree add`.

@@ -1,0 +1,19 @@
+{
+  "feasible": false,
+  "violated_constraints": [
+    10
+  ],
+  "violations": [
+    "Objective consistency violated: reported objective_value=70.0 differs from recomputed sum_e(c_e*x_e)+sum_ki(b_ki*z_ki)=421.0 (routing=28, purchase=393.0, |diff|=351, tol=0.421)"
+  ],
+  "violation_magnitudes": [
+    {
+      "constraint": 10,
+      "lhs": 70.0,
+      "rhs": 421.0,
+      "raw_excess": 351.0,
+      "normalizer": 421.0,
+      "ratio": 0.833729216152019
+    }
+  ]
+}

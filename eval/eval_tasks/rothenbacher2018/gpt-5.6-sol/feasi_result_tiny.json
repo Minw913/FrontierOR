@@ -1,0 +1,10 @@
+{
+  "feasible": false,
+  "violated_constraints": [
+    "malformed_solution"
+  ],
+  "violations": [
+    "checker rejected malformed candidate: ValueError: expanded node id -1000001 is out of range"
+  ],
+  "violation_magnitudes": []
+}

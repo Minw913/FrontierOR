@@ -3,6 +3,8 @@
 from __future__ import annotations
 
 import json
+import functools
+import hashlib
 import os
 import re
 import subprocess
@@ -59,7 +61,24 @@ def _git(repo: Path, *args: str) -> subprocess.CompletedProcess:
         )
 
 
-def _validate_tree(repo: Path, commit_hash: str) -> tuple[bool, str]:
+@functools.lru_cache(maxsize=128)
+def trusted_seed_blobs(seed_dir: str) -> dict[str, str]:
+    """Fingerprint public task files from the host-only seed, not the agent repo."""
+    root = Path(seed_dir)
+    blobs = {}
+    for path in root.rglob("*"):
+        relative = path.relative_to(root)
+        if len(relative.parts) < 2 or ".git" in relative.parts or path.is_symlink() or not path.is_file():
+            continue
+        digest = hashlib.sha1(f"blob {path.stat().st_size}\0".encode())
+        with path.open("rb") as source:
+            for chunk in iter(lambda: source.read(1024 * 1024), b""):
+                digest.update(chunk)
+        blobs[relative.as_posix()] = digest.hexdigest()
+    return blobs
+
+
+def _validate_tree(repo: Path, commit_hash: str, trusted_files: dict | None = None) -> tuple[bool, str]:
     tree = _git(repo, "ls-tree", "-r", "-l", "-z", commit_hash)
     if tree.returncode != 0:
         return False, "cannot inspect submitted commit tree"
@@ -78,6 +97,11 @@ def _validate_tree(repo: Path, commit_hash: str) -> tuple[bool, str]:
             return False, "submitted commit has an invalid tree entry"
         if mode not in {"100644", "100755"} or object_type != "blob":
             return False, "submitted commit contains a non-regular file"
+        if path in (trusted_files or {}):
+            if _object_id != trusted_files[path]:
+                return False, "submitted commit modified a public benchmark file"
+            # Exact trusted seed blobs are input data, not agent-created output.
+            continue
         if size < 0 or size > MAX_TREE_FILE_BYTES:
             return False, "submitted commit contains an oversized file"
         file_count += 1
@@ -105,6 +129,7 @@ def _validate_request(
     *,
     allowed_agent_ids: frozenset[str],
     request_name: str | None = None,
+    trusted_files: dict | None = None,
 ) -> tuple[bool, str, str | None]:
     required = {"schema_version", "nonce", "agent_id", "commit_hash", "message"}
     if set(request) != required or request.get("schema_version") != 1:
@@ -126,7 +151,7 @@ def _validate_request(
     branch = f"refs/heads/coral/{agent_id}"
     if _git(repo, "merge-base", "--is-ancestor", commit_hash, branch).returncode != 0:
         return False, "commit is not on the submitting agent branch", None
-    valid_tree, tree_reason = _validate_tree(repo, commit_hash)
+    valid_tree, tree_reason = _validate_tree(repo, commit_hash, trusted_files)
     if not valid_tree:
         return False, tree_reason, None
     parent = _git(repo, "rev-parse", f"{commit_hash}^")
@@ -176,10 +201,12 @@ def drain_eval_requests(
     inbox = coral_dir / "private" / "eval_requests" / "inbox"
     archive = coral_dir / "private" / "eval_requests" / "archive"
     attempts_dir = coral_dir / "public" / "attempts"
+    responses_dir = coral_dir / "public" / "request_status"
     audit_path = coral_dir / "private" / "audit" / "eval_requests.jsonl"
     inbox.mkdir(parents=True, exist_ok=True)
     archive.mkdir(parents=True, exist_ok=True)
     attempts_dir.mkdir(parents=True, exist_ok=True)
+    responses_dir.mkdir(parents=True, exist_ok=True)
     audit_path.parent.mkdir(parents=True, exist_ok=True)
     accepted_count = len(list(attempts_dir.glob("*.json")))
     decisions = []
@@ -195,10 +222,19 @@ def drain_eval_requests(
                 request,
                 allowed_agent_ids=registered_agents,
                 request_name=path.name,
+                trusted_files=trusted_seed_blobs(task.seed_dir) if getattr(task, "seed_dir", None) else None,
             )
         commit_hash = request.get("commit_hash") if isinstance(request, dict) else None
         if valid and (attempts_dir / f"{commit_hash}.json").exists():
             valid, reason = False, "commit was already submitted"
+        waiting_for = None
+        if valid:
+            from trusted_eval_infra.agent.scheduling import agent_attempts
+            pending = [a for a in agent_attempts(coral_dir, request["agent_id"])
+                       if a.get("status") == "pending"]
+            if pending:
+                valid, reason = False, "agent already has a pending evaluation"
+                waiting_for = pending[0]["commit_hash"]
         if valid and commit_hash:
             attempt = {
                 "commit_hash": commit_hash,
@@ -213,6 +249,17 @@ def drain_eval_requests(
             }
             _atomic_json(attempts_dir / f"{commit_hash}.json", attempt)
             accepted_count += 1
+        if re.fullmatch(r"[0-9a-f]{32}", path.stem):
+            # Only fixed admission messages cross the public boundary. Rejected
+            # requests do not create attempts or consume the evaluation budget.
+            public_reason = reason if reason in {
+                "evaluation budget exhausted", "commit was already submitted",
+                "agent already has a pending evaluation",
+            } else ("accepted" if valid else "invalid evaluation request")
+            _atomic_json(responses_dir / path.name, {
+                "accepted": valid, "reason": public_reason,
+                "waiting_for_commit": waiting_for,
+            })
         decision = {
             "timestamp": datetime.now(UTC).isoformat(),
             "accepted": valid,

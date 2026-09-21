@@ -1,0 +1,39 @@
+{
+  "feasible": false,
+  "violated_constraints": [
+    "solution_schema"
+  ],
+  "violations": [
+    "unknown model variable 'u_0_0_0'",
+    "unknown model variable 'u_1_0_0'",
+    "unknown model variable 'u_2_0_0'",
+    "unknown model variable 'u_3_0_0'",
+    "unknown model variable 'u_4_0_0'",
+    "unknown model variable 'u_5_0_0'",
+    "unknown model variable 'u_6_0_0'",
+    "unknown model variable 'u_7_0_0'",
+    "unknown model variable 'u_8_0_0'",
+    "unknown model variable 'u_9_0_0'",
+    "unknown model variable 'u_10_0_0'",
+    "unknown model variable 'u_11_0_0'",
+    "unknown model variable 'u_12_0_0'",
+    "unknown model variable 'u_13_0_0'",
+    "unknown model variable 'u_14_0_0'",
+    "unknown model variable 'u_15_0_0'",
+    "unknown model variable 'u_16_0_0'",
+    "unknown model variable 'u_17_0_0'",
+    "unknown model variable 'u_18_0_0'",
+    "unknown model variable 'u_19_0_0'",
+    "unknown model variable 'u_20_0_0'",
+    "unknown model variable 'u_21_0_0'",
+    "unknown model variable 'u_22_0_0'",
+    "unknown model variable 'u_23_0_0'",
+    "unknown model variable 'u_24_0_0'",
+    "unknown model variable 'u_0_1_0'",
+    "unknown model variable 'u_1_1_0'",
+    "unknown model variable 'u_2_1_0'",
+    "unknown model variable 'u_3_1_0'",
+    "unknown model variable 'u_4_1_0'"
+  ],
+  "violation_magnitudes": []
+}

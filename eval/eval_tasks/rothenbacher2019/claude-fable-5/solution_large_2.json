@@ -1,0 +1,1113 @@
+{
+  "objective_value": 2805.2089399573606,
+  "routes": {
+    "0": [
+      {
+        "customers": [
+          30,
+          4,
+          3,
+          9,
+          23,
+          39
+        ],
+        "cost": 161.9422248646515,
+        "demand": 108,
+        "parts": {
+          "30": {
+            "visit_day": 0,
+            "days_covered": 1,
+            "demand_per_visit": 14
+          },
+          "4": {
+            "visit_day": 0,
+            "days_covered": 4,
+            "demand_per_visit": 32
+          },
+          "3": {
+            "visit_day": 0,
+            "days_covered": 1,
+            "demand_per_visit": 9
+          },
+          "9": {
+            "visit_day": 0,
+            "days_covered": 1,
+            "demand_per_visit": 14
+          },
+          "23": {
+            "visit_day": 0,
+            "days_covered": 2,
+            "demand_per_visit": 26
+          },
+          "39": {
+            "visit_day": 0,
+            "days_covered": 1,
+            "demand_per_visit": 13
+          }
+        }
+      },
+      {
+        "customers": [
+          21,
+          28,
+          42,
+          2
+        ],
+        "cost": 115.79031352053275,
+        "demand": 104,
+        "parts": {
+          "21": {
+            "visit_day": 0,
+            "days_covered": 1,
+            "demand_per_visit": 6
+          },
+          "28": {
+            "visit_day": 0,
+            "days_covered": 4,
+            "demand_per_visit": 60
+          },
+          "42": {
+            "visit_day": 0,
+            "days_covered": 1,
+            "demand_per_visit": 12
+          },
+          "2": {
+            "visit_day": 0,
+            "days_covered": 2,
+            "demand_per_visit": 26
+          }
+        }
+      },
+      {
+        "customers": [
+          1,
+          6,
+          18,
+          36,
+          5
+        ],
+        "cost": 125.92550610979515,
+        "demand": 106,
+        "parts": {
+          "1": {
+            "visit_day": 0,
+            "days_covered": 4,
+            "demand_per_visit": 56
+          },
+          "6": {
+            "visit_day": 0,
+            "days_covered": 1,
+            "demand_per_visit": 5
+          },
+          "18": {
+            "visit_day": 0,
+            "days_covered": 1,
+            "demand_per_visit": 11
+          },
+          "36": {
+            "visit_day": 0,
+            "days_covered": 1,
+            "demand_per_visit": 6
+          },
+          "5": {
+            "visit_day": 0,
+            "days_covered": 2,
+            "demand_per_visit": 28
+          }
+        }
+      },
+      {
+        "customers": [
+          24,
+          7,
+          15
+        ],
+        "cost": 136.75017126469237,
+        "demand": 114,
+        "parts": {
+          "24": {
+            "visit_day": 0,
+            "days_covered": 1,
+            "demand_per_visit": 18
+          },
+          "7": {
+            "visit_day": 0,
+            "days_covered": 4,
+            "demand_per_visit": 76
+          },
+          "15": {
+            "visit_day": 0,
+            "days_covered": 1,
+            "demand_per_visit": 20
+          }
+        }
+      },
+      {
+        "customers": [
+          16,
+          33,
+          12,
+          17,
+          27
+        ],
+        "cost": 155.7410976006284,
+        "demand": 83,
+        "parts": {
+          "16": {
+            "visit_day": 0,
+            "days_covered": 4,
+            "demand_per_visit": 20
+          },
+          "33": {
+            "visit_day": 0,
+            "days_covered": 1,
+            "demand_per_visit": 10
+          },
+          "12": {
+            "visit_day": 0,
+            "days_covered": 1,
+            "demand_per_visit": 11
+          },
+          "17": {
+            "visit_day": 0,
+            "days_covered": 2,
+            "demand_per_visit": 30
+          },
+          "27": {
+            "visit_day": 0,
+            "days_covered": 1,
+            "demand_per_visit": 12
+          }
+        }
+      }
+    ],
+    "1": [
+      {
+        "customers": [
+          24,
+          8,
+          11,
+          36,
+          35,
+          27
+        ],
+        "cost": 154.45170103200837,
+        "demand": 114,
+        "parts": {
+          "24": {
+            "visit_day": 1,
+            "days_covered": 1,
+            "demand_per_visit": 18
+          },
+          "8": {
+            "visit_day": 1,
+            "days_covered": 2,
+            "demand_per_visit": 40
+          },
+          "11": {
+            "visit_day": 1,
+            "days_covered": 2,
+            "demand_per_visit": 28
+          },
+          "36": {
+            "visit_day": 1,
+            "days_covered": 1,
+            "demand_per_visit": 6
+          },
+          "35": {
+            "visit_day": 1,
+            "days_covered": 2,
+            "demand_per_visit": 10
+          },
+          "27": {
+            "visit_day": 1,
+            "days_covered": 1,
+            "demand_per_visit": 12
+          }
+        }
+      },
+      {
+        "customers": [
+          13,
+          41,
+          3,
+          9,
+          42
+        ],
+        "cost": 135.6099549832859,
+        "demand": 115,
+        "parts": {
+          "13": {
+            "visit_day": 1,
+            "days_covered": 4,
+            "demand_per_visit": 68
+          },
+          "41": {
+            "visit_day": 1,
+            "days_covered": 2,
+            "demand_per_visit": 12
+          },
+          "3": {
+            "visit_day": 1,
+            "days_covered": 1,
+            "demand_per_visit": 9
+          },
+          "9": {
+            "visit_day": 1,
+            "days_covered": 1,
+            "demand_per_visit": 14
+          },
+          "42": {
+            "visit_day": 1,
+            "days_covered": 1,
+            "demand_per_visit": 12
+          }
+        }
+      },
+      {
+        "customers": [
+          38,
+          14,
+          6,
+          18,
+          20,
+          25
+        ],
+        "cost": 137.0484640094189,
+        "demand": 102,
+        "parts": {
+          "38": {
+            "visit_day": 1,
+            "days_covered": 2,
+            "demand_per_visit": 22
+          },
+          "14": {
+            "visit_day": 1,
+            "days_covered": 2,
+            "demand_per_visit": 24
+          },
+          "6": {
+            "visit_day": 1,
+            "days_covered": 1,
+            "demand_per_visit": 5
+          },
+          "18": {
+            "visit_day": 1,
+            "days_covered": 1,
+            "demand_per_visit": 11
+          },
+          "20": {
+            "visit_day": 1,
+            "days_covered": 2,
+            "demand_per_visit": 12
+          },
+          "25": {
+            "visit_day": 1,
+            "days_covered": 4,
+            "demand_per_visit": 28
+          }
+        }
+      },
+      {
+        "customers": [
+          22,
+          32,
+          30,
+          15,
+          26,
+          39
+        ],
+        "cost": 145.01219322253286,
+        "demand": 119,
+        "parts": {
+          "22": {
+            "visit_day": 1,
+            "days_covered": 4,
+            "demand_per_visit": 36
+          },
+          "32": {
+            "visit_day": 1,
+            "days_covered": 2,
+            "demand_per_visit": 10
+          },
+          "30": {
+            "visit_day": 1,
+            "days_covered": 1,
+            "demand_per_visit": 14
+          },
+          "15": {
+            "visit_day": 1,
+            "days_covered": 1,
+            "demand_per_visit": 20
+          },
+          "26": {
+            "visit_day": 1,
+            "days_covered": 2,
+            "demand_per_visit": 26
+          },
+          "39": {
+            "visit_day": 1,
+            "days_covered": 1,
+            "demand_per_visit": 13
+          }
+        }
+      },
+      {
+        "customers": [
+          21,
+          29,
+          33,
+          12
+        ],
+        "cost": 137.82889393696706,
+        "demand": 67,
+        "parts": {
+          "21": {
+            "visit_day": 1,
+            "days_covered": 1,
+            "demand_per_visit": 6
+          },
+          "29": {
+            "visit_day": 1,
+            "days_covered": 2,
+            "demand_per_visit": 40
+          },
+          "33": {
+            "visit_day": 1,
+            "days_covered": 1,
+            "demand_per_visit": 10
+          },
+          "12": {
+            "visit_day": 1,
+            "days_covered": 1,
+            "demand_per_visit": 11
+          }
+        }
+      }
+    ],
+    "2": [
+      {
+        "customers": [
+          30,
+          3,
+          9,
+          23,
+          2
+        ],
+        "cost": 135.98755711159924,
+        "demand": 89,
+        "parts": {
+          "30": {
+            "visit_day": 2,
+            "days_covered": 1,
+            "demand_per_visit": 14
+          },
+          "3": {
+            "visit_day": 2,
+            "days_covered": 1,
+            "demand_per_visit": 9
+          },
+          "9": {
+            "visit_day": 2,
+            "days_covered": 1,
+            "demand_per_visit": 14
+          },
+          "23": {
+            "visit_day": 2,
+            "days_covered": 2,
+            "demand_per_visit": 26
+          },
+          "2": {
+            "visit_day": 2,
+            "days_covered": 2,
+            "demand_per_visit": 26
+          }
+        }
+      },
+      {
+        "customers": [
+          17,
+          12,
+          33,
+          21,
+          42
+        ],
+        "cost": 172.08481124552245,
+        "demand": 69,
+        "parts": {
+          "17": {
+            "visit_day": 2,
+            "days_covered": 2,
+            "demand_per_visit": 30
+          },
+          "12": {
+            "visit_day": 2,
+            "days_covered": 1,
+            "demand_per_visit": 11
+          },
+          "33": {
+            "visit_day": 2,
+            "days_covered": 1,
+            "demand_per_visit": 10
+          },
+          "21": {
+            "visit_day": 2,
+            "days_covered": 1,
+            "demand_per_visit": 6
+          },
+          "42": {
+            "visit_day": 2,
+            "days_covered": 1,
+            "demand_per_visit": 12
+          }
+        }
+      },
+      {
+        "customers": [
+          24,
+          10,
+          15,
+          39
+        ],
+        "cost": 163.18714513755157,
+        "demand": 119,
+        "parts": {
+          "24": {
+            "visit_day": 2,
+            "days_covered": 1,
+            "demand_per_visit": 18
+          },
+          "10": {
+            "visit_day": 2,
+            "days_covered": 4,
+            "demand_per_visit": 68
+          },
+          "15": {
+            "visit_day": 2,
+            "days_covered": 1,
+            "demand_per_visit": 20
+          },
+          "39": {
+            "visit_day": 2,
+            "days_covered": 1,
+            "demand_per_visit": 13
+          }
+        }
+      },
+      {
+        "customers": [
+          19,
+          18,
+          6,
+          27
+        ],
+        "cost": 129.08666545361982,
+        "demand": 104,
+        "parts": {
+          "19": {
+            "visit_day": 2,
+            "days_covered": 4,
+            "demand_per_visit": 76
+          },
+          "18": {
+            "visit_day": 2,
+            "days_covered": 1,
+            "demand_per_visit": 11
+          },
+          "6": {
+            "visit_day": 2,
+            "days_covered": 1,
+            "demand_per_visit": 5
+          },
+          "27": {
+            "visit_day": 2,
+            "days_covered": 1,
+            "demand_per_visit": 12
+          }
+        }
+      },
+      {
+        "customers": [
+          34,
+          5,
+          36,
+          40
+        ],
+        "cost": 55.81168405375756,
+        "demand": 82,
+        "parts": {
+          "34": {
+            "visit_day": 2,
+            "days_covered": 4,
+            "demand_per_visit": 28
+          },
+          "5": {
+            "visit_day": 2,
+            "days_covered": 2,
+            "demand_per_visit": 28
+          },
+          "36": {
+            "visit_day": 2,
+            "days_covered": 1,
+            "demand_per_visit": 6
+          },
+          "40": {
+            "visit_day": 2,
+            "days_covered": 4,
+            "demand_per_visit": 20
+          }
+        }
+      }
+    ],
+    "3": [
+      {
+        "customers": [
+          24,
+          8,
+          11,
+          36,
+          35,
+          27
+        ],
+        "cost": 154.45170103200837,
+        "demand": 114,
+        "parts": {
+          "24": {
+            "visit_day": 3,
+            "days_covered": 1,
+            "demand_per_visit": 18
+          },
+          "8": {
+            "visit_day": 3,
+            "days_covered": 2,
+            "demand_per_visit": 40
+          },
+          "11": {
+            "visit_day": 3,
+            "days_covered": 2,
+            "demand_per_visit": 28
+          },
+          "36": {
+            "visit_day": 3,
+            "days_covered": 1,
+            "demand_per_visit": 6
+          },
+          "35": {
+            "visit_day": 3,
+            "days_covered": 2,
+            "demand_per_visit": 10
+          },
+          "27": {
+            "visit_day": 3,
+            "days_covered": 1,
+            "demand_per_visit": 12
+          }
+        }
+      },
+      {
+        "customers": [
+          30,
+          37,
+          3,
+          9,
+          42
+        ],
+        "cost": 152.43200394358558,
+        "demand": 117,
+        "parts": {
+          "30": {
+            "visit_day": 3,
+            "days_covered": 1,
+            "demand_per_visit": 14
+          },
+          "37": {
+            "visit_day": 3,
+            "days_covered": 4,
+            "demand_per_visit": 68
+          },
+          "3": {
+            "visit_day": 3,
+            "days_covered": 1,
+            "demand_per_visit": 9
+          },
+          "9": {
+            "visit_day": 3,
+            "days_covered": 1,
+            "demand_per_visit": 14
+          },
+          "42": {
+            "visit_day": 3,
+            "days_covered": 1,
+            "demand_per_visit": 12
+          }
+        }
+      },
+      {
+        "customers": [
+          38,
+          14,
+          6,
+          18,
+          20
+        ],
+        "cost": 136.51716833440997,
+        "demand": 74,
+        "parts": {
+          "38": {
+            "visit_day": 3,
+            "days_covered": 2,
+            "demand_per_visit": 22
+          },
+          "14": {
+            "visit_day": 3,
+            "days_covered": 2,
+            "demand_per_visit": 24
+          },
+          "6": {
+            "visit_day": 3,
+            "days_covered": 1,
+            "demand_per_visit": 5
+          },
+          "18": {
+            "visit_day": 3,
+            "days_covered": 1,
+            "demand_per_visit": 11
+          },
+          "20": {
+            "visit_day": 3,
+            "days_covered": 2,
+            "demand_per_visit": 12
+          }
+        }
+      },
+      {
+        "customers": [
+          41,
+          21,
+          29,
+          33,
+          12
+        ],
+        "cost": 152.4531750903983,
+        "demand": 79,
+        "parts": {
+          "41": {
+            "visit_day": 3,
+            "days_covered": 2,
+            "demand_per_visit": 12
+          },
+          "21": {
+            "visit_day": 3,
+            "days_covered": 1,
+            "demand_per_visit": 6
+          },
+          "29": {
+            "visit_day": 3,
+            "days_covered": 2,
+            "demand_per_visit": 40
+          },
+          "33": {
+            "visit_day": 3,
+            "days_covered": 1,
+            "demand_per_visit": 10
+          },
+          "12": {
+            "visit_day": 3,
+            "days_covered": 1,
+            "demand_per_visit": 11
+          }
+        }
+      },
+      {
+        "customers": [
+          31,
+          32,
+          15,
+          26,
+          39
+        ],
+        "cost": 147.09650801039447,
+        "demand": 113,
+        "parts": {
+          "31": {
+            "visit_day": 3,
+            "days_covered": 4,
+            "demand_per_visit": 44
+          },
+          "32": {
+            "visit_day": 3,
+            "days_covered": 2,
+            "demand_per_visit": 10
+          },
+          "15": {
+            "visit_day": 3,
+            "days_covered": 1,
+            "demand_per_visit": 20
+          },
+          "26": {
+            "visit_day": 3,
+            "days_covered": 2,
+            "demand_per_visit": 26
+          },
+          "39": {
+            "visit_day": 3,
+            "days_covered": 1,
+            "demand_per_visit": 13
+          }
+        }
+      }
+    ]
+  },
+  "schedules": {
+    "1": {
+      "schedule_index": 0,
+      "days": [
+        0
+      ],
+      "visit_frequency": 1
+    },
+    "2": {
+      "schedule_index": 0,
+      "days": [
+        0,
+        2
+      ],
+      "visit_frequency": 2
+    },
+    "3": {
+      "schedule_index": 0,
+      "days": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "visit_frequency": 4
+    },
+    "4": {
+      "schedule_index": 0,
+      "days": [
+        0
+      ],
+      "visit_frequency": 1
+    },
+    "5": {
+      "schedule_index": 0,
+      "days": [
+        0,
+        2
+      ],
+      "visit_frequency": 2
+    },
+    "6": {
+      "schedule_index": 0,
+      "days": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "visit_frequency": 4
+    },
+    "7": {
+      "schedule_index": 0,
+      "days": [
+        0
+      ],
+      "visit_frequency": 1
+    },
+    "8": {
+      "schedule_index": 1,
+      "days": [
+        1,
+        3
+      ],
+      "visit_frequency": 2
+    },
+    "9": {
+      "schedule_index": 0,
+      "days": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "visit_frequency": 4
+    },
+    "10": {
+      "schedule_index": 2,
+      "days": [
+        2
+      ],
+      "visit_frequency": 1
+    },
+    "11": {
+      "schedule_index": 1,
+      "days": [
+        1,
+        3
+      ],
+      "visit_frequency": 2
+    },
+    "12": {
+      "schedule_index": 0,
+      "days": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "visit_frequency": 4
+    },
+    "13": {
+      "schedule_index": 1,
+      "days": [
+        1
+      ],
+      "visit_frequency": 1
+    },
+    "14": {
+      "schedule_index": 1,
+      "days": [
+        1,
+        3
+      ],
+      "visit_frequency": 2
+    },
+    "15": {
+      "schedule_index": 0,
+      "days": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "visit_frequency": 4
+    },
+    "16": {
+      "schedule_index": 0,
+      "days": [
+        0
+      ],
+      "visit_frequency": 1
+    },
+    "17": {
+      "schedule_index": 0,
+      "days": [
+        0,
+        2
+      ],
+      "visit_frequency": 2
+    },
+    "18": {
+      "schedule_index": 0,
+      "days": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "visit_frequency": 4
+    },
+    "19": {
+      "schedule_index": 2,
+      "days": [
+        2
+      ],
+      "visit_frequency": 1
+    },
+    "20": {
+      "schedule_index": 1,
+      "days": [
+        1,
+        3
+      ],
+      "visit_frequency": 2
+    },
+    "21": {
+      "schedule_index": 0,
+      "days": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "visit_frequency": 4
+    },
+    "22": {
+      "schedule_index": 1,
+      "days": [
+        1
+      ],
+      "visit_frequency": 1
+    },
+    "23": {
+      "schedule_index": 0,
+      "days": [
+        0,
+        2
+      ],
+      "visit_frequency": 2
+    },
+    "24": {
+      "schedule_index": 0,
+      "days": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "visit_frequency": 4
+    },
+    "25": {
+      "schedule_index": 1,
+      "days": [
+        1
+      ],
+      "visit_frequency": 1
+    },
+    "26": {
+      "schedule_index": 1,
+      "days": [
+        1,
+        3
+      ],
+      "visit_frequency": 2
+    },
+    "27": {
+      "schedule_index": 0,
+      "days": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "visit_frequency": 4
+    },
+    "28": {
+      "schedule_index": 0,
+      "days": [
+        0
+      ],
+      "visit_frequency": 1
+    },
+    "29": {
+      "schedule_index": 1,
+      "days": [
+        1,
+        3
+      ],
+      "visit_frequency": 2
+    },
+    "30": {
+      "schedule_index": 0,
+      "days": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "visit_frequency": 4
+    },
+    "31": {
+      "schedule_index": 3,
+      "days": [
+        3
+      ],
+      "visit_frequency": 1
+    },
+    "32": {
+      "schedule_index": 1,
+      "days": [
+        1,
+        3
+      ],
+      "visit_frequency": 2
+    },
+    "33": {
+      "schedule_index": 0,
+      "days": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "visit_frequency": 4
+    },
+    "34": {
+      "schedule_index": 2,
+      "days": [
+        2
+      ],
+      "visit_frequency": 1
+    },
+    "35": {
+      "schedule_index": 1,
+      "days": [
+        1,
+        3
+      ],
+      "visit_frequency": 2
+    },
+    "36": {
+      "schedule_index": 0,
+      "days": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "visit_frequency": 4
+    },
+    "37": {
+      "schedule_index": 3,
+      "days": [
+        3
+      ],
+      "visit_frequency": 1
+    },
+    "38": {
+      "schedule_index": 1,
+      "days": [
+        1,
+        3
+      ],
+      "visit_frequency": 2
+    },
+    "39": {
+      "schedule_index": 0,
+      "days": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "visit_frequency": 4
+    },
+    "40": {
+      "schedule_index": 2,
+      "days": [
+        2
+      ],
+      "visit_frequency": 1
+    },
+    "41": {
+      "schedule_index": 1,
+      "days": [
+        1,
+        3
+      ],
+      "visit_frequency": 2
+    },
+    "42": {
+      "schedule_index": 0,
+      "days": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "visit_frequency": 4
+    }
+  }
+}

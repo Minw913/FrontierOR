@@ -1,0 +1,100 @@
+{
+  "feasible": false,
+  "violated_constraints": [
+    6
+  ],
+  "violations": [
+    "Constraint (6): Vehicle 0 has 0 arrivals at depot (n+1), expected 1",
+    "Constraint (6): Vehicle 1 has 0 arrivals at depot (n+1), expected 1",
+    "Constraint (6): Vehicle 2 has 0 arrivals at depot (n+1), expected 1",
+    "Constraint (6): Vehicle 3 has 0 arrivals at depot (n+1), expected 1",
+    "Constraint (6): Vehicle 4 has 0 arrivals at depot (n+1), expected 1",
+    "Constraint (6): Vehicle 5 has 0 arrivals at depot (n+1), expected 1",
+    "Constraint (6): Vehicle 6 has 0 arrivals at depot (n+1), expected 1",
+    "Constraint (6): Vehicle 7 has 0 arrivals at depot (n+1), expected 1",
+    "Constraint (6): Vehicle 8 has 0 arrivals at depot (n+1), expected 1",
+    "Constraint (6): Vehicle 9 has 0 arrivals at depot (n+1), expected 1"
+  ],
+  "violation_magnitudes": [
+    {
+      "constraint": 6,
+      "lhs": 0.0,
+      "rhs": 1.0,
+      "raw_excess": 1.0,
+      "normalizer": 1.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 6,
+      "lhs": 0.0,
+      "rhs": 1.0,
+      "raw_excess": 1.0,
+      "normalizer": 1.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 6,
+      "lhs": 0.0,
+      "rhs": 1.0,
+      "raw_excess": 1.0,
+      "normalizer": 1.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 6,
+      "lhs": 0.0,
+      "rhs": 1.0,
+      "raw_excess": 1.0,
+      "normalizer": 1.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 6,
+      "lhs": 0.0,
+      "rhs": 1.0,
+      "raw_excess": 1.0,
+      "normalizer": 1.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 6,
+      "lhs": 0.0,
+      "rhs": 1.0,
+      "raw_excess": 1.0,
+      "normalizer": 1.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 6,
+      "lhs": 0.0,
+      "rhs": 1.0,
+      "raw_excess": 1.0,
+      "normalizer": 1.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 6,
+      "lhs": 0.0,
+      "rhs": 1.0,
+      "raw_excess": 1.0,
+      "normalizer": 1.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 6,
+      "lhs": 0.0,
+      "rhs": 1.0,
+      "raw_excess": 1.0,
+      "normalizer": 1.0,
+      "ratio": 1.0
+    },
+    {
+      "constraint": 6,
+      "lhs": 0.0,
+      "rhs": 1.0,
+      "raw_excess": 1.0,
+      "normalizer": 1.0,
+      "ratio": 1.0
+    }
+  ]
+}

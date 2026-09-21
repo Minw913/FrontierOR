@@ -1,0 +1,65 @@
+{
+  "feasible": false,
+  "violated_constraints": [
+    9,
+    10
+  ],
+  "violations": [
+    "Route for vehicle 0 must list the active trip prefix in order; got trip ids [1, 2]",
+    "Route for vehicle 1 must list the active trip prefix in order; got trip ids [1, 2]",
+    "Route for vehicle 2 must list the active trip prefix in order; got trip ids [1]",
+    "Setup continuity violated for product 0, subperiod 1: f=1 > previous f + setup=0",
+    "Setup continuity violated for product 1, subperiod 4: f=1 > previous f + setup=0",
+    "Minimum paid-time coverage violated in period 6: w=0 < 3"
+  ],
+  "violation_magnitudes": [
+    {
+      "constraint": 9,
+      "lhs": 1.0,
+      "rhs": 0.0,
+      "raw_excess": 1.0,
+      "normalizer": 1e-05,
+      "ratio": 99999.99999999999
+    },
+    {
+      "constraint": 9,
+      "lhs": 1.0,
+      "rhs": 0.0,
+      "raw_excess": 1.0,
+      "normalizer": 1e-05,
+      "ratio": 99999.99999999999
+    },
+    {
+      "constraint": 9,
+      "lhs": 1.0,
+      "rhs": 0.0,
+      "raw_excess": 1.0,
+      "normalizer": 1e-05,
+      "ratio": 99999.99999999999
+    },
+    {
+      "constraint": 10,
+      "lhs": 1.0,
+      "rhs": 0.0,
+      "raw_excess": 1.0,
+      "normalizer": 1e-05,
+      "ratio": 99999.99999999999
+    },
+    {
+      "constraint": 10,
+      "lhs": 1.0,
+      "rhs": 0.0,
+      "raw_excess": 1.0,
+      "normalizer": 1e-05,
+      "ratio": 99999.99999999999
+    },
+    {
+      "constraint": 10,
+      "lhs": 0.0,
+      "rhs": 3.0,
+      "raw_excess": 3.0,
+      "normalizer": 3.0,
+      "ratio": 1.0
+    }
+  ]
+}
