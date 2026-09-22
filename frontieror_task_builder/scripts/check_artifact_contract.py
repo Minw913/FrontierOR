@@ -54,6 +54,43 @@ def script_defines_argparse_flags(path: Path, flags: list[str]) -> tuple[bool, l
     return not missing, missing
 
 
+def script_defines_name_before_use(path: Path, name: str) -> bool:
+    """Return whether a module-level name is assigned before its first load."""
+    if not path.is_file():
+        return False
+    try:
+        tree = ast.parse(path.read_text(encoding="utf-8", errors="replace"))
+    except SyntaxError:
+        return False
+
+    assignments: list[int] = []
+    loads: list[int] = []
+    for node in ast.walk(tree):
+        if isinstance(node, ast.Assign):
+            if any(
+                isinstance(target, ast.Name) and target.id == name
+                for target in node.targets
+            ):
+                assignments.append(node.lineno)
+        elif isinstance(node, ast.AnnAssign):
+            if (
+                node.value is not None
+                and isinstance(node.target, ast.Name)
+                and node.target.id == name
+            ):
+                assignments.append(node.lineno)
+        elif isinstance(node, ast.NamedExpr):
+            if isinstance(node.target, ast.Name) and node.target.id == name:
+                assignments.append(node.lineno)
+        elif (
+            isinstance(node, ast.Name)
+            and node.id == name
+            and isinstance(node.ctx, ast.Load)
+        ):
+            loads.append(node.lineno)
+    return not loads or (bool(assignments) and min(assignments) < min(loads))
+
+
 def check(task_dir: Path) -> tuple[list[str], list[str]]:
     errors: list[str] = []
     warnings: list[str] = []
@@ -83,6 +120,14 @@ def check(task_dir: Path) -> tuple[list[str], list[str]]:
     )
     if not ok:
         errors.append(f"gurobi_code.py missing argparse flags: {', '.join(missing)}")
+
+    if not script_defines_name_before_use(
+        task_dir / "gurobi_code.py", "_GUROBI_CODE_START_TIME"
+    ):
+        errors.append(
+            "gurobi_code.py uses _GUROBI_CODE_START_TIME before a real assignment "
+            "(text inside a docstring or an annotation does not define it)"
+        )
 
     ok, missing = script_defines_argparse_flags(
         task_dir / "feasibility_check.py",
