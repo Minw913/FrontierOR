@@ -58,7 +58,7 @@ The downloaded dataset root contains repository-level files plus
 `metadata/paper_meta_info.json`. Per-paper task payloads live under
 `frontier-or/tasks/<paper_id>/`.
 
-The consolidated Gurobi baseline is available as
+The Hugging Face dataset includes the consolidated Gurobi baseline at
 `frontier-or/metadata/gurobi_references.parquet` (with a portable
 `gurobi_references.csv.gz` copy). Evaluation reads the Parquet table by
 default; pass `--gurobi-source solutions` to read the per-task solution JSON
@@ -110,15 +110,6 @@ python -u one_shot_eval.py --paper_id bierwirth2017 liao2020 --reuse-code all --
 
 FrontierOR exposes two evaluation pipelines: **one-shot LLM generation**, and **test-time self-evolution**. You can run FrontierOR in any of three execution backends:
 
-Compute metrics for a result CSV with:
-
-```bash
-FRONTIER_OR_DATA_DIR="$PWD/frontier-or" \
-python scripts/compute_benchmark_main_metrics.py \
-  --model-csv eval_results_my_model.csv \
-  --model-name my-model
-```
-
 | Backend | What it does | When to use |
 |---|---|---|
 | `bare` | Runs each LLM-generated code subprocess directly in the host environment, no resource caps. | Local development, fastest startup. |
@@ -148,6 +139,16 @@ Key flags:
 - `--paper_workers` / `--model_workers` / `--instance_workers` — three-level parallelism across the (paper × model × instance) grid.
 - `--exec-mode` — `bare` / `systemd` / `docker`, paired with `--cpus` / `--memory`. Isolation strength: `bare` only pins CPUs; `systemd` adds cgroup-enforced memory cap + network block; `docker` adds full container isolation (no host filesystem access).
 - `--reuse-code {none,incomplete,all}` —  `none` always re-generates; `all` skips LLM generation and re-runs evaluation on the existing code
+
+After a one-shot run, `scripts/compute_benchmark_main_metrics.py` computes the
+Full and Hard benchmark metrics, including binary QTE, from a model result CSV:
+
+```bash
+FRONTIER_OR_DATA_DIR="$PWD/frontier-or" \
+python scripts/compute_benchmark_main_metrics.py \
+  --model-csv eval_results_my_model.csv \
+  --model-name my-model
+```
 
 ### Test-time Self-evolution
 
