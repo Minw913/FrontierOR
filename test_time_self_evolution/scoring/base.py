@@ -15,6 +15,7 @@ class ScoreContext:
         gurobi_time:  τ_g. Gurobi's actual solve time on this instance. Case A:
                       time-to-proven-optimal. Case B: Gurobi's time_limit (timeout).
                       None if not available.
+        gurobi_time_limit: Declared compute budget used for the Gurobi run.
         gurobi_obj:   Reference objective value. Case A: proven optimal. Case B:
                       Gurobi's best incumbent at timeout. None if not available.
         direction:    "min" or "max". Needed so "LLM beats Gurobi" is scored
@@ -26,6 +27,7 @@ class ScoreContext:
     """
     time_limit: int
     gurobi_time: Optional[float] = None
+    gurobi_time_limit: Optional[float] = None
     gurobi_obj: Optional[float] = None
     direction: str = "min"
     log_path: Optional[str] = None

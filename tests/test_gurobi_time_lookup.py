@@ -12,9 +12,18 @@ def _write_references(path):
     pq.write_table(
         pa.Table.from_pylist(
             [
-                {"task_id": "paper1", "instance": "tiny", "runtime": 2.5},
-                {"task_id": "paper1", "instance": "large_1", "runtime": 9.0},
-                {"task_id": "bad", "instance": "tiny", "runtime": float("nan")},
+                {
+                    "task_id": "paper1", "instance": "tiny",
+                    "runtime": 2.5, "time_limit": 300.0,
+                },
+                {
+                    "task_id": "paper1", "instance": "large_1",
+                    "runtime": 9.0, "time_limit": 3600.0,
+                },
+                {
+                    "task_id": "bad", "instance": "tiny",
+                    "runtime": float("nan"), "time_limit": 300.0,
+                },
             ]
         ),
         path,
@@ -30,6 +39,8 @@ def test_lookup_gurobi_time_defaults_to_reference_table(tmp_path, monkeypatch):
 
     assert building_blocks.lookup_gurobi_time("paper1", "tiny") == 2.5
     assert building_blocks.lookup_gurobi_time("paper1", "large_1") == 9.0
+    assert building_blocks.lookup_gurobi_time_limit("paper1", "tiny") == 300.0
+    assert building_blocks.lookup_gurobi_time_limit("paper1", "large_1") == 3600.0
     assert building_blocks.lookup_gurobi_time("missing", "tiny") is None
     assert building_blocks.lookup_gurobi_time("bad", "tiny") is None
 
@@ -68,3 +79,24 @@ def test_lookup_gurobi_time_supports_explicit_legacy_csv(tmp_path, monkeypatch):
 def test_lookup_gurobi_time_rejects_unknown_source():
     with pytest.raises(ValueError, match="Gurobi time source"):
         building_blocks.lookup_gurobi_time("paper1", "tiny", source="log")
+
+
+def test_shared_qte_time_comparison_caps_budgets_and_allows_small_jitter():
+    assert building_blocks.qte_time_is_fast_enough(
+        3608.0,
+        3605.0,
+        candidate_time_limit=3600.0,
+        gurobi_time_limit=3600.0,
+    )
+    assert building_blocks.qte_time_is_fast_enough(
+        1000.8,
+        1000.0,
+        candidate_time_limit=3600.0,
+        gurobi_time_limit=3600.0,
+    )
+    assert not building_blocks.qte_time_is_fast_enough(
+        1002.0,
+        1000.0,
+        candidate_time_limit=3600.0,
+        gurobi_time_limit=3600.0,
+    )

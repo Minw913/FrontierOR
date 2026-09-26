@@ -531,7 +531,10 @@ def evaluate_stage2(program_path: str):
     # Imported lazily so unit tests that mock eval_core don't need the scoring deps.
     from test_time_self_evolution.scoring import DEFAULT_SCORER, get_scorer
     from test_time_self_evolution.scoring.base import ScoreContext
-    from test_time_self_evolution.scoring.building_blocks import lookup_gurobi_time
+    from test_time_self_evolution.scoring.building_blocks import (
+        lookup_gurobi_time,
+        lookup_gurobi_time_limit,
+    )
 
     paper_id, model_name, exec_mode, base_output, t_max, exec_cfg = _common_env()
     instances = _split_instances(os.environ.get("EFFICIENT_OR_STAGE2_INSTANCES", ""))
@@ -552,6 +555,9 @@ def evaluate_stage2(program_path: str):
     # Pre-compute τ_g for each instance (needed by both the scorer and, when
     # the time policy is gurobi-based, by the per-instance time budget).
     tau_g_map = {inst: lookup_gurobi_time(paper_id, inst) for inst in instances}
+    tau_g_limit_map = {
+        inst: lookup_gurobi_time_limit(paper_id, inst) for inst in instances
+    }
 
     # Build the per-instance time budget according to the policy.
     #   "uniform"                → every instance uses ``time_limit_cap``
@@ -589,6 +595,7 @@ def evaluate_stage2(program_path: str):
         ctx = ScoreContext(
             time_limit=per_instance_tl[inst],
             gurobi_time=tau_g_map.get(inst),
+            gurobi_time_limit=tau_g_limit_map.get(inst),
             gurobi_obj=r.get("gurobi_obj"),
             direction=direction,
             log_path=log_path,
@@ -660,6 +667,11 @@ def evaluate_stage2(program_path: str):
         out[f"{p}_gurobi_obj"] = float(gref) if gref is not None else 0.0
         tsolve_val = r.get("solve_time")
         out[f"{p}_time"] = float(tsolve_val) if tsolve_val is not None else 0.0
+        out[f"{p}_candidate_time_limit"] = float(ctx.time_limit)
+        out[f"{p}_gurobi_time_limit"] = (
+            float(ctx.gurobi_time_limit)
+            if ctx.gurobi_time_limit is not None else 0.0
+        )
         aocc_val = r.get("aocc")
         out[f"{p}_aocc"] = float(aocc_val) if aocc_val is not None else 1.0
         # Per-instance score that went into aggregate

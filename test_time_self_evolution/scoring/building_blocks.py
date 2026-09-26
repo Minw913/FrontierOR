@@ -23,6 +23,48 @@ ROOT_DIR = os.path.dirname(
 # ------------------------------ gap + beat ------------------------------
 
 NEAR_ZERO_REF = 1e-3
+DEFAULT_QTE_TIME_TOLERANCE_SECONDS = 0.01
+DEFAULT_QTE_TIME_TOLERANCE_FRACTION = 0.001
+
+
+def effective_runtime(runtime: float, time_limit: float) -> Optional[float]:
+    """Return a validated wall time capped by its declared compute budget."""
+    try:
+        runtime_value = float(runtime)
+        limit_value = float(time_limit)
+    except (TypeError, ValueError, OverflowError):
+        return None
+    if (
+        not math.isfinite(runtime_value)
+        or not math.isfinite(limit_value)
+        or runtime_value < 0
+        or limit_value <= 0
+    ):
+        return None
+    return min(runtime_value, limit_value)
+
+
+def qte_time_is_fast_enough(
+    candidate_time: float,
+    gurobi_time: float,
+    *,
+    candidate_time_limit: float,
+    gurobi_time_limit: float,
+    tolerance_seconds: float = DEFAULT_QTE_TIME_TOLERANCE_SECONDS,
+    tolerance_fraction: float = DEFAULT_QTE_TIME_TOLERANCE_FRACTION,
+) -> bool:
+    """Compare budget-capped wall times with bounded clock-jitter tolerance."""
+    if tolerance_seconds < 0 or tolerance_fraction < 0:
+        raise ValueError("QTE time tolerances must be non-negative")
+    candidate_effective = effective_runtime(candidate_time, candidate_time_limit)
+    gurobi_effective = effective_runtime(gurobi_time, gurobi_time_limit)
+    if candidate_effective is None or gurobi_effective is None:
+        return False
+    tolerance = max(
+        float(tolerance_seconds),
+        float(tolerance_fraction) * gurobi_effective,
+    )
+    return candidate_effective <= gurobi_effective + tolerance
 
 
 def _scaled_denom(ref: float, obj: float) -> float:
@@ -236,7 +278,9 @@ def pick_median_tau_g_instance(paper_id: str) -> Optional[str]:
 
 
 @lru_cache(maxsize=8)
-def _load_gurobi_reference_times(path: str) -> dict[tuple[str, str], float]:
+def _load_gurobi_reference_times(
+    path: str,
+) -> dict[tuple[str, str], tuple[float, float]]:
     try:
         import pyarrow.parquet as pq
     except ImportError as exc:
@@ -244,16 +288,27 @@ def _load_gurobi_reference_times(path: str) -> dict[tuple[str, str], float]:
             "pyarrow is required to read metadata/gurobi_references.parquet"
         ) from exc
 
-    table = pq.read_table(path, columns=["task_id", "instance", "runtime"])
-    references: dict[tuple[str, str], float] = {}
+    table = pq.read_table(
+        path, columns=["task_id", "instance", "runtime", "time_limit"]
+    )
+    references: dict[tuple[str, str], tuple[float, float]] = {}
     for row in table.to_pylist():
         try:
             runtime = float(row["runtime"])
+            time_limit = float(row["time_limit"])
         except (KeyError, TypeError, ValueError, OverflowError):
             continue
-        if not math.isfinite(runtime) or runtime < 0:
+        if (
+            not math.isfinite(runtime)
+            or runtime < 0
+            or not math.isfinite(time_limit)
+            or time_limit <= 0
+        ):
             continue
-        references[(str(row["task_id"]), str(row["instance"]))] = runtime
+        references[(str(row["task_id"]), str(row["instance"]))] = (
+            runtime,
+            time_limit,
+        )
     return references
 
 
@@ -312,7 +367,36 @@ def lookup_gurobi_time(
         )
     except (OSError, ValueError):
         return None
-    return references.get((paper_id, instance))
+    reference = references.get((paper_id, instance))
+    return reference[0] if reference is not None else None
+
+
+def lookup_gurobi_time_limit(
+    paper_id: str, instance: str, *, source: Optional[str] = None
+) -> Optional[float]:
+    """Look up the declared Gurobi compute budget for an instance."""
+    selected = source or os.environ.get(
+        "FRONTIER_OR_GUROBI_TIME_SOURCE", "references"
+    )
+    if selected == "legacy_csv":
+        return None
+    if selected != "references":
+        raise ValueError(
+            "Gurobi time source must be 'references' or 'legacy_csv', "
+            f"got {selected!r}"
+        )
+    reference_path = os.environ.get(
+        "FRONTIER_OR_GUROBI_REFERENCE",
+        os.path.join(_data_root(), "metadata", "gurobi_references.parquet"),
+    )
+    try:
+        references = _load_gurobi_reference_times(
+            os.path.abspath(os.path.expanduser(reference_path))
+        )
+    except (OSError, ValueError):
+        return None
+    reference = references.get((paper_id, instance))
+    return reference[1] if reference is not None else None
 
 
 def _instance_suffix(instance: str) -> Optional[str]:

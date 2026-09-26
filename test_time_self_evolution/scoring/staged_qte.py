@@ -35,7 +35,7 @@ from __future__ import annotations
 from typing import Any, Dict, Tuple
 
 from .base import Scorer, ScoreContext
-from .building_blocks import _scaled_denom
+from .building_blocks import _scaled_denom, effective_runtime
 
 STAGE_BOUNDARY = 0.01  # 1% gap: a candidate must clear gap<=1% to enter Stage 2.
 
@@ -109,7 +109,13 @@ class StagedQteScorer(Scorer):
                 # No baseline τ_g — fall back to no speed bonus
                 speed_part = 0.0
             else:
-                speed_part = max(0.0, 1.0 - t_solve / float(tau_g))
+                candidate_time = effective_runtime(t_solve, ctx.time_limit)
+                gurobi_limit = ctx.gurobi_time_limit or ctx.time_limit
+                gurobi_time = effective_runtime(tau_g, gurobi_limit)
+                if candidate_time is None or gurobi_time is None or gurobi_time <= 0:
+                    speed_part = 0.0
+                else:
+                    speed_part = max(0.0, 1.0 - candidate_time / gurobi_time)
 
             quality_part = quality          # ≥ 1-stage_boundary by stage condition
             score = quality_part + speed_part

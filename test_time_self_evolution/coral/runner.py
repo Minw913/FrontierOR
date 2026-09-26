@@ -824,6 +824,10 @@ def _results_from_metadata(metadata: Dict, instances: List[str]) -> Dict[str, Di
             "llm_obj": metadata.get(f"{prefix}_obj"),
             "gurobi_obj": metadata.get(f"{prefix}_gurobi_obj"),
             "solve_time": metadata.get(f"{prefix}_time"),
+            "candidate_time_limit": metadata.get(
+                f"{prefix}_candidate_time_limit"
+            ),
+            "gurobi_time_limit": metadata.get(f"{prefix}_gurobi_time_limit"),
             "aocc": metadata.get(f"{prefix}_aocc"),
             # staged_qte breakdown — read by _build_self_evolve_row to fill
             # score_staged / stage_id / quality_part / speed_part / signed_gap

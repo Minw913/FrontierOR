@@ -238,6 +238,8 @@ def reconstruct_results_from_metrics(metrics: Dict, instances: List[str]) -> Dic
             "llm_obj": metrics.get(f"{p}_obj"),
             "gurobi_obj": metrics.get(f"{p}_gurobi_obj"),
             "solve_time": metrics.get(f"{p}_time"),
+            "candidate_time_limit": metrics.get(f"{p}_candidate_time_limit"),
+            "gurobi_time_limit": metrics.get(f"{p}_gurobi_time_limit"),
             "aocc": metrics.get(f"{p}_aocc"),
             "error": None,
             # Surface per-instance score + staged_qte fields when stage2

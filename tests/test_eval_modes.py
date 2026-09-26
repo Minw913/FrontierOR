@@ -162,6 +162,11 @@ def test_shared_final_scorer_populates_staged_qte_fields(tmp_path, monkeypatch):
     monkeypatch.setattr(
         building_blocks, "lookup_gurobi_time", lambda _paper, _instance: 20.0
     )
+    monkeypatch.setattr(
+        building_blocks,
+        "lookup_gurobi_time_limit",
+        lambda _paper, _instance: 20.0,
+    )
     results = {
         "large_1": {
             "feasible": True,
@@ -181,3 +186,26 @@ def test_shared_final_scorer_populates_staged_qte_fields(tmp_path, monkeypatch):
     assert scored["large_1"]["score"] == 1.74
     assert scored["large_1"]["stage_id"] == 2.0
     assert scored["large_1"]["speed_part"] == 0.75
+    assert scored["large_1"]["candidate_time_limit"] == 10
+    assert scored["large_1"]["gurobi_time_limit"] == 20.0
+
+
+def test_self_evolve_row_uses_budget_capped_qte_time_comparison(monkeypatch):
+    monkeypatch.setattr(
+        eval_modes.eval_core, "get_paper_direction", lambda _paper: "min"
+    )
+    row = eval_modes._build_self_evolve_row(
+        "paper",
+        "model",
+        "large_1",
+        {"feasible": True, "llm_obj": 100.0, "solve_time": 3608.0},
+        100.0,
+        3605.0,
+        1,
+        1,
+        candidate_time_limit=3600.0,
+        gurobi_time_limit=3600.0,
+    )
+
+    assert row["if_beat_gurobi"] is True
+    assert row["delta_time"] == 0.0

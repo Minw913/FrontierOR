@@ -252,6 +252,8 @@ def _build_self_evolve_row(
     seed_status=None,
     include_first_status=True,
     run_id=None,
+    candidate_time_limit=None,
+    gurobi_time_limit=None,
 ):
     """Build one self-evolve CSV row dict. ``result`` has the same shape that
     ``one_shot_eval.run_and_evaluate_instance`` produces (status / fail_reason /
@@ -260,9 +262,19 @@ def _build_self_evolve_row(
     llm_obj = (result or {}).get("llm_obj")
     gap = eval_core.compute_gap(llm_obj, gurobi_obj, direction=direction)
     solve_time = (result or {}).get("solve_time")
+    if candidate_time_limit is None:
+        candidate_time_limit = (result or {}).get("candidate_time_limit")
+    if gurobi_time_limit is None:
+        gurobi_time_limit = (result or {}).get("gurobi_time_limit")
+    from test_time_self_evolution.scoring.building_blocks import (
+        effective_runtime,
+        qte_time_is_fast_enough,
+    )
+    candidate_effective = effective_runtime(solve_time, candidate_time_limit)
+    gurobi_effective = effective_runtime(gurobi_time, gurobi_time_limit)
     delta_time = (
-        solve_time - gurobi_time
-        if (solve_time is not None and gurobi_time is not None)
+        candidate_effective - gurobi_effective
+        if candidate_effective is not None and gurobi_effective is not None
         else None
     )
     feasible = (result or {}).get("feasible")
@@ -275,7 +287,12 @@ def _build_self_evolve_row(
     if_beat_gurobi = (
         feasible is True
         and gap is not None and gap < 1e-4
-        and delta_time is not None and delta_time < 0
+        and qte_time_is_fast_enough(
+            solve_time,
+            gurobi_time,
+            candidate_time_limit=candidate_time_limit,
+            gurobi_time_limit=gurobi_time_limit,
+        )
     )
 
     row = {
@@ -394,6 +411,10 @@ def write_self_evolve_results(
             seed_status=seed_status,
             include_first_status=True,
             run_id=run_id,
+            candidate_time_limit=(dev_results.get(inst) or {}).get(
+                "candidate_time_limit"
+            ),
+            gurobi_time_limit=gd.get("time_limit"),
         )
         _write_self_evolve_csv_with_dedup(dev_path, SELF_EVOLVE_DEV_RESULTS_COLUMNS, row)
 
@@ -407,6 +428,10 @@ def write_self_evolve_results(
             seed_status=None,
             include_first_status=False,
             run_id=run_id,
+            candidate_time_limit=(test_results.get(inst) or {}).get(
+                "candidate_time_limit"
+            ),
+            gurobi_time_limit=gd.get("time_limit"),
         )
         _write_self_evolve_csv_with_dedup(test_path, SELF_EVOLVE_TEST_RESULTS_COLUMNS, row)
 
@@ -421,7 +446,10 @@ def _resolve_test_time_limits(
     """Per-instance time budget for the post-evolve test eval.
     Returns ``{inst: seconds}``.
     """
-    from test_time_self_evolution.scoring.building_blocks import lookup_gurobi_time
+    from test_time_self_evolution.scoring.building_blocks import (
+        lookup_gurobi_time,
+        lookup_gurobi_time_limit,
+    )
 
     final_tl: Dict[str, int] = {}
     for inst in test_instances:
@@ -446,7 +474,10 @@ def augment_results_with_staged_qte(
     """Apply the benchmark's final staged-QTE scorer to evaluated results."""
     from test_time_self_evolution.scoring import get_scorer
     from test_time_self_evolution.scoring.base import ScoreContext
-    from test_time_self_evolution.scoring.building_blocks import lookup_gurobi_time
+    from test_time_self_evolution.scoring.building_blocks import (
+        lookup_gurobi_time,
+        lookup_gurobi_time_limit,
+    )
 
     if not results:
         return results
@@ -456,12 +487,14 @@ def augment_results_with_staged_qte(
         if result is None:
             continue
         gurobi_time = lookup_gurobi_time(paper_id, instance)
+        gurobi_time_limit = lookup_gurobi_time_limit(paper_id, instance)
         time_limit = (time_limits or {}).get(instance)
         if time_limit is None:
             time_limit = int(result.get("solve_time") or gurobi_time or 0)
         context = ScoreContext(
             time_limit=time_limit,
             gurobi_time=gurobi_time,
+            gurobi_time_limit=gurobi_time_limit,
             gurobi_obj=result.get("gurobi_obj"),
             direction=direction,
             log_path=os.path.join(output_dir, f"log_{instance}.jsonl"),
@@ -471,6 +504,8 @@ def augment_results_with_staged_qte(
         score, debug = scorer.score_instance(result, context)
         result.update(
             {
+                "candidate_time_limit": time_limit,
+                "gurobi_time_limit": gurobi_time_limit,
                 "score": round(float(score), 6),
                 "stage_id": float(debug.get("stage_id", 0)),
                 "quality_part": float(debug.get("quality_part", 0.0)),

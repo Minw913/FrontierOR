@@ -230,6 +230,7 @@ def _score_result(
         ScoreContext(
             time_limit=time_limit,
             gurobi_time=gurobi_time,
+            gurobi_time_limit=gurobi_row.get("time_limit"),
             gurobi_obj=gurobi_obj,
             direction=direction,
             paper_id=paper_id,
