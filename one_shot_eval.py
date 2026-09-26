@@ -2062,12 +2062,17 @@ def _load_gurobi_reference_cache():
             except ImportError as exc:
                 raise RuntimeError("pyarrow is required to read Gurobi references") from exc
             table = pq.read_table(
-                path, columns=["task_id", "instance", "objective_value", "runtime"]
+                path,
+                columns=[
+                    "task_id", "instance", "objective_value", "runtime",
+                    "time_limit",
+                ],
             )
             _GUROBI_REFERENCE_CACHE = {
                 (row["task_id"], row["instance"]): {
                     "solution": float(row["objective_value"]),
                     "time": float(row["runtime"]),
+                    "time_limit": float(row["time_limit"]),
                 }
                 for row in table.to_pylist()
             }
