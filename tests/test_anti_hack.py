@@ -1283,7 +1283,7 @@ def test_coral_anti_hack_rejects_legacy_gateway():
 
 
 def test_official_submit_has_no_non_docker_escape_hatch(tmp_path):
-    import frontieror_submit
+    from trusted_eval_infra.submission import cli as submission_cli
 
     bundle = tmp_path / "submission"
     bundle.mkdir()
@@ -1303,7 +1303,7 @@ def test_official_submit_has_no_non_docker_escape_hatch(tmp_path):
     _write(bundle / "code.py", "print('ok')\n")
 
     with pytest.raises(SystemExit) as exc:
-        frontieror_submit.main(
+        submission_cli.main(
             [
                 str(bundle),
                 "--paper-id",

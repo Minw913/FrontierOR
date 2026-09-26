@@ -6,15 +6,15 @@ import pytest
 
 @pytest.fixture(autouse=True)
 def _stub_checker_security_preflight(monkeypatch):
-    import frontieror_submit
+    from trusted_eval_infra.submission import cli as submission_cli
 
     monkeypatch.setattr(
-        frontieror_submit,
+        submission_cli,
         "validate_objective_checker",
         lambda **_kwargs: None,
     )
     monkeypatch.setattr(
-        frontieror_submit,
+        submission_cli,
         "resolve_docker_image",
         lambda _image: "sha256:" + ("a" * 64),
     )
@@ -40,7 +40,7 @@ def _write_bundle(root: Path) -> Path:
 
 
 def test_frontieror_submit_writes_private_traces_and_redacted_public_row(tmp_path, monkeypatch):
-    import frontieror_submit
+    from trusted_eval_infra.submission import cli as submission_cli
 
     bundle = _write_bundle(tmp_path / "submission")
     output_root = tmp_path / "out"
@@ -80,17 +80,17 @@ def test_frontieror_submit_writes_private_traces_and_redacted_public_row(tmp_pat
             }
         }
 
-    monkeypatch.setattr(frontieror_submit.eval_core, "evaluate_candidate_code", fake_evaluate_candidate_code)
+    monkeypatch.setattr(submission_cli.eval_core, "evaluate_candidate_code", fake_evaluate_candidate_code)
     monkeypatch.setattr(
-        frontieror_submit.eval_core,
+        submission_cli.eval_core,
         "load_gurobi_csv_data",
         lambda paper_id, **_kwargs: {
             "large_4": {"solution": 100.0, "time": 10.0}
         },
     )
-    monkeypatch.setattr(frontieror_submit.eval_core, "get_paper_direction", lambda paper_id: "min")
+    monkeypatch.setattr(submission_cli.eval_core, "get_paper_direction", lambda paper_id: "min")
 
-    rc = frontieror_submit.main(
+    rc = submission_cli.main(
         [
             str(bundle),
             "--paper-id",
@@ -151,11 +151,11 @@ def test_frontieror_submit_writes_private_traces_and_redacted_public_row(tmp_pat
 
 
 def test_frontieror_submit_rejects_empty_final_instances(tmp_path):
-    import frontieror_submit
+    from trusted_eval_infra.submission import cli as submission_cli
 
     bundle = _write_bundle(tmp_path / "submission")
 
-    rc = frontieror_submit.main(
+    rc = submission_cli.main(
         [
             str(bundle),
             "--paper-id",
@@ -169,12 +169,12 @@ def test_frontieror_submit_rejects_empty_final_instances(tmp_path):
 
 
 def test_frontieror_submit_rejects_malformed_bundle(tmp_path):
-    import frontieror_submit
+    from trusted_eval_infra.submission import cli as submission_cli
 
     bundle = tmp_path / "submission"
     bundle.mkdir()
 
-    rc = frontieror_submit.main(
+    rc = submission_cli.main(
         [
             str(bundle),
             "--paper-id",
@@ -190,11 +190,11 @@ def test_frontieror_submit_rejects_malformed_bundle(tmp_path):
 
 
 def test_frontieror_submit_rejects_invalid_final_instance_name(tmp_path):
-    import frontieror_submit
+    from trusted_eval_infra.submission import cli as submission_cli
 
     bundle = _write_bundle(tmp_path / "submission")
 
-    rc = frontieror_submit.main(
+    rc = submission_cli.main(
         [
             str(bundle),
             "--paper-id",
@@ -210,11 +210,11 @@ def test_frontieror_submit_rejects_invalid_final_instance_name(tmp_path):
 
 
 def test_frontieror_submit_rejects_untrusted_aocc_log_scoring(tmp_path):
-    import frontieror_submit
+    from trusted_eval_infra.submission import cli as submission_cli
 
     bundle = _write_bundle(tmp_path / "submission")
 
-    rc = frontieror_submit.main(
+    rc = submission_cli.main(
         [
             str(bundle),
             "--paper-id",
@@ -234,7 +234,7 @@ def test_frontieror_submit_rejects_untrusted_aocc_log_scoring(tmp_path):
 def test_reference_row_falls_back_to_private_reference_solution(
     tmp_path, monkeypatch
 ):
-    import frontieror_submit
+    from trusted_eval_infra.submission import cli as submission_cli
 
     reference = tmp_path / "tiny_solution.json"
     reference.write_text(
@@ -242,12 +242,12 @@ def test_reference_row_falls_back_to_private_reference_solution(
         encoding="utf-8",
     )
     monkeypatch.setattr(
-        frontieror_submit,
+        submission_cli,
         "gurobi_solution_path",
         lambda _paper_dir, _instance: str(reference),
     )
 
-    row = frontieror_submit._reference_row(
+    row = submission_cli._reference_row(
         paper_dir=str(tmp_path),
         instance="tiny",
         csv_row={},
@@ -259,7 +259,7 @@ def test_reference_row_falls_back_to_private_reference_solution(
 def test_frontieror_submit_refuses_to_overwrite_existing_audit_run(
     tmp_path, monkeypatch
 ):
-    import frontieror_submit
+    from trusted_eval_infra.submission import cli as submission_cli
     from trusted_eval_infra.submission.bundle import load_submission_bundle
 
     bundle = _write_bundle(tmp_path / "submission")
@@ -267,14 +267,14 @@ def test_frontieror_submit_refuses_to_overwrite_existing_audit_run(
     output_root = tmp_path / "out"
     (output_root / loaded.submission_id).mkdir(parents=True)
     monkeypatch.setattr(
-        frontieror_submit.eval_core,
+        submission_cli.eval_core,
         "evaluate_candidate_code",
         lambda *_args, **_kwargs: (_ for _ in ()).throw(
             AssertionError("evaluation must not start")
         ),
     )
 
-    rc = frontieror_submit.main(
+    rc = submission_cli.main(
         [
             str(bundle),
             "--paper-id",

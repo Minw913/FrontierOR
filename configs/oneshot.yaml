@@ -3,6 +3,7 @@ models:
   - "anthropic/claude-opus-4.6"
   - "google/gemini-3.1-pro-preview"
   - "x-ai/grok-4.20"
+  - "x-ai/grok-4.20-beta"
   - "deepseek/deepseek-r1"
   - "qwen/qwen3-coder-plus"
   - "meta-llama/llama-4-maverick"
@@ -12,3 +13,21 @@ models:
   - "anthropic/claude-fable-5"
   - "qwen/qwen3.8-max"
   - "moonshotai/kimi-k3"
+
+# Optional presentation and result-routing metadata. Models omitted here use
+# their short registry name and eval/eval_results_<short-name>.csv.
+model_results:
+  gpt-5.3-codex: {name: "GPT-5.3-Codex", csv: "eval/eval_results_codex53.csv"}
+  claude-opus-4.6: {name: "Claude Opus 4.6", csv: "eval/eval_results_opus46.csv"}
+  gemini-3.1-pro-preview: {name: "Gemini 3.1 Pro", csv: "eval/eval_results_gemini31pro.csv"}
+  grok-4.20: {name: "Grok-4.20", csv: "eval/eval_results_grok420.csv"}
+  grok-4.20-beta: {name: "Grok-4.20", csv: "eval/eval_results_grok42beta.csv"}
+  deepseek-r1: {name: "DeepSeek-R1", csv: "eval/eval_results_deepseekr1.csv"}
+  qwen3-coder-plus: {name: "Qwen3-Coder-Plus", csv: "eval/eval_results_qwen3coder.csv"}
+  llama-4-maverick: {name: "LLaMA-4-Maverick", csv: "eval/eval_results_llama4maverick.csv"}
+  gpt-5.6-sol: {name: "GPT-5.6-Sol", csv: "eval/eval_results_gpt56sol.csv"}
+  glm-5.2: {name: "GLM-5.2", csv: "eval/eval_results_glm52.csv"}
+  glm-5.3: {name: "GLM-5.3", csv: "eval/eval_results_glm53.csv"}
+  claude-fable-5: {name: "Claude Fable 5", csv: "eval/eval_results_fable5.csv"}
+  qwen3.8-max: {name: "Qwen3.8-Max", csv: "eval/eval_results_qwen38max.csv"}
+  kimi-k3: {name: "Kimi K3", csv: "eval/eval_results_kimik3.csv"}

@@ -49,6 +49,11 @@ import csv
 import glob
 import json
 import os
+import math
+import tempfile
+from pathlib import Path
+
+import pandas as pd
 
 import sys as _sys_for_paths
 _sys_for_paths.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "utils"))
@@ -77,7 +82,7 @@ def _paper_reproduce_output_path(paper_dir: str, directory: str, inst_name: str,
     raise ValueError(f"Unknown instance name: {inst_name!r}")
 
 BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
-PAPER_DATA_DIR = os.path.join(BASE_DIR, "frontier-or")
+PAPER_DATA_DIR = os.path.join(BASE_DIR, "frontier-or", "tasks")
 CSV_PATH = os.path.join(BASE_DIR, "solving_results_full.csv")
 GUROBI_CSV_PATH = os.path.join(BASE_DIR, "gurobi_solving_results.csv")
 
@@ -121,6 +126,86 @@ _INSTANCE_RESULTS_CSV = {
 
 # Source for tag-based paper selection (--paper-tag).
 _GUROBI_RESULTS_ALL = os.path.join(BASE_DIR, "gurobi_results_all_new.csv")
+
+
+def _load_reference_solution(path):
+    if path.stat().st_size > 8 * 1024 * 1024:
+        output = subprocess.check_output(
+            ["jq", "-c", "{objective_value, runtime, status, solver_status}", str(path)],
+            text=True,
+        )
+        return json.loads(output)
+    with path.open(encoding="utf-8") as handle:
+        return json.load(handle)
+
+
+def update_gurobi_reference_tables(paper_data_dir, paper_ids, instance_names):
+    """Atomically upsert completed Gurobi cells into both public reference tables."""
+    data_dir = Path(paper_data_dir).resolve().parent
+    metadata_dir = data_dir / "metadata"
+    parquet_path = metadata_dir / "gurobi_references.parquet"
+    csv_path = metadata_dir / "gurobi_references.csv.gz"
+    if not parquet_path.is_file():
+        raise FileNotFoundError(f"Missing existing reference table: {parquet_path}")
+
+    updates = []
+    for paper_id in paper_ids:
+        paper_dir = Path(paper_data_dir) / paper_id
+        for instance in instance_names:
+            solution_path = Path(_gurobi_solution_path(str(paper_dir), instance))
+            feasibility_path = Path(_gurobi_feasi_result_path(str(paper_dir), instance))
+            solution = _load_reference_solution(solution_path)
+            with feasibility_path.open(encoding="utf-8") as handle:
+                feasibility = json.load(handle)
+            objective = solution.get("objective_value")
+            runtime = solution.get("runtime")
+            feasible = feasibility.get("feasible")
+            if any(
+                isinstance(value, bool)
+                or not isinstance(value, (int, float))
+                or not math.isfinite(value)
+                for value in (objective, runtime)
+            ) or feasible is not True:
+                raise ValueError(f"Invalid Gurobi reference artifact: {paper_id}/{instance}")
+            status = solution.get("status") or solution.get("solver_status")
+            updates.append({
+                "task_id": paper_id,
+                "instance": instance,
+                "objective_value": float(objective),
+                "runtime": float(runtime),
+                "feasible": True,
+                "status": None if status is None else str(status),
+                "time_limit": 300 if instance == "tiny" else 3600,
+                "solution_path": str(solution_path.relative_to(data_dir)),
+            })
+
+    current = pd.read_parquet(parquet_path)
+    replacement = pd.DataFrame(updates)
+    keys = set(zip(replacement.task_id, replacement.instance))
+    keep = [
+        (task_id, instance) not in keys
+        for task_id, instance in zip(current.task_id, current.instance)
+    ]
+    merged = pd.concat([current.loc[keep], replacement], ignore_index=True)
+    merged = merged.sort_values(["task_id", "instance"]).reset_index(drop=True)
+    if merged[["task_id", "instance"]].duplicated().any():
+        raise ValueError("Duplicate keys after Gurobi reference update")
+
+    metadata_dir.mkdir(parents=True, exist_ok=True)
+    parquet_tmp = tempfile.NamedTemporaryFile(dir=metadata_dir, suffix=".parquet", delete=False)
+    csv_tmp = tempfile.NamedTemporaryFile(dir=metadata_dir, suffix=".csv.gz", delete=False)
+    parquet_tmp.close()
+    csv_tmp.close()
+    try:
+        merged.to_parquet(parquet_tmp.name, index=False)
+        merged.to_csv(csv_tmp.name, index=False, compression="gzip", float_format="%.17g")
+        os.replace(parquet_tmp.name, parquet_path)
+        os.replace(csv_tmp.name, csv_path)
+    finally:
+        for path in (parquet_tmp.name, csv_tmp.name):
+            if os.path.exists(path):
+                os.unlink(path)
+    return len(updates), parquet_path, csv_path
 
 
 def _default_csv_for_instances(instance_names):
@@ -627,6 +712,10 @@ def main():
              "etc.); unmapped names fall back to the --schema default. "
              "See _INSTANCE_RESULTS_CSV.",
     )
+    parser.add_argument(
+        "--no-update-reference", action="store_true",
+        help="Do not atomically upsert completed Gurobi cells into metadata/gurobi_references.*.",
+    )
     args = parser.parse_args()
     if args.schema == "gurobi":
         args.gurobi_only = True
@@ -942,6 +1031,7 @@ def main():
         f"{len(paper_ids)} paper(s) × {len(instance_names)} instance(s) ==="
     )
 
+    worker_errors = []
     with ThreadPoolExecutor(max_workers=workers) as pool:
         futures = {}
         for paper_id, inst_name in tasks:
@@ -959,8 +1049,22 @@ def main():
                         skip_papers.add(paper_id)
             except Exception as e:
                 print(f"  [ERROR] {paper_id} {inst_name}: {e}", file=sys.stderr)
+                worker_errors.append((paper_id, inst_name, str(e)))
                 with skip_lock:
                     skip_papers.add(paper_id)
+
+    if worker_errors:
+        raise RuntimeError(
+            f"{len(worker_errors)} worker(s) failed; reference tables were not updated"
+        )
+
+    if not args.no_update_reference:
+        count, parquet_path, reference_csv_path = update_gurobi_reference_tables(
+            paper_data_dir, paper_ids, instance_names
+        )
+        print(f"Updated {count} Gurobi reference row(s):")
+        print(f"  {parquet_path}")
+        print(f"  {reference_csv_path}")
 
     print("\n" + "=" * 70)
     unique_paths = sorted(set(csv_paths.values()))

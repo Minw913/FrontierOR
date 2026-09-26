@@ -8,7 +8,9 @@ from __future__ import annotations
 
 import csv
 import json
+import math
 import os
+from functools import lru_cache
 from typing import List, Optional, Tuple
 
 # Root of the repo. Used to locate gurobi_results_*.csv files and the
@@ -233,47 +235,84 @@ def pick_median_tau_g_instance(paper_id: str) -> Optional[str]:
     return timed[(n - 1) // 2][1]
 
 
-def lookup_gurobi_time(paper_id: str, instance: str) -> Optional[float]:
+@lru_cache(maxsize=8)
+def _load_gurobi_reference_times(path: str) -> dict[tuple[str, str], float]:
+    try:
+        import pyarrow.parquet as pq
+    except ImportError as exc:
+        raise RuntimeError(
+            "pyarrow is required to read metadata/gurobi_references.parquet"
+        ) from exc
+
+    table = pq.read_table(path, columns=["task_id", "instance", "runtime"])
+    references: dict[tuple[str, str], float] = {}
+    for row in table.to_pylist():
+        try:
+            runtime = float(row["runtime"])
+        except (KeyError, TypeError, ValueError, OverflowError):
+            continue
+        if not math.isfinite(runtime) or runtime < 0:
+            continue
+        references[(str(row["task_id"]), str(row["instance"]))] = runtime
+    return references
+
+
+def _lookup_legacy_gurobi_csv_time(
+    paper_id: str, instance: str
+) -> Optional[float]:
+    suffix = _instance_suffix(instance)
+    if suffix is None:
+        return None
+    csv_path = os.path.join(ROOT_DIR, f"gurobi_results_{suffix}.csv")
+    if not os.path.exists(csv_path):
+        return None
+    try:
+        with open(csv_path, newline="", encoding="utf-8") as handle:
+            for row in csv.DictReader(handle):
+                if row.get("paper_id") != paper_id or row.get("instance") != instance:
+                    continue
+                runtime = float(row["gurobi_time"])
+                return runtime if math.isfinite(runtime) and runtime >= 0 else None
+    except (OSError, KeyError, TypeError, ValueError, OverflowError):
+        return None
+    return None
+
+
+def lookup_gurobi_time(
+    paper_id: str, instance: str, *, source: Optional[str] = None
+) -> Optional[float]:
     """Look up Gurobi's solve_time (τ_g) for (paper, instance).
 
-    Fallback chain:
-      1. ``gurobi_results_<suffix>.csv`` per-instance file in repo root
-         (suffix: "tiny" / "11" / "21" / "31" / "41" / "51"). Schema:
-         ``paper_id, instance, gurobi_feasibility_status, gurobi_solution,
-         solution_status, gurobi_time, time_limit, failure_reason, failure_error``.
-         The ``gurobi_time`` field is the authoritative τ_g (Gurobi's wall to
-         optimal, or its time_limit when it timed out at incumbent).
-      2. ``gurobi_solution_log/<inst>_log.jsonl`` LAST-entry time —
-         **approximate**: this only records incumbent-improvement events, so
-         the last entry's time is "time of final improvement", not the full
-         Gurobi run wall. Use only when the CSV is missing.
+    By default this reads the canonical
+    ``<FRONTIER_OR_DATA_DIR>/metadata/gurobi_references.parquet`` table. Set
+    ``source="legacy_csv"`` (or ``FRONTIER_OR_GUROBI_TIME_SOURCE=legacy_csv``)
+    only when reproducing an older checkout that stores per-instance CSVs in
+    the repository root. Incumbent-log timestamps are deliberately not used:
+    they record the last objective improvement, not the solver runtime.
 
-    Returns None iff none of the sources have data.
+    Returns None when the selected source has no valid runtime for the key.
     """
-    suffix = _instance_suffix(instance)
-    if suffix is not None:
-        csv_path = os.path.join(ROOT_DIR, f"gurobi_results_{suffix}.csv")
-        if os.path.exists(csv_path):
-            try:
-                with open(csv_path, newline="", encoding="utf-8") as f:
-                    for row in csv.DictReader(f):
-                        if row.get("paper_id") == paper_id and row.get("instance") == instance:
-                            raw = row.get("gurobi_time")
-                            if raw:
-                                try:
-                                    return float(raw)
-                                except ValueError:
-                                    pass
-            except Exception:
-                pass
-
-    log_path = gurobi_log_path_for(paper_id, instance)
-    if log_path:
-        entries = read_log_entries(log_path)
-        if entries:
-            return entries[-1][0]
-
-    return None
+    selected = source or os.environ.get(
+        "FRONTIER_OR_GUROBI_TIME_SOURCE", "references"
+    )
+    if selected == "legacy_csv":
+        return _lookup_legacy_gurobi_csv_time(paper_id, instance)
+    if selected != "references":
+        raise ValueError(
+            "Gurobi time source must be 'references' or 'legacy_csv', "
+            f"got {selected!r}"
+        )
+    reference_path = os.environ.get(
+        "FRONTIER_OR_GUROBI_REFERENCE",
+        os.path.join(_data_root(), "metadata", "gurobi_references.parquet"),
+    )
+    try:
+        references = _load_gurobi_reference_times(
+            os.path.abspath(os.path.expanduser(reference_path))
+        )
+    except (OSError, ValueError):
+        return None
+    return references.get((paper_id, instance))
 
 
 def _instance_suffix(instance: str) -> Optional[str]:

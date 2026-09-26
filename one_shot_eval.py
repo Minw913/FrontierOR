@@ -35,6 +35,7 @@ import tempfile
 import threading
 import time
 from concurrent.futures import ThreadPoolExecutor, as_completed
+from pathlib import Path
 
 import requests
 import yaml
@@ -61,6 +62,10 @@ _DEFAULT_RESULTS_CSV = os.path.join(ROOT_DIR, "eval", "eval_results.csv")
 _RESULTS_CSV_OVERRIDE = None
 _results_csv_local = threading.local()
 _API_COST_CSV = os.path.join(ROOT_DIR, "eval", "one_shot_api_cost.csv")
+_GUROBI_REFERENCE_SOURCE = "references"
+_GUROBI_REFERENCE_PATH = None
+_GUROBI_REFERENCE_CACHE = None
+_GUROBI_REFERENCE_LOCK = threading.Lock()
 
 
 def get_results_csv_path():
@@ -155,35 +160,31 @@ def _shutdown_instance_pool():
 _GUROBI_RESULTS_ALL = os.path.join(ROOT_DIR, "gurobi_results_all_new.csv")
 
 
-# Per-model default results CSV. Used when --results_csv is omitted and a
-# single model is selected: keeps each model's results in its own file so
-# parallel runs don't fight for the same lock and rows stay grouped.
-# Match by model short name (after stripping the "vendor/" prefix). Adding a
-# new model? Drop a line here.
-_MODEL_RESULTS_CSV = {
-    "claude-opus-4.6":         "eval/eval_results_opus46.csv",
-    "gemini-3.1-pro-preview":  "eval/eval_results_gemini31pro.csv",
-    "gpt-5.3-codex":           "eval/eval_results_codex53.csv",
-    "grok-4.20":               "eval/eval_results_grok420.csv",
-    "grok-4.20-beta":          "eval/eval_results_grok42beta.csv",
-    "deepseek-r1":             "eval/eval_results_deepseekr1.csv",
-    "qwen3-coder-plus":        "eval/eval_results_qwen3coder.csv",
-    "llama-4-maverick":        "eval/eval_results_llama4maverick.csv",
-    "gpt-5.6-sol":             "eval/eval_results_gpt56sol.csv",
-    "glm-5.2":                 "eval/eval_results_glm52.csv",
-    "glm-5.3":                 "eval/eval_results_glm53.csv",
-    "claude-fable-5":          "eval/eval_results_fable5.csv",
-    "qwen3.8-max":             "eval/eval_results_qwen38max.csv",
-    "kimi-k3":                 "eval/eval_results_kimik3.csv",
-}
+def _load_model_results_registry():
+    config_path = os.path.join(ROOT_DIR, "configs", "oneshot.yaml")
+    try:
+        with open(config_path, encoding="utf-8") as handle:
+            config = yaml.safe_load(handle) or {}
+    except (OSError, yaml.YAMLError):
+        return {}
+    return config.get("model_results") or {}
+
+
+def _model_results_csv(model_short):
+    metadata = _load_model_results_registry().get(model_short, {})
+    if isinstance(metadata, str):
+        return metadata
+    if isinstance(metadata, dict) and metadata.get("csv"):
+        return metadata["csv"]
+    safe_name = re.sub(r"[^a-zA-Z0-9._-]", "_", model_short)
+    return f"eval/eval_results_{safe_name}.csv"
 
 
 def _default_results_csv_for_models(model_short_names):
-    """Return the per-model default CSV path when exactly one mapped model is
-    selected; otherwise None (caller should fall back to the global default)."""
+    """Return the registry-derived CSV path when exactly one model is selected."""
     if not model_short_names or len(model_short_names) != 1:
         return None
-    return _MODEL_RESULTS_CSV.get(model_short_names[0])
+    return _model_results_csv(model_short_names[0])
 
 
 def _load_paper_ids_by_tag(tag):
@@ -319,11 +320,8 @@ def set_results_csv_path(path):
 def _resolve_csv_for_model(model_short):
     """Return the per-model CSV target. Used by ``process_paper_model`` to
     populate ``_results_csv_local.path`` when ``--results_csv`` was not
-    explicitly given. Models without a mapping entry use the global default
-    (``eval/eval_results.csv``)."""
-    rel = _MODEL_RESULTS_CSV.get(model_short)
-    if rel is None:
-        return _DEFAULT_RESULTS_CSV
+    explicitly given. Unmapped models get a sanitized per-model filename."""
+    rel = _model_results_csv(model_short)
     target = os.path.abspath(os.path.join(ROOT_DIR, rel))
     os.makedirs(os.path.dirname(target), exist_ok=True)
     return target
@@ -1164,13 +1162,7 @@ def compare_objectives(llm_solution_path, gurobi_solution_path, direction="min")
             llm_data = json.load(f)
     except (MemoryError, OSError, OverflowError, RecursionError, UnicodeError, ValueError) as e:
         return False, None, read_gurobi_obj(gurobi_solution_path), None, f"Invalid solution JSON: {e}"
-    try:
-        with open(gurobi_solution_path, "r") as f:
-            gurobi_data = json.load(f)
-    except (MemoryError, OSError, OverflowError, RecursionError, UnicodeError, ValueError) as e:
-        # Gurobi side broke (e.g. LFS pointer stub) but llm_data is already
-        # loaded — preserve the LLM's obj instead of discarding it.
-        return False, _extract_obj_from_dict(llm_data), None, None, f"Invalid Gurobi solution JSON: {e}"
+    gurobi_data = {"objective_value": read_gurobi_obj(gurobi_solution_path)}
 
     if not isinstance(llm_data, dict):
         return False, None, read_gurobi_obj(gurobi_solution_path), None, "Invalid solution JSON: top-level value must be an object"
@@ -1262,6 +1254,9 @@ def obj_is_sane(obj, ref=None):
 def read_gurobi_obj(gurobi_solution_path):
     """Read objective_value from a solution JSON file. Returns float or None.
     Generic — works for both Gurobi reference and LLM solution files."""
+    reference = _reference_from_solution_path(gurobi_solution_path)
+    if reference is not None:
+        return reference["solution"]
     if not os.path.exists(gurobi_solution_path):
         return None
     try:
@@ -1275,6 +1270,9 @@ def read_gurobi_obj(gurobi_solution_path):
 
 def read_gurobi_runtime(gurobi_solution_path):
     """Read runtime from a Gurobi reference solution JSON file."""
+    reference = _reference_from_solution_path(gurobi_solution_path)
+    if reference is not None:
+        return reference["time"]
     if not os.path.exists(gurobi_solution_path):
         return None
     try:
@@ -2050,6 +2048,42 @@ def _instance_name_from_gurobi_solution_file(path):
     return None
 
 
+def _load_gurobi_reference_cache():
+    global _GUROBI_REFERENCE_CACHE
+    if _GUROBI_REFERENCE_SOURCE != "references":
+        return None
+    with _GUROBI_REFERENCE_LOCK:
+        if _GUROBI_REFERENCE_CACHE is None:
+            path = _GUROBI_REFERENCE_PATH or os.path.join(
+                get_data_dir(), "metadata", "gurobi_references.parquet"
+            )
+            try:
+                import pyarrow.parquet as pq
+            except ImportError as exc:
+                raise RuntimeError("pyarrow is required to read Gurobi references") from exc
+            table = pq.read_table(
+                path, columns=["task_id", "instance", "objective_value", "runtime"]
+            )
+            _GUROBI_REFERENCE_CACHE = {
+                (row["task_id"], row["instance"]): {
+                    "solution": float(row["objective_value"]),
+                    "time": float(row["runtime"]),
+                }
+                for row in table.to_pylist()
+            }
+    return _GUROBI_REFERENCE_CACHE
+
+
+def _reference_from_solution_path(path):
+    if _GUROBI_REFERENCE_SOURCE != "references" or "gurobi_solution" not in Path(path).parts:
+        return None
+    instance = _instance_name_from_gurobi_solution_file(path)
+    if instance is None:
+        return None
+    paper_id = Path(path).parent.parent.name
+    return _load_gurobi_reference_cache().get((paper_id, instance))
+
+
 def load_gurobi_csv_data(paper_id, *, quiet=False):
     """Load the Gurobi baseline for a paper.
 
@@ -2057,6 +2091,17 @@ def load_gurobi_csv_data(paper_id, *, quiet=False):
     ``objective_value`` is the reference objective and top-level ``runtime`` is
     the Gurobi runtime.
     """
+    if _GUROBI_REFERENCE_SOURCE == "references":
+        cache = _load_gurobi_reference_cache()
+        data = {
+            instance: values
+            for (task_id, instance), values in cache.items()
+            if task_id == paper_id
+        }
+        if not data and not quiet:
+            print(f"WARNING: no Gurobi baseline found for {paper_id} in reference table")
+        return data
+
     data = {}
     paper_dir = get_paper_dir(paper_id)
     solution_dir = os.path.join(paper_dir, "gurobi_solution")
@@ -2989,6 +3034,14 @@ def main():
                              "runtime from the Gurobi reference solution JSON "
                              "as horizon. "
                              "If omitted, uses --time_limit.")
+    parser.add_argument(
+        "--gurobi-source", choices=["references", "solutions"], default="references",
+        help="Gurobi baseline source (default: metadata/gurobi_references.parquet).",
+    )
+    parser.add_argument(
+        "--gurobi-reference", default=None,
+        help="Override path to gurobi_references.parquet.",
+    )
     parser.add_argument("--instances", nargs="+", default=None,
                         help="Categorical instance names to run (e.g., --instances tiny large_1). "
                              f"Default: {' '.join(DEFAULT_INSTANCES)}.")
@@ -3036,6 +3089,12 @@ def main():
         ),
     )
     args = parser.parse_args()
+    global _GUROBI_REFERENCE_SOURCE, _GUROBI_REFERENCE_PATH
+    _GUROBI_REFERENCE_SOURCE = args.gurobi_source
+    _GUROBI_REFERENCE_PATH = (
+        os.path.abspath(os.path.expanduser(args.gurobi_reference))
+        if args.gurobi_reference else None
+    )
     if args.checker_timeout <= 0:
         parser.error("--checker-timeout must be a positive integer")
     if args.temp_dir:
@@ -3132,12 +3191,12 @@ def main():
         print(f"Results CSV: {get_results_csv_path()} (--results_csv override)")
     else:
         # Per-model routing: each ``process_paper_model`` invocation sets a
-        # thread-local target from ``_MODEL_RESULTS_CSV``. Show what each
+        # thread-local target from the model registry. Show what each
         # selected model will write to, so the user sees the routing up front.
         if args.models:
             print(f"Results CSV: per-model auto-routing")
             for m in args.models:
-                target = _MODEL_RESULTS_CSV.get(m, _DEFAULT_RESULTS_CSV)
+                target = _model_results_csv(m)
                 print(f"  {m:25s} -> {target}")
         else:
             print(f"Results CSV: per-model auto-routing for all configured models")

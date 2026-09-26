@@ -33,6 +33,13 @@ configs/api_keys.yaml
 gurobi.lic
 *.gurobi.lic
 
+# Evaluation outputs belong in the private run repository or data releases.
+eval/*
+!eval/.gitkeep
+!eval/eval_tasks/
+eval/eval_tasks/*
+!eval/eval_tasks/.gitkeep
+
 # Runtime output
 results/
 

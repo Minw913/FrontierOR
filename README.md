@@ -58,6 +58,12 @@ The downloaded dataset root contains repository-level files plus
 `metadata/paper_meta_info.json`. Per-paper task payloads live under
 `frontier-or/tasks/<paper_id>/`.
 
+The consolidated Gurobi baseline is available as
+`frontier-or/metadata/gurobi_references.parquet` (with a portable
+`gurobi_references.csv.gz` copy). Evaluation reads the Parquet table by
+default; pass `--gurobi-source solutions` to read the per-task solution JSON
+files directly.
+
 ### Step 2: Python environment
 
 We recommend [`uv`](https://github.com/astral-sh/uv) for fast, reproducible installs:
@@ -103,6 +109,15 @@ python -u one_shot_eval.py --paper_id bierwirth2017 liao2020 --reuse-code all --
 ## 🧪 Run Evaluation
 
 FrontierOR exposes two evaluation pipelines: **one-shot LLM generation**, and **test-time self-evolution**. You can run FrontierOR in any of three execution backends:
+
+Compute metrics for a result CSV with:
+
+```bash
+FRONTIER_OR_DATA_DIR="$PWD/frontier-or" \
+python scripts/compute_benchmark_main_metrics.py \
+  --model-csv eval_results_my_model.csv \
+  --model-name my-model
+```
 
 | Backend | What it does | When to use |
 |---|---|---|
