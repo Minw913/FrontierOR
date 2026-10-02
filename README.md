@@ -5,7 +5,11 @@
   &nbsp;
   <a href="https://arxiv.org/abs/2605.25246"><img src="https://img.shields.io/badge/arXiv-2605.25246-b31b1b?logo=arxiv&logoColor=white" alt="arXiv"></a>
   &nbsp;
-  <a href="https://huggingface.co/datasets/SmartOR/FrontierOR"><img src="https://img.shields.io/badge/%F0%9F%A4%97%20Dataset-SmartOR%2FFrontierOR-FFD21E" alt="HuggingFace Dataset"></a>
+  <a href="https://huggingface.co/datasets/frontieror/FrontierOR"><img src="https://img.shields.io/badge/%F0%9F%A4%97%20Dataset-frontieror%2FFrontierOR-FFD21E" alt="HuggingFace Dataset"></a>
+</p>
+
+<p align="center">
+  <strong>For technical questions or collaboration, please contact ✉️ contact@frontieror.org</strong>
 </p>
 
 <div align="center">
@@ -24,9 +28,7 @@
 
 ## 📖 Introduction
 
-Large language models (LLMs) are increasingly used for optimization modeling and solver-code generation, yet practical operations research (OR) problems often require a harder capability: designing *scalable algorithms* that exploit problem structure and outperform direct formulation-and-solve baselines. Existing benchmarks are limited to small or simplified examples far below real-world scale and complexity.
-
-We introduce **FrontierOR**, among the first benchmarks to systematically evaluate LLM-based efficient algorithm design for realistic large-scale optimization problems. FrontierOR includes **180 tasks** derived from methodologically diverse papers published in top-tier OR venues, each shipped with:
+Practical operations research (OR) requires LLMs to go beyond modeling and code generation to design *scalable algorithms* that exploit problem structure and outperform monolithic solver-based baselines. To address the limited scale and complexity of existing benchmarks, we introduce **FrontierOR**, among the first to systematically evaluate this capability on realistic large-scale optimization problems. It comprises **180 tasks** drawn from methodologically diverse papers in top-tier OR venues, each accompanied by:
 
 - A natural-language **problem description**,
 - A faithful **mathematical formulation**,
@@ -34,7 +36,18 @@ We introduce **FrontierOR**, among the first benchmarks to systematically evalua
 - An expert-verified **Gurobi reference baseline**,
 - A standalone **feasibility checker**.
 
-We currently evaluate seven LLMs backbones and three test-time evalution methods and results reveal that frontier models still struggle to move from executable formulations to *efficient* optimization algorithms: the strongest model outperforms Gurobi in only **31%** of cases on both solution quality and computational efficiency, and even strong coding agents with test-time evolution achieve only **50%** on selected hard tasks. FrontierOR thus establishes a practical platform for systematically testing whether future LLMs and agents can move beyond correct formulation toward feasible, high-quality, and *efficient* algorithms.
+We evaluate several frontier LLM backbones and three test-time evolution methods. The results reveal that frontier models still struggle to move from executable formulations to efficient optimization algorithms: under one-shot generation, no evaluated model produces algorithms that outperform Gurobi in both solution quality and computational efficiency on more than **40%** of large-scale instances. Even test-time evolution with strong agent harnesses achieve only **50%** on a selected hard set of 50 tasks. FrontierOR thus provides a practical platform for systematically evaluating whether future LLMs and agents can move beyond correct formulation toward designing efficient algorithms that deliver feasible, high-quality solutions.
+
+---
+
+## ✨ News
+
+- <span style="color:#dab167"><strong>[09/27/2026]</strong></span> **FrontierOR-v1 was updated!** This important dataset update consolidates the canonical 180-task collection, Gurobi references, hard-set split metadata, feasibility checkers, and task-instance artifacts. For detailed notes, see [`RELEASE_NOTES.md`](https://huggingface.co/datasets/frontieror/FrontierOR/blob/main/RELEASE_NOTES.md).
+- <span style="color:#dab167"><strong>[09/24/2026]</strong></span> FrontierOR was accepted to the NeurIPS 2026 Evaluation & Dataset Track! 🎉
+- <span style="color:#dab167"><strong>[08/16/2026]</strong></span> FrontierOR added [`reef-eval`](https://github.com/Human-Agent-Society/tide-eval) orchestration for hardened agents, enabling resumable scheduling, budget tracking, and trace logging on top of the trusted evaluation stack.
+- <span style="color:#dab167"><strong>[08/04/2026]</strong></span> FrontierOR introduced the trusted evaluation security infrastructure, including Docker isolation, brokered dev scoring, credential isolation, hidden final grading, and boundary checks.
+- <span style="color:#dab167"><strong>[05/30/2026]</strong></span> FrontierOR is publicly live! 180-task benchmark on [Hugging Face](https://huggingface.co/datasets/frontieror/FrontierOR), evaluation harness on [GitHub](https://github.com/Minw913/FrontierOR), leaderboards and per-task results on the [official website](https://www.frontieror.org).
+- <span style="color:#dab167"><strong>[05/26/2026]</strong></span> FrontierOR preprint released on [arXiv](https://arxiv.org/abs/2605.25246): the first literature-grounded benchmark targeting LLM-generated algorithm efficiency on realistic large-scale optimization problems.
 
 ---
 
@@ -42,16 +55,16 @@ We currently evaluate seven LLMs backbones and three test-time evalution methods
 
 ### Step 1: Clone the repo and download the dataset
 
-The code lives on GitHub; the benchmark data is hosted on HuggingFace at [`SmartOR/FrontierOR`](https://huggingface.co/datasets/SmartOR/FrontierOR).
+The code lives on GitHub; the benchmark data is hosted on HuggingFace at [`frontieror/FrontierOR`](https://huggingface.co/datasets/frontieror/FrontierOR).
 
 ```bash
 # 1. Clone the code repo
-git clone git@github.com:Minw913/FrontierOR.git
+git clone https://github.com/Minw913/FrontierOR.git
 cd FrontierOR
 
 # 2. Download the dataset into ./frontier-or/
 pip install -U "huggingface_hub[cli]"
-huggingface-cli download SmartOR/FrontierOR --repo-type dataset --local-dir frontier-or
+hf download frontieror/FrontierOR --repo-type dataset --local-dir frontier-or
 ```
 
 The downloaded dataset root contains repository-level files plus
@@ -81,9 +94,8 @@ During evaluation some LLM-generated solver programs require a valid `gurobipy` 
 ### Step 4: OpenRouter API key
 
 LLM calls go through OpenRouter and the model registry is in
-`configs/oneshot.yaml`. Prefer the `OPENROUTER_API_KEY` environment variable.
-For local development, copy the ignored example file and configure separate
-one-shot and self-evolution keys if needed:
+`configs/oneshot.yaml`. Set `OPENROUTER_API_KEY`, or use a local
+`configs/api_keys.yaml`:
 
 ```bash
 cp configs/api_keys.example.yaml configs/api_keys.yaml
@@ -98,10 +110,14 @@ OPENROUTER_API_KEY_SELF_EVOLVE: "<your-self-evolve-openrouter-key>"
 
 ## 🚀 Quick Start
 
-Run the following command to quickly conduct the one-shot evaluation, with results written to `eval/`. It reuses pre-generated code in `samples/` so **no API key is required**, making this the fastest sanity check that the framework is set up correctly.
+Run the following command to quickly conduct the one-shot evaluation, with results written to `eval/`. It reuses pre-generated code for one shipped sample, so **no API key is required**, making this the fastest sanity check that the framework is set up correctly.
 
 ```bash
-python -u one_shot_eval.py --paper_id bierwirth2017 liao2020 --reuse-code all --code-root samples/oneshot_code --exec-mode bare
+python -u one_shot_eval.py \
+    --task-plan-json samples/quickstart_task_plan.json \
+    --reuse-code all \
+    --code-root samples/oneshot_code \
+    --exec-mode bare
 ```
 
 ---
@@ -122,7 +138,8 @@ Drives the full one-shot pipeline: prompt assembly → LLM code generation → t
 
 ```bash
 python -u one_shot_eval.py \
-    --models claude-opus-4.6 gpt-5.3-codex \
+    --paper_id bierwirth2017 liao2020 \
+    --models gpt-5.3-codex \
     --instances tiny large_1 large_2 large_3 large_4 large_5 \
     --max_debug_retries 5 \
     --time_limit 3600 \
@@ -130,64 +147,58 @@ python -u one_shot_eval.py \
     --exec-mode systemd
 ```
 
-Key flags:
+<details>
+<summary>Key flags</summary>
 
-- `--paper_id` — paper IDs.
+- `--paper_id` — paper IDs. If omitted, the run scans all downloaded tasks.
 - `--models` — model names registered in `configs/oneshot.yaml`. Pass `all` to evaluate every model in the file.
-- `--instances` — instances to evaluater. Put `tiny` first as a sanity gate, before running the computationally expensive large instances.
+- `--instances` — instances to evaluate. Put `tiny` first as a sanity gate, before running the computationally expensive large instances.
 - `--max_debug_retries` — bounded debug loop when the LLM's program raises.
 - `--paper_workers` / `--model_workers` / `--instance_workers` — three-level parallelism across the (paper × model × instance) grid.
 - `--exec-mode` — `bare` / `systemd` / `docker`, paired with `--cpus` / `--memory`. Isolation strength: `bare` only pins CPUs; `systemd` adds cgroup-enforced memory cap + network block; `docker` adds full container isolation (no host filesystem access).
 - `--reuse-code {none,incomplete,all}` —  `none` always re-generates; `all` skips LLM generation and re-runs evaluation on the existing code
 
-After a one-shot run, `scripts/compute_benchmark_main_metrics.py` computes the
-Full and Hard benchmark metrics, including binary QTE, from a model result CSV:
+</details>
+
+Use `scripts/compute_benchmark_main_metrics.py` to compute performance metrics
+on the Full and Hard benchmark splits:
 
 ```bash
 FRONTIER_OR_DATA_DIR="$PWD/frontier-or" \
-python scripts/compute_benchmark_main_metrics.py \
-  --model-csv eval_results_my_model.csv \
-  --model-name my-model
+python scripts/compute_benchmark_main_metrics.py
 ```
 
 ### Test-time Self-evolution
 
-A single CLI wrapper drives all self-evolving frameworks, each starting from the same one-shot-generated code. Defaults match the configurations reported in the paper, you usually only need to choose the framework and papers:
+A single CLI wrapper drives all self-evolving frameworks, each starting from the same one-shot-generated code. Install the framework you plan to run with its setup script under `test_time_self_evolution/<framework>/setup.sh`.
 
 ```bash
 python -u test_time_self_evolution/run_eval_modes.py \
+    --modes self_evolve \
     --framework openevolve \
-    --openevolve-iterations 30 \
+    --paper-id bierwirth2017 liao2020 \
     --primary-model gpt-5.3-codex \
-    --paper-workers 20 \
-    --dev-set median \
+    --openevolve-iterations 30 \
+    --paper-workers 2 \
     --test-instance-workers 4 \
     --exec-mode systemd \
-    --cpus 1 --memory 640G \
-    --run-id your_run_id
+    --cpus 1 --memory 100G \
+    --run-id openevolve_smoke
 ```
 
-Switch frameworks via `--framework {eoh,coral,openevolve}`; framework-specific knobs (`--eoh-*`, `--coral-*`, `--openevolve-iterations`) override the defaults when needed. The stage1 (binary gate on `tiny`) → stage2 (dev set fitness) → test-set scoring pipeline is shared across all three frameworks for apples-to-apples comparison.
+Switch frameworks via `--framework {eoh,coral,openevolve}`; framework-specific knobs (`--eoh-*`, `--coral-*`, `--openevolve-iterations`) override the defaults when needed. If `--paper-id` is omitted, the run scans all downloaded tasks. If `--dev-set` is omitted, each task uses the large instance with median Gurobi runtime as its dev instance. The stage1 (binary gate on `tiny`) → stage2 (dev set fitness) → test-set scoring pipeline is shared across all three frameworks for apples-to-apples comparison.
 
-For resumable multi-paper orchestration, the hardened runner also implements
-the native `tide-eval` Executor contract. It supports CORAL, OpenEvolve, and
-EoH without changing their shared FrontierOR scoring path:
-
-```bash
-export TIDE_EVAL_PYTHON="$PWD/reference/tide-eval/.venv/bin/python"
-python -m trusted_eval_infra tide-eval --help
-```
-
-See [`trusted_eval_infra/README.md`](trusted_eval_infra/README.md#tide-eval-orchestration)
-for setup, trust boundaries, and complete examples.
+For resumable large-scale orchestration with `reef-eval`, see
+[`trusted_eval_infra/README.md`](trusted_eval_infra/README.md#reef-eval-orchestration).
 
 ---
 
 ## 🔒 Trusted Agent Evaluation
 
-The research commands above remain configurable for experiment reproduction.
-When the code-producing Agent or submitted solver is untrusted, use the
-separate fail-closed entry point:
+Use this entry point when the code-producing Agent or submitted solver is
+untrusted. It runs the CORAL agent profile with mandatory Docker isolation,
+brokered dev scoring, credential-isolating model access, and hidden final
+grading.
 
 ```bash
 bash test_time_self_evolution/coral/setup.sh
@@ -214,29 +225,10 @@ python -m trusted_eval_infra agent \
     --run-id agent-smoke
 ```
 
-Proxy mode requires the full OpenRouter provider/model route, such as
-`openai/gpt-5.4`; the Agent container receives only the short Codex model name
-and an ephemeral proxy token, not the platform key.
-
-Run the setup script from the activated benchmark environment. Keeping
-`--coral-max-seconds auto` reserves time for Agent reasoning and trusted dev
-grading; an explicit wall-clock value includes both and can legitimately end
-with no selected artifact when an evaluation is submitted too late.
-
-`agent` always selects the platform CORAL adapter, Docker isolation, brokered
-dev evaluation, a credential-isolating fixed-model proxy, trusted host timing,
-`staged_qte`, and final grading after `code.py` is frozen. Security downgrade
-flags are deliberately absent from this interface. The original
-`run_eval_modes.py` command remains available for trusted research runs.
-
-The instance-level score equation is public. During self-evolution, the Agent
-can read stage-1/dev JSON and receives aggregate dev feedback. Final JSON is
-not exposed to the Agent or framework; after the Agent stops, the frozen solver
-receives only the current final instance as a read-only file. Reference
-objectives/runtimes, checker code, and per-instance final traces remain in the
-trusted grader. Official final instances must be unpublished server-only data;
-files already distributed in the Hugging Face dataset are suitable for local
-integration tests, not as hidden leaderboard tests.
+Use `run_eval_modes.py` for trusted research runs; use `trusted_eval_infra agent`
+for fail-closed evaluation of untrusted agents or submissions. See
+[`trusted_eval_infra/README.md`](trusted_eval_infra/README.md) for security
+boundaries, proxy mode, hidden-final handling, and complete examples.
 
 Before releasing a runner image, execute the black-box boundary tests:
 
@@ -257,24 +249,33 @@ policy, and Code-only verifier are documented in
 
 See performance details for **one-shot generation**, **test-time self-evolution**, and **individual tasks** on the [🌐 FrontierOR website](https://www.frontieror.org).
 
-Key takeaways:
+Current evaluation support covers OpenAI, Anthropic, Google, xAI, DeepSeek,
+Qwen, Meta Llama, Z.AI, and Moonshot model routes, plus OpenEvolve, EoH, and
+CORAL agent frameworks. Contact us to propose additional models or agent
+frameworks.
+
+<!-- Key takeaways:
 
 1. **Frontier vs. cost-effective.** Frontier-tier feasibility clusters at 0.60–0.62 on Full and 0.49–0.64 on Hard; cost-effective models sit at 0.18–0.42 and 0.13–0.37 respectively — the gap is preserved at both scales.
 2. **Execution is no longer the bottleneck.** GPT-5.3-Codex executes 98% of tasks but still scores only 0.49 feasibility on Hard; the difficulty has shifted from "compiles and runs" to "produces a valid, scalable algorithm".
-3. **The Hard subset re-separates leaders.** On Full, the three frontier models are tightly bunched; on Hard the band widens — Claude Opus 4.6 retains the highest QTE (0.31 / 0.32), while GPT-5.3-Codex's Hard feasibility / QTE drop furthest.
+3. **The Hard subset re-separates leaders.** On Full, the three frontier models are tightly bunched; on Hard the band widens — Claude Opus 4.6 retains the highest QTE (0.31 / 0.32), while GPT-5.3-Codex's Hard feasibility / QTE drop furthest. -->
 
 ---
 
-## 🤖 Adding Support for New Models
+## 🤖 Adding Support for New Models or Agent Frameworks
 
-FrontierOR routes all LLM calls through OpenRouter, so adding a model is a configuration-only change in most cases.
+[2026-10-02] We are preparing a hosted evaluation infrastructure for publicly benchmarking
+new model backbones and agent frameworks on FrontierOR. Submission details and
+operational guidelines will be announced soon. Stay tuned!
+
+<!-- FrontierOR routes all LLM calls through OpenRouter, so adding a model is a configuration-only change in most cases.
 
 1. **Pick the OpenRouter route** (e.g. `anthropic/claude-opus-4.6`, `openai/gpt-5.3-codex`).
 2. **Register a short name and route** in `configs/oneshot.yaml` — copy an existing block and edit the `route`, `short_name`, and any sampling parameters (temperature, max tokens, reasoning effort).
 3. **(Optional) Tune the prompt** by editing the `build_prompt()` function in `one_shot_eval.py` if the model has unusual formatting requirements.
 4. **Run** `python one_shot_eval.py --paper-id <ID> --models <short_name>` to verify the model's code is parsed correctly.
 
-For self-evolution, the same short name flows through `--primary-model` / `--secondary-model` in `test_time_self_evolution/run_eval_modes.py`.
+For self-evolution, the same short name flows through `--primary-model` / `--secondary-model` in `test_time_self_evolution/run_eval_modes.py`. -->
 
 ---
 

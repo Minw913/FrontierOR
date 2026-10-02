@@ -1,0 +1,7 @@
+[
+  {
+    "paper_id": "bierwirth2017",
+    "model": "gpt-5.3-codex",
+    "instances": ["tiny"]
+  }
+]
