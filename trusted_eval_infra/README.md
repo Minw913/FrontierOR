@@ -34,17 +34,17 @@ The `agent` command fixes these settings and does not expose downgrade flags:
 The old `--anti-hack` option remains an internal compatibility switch for
 existing scripts. It is not the public agent-mode interface.
 
-## Tide-eval orchestration
+## Reef-eval orchestration
 
 FrontierOR integrates with
-[`Human-Agent-Society/tide-eval`](https://github.com/Human-Agent-Society/tide-eval)
-through its public `Executor` protocol. Tide-eval owns episode scheduling,
-stable-key resume, budgets, traces, and the SQLite Lab. The trusted FrontierOR
-worker still owns Agent Docker, Candidate Docker, brokered dev scoring,
-artifact freezing, and hidden final grading. This division keeps untrusted
-`code.py` outside the hidden checker's filesystem and protection domain.
+[`reef-eval`](https://github.com/Human-Agent-Society/tide-eval) through its public Executor/Lab interface. Reef-eval owns episode
+scheduling, stable-key resume, budgets, traces, and the SQLite Lab. The trusted
+FrontierOR worker still owns Agent Docker, Candidate Docker, brokered dev
+scoring, artifact freezing, and hidden final grading. This division keeps
+untrusted `code.py` outside the hidden checker's filesystem and protection
+domain.
 
-Install tide-eval in a separate environment so its optional Harbor dependency
+Install reef-eval in a separate environment so its optional Harbor dependency
 does not change the benchmark environment:
 
 ```bash
@@ -61,7 +61,7 @@ bash test_time_self_evolution/eoh/setup.sh
 bash test_time_self_evolution/coral/setup.sh
 ```
 
-One command creates one Tide episode per paper. CORAL uses the official agent
+One command creates one reef-eval episode per paper. CORAL uses the official agent
 profile; OpenEvolve and EoH use the same hardened Docker evaluator and hidden
 final scorer:
 
@@ -100,7 +100,7 @@ and starts Codex with a read-only empty workspace and optional capabilities
 disabled. Candidate solver code never receives access to this bridge.
 
 This integration does not use the unrelated `gauthierpiarrette/tide` fleet
-manager. Current tide-eval exposes `Lab` and `Executor`; FrontierOR implements
+manager. Current reef-eval exposes `Lab` and `Executor`; FrontierOR implements
 that interface directly instead of maintaining a fork.
 
 ## Package boundaries

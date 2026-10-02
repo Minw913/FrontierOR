@@ -43,7 +43,10 @@ class FrontierORExecutor:
         self.timeout_grace_sec = timeout_grace_sec
 
     async def execute(self, spec):
-        from tide.types import EpisodeResult, TracePoint
+        try:
+            from tide.types import EpisodeResult, TracePoint
+        except ModuleNotFoundError:
+            from reef_eval.types import EpisodeResult, TracePoint
 
         request = {
             "schema_version": SCHEMA_VERSION,
@@ -182,7 +185,10 @@ def main(argv: list[str] | None = None) -> int:
     args = parser.parse_args(argv)
     request = _load_request(Path(args.request))
 
-    from tide import Lab
+    try:
+        from tide import Lab
+    except ModuleNotFoundError:
+        from reef_eval import Lab
 
     executor = FrontierORExecutor(
         request["worker_command"],

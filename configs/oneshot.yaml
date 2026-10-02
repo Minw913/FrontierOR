@@ -3,7 +3,6 @@ models:
   - "anthropic/claude-opus-4.6"
   - "google/gemini-3.1-pro-preview"
   - "x-ai/grok-4.20"
-  - "x-ai/grok-4.20-beta"
   - "deepseek/deepseek-r1"
   - "qwen/qwen3-coder-plus"
   - "meta-llama/llama-4-maverick"
@@ -21,7 +20,6 @@ model_results:
   claude-opus-4.6: {name: "Claude Opus 4.6", csv: "eval/eval_results_opus46.csv"}
   gemini-3.1-pro-preview: {name: "Gemini 3.1 Pro", csv: "eval/eval_results_gemini31pro.csv"}
   grok-4.20: {name: "Grok-4.20", csv: "eval/eval_results_grok420.csv"}
-  grok-4.20-beta: {name: "Grok-4.20", csv: "eval/eval_results_grok42beta.csv"}
   deepseek-r1: {name: "DeepSeek-R1", csv: "eval/eval_results_deepseekr1.csv"}
   qwen3-coder-plus: {name: "Qwen3-Coder-Plus", csv: "eval/eval_results_qwen3coder.csv"}
   llama-4-maverick: {name: "LLaMA-4-Maverick", csv: "eval/eval_results_llama4maverick.csv"}
@@ -31,3 +29,10 @@ model_results:
   claude-fable-5: {name: "Claude Fable 5", csv: "eval/eval_results_fable5.csv"}
   qwen3.8-max: {name: "Qwen3.8-Max", csv: "eval/eval_results_qwen38max.csv"}
   kimi-k3: {name: "Kimi K3", csv: "eval/eval_results_kimik3.csv"}
+
+# Explicit generation controls for models whose provider defaults may truncate
+# long reasoning-plus-code responses.
+model_generation:
+  glm-5.2:
+    reasoning_effort: high
+    max_completion_tokens: 65536

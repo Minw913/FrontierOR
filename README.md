@@ -9,7 +9,7 @@
 </p>
 
 <p align="center">
-  <strong>For technical questions or collaboration, please contact ✉️ contact@frontieror.org</strong>
+  <em>For technical questions or collaboration, please contact ✉️ <a href="mailto:contact@frontieror.org">contact@frontieror.org</a></em>
 </p>
 
 <div align="center">
@@ -22,13 +22,15 @@
   <img src="figures/FrontierOR.png" alt="FrontierOR overview" width="100%">
 </p>
 
-> Overview of the FrontierOR benchmark. FrontierOR spans diverse problem domains, formulation types, and application fields. Each optimization problem involves 10² to 10⁷ decision variables and constraints (median ~10⁴), with Gurobi failing to reach optimality on **46%** of large-scale instances within a one-hour time budget. We construct the benchmark by collecting problems from leading OR journals, and ensure data quality through multi-round expert review.
+> Overview of FrontierOR: 180 literature-grounded OR tasks spanning diverse domains and formulations, with 10² to 10⁷ decision variables/constraints and Gurobi failing to reach optimality on **46%** of large-scale instances within one hour.
 
 ---
 
 ## 📖 Introduction
 
-Practical operations research (OR) requires LLMs to go beyond modeling and code generation to design *scalable algorithms* that exploit problem structure and outperform monolithic solver-based baselines. To address the limited scale and complexity of existing benchmarks, we introduce **FrontierOR**, among the first to systematically evaluate this capability on realistic large-scale optimization problems. It comprises **180 tasks** drawn from methodologically diverse papers in top-tier OR venues, each accompanied by:
+**FrontierOR** evaluates whether LLMs can move beyond optimization modeling to
+design *scalable algorithms* for realistic large-scale OR problems. It contains
+**180 literature-grounded tasks** from top-tier OR venues, each with:
 
 - A natural-language **problem description**,
 - A faithful **mathematical formulation**,
@@ -36,7 +38,11 @@ Practical operations research (OR) requires LLMs to go beyond modeling and code 
 - An expert-verified **Gurobi reference baseline**,
 - A standalone **feasibility checker**.
 
-We evaluate several frontier LLM backbones and three test-time evolution methods. The results reveal that frontier models still struggle to move from executable formulations to efficient optimization algorithms: under one-shot generation, no evaluated model produces algorithms that outperform Gurobi in both solution quality and computational efficiency on more than **40%** of large-scale instances. Even test-time evolution with strong agent harnesses achieve only **50%** on a selected hard set of 50 tasks. FrontierOR thus provides a practical platform for systematically evaluating whether future LLMs and agents can move beyond correct formulation toward designing efficient algorithms that deliver feasible, high-quality solutions.
+Across frontier LLM backbones and three test-time evolution methods, models
+still struggle to turn executable formulations into efficient algorithms: no
+one-shot model beats Gurobi on both quality and solving speed for more than **40%** of
+large-scale instances, and strong agent harnesses reach only **50%** on a
+selected hard set of 50 tasks.
 
 ---
 
@@ -281,7 +287,7 @@ For self-evolution, the same short name flows through `--primary-model` / `--sec
 
 ## 📚 Citation
 
-If you use FrontierOR in your research, please cite:
+If you find FrontierOR useful, please consider giving us a ⭐ Star and/or citing it in your work:
 
 ```bibtex
 @article{kong2026frontieror,

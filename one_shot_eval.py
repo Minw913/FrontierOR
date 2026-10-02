@@ -180,6 +180,20 @@ def _model_results_csv(model_short):
     return f"eval/eval_results_{safe_name}.csv"
 
 
+def _model_generation_options(model):
+    """Return allow-listed OpenRouter generation options for one model."""
+    config_path = os.path.join(ROOT_DIR, "configs", "oneshot.yaml")
+    try:
+        with open(config_path, encoding="utf-8") as handle:
+            config = yaml.safe_load(handle) or {}
+    except (OSError, yaml.YAMLError):
+        return {}
+    model_short = model.rsplit("/", 1)[-1]
+    configured = (config.get("model_generation") or {}).get(model_short, {})
+    allowed = {"max_completion_tokens", "reasoning_effort"}
+    return {key: value for key, value in configured.items() if key in allowed}
+
+
 def _default_results_csv_for_models(model_short_names):
     """Return the registry-derived CSV path when exactly one model is selected."""
     if not model_short_names or len(model_short_names) != 1:
@@ -463,6 +477,14 @@ def get_model_code_dir(paper_id, model_name):
     return os.path.join(base, paper_id, model_name)
 
 
+def _has_reusable_code_for_all_papers(model, paper_ids):
+    model_name = get_model_short_name(model)
+    return all(
+        os.path.exists(os.path.join(get_model_code_dir(paper_id, model_name), "code.py"))
+        for paper_id in paper_ids
+    )
+
+
 def read_problem_description(paper_id):
     """Read the canonical problem_description.txt for the paper."""
     paper_dir = get_paper_dir(paper_id)
@@ -515,21 +537,35 @@ def extract_python_code(text):
 
 def _add_token_usage(total, extra):
     for k in ("prompt_tokens", "completion_tokens", "cached_tokens"):
-        total[k] += extra.get(k, 0)
+        total[k] = total.get(k, 0) + extra.get(k, 0)
+    total["api_calls"] = total.get("api_calls", 0) + extra.get("api_calls", 0)
+    total["truncated_responses"] = (
+        total.get("truncated_responses", 0) + extra.get("truncated_responses", 0)
+    )
+    reasons = total.setdefault("finish_reasons", [])
+    reason = extra.get("finish_reason")
+    if reason:
+        reasons.append(reason)
 
 
-def _repair_missing_code_block(raw_reply, config, model):
+def _repair_missing_code_block(raw_reply, config, model, *, truncated=False):
     """Ask the same model to reformat a no-code-block reply into exactly one
     Python fenced block. This is intended for reasoning models that place the
     program in reasoning/prose but fail the output format."""
     token_usage = {"prompt_tokens": 0, "completion_tokens": 0, "cached_tokens": 0}
     if not raw_reply:
         return None, token_usage
-    repair_prompt = (
+    problem = (
+        "Your previous response was truncated before the complete program was "
+        "returned. Reconstruct the complete Python program without changing "
+        "the algorithm and return exactly one fenced python code block."
+        if truncated else
         "Your previous response did not contain a valid fenced Python code "
         "block. Extract the complete Python program from that response and "
-        "return exactly one fenced python code block. Do not explain, do not "
-        "summarize, and do not change the algorithm.\n\n"
+        "return exactly one fenced python code block."
+    )
+    repair_prompt = (
+        f"{problem} Do not explain or summarize.\n\n"
         "Previous response:\n"
         f"{raw_reply}"
     )
@@ -543,6 +579,9 @@ def _repair_missing_code_block(raw_reply, config, model):
         _add_token_usage(token_usage, usage)
     except Exception as e:
         print(f"  [format-repair] LLM API error: {e}")
+        return None, token_usage
+    if usage.get("truncated"):
+        print("  [format-repair] repair response was also truncated")
         return None, token_usage
     code = extract_python_code(repaired_reply)
     if code is None:
@@ -591,6 +630,7 @@ def call_openrouter(messages, config, model, temperature=None):
         "model": model,
         "messages": messages,
     }
+    payload.update(_model_generation_options(model))
     if temperature is not None:
         payload["temperature"] = temperature
     resp = requests.post(url, headers=headers, json=payload, timeout=300)
@@ -598,7 +638,11 @@ def call_openrouter(messages, config, model, temperature=None):
         print(f"  [call_openrouter] HTTP {resp.status_code} body: {resp.text[:800]}")
     resp.raise_for_status()
     data = resp.json()
-    msg = data["choices"][0]["message"]
+    choice = data["choices"][0]
+    msg = choice["message"]
+    finish_reason = choice.get("finish_reason")
+    if finish_reason and finish_reason != "stop":
+        print(f"  [warning] {model} finish_reason={finish_reason!r}")
     content = msg.get("content")
     if not content:
         reasoning = msg.get("reasoning")
@@ -607,7 +651,6 @@ def call_openrouter(messages, config, model, temperature=None):
                   f"using 'reasoning' field ({len(reasoning)} chars) as fallback")
             content = reasoning
     if not content:
-        finish_reason = data["choices"][0].get("finish_reason")
         raise ValueError(
             f"Empty response from {model} "
             f"(finish_reason={finish_reason!r}, no content or reasoning text)"
@@ -618,6 +661,10 @@ def call_openrouter(messages, config, model, temperature=None):
         "prompt_tokens": usage.get("prompt_tokens", 0),
         "completion_tokens": usage.get("completion_tokens", 0),
         "cached_tokens": cached_tokens,
+        "finish_reason": finish_reason,
+        "truncated": finish_reason == "length",
+        "api_calls": 1,
+        "truncated_responses": int(finish_reason == "length"),
     }
 
 
@@ -1663,11 +1710,13 @@ def _generate_initial_code(prompt, config, model, code_path, attempt0_path,
         except Exception as e:
             transient_err = f"LLM API error: {e}"
         else:
-            code = extract_python_code(assistant_reply)
+            truncated = usage.get("truncated", False)
+            code = None if truncated else extract_python_code(assistant_reply)
             if code is None:
-                print(f"  [init-gen {init_attempt + 1}] No code block in response; trying format repair...")
+                reason = "Truncated response" if truncated else "No code block in response"
+                print(f"  [init-gen {init_attempt + 1}] {reason}; trying format repair...")
                 code, repair_usage = _repair_missing_code_block(
-                    assistant_reply, config, model
+                    assistant_reply, config, model, truncated=truncated
                 )
                 _add_token_usage(token_usage, repair_usage)
             if code is None:
@@ -1711,12 +1760,14 @@ def generate_candidate_code(prompt, config, model, output_dir, candidate_id,
             print(f"  [candidate {candidate_id} gen {attempt + 1}/{init_gen_max}] {last_error}")
             continue
 
-        code = extract_python_code(assistant_reply)
+        truncated = usage.get("truncated", False)
+        code = None if truncated else extract_python_code(assistant_reply)
         if code is None:
+            reason = "Truncated response" if truncated else "No Python code block in response"
             print(f"  [candidate {candidate_id} gen {attempt + 1}/{init_gen_max}] "
-                  "No Python code block in response; trying format repair...")
+                  f"{reason}; trying format repair...")
             code, repair_usage = _repair_missing_code_block(
-                assistant_reply, config, model
+                assistant_reply, config, model, truncated=truncated
             )
             _add_token_usage(token_usage, repair_usage)
         if code is None:
@@ -1769,9 +1820,16 @@ def _self_correct_once(prompt, cur_code, errors_str, config, model,
     except Exception as e:
         print(f"  self-correction LLM API error: {e}")
         return None, token_usage
-    new_code = extract_python_code(assistant_reply)
+    truncated = usage.get("truncated", False)
+    new_code = None if truncated else extract_python_code(assistant_reply)
     if new_code is None:
-        print(f"  self-correction: no code block in response")
+        reason = "truncated response" if truncated else "no code block in response"
+        print(f"  self-correction: {reason}; trying format repair")
+        new_code, repair_usage = _repair_missing_code_block(
+            assistant_reply, config, model, truncated=truncated
+        )
+        _add_token_usage(token_usage, repair_usage)
+    if new_code is None:
         return None, token_usage
     with open(attempt_path, "w") as f:
         f.write(new_code)
@@ -2183,7 +2241,8 @@ RESULTS_CSV_COLUMNS = [
 ]
 
 API_COST_CSV_COLUMNS = [
-    "paper_id", "model", "prompt_tokens", "completion_tokens", "cached_tokens", "api_cost",
+    "paper_id", "model", "prompt_tokens", "completion_tokens", "cached_tokens",
+    "api_calls", "truncated_responses", "finish_reasons", "api_cost",
 ]
 
 
@@ -2281,6 +2340,9 @@ def write_api_cost_row(paper_id, model_name, model_id, token_usage):
     prompt_tokens = int(token_usage.get("prompt_tokens", 0) or 0)
     completion_tokens = int(token_usage.get("completion_tokens", 0) or 0)
     cached_tokens = int(token_usage.get("cached_tokens", 0) or 0)
+    api_calls = int(token_usage.get("api_calls", 0) or 0)
+    truncated_responses = int(token_usage.get("truncated_responses", 0) or 0)
+    finish_reasons = list(token_usage.get("finish_reasons", []) or [])
 
     new_key = (paper_id, model_name)
 
@@ -2308,6 +2370,12 @@ def write_api_cost_row(paper_id, model_name, model_id, token_usage):
             prompt_tokens += _to_int(prev_match.get("prompt_tokens"))
             completion_tokens += _to_int(prev_match.get("completion_tokens"))
             cached_tokens += _to_int(prev_match.get("cached_tokens"))
+            api_calls += _to_int(prev_match.get("api_calls"))
+            truncated_responses += _to_int(prev_match.get("truncated_responses"))
+            finish_reasons = [
+                reason for reason in prev_match.get("finish_reasons", "").split("|")
+                if reason
+            ] + finish_reasons
 
         pricing = MODEL_PRICING.get(model_id, {})
         # Cached tokens are billed at cache_read rate; remaining prompt tokens
@@ -2326,6 +2394,9 @@ def write_api_cost_row(paper_id, model_name, model_id, token_usage):
             "prompt_tokens": prompt_tokens,
             "completion_tokens": completion_tokens,
             "cached_tokens": cached_tokens,
+            "api_calls": api_calls,
+            "truncated_responses": truncated_responses,
+            "finish_reasons": "|".join(finish_reasons),
             "api_cost": api_cost,
         }
 
@@ -3147,7 +3218,11 @@ def main():
         except (OSError, json.JSONDecodeError) as e:
             print(f"ERROR: cannot read --task-plan-json {args.task_plan_json!r}: {e}", file=sys.stderr)
             sys.exit(1)
-        task_plan = task_plan_data.get("groups", task_plan_data)
+        task_plan = (
+            task_plan_data.get("groups", task_plan_data)
+            if isinstance(task_plan_data, dict)
+            else task_plan_data
+        )
         if not isinstance(task_plan, list):
             print("ERROR: --task-plan-json must be a list or an object with a 'groups' list", file=sys.stderr)
             sys.exit(1)
@@ -3258,6 +3333,28 @@ def main():
             print(f"WARNING: unknown model(s) {unknown}, available: {[get_model_short_name(m) for m in all_models]}")
         if not models:
             print("ERROR: no matching models found. Exiting.")
+            sys.exit(1)
+    elif args.reuse_code == "all" and CODE_ROOT:
+        models = [
+            m for m in all_models
+            if _has_reusable_code_for_all_papers(m, args.paper_id)
+        ]
+        skipped = [
+            get_model_short_name(m) for m in all_models
+            if m not in models
+        ]
+        if skipped:
+            print(
+                "[reuse] --models omitted; using models with code.py present "
+                f"for all requested papers under {CODE_ROOT}. "
+                f"Skipped missing reusable code: {skipped}"
+            )
+        if not models:
+            print(
+                "ERROR: --reuse-code all with --models omitted found no reusable "
+                f"code.py for all requested papers under {CODE_ROOT}.",
+                file=sys.stderr,
+            )
             sys.exit(1)
     else:
         models = all_models
