@@ -241,9 +241,9 @@ def _resolve_test_set_for_paper(paper_id: str, test_set_arg, dev_set_resolved):
     """Compute final test instances per paper.
 
     When ``--test-set`` is the **default** (``SELF_EVOLVE_TEST_INSTANCES``),
-    compute final = declared preset minus the resolved dev pick. This avoids
-    dev/test overlap without silently introducing an instance that the
-    command did not request.
+    compute final = the fixed canonical large-instance pool minus the resolved
+    dev pick. This uses each paper's five canonical large instances exactly
+    once across dev+test, while still avoiding dev/test overlap.
 
     A non-default ``--test-set`` value is used as-is. Anti-hack validation
     rejects it later if it overlaps the resolved dev set.
@@ -251,8 +251,8 @@ def _resolve_test_set_for_paper(paper_id: str, test_set_arg, dev_set_resolved):
     Affects all 3 frameworks (OpenEvolve / EoH / CORAL) since the
     dispatcher (``run_self_evolve_mode``) is shared.
 
-    If the dev pick is outside the preset (for example ``large_1`` or
-    ``tiny``), the declared final preset is unchanged.
+    If the dev pick is outside the canonical preset (for example ``tiny``),
+    the declared final preset is unchanged.
     """
     is_default = (list(test_set_arg) == list(SELF_EVOLVE_TEST_INSTANCES))
     if not is_default:
@@ -558,7 +558,9 @@ def parse_args(argv=None):
                         nargs="+", default=SELF_EVOLVE_TEST_INSTANCES,
                         help="self_evolve held-out test set: instances used only after the "
                              "evolve loop, on the final best program. "
-                             "Preset: large_2 large_3 large_4 large_5. "
+                             "Preset: large_1 large_2 large_3 large_4 large_5; "
+                             "when this default is used, the resolved dev instance "
+                             "is removed, yielding four held-out test instances. "
                              "Empty → skip the post-evolve eval and reconstruct per-instance "
                              "rows for the dev results CSV from OpenEvolve's checkpoint. "
                              "Aliases: --test_set, --test-instances.")

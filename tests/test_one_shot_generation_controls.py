@@ -81,3 +81,20 @@ def test_initial_generation_repairs_a_truncated_response(monkeypatch, tmp_path):
     assert code == "print('complete')"
     assert code_path.read_text() == code
     assert attempt_path.read_text() == code
+
+
+def test_token_usage_accumulates_call_and_truncation_metadata():
+    total = {"prompt_tokens": 0, "completion_tokens": 0, "cached_tokens": 0}
+    ose._add_token_usage(total, {
+        "prompt_tokens": 10, "completion_tokens": 20, "cached_tokens": 3,
+        "api_calls": 1, "truncated_responses": 1, "finish_reason": "length",
+    })
+    ose._add_token_usage(total, {
+        "prompt_tokens": 5, "completion_tokens": 8, "cached_tokens": 1,
+        "api_calls": 1, "truncated_responses": 0, "finish_reason": "stop",
+    })
+    assert total == {
+        "prompt_tokens": 15, "completion_tokens": 28, "cached_tokens": 4,
+        "api_calls": 2, "truncated_responses": 1,
+        "finish_reasons": ["length", "stop"],
+    }

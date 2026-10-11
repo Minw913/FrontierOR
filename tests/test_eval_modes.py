@@ -61,14 +61,35 @@ def test_max_dev_set_falls_back_when_tau_metadata_is_absent(
     assert "no Gurobi τ_g metadata" in capsys.readouterr().out
 
 
-def test_default_final_set_preserves_preset_and_excludes_dev():
+@pytest.mark.parametrize(
+    "dev_instance", ["large_1", "large_2", "large_3", "large_4", "large_5"]
+)
+def test_default_final_set_uses_canonical_large_pool_and_excludes_dev(dev_instance):
     resolved = run_eval_modes._resolve_test_set_for_paper(
         "paper1",
         run_eval_modes.SELF_EVOLVE_TEST_INSTANCES,
-        ["large_3"],
+        [dev_instance],
     )
 
-    assert resolved == ["large_2", "large_4", "large_5"]
+    assert resolved == [
+        instance
+        for instance in ["large_1", "large_2", "large_3", "large_4", "large_5"]
+        if instance != dev_instance
+    ]
+
+
+def test_default_final_set_keeps_all_large_instances_when_dev_is_tiny():
+    resolved = run_eval_modes._resolve_test_set_for_paper(
+        "paper1", run_eval_modes.SELF_EVOLVE_TEST_INSTANCES, ["tiny"]
+    )
+    assert resolved == ["large_1", "large_2", "large_3", "large_4", "large_5"]
+
+
+def test_explicit_final_set_is_not_expanded():
+    resolved = run_eval_modes._resolve_test_set_for_paper(
+        "paper1", ["large_4", "large_5"], ["large_3"]
+    )
+    assert resolved == ["large_4", "large_5"]
 
 
 def test_paper_direction_loads_from_dataset_metadata(tmp_path, monkeypatch):

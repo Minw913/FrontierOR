@@ -42,7 +42,7 @@ DEFAULT_INSTANCES: List[str] = ["tiny"]
 # Pass '--dev-set max' (or 'max_tau_g' / 'auto') to opt into the largest-τ_g pick.
 SELF_EVOLVE_STAGE1_INSTANCES: List[str] = ["tiny"]
 SELF_EVOLVE_STAGE2_INSTANCES: Optional[List[str]] = None                              # CLI: --dev-set (None = auto-pick median-τ_g)
-SELF_EVOLVE_TEST_INSTANCES: List[str] = ["large_2", "large_3", "large_4", "large_5"]  # CLI: --test-set
+SELF_EVOLVE_TEST_INSTANCES: List[str] = ["large_1", "large_2", "large_3", "large_4", "large_5"]  # CLI: --test-set
 
 
 def is_valid_instance_name(name: str) -> bool:

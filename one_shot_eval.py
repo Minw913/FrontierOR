@@ -2575,8 +2575,7 @@ def _process_paper_model_inner(paper_id, config, model, instance_indices,
     token_usage = {"prompt_tokens": 0, "completion_tokens": 0, "cached_tokens": 0}
 
     def _add_usage(extra):
-        for k in ("prompt_tokens", "completion_tokens", "cached_tokens"):
-            token_usage[k] += extra.get(k, 0)
+        _add_token_usage(token_usage, extra)
 
     prev_debug = 0
     prev_correction = 0
