@@ -19,7 +19,7 @@
 </div>
 
 <p align="center">
-  <img src="figures/FrontierOR.png" alt="FrontierOR overview" width="100%">
+  <img src="figures/FrontierOR.png?v=44ade67effb4" alt="FrontierOR overview" width="100%">
 </p>
 
 > Overview of FrontierOR: 180 literature-grounded OR tasks spanning diverse domains and formulations, with 10² to 10⁷ decision variables/constraints and Gurobi failing to reach optimality on **46%** of large-scale instances within one hour.
