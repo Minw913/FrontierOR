@@ -1,0 +1,585 @@
+import json
+import argparse
+import copy
+import random
+import time
+from collections import defaultdict
+
+try:
+    import gurobipy as gp
+    from gurobipy import GRB
+    HAS_GUROBI = True
+except ModuleNotFoundError:
+    HAS_GUROBI = False
+except Exception:
+    HAS_GUROBI = False
+
+def find_best_slot(port_schedule, exts, Q, L, ideal_pos, min_h, beta, arrival_time, earliest_start, expected, lft, H, waiting_rate, handling_rate, delay_rate, lft_penalty):
+    if Q < L:
+        return 0.0, max(arrival_time, earliest_start), min_h, float('inf')
+        
+    candidate_positions = [0.0, Q - L]
+    clamped_ideal = max(0.0, min(Q - L, ideal_pos))
+    candidate_positions.append(clamped_ideal)
+    
+    for s in port_schedule:
+        candidate_positions.append(s['pos'] + s['length'])
+        candidate_positions.append(s['pos'] - L)
+    for es in exts:
+        candidate_positions.append(es['berthing_position'] + es['length_meters'])
+        candidate_positions.append(es['berthing_position'] - L)
+        
+    valid_positions = []
+    for p in candidate_positions:
+        if -1e-5 <= p <= Q - L + 1e-5:
+            valid_positions.append(max(0.0, min(Q - L, p)))
+            
+    valid_positions = sorted(list(set(valid_positions)))
+    
+    if not valid_positions:
+        valid_positions = [0.0]
+        
+    best_pos = valid_positions[0]
+    best_start = max(arrival_time, earliest_start)
+    best_h = min_h * (1 + beta * abs(best_pos - ideal_pos))
+    best_cost = float('inf')
+    
+    for pos in valid_positions:
+        h = min_h * (1 + beta * abs(pos - ideal_pos))
+        min_start = max(arrival_time, earliest_start)
+        
+        conflicts = []
+        for s in port_schedule:
+            if s['pos'] + s['length'] <= pos + 1e-5 or pos + L <= s['pos'] + 1e-5:
+                continue
+            conflicts.append((s['start'], s['end']))
+        for es in exts:
+            if es['berthing_position'] + es['length_meters'] <= pos + 1e-5 or pos + L <= es['berthing_position'] + 1e-5:
+                continue
+            conflicts.append((es['start_time_hours'], es['end_time_hours']))
+            
+        conflicts.sort()
+        
+        t = min_start
+        for c_start, c_end in conflicts:
+            if t >= c_end - 1e-5:
+                continue
+            if t + h <= c_start + 1e-5:
+                break
+            t = c_end
+            
+        end_time = t + h
+        cost = waiting_rate * (t - arrival_time) + handling_rate * h + delay_rate * max(0, end_time - expected) + lft_penalty * max(0, end_time - lft)
+        if t > H:
+            cost += 1000000 * (t - H)
+            
+        if cost < best_cost - 1e-5:
+            best_cost = cost
+            best_pos = pos
+            best_start = t
+            best_h = h
+            
+    return best_pos, best_start, best_h, best_cost
+
+def run_heuristic(data, time_limit, logger=None):
+    start_time = time.time()
+    H = data['planning_horizon_hours']
+    cost = data['cost_parameters']
+    fuel_price = cost['fuel_price_usd_per_tonne']
+    handling_rate = cost['handling_cost_usd_per_hour']
+    delay_rate = cost['delay_cost_usd_per_hour']
+    waiting_rate = cost['waiting_cost_usd_per_hour']
+    lft_penalty = cost['lft_penalty_usd']
+    beta = data['handling_time_deviation_factor_beta_per_meter']
+
+    port_quay_length = {p['id']: p['quay_length_meters'] for p in data['ports']}
+    distances = data['distances_nautical_miles']
+    speeds = data['speeds_knots']
+    travel_time_per_nm = {float(k): v for k, v in data['travel_time_hours_per_nm_by_speed'].items()}
+
+    ships_opt = data['ships']
+    external_ships = data['external_ships']
+
+    port_externals = defaultdict(list)
+    for ext_port in external_ships:
+        port_externals[ext_port['port_id']].extend(ext_port['ships'])
+
+    best_cost = float('inf')
+    best_solution = None
+    
+    base_order = sorted(ships_opt, key=lambda s: s['port_visits'][0]['earliest_start_time_hours'])
+    
+    while time.time() - start_time < time_limit or best_solution is None:
+        if best_solution is not None and time.time() - start_time < time_limit:
+            order = random.sample(base_order, len(base_order))
+        else:
+            order = base_order
+            
+        port_schedule = defaultdict(list)
+        total_cost = 0
+        sol = {
+            "objective_value": 0.0,
+            "ships": []
+        }
+        
+        feasible = True
+        for s in order:
+            ship_sol = {
+                "ship_id": s['id'],
+                "port_visits": [],
+                "speed_selections": []
+            }
+            L = s['length_meters']
+            route = s['route']
+            visits = sorted(s['port_visits'], key=lambda v: v['port_call_index'])
+            fuel_per_nm = {float(k): v for k, v in s['fuel_consumption_per_nm_by_speed'].items()}
+            
+            prev_end_time = 0.0
+            prev_port = None
+            
+            for i, v in enumerate(visits):
+                port = v['port_id']
+                idx = v['port_call_index']
+                ideal_pos = v['ideal_berthing_position']
+                min_h = v['min_handling_time_hours']
+                earliest_start = v['earliest_start_time_hours']
+                expected = v['expected_finish_time_hours']
+                lft = v['latest_finish_time_hours']
+                Q = port_quay_length[port]
+                exts = port_externals[port]
+                
+                if i == 0:
+                    arrival_time = earliest_start
+                    best_pos, best_start, best_h, best_cost_visit = find_best_slot(
+                        port_schedule[port], exts, Q, L, ideal_pos, min_h, beta, 
+                        arrival_time, earliest_start, expected, lft, H, 
+                        waiting_rate, handling_rate, delay_rate, lft_penalty
+                    )
+                    total_cost += best_cost_visit
+                    
+                    ship_sol['port_visits'].append({
+                        "port_call_index": idx,
+                        "port_id": port,
+                        "berthing_position": best_pos,
+                        "start_time": best_start,
+                        "handling_time": best_h,
+                        "arrival_time": arrival_time,
+                        "delay": max(0.0, best_start + best_h - expected),
+                        "lft_violation": max(0.0, best_start + best_h - lft),
+                        "position_deviation": abs(best_pos - ideal_pos)
+                    })
+                    
+                    prev_end_time = best_start + best_h
+                    prev_port = port
+                    port_schedule[port].append({
+                        'pos': best_pos,
+                        'length': L,
+                        'start': best_start,
+                        'end': prev_end_time,
+                        'ship_id': s['id']
+                    })
+                else:
+                    best_speed = None
+                    best_pos = None
+                    best_start = None
+                    best_h = None
+                    best_cost_visit = float('inf')
+                    best_arrival = None
+                    
+                    dist_key = f"{prev_port}_{port}"
+                    dist = distances[dist_key]
+                    
+                    for sp in speeds:
+                        tt = dist * travel_time_per_nm[sp]
+                        arr = prev_end_time + tt
+                        pos, start_t, h, visit_cost = find_best_slot(
+                            port_schedule[port], exts, Q, L, ideal_pos, min_h, beta, 
+                            arr, earliest_start, expected, lft, H, 
+                            waiting_rate, handling_rate, delay_rate, lft_penalty
+                        )
+                        fuel_cost = fuel_price * fuel_per_nm[sp] * dist
+                        total_visit_cost = fuel_cost + visit_cost
+                        
+                        if total_visit_cost < best_cost_visit:
+                            best_cost_visit = total_visit_cost
+                            best_speed = sp
+                            best_pos = pos
+                            best_start = start_t
+                            best_h = h
+                            best_arrival = arr
+                            
+                    if best_speed is None:
+                        feasible = False
+                        break
+                        
+                    total_cost += best_cost_visit
+                    ship_sol['port_visits'].append({
+                        "port_call_index": idx,
+                        "port_id": port,
+                        "berthing_position": best_pos,
+                        "start_time": best_start,
+                        "handling_time": best_h,
+                        "arrival_time": best_arrival,
+                        "delay": max(0.0, best_start + best_h - expected),
+                        "lft_violation": max(0.0, best_start + best_h - lft),
+                        "position_deviation": abs(best_pos - ideal_pos)
+                    })
+                    ship_sol['speed_selections'].append({
+                        "from_call": idx - 1,
+                        "to_call": idx,
+                        "speed_knots": best_speed
+                    })
+                    
+                    prev_end_time = best_start + best_h
+                    prev_port = port
+                    port_schedule[port].append({
+                        'pos': best_pos,
+                        'length': L,
+                        'start': best_start,
+                        'end': prev_end_time,
+                        'ship_id': s['id']
+                    })
+                    
+            if not feasible:
+                break
+            sol['ships'].append(ship_sol)
+            
+        if feasible and total_cost < best_cost:
+            best_cost = total_cost
+            sol['objective_value'] = total_cost
+            best_solution = copy.deepcopy(sol)
+            if logger:
+                logger.log_solution(best_cost, best_solution)
+            
+    return best_solution
+
+def run_gurobi(data, time_limit, heuristic_sol, logger=None):
+    H = data['planning_horizon_hours']
+    cost = data['cost_parameters']
+    fuel_price = cost['fuel_price_usd_per_tonne']
+    handling_rate = cost['handling_cost_usd_per_hour']
+    delay_rate = cost['delay_cost_usd_per_hour']
+    waiting_rate = cost['waiting_cost_usd_per_hour']
+    lft_penalty = cost['lft_penalty_usd']
+    beta = data['handling_time_deviation_factor_beta_per_meter']
+
+    port_quay_length = {p['id']: p['quay_length_meters'] for p in data['ports']}
+    distances = data['distances_nautical_miles']
+    speeds = data['speeds_knots']
+    travel_time_per_nm = {float(k): v for k, v in data['travel_time_hours_per_nm_by_speed'].items()}
+
+    ships_opt = data['ships']
+    external_ships = data['external_ships']
+
+    port_externals = defaultdict(list)
+    for ext_port in external_ships:
+        port_externals[ext_port['port_id']].extend(ext_port['ships'])
+
+    ship_info = {}
+    for s in ships_opt:
+        ship_info[s['id']] = {
+            'length': s['length_meters'],
+            'route': s['route'],
+            'fuel_per_nm': {float(k): v for k, v in s['fuel_consumption_per_nm_by_speed'].items()},
+            'visits': sorted(s['port_visits'], key=lambda v: v['port_call_index']),
+            'design_speed': s['design_speed_knots']
+        }
+
+    model = gp.Model("berth_speed")
+    model.Params.Seed = 0
+    model.Params.MIPGap = 1e-4
+    model.Params.NumericFocus = 0
+    model.Params.Threads = 1
+    model.Params.TimeLimit = time_limit
+    model.Params.OutputFlag = 0
+
+    p_vars = defaultdict(dict)
+    t_vars = defaultdict(dict)
+    h_vars = defaultdict(dict)
+    a_vars = defaultdict(dict)
+    e_vars = defaultdict(dict)
+    dev_vars = defaultdict(dict)
+    delay_vars = defaultdict(dict)
+    lft_vars = defaultdict(dict)
+    speed_vars = defaultdict(dict)
+
+    log_visit_vars = []
+    log_speed_vars = []
+    visit_idx_map = {}
+    ship_idx_map = {}
+
+    solution_template = {
+        "objective_value": None,
+        "ships": []
+    }
+    for idx_s, s in enumerate(ships_opt):
+        ship_id = s['id']
+        ship_idx_map[ship_id] = idx_s
+        visit_idx_map[ship_id] = {}
+        ship_dict = {"ship_id": ship_id, "port_visits": [], "speed_selections": []}
+        for v_idx, v in enumerate(ship_info[ship_id]['visits']):
+            visit_idx_map[ship_id][v['port_call_index']] = v_idx
+            ship_dict["port_visits"].append({
+                "port_call_index": v['port_call_index'],
+                "port_id": v['port_id'],
+                "berthing_position": 0.0,
+                "start_time": 0.0,
+                "handling_time": 0.0,
+                "arrival_time": 0.0,
+                "delay": 0.0,
+                "lft_violation": 0.0,
+                "position_deviation": 0.0
+            })
+        for i in range(len(s['route']) - 1):
+            ship_dict["speed_selections"].append({
+                "from_call": i + 1,
+                "to_call": i + 2,
+                "speed_knots": None
+            })
+        solution_template["ships"].append(ship_dict)
+
+    for s in ships_opt:
+        ship_id = s['id']
+        L = s['length_meters']
+        info = ship_info[ship_id]
+        visits = info['visits']
+        route = info['route']
+        fuel = info['fuel_per_nm']
+        ship_idx = ship_idx_map[ship_id]
+
+        for v in visits:
+            idx = v['port_call_index']
+            port = v['port_id']
+            ideal = v['ideal_berthing_position']
+            min_h = v['min_handling_time_hours']
+            e_start = v['earliest_start_time_hours']
+            exp_finish = v['expected_finish_time_hours']
+            lft = v['latest_finish_time_hours']
+            Q = port_quay_length[port]
+
+            p = model.addVar(lb=0, ub=Q - L, name=f"p_{ship_id}_{idx}")
+            t = model.addVar(lb=0, ub=H, name=f"t_{ship_id}_{idx}")
+            h = model.addVar(lb=0, ub=H, name=f"h_{ship_id}_{idx}")
+            a = model.addVar(lb=0, ub=H, name=f"a_{ship_id}_{idx}")
+            e = model.addVar(lb=0, ub=H, name=f"e_{ship_id}_{idx}")
+            dev = model.addVar(lb=0, name=f"dev_{ship_id}_{idx}")
+            delay = model.addVar(lb=0, name=f"delay_{ship_id}_{idx}")
+            lft_v = model.addVar(lb=0, name=f"lft_{ship_id}_{idx}")
+
+            model.addConstr(dev >= p - ideal)
+            model.addConstr(dev >= ideal - p)
+            model.addConstr(h == min_h * (1 + beta * dev))
+            model.addConstr(e == t + h)
+            model.addConstr(t >= e_start)
+            model.addConstr(t >= a)
+            model.addConstr(delay >= e - exp_finish)
+            model.addConstr(lft_v >= e - lft)
+
+            if idx == 1:
+                model.addConstr(a == t)
+            else:
+                prev_idx = idx - 1
+                tt = model.addVar(lb=0, ub=H, name=f"tt_{ship_id}_{prev_idx}")
+                speed_dict = {}
+                for k, speed in enumerate(speeds):
+                    z = model.addVar(vtype=GRB.BINARY, name=f"z_{ship_id}_{prev_idx}_{k}")
+                    speed_dict[speed] = z
+                model.addConstr(gp.quicksum(speed_dict.values()) == 1)
+                dist = distances[f"{route[prev_idx-1]}_{route[idx-1]}"]
+                model.addConstr(tt == dist * gp.quicksum(travel_time_per_nm[speed] * speed_dict[speed] for speed in speeds))
+                model.addConstr(a == e_vars[ship_id][prev_idx] + tt)
+                speed_vars[ship_id][prev_idx] = speed_dict
+
+                leg_idx = prev_idx - 1
+                for speed, z_var in speed_dict.items():
+                    log_speed_vars.append({'ship_idx': ship_idx, 'leg_idx': leg_idx, 'speed': speed, 'var': z_var})
+
+            p_vars[ship_id][idx] = p
+            t_vars[ship_id][idx] = t
+            h_vars[ship_id][idx] = h
+            a_vars[ship_id][idx] = a
+            e_vars[ship_id][idx] = e
+            dev_vars[ship_id][idx] = dev
+            delay_vars[ship_id][idx] = delay
+            lft_vars[ship_id][idx] = lft_v
+
+            v_idx = visit_idx_map[ship_id][idx]
+            log_visit_vars.append({'ship_idx': ship_idx, 'visit_idx': v_idx, 'field': 'berthing_position', 'var': p})
+            log_visit_vars.append({'ship_idx': ship_idx, 'visit_idx': v_idx, 'field': 'start_time', 'var': t})
+            log_visit_vars.append({'ship_idx': ship_idx, 'visit_idx': v_idx, 'field': 'handling_time', 'var': h})
+            log_visit_vars.append({'ship_idx': ship_idx, 'visit_idx': v_idx, 'field': 'arrival_time', 'var': a})
+            log_visit_vars.append({'ship_idx': ship_idx, 'visit_idx': v_idx, 'field': 'delay', 'var': delay})
+            log_visit_vars.append({'ship_idx': ship_idx, 'visit_idx': v_idx, 'field': 'lft_violation', 'var': lft_v})
+            log_visit_vars.append({'ship_idx': ship_idx, 'visit_idx': v_idx, 'field': 'position_deviation', 'var': dev})
+
+    port_visit_list = defaultdict(list)
+    for s in ships_opt:
+        ship_id = s['id']
+        L = s['length_meters']
+        for v in ship_info[ship_id]['visits']:
+            idx = v['port_call_index']
+            port = v['port_id']
+            port_visit_list[port].append({
+                'ship_id': ship_id,
+                'call_idx': idx,
+                'length': L,
+                'p': p_vars[ship_id][idx],
+                't': t_vars[ship_id][idx],
+                'e': e_vars[ship_id][idx]
+            })
+
+    for port, visits in port_visit_list.items():
+        n = len(visits)
+        for i in range(n):
+            v1 = visits[i]
+            for j in range(i + 1, n):
+                v2 = visits[j]
+                y1 = model.addVar(vtype=GRB.BINARY, name=f"nl_{v1['ship_id']}_{v1['call_idx']}_{v2['ship_id']}_{v2['call_idx']}_1")
+                y2 = model.addVar(vtype=GRB.BINARY, name=f"nl_{v1['ship_id']}_{v1['call_idx']}_{v2['ship_id']}_{v2['call_idx']}_2")
+                y3 = model.addVar(vtype=GRB.BINARY, name=f"nl_{v1['ship_id']}_{v1['call_idx']}_{v2['ship_id']}_{v2['call_idx']}_3")
+                y4 = model.addVar(vtype=GRB.BINARY, name=f"nl_{v1['ship_id']}_{v1['call_idx']}_{v2['ship_id']}_{v2['call_idx']}_4")
+                model.addConstr(y1 + y2 + y3 + y4 >= 1)
+                model.addConstr((y1 == 1) >> (v1['p'] + v1['length'] <= v2['p']))
+                model.addConstr((y2 == 1) >> (v2['p'] + v2['length'] <= v1['p']))
+                model.addConstr((y3 == 1) >> (v1['e'] <= v2['t']))
+                model.addConstr((y4 == 1) >> (v2['e'] <= v1['t']))
+
+        ext_list = port_externals.get(port, [])
+        for v in visits:
+            for ext in ext_list:
+                p_ext = ext['berthing_position']
+                L_ext = ext['length_meters']
+                t_ext_start = ext['start_time_hours']
+                t_ext_end = ext['end_time_hours']
+
+                y1 = model.addVar(vtype=GRB.BINARY, name=f"nle_{v['ship_id']}_{v['call_idx']}_{ext['id']}_1")
+                y2 = model.addVar(vtype=GRB.BINARY, name=f"nle_{v['ship_id']}_{v['call_idx']}_{ext['id']}_2")
+                y3 = model.addVar(vtype=GRB.BINARY, name=f"nle_{v['ship_id']}_{v['call_idx']}_{ext['id']}_3")
+                y4 = model.addVar(vtype=GRB.BINARY, name=f"nle_{v['ship_id']}_{v['call_idx']}_{ext['id']}_4")
+                model.addConstr(y1 + y2 + y3 + y4 >= 1)
+                model.addConstr((y1 == 1) >> (v['p'] + v['length'] <= p_ext))
+                model.addConstr((y2 == 1) >> (p_ext + L_ext <= v['p']))
+                model.addConstr((y3 == 1) >> (v['e'] <= t_ext_start))
+                model.addConstr((y4 == 1) >> (t_ext_end <= v['t']))
+
+    obj = gp.LinExpr()
+    for s in ships_opt:
+        ship_id = s['id']
+        fuel = ship_info[ship_id]['fuel_per_nm']
+        for v in ship_info[ship_id]['visits']:
+            idx = v['port_call_index']
+            obj += waiting_rate * (t_vars[ship_id][idx] - a_vars[ship_id][idx])
+            obj += handling_rate * h_vars[ship_id][idx]
+            obj += delay_rate * delay_vars[ship_id][idx]
+            obj += lft_penalty * lft_vars[ship_id][idx]
+        route = ship_info[ship_id]['route']
+        for i in range(len(route) - 1):
+            prev_idx = i + 1
+            dist = distances[f"{route[i]}_{route[i+1]}"]
+            speed_dict = speed_vars[ship_id][prev_idx]
+            for speed, z in speed_dict.items():
+                obj += fuel_price * fuel[speed] * dist * z
+
+    model.setObjective(obj, GRB.MINIMIZE)
+
+    if heuristic_sol:
+        for ship in heuristic_sol['ships']:
+            ship_id = ship['ship_id']
+            for pv in ship['port_visits']:
+                idx = pv['port_call_index']
+                p_vars[ship_id][idx].Start = pv['berthing_position']
+                t_vars[ship_id][idx].Start = pv['start_time']
+                h_vars[ship_id][idx].Start = pv['handling_time']
+                a_vars[ship_id][idx].Start = pv['arrival_time']
+                e_vars[ship_id][idx].Start = pv['start_time'] + pv['handling_time']
+                dev_vars[ship_id][idx].Start = pv['position_deviation']
+                delay_vars[ship_id][idx].Start = pv['delay']
+                lft_vars[ship_id][idx].Start = pv['lft_violation']
+            for ss in ship['speed_selections']:
+                idx = ss['from_call']
+                sp = ss['speed_knots']
+                if sp in speed_vars[ship_id][idx]:
+                    speed_vars[ship_id][idx][sp].Start = 1.0
+                for other_sp in speed_vars[ship_id][idx]:
+                    if other_sp != sp:
+                        speed_vars[ship_id][idx][other_sp].Start = 0.0
+
+    callback_vars_visit = [item['var'] for item in log_visit_vars]
+    callback_vars_speed = [item['var'] for item in log_speed_vars]
+    callback_vars_all = callback_vars_visit + callback_vars_speed
+
+    def callback(model, where):
+        if where == GRB.Callback.MIPSOL:
+            obj_val = model.cbGet(GRB.Callback.MIPSOL_OBJ)
+            if logger:
+                vals = model.cbGetSolution(callback_vars_all)
+                sol = copy.deepcopy(solution_template)
+                sol['objective_value'] = obj_val
+                for item, val in zip(log_visit_vars, vals[:len(log_visit_vars)]):
+                    sol['ships'][item['ship_idx']]['port_visits'][item['visit_idx']][item['field']] = val
+                for item, val in zip(log_speed_vars, vals[len(log_visit_vars):]):
+                    if val > 0.5:
+                        sol['ships'][item['ship_idx']]['speed_selections'][item['leg_idx']]['speed_knots'] = item['speed']
+                logger.log_solution(obj_val, sol)
+
+    model.optimize(callback)
+
+    if model.SolCount > 0:
+        sol = copy.deepcopy(solution_template)
+        sol['objective_value'] = model.ObjVal
+        for item in log_visit_vars:
+            sol['ships'][item['ship_idx']]['port_visits'][item['visit_idx']][item['field']] = item['var'].X
+        for item in log_speed_vars:
+            if item['var'].X > 0.5:
+                sol['ships'][item['ship_idx']]['speed_selections'][item['leg_idx']]['speed_knots'] = item['speed']
+        for ship in sol['ships']:
+            for sel in ship['speed_selections']:
+                if sel['speed_knots'] is None:
+                    sel['speed_knots'] = speeds[0]
+        return sol
+    return None
+
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--instance_path', required=True)
+    parser.add_argument('--solution_path', required=True)
+    parser.add_argument('--time_limit', type=int, required=True)
+    parser.add_argument('--log_path', default=None)
+    args = parser.parse_args()
+
+    from solution_logger import SolutionLogger
+    logger = SolutionLogger(args.log_path, sense="minimize") if args.log_path else None
+
+    start_time = time.time()
+    with open(args.instance_path) as f:
+        data = json.load(f)
+
+    heuristic_time = min(args.time_limit * 0.2, 5)
+    heuristic_sol = run_heuristic(data, heuristic_time, logger)
+
+    final_sol = heuristic_sol
+
+    if HAS_GUROBI:
+        try:
+            remaining_time = args.time_limit - (time.time() - start_time)
+            if remaining_time > 1:
+                gurobi_sol = run_gurobi(data, remaining_time, heuristic_sol, logger)
+                if gurobi_sol:
+                    final_sol = gurobi_sol
+        except Exception:
+            pass
+    else:
+        remaining_time = args.time_limit - (time.time() - start_time)
+        if remaining_time > 0:
+            heuristic_sol2 = run_heuristic(data, remaining_time, logger)
+            if heuristic_sol2 and (not final_sol or heuristic_sol2['objective_value'] < final_sol['objective_value']):
+                final_sol = heuristic_sol2
+
+    if final_sol is None:
+        final_sol = run_heuristic(data, 1)
+
+    with open(args.solution_path, 'w') as f:
+        json.dump(final_sol, f, indent=2)
+
+if __name__ == "__main__":
+    main()

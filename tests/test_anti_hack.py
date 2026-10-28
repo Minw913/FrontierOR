@@ -354,7 +354,7 @@ def test_reused_coral_seed_is_nofollow_and_has_relative_provenance(
 ):
     monkeypatch.setattr(coral_runner, "ROOT_DIR", str(tmp_path))
     source = _write(
-        tmp_path / "eval" / "eval_tasks" / "paper1" / "model1" / "code_attempt0.py",
+        tmp_path / "eval" / "eval_tasks" / "paper1" / "model1" / "code.py",
         "print('seed')\n",
     )
     seed_dir = tmp_path / "seed"
@@ -389,7 +389,7 @@ def test_reused_coral_seed_records_seed_model_override(tmp_path, monkeypatch):
         / "eval_tasks"
         / "paper1"
         / "seed-model"
-        / "code_attempt0.py",
+        / "code.py",
         "print('seed')\n",
     )
     seed_dir = tmp_path / "seed"

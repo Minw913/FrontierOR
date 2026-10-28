@@ -368,6 +368,7 @@ def run_self_evolve_mode(args, run_id, config, paper_id, prompt, primary_model, 
             pop_size=args.eoh_pop_size,
             n_pop=args.eoh_n_pop,
             workers=args.eoh_workers,
+            seed=args.eoh_seed,
             timeout=args.eoh_timeout,
             operators=args.eoh_operators,
             resume=args.resume,
@@ -460,6 +461,10 @@ def parse_args(argv=None):
                              "offspring all run concurrently). Set explicitly to a smaller "
                              "value if you hit OpenRouter rate limits or want fewer "
                              "concurrent CPUs.")
+    parser.add_argument("--eoh-seed", type=int, default=None,
+                        help="EoH Python/NumPy evolutionary RNG seed; overrides "
+                             "eoh.evolution.seed (default 2024). Not an LLM seed. "
+                             "Thread scheduling and LLM output remain nondeterministic.")
     parser.add_argument("--eoh-timeout", type=int, default=None,
                         help="EoH per-candidate evaluation timeout. Default: stage2 time limit + 60s.")
     parser.add_argument("--eoh-operators", nargs="+", default=None,

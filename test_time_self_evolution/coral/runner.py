@@ -30,6 +30,7 @@ import yaml
 
 import one_shot_eval as eval_core
 from test_time_self_evolution import eval_modes
+from test_time_self_evolution.seeds import copy_final_oneshot_seed
 from trusted_eval_infra.checkers import validate_objective_checker
 from trusted_eval_infra.files import SecureFileError, copy_regular_file
 from trusted_eval_infra.policy import AgentModePolicy, validate_anti_hack_runtime
@@ -121,49 +122,22 @@ def _reserve_gateway_port(identity: str) -> int:
 
 
 def _try_reuse_oneshot_seed(paper_id: str, model_name: str, seed_dir: str) -> Optional[str]:
-    """Try to copy ``eval/eval_tasks/<paper>/<model_short>/code_attempt0.py``
-    into ``<seed_dir>/code.py`` and return its path. Returns None if the
-    one-shot artifact doesn't exist (caller should fall back to live LLM
-    generation via ``eval_core.generate_candidate_code``).
-
-    Saves 1 LLM call per paper when a one-shot run with the same model has
-    already populated eval_tasks/. Also makes CORAL/OpenEvolve start from
-    the same seed (apples-to-apples comparison).
-    """
+    """Reuse the final one-shot code.py; preserve explicit seed-model override."""
     seed_model_name = (
         os.environ.get("FRONTIER_OR_CORAL_SEED_MODEL", "").strip() or model_name
     )
     short = eval_core.get_model_short_name(seed_model_name)
-    src = os.path.join(
-        ROOT_DIR, "eval", "eval_tasks", paper_id, short, "code_attempt0.py",
-    )
-    if not os.path.lexists(src):
-        return None
-    os.makedirs(seed_dir, exist_ok=True)
-    dst = os.path.join(seed_dir, "code.py")
-    try:
-        copied = copy_regular_file(
-            src,
-            dst,
-            max_bytes=MAX_SELECTED_CODE_BYTES,
-            label="one-shot seed code.py",
-        )
-    except SecureFileError as exc:
-        print(f"[warn] rejected one-shot seed {paper_id}/{short}: {exc}")
-        return None
-    if copied == 0:
-        os.unlink(dst)
+    dst = copy_final_oneshot_seed(ROOT_DIR, paper_id, short, seed_dir)
+    if dst is None:
         return None
     provenance = os.path.join(seed_dir, "_seed_source.txt")
-    with open(provenance, "w", encoding="utf-8") as f:
+    with open(provenance, "a", encoding="utf-8") as f:
         f.write(
-            f"reused from one-shot v0: "
-            f"eval/eval_tasks/{paper_id}/{short}/code_attempt0.py\n"
             f"seed_model: {seed_model_name}\n"
             f"agent_model: {model_name}\n"
         )
     print(
-        f"[reuse-oneshot:coral] {paper_id}/{short}: copied one-shot v0 "
+        f"[reuse-oneshot:coral] {paper_id}/{short}: copied final one-shot "
         f"for agent model {model_name} → {dst}"
     )
     return dst
@@ -380,7 +354,7 @@ def write_coral_task(
     os.makedirs(results_dir, exist_ok=True)
 
     # seed/code.py is populated by the caller (run_self_evolve) — either by
-    # reusing one-shot's code_attempt0.py or by live LLM generation. We don't
+    # reusing one-shot's final code.py or by live LLM generation. We don't
     # write a hardcoded stub here because the bench evaluates code.py as an
     # argparse script (subprocess), and any contract-violating stub would just
     # cost the agent 1 wasted attempt.

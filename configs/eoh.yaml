@@ -4,6 +4,9 @@ eoh:
     # Upstream EoH expects a host name, not a full https://.../v1 URL.
     api_endpoint: openrouter.ai
   evolution:
+    # Framework Python/NumPy RNGs; CLI --eoh-seed overrides this value.
+    # Does not control LLM sampling or guarantee deterministic threaded runs.
+    seed: 2024
     pop_size: 4
     n_pop: 4
     workers: 1

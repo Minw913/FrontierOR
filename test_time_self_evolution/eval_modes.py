@@ -210,14 +210,11 @@ def _self_evolve_csv_path(framework: str, kind: str) -> str:
     return os.path.join(ROOT_DIR, "eval", f"eval_{kind}_results_{framework}.csv")
 
 
-def _load_oneshot_first_status(paper_id: str, model_short: str, instance: str) -> Optional[str]:
-    """Read v0's status (= one-shot's ``first_status``) for (paper, model,
-    instance) from any ``eval/eval_results_*.csv`` file.
+def _load_oneshot_seed_status(paper_id: str, model_short: str, instance: str) -> Optional[str]:
+    """Read final one-shot ``status`` for the final code.py seed baseline.
 
-    Used when self-evolve reused one-shot's ``code_attempt0.py`` as its seed
-    (see ``runner._try_reuse_oneshot_seed``): the seed IS the same code that
-    one-shot evaluated as v0, so one-shot's already-computed ``first_status``
-    is the authoritative source for our ``first_status`` column.
+    Never read the first-attempt ``first_status``: self-evolution now starts
+    from the final/debugged program used for the one-shot performance table.
 
     The one-shot CSV filename has its own historical convention
     (``eval_results_codex53.csv``, ``eval_results_deepseekr1.csv``, ...) that
@@ -230,15 +227,15 @@ def _load_oneshot_first_status(paper_id: str, model_short: str, instance: str) -
         try:
             with open(csv_path, "r", newline="") as f:
                 reader = csv.DictReader(f)
-                # Skip files without first_status column (defensive — would
+                # Skip files without status column (defensive — would
                 # mean it's not a one-shot CSV)
-                if not reader.fieldnames or "first_status" not in reader.fieldnames:
+                if not reader.fieldnames or "status" not in reader.fieldnames:
                     continue
                 for row in reader:
                     if (row.get("paper_id") == paper_id and
                             row.get("model") == model_short and
                             row.get("instance") == str(instance)):
-                        val = row.get("first_status")
+                        val = row.get("status")
                         return val if val else None
         except Exception:
             continue
@@ -396,13 +393,12 @@ def write_self_evolve_results(
     model_short = eval_core.get_model_short_name(model_name)
     for inst in dev_instances:
         gd = gurobi_data.get(inst) or {}
-        # Prefer one-shot's stored first_status when available — it's the
-        # authoritative v0 evaluation, and self-evolve's seed (when reused via
-        # _try_reuse_oneshot_seed) IS that same code. Falls back to the
-        # reconstructed seed status from the OpenEvolve checkpoint.
-        seed_status = _load_oneshot_first_status(paper_id, model_short, inst)
+        # The historical output-column name first_status means "seed status"
+        # here, not "one-shot first-attempt status". Prefer an actual seed
+        # evaluation, then use the final one-shot table status if unavailable.
+        seed_status = (seed_dev.get(inst) or {}).get("status")
         if seed_status is None:
-            seed_status = (seed_dev.get(inst) or {}).get("status")
+            seed_status = _load_oneshot_seed_status(paper_id, model_short, inst)
         row = _build_self_evolve_row(
             paper_id, model_name, inst,
             dev_results.get(inst) or {},

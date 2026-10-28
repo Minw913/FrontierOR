@@ -6,6 +6,7 @@ import glob
 import http.client
 import json
 import os
+import random
 import re
 import shutil
 import sys
@@ -17,6 +18,7 @@ from joblib import parallel_backend
 
 import one_shot_eval as eval_core
 from test_time_self_evolution import eval_modes
+from test_time_self_evolution.seeds import copy_final_oneshot_seed
 from trusted_eval_infra.checkers import validate_objective_checker
 from trusted_eval_infra.policy import (
     validate_anti_hack_runtime,
@@ -551,14 +553,46 @@ def patch_eoh_n_create(n_create: int = 1):
     InterfaceEC.population_generation = population_generation
 
 
+def _set_eoh_rng_seed(seed: int) -> None:
+    """Control framework RNGs, not LLM sampling or thread scheduling."""
+    import numpy as np
+    if not 0 <= seed < 2**32:
+        raise ValueError('EoH seed must be in [0, 2**32) for NumPy compatibility')
+    random.seed(seed)
+    np.random.seed(seed)
+
+
+def patch_eoh_rng_seed(seed: Optional[int]) -> None:
+    """Reseed after upstream constructors override Python's RNG with 2024."""
+    if seed is None:
+        return
+    _set_eoh_rng_seed(seed)
+    from eoh import eoh as eoh_module
+
+    def wrap_init(cls):
+        original = getattr(cls.__init__, '_frontieror_original', cls.__init__)
+
+        def seeded_init(self, paras, *args, **kwargs):
+            result = original(self, paras, *args, **kwargs)
+            _set_eoh_rng_seed(int(getattr(paras, 'ec_seed', seed)))
+            return result
+
+        seeded_init._frontieror_original = original
+        cls.__init__ = seeded_init
+
+    wrap_init(eoh_module.EVOL)
+    from eoh.methods.eoh.eoh import EOH
+    wrap_init(EOH)
+
+
 def patch_eoh_i1_with_oneshot_seed(
     paper_id: str, model_short: str, output_dir: str
 ) -> bool:
     """Make the FIRST ``Evolution.i1()`` invocation reuse one-shot's
-    ``code_attempt0.py`` instead of calling LLM. All subsequent i1() calls
+    final ``code.py`` instead of calling LLM. All subsequent i1() calls
     fall through to the original (which then runs the patched template +
     LLM flow). Mirrors OpenEvolve's ``_try_reuse_oneshot_seed`` so the same
-    one-shot v0 attempt anchors the initial population in both frameworks.
+    final one-shot program anchors the initial population in both frameworks.
 
     Returns True if seed reuse was wired up (one-shot artifact found and
     copied + Evolution.i1 monkey-patched); False if no one-shot data exists
@@ -573,22 +607,12 @@ def patch_eoh_i1_with_oneshot_seed(
     the standard POSIX mutex primitive.
 
     Path lookup matches OpenEvolve's helper (``_try_reuse_oneshot_seed``):
-    ``eval/eval_tasks/<paper>/<model_short>/code_attempt0.py``.
+    published ``eval/seed_programs`` first, runtime ``eval/eval_tasks`` second.
     """
-    src = os.path.join(
-        ROOT_DIR, "eval", "eval_tasks", paper_id, model_short, "code_attempt0.py",
-    )
-    if not os.path.exists(src) or os.path.getsize(src) == 0:
-        return False
-
     seed_dir = os.path.join(output_dir, "seed_oneshot")
-    os.makedirs(seed_dir, exist_ok=True)
-    seed_code_path = os.path.join(seed_dir, "code.py")
-    shutil.copyfile(src, seed_code_path)
-    # Provenance record so anyone inspecting the run can see where the
-    # initial seed came from.
-    with open(os.path.join(seed_dir, "_seed_source.txt"), "w", encoding="utf-8") as f:
-        f.write(f"reused from one-shot v0: {src}\n")
+    seed_code_path = copy_final_oneshot_seed(ROOT_DIR, paper_id, model_short, seed_dir)
+    if seed_code_path is None:
+        return False
 
     claim_marker = os.path.join(seed_dir, ".claimed")
     # Clean any stale marker from a prior interrupted run so this run gets
@@ -622,7 +646,7 @@ def patch_eoh_i1_with_oneshot_seed(
                 f.write(f"claimed by pid {os.getpid()}\n")
             with open(seed_code_path, encoding="utf-8") as f:
                 code = f.read()
-            algorithm = "Reused from one-shot attempt 0 (no LLM call)"
+            algorithm = "Reused final one-shot program (no LLM call)"
             print(f"[i1] reused one-shot seed: {seed_code_path} (code len={len(code)})", flush=True)
             return [code, algorithm]
         except Exception as exc:
@@ -647,6 +671,7 @@ def run_eoh(
     operators: Optional[List[str]] = None,
     system_include_spec: bool = False,
     resume: bool = False,
+    seed: Optional[int] = None,
 ):
     _ensure_eoh_importable()
     try:
@@ -674,7 +699,7 @@ def run_eoh(
     # generate exactly pop_size i1 candidates (vs 2*pop_size) and skip the
     # population_management trim step — halves initial LLM cost.
     patch_eoh_n_create(n_create=1)
-    # Reuse one-shot's code_attempt0.py for the FIRST i1 call (saves 1 LLM
+    # Reuse one-shot's final code.py for the FIRST i1 call (saves 1 LLM
     # call); other pop_size-1 i1 calls go to LLM as usual to keep init
     # population diverse. No-op when no matching one-shot artifact exists.
     patch_eoh_i1_with_oneshot_seed(
@@ -695,6 +720,14 @@ def run_eoh(
 
     api_endpoint = resolve_eoh_api_endpoint(config, llm_cfg)
     eoh_cfg = config.get("eoh") or {}
+    if seed is None:
+        seed = (eoh_cfg.get('evolution') or {}).get('seed', 2024)
+    seed = int(seed) if seed is not None else None
+    patch_eoh_rng_seed(seed)
+    os.makedirs(output_dir, exist_ok=True)
+    with open(os.path.join(output_dir, '_eoh_rng.json'), 'w') as handle:
+        json.dump(dict(seed=seed, rngs=['python.random', 'numpy.random'],
+                       llm_sampling_controlled=False, exact_resume=False), handle, indent=2)
 
     # Resume support: EoH's native ``exp_use_continue`` reloads a prior
     # population JSON and continues from generation ``exp_continue_id``. We
@@ -756,6 +789,8 @@ def run_eoh(
         eva_numba_decorator=False,
         **resume_kwargs,
     )
+    if seed is not None:
+        paras.ec_seed = seed
     # Force joblib's "threading" backend so every Parallel(n_jobs=...) call
     # inside upstream EoH runs in this same process. The default "loky"
     # backend spawns subprocess workers, which DO NOT inherit our runtime
@@ -836,6 +871,7 @@ def run_self_evolve(
     resume: bool = False,
     enable_artifact: bool = False,
     system_include_spec: bool = False,
+    seed: Optional[int] = None,
 ):
     anti_hack = bool((exec_cfg or {}).get("anti_hack"))
     validate_anti_hack_runtime(
@@ -896,6 +932,7 @@ def run_self_evolve(
             operators=operators,
             system_include_spec=system_include_spec,
             resume=resume,
+            seed=seed,
         )
 
     best = find_best_eoh_individual(eoh_run_dir)
