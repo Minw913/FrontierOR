@@ -227,7 +227,7 @@ python -m trusted_eval_infra agent \
     --coral-attempts 10 \
     --coral-max-steps 10 \
     --coral-max-seconds auto \
-    --cpus 1 --memory 128G \
+    --cpus 1 --memory 100G \
     --run-id agent-smoke
 ```
 
