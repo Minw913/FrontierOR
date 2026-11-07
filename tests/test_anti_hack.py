@@ -102,7 +102,7 @@ def test_restricted_wls_sidecar_lifecycle_does_not_pass_credentials(
         return subprocess.CompletedProcess(
             ["docker", *args],
             0,
-            stdout="ok",
+            stdout="[]" if args[:2] == ["network", "inspect"] else "ok",
             stderr="",
         )
 
@@ -1173,7 +1173,7 @@ def test_coral_early_exit_preserves_process_failure(tmp_path, monkeypatch):
         lambda *_args, **_kwargs: FailedProcess(),
     )
     monkeypatch.setattr(coral_runner, "drain_eval_requests", lambda *_a, **_k: [])
-    monkeypatch.setattr(coral_runner, "_workspace_usage", lambda *_args: (0, 0))
+    monkeypatch.setattr(coral_runner, "_workspace_usage", lambda *_args, **_kwargs: (0, 0))
     from trusted_eval_infra.agent import runtime
 
     monkeypatch.setattr(runtime, "cleanup_secure_runtime", cleaned.append)

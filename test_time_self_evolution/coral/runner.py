@@ -143,6 +143,32 @@ def _try_reuse_oneshot_seed(paper_id: str, model_name: str, seed_dir: str) -> Op
     return dst
 
 
+
+def _prepare_best_oneshot_seed(paper_id, agent_model, seed_dir, starter_model, *, resume=False):
+    """Use one explicitly selected source model, never silently generate a seed."""
+    short = eval_core.get_model_short_name(starter_model)
+    folder = Path(seed_dir)
+    provenance_path = folder / "_seed_source.json"
+    code_path = folder / "code.py"
+    if resume and code_path.exists():
+        provenance = json.loads(provenance_path.read_text()) if provenance_path.is_file() else {}
+        if (provenance.get("starter_mode") != "best-one-shot-program"
+            or provenance.get("model") != short
+            or provenance.get("paper_id") != paper_id
+            or provenance.get("sha256") != hashlib.sha256(code_path.read_bytes()).hexdigest()):
+            raise ValueError("Resume starter does not match the requested best-one-shot-program; use a new run ID")
+        return str(code_path)
+    copied = copy_final_oneshot_seed(ROOT_DIR, paper_id, short, seed_dir)
+    if copied is None:
+        raise ValueError(f"Missing or invalid final one-shot starter for {paper_id}/{short}; no generation fallback")
+    provenance = json.loads(provenance_path.read_text())
+    provenance.update(starter_mode="best-one-shot-program", agent_model=agent_model)
+    provenance_path.write_text(json.dumps(provenance, indent=2) + "\n")
+    with (folder / "_seed_source.txt").open("a") as stream:
+        stream.write(f"starter_mode: best-one-shot-program\nagent_model: {agent_model}\n")
+    return copied
+
+
 def _seed_readme(paper_id: str, prompt: str) -> str:
     return f"""# Efficient-OR Task: {paper_id}
 
@@ -554,12 +580,23 @@ def read_best_attempt(coral_dir: str) -> Optional[Dict]:
     return max(scored, key=lambda attempt: float(attempt.get("score") or 0.0))
 
 
+def _control_cwd(task: CoralTask) -> str:
+    """Native CLI locates custom workspaces through its supported breadcrumb."""
+    Path(task.run_dir).mkdir(parents=True, exist_ok=True)
+    (Path(task.run_dir) / ".coral_dir").write_text(str(Path(task.coral_dir).resolve()) + "\n")
+    return task.run_dir
+
+
+def _resume_existing_run(requested: bool, base_dir: str) -> bool:
+    return requested and (Path(base_dir) / "coral_run/.coral/config.yaml").is_file()
+
+
 def _stop_coral(task: CoralTask, env: Dict[str, str]):
     if not os.path.isdir(task.coral_dir):
         return
     subprocess.run(
-        _coral_cli() + ["stop", "--task", task.task_name, "--run", os.path.basename(task.run_dir)],
-        cwd=ROOT_DIR,
+        _coral_cli() + ["stop"],
+        cwd=_control_cwd(task),
         env=env,
         capture_output=True,
         text=True,
@@ -567,10 +604,12 @@ def _stop_coral(task: CoralTask, env: Dict[str, str]):
     )
 
 
-def _workspace_usage(path: str, max_bytes: int = AGENT_WORKSPACE_MAX_BYTES) -> tuple[int, int]:
+def _workspace_usage(path: str, max_bytes: int = AGENT_WORKSPACE_MAX_BYTES,
+                     excluded_paths=()) -> tuple[int, int]:
     """Return no-follow byte/file counts for the untrusted per-run workspace."""
     total_bytes = 0
     entries = 0
+    excluded = {os.path.abspath(p) for p in excluded_paths}
     pending = [path]
     while pending:
         current = pending.pop()
@@ -580,6 +619,8 @@ def _workspace_usage(path: str, max_bytes: int = AGENT_WORKSPACE_MAX_BYTES) -> t
             continue
         with children:
             for child in children:
+                if os.path.abspath(child.path) in excluded:
+                    continue
                 entries += 1
                 try:
                     if child.is_dir(follow_symlinks=False):
@@ -594,6 +635,24 @@ def _workspace_usage(path: str, max_bytes: int = AGENT_WORKSPACE_MAX_BYTES) -> t
                 ):
                     return total_bytes, entries
     return total_bytes, entries
+
+
+class _SubmissionProgressGuard:
+    """Bound repeated model sessions that never produce another submission."""
+
+    def __init__(self, max_restarts=8):
+        self.max_restarts = max_restarts
+        self.signature = None
+        self.runtime_baseline = 0
+
+    def exhausted(self, attempts, runtime_starts):
+        signature = tuple(sorted((a['commit_hash'], a.get('status')) for a in attempts))
+        if signature != self.signature:
+            self.signature = signature
+            self.runtime_baseline = runtime_starts
+        if any(a.get('status') == 'pending' for a in attempts):
+            return False
+        return runtime_starts - self.runtime_baseline >= self.max_restarts
 
 
 def run_coral_until_done(task: CoralTask, env: Dict[str, str], attempts: int, max_seconds: int,
@@ -615,10 +674,17 @@ def run_coral_until_done(task: CoralTask, env: Dict[str, str], attempts: int, ma
                 f"Cannot resume CORAL at {task.coral_dir}: dir does not exist. "
                 f"The prior run may not have started successfully."
             )
+        # Native resume loads its saved config, not the newly written task YAML.
+        # Synchronize only the trusted grading budget; preserve native run state.
+        saved_path = Path(task.coral_dir) / "config.yaml"
+        saved = yaml.safe_load(saved_path.read_text())
+        current = yaml.safe_load(Path(task.config_path).read_text())
+        saved["grader"]["timeout"] = current["grader"]["timeout"]
+        temporary = saved_path.with_suffix(".timeout.tmp")
+        temporary.write_text(yaml.safe_dump(saved, sort_keys=False))
+        temporary.replace(saved_path)
         cmd = _coral_cli() + [
             "resume",
-            "--task", task.task_name,
-            "--run", os.path.basename(task.run_dir),
             "run.session=local",
         ]
         log_mode = "a"  # append to existing log
@@ -629,7 +695,7 @@ def run_coral_until_done(task: CoralTask, env: Dict[str, str], attempts: int, ma
     with open(task.log_path, log_mode, encoding="utf-8") as log:
         proc = subprocess.Popen(
             cmd,
-            cwd=ROOT_DIR,
+            cwd=_control_cwd(task) if resume else ROOT_DIR,
             env=env,
             stdout=log,
             stderr=subprocess.STDOUT,
@@ -638,6 +704,11 @@ def run_coral_until_done(task: CoralTask, env: Dict[str, str], attempts: int, ma
         )
     deadline = time.monotonic() + max_seconds
     stop_reason = "wall_clock_exhausted"
+    debug_runner = None
+    progress_guard = _SubmissionProgressGuard()
+    if env.get("FRONTIER_OR_ANTI_HACK") == "1":
+        from trusted_eval_infra.agent.debug import DebugRunner
+        debug_runner = DebugRunner(task)
     try:
         while time.monotonic() < deadline:
             if env.get("FRONTIER_OR_ANTI_HACK") == "1":
@@ -645,8 +716,15 @@ def run_coral_until_done(task: CoralTask, env: Dict[str, str], attempts: int, ma
                     task,
                     max_attempts=attempts,
                     allowed_agent_ids=task.agent_ids,
+                    debug_runner=debug_runner,
                 )
-                workspace_bytes, workspace_files = _workspace_usage(task.run_dir, workspace_limit)
+                debug_runner.poll()
+                # Broker-created checkouts duplicate immutable inputs; they are
+                # host-private grading infrastructure, not agent workspace.
+                workspace_bytes, workspace_files = _workspace_usage(
+                    task.run_dir, workspace_limit,
+                    excluded_paths=[os.path.join(task.coral_dir, "private", "grader_checkouts")],
+                )
                 if (
                     workspace_bytes > workspace_limit
                     or workspace_files > AGENT_WORKSPACE_MAX_FILES
@@ -660,11 +738,37 @@ def run_coral_until_done(task: CoralTask, env: Dict[str, str], attempts: int, ma
             if len(finalized) >= attempts:
                 stop_reason = "attempt_budget_complete"
                 break
+            if env.get("FRONTIER_OR_ANTI_HACK") == "1":
+                activity_path = Path(task.coral_dir) / "private/audit/agent_activity.json"
+                try:
+                    activity = json.loads(activity_path.read_text())
+                except (OSError, ValueError):
+                    activity = {}
+                if progress_guard.exhausted(
+                    read_attempts(task.coral_dir),
+                    activity.get("totals", {}).get("runtime_starts", 0),
+                ):
+                    stop_reason = "agent_no_submission_progress"
+                    break
             if proc.poll() is not None:
                 stop_reason = "coral_process_exit"
                 break
             time.sleep(1)
     finally:
+        audit_dir = Path(task.coral_dir) / "private" / "audit"
+        audit_dir.mkdir(parents=True, exist_ok=True)
+        (audit_dir / "termination.json").write_text(json.dumps({
+            "stop_reason": stop_reason,
+            "max_seconds": max_seconds,
+            "workspace_limit_bytes": workspace_limit,
+            "workspace_bytes": locals().get("workspace_bytes"),
+            "workspace_files": locals().get("workspace_files"),
+            "finalized_attempts": len([
+                a for a in read_attempts(task.coral_dir) if a.get("status") != "pending"
+            ]),
+        }, indent=2) + "\n")
+        if debug_runner is not None:
+            debug_runner.close()
         if proc.poll() is None:
             try:
                 _stop_coral(task, env)
@@ -723,6 +827,7 @@ def _write_final_audit(
     code_path: str,
     run_status: Dict,
     selected_attempt: Dict,
+    final_execution: Optional[Dict] = None,
 ) -> None:
     audit_dir = os.path.join(task.coral_dir, "private", "audit")
     os.makedirs(audit_dir, exist_ok=True)
@@ -740,10 +845,62 @@ def _write_final_audit(
             "status": selected_attempt.get("status"),
         },
     }
+    if final_execution is not None:
+        payload["final_execution"] = final_execution
     _write_text(
         os.path.join(audit_dir, "final_artifact.json"),
         json.dumps(payload, indent=2, sort_keys=True) + "\n",
     )
+
+
+def _resolve_final_execution(exec_mode: str, exec_cfg: Dict, final_exec_mode: str,
+                             final_cpus=None, final_memory=None):
+    """Allow an explicit host final stage without relaxing agent/dev policy."""
+    if final_exec_mode not in {"same", "bare", "systemd"}:
+        raise ValueError("final_exec_mode must be 'same', 'bare' or 'systemd'")
+    cfg = dict(exec_cfg or {})
+    mode = exec_mode if final_exec_mode == "same" else final_exec_mode
+    if final_cpus is not None:
+        if not isinstance(final_cpus, int) or final_cpus < 1:
+            raise ValueError("final_cpus must be positive")
+        cfg["cpus"] = final_cpus
+    if final_memory is not None:
+        if not str(final_memory).strip():
+            raise ValueError("final_memory must not be empty")
+        cfg["memory"] = str(final_memory)
+    if final_exec_mode in {"bare", "systemd"}:
+        cfg["anti_hack"] = False
+        cfg.pop("docker_image", None)
+        cfg.pop("docker_image_ref", None)
+    if final_exec_mode == "systemd":
+        cfg["systemd_allow_wls"] = True
+    return mode, cfg
+
+
+def _validate_systemd_final_resources():
+    """Fail before evolution if the host cannot enforce CPU/memory cgroups."""
+    probe = (
+        "import pathlib,json; "
+        "g=next(x.split(':',2)[2] for x in pathlib.Path('/proc/self/cgroup').read_text().splitlines() if x.startswith('0::')); "
+        "p=pathlib.Path('/sys/fs/cgroup')/g.lstrip('/'); "
+        "print(json.dumps({'memory_max':(p/'memory.max').read_text().strip(),"
+        "'cpu_max':(p/'cpu.max').read_text().strip()}))"
+    )
+    try:
+        result = subprocess.run(
+            ["systemd-run", "--user", "--scope", "-q", "-p", "CPUQuota=100%",
+             "-p", "MemoryMax=128M", sys.executable, "-c", probe],
+            capture_output=True, text=True, timeout=20,
+        )
+        limits = json.loads(result.stdout.strip())
+        quota, period = limits["cpu_max"].split()
+        valid = (result.returncode == 0 and int(limits["memory_max"]) <= 128 * 1024**2
+                 and 0 < int(quota) <= int(period))
+        if valid:
+            return limits
+    except (OSError, ValueError, KeyError, StopIteration, subprocess.TimeoutExpired):
+        pass
+    raise RuntimeError("Final systemd execution requires working user systemd CPU/memory cgroups; no bare fallback is allowed.")
 
 
 def extract_attempt_code(task: CoralTask, attempt: Dict, destination_dir: str) -> str:
@@ -877,7 +1034,18 @@ def run_self_evolve(
     agent_isolation: str = "docker",
     model_access: str = "local-auth",
     agent_image: str = "frontieror-coral-agent:0.1",
+    starter_mode: str = "same-model",
+    starter_model: str = "claude-fable-5",
+    final_exec_mode: str = "same",
+    final_cpus: Optional[int] = None,
+    final_memory: Optional[str] = None,
 ):
+    if starter_mode not in ("same-model", "best-one-shot-program"):
+        raise ValueError(f"Unknown CORAL starter mode: {starter_mode}")
+    final_mode, final_cfg = _resolve_final_execution(
+        exec_mode, exec_cfg, final_exec_mode, final_cpus, final_memory,
+    )
+    systemd_preflight = _validate_systemd_final_resources() if final_exec_mode == "systemd" else None
     validate_anti_hack_runtime(
         enabled=anti_hack or bool((exec_cfg or {}).get("anti_hack")),
         exec_mode=exec_mode,
@@ -926,6 +1094,9 @@ def run_self_evolve(
     # so the short name needs no framework prefix.
     model_name = primary_name
     base_dir = eval_modes.mode_run_dir(run_id, "coral", paper_id, model_name)
+    if resume and not _resume_existing_run(resume, base_dir):
+        print(f"[resume:coral] {paper_id}: no prior checkpoint; starting a new task")
+        resume = False
     selection_instance = stage1_instances[0] if stage1_instances else (
         (test_instances or stage2_instances or ["tiny"])[0]
     )
@@ -967,7 +1138,12 @@ def run_self_evolve(
     seed_dir = task.seed_dir
     seed_code_path = os.path.join(seed_dir, "code.py")
     seed_token_usage: Dict = {}
-    if resume and os.path.exists(seed_code_path) and os.path.getsize(seed_code_path) > 0:
+    if starter_mode == "best-one-shot-program":
+        _prepare_best_oneshot_seed(
+            paper_id, _coral_model_for_runtime(primary_model, agent_runtime, agent_model),
+            seed_dir, starter_model, resume=resume,
+        )
+    elif resume and os.path.exists(seed_code_path) and os.path.getsize(seed_code_path) > 0:
         print(f"[resume:coral] keeping existing seed at {seed_code_path}")
     elif (os.environ.get("EFFICIENT_OR_REUSE_SEED_IF_EXISTS") == "1"
           and os.path.exists(seed_code_path) and os.path.getsize(seed_code_path) > 0):
@@ -1078,17 +1254,39 @@ def run_self_evolve(
     if final_instances:
         final_dir = os.path.join(base_dir, "final_eval")
         final_time_limits = eval_modes._resolve_test_time_limits(
-            paper_id,
-            final_instances,
-            test_time_limit,
-            test_time_policy,
-            test_time_buffer,
+            paper_id, final_instances, test_time_limit, test_time_policy, test_time_buffer,
         )
+        final_execution = {
+            "run_id": run_id,
+            "paper_id": paper_id,
+            "agent_exec_mode": agent_isolation,
+            "development_exec_mode": exec_mode,
+            "final_exec_mode": final_mode,
+            "final_anti_hack": bool(final_cfg.get("anti_hack")),
+            "full_anti_hack": bool(anti_hack and final_cfg.get("anti_hack")),
+            "filesystem_isolated": final_mode == "docker" and bool(final_cfg.get("anti_hack")),
+            "memory_limit_enforced": final_mode in {"docker", "systemd"},
+            "cpus_per_instance": final_cfg.get("cpus", 1),
+            "memory_per_instance": final_cfg.get("memory"),
+            "time_limits_seconds": final_time_limits,
+            "systemd_resource_preflight": systemd_preflight,
+            "systemd_wls_ip_allowlist_requested": bool(final_cfg.get("systemd_allow_wls")),
+            "instances": final_instances,
+            "instance_workers": test_instance_workers,
+            "submitted_artifact_sha256": _sha256_file(extracted),
+        }
+        _write_text(
+            os.path.join(final_dir, "execution.json"),
+            json.dumps(final_execution, indent=2, sort_keys=True) + "\n",
+        )
+        if final_exec_mode in {"bare", "systemd"}:
+            print(f"[coral final] Host {final_mode} execution explicitly enabled; "
+                  "final tests have no Docker filesystem isolation.", flush=True)
         final_results = eval_modes.evaluate_best_on_test_set(
             paper_id, model_name, extracted, final_instances,
             test_time_limit, test_time_policy, test_time_buffer,
             final_dir,
-            exec_mode, exec_cfg, t_max,
+            final_mode, final_cfg, t_max,
             max_workers=test_instance_workers,
         )
         if stage2_scorer == "staged_qte":
@@ -1101,6 +1299,7 @@ def run_self_evolve(
             )
     else:
         final_results = _results_from_metadata(best_metadata, reporting_instances)
+        final_execution = None
     selected_code = eval_modes.copy_selected_code(extracted, base_dir)
     if anti_hack:
         _write_final_audit(
@@ -1108,6 +1307,7 @@ def run_self_evolve(
             code_path=selected_code,
             run_status=run_status,
             selected_attempt=best,
+            final_execution=final_execution,
         )
 
     # CORAL attempts are independent (no parent → generation always 0).
@@ -1147,7 +1347,10 @@ def run_self_evolve(
         "results": final_results,
         "code_path": selected_code,
         "verification_tier": (
-            f"isolated-shared-container-{model_access}" if anti_hack else "legacy"
+            f"mixed-agent-docker-final-{final_mode}" if anti_hack and final_exec_mode in {"bare", "systemd"}
+            else f"isolated-shared-container-{model_access}" if anti_hack else "legacy"
         ),
+        "final_exec_mode": final_mode,
+        "final_anti_hack": bool(final_cfg.get("anti_hack")),
         **run_status,
     }

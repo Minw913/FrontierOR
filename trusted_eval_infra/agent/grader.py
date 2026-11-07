@@ -32,6 +32,25 @@ if ROOT_DIR not in sys.path:
     sys.path.insert(0, ROOT_DIR)
 
 
+FEEDBACK_PROTOCOL = "shared-evaluator-artifacts-v1"
+
+
+def evaluation_feedback(*results):
+    """Forward evaluator-authored feedback, not arbitrary sidecar/metric fields.
+
+    These are the same text artifacts consumed by OpenEvolve and EOH. The
+    grader remains private; only feedback for the evaluated public/dev inputs
+    crosses the agent boundary.
+    """
+    parts = []
+    for result in results:
+        artifacts = getattr(result, "artifacts", {}) or {}
+        for key in ("summary", "score_summary", "failure_breakdown"):
+            if artifacts.get(key):
+                parts.append(str(artifacts[key]).strip())
+    return "\n\n".join(parts)
+
+
 def public_stage1_feedback(metrics):
     messages = {
         "failure_infeasible": "The solution violates one or more constraints; check the public description and schema.",
@@ -116,32 +135,48 @@ class Grader(TaskGrader):
                         encoding="utf-8",
                     )
 
-            stage1 = _metrics(evaluator.evaluate_stage1(str(code_path)))
+            stage1_result = evaluator.evaluate_stage1(str(code_path))
+            stage1 = _metrics(stage1_result)
+            stage1_artifacts = getattr(stage1_result, "artifacts", {}) or {}
             if float(stage1.get("combined_score", 0.0)) < 1.0:
+                feedback = evaluation_feedback(stage1_result) or (
+                    f"Stage1 failed: combined_score={stage1.get('combined_score', 0):.3f}, "
+                    f"worst_gap={stage1.get('stage1_worst_gap', 'N/A')}. "
+                    + public_stage1_feedback(stage1)
+                )
                 _write_sidecar({
                     "stage1_combined_score": stage1.get("combined_score", 0.0),
                     "stage1": stage1,
                     "stage2_skipped": True,
+                    "feedback_protocol": FEEDBACK_PROTOCOL,
+                    "stage1_artifacts": stage1_artifacts,
+                    "feedback": feedback,
                 })
                 return self.bundle(
                     0.0,
                     "Stage1 gate failed",
-                    feedback=(
-                        f"Stage1 failed: combined_score={stage1.get('combined_score', 0):.3f}, "
-                        f"worst_gap={stage1.get('stage1_worst_gap', 'N/A')}. "
-                        + public_stage1_feedback(stage1)
-                    ),
+                    feedback=feedback,
                 )
 
-            stage2 = _metrics(evaluator.evaluate_stage2(str(code_path)))
+            stage2_result = evaluator.evaluate_stage2(str(code_path))
+            stage2 = _metrics(stage2_result)
             score = float(stage2.get("combined_score", 0.0))
             metadata_full = dict(stage2)
             metadata_full["stage1_combined_score"] = stage1.get("combined_score", 0.0)
+            feedback = evaluation_feedback(stage1_result, stage2_result) or (
+                f"Stage2 score {score:.6f}. " + public_stage2_feedback(stage2)
+            )
+            metadata_full.update(
+                feedback_protocol=FEEDBACK_PROTOCOL,
+                stage1_artifacts=stage1_artifacts,
+                stage2_artifacts=getattr(stage2_result, "artifacts", {}) or {},
+                feedback=feedback,
+            )
             _write_sidecar(metadata_full)
             return self.bundle(
                 score,
                 f"Stage2 score {score:.6f}",
-                feedback=f"Stage2 score {score:.6f}. " + public_stage2_feedback(stage2),
+                feedback=feedback,
             )
         finally:
             for key, value in old_env.items():

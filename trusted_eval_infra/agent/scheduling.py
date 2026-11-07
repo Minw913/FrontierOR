@@ -142,7 +142,26 @@ def install_pending_guards(manager_class) -> None:
     @functools.wraps(original_monitor)
     def monitor(self, check_interval=5):
         self._frontieror_initial_scan = True
-        return original_monitor(self, check_interval=check_interval)
+        manager = self
+
+        class PendingRestartLogFilter(logging.Filter):
+            def filter(self, record):
+                message = record.getMessage()
+                if " exited (code:" in message and "restart #" in message:
+                    for idx, handle in enumerate(manager.handles):
+                        if message.startswith(f"Agent {handle.agent_id} exited"):
+                            # Native logging precedes our restart guard. Report
+                            # the single wait transition instead of fake retries.
+                            return not waiting(manager, idx, rows(manager, idx))
+                return True
+
+        native_logger = logging.getLogger("coral.agent.manager")
+        log_filter = PendingRestartLogFilter()
+        native_logger.addFilter(log_filter)
+        try:
+            return original_monitor(self, check_interval=check_interval)
+        finally:
+            native_logger.removeFilter(log_filter)
 
     @functools.wraps(original_runner)
     def heartbeat_runner(self, agent_id):

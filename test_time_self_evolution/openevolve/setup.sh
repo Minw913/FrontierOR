@@ -6,7 +6,7 @@ ROOT_DIR="$(cd "${SCRIPT_DIR}/../.." && pwd)"
 TARGET_DIR="${ROOT_DIR}/external/openevolve"
 PATCHES_DIR="${SCRIPT_DIR}/patches"
 REPO_URL="https://github.com/algorithmicsuperintelligence/openevolve.git"
-REF="${OPENEVOLVE_REF:-v0.2.27}"
+REF="${OPENEVOLVE_REF:-80945ed82886d5c4ff2f3d22436765d50cb61266}" # v0.2.27
 
 if [ ! -d "${TARGET_DIR}/.git" ]; then
   mkdir -p "$(dirname "${TARGET_DIR}")"
@@ -38,6 +38,8 @@ if [ -d "${PATCHES_DIR}" ]; then
   done
 fi
 
-python -m pip install -e "${TARGET_DIR}"
+python -m pip install -r "${SCRIPT_DIR}/requirements.lock.txt"
+python -m pip install --no-deps -e "${TARGET_DIR}"
+python -m pip check
 
 echo "OpenEvolve ready at ${TARGET_DIR} (${REF})"

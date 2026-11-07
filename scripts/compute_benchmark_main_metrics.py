@@ -389,7 +389,12 @@ def compute_metrics(
         index=merged.index,
         dtype="float64",
     )
-    is_proven_zero = zero_tol.notna()
+    # A repaired instance can retain its ID while no longer having a zero
+    # optimum (e.g. forrest2006). Never apply a historical zero certificate
+    # to a current positive/nonzero reference.
+    is_proven_zero = zero_tol.notna() & (
+        pd.to_numeric(merged["gurobi_solution"], errors="coerce").abs() <= zero_tol
+    )
     zero_quality_ok = (obj_arr_full.abs() <= zero_tol) & merged["is_feasible"]
     relative_quality_ok = (gap_arr_full <= 0.01) & merged["is_feasible"]
     quality_ok_1pct = relative_quality_ok.where(~is_proven_zero, zero_quality_ok).fillna(False)

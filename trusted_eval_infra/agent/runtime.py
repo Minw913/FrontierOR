@@ -55,7 +55,8 @@ def _ensure_egress(image: str, run_dir: Path) -> tuple[str, str]:
     network = f"frontieror-agent-{identity}"
     proxy = f"frontieror-egress-{identity}"
     if _docker("network", "inspect", network, check=False).returncode != 0:
-        _docker("network", "create", "--internal", network)
+        from trusted_eval_infra.docker_networks import create_internal_network
+        create_internal_network(network, lambda args: _docker(*args, check=False))
     if _docker("inspect", proxy, check=False).returncode != 0:
         _docker(
             "run", "-d", "--name", proxy,

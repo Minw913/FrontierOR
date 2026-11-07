@@ -140,7 +140,7 @@ def _validate_request(
     message = request.get("message")
     if not isinstance(commit_hash, str) or re.fullmatch(r"[0-9a-f]{40}", commit_hash) is None:
         return False, "invalid commit hash", None
-    if agent_id not in allowed_agent_ids:
+    if not isinstance(agent_id, str) or agent_id not in allowed_agent_ids:
         return False, "invalid agent id", None
     if not isinstance(nonce, str) or re.fullmatch(r"[0-9a-f]{32,64}", nonce) is None:
         return False, "invalid request nonce", None
@@ -189,6 +189,7 @@ def drain_eval_requests(
     max_attempts: int,
     *,
     allowed_agent_ids: tuple[str, ...] | list[str] | None = None,
+    debug_runner=None,
 ) -> list[dict]:
     coral_dir = Path(task.coral_dir)
     if allowed_agent_ids is None:
@@ -212,6 +213,17 @@ def drain_eval_requests(
     decisions = []
     for path in sorted(inbox.glob("*.json"))[:MAX_REQUESTS_PER_DRAIN]:
         request, read_error = _read_request(path)
+        if read_error is None and request.get("kind") == "debug":
+            # Debug admission has its own bounded quota, independent of scored attempts.
+            if debug_runner is not None and re.fullmatch(r"[0-9a-f]{32}", path.stem):
+                debug_runner.submit(request, path.name, registered_agents)
+            elif re.fullmatch(r"[0-9a-f]{32}", path.stem):
+                _atomic_json(responses_dir / path.name, {
+                    "status": "rejected", "success": False,
+                    "reason": "debug execution unavailable", "counts_as_attempt": False,
+                })
+            path.unlink(missing_ok=True)
+            continue
         if read_error is not None:
             valid, reason, parent_hash = False, read_error, None
         elif accepted_count >= max_attempts:

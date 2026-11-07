@@ -111,12 +111,44 @@ def _wait_for_result(attempts: Path, commit_hash: str, *, wait: bool, nonce: str
         time.sleep(0.2)
 
 
+def _debug(message: str) -> int:
+    """Request an unscored, bounded tiny-instance execution from the host."""
+    nonce = uuid.uuid4().hex
+    request = {
+        "schema_version": 1, "kind": "debug", "nonce": nonce,
+        "agent_id": os.environ["FRONTIER_OR_AGENT_ID"],
+        "commit_hash": _commit(Path.cwd().resolve(), message),
+        "message": message[:200],
+    }
+    inbox = Path(os.environ["FRONTIER_OR_EVAL_REQUEST_DIR"])
+    inbox.mkdir(parents=True, exist_ok=True)
+    tmp = inbox / f".{nonce}.tmp"
+    tmp.write_text(json.dumps(request), encoding="utf-8")
+    os.replace(tmp, inbox / f"{nonce}.json")
+    response = Path(os.environ["FRONTIER_OR_EVAL_RESPONSE_DIR"]) / f"{nonce}.json"
+    print("Debug requested: tiny only, 30 seconds, no score or evaluation attempt.", flush=True)
+    deadline = time.monotonic() + 3600
+    while time.monotonic() < deadline:
+        try:
+            data = json.loads(response.read_text())
+        except (OSError, ValueError):
+            data = None
+        if data and data.get("status") != "running":
+            print(json.dumps(data, indent=2), flush=True)
+            return 0 if data.get("success") else 2
+        time.sleep(0.2)
+    print("Debug result is still pending; this is not an execution failure.", flush=True)
+    return 2
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(prog="coral")
     sub = parser.add_subparsers(dest="command", required=True)
     eval_parser = sub.add_parser("eval")
     eval_parser.add_argument("-m", "--message", required=True)
     eval_parser.add_argument("--no-wait", action="store_true")
+    debug_parser = sub.add_parser("debug", help="Unscored tiny-instance test (30s; separate debug quota)")
+    debug_parser.add_argument("-m", "--message", default="Local tiny-instance debug")
     log_parser = sub.add_parser("log")
     log_parser.add_argument("-n", "--count", type=int, default=20)
     log_parser.add_argument("--recent", action="store_true")
@@ -127,6 +159,8 @@ def main() -> int:
     args = parser.parse_args()
     if args.command == "eval":
         return _submit(args.message, not args.no_wait)
+    if args.command == "debug":
+        return _debug(args.message)
     if args.command == "log":
         rows = _public_attempts()
         if args.agent:

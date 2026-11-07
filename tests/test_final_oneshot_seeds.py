@@ -174,3 +174,21 @@ def test_run_eoh_seed_precedence_without_llm(tmp_path, monkeypatch, config_seed,
                 config, pop_size=1, n_pop=1, workers=1, timeout=1, seed=cli_seed)
     assert samples == [(random.Random(expected).random(), np.random.RandomState(expected).random_sample())]
     assert json.loads((tmp_path/'_eoh_rng.json').read_text())['seed'] == expected
+
+
+def test_explicit_versioned_root_does_not_fall_back(tmp_path, monkeypatch):
+    from test_time_self_evolution.seeds import copy_final_oneshot_seed
+    root = tmp_path / 'repo'
+    old = root / 'eval/seed_programs/task/model'
+    old.mkdir(parents=True)
+    (old / 'code.py').write_text('old')
+    revised = tmp_path / 'revised'
+    monkeypatch.setenv('FRONTIER_OR_FINAL_ONESHOT_ROOT', str(revised))
+    target = tmp_path / 'target'
+    assert copy_final_oneshot_seed(str(root), 'task', 'model', str(target)) is None
+    source = revised / 'task/model'
+    source.mkdir(parents=True)
+    (source / 'code.py').write_text('corrected')
+    result = copy_final_oneshot_seed(str(root), 'task', 'model', str(target))
+    assert Path(result).read_text() == 'corrected'
+    assert (old / 'code.py').read_text() == 'old'

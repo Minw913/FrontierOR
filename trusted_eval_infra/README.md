@@ -34,17 +34,17 @@ The `agent` command fixes these settings and does not expose downgrade flags:
 The old `--anti-hack` option remains an internal compatibility switch for
 existing scripts. It is not the public agent-mode interface.
 
-## Reef-eval orchestration
+## Tide-eval orchestration
 
 FrontierOR integrates with
-[`reef-eval`](https://github.com/Human-Agent-Society/tide-eval) through its public Executor/Lab interface. Reef-eval owns episode
-scheduling, stable-key resume, budgets, traces, and the SQLite Lab. The trusted
-FrontierOR worker still owns Agent Docker, Candidate Docker, brokered dev
-scoring, artifact freezing, and hidden final grading. This division keeps
-untrusted `code.py` outside the hidden checker's filesystem and protection
-domain.
+[`Human-Agent-Society/tide-eval`](https://github.com/Human-Agent-Society/tide-eval)
+through its public `Executor` protocol. Tide-eval owns episode scheduling,
+stable-key resume, budgets, traces, and the SQLite Lab. The trusted FrontierOR
+worker still owns Agent Docker, Candidate Docker, brokered dev scoring,
+artifact freezing, and hidden final grading. This division keeps untrusted
+`code.py` outside the hidden checker's filesystem and protection domain.
 
-Install reef-eval in a separate environment so its optional Harbor dependency
+Install tide-eval in a separate environment so its optional Harbor dependency
 does not change the benchmark environment:
 
 ```bash
@@ -61,7 +61,7 @@ bash test_time_self_evolution/eoh/setup.sh
 bash test_time_self_evolution/coral/setup.sh
 ```
 
-One command creates one reef-eval episode per paper. CORAL uses the official agent
+One command creates one Tide episode per paper. CORAL uses the official agent
 profile; OpenEvolve and EoH use the same hardened Docker evaluator and hidden
 final scorer:
 
@@ -100,7 +100,7 @@ and starts Codex with a read-only empty workspace and optional capabilities
 disabled. Candidate solver code never receives access to this bridge.
 
 This integration does not use the unrelated `gauthierpiarrette/tide` fleet
-manager. Current reef-eval exposes `Lab` and `Executor`; FrontierOR implements
+manager. Current tide-eval exposes `Lab` and `Executor`; FrontierOR implements
 that interface directly instead of maintaining a fork.
 
 ## Package boundaries
@@ -322,3 +322,262 @@ deduplicate final evaluations by frozen artifact hash, and store signed
 append-only audit records outside the runner. Submission quotas are part of the
 privacy boundary: unlimited aggregate final queries can turn the leaderboard
 into an oracle even when per-instance feedback is hidden.
+
+### CORAL unscored development tests
+
+In secure CORAL runs, agents can use `coral debug -m "check tiny execution"`
+before submitting with `coral eval`. The trusted broker runs the committed
+`code.py` on the **public tiny instance only**, in the candidate Docker image
+with the configured candidate memory/CPU limits and existing restricted WLS
+license access. The agent image does not need Gurobi or license credentials for
+this command. Rebuild `trusted_eval_infra/docker/agent.Dockerfile` after updating
+the CLI shim.
+
+Debug is a container-backed development test, not execution inside the agent
+shell. It returns bounded runtime output and a solution preview (64 KiB limit),
+without a checker, reference objective, feasibility verdict or score. It creates
+no formal attempt and is not eligible for final-program selection. Limits are
+30 seconds per debug execution and 30 admitted debug requests per task, with
+one pending debug execution per task; these are separate from the scored attempt
+budget and consume compute and task wall time. A WLS queue wait is bounded to
+60 seconds and can fail if the execution slot remains occupied.
+
+Debug requests and results are recorded under `.coral/private/debug/`; bounded
+responses are published through the existing read-only request-status mount.
+The host validates the agent branch, commit tree and unchanged public inputs.
+There is no agent-selectable instance path, shell command, host path or test-set
+parameter. Rejected requests do not consume a scored attempt. Original
+benchmark runs are not changed by enabling this command.
+
+### CORAL final tests on the host (optional mixed isolation)
+
+The original all-Docker path remains the default: `--coral-final-exec-mode same`
+inherits `--exec-mode`. To keep the agent, debug tests and development evaluator
+in Docker, but evaluate the selected fixed final program on host systemd scopes,
+add these options to the CORAL self-evolve command:
+
+```bash
+--exec-mode docker --anti-hack \
+--coral-final-exec-mode systemd \
+--coral-final-cpus 1 \
+--coral-final-memory 100G \
+--test-instance-workers 4 \
+--test-time-limit 3600 --test-time-policy uniform
+```
+
+CPU and memory overrides apply **per final instance**, not per task or shared
+across the four instances. If omitted they inherit `--cpus` and `--memory`.
+Systemd enforces CPU quota, CPU affinity and a cgroup memory cap; the existing
+trusted executor enforces the wall deadline. A resource preflight checks real
+user systemd CPU/memory cgroup enforcement before evolving a program, and fails
+instead of falling back to bare execution. WLS-enabled final scopes retain
+`IPAddressDeny=any` and add resolved WLS endpoint IPs plus configured DNS resolver
+IPs. These are IP-level permissions, not a full network or filesystem sandbox;
+endpoint changes can require refreshed configuration on a subsequent execution.
+The global remaining WLS allowance must still be checked separately.
+
+Candidate execution now reserves logical CPUs through cross-process `flock`
+leases shared by bare, systemd, and Docker backends. Leases are held for execution
+and cleanup, and CPUs outside the evaluator's allowed affinity are never chosen.
+Independent paper/evaluator processes therefore cannot reserve the same logical
+CPU concurrently. The coordination directory is `/tmp/frontieror-cpu-slots-<uid>`;
+lock files persist, but active ownership is maintained by the kernel. This is
+cooperative per-user allocation, not exclusion of unrelated host processes or SMT
+siblings. Do not delete lock files while evaluations are running. Existing
+processes started before this change do not participate in the lease protocol.
+
+Each instance writes `<solution_path>.cpu.json` with assigned CPUs, owner PID,
+and acquisition/release timestamps. CPU admission waits occur before the
+candidate execution timer; they default to 86400 seconds and can be bounded with
+`exec_cfg.cpu_queue_timeout_seconds`. Normal completion, exceptions and execution
+timeouts release the reservation; stopping a run must also stop its candidate
+systemd scopes/containers before admitting a replacement run. The self-evolve CLI
+now forwards `--systemd-allow-wls` into evaluator and final-test configuration so
+configured WLS execution slots are actually enforced.
+
+
+`--coral-final-exec-mode bare` is also available, but does not enforce a cgroup
+memory cap. Neither host mode provides Docker filesystem isolation. Both remain
+explicit opt-ins and do not change the agent runtime, debug runner, development
+scoring, selected program, or final-instance worker/time settings. The original
+anti-hack validator still forbids a non-Docker development evaluator.
+
+Each final evaluation writes `final_eval/execution.json` with its backend,
+per-instance resource/time configuration and isolation status. Secure CORAL's
+`final_artifact.json` includes the same record. A host-final result is labelled
+`mixed-agent-docker-final-systemd` or `mixed-agent-docker-final-bare`, with
+`full_anti_hack=false`; it must not be reported as a fully hardened final test.
+Use a fresh run ID when changing the final backend to avoid mixing historical
+results with a different execution protocol. These host options are CORAL-only.
+
+### CORAL best one-shot program starter
+
+Keep the evolving agent on GPT-5.6-Sol + Codex while starting from Claude Fable 5's
+final one-shot program for each task:
+
+```bash
+--primary-model openai/gpt-5.6-sol \
+--coral-agent-runtime codex \
+--coral-starter-mode best-one-shot-program \
+--coral-attempts 20
+```
+
+`--coral-starter-model` defaults to `claude-fable-5`. This is a fixed source model,
+selected from the aggregate one-shot comparison; it does not choose a separate
+winner per task or run a development-set selection experiment. Only the source
+program and adjacent logger are copied, using the existing final snapshot/manifest
+validation. Source model, path, code hash, and agent model are recorded in
+`seed/_seed_source.json`. Missing or invalid programs fail without LLM generation
+fallback. Resume checks the recorded source model and seed hash; switching starter
+requires a new run ID. This mode takes priority over the legacy seed-model and
+reuse-existing-seed environment variables.
+
+The default `--coral-starter-mode same-model` preserves the previous behavior,
+including `FRONTIER_OR_CORAL_SEED_MODEL` overrides and seed generation fallback.
+
+### WLS admission gate for independent candidate environments
+
+For the two-license hardset launchers, set `FRONTIER_OR_WLS_CONCURRENCY=2`,
+`FRONTIER_OR_WLS_BACKEND_GATE=1`, and
+`FRONTIER_OR_WLS_RELEASE_DELAY_SECONDS=310`. Each license ID has independent
+cross-process locks. Docker preflight, development candidates, and WLS-enabled
+systemd final evaluation share this gate. Codex/model preflight now precedes the
+Gurobi Docker probe. Debug has no license access.
+
+Admission checks read-only WLS sessions and unexpired tokens, deduplicate their
+environment IDs, and include local reservations to cover backend visibility lag.
+Backend query failures wait without starting execution. Completed executions retain
+a reservation for at least 310 seconds; actual longer-lived tokens still block
+admission. Local reservations may duplicate environments already visible to WLS,
+so this intentionally sacrifices throughput. Queue time is outside the candidate
+solve timer but still counts against the overall task wall-clock limit. External
+clients not using these locks can still consume license capacity; retain backend
+and program-error monitoring. Default execution behavior is unchanged unless the
+gate is enabled.
+
+### Grader deadline and orphan cleanup
+
+CORAL's trusted CLI adapter refreshes the saved grader config before every
+attempt, and resume synchronizes its grading timeout from the current task YAML.
+The overall evaluation deadline includes per-instance WLS queue allowances,
+execution budgets, checker/setup overhead, and a margin. Candidate solve limits
+are unchanged. The adapter removes containers mounted from the exact grader
+checkout on exit, including grader timeouts.
+
+For the already-running 2026-10-29 split runs, the independent
+`coral-live-eval-watchdog-20261029` user service provides online compatibility.
+It removes containers belonging to terminal attempts and enforces a separate
+candidate wall deadline. Old coordinators already holding the short join timeout
+are temporarily suspended near that timeout while their independent worker and
+Docker solver continue. The coordinator resumes when the worker exits, or at the
+new bounded deadline. PID start times are verified before signals; service stop
+also releases suspended coordinators. Agents, candidate processes, and the two
+self-evolving services are not restarted. Already-started workers may still have
+an old inner timer; historical affected attempts are recorded separately under
+private/audit/infrastructure_timeouts.json and are not rewritten as successes.
+
+### Live hardset license reassignment (2026-10-30)
+
+The optional host-owned assignment file
+`local_docs/coral-runs/hardset-license-assignment-20261030.json` assigns each of the
+50 task IDs to exactly one managed run. It transfers 13 of 38 unstarted tasks to
+the ZZM license, leaving all previously started tasks in their original runs.
+New batch processes skip tasks assigned elsewhere before task execution. Existing
+in-memory queues cannot reload that parent logic, so the native `start` adapter
+also checks ownership before creating an agent or grader. An old queued start
+exits with code 78 and writes a handoff record under
+`local_docs/coral-runs/task-handoffs-20261030/`. Those old parent processes may log
+this as a task failure and eventually exit nonzero; interpret these explicit
+handoff records as intentional skips, not solver failures. Evaluate transferred
+tasks using the owner run only. Unmanaged run IDs are unaffected.
+
+The new ZZM group runs with two paper workers under systemd, its own WLS gate,
+license monitor and independent cleanup watchdog. Its host subprocess affinity
+is restricted to CPUs 40–55, so candidate allocation starts in that range.
+
+ZZM launch outcome: the real Gurobi Docker preflight rejected the license as
+expired (backend expiration: 2026-07-23 23:59:59 UTC). No ZZM task or agent started.
+The proposed assignment was archived as
+`hardset-license-assignment-20261030-blocked-zzm.json`, and the active assignment
+was rolled back to all original JCH/KMW owners. Renew the ZZM license before
+attempting this handoff again; the original two runs continue unchanged.
+
+The replacement LJY license passed backend validity and actual Gurobi Docker
+preflight. On 2026-10-30 the same 13 unstarted tasks were assigned to
+`hardset_ljy_13_fable_seed_gpt56sol_a20_20261030` and started with two paper workers.
+The active owner distribution is JCH 18 / KMW 19 / LJY 13 tasks. ZZM remains unused.
+The original JCH/KMW services were not restarted. LJY has independent monitoring,
+cleanup, and the same WLS gate; preflight token cooldown can delay first candidates.
+
+After renewal, ZZM passed real Docker preflight and started a fourth group:
+`hardset_zzm_9_fable_seed_gpt56sol_a20_20261030`, paper workers=2. This transfers
+9/36 then-unstarted tasks. Current ownership is JCH 14 / KMW 16 / LJY 11 / ZZM 9;
+all 50 task IDs remain uniquely assigned. Existing three services were not stopped.
+The ZZM host subprocess affinity is CPUs 56–59, with independent WLS monitoring
+and cleanup. The earlier failed ZZM 13-task launch remains historical only.
+
+LZK passed real Gurobi Docker preflight and started a fifth group,
+`hardset_lzk_7_fable_seed_gpt56sol_a20_20261030`, with two paper workers.
+It receives 7/33 then-unstarted tasks, keeping all started tasks in place.
+Current unique ownership is JCH 12 / KMW 14 / LJY 9 / ZZM 8 / LZK 7 = 50.
+LZK uses host subprocess CPUs 32–39 and independent WLS/cleanup monitors.
+
+OYWB passed actual Gurobi Docker preflight and started the sixth group,
+`hardset_oywb_4_fable_seed_gpt56sol_a20_20261030`, with two paper workers and
+independent WLS/cleanup monitoring. It receives 4/23 then-unstarted tasks:
+bard2002, delage2022, fischetti1997, martin-iradi2024. Current unique ownership is
+JCH 12 / KMW 12 / LJY 7 / ZZM 8 / LZK 7 / OYWB 4 = 50. Host subprocess CPU
+range is 24–31. Previously running services were not restarted.
+
+### Network exhaustion and failed-startup recovery (2026-10-31)
+
+Agent and candidate WLS networks now request explicit non-overlapping /28 subnets
+from `10.240.0.0/16` (overridable with `FRONTIER_OR_DOCKER_NETWORK_POOL`). Allocation
+is protected by a cross-process lock and excludes current Docker subnets and host
+routes. It does not restart Docker or change existing networks. This avoids
+exhausting Docker's small number of default large address pools. Network errors
+now preserve the daemon diagnostic instead of only a CalledProcessError.
+
+The trusted manager adapter wraps start/resume failures: stop agents, gateway and
+grader before re-raising, so an idle non-daemon grader cannot keep a failed CLI
+alive. Existing failed CLI/idle-grader pairs were verified to have no attempts and
+no agent runtime audit before termination. Recovery queues resume bard2002,
+adulyasak2015, amaldi2013, wang2019 and ozturk2020 in their original owner run IDs.
+They run under `coral-network-recover-{oywb,lzk,ljy,kmw}-20261031` user services,
+with separate monitors and shared per-license admission gates. Original batch
+workers continue onto their queues; recovery may temporarily add agent-level
+concurrency but never raises the per-license WLS admission limit.
+
+Validation: 67 relevant tests passed, including real child-grader shutdown on
+startup failure. Three real explicit network creations passed. No old empty
+CORAL network met cleanup criteria. Two hour-old WLS networks retaining only an
+orphan proxy and no candidate were rechecked and removed. Live agent networks,
+all unrelated networks, and candidate evaluations were left in place. Audit files
+are under `local_docs/coral-runs/network-startup-repair-20261031/`.
+
+QA passed actual Gurobi Docker preflight on 2026-10-31 and received one unstarted
+task, roberti2018, from LZK. KMW/LZK tied at six unfinished tasks; LZK had more
+remaining attempts. New run `hardset_qa_1_fable_seed_gpt56sol_a20_20261031` uses
+one paper worker, host CPUs 8–15, and independent WLS/cleanup monitors. Unique
+ownership is JCH 12 / KMW 12 / LJY 7 / ZZM 8 / LZK 6 / OYWB 4 / QA 1 = 50.
+All existing experiments and recovery queues remain running.
+
+### Closeout repairs (2026-10-31)
+
+The evolution wall deadline includes WLS queue time; `--coral-max-seconds auto`
+resolved to 85,200 seconds for the current 20-attempt runs. It is independent
+of the attempt count, and excludes the subsequent final evaluation.
+
+Workspace quota counting excludes only the host-private broker checkout root,
+whose immutable input copies previously prematurely stopped `fragkos2021`.
+Agent-created directories remain counted. New supervisors persist
+`private/audit/termination.json` even when no selected artifact exists and stop
+with `agent_no_submission_progress` after eight runtime restarts without a new
+submission; pending evaluations are exempt. Running processes are not patched.
+
+The local `fragkos2016` task now explicitly describes priced, variable initial
+inventory and its checker enforces the reference implementation's initial-stock
+lower bound. The dataset is outside parent Git tracking; portable patch,
+backups, test evidence and recovery limitations are in
+`local_docs/coral-runs/closeout-repair-20261031/`. Historical results are retained;
+a corrected task needs a separately identified reevaluation.

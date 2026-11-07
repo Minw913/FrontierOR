@@ -26,6 +26,9 @@ if ROOT_DIR not in sys.path:
 
 import one_shot_eval as eval_core  # noqa: E402
 from test_time_self_evolution import eval_modes  # noqa: E402
+from test_time_self_evolution.openevolve.evidence import (  # noqa: E402
+    isolated_evaluation, output_directory, capture_results, attach_artifacts,
+)
 
 # EvaluationResult lets us return artifacts alongside metrics. Imported
 # lazily so the evaluator still works if openevolve is not installed
@@ -198,7 +201,8 @@ _STAGE1_SUMMARY = {
 }
 
 
-def _build_stage1_artifacts(result, output_dir, paper_id, inst="tiny"):
+def _build_stage1_artifacts(result, output_dir, paper_id, inst="tiny", *,
+                            time_limit=TINY_TIME_LIMIT_S, gap_threshold=STAGE1_GAP_PCT / 100):
     """Build stage-1 artifact dict. Returns dict with 'summary' and (when
     applicable) 'failure_breakdown'."""
     kind = _classify_failure(result)
@@ -211,11 +215,11 @@ def _build_stage1_artifacts(result, output_dir, paper_id, inst="tiny"):
             )
         }
     summary = _STAGE1_SUMMARY[kind].format(
-        gap_pct=STAGE1_GAP_PCT,
-        tiny_time_limit=TINY_TIME_LIMIT_S,
+        gap_pct=f"{100 * gap_threshold:g}",
+        tiny_time_limit=time_limit,
     )
     breakdown = _build_failure_breakdown(
-        kind, result, output_dir, inst, TINY_TIME_LIMIT_S, paper_id,
+        kind, result, output_dir, inst, time_limit, paper_id,
     )
     artifacts = {"summary": summary}
     if breakdown:
@@ -229,14 +233,15 @@ _STAGE2_SUMMARY_STAGED_QTE = (
     "{instance_word})\n"
     "\n"
     "Two-stage piecewise score (higher is better):\n"
-    "  Stage 1 (gap > 0.2):  score = max(0, 1 - signed_gap)                          ∈ [0, 0.8]\n"
-    "  Stage 2 (gap ≤ 0.2):  score = (1 - signed_gap) + (τ_g - t_solve) / τ_g        ∈ [0.8, 2+]\n"
+    "  Stage 1 (gap > {boundary:g} ({boundary_pct:g}%)): score = max(0, 1 - signed_gap) ∈ [0, {quality_boundary:g}]\n"
+    "  Stage 2 (gap ≤ {boundary:g} ({boundary_pct:g}%)): score = (1 - signed_gap) + max(0, (τ_g - t_solve) / τ_g) ∈ [{quality_boundary:g}, 2+]\n"
+    "  t_solve and τ_g are capped by their respective declared compute budgets.\n"
     "\n"
     "Components (averaged across dev instances):\n"
     "  mean_signed_gap = {mean_signed_gap:.3f}  "
     "(sign · (obj_llm - obj_gurobi) / |obj_gurobi|;  <0 ⇒ beat Gurobi)\n"
     "  mean_speed      = {mean_speed:.3f}  "
-    "((τ_g - t_solve) / τ_g;  >0 ⇒ faster than Gurobi)"
+    "(max(0, (τ_g - t_solve) / τ_g);  >0 ⇒ faster than Gurobi)"
 )
 
 _STAGE2_SUMMARY_AOCC = (
@@ -271,7 +276,7 @@ def _build_stage2_one_line(kind, result, output_dir, inst, time_limit):
 
 
 def _build_stage2_artifacts(scorer_name, results, instances, per_instance_tl,
-                            metrics_out, output_dir, paper_id):
+                            metrics_out, output_dir, paper_id, *, stage_boundary=None):
     """Build stage-2 artifact dict. Returns dict with 'score_summary' and
     (when at least one instance failed) 'failure_breakdown'.
 
@@ -283,7 +288,13 @@ def _build_stage2_artifacts(scorer_name, results, instances, per_instance_tl,
     instance_word = "instance" if n_dev == 1 else "instances"
 
     if scorer_name == "staged_qte":
+        if stage_boundary is None:
+            from test_time_self_evolution.scoring import get_scorer
+            stage_boundary = get_scorer(scorer_name).stage_boundary
         score_summary = _STAGE2_SUMMARY_STAGED_QTE.format(
+            boundary=stage_boundary,
+            boundary_pct=100 * stage_boundary,
+            quality_boundary=1 - stage_boundary,
             combined_score=metrics_out.get("combined_score", 0.0),
             n_dev=n_dev,
             instance_word=instance_word,
@@ -335,13 +346,24 @@ def _build_stage2_artifacts(scorer_name, results, instances, per_instance_tl,
     return artifacts
 
 
+class MetricsWithArtifacts(dict):
+    """Keep dictionary compatibility without discarding feedback in other venvs."""
+
+    def __init__(self, metrics, artifacts):
+        super().__init__(metrics)
+        self.artifacts = artifacts
+
+    @property
+    def metrics(self):
+        return dict(self)
+
+
 def _maybe_wrap_with_artifacts(metrics, artifacts):
-    """Return ``EvaluationResult(metrics, artifacts)`` if openevolve is
-    importable AND artifacts is non-empty; otherwise return the bare
-    metrics dict (preserves backward compatibility)."""
+    """Preserve the same feedback with or without the OpenEvolve dependency."""
+    artifacts = attach_artifacts(artifacts)
     if _HAS_EVALUATION_RESULT and artifacts:
         return EvaluationResult(metrics=metrics, artifacts=artifacts)
-    return metrics
+    return MetricsWithArtifacts(metrics, artifacts)
 
 
 # Substrings whose presence in a candidate's stderr suggests a Gurobi license
@@ -434,6 +456,7 @@ def _common_env():
         "cpus": int(os.environ.get("EFFICIENT_OR_EXEC_CPUS", "1")),
         "memory": os.environ.get("EFFICIENT_OR_EXEC_MEMORY", "32G"),
         "wls_egress": os.environ.get("EFFICIENT_OR_EXEC_WLS_EGRESS", "auto"),
+        "systemd_allow_wls": os.environ.get("EFFICIENT_OR_EXEC_SYSTEMD_ALLOW_WLS", "false").lower() in {"1", "true", "yes"},
     }
     docker_image = os.environ.get("EFFICIENT_OR_EXEC_DOCKER_IMAGE")
     if docker_image:
@@ -450,6 +473,7 @@ def _common_env():
     return paper_id, model_name, exec_mode, base_output, t_max, exec_cfg
 
 
+@isolated_evaluation("stage1", _common_env)
 def evaluate_stage1(program_path: str):
     """Binary gate: every stage1 instance must be feasible and within gap threshold."""
     paper_id, model_name, exec_mode, base_output, t_max, exec_cfg = _common_env()
@@ -460,12 +484,13 @@ def evaluate_stage1(program_path: str):
     if not instances:
         return {"combined_score": 0.0, "stage1_error": "no_stage1_instances"}
 
-    output_dir = os.path.join(base_output, "stage1")
+    output_dir = output_directory(base_output, "stage1")
     os.makedirs(output_dir, exist_ok=True)
     results = eval_core.evaluate_candidate_code(
         paper_id, model_name, instances, program_path, output_dir,
         time_limit, exec_mode, exec_cfg, t_max,
     )
+    capture_results(results)
     _abort_if_license_died(results, "stage1")
 
     passed = 0
@@ -518,10 +543,12 @@ def evaluate_stage1(program_path: str):
     # Multi-instance stage1 is supported but rare; we summarize the first.
     artifacts = _build_stage1_artifacts(
         results.get(instances[0]) or {}, output_dir, paper_id, inst=instances[0],
+        time_limit=time_limit, gap_threshold=gap_threshold,
     )
     return _maybe_wrap_with_artifacts(metrics, artifacts)
 
 
+@isolated_evaluation("stage2", _common_env)
 def evaluate_stage2(program_path: str):
     """Stage 2 scoring. Dispatches to a pluggable Scorer selected via env var.
 
@@ -573,12 +600,13 @@ def evaluate_stage2(program_path: str):
         else:
             per_instance_tl[inst] = time_limit_cap
 
-    output_dir = os.path.join(base_output, "stage2")
+    output_dir = output_directory(base_output, "stage2")
     os.makedirs(output_dir, exist_ok=True)
     results = eval_core.evaluate_candidate_code(
         paper_id, model_name, instances, program_path, output_dir,
         per_instance_tl, exec_mode, exec_cfg, t_max,
     )
+    capture_results(results)
     _abort_if_license_died(results, "stage2")
 
     # Direction matters: "LLM beats Gurobi" is direction-dependent. Pulled from
@@ -688,10 +716,12 @@ def evaluate_stage2(program_path: str):
 
     artifacts = _build_stage2_artifacts(
         scorer_name, results, instances, per_instance_tl, out, output_dir, paper_id,
+        stage_boundary=getattr(scorer, "stage_boundary", None),
     )
     return _maybe_wrap_with_artifacts(out, artifacts)
 
 
+@isolated_evaluation("direct", _common_env)
 def evaluate(program_path: str):
     """Direct (non-cascade) fallback. Uses legacy env vars."""
     paper_id, model_name, exec_mode, base_output, t_max, exec_cfg = _common_env()
@@ -699,12 +729,13 @@ def evaluate(program_path: str):
     instances = _split_instances(os.environ.get("EFFICIENT_OR_INSTANCES", selection_instance))
     time_limit = int(os.environ.get("EFFICIENT_OR_TIME_LIMIT", "300"))
 
-    output_dir = base_output
+    output_dir = output_directory(base_output, "direct")
     os.makedirs(output_dir, exist_ok=True)
     results = eval_core.evaluate_candidate_code(
         paper_id, model_name, instances, program_path, output_dir,
         time_limit, exec_mode, exec_cfg, t_max,
     )
+    capture_results(results)
     result = results.get(selection_instance) or next(iter(results.values()))
     score = eval_modes.combined_score(result)
     gap = result.get("gap")

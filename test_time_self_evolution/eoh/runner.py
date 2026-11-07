@@ -5,6 +5,7 @@ from __future__ import annotations
 import glob
 import http.client
 import json
+import math
 import os
 import random
 import re
@@ -126,7 +127,7 @@ def _ensure_eoh_importable():
 _EOH_SYSTEM_USER_SEP = "\n<<<__EOH_SYSTEM_USER_SEP__>>>\n"
 
 
-def patch_eoh_remote_api_path():
+def patch_eoh_remote_api_path(output_dir=None, public_root=None):
     """Make upstream EoH's remote API client work with OpenRouter's /api/v1 path."""
     try:
         from eoh.llm import api_general
@@ -134,52 +135,22 @@ def patch_eoh_remote_api_path():
         return
 
     def get_response(self, prompt_content):
-        # Temperature aligned with configs/openevolve.yaml (llm.temperature: 0.8)
-        # so EoH and OpenEvolve use the same LLM-sampling distribution.
-        # Read from the EoH-side instance's ``temperature`` attribute when set
-        # (e.g., when our runner overrides it), else default to 0.8.
-        temperature = float(getattr(self, "temperature", 0.8))
-        # If the patched prompt builder embedded the sentinel, decode it
-        # into separate system + user messages. i1 omits the sentinel and
-        # is sent as a user-only message; e/m operators always include it.
+        from test_time_self_evolution.eoh.model_io import generate
         if _EOH_SYSTEM_USER_SEP in prompt_content:
-            sys_msg, user_msg = prompt_content.split(_EOH_SYSTEM_USER_SEP, 1)
-            messages = [
-                {"role": "system", "content": sys_msg.strip()},
-                {"role": "user", "content": user_msg.strip()},
-            ]
+            system, user = prompt_content.split(_EOH_SYSTEM_USER_SEP, 1)
+            messages = [{"role": "system", "content": system.strip()},
+                        {"role": "user", "content": user.strip()}]
         else:
             messages = [{"role": "user", "content": prompt_content}]
-        payload = json.dumps({
-            "model": self.model_LLM,
-            "messages": messages,
-            "temperature": temperature,
-        })
-        headers = {
-            "Authorization": "Bearer " + self.api_key,
-            "User-Agent": "frontier-or/1.0",
-            "Content-Type": "application/json",
-        }
-        response = None
-        for _ in range(getattr(self, "n_trial", 5)):
-            try:
-                conn = _api_connection(self.api_endpoint)
-                conn.request(
-                    "POST",
-                    chat_completions_path(self.api_endpoint),
-                    payload,
-                    headers,
-                )
-                data = json.loads(conn.getresponse().read())
-                message = data["choices"][0]["message"]
-                response = message.get("content") or message.get("reasoning")
-                if response:
-                    break
-            except Exception:
-                if getattr(self, "debug_mode", False):
-                    print("Error in API. Restarting the process...")
-                continue
-        return response
+        raw = self.api_endpoint
+        scheme = "http" if str(raw).startswith("http://") else "https"
+        if scheme == "http":
+            _api_connection(raw).close()  # enforce the loopback-only HTTP rule
+        endpoint = scheme + "://" + _endpoint_host(raw) + chat_completions_path(raw)
+        return generate(messages, model=self.model_LLM, key=self.api_key,
+                        endpoint=endpoint, output_dir=output_dir,
+                        public_root=public_root,
+                        usage_path=os.path.join(os.path.dirname(output_dir), "api_usage.jsonl"))
 
     api_general.InterfaceAPI.get_response = get_response
 
@@ -256,10 +227,8 @@ _EOH_SYSTEM_SPEC_MODE: str = "cli_only"  # "cli_only" | "full"
 def _build_eoh_system_message(self_evolution) -> str:
     """Build the system-message content for the current mode.
 
-    "cli_only" (default, OpenEvolve-aligned): system message contains only
-    the CLI CONTRACT preamble; the per-paper benchmark spec is NOT sent —
-    LLM relies on parent code carrying problem context implicitly (matches
-    OpenEvolve's prompt structure exactly).
+    "cli_only" (default): CLI contract plus the public task/development
+    context. This exposes tiny/dev data regardless of the full-spec switch.
 
     "full" (--eoh-system-include-spec): system message is the full raw
     benchmark prompt — problem_description.txt + instance_schema.json +
@@ -270,7 +239,8 @@ def _build_eoh_system_message(self_evolution) -> str:
     """
     if _EOH_SYSTEM_SPEC_MODE == "full":
         return self_evolution.prompt_task  # = paper_benchmark_spec
-    return _CLI_CONTRACT_PREAMBLE
+    context = getattr(self_evolution, "prompt_other_inf", "")
+    return _CLI_CONTRACT_PREAMBLE + ("\n\n" + context if context else "")
 
 
 def patch_eoh_prompt_templates(system_spec_mode: str = "cli_only"):
@@ -586,7 +556,8 @@ def patch_eoh_rng_seed(seed: Optional[int]) -> None:
 
 
 def patch_eoh_i1_with_oneshot_seed(
-    paper_id: str, model_short: str, output_dir: str
+    paper_id: str, model_short: str, output_dir: str, *,
+    starter_mode="same-model", starter_model="claude-fable-5", resume=False
 ) -> bool:
     """Make the FIRST ``Evolution.i1()`` invocation reuse one-shot's
     final ``code.py`` instead of calling LLM. All subsequent i1() calls
@@ -610,7 +581,13 @@ def patch_eoh_i1_with_oneshot_seed(
     published ``eval/seed_programs`` first, runtime ``eval/eval_tasks`` second.
     """
     seed_dir = os.path.join(output_dir, "seed_oneshot")
-    seed_code_path = copy_final_oneshot_seed(ROOT_DIR, paper_id, model_short, seed_dir)
+    if starter_mode == "best-one-shot-program":
+        from test_time_self_evolution.openevolve.runner import prepare_explicit_starter
+        prepared = prepare_explicit_starter(paper_id, model_short, starter_model,
+                                            seed_dir, resume=resume)
+        seed_code_path = prepared["code_path"]
+    else:
+        seed_code_path = copy_final_oneshot_seed(ROOT_DIR, paper_id, model_short, seed_dir)
     if seed_code_path is None:
         return False
 
@@ -682,7 +659,7 @@ def run_eoh(
             "EoH is not importable. Run test_time_self_evolution/eoh/setup.sh "
             "or install external/eoh/eoh with pip -e."
         ) from exc
-    patch_eoh_remote_api_path()
+    patch_eoh_remote_api_path(output_dir, getattr(problem, "public_root", None))
     # Path-3 alignment with OpenEvolve: install full-script prompt templates
     # and a parser that handles complete CLI scripts. These run BEFORE the
     # artifact patcher so it wraps our new templates (artifact text is
@@ -704,7 +681,40 @@ def run_eoh(
     # population diverse. No-op when no matching one-shot artifact exists.
     patch_eoh_i1_with_oneshot_seed(
         problem.paper_id, problem.model_name, output_dir,
+        starter_mode=getattr(problem, "starter_mode", "same-model"),
+        starter_model=getattr(problem, "starter_model", "claude-fable-5"),
+        resume=resume,
     )
+    if getattr(problem, 'new_candidate_evaluations', None) is not None:
+        from pathlib import Path
+        from test_time_self_evolution.eoh.budget import EvaluationBudget, patch_batch_admission
+        from test_time_self_evolution.eoh.problem_adapter import code_hash, strip_markdown_code
+        from test_time_self_evolution.seed_fitness import configure_seed_cache
+        from eoh.methods.eoh.eoh_interface_EC import InterfaceEC
+        seed_path = Path(output_dir) / 'seed_oneshot/code.py'
+        if not seed_path.is_file():
+            raise RuntimeError('Budgeted EoH requires an existing one-shot seed')
+        ledger = Path(output_dir) / 'candidate_budget.json'
+        if resume and not ledger.exists():
+            raise RuntimeError('Legacy EoH runs cannot resume under the new budget; use a new run ID')
+        if not ledger.exists() and list((Path(output_dir) / 'results/pops').glob('*.json')):
+            raise RuntimeError('Existing population uses an unrecorded budget; use a new run ID')
+        seed_code = seed_path.read_text()
+        cache_env = {**os.environ, **problem._env('seed')}
+        configure_seed_cache(cache_env, seed_path, eval_core.get_paper_dir(problem.paper_id), ROOT_DIR)
+        problem.seed_cache_env = {k: v for k, v in cache_env.items()
+                                  if k.startswith('FRONTIER_OR_SEED_')}
+        problem.candidate_budget = EvaluationBudget(
+            ledger, problem.new_candidate_evaluations,
+            code_hash(strip_markdown_code(seed_code)), resume=resume,
+            context=cache_env['FRONTIER_OR_SEED_FITNESS_ID'])
+        # Establish seed fitness BEFORE population generation. Its later insertion
+        # reads this score without running the solver or consuming an admission.
+        problem.evaluate(seed_code)
+        if problem.read_cached_metrics(seed_code) is None:
+            raise RuntimeError('Seed initialization failed; evolution has not started')
+        problem.seed_fitness_ready = True
+        patch_batch_admission(InterfaceEC)
     # When the problem was constructed with enable_artifact=True, splice
     # cached evaluator artifacts back into mutation/crossover prompts.
     patch_eoh_prompts_with_artifact(problem)
@@ -772,6 +782,12 @@ def run_eoh(
     else:
         operators = list(operators)
 
+    if getattr(problem, 'candidate_budget', None) is not None:
+        # Enough generation capacity for the requested budget; get_algorithm
+        # trims the last batch and skips all generation once admissions run out.
+        required = max(0, problem.new_candidate_evaluations - (pop_size - 1))
+        n_pop = max(n_pop, math.ceil(required / (pop_size * len(operators))))
+
     paras = Paras()
     paras.set_paras(
         method=eoh_cfg.get("method", "eoh"),
@@ -803,6 +819,8 @@ def run_eoh(
     # the GIL, so this still parallelizes effectively.
     with parallel_backend("threading"):
         eoh_module.EVOL(paras).run()
+    if os.path.exists(os.path.join(output_dir, "credit-abort.json")):
+        raise RuntimeError("EOH stopped after OpenRouter credit error; checkpoint is not proof of completed evaluations")
 
 
 def _generation_number(path: str) -> int:
@@ -872,6 +890,9 @@ def run_self_evolve(
     enable_artifact: bool = False,
     system_include_spec: bool = False,
     seed: Optional[int] = None,
+    starter_mode: str = "best-one-shot-program",
+    starter_model: str = "claude-fable-5",
+    new_candidate_evaluations: Optional[int] = None,
 ):
     anti_hack = bool((exec_cfg or {}).get("anti_hack"))
     validate_anti_hack_runtime(
@@ -896,7 +917,18 @@ def run_self_evolve(
     eval_dir = os.path.join(base_dir, "eoh_adapter")
     final_instances = list(test_instances)
     reporting_instances = final_instances or list(stage2_instances)
-    timeout = timeout if timeout is not None else stage2_time_limit + 60
+    from test_time_self_evolution.openevolve.runner import evaluation_timeout
+    minimum_timeout = evaluation_timeout(stage1_instances, stage2_instances,
+                                         stage1_time_limit, stage2_time_limit, exec_cfg)
+    # Upstream's joblib timeout includes the entire offspring batch and model calls.
+    minimum_timeout = (minimum_timeout + 4 * 3 * 600 * 17 + 60) * max(1, (pop_size + workers - 1)//workers)
+    timeout = max(timeout or 0, minimum_timeout)
+
+    from test_time_self_evolution.public_context import prepare_public_context
+    public_context = prepare_public_context(
+        eval_core.get_paper_dir(paper_id), base_dir, paper_id,
+        stage1_instances, stage2_instances, final_instances,
+        boundary=stage2_stage_boundary, resume=resume, allow_retrieval=True)
 
     problem = EohBenchmarkProblem(
         paper_id=paper_id,
@@ -916,8 +948,30 @@ def run_self_evolve(
         stage2_time_policy=stage2_time_policy,
         stage2_time_buffer=stage2_time_buffer,
         enable_artifact=enable_artifact,
+        public_context=public_context,
     )
 
+    problem.starter_mode = starter_mode
+    problem.starter_model = starter_model
+    problem.new_candidate_evaluations = new_candidate_evaluations
+    public_root = os.path.join(base_dir, "public_context", paper_id)
+    problem.public_root = public_root if os.path.isdir(public_root) else None
+    protocol = {"version": "eoh-public-dev-tools-v2", "starter_mode": starter_mode,
+                "starter_model": starter_model, "feedback_artifacts": enable_artifact,
+                "public_dev_instances": list(dict.fromkeys(stage1_instances + stage2_instances)),
+                "public_file_tool": bool(problem.public_root),
+                "final_instances_exposed": False, "candidate_process_isolation": True,
+                "evaluation_timeout": timeout,
+                "new_candidate_evaluation_budget": new_candidate_evaluations,
+                "seed_evaluation_counts_toward_budget": False if new_candidate_evaluations is not None else None,
+                "budget_ledger": os.path.join(eoh_run_dir, 'candidate_budget.json'),
+                "model": primary_model, "llm_temperature": 0.8, "llm_max_tokens": 32768}
+    if new_candidate_evaluations is None:
+        protocol['planned_candidate_evaluations'] = pop_size * (1 + len(
+            operators or ['e1', 'e2', 'm1', 'm2', 'm3']) * n_pop)
+    os.makedirs(base_dir, exist_ok=True)
+    with open(os.path.join(base_dir, "experiment_protocol.json"), "w") as handle:
+        json.dump(protocol, handle, indent=2)
     env = prepare_eoh_env(os.environ, merged_config)
     with patched_env(env):
         run_eoh(

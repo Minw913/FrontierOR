@@ -247,3 +247,25 @@ def test_invalid_license_queue_timeouts_fail_fast(monkeypatch, value):
     monkeypatch.setenv("FRONTIER_OR_WLS_QUEUE_TIMEOUT_SECONDS", value)
     with pytest.raises(ValueError, match="finite and positive"):
         wls_queue_timeout_seconds({})
+
+
+def test_pending_monitor_does_not_log_a_restart_that_is_deferred(tmp_path, caplog):
+    import logging
+    value = manager(tmp_path)
+    write_attempt(tmp_path)
+    native = logging.getLogger('coral.agent.manager')
+    original = value._get_seen_attempts
+    def scan():
+        native.warning('Agent agent-1 exited (code: 0), restart #1')
+        native.warning('An unrelated runtime warning')
+        return original()
+    value._get_seen_attempts = scan
+    with caplog.at_level(logging.WARNING):
+        value.monitor_loop()
+    assert 'restart #1' not in caplog.text
+    assert 'unrelated runtime warning' in caplog.text
+    write_attempt(tmp_path, status='improved', score=.5)
+    caplog.clear()
+    with caplog.at_level(logging.WARNING):
+        value.monitor_loop()
+    assert 'restart #1' in caplog.text

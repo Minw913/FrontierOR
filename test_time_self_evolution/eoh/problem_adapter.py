@@ -7,6 +7,9 @@ import hashlib
 import json
 import os
 import re
+import subprocess
+import sys
+import uuid
 from typing import Callable, Dict, Iterable, List, Optional
 
 from test_time_self_evolution.openevolve import evaluator
@@ -22,7 +25,7 @@ def _split_instances(value: Iterable[str]) -> List[str]:
 
 
 def code_hash(code_string: str) -> str:
-    return hashlib.sha256(code_string.encode("utf-8")).hexdigest()[:16]
+    return hashlib.sha256(code_string.encode("utf-8")).hexdigest()
 
 
 def _to_metrics(result) -> Dict:
@@ -78,8 +81,10 @@ def materialize_candidate(code_string: str, output_path: str) -> str:
     """
     code = strip_markdown_code(code_string)
     os.makedirs(os.path.dirname(output_path), exist_ok=True)
-    with open(output_path, "w", encoding="utf-8") as f:
+    temporary = output_path + "." + uuid.uuid4().hex + ".tmp"
+    with open(temporary, "w", encoding="utf-8") as f:
         f.write(code)
+    os.replace(temporary, output_path)
     return output_path
 
 
@@ -114,8 +119,9 @@ class EfficientOptPrompts:
     must exist; we return innocuous defaults.
     """
 
-    def __init__(self, benchmark_prompt: str):
+    def __init__(self, benchmark_prompt: str, public_context: str = ""):
         self.benchmark_prompt = benchmark_prompt
+        self.public_context = public_context
 
     def get_task(self) -> str:
         # Returns the raw benchmark prompt (no "Benchmark specification:"
@@ -125,7 +131,7 @@ class EfficientOptPrompts:
         # CONTRACT preamble lives in runner._CLI_CONTRACT_PREAMBLE and is
         # prepended only for e/m operators; i1 receives just this raw prompt
         # so the first generation can explore freely.
-        return self.benchmark_prompt.strip()
+        return self.benchmark_prompt.strip() + ("\n\n" + self.public_context if self.public_context else "")
 
     # --- stubs (kept only for upstream EoH __init__ compatibility) -----
     def get_func_name(self) -> str:
@@ -141,7 +147,7 @@ class EfficientOptPrompts:
         return ""
 
     def get_other_inf(self) -> str:
-        return ""
+        return self.public_context
 
 
 class EohBenchmarkProblem:
@@ -168,10 +174,11 @@ class EohBenchmarkProblem:
         stage1_fn: Optional[Callable[[str], Dict]] = None,
         stage2_fn: Optional[Callable[[str], Dict]] = None,
         enable_artifact: bool = False,
+        public_context: str = "",
     ):
         self.paper_id = paper_id
         self.model_name = model_name
-        self.prompts = EfficientOptPrompts(prompt)
+        self.prompts = EfficientOptPrompts(prompt, public_context)
         self.base_output = base_output
         self.stage1_instances = _split_instances(stage1_instances)
         self.stage2_instances = _split_instances(stage2_instances)
@@ -185,6 +192,7 @@ class EohBenchmarkProblem:
         self.stage2_stage_boundary = stage2_stage_boundary
         self.stage2_time_policy = stage2_time_policy
         self.stage2_time_buffer = stage2_time_buffer
+        self.custom_evaluators = stage1_fn is not None or stage2_fn is not None
         self.stage1_fn = stage1_fn or evaluator.evaluate_stage1
         self.stage2_fn = stage2_fn or evaluator.evaluate_stage2
         # When True, capture OpenEvolve evaluator's `.artifacts` dict
@@ -221,6 +229,15 @@ class EohBenchmarkProblem:
         return env
 
     def evaluate(self, code_string: str) -> float:
+        candidate_hash = code_hash(strip_markdown_code(code_string))
+        budget = getattr(self, 'candidate_budget', None)
+        if budget is not None:
+            if candidate_hash == budget.seed_hash and getattr(self, 'seed_fitness_ready', False):
+                cached = self.read_cached_metrics(code_string)
+                if cached is not None:
+                    return float(cached['objective'])
+            if not budget.admit(candidate_hash):
+                raise RuntimeError('New-candidate evaluation budget exhausted')
         # Diagnostic: confirm evaluate is actually being invoked.
         print(f"[EohBenchmarkProblem.evaluate] CALLED with code_string len={len(code_string)}", flush=True)
         try:
@@ -243,21 +260,47 @@ class EohBenchmarkProblem:
         candidate_hash = code_hash(strip_markdown_code(code_string))
         program_path = materialize_candidate(code_string, self._candidate_path(candidate_hash))
 
-        with patched_env(self._env(candidate_hash)):
-            # Capture the raw evaluator return (may be EvaluationResult or
-            # dict). We split into metrics (always needed for objective) and
-            # artifacts (only used when enable_artifact=True).
-            s1_raw = self.stage1_fn(program_path)
-            stage1_metrics = _to_metrics(s1_raw)
-            stage1_artifact = _to_artifacts(s1_raw) if self.enable_artifact else {}
+        if not self.custom_evaluators:
+            from test_time_self_evolution.openevolve.runner import evaluation_timeout
+            folder = os.path.join(self.base_output, "worker_evidence", uuid.uuid4().hex)
+            os.makedirs(folder, mode=0o700)
+            result_path = os.path.join(folder, "result.json")
+            env = {**os.environ, **self._env(candidate_hash)}
+            env.update(getattr(self, 'seed_cache_env', {}))
+            budget = evaluation_timeout(self.stage1_instances, self.stage2_instances,
+                                        self.stage1_time_limit, self.stage2_time_limit,
+                                        self.exec_cfg)
+            with open(os.path.join(folder, "worker.log"), "w") as log:
+                subprocess.run([sys.executable, "-m", "test_time_self_evolution.eoh.evaluate_worker",
+                                program_path, result_path], env=env, cwd=ROOT_DIR,
+                               stdout=log, stderr=subprocess.STDOUT, check=True,
+                               timeout=budget)
+            with open(result_path) as handle:
+                data = json.load(handle)
+            stage1_metrics = data["stage1_metrics"]
+            stage2_metrics = data["stage2_metrics"]
+            stage1_artifact = data["stage1_artifact"] if self.enable_artifact else {}
+            stage2_artifact = data["stage2_artifact"] if self.enable_artifact else {}
             if float(stage1_metrics.get("combined_score", 0.0)) < 1.0:
-                objective = 1.0
-                self._write_cache(candidate_hash, program_path, objective,
+                self._write_cache(candidate_hash, program_path, 1.0,
                                   stage1_metrics, {}, stage1_artifact, {})
-                return objective
-            s2_raw = self.stage2_fn(program_path)
-            stage2_metrics = _to_metrics(s2_raw)
-            stage2_artifact = _to_artifacts(s2_raw) if self.enable_artifact else {}
+                return 1.0
+        else:
+            with patched_env(self._env(candidate_hash)):
+                # Capture the raw evaluator return (may be EvaluationResult or
+                # dict). We split into metrics (always needed for objective) and
+                # artifacts (only used when enable_artifact=True).
+                s1_raw = self.stage1_fn(program_path)
+                stage1_metrics = _to_metrics(s1_raw)
+                stage1_artifact = _to_artifacts(s1_raw) if self.enable_artifact else {}
+                if float(stage1_metrics.get("combined_score", 0.0)) < 1.0:
+                    objective = 1.0
+                    self._write_cache(candidate_hash, program_path, objective,
+                                      stage1_metrics, {}, stage1_artifact, {})
+                    return objective
+                s2_raw = self.stage2_fn(program_path)
+                stage2_metrics = _to_metrics(s2_raw)
+                stage2_artifact = _to_artifacts(s2_raw) if self.enable_artifact else {}
 
         stage2_score = float(stage2_metrics.get("combined_score", 0.0))
         # OpenEvolve's staged_qte scorer can return combined_score > 1.0 (the
@@ -316,7 +359,8 @@ class EohBenchmarkProblem:
     ):
         cache_path = self._cache_path(candidate_hash)
         os.makedirs(os.path.dirname(cache_path), exist_ok=True)
-        with open(cache_path, "w", encoding="utf-8") as f:
+        temporary = cache_path + "." + uuid.uuid4().hex + ".tmp"
+        with open(temporary, "w", encoding="utf-8") as f:
             json.dump(
                 {
                     "code_hash": candidate_hash,
@@ -333,3 +377,4 @@ class EohBenchmarkProblem:
                 indent=2,
                 sort_keys=True,
             )
+        os.replace(temporary, cache_path)

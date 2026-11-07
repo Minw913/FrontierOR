@@ -63,9 +63,16 @@ def _patch_anti_hack_runtime() -> None:
     # AgentManager imported this function by value, so patch its module binding.
     manager_module.generate_coral_md = generate_secure_coral_md
     install_pending_guards(manager_module.AgentManager)
+    from trusted_eval_infra.agent.startup_cleanup import install_startup_cleanup
+    install_startup_cleanup(manager_module.AgentManager)
+    from trusted_eval_infra.agent.grading_lifecycle import install_grading_lifecycle
+    install_grading_lifecycle()
 
 
 def main():
+    import sys
+    from trusted_eval_infra.agent.task_assignment import guard_native_start
+    guard_native_start(sys.argv[1:])
     _patch_codex_settings()
     _patch_anti_hack_runtime()
     from coral.cli import main as coral_main

@@ -9,12 +9,14 @@ helpers live in :mod:`test_time_self_evolution.eval_modes`.
 from __future__ import annotations
 
 import glob
+import hashlib
 import json
 import os
 import shutil
 import subprocess
 import sys
 from typing import Dict, List, Optional
+from pathlib import Path
 
 import yaml
 
@@ -50,7 +52,7 @@ def prepare_openevolve_env(base_env: Optional[Dict[str, str]], config: Dict) -> 
     local_oe = os.path.join(ROOT_DIR, "external", "openevolve")
     if os.path.isdir(local_oe):
         prev_pp = env.get("PYTHONPATH", "")
-        env["PYTHONPATH"] = local_oe + (os.pathsep + prev_pp if prev_pp else "")
+        env["PYTHONPATH"] = local_oe + os.pathsep + ROOT_DIR + (os.pathsep + prev_pp if prev_pp else "")
     return env
 
 
@@ -88,6 +90,9 @@ def write_openevolve_config(
     primary_model: str,
     secondary_model: Optional[str] = None,
     api_base: Optional[str] = None,
+    evaluator_timeout: Optional[int] = None,
+    parallel_evaluations: Optional[int] = None,
+    public_context: str = "",
 ):
     """Load configs/openevolve.yaml as base and inject primary/secondary model fields.
 
@@ -109,7 +114,16 @@ def write_openevolve_config(
     llm["secondary_model"] = secondary_model
     if api_base:
         llm["api_base"] = api_base
-    prompt_block = base.get("prompt") or {}
+    evaluator = base.setdefault("evaluator", {})
+    if evaluator_timeout is not None:
+        evaluator["timeout"] = max(int(evaluator.get("timeout", 0)), evaluator_timeout)
+    if parallel_evaluations is not None:
+        if parallel_evaluations < 1:
+            raise ValueError("OpenEvolve parallel evaluations must be positive")
+        evaluator["parallel_evaluations"] = parallel_evaluations
+    prompt_block = base.setdefault("prompt", {})
+    if public_context:
+        prompt_block["system_message"] = prompt_block.get("system_message", "") + "\n\n" + public_context
     tpl_dir = prompt_block.get("template_dir")
     if tpl_dir and not os.path.isabs(tpl_dir):
         src_dir = os.path.dirname(OPENEVOLVE_BASE_CONFIG_PATH)
@@ -264,6 +278,39 @@ def _try_reuse_oneshot_seed(paper_id: str, model_name: str, seed_dir: str) -> Op
     return copy_final_oneshot_seed(ROOT_DIR, paper_id, short, seed_dir)
 
 
+def evaluation_timeout(stage1_instances, stage2_instances, stage1_limit, stage2_limit, exec_cfg):
+    """Cover both stages, per-instance WLS queues and host-side overhead."""
+    from trusted_eval_infra.execution import wls_queue_timeout_seconds
+    cfg = exec_cfg or {}
+    concurrency = int(cfg.get("wls_concurrency", os.environ.get("FRONTIER_OR_WLS_CONCURRENCY", "0")))
+    queue = wls_queue_timeout_seconds(cfg) if concurrency and cfg.get("wls_egress") != "off" else 0
+    count = len(stage1_instances) + len(stage2_instances)
+    return int(len(stage1_instances) * stage1_limit + len(stage2_instances) * stage2_limit
+               + count * (queue + 180) + 120)
+
+
+def prepare_explicit_starter(paper_id, agent_model, starter_model, seed_dir, resume=False):
+    """Use the selected final one-shot version; never silently generate or change it."""
+    source_model = eval_core.get_model_short_name(starter_model)
+    folder = Path(seed_dir)
+    if resume:
+        provenance = json.loads((folder / "_seed_source.json").read_text())
+        if (provenance.get("model") != source_model
+                or provenance.get("starter_mode") != "best-one-shot-program"
+                or provenance.get("paper_id") != paper_id
+                or provenance.get("agent_model") != agent_model
+                or provenance.get("sha256") != hashlib.sha256((folder / "code.py").read_bytes()).hexdigest()):
+            raise ValueError("OpenEvolve resume starter mismatch; use a new run ID")
+    else:
+        if _try_reuse_oneshot_seed(paper_id, starter_model, seed_dir) is None:
+            raise ValueError("Missing selected final one-shot starter; no generation fallback")
+        path = folder / "_seed_source.json"
+        provenance = json.loads(path.read_text())
+        provenance.update(starter_mode="best-one-shot-program", agent_model=agent_model)
+        path.write_text(json.dumps(provenance, indent=2) + "\n")
+    return {"status": "ok", "code_path": str(folder / "code.py"), "usage": {}}
+
+
 def _read_seed_dev_results(oe_run_dir: str, dev_instances: List[str]) -> Dict[str, Dict]:
     """Reconstruct the seed program's per-dev-instance results from the latest
     OpenEvolve checkpoint, for the ``first_status`` column of the unified CSV.
@@ -318,6 +365,9 @@ def run_self_evolve(
     test_time_policy: str = "uniform",
     test_time_buffer: int = 0,
     test_instance_workers: int = 4,
+    starter_mode: str = "same-model",
+    starter_model: str = "claude-fable-5",
+    parallel_evaluations: Optional[int] = None,
 ):
     anti_hack = bool((exec_cfg or {}).get("anti_hack"))
     validate_anti_hack_runtime(
@@ -364,11 +414,19 @@ def run_self_evolve(
         reporting_instances[0] if reporting_instances else "tiny"
     )
 
+    from test_time_self_evolution.public_context import prepare_public_context
+    public_context = prepare_public_context(
+        eval_core.get_paper_dir(paper_id), base_dir, paper_id,
+        stage1_instances, stage2_instances, final_instances,
+        boundary=stage2_stage_boundary, resume=resume, allow_retrieval=True)
+
     seed_dir = os.path.join(base_dir, "seed")
     seed_code_path = os.path.join(seed_dir, "code.py")
     resume_checkpoint = None
     resume_remaining_iters = iterations  # how many more iters to run; defaults to full budget
     if resume:
+        if starter_mode == "best-one-shot-program":
+            prepare_explicit_starter(paper_id, primary_model, starter_model, seed_dir, resume=True)
         if not os.path.exists(seed_code_path):
             raise RuntimeError(
                 f"Cannot resume run_id={run_id}: seed code not found at {seed_code_path}"
@@ -397,6 +455,8 @@ def run_self_evolve(
             "code_path": seed_code_path,
             "usage": {},
         }
+    elif starter_mode == "best-one-shot-program":
+        generated = prepare_explicit_starter(paper_id, primary_model, starter_model, seed_dir)
     else:
         reuse_flag = os.environ.get("EFFICIENT_OR_REUSE_SEED_IF_EXISTS") == "1"
         if reuse_flag and os.path.exists(seed_code_path) and os.path.getsize(seed_code_path) > 0:
@@ -455,9 +515,14 @@ def run_self_evolve(
         "EFFICIENT_OR_EXEC_MODE": exec_mode,
         "EFFICIENT_OR_T_MAX": "" if t_max is None else str(t_max),
         "EFFICIENT_OR_OUTPUT_DIR": os.path.join(base_dir, "openevolve_eval"),
+        "FRONTIER_OR_OPENEVOLVE_USAGE_PATH": os.path.join(base_dir, "openevolve_usage.jsonl"),
     })
+    from test_time_self_evolution.openevolve.public_tools import configure_public_tools
+    configure_public_tools(env, base_dir, paper_id)
     for key, value in (exec_cfg or {}).items():
         env[f"EFFICIENT_OR_EXEC_{key.upper()}"] = str(value)
+    from test_time_self_evolution.seed_fitness import configure_seed_cache
+    configure_seed_cache(env, generated['code_path'], eval_core.get_paper_dir(paper_id), ROOT_DIR)
     if (exec_cfg or {}).get("anti_hack"):
         env["EFFICIENT_OR_ANTI_HACK"] = "1"
 
@@ -468,6 +533,10 @@ def run_self_evolve(
         primary_model,
         secondary_model,
         api_base=config.get("MODEL_API_BASE"),
+        evaluator_timeout=evaluation_timeout(stage1_instances, stage2_instances,
+                                             stage1_time_limit, stage2_time_limit, exec_cfg),
+        parallel_evaluations=parallel_evaluations,
+        public_context=public_context,
     )
     evaluator_path = os.path.join(ROOT_DIR, "test_time_self_evolution", "openevolve", "evaluator.py")
     if resume and resume_remaining_iters == 0:

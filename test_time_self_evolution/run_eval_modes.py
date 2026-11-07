@@ -133,6 +133,7 @@ def run_per_model_modes(args, run_id, config, paper_id, model, prompt):
                 "cpus": args.cpus,
                 "memory": args.memory,
                 "wls_egress": args.wls_egress,
+                "systemd_allow_wls": getattr(args, "systemd_allow_wls", False),
             },
             args.anti_hack,
         ),
@@ -350,6 +351,7 @@ def run_self_evolve_mode(args, run_id, config, paper_id, prompt, primary_model, 
                 "cpus": args.cpus,
                 "memory": args.memory,
                 "wls_egress": args.wls_egress,
+                "systemd_allow_wls": getattr(args, "systemd_allow_wls", False),
             },
             args.anti_hack,
         ),
@@ -374,6 +376,9 @@ def run_self_evolve_mode(args, run_id, config, paper_id, prompt, primary_model, 
             resume=args.resume,
             enable_artifact=args.eoh_enable_artifact,
             system_include_spec=args.eoh_system_include_spec,
+            starter_mode=args.eoh_starter_mode,
+            starter_model=args.eoh_starter_model,
+            new_candidate_evaluations=args.eoh_candidate_evaluations,
         )
     if args.framework == "coral":
         return coral_runner.run_self_evolve(
@@ -393,17 +398,37 @@ def run_self_evolve_mode(args, run_id, config, paper_id, prompt, primary_model, 
             agent_isolation=args.coral_agent_isolation,
             model_access=args.coral_model_access,
             agent_image=args.coral_agent_image,
+            starter_mode=getattr(args, "coral_starter_mode", "same-model"),
+            starter_model=getattr(args, "coral_starter_model", "claude-fable-5"),
+            final_exec_mode=getattr(args, "coral_final_exec_mode", "same"),
+            final_cpus=getattr(args, "coral_final_cpus", None),
+            final_memory=getattr(args, "coral_final_memory", None),
             resume=args.resume,
         )
     return openevolve_runner.run_self_evolve(
         **common,
         iterations=args.openevolve_iterations,
+        starter_mode=getattr(args, "openevolve_starter_mode", "same-model"),
+        starter_model=getattr(args, "openevolve_starter_model", "claude-fable-5"),
+        parallel_evaluations=getattr(args, "openevolve_parallel_evaluations", None),
         resume=args.resume,
     )
 
 
 def parse_args(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument(
+        "--coral-final-exec-mode", choices=["same", "bare", "systemd"], default="same",
+        help="CORAL final-test backend only: same preserves --exec-mode (default); "
+             "systemd runs the final program on the host with CPU/memory cgroups; "
+             "bare runs it without cgroup memory limits. Both lack Docker filesystem "
+             "isolation. Agent/dev/debug execution is unchanged. "
+             "Results are marked as mixed-isolation when used with --anti-hack.",
+    )
+    parser.add_argument("--coral-final-cpus", type=int, default=None,
+                        help="CPU cores per final instance; default inherits --cpus.")
+    parser.add_argument("--coral-final-memory", default=None,
+                        help="Memory cap per final instance under Docker/systemd; default inherits --memory.")
     parser.add_argument("--modes", nargs="+", default=["self_evolve"],
                         choices=["one_shot", "best_of_k", "self_evolve"],
                         help="Evaluation mode(s) to run. Default: self_evolve only. "
@@ -451,10 +476,23 @@ def parse_args(argv=None):
                         help="best_of_k selection instance; must be in --instances.")
     parser.add_argument("--k", type=int, default=5)
     parser.add_argument("--openevolve-iterations", type=int, default=30)
+    parser.add_argument("--openevolve-starter-mode", choices=["same-model", "best-one-shot-program"], default="same-model")
+    parser.add_argument("--openevolve-starter-model", default="claude-fable-5")
+    parser.add_argument("--openevolve-parallel-evaluations", type=int, default=None,
+                        help="Candidate concurrency; default preserves configs/openevolve.yaml.")
+    parser.add_argument("--systemd-allow-wls", action="store_true",
+                        help="Permit WLS/DNS through the systemd network policy and shared license gate.")
+    parser.add_argument("--eoh-starter-mode", choices=["same-model", "best-one-shot-program"],
+                        default="best-one-shot-program")
+    parser.add_argument("--eoh-starter-model", default="claude-fable-5")
     parser.add_argument("--eoh-pop-size", type=int, default=4,
                         help="EoH population size for --framework eoh. Default: 4.")
     parser.add_argument("--eoh-n-pop", type=int, default=4,
                         help="EoH number of populations/generations. Default: 4.")
+    parser.add_argument("--eoh-candidate-evaluations", type=int, default=None,
+                        help="Maximum new-candidate evaluations, excluding seed initialization. "
+                             "Use 20 for the new protocol; omission preserves legacy generation budgets. "
+                             "Generation capacity is extended if necessary; final batches are trimmed.")
     parser.add_argument("--eoh-workers", type=int, default=None,
                         help="EoH offspring-level parallel workers (joblib n_jobs). "
                              "Default: matches --eoh-pop-size (so each operator's pop_size "
@@ -466,7 +504,7 @@ def parse_args(argv=None):
                              "eoh.evolution.seed (default 2024). Not an LLM seed. "
                              "Thread scheduling and LLM output remain nondeterministic.")
     parser.add_argument("--eoh-timeout", type=int, default=None,
-                        help="EoH per-candidate evaluation timeout. Default: stage2 time limit + 60s.")
+                        help="EoH batch timeout floor; raised to cover both stages, WLS queues and bounded LLM/tool rounds.")
     parser.add_argument("--eoh-operators", nargs="+", default=None,
                         choices=["e1", "e2", "m1", "m2", "m3"],
                         help="EoH evolution operators (subset of e1/e2/m1/m2/m3). "
@@ -484,12 +522,16 @@ def parse_args(argv=None):
                         help="EoH e/m operators: include the full benchmark "
                              "spec (paper problem_description + instance/solution "
                              "schemas + TASK_SPECIFICATION) in the system message. "
-                             "Default off — system message contains only the CLI "
-                             "CONTRACT preamble (matches OpenEvolve, which doesn't "
-                             "send the per-paper spec to the LLM but relies on "
-                             "parent code carrying that context implicitly). Turn "
-                             "on if you want EoH e/m operators to always re-see "
-                             "the paper spec at the system level. i1 is unaffected.")
+                             "Default off: CLI contract plus public task/development context. "
+                             "Enabling this also includes the full benchmark prompt. "
+                             "Public instance access remains enabled in either mode; i1 is unaffected.")
+    parser.add_argument("--coral-starter-mode", choices=("same-model", "best-one-shot-program"),
+                        default="same-model",
+                        help="CORAL starter selection: preserve existing same-model/env-override behavior "
+                             "(default), or use the fixed best one-shot model's final program.")
+    parser.add_argument("--coral-starter-model", default="claude-fable-5",
+                        help="Source model for best-one-shot-program (default: claude-fable-5). "
+                             "Does not change the evolving agent model or select per-task winners.")
     parser.add_argument("--coral-attempts", type=int, default=1,
                         help="CORAL: stop after this many finalized attempts. Default: 1.")
     parser.add_argument("--coral-max-seconds", default="900",
@@ -681,14 +723,62 @@ def parse_args(argv=None):
     return parser.parse_args(argv)
 
 
+def eoh_paper_child_command(argv, paper_id, run_id):
+    filtered = []
+    i = 0
+    while i < len(argv):
+        item = argv[i]
+        key = item.split("=", 1)[0]
+        if key in {"--paper-id", "--paper-workers", "--run-id"}:
+            i += 1
+            if "=" not in item:
+                if key == "--paper-id":
+                    while i < len(argv) and not argv[i].startswith("--"):
+                        i += 1
+                elif i < len(argv):
+                    i += 1
+            continue
+        filtered.append(item)
+        i += 1
+    return [sys.executable, os.path.abspath(__file__), *filtered,
+            "--paper-id", paper_id, "--paper-workers", "1", "--run-id", run_id]
+
+
 def main(argv=None):
+    cli_argv = list(sys.argv[1:] if argv is None else argv)
     args = parse_args(argv)
+    if args.framework == "eoh" and os.environ.get("FRONTIER_OR_EOH_PAPER_CHILD"):
+        from test_time_self_evolution.eoh.task_handoff import skip_transferred_paper
+        if skip_transferred_paper(ROOT_DIR, args.run_id, args.paper_ids):
+            return 0
+    if args.openevolve_parallel_evaluations is not None and args.openevolve_parallel_evaluations < 1:
+        raise SystemExit("ERROR: --openevolve-parallel-evaluations must be positive.")
+    if (args.openevolve_starter_mode != "same-model" or args.openevolve_starter_model != "claude-fable-5") and (
+        args.framework != "openevolve" or "self_evolve" not in args.modes
+    ):
+        raise SystemExit("ERROR: --openevolve-starter-* applies only to OpenEvolve self_evolve.")
+    if args.openevolve_starter_mode == "same-model" and args.openevolve_starter_model != "claude-fable-5":
+        raise SystemExit("ERROR: --openevolve-starter-model requires best-one-shot-program mode.")
+    if (args.coral_starter_mode != "same-model" or args.coral_starter_model != "claude-fable-5") and (
+        args.framework != "coral" or "self_evolve" not in args.modes
+    ):
+        raise SystemExit("ERROR: --coral-starter-* applies only to CORAL self_evolve.")
+    if args.coral_starter_mode == "same-model" and args.coral_starter_model != "claude-fable-5":
+        raise SystemExit("ERROR: --coral-starter-model requires --coral-starter-mode best-one-shot-program.")
+    if (args.coral_final_exec_mode != "same" or args.coral_final_cpus is not None
+        or args.coral_final_memory is not None) and (
+        args.framework != "coral" or "self_evolve" not in args.modes
+    ):
+        raise SystemExit("ERROR: --coral-final-exec-mode applies only to CORAL self_evolve.")
+    if args.coral_final_cpus is not None and args.coral_final_cpus < 1:
+        raise SystemExit("ERROR: --coral-final-cpus must be positive.")
     # --eoh-workers: when omitted, default to pop_size so each operator's
     # pop_size offspring all run concurrently.
     if args.eoh_workers is None:
         args.eoh_workers = max(1, args.eoh_pop_size)
     if args.framework == "eoh" and (
         args.eoh_pop_size < 1 or args.eoh_n_pop < 1 or args.eoh_workers < 1
+        or (args.eoh_candidate_evaluations is not None and args.eoh_candidate_evaluations < 1)
     ):
         raise SystemExit(
             "ERROR: EoH population size, population count, and workers must "
@@ -771,19 +861,6 @@ def main(argv=None):
         eval_core.set_instance_workers(args.dev_instance_workers)
 
     gurobi_license = eval_core.configure_gurobi_license()
-    if args.exec_mode == "docker":
-        wls_probe_cfg = with_anti_hack_exec_cfg(
-            {
-                "cpus": args.cpus,
-                "memory": args.memory,
-                "wls_egress": args.wls_egress,
-            },
-            args.anti_hack,
-        )
-        try:
-            eval_core.validate_docker_wls(wls_probe_cfg)
-        except (RuntimeError, ValueError) as exc:
-            raise SystemExit(f"ERROR: {exc}") from exc
     local_auth_only = not per_model_modes and (
         (args.framework == "coral" and args.coral_model_access == "local-auth")
         or args.model_backend == "local-codex"
@@ -837,6 +914,20 @@ def main(argv=None):
             except RuntimeError as exc:
                 raise SystemExit(f"ERROR: {exc}") from exc
 
+    if args.exec_mode == "docker":
+        wls_probe_cfg = with_anti_hack_exec_cfg(
+            {
+                "cpus": args.cpus,
+                "memory": args.memory,
+                "wls_egress": args.wls_egress,
+            },
+            args.anti_hack,
+        )
+        try:
+            eval_core.validate_docker_wls(wls_probe_cfg)
+        except (RuntimeError, ValueError) as exc:
+            raise SystemExit(f"ERROR: {exc}") from exc
+
     print(f"Run ID: {run_id}")
     print(f"Modes: {args.modes}")
     print(f"Papers: {len(paper_ids)}")
@@ -885,6 +976,13 @@ def main(argv=None):
         ThreadPoolExecutor task when --paper-workers > 1. Catches exceptions so
         one paper's failure doesn't kill the whole run."""
         try:
+            if args.framework == "coral" and "self_evolve" in args.modes:
+                from trusted_eval_infra.agent.task_assignment import assigned_elsewhere
+                base = eval_modes.mode_run_dir(run_id, "coral", paper_id, eval_core.get_model_short_name(primary_model))
+                owner = assigned_elsewhere(base, paper_id)
+                if owner:
+                    print(f"[task-transfer] skipping {paper_id}; assigned to {owner}")
+                    return paper_id, "ok", None
             # Each self-evolution runner validates its resolved per-paper final
             # set. Here we preflight only per-model modes, whose instance list
             # is already final at this level.
@@ -982,7 +1080,24 @@ def main(argv=None):
             print(f"Local Codex bridge: {bridge.api_base}")
 
         n_paper_workers = max(1, args.paper_workers)
-        if n_paper_workers <= 1 or len(paper_ids) <= 1:
+        if args.framework == "eoh" and not os.environ.get("FRONTIER_OR_EOH_PAPER_CHILD"):
+            import subprocess
+            from concurrent.futures import ThreadPoolExecutor
+            def isolated_paper(paper_id):
+                cmd = eoh_paper_child_command(cli_argv, paper_id, run_id)
+                child_env = dict(os.environ, FRONTIER_OR_EOH_PAPER_CHILD="1")
+                folder = eval_modes.mode_run_dir(run_id, "eoh", paper_id,
+                                                 eval_core.get_model_short_name(primary_model))
+                os.makedirs(folder, exist_ok=True)
+                log_path = os.path.join(folder, "paper_process.log")
+                print(f"[eoh isolated paper] {paper_id}: {log_path}", flush=True)
+                with open(log_path, "a") as handle:
+                    result = subprocess.run(cmd, cwd=ROOT_DIR, env=child_env,
+                                            stdout=handle, stderr=subprocess.STDOUT)
+                return paper_id, "ok" if result.returncode == 0 else "failed", (None if result.returncode == 0 else f"child exit {result.returncode}; see {log_path}")
+            with ThreadPoolExecutor(max_workers=n_paper_workers) as pool:
+                statuses = list(pool.map(isolated_paper, paper_ids))
+        elif n_paper_workers <= 1 or len(paper_ids) <= 1:
             statuses = [_process_paper(pid) for pid in paper_ids]
         else:
             from concurrent.futures import ThreadPoolExecutor, as_completed

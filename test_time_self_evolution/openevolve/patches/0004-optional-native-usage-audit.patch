@@ -1,0 +1,30 @@
+diff --git a/openevolve/llm/openai.py b/openevolve/llm/openai.py
+index 7477e5b..14281ae 100644
+--- a/openevolve/llm/openai.py
++++ b/openevolve/llm/openai.py
+@@ -8,6 +8,8 @@ to a task queue directory and the system waits for a corresponding *.answer.json
+ import asyncio
+ import json
+ import logging
++import os
++import fcntl
+ import time
+ import uuid
+ from datetime import datetime, timezone
+@@ -219,6 +221,16 @@ class OpenAILLM(LLMInterface):
+         response = await loop.run_in_executor(
+             None, lambda: self.client.chat.completions.create(**params)
+         )
++        usage_path = os.environ.get("FRONTIER_OR_OPENEVOLVE_USAGE_PATH")
++        if usage_path:
++            usage = getattr(response, "usage", None)
++            row = {"at": _iso_now(), "response_id": response.id,
++                   "model": response.model,
++                   "usage": usage.model_dump() if usage is not None else {}}
++            # Record billing metadata only, never credentials or prompt content.
++            with open(usage_path, "a", encoding="utf-8") as handle:
++                fcntl.flock(handle, fcntl.LOCK_EX)
++                handle.write(json.dumps(row) + "\n")
+         # Logging of system prompt, user message and response content
+         logger = logging.getLogger(__name__)
+         logger.debug(f"API parameters: {params}")

@@ -333,7 +333,7 @@ def run_program(script_path: str, instance_path: str, solution_path: str,
     Returns:
         (elapsed_time_or_'time_out', objective_value_or_None)
     """
-    cfg = {"cpus": 1, "memory": "32G"}
+    cfg = {"cpus": 1, "memory": "100G"}
     if backend_cfg:
         cfg.update(backend_cfg)
     try:
@@ -681,8 +681,8 @@ def main():
         help="Number of cores per case (default: 1). Applied as cpuset size.",
     )
     parser.add_argument(
-        "--backend-memory", default="32G", dest="backend_memory",
-        help="Memory cap per case (default: 32G). Forwarded to the backend's "
+        "--backend-memory", default="100G", dest="backend_memory",
+        help="Memory cap per case (default: 100G). Forwarded to the backend's "
              "memory limit (systemd MemoryMax / docker --memory).",
     )
     parser.add_argument(

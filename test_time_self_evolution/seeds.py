@@ -15,6 +15,9 @@ MAX_SEED_BYTES = 4 * 1024 * 1024
 def copy_final_oneshot_seed(root: str, paper_id: str, model: str, seed_dir: str) -> Optional[str]:
     """Prefer the published final snapshot, then a runtime final code.py.
 
+    FRONTIER_OR_FINAL_ONESHOT_ROOT explicitly selects a versioned
+    <task>/<model> artifact tree; missing overrides never use an older seed.
+
     The snapshot makes a fresh clone usable without copying eval_tasks first.
     Invalid existing sources are rejected, not replaced by a different version.
     Preserve the adjacent logger and record the exact source/hash. No candidate
@@ -24,9 +27,11 @@ def copy_final_oneshot_seed(root: str, paper_id: str, model: str, seed_dir: str)
         if not value or value in ('.', '..') or '/' in value or '\\' in value:
             raise ValueError('Seed task/model must be a single path component')
     repo = Path(root)
-    choices = [repo/'eval/seed_programs'/paper_id/model/'code.py',
-               repo/'eval/eval_tasks'/paper_id/model/'code.py']
-    if model == 'grok-4.20':
+    override = os.environ.get('FRONTIER_OR_FINAL_ONESHOT_ROOT')
+    choices = ([Path(override).expanduser().resolve()/paper_id/model/'code.py'] if override else
+               [repo/'eval/seed_programs'/paper_id/model/'code.py',
+                repo/'eval/eval_tasks'/paper_id/model/'code.py'])
+    if not override and model == 'grok-4.20':
         choices.append(repo/'eval/eval_tasks'/paper_id/'grok-4.20-beta/code.py')
     source = next((path for path in choices if os.path.lexists(path)), None)
     if source is None:
@@ -40,7 +45,7 @@ def copy_final_oneshot_seed(root: str, paper_id: str, model: str, seed_dir: str)
             return None
         expected = None
         manifest_path = repo/'eval/seed_programs/manifest.json'
-        if source == choices[0] and manifest_path.is_file():
+        if not override and source == choices[0] and manifest_path.is_file():
             manifest = json.loads(read_regular_file(manifest_path, max_bytes=16*1024*1024,
                                                    label='seed manifest'))
             expected = next((row['files'] for row in manifest['programs']
@@ -66,7 +71,8 @@ def copy_final_oneshot_seed(root: str, paper_id: str, model: str, seed_dir: str)
         print(f'[warn] rejected final one-shot seed {paper_id}/{model}: {error}')
         return None
     provenance = dict(seed_version='final_one_shot', paper_id=paper_id, model=model,
-                      source=str(source.relative_to(repo)), sha256=hashlib.sha256(code).hexdigest(),
+                      source=str(source.relative_to(repo)) if source.is_relative_to(repo) else str(source),
+                      sha256=hashlib.sha256(code).hexdigest(),
                       solution_logger_sha256=helper_hash)
     (folder/'_seed_source.json').write_text(json.dumps(provenance, indent=2)+'\n')
     (folder/'_seed_source.txt').write_text(

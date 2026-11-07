@@ -46,9 +46,10 @@ DEFAULT_CHECKER_TIMEOUT = 300
 # Directory containing the per-(paper, model) ``code.py`` files to READ from.
 # Defaults to ``<repo>/eval/eval_tasks``; overridden via ``--code-root`` (e.g.
 # ``--code-root samples/oneshot_code`` to evaluate the shipped sample programs).
-# Pipeline WRITES (logs, solutions, intermediate code) always go to
-# ``eval/eval_tasks/`` regardless, so the code-root tree stays untouched.
+# Pipeline WRITES default to ``eval/eval_tasks/``; --output-root selects a
+# separate artifact tree. The independently configured code-root stays untouched.
 CODE_ROOT = None
+OUTPUT_ROOT = None
 
 # Results CSV resolution priority:
 #   1. ``_RESULTS_CSV_OVERRIDE`` (set by --results_csv): wins for every model.
@@ -455,13 +456,13 @@ def get_paper_dir(paper_id):
 
 
 def get_eval_dir(paper_id):
-    d = os.path.join(ROOT_DIR, "eval", "eval_tasks", paper_id)
+    d = os.path.join(OUTPUT_ROOT or os.path.join(ROOT_DIR, "eval", "eval_tasks"), paper_id)
     os.makedirs(d, exist_ok=True)
     return d
 
 
 def get_model_eval_dir(paper_id, model_name):
-    d = os.path.join(ROOT_DIR, "eval", "eval_tasks", paper_id, model_name)
+    d = os.path.join(get_eval_dir(paper_id), model_name)
     os.makedirs(d, exist_ok=True)
     return d
 
@@ -471,9 +472,9 @@ def get_model_code_dir(paper_id, model_name):
 
     Same as ``get_model_eval_dir`` unless ``--code-root`` overrides the base,
     in which case it points at the user-supplied tree (e.g. ``samples/oneshot_code``)
-    while writes still target ``eval/eval_tasks``.
+    while writes target ``get_model_eval_dir`` (optionally --output-root).
     """
-    base = CODE_ROOT if CODE_ROOT else os.path.join(ROOT_DIR, "eval", "eval_tasks")
+    base = CODE_ROOT or OUTPUT_ROOT or os.path.join(ROOT_DIR, "eval", "eval_tasks")
     return os.path.join(base, paper_id, model_name)
 
 
@@ -638,6 +639,21 @@ def call_openrouter(messages, config, model, temperature=None):
         print(f"  [call_openrouter] HTTP {resp.status_code} body: {resp.text[:800]}")
     resp.raise_for_status()
     data = resp.json()
+    audit_root = os.environ.get("FRONTIER_OR_ONESHOT_USAGE_ROOT")
+    if audit_root:
+        paper = os.environ.get("FRONTIER_OR_ONESHOT_USAGE_PAPER", "unknown")
+        safe_paper = re.sub(r"[^a-zA-Z0-9._-]", "_", paper)
+        safe_model = re.sub(r"[^a-zA-Z0-9._-]", "_", model.rsplit("/", 1)[-1])
+        audit_dir = Path(audit_root) / safe_paper / safe_model
+        try:
+            audit_dir.mkdir(parents=True, exist_ok=True)
+            with (audit_dir / "api_usage.jsonl").open("a") as handle:
+                fcntl.flock(handle, fcntl.LOCK_EX)
+                handle.write(json.dumps({"response_id": data.get("id"),
+                    "requested_model": model, "model": data.get("model", model),
+                    "usage": data.get("usage") or {}}) + "\n")
+        except OSError as exc:
+            print(f"[usage-audit] Failed to record native usage: {type(exc).__name__}")
     choice = data["choices"][0]
     msg = choice["message"]
     finish_reason = choice.get("finish_reason")
@@ -3149,11 +3165,17 @@ def main():
                              "(default: eval/eval_tasks). Quick Start uses "
                              "'samples/oneshot_code' to evaluate the shipped "
                              "pre-generated programs directly. Pipeline writes "
-                             "still go to eval/eval_tasks regardless.")
+                             "go to --output-root, or eval/eval_tasks by default.")
     parser.add_argument("--results_csv", type=str, default=None,
                         help="Path to the results CSV (default: "
                              "eval/eval_results.csv). Use a per-run file to "
                              "isolate outputs from parallel one_shot_eval.py runs.")
+    parser.add_argument("--output-root", default=None,
+                        help="Isolated artifact root with <paper>/<model>/ layout; "
+                             "defaults to eval/eval_tasks. Does not change result CSV routing.")
+    parser.add_argument("--systemd-allow-wls", action="store_true",
+                        help="Allow only WLS/DNS endpoints through the systemd network policy "
+                             "and use the shared license execution gate.")
     parser.add_argument(
         "--api-cost-csv",
         type=str,
@@ -3164,6 +3186,10 @@ def main():
         ),
     )
     args = parser.parse_args()
+    if args.output_root:
+        global OUTPUT_ROOT
+        OUTPUT_ROOT = os.path.abspath(os.path.expanduser(args.output_root))
+        os.makedirs(OUTPUT_ROOT, exist_ok=True)
     global _GUROBI_REFERENCE_SOURCE, _GUROBI_REFERENCE_PATH
     _GUROBI_REFERENCE_SOURCE = args.gurobi_source
     _GUROBI_REFERENCE_PATH = (
@@ -3371,6 +3397,7 @@ def main():
             "memory": args.memory,
             "checker_timeout": args.checker_timeout,
             "wls_egress": args.wls_egress,
+            "systemd_allow_wls": args.systemd_allow_wls,
             "max_snapshot_checks": args.max_snapshot_checks,
         },
         args.anti_hack,

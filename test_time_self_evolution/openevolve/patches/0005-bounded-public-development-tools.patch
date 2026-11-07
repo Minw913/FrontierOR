@@ -1,0 +1,16 @@
+--- a/openevolve/llm/openai.py
++++ b/openevolve/llm/openai.py
+@@ -216,5 +216,13 @@
+         if self.client is None:
+             raise RuntimeError("OpenAI client is not initialized (manual_mode enabled?)")
++        public_root = os.environ.get("FRONTIER_OR_OPENEVOLVE_PUBLIC_ROOT")
++        if public_root:
++            from test_time_self_evolution.openevolve.public_tools import generate_with_public_tools
++            return await generate_with_public_tools(
++                self.client, params, public_root,
++                os.environ.get("FRONTIER_OR_OPENEVOLVE_USAGE_PATH"),
++            )
++
+         # Use asyncio to run the blocking API call in a thread pool
+         loop = asyncio.get_event_loop()
+         response = await loop.run_in_executor(

@@ -15,11 +15,13 @@ import contextlib
 import fcntl
 import functools
 import hashlib
+import ipaddress
 import json
 import math
 import os
 import shutil
 import signal
+import socket
 import stat
 import subprocess
 import sys
@@ -31,6 +33,7 @@ from pathlib import Path
 
 from trusted_eval_infra.contracts import CANDIDATE_SHUTDOWN_RESERVE_SECONDS
 from trusted_eval_infra.files import copy_regular_file
+from trusted_eval_infra.cpu_slots import reserve_cpus
 
 # Default resource limits
 DEFAULT_CPUS = 1          # number of CPU cores
@@ -162,12 +165,17 @@ def _wls_execution_slot(cfg: dict):
         raise ValueError(
             f"wls_concurrency must be between 0 and {MAX_WLS_CONCURRENCY}"
         )
+    backend_gate = str(cfg.get("wls_backend_gate", os.environ.get("FRONTIER_OR_WLS_BACKEND_GATE", "0"))) == "1"
+    if backend_gate and concurrency == 0:
+        raise ValueError("WLS backend gate requires positive wls_concurrency")
     if concurrency == 0:
         yield None
         return
     release_delay = float(cfg.get("wls_release_delay_seconds", os.environ.get("FRONTIER_OR_WLS_RELEASE_DELAY_SECONDS", "0")))
     if not 0 <= release_delay <= 3660:
         raise ValueError("WLS release delay must be between 0 and 3660 seconds")
+    if backend_gate:
+        release_delay = max(release_delay, 310.0)
     queue_timeout = wls_queue_timeout_seconds(cfg)
     queue_deadline = time.monotonic() + queue_timeout
 
@@ -203,7 +211,60 @@ def _wls_execution_slot(cfg: dict):
                 available_after = float(raw or b"0")
                 if available_after > time.time():
                     continue
-                if release_delay:
+                if backend_gate:
+                    from trusted_eval_infra.wls_gate import capacity, can_admit, unobserved_reservations
+                    admission_fd = os.open(os.path.join(lock_dir, "admission.lock"), flags, 0o600)
+                    try:
+                        fcntl.flock(admission_fd, fcntl.LOCK_EX)
+                        reservation_hosts = []
+                        for other in range(concurrency):
+                            if other == index:
+                                continue
+                            other_fd = os.open(os.path.join(lock_dir, f"slot-{other}.lock"), flags, 0o600)
+                            try:
+                                try:
+                                    identity = json.loads(Path(lock_dir, f"slot-{other}.identity.json").read_text())
+                                    # Tie metadata to the current slot reservation, not a stale user.
+                                    os.lseek(other_fd, 0, os.SEEK_SET)
+                                    stamp = float(os.read(other_fd, 128) or b"0")
+                                    hostname = identity.get("hostname") if identity.get("reserved_until") == stamp else None
+                                    os.lseek(other_fd, 0, os.SEEK_SET)
+                                except (OSError, ValueError, TypeError):
+                                    hostname = None
+                                try:
+                                    fcntl.flock(other_fd, fcntl.LOCK_EX | fcntl.LOCK_NB)
+                                except BlockingIOError:
+                                    reservation_hosts.append(hostname)
+                                    continue
+                                if float(os.read(other_fd, 128) or b"0") > time.time():
+                                    reservation_hosts.append(hostname)
+                            finally:
+                                os.close(other_fd)
+                        try:
+                            limit, environments, host_environments = capacity(
+                                _wls_license_fields(license_path), include_environments=True)
+                            active = len(environments)
+                            reservations = unobserved_reservations(reservation_hosts, host_environments)
+                        except Exception as error:
+                            print(f"[wls-gate] backend unavailable ({type(error).__name__}); waiting", flush=True)
+                            time.sleep(5)
+                            continue
+                        if not can_admit(limit, active, reservations):
+                            print(f"[wls-gate] waiting: active={active}, local reservations={reservations}, limit={limit}", flush=True)
+                            time.sleep(5)
+                            continue
+                        # Persist admission while holding the cross-process mutex.
+                        os.lseek(fd, 0, os.SEEK_SET)
+                        os.ftruncate(fd, 0)
+                        os.write(fd, str(time.time() + float(cfg.get("_wls_max_execution_seconds", 3600)) + release_delay).encode())
+                        os.fsync(fd)
+                        os.lseek(fd, 0, os.SEEK_SET)
+                        stamp = float(os.read(fd, 128))
+                        Path(lock_dir, f"slot-{index}.identity.json").write_text(json.dumps({
+                            "hostname": cfg.get("_wls_candidate_hostname"), "reserved_until": stamp}))
+                    finally:
+                        os.close(admission_fd)
+                if release_delay and not backend_gate:
                     # Persist a conservative reservation before starting a
                     # process, so a killed grader cannot immediately reuse it.
                     reserved_until = time.time() + float(cfg.get("_wls_max_execution_seconds", 3600)) + release_delay
@@ -297,7 +358,8 @@ def _restricted_wls_egress(cfg: dict):
     network_created = False
     proxy_created = False
     try:
-        result = _docker_control(["network", "create", "--internal", network_name])
+        from trusted_eval_infra.docker_networks import create_internal_network
+        result = create_internal_network(network_name, _docker_control)
         _require_docker_success(result, "create restricted WLS network")
         network_created = True
         result = _docker_control(
@@ -512,7 +574,7 @@ def build_bare_cmd(code_path, instance_path, solution_path, time_limit,
     _ensure_logger(code_path)
     cfg = cfg or {}
     cpus = cfg.get("cpus", DEFAULT_CPUS)
-    core_set = _allocate_cores(cpus)
+    core_set = cfg.get("_leased_cpu_set") or _allocate_cores(cpus)
     inner = [sys.executable, code_path] + _build_args(
         code_path, instance_path, solution_path, time_limit, log_path
     )
@@ -534,10 +596,31 @@ def run_bare(code_path, instance_path, solution_path, time_limit,
     code_path = os.path.abspath(code_path)
     solution_path = os.path.abspath(solution_path)
     log_path = os.path.abspath(log_path) if log_path else log_path
-    with _instance_sandbox(instance_path) as (sb_instance, sb_root):
+    effective_cfg = dict(cfg or {})
+    with _cpu_execution_slot(effective_cfg, solution_path), _instance_sandbox(instance_path) as (sb_instance, sb_root):
         cmd = build_bare_cmd(code_path, sb_instance, solution_path,
-                             time_limit, log_path, cfg)
+                             time_limit, log_path, effective_cfg)
         return _exec(cmd, time_limit, cwd=sb_root)
+
+
+@contextlib.contextmanager
+def _cpu_execution_slot(cfg, solution_path):
+    """Hold a host-wide lease until execution/cleanup returns, outside its timer."""
+    with reserve_cpus(cfg.get("cpus", DEFAULT_CPUS),
+                      timeout=cfg.get("cpu_queue_timeout_seconds", 86400)) as cores:
+        cfg["_leased_cpu_set"] = cores
+        evidence_path = Path(str(solution_path) + ".cpu.json")
+        evidence = {"cpus": [int(c) for c in cores.split(",")],
+                    "owner_pid": os.getpid(), "acquired_at": time.time(),
+                    "released_at": None}
+        try:
+            evidence_path.parent.mkdir(parents=True, exist_ok=True)
+            evidence_path.write_text(json.dumps(evidence) + "\n")
+            yield
+        finally:
+            cfg.pop("_leased_cpu_set", None)
+            evidence["released_at"] = time.time()
+            evidence_path.write_text(json.dumps(evidence) + "\n")
 
 
 _core_counter = 0
@@ -545,7 +628,7 @@ _core_lock = threading.Lock()
 
 
 def _allocate_cores(n):
-    """Allocate n cores within the host CPU range. Returns a comma-separated CPU list."""
+    """Command-preview fallback; run_* backends use lifetime cross-process leases."""
     if n <= 0:
         raise ValueError("cpus must be positive")
     try:
@@ -583,13 +666,28 @@ def build_systemd_cmd(code_path, instance_path, solution_path, time_limit,
     memory = cfg.get("memory", DEFAULT_MEMORY)
 
     _ensure_logger(code_path)
-    core_set = _allocate_cores(cpus)
+    core_set = cfg.get("_leased_cpu_set") or _allocate_cores(cpus)
     properties = [
         "systemd-run", "--scope", "--user", "-q",
         "-p", f"CPUQuota={cpus * 100}%",
         "-p", f"MemoryMax={memory}",
         "-p", "IPAddressDeny=any",
     ]
+    if cfg.get("systemd_allow_wls") and str(cfg.get("wls_egress", "auto")) != "off":
+        license_path = str(cfg.get("gurobi_lic", os.environ.get("GRB_LICENSE_FILE", "")))
+        if _wls_license_fields(license_path):
+            # Keep the default deny policy, allowing WLS endpoint addresses and
+            # configured DNS resolvers. This is IP-level filtering, not a
+            # port/domain sandbox, and does not provide filesystem isolation.
+            addresses = {row[4][0] for row in socket.getaddrinfo(WLS_TOKEN_HOST, 443, type=socket.SOCK_STREAM)}
+            with open("/etc/resolv.conf", encoding="utf-8") as resolvers:
+                for line in resolvers:
+                    words = line.split()
+                    if len(words) >= 2 and words[0] == "nameserver":
+                        addresses.add(words[1])
+            for address in sorted(addresses):
+                ip = ipaddress.ip_address(address.split("%", 1)[0])
+                properties += ["-p", f"IPAddressAllow={ip}/{ip.max_prefixlen}"]
     if core_set:
         properties += ["-p", f"AllowedCPUs={core_set}"]
     inner = [sys.executable, code_path] + _build_args(
@@ -614,10 +712,17 @@ def run_systemd(code_path, instance_path, solution_path, time_limit,
     code_path = os.path.abspath(code_path)
     solution_path = os.path.abspath(solution_path)
     log_path = os.path.abspath(log_path) if log_path else log_path
-    with _instance_sandbox(instance_path) as (sb_instance, sb_root):
-        cmd = build_systemd_cmd(code_path, sb_instance, solution_path,
-                                time_limit, log_path, cfg)
-        return _exec(cmd, time_limit, cwd=sb_root)
+    effective_cfg = dict(cfg or {})
+    if effective_cfg.get("systemd_allow_wls"):
+        effective_cfg.setdefault("gurobi_lic", os.environ.get("GRB_LICENSE_FILE", ""))
+    else:
+        effective_cfg["wls_egress"] = "off"
+    effective_cfg["_wls_max_execution_seconds"] = float(time_limit) + 120
+    with _wls_execution_slot(effective_cfg), _cpu_execution_slot(effective_cfg, solution_path):
+        with _instance_sandbox(instance_path) as (sb_instance, sb_root):
+            cmd = build_systemd_cmd(code_path, sb_instance, solution_path,
+                                    time_limit, log_path, effective_cfg)
+            return _exec(cmd, time_limit, cwd=sb_root)
 
 
 def build_docker_cmd(code_path, instance_path, solution_path, time_limit,
@@ -653,7 +758,7 @@ def build_docker_cmd(code_path, instance_path, solution_path, time_limit,
         raise ValueError(
             "restricted candidate network and proxy must be configured together"
         )
-    core_set = _allocate_cores(cpus)
+    core_set = cfg.get("_leased_cpu_set") or _allocate_cores(cpus)
     container_name = f"frontieror-candidate-{uuid.uuid4().hex}"
 
     code_path = os.path.abspath(code_path)
@@ -697,6 +802,7 @@ def build_docker_cmd(code_path, instance_path, solution_path, time_limit,
     docker_flags = [
         "docker", "run", "--rm",
         "--name", container_name,
+        *(["--hostname", cfg["_wls_candidate_hostname"]] if cfg.get("_wls_candidate_hostname") else []),
         "--log-driver=none",
         f"--user={os.getuid()}:{os.getgid()}",
         f"--cpus={cpus}",
@@ -783,6 +889,7 @@ def run_docker(code_path, instance_path, solution_path, time_limit,
     """Run inside a Docker container with resource limits (pinned 1 core by default)."""
     effective_cfg = dict(cfg or {})
     effective_cfg["_wls_max_execution_seconds"] = float(time_limit) + 120
+    effective_cfg["_wls_candidate_hostname"] = "fo-" + uuid.uuid4().hex
     configured_license = str(
         effective_cfg.get(
             "gurobi_lic",
@@ -800,7 +907,7 @@ def run_docker(code_path, instance_path, solution_path, time_limit,
         # WLS key to candidate code when it cannot and should not use WLS.
         effective_cfg["gurobi_lic"] = ""
     try:
-        with _wls_execution_slot(effective_cfg):
+        with _wls_execution_slot(effective_cfg), _cpu_execution_slot(effective_cfg, solution_path):
             with _restricted_wls_egress(effective_cfg) as egress:
                 redactions: tuple[str, ...] = ()
                 if egress is not None:
